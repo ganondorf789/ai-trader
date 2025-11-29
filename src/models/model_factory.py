@@ -19,6 +19,8 @@ from .deepseek_model import DeepSeekModel
 from .ollama_model import OllamaModel
 from .xai_model import XAIModel
 from .openrouter_model import OpenRouterModel  # 🌙 Moon Dev: OpenRouter - access to 200+ models!
+from .zhipu_model import ZhipuModel  # 🌙 Moon Dev: ZhipuAI (智谱AI) GLM models
+from .qwen_model import QwenModel  # 🌙 Moon Dev: Alibaba Qwen (通义千问) models
 import random
 
 class ModelFactory:
@@ -33,7 +35,9 @@ class ModelFactory:
         "deepseek": DeepSeekModel,
         "ollama": OllamaModel,  # Add Ollama implementation
         "xai": XAIModel,  # xAI Grok models
-        "openrouter": OpenRouterModel  # 🌙 Moon Dev: OpenRouter - 200+ models!
+        "openrouter": OpenRouterModel,  # 🌙 Moon Dev: OpenRouter - 200+ models!
+        "zhipu": ZhipuModel,  # 🌙 Moon Dev: ZhipuAI (智谱AI) GLM models
+        "qwen": QwenModel  # 🌙 Moon Dev: Alibaba Qwen (通义千问) models
     }
     
     # Default models for each type
@@ -45,7 +49,9 @@ class ModelFactory:
         "deepseek": "deepseek-reasoner",     # Enhanced reasoning model
         "ollama": "llama3.2",                # Meta's Llama 3.2 - balanced performance
         "xai": "grok-4-fast-reasoning",      # xAI's Grok 4 Fast with reasoning (best value: 2M context, cheap!)
-        "openrouter": "google/gemini-2.5-flash"  # 🌙 Moon Dev: OpenRouter default - fast & cheap Gemini!
+        "openrouter": "google/gemini-2.5-flash",  # 🌙 Moon Dev: OpenRouter default - fast & cheap Gemini!
+        "zhipu": "glm-4-flash",              # 🌙 Moon Dev: ZhipuAI - Free fast model!
+        "qwen": "qwen-turbo"                 # 🌙 Moon Dev: Qwen Turbo - Fast & cheap!
     }
     
     def __init__(self):
@@ -122,6 +128,8 @@ class ModelFactory:
             "deepseek": "DEEPSEEK_KEY",
             "xai": "GROK_API_KEY",  # Grok/xAI uses GROK_API_KEY
             "openrouter": "OPENROUTER_API_KEY",  # 🌙 Moon Dev: OpenRouter - 200+ models!
+            "zhipu": "ZHIPU_API_KEY",  # 🌙 Moon Dev: ZhipuAI (智谱AI)
+            "qwen": "DASHSCOPE_API_KEY",  # 🌙 Moon Dev: Alibaba DashScope for Qwen
             # Ollama doesn't need an API key as it runs locally
         }
     
