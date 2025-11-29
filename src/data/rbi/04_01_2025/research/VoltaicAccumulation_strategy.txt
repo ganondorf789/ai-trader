@@ -1,0 +1,40 @@
+STRATEGY_NAME: VoltaicAccumulation  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **TWAP (Time-Weighted Average Price)**: Used to smooth out price fluctuations over a 4-hour timeframe, reducing noise and emphasizing sustained trends.  
+2. **Volatility-Adjusted Bollinger Bands (2.5σ)**: Modified Bollinger Bands with a wider standard deviation (2.5σ) to account for higher volatility, reducing false breakouts.  
+3. **Chaikin Money Flow (CMF)**: Confirms accumulation (buying pressure) when the indicator is positive, ensuring volume supports the price move.  
+4. **Fixed Risk-Reward Ratio**: Systematic exit strategy to lock in profits and manage losses consistently.  
+
+**Entry Rules:**  
+- Go **LONG** when:  
+  1. The 4-hour TWAP crosses **above** the upper volatility-adjusted Bollinger Band (2.5σ).  
+  2. The Chaikin Money Flow (CMF) is **positive**, confirming accumulation.  
+
+**Exit Rules:**  
+- **Take Profit**: Close the position at a predefined risk-reward ratio (e.g., 1:2 or 1:3).  
+- **Stop Loss**: Set below the recent swing low or a volatility-based threshold (e.g., lower Bollinger Band).  
+
+**Risk Management:**  
+- Position sizing based on stop-loss distance to limit risk per trade (e.g., 1-2% of capital).  
+- Avoid trading during low-volume periods or major news events to prevent erratic volatility.  
+
+**Required Indicators:**  
+1. **4-hour TWAP** (Time-Weighted Average Price)  
+2. **Bollinger Bands (20-period, 2.5σ)**  
+3. **Chaikin Money Flow (20-period)**  
+
+**Unique Aspects:**  
+- Combines **time-weighted price action** (TWAP) with **volatility expansion** (Bollinger Bands) for high-probability breakouts.  
+- **Volume confirmation** via CMF filters out weak moves, ensuring institutional accumulation.  
+- **Systematic exits** remove emotional bias, enforcing discipline.  
+
+**Best Suited For:**  
+- Trending markets with clear volatility expansion.  
+- Avoid ranging or choppy conditions where Bollinger Bands may contract excessively.  
+
+**Optimization Tips:**  
+- Adjust the Bollinger Band σ (e.g., 2.0–3.0) based on asset volatility.  
+- Test different CMF lookback periods (e.g., 14 vs. 20) for optimal accumulation signals.

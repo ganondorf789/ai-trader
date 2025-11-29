@@ -1,0 +1,32 @@
+STRATEGY_NAME: LiquidationCluster  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Hunting Focus:** The strategy capitalizes on potential liquidation cascades by identifying key price levels where stop losses are likely clustered.  
+2. **VWAP Cluster Breach:** Uses the weekly Volume-Weighted Average Price (VWAP) as a critical level, where a breach signals potential liquidity grabs.  
+3. **Funding Rate Spike:** Confirms bearish bias when futures funding rates spike, indicating excessive long leverage vulnerable to liquidation.  
+4. **Volume-Weighted Zones:** Exits are based on the next significant volume-based support/resistance zone, ensuring trades capture the liquidity-driven move.  
+
+**Entry Rules:**  
+- **Trigger:** Price closes below the weekly VWAP cluster level (aggregate of multiple VWAPs or a key VWAP level).  
+- **Confirmation:** Simultaneous spike in futures funding rates (e.g., > 0.1% or 2x the 7-day average).  
+- **Execution:** Enter short on the next candle after confirmation, with a limit order near the breach level to avoid slippage.  
+
+**Exit Rules:**  
+- **Profit Target:** Next major volume-weighted support/resistance zone (e.g., prior high-volume node or VWAP from a lower timeframe).  
+- **Stop Loss:** Place above the recent swing high or the weekly VWAP cluster breach level, whichever is tighter.  
+- **Early Exit:** If funding rates normalize sharply (drop below baseline), consider partial or full exit.  
+
+**Risk Management:**  
+- Position size based on the distance to stop-loss (e.g., 1-2% risk per trade).  
+- Avoid trading during low-liquidity periods (e.g., weekends, holidays).  
+- Monitor open interest changes: A drop alongside price breach strengthens the liquidation thesis.  
+
+**Required Indicators:**  
+1. Weekly VWAP (and cluster analysis if using multiple VWAPs).  
+2. Futures funding rate data (preferably perpetual swaps).  
+3. Volume-profile or volume-weighted zones (e.g., VPOC, volume nodes).  
+4. Optional: Open interest tracker to confirm liquidation flows.  
+
+**Note:** This strategy thrives in high-leverage crypto markets where liquidations amplify price moves. Backtest for asset-specific VWAP sensitivity and funding rate thresholds.

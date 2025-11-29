@@ -1,0 +1,45 @@
+STRATEGY_NAME: VortexChopFlow
+
+STRATEGY_DETAILS:
+This strategy combines three powerful technical indicators to identify high-probability trend entries while filtering out choppy market conditions. The Vortex Indicator provides directional bias, the Choppiness Index acts as a trend/range filter, and volume serves as confirmation.
+
+Key Components:
+1. Vortex Indicator (VI+ and VI- lines) - Primary trend direction signal
+2. Choppiness Index (14-period) - Market condition filter
+3. Volume (20-period SMA) - Confirmation of participation
+
+Entry Rules (Long):
+1. VI+ crosses above VI- (bullish vortex crossover)
+2. Choppiness Index < 38 (market trending)
+3. Current volume > SMA(20) volume (participation confirmation)
+4. All conditions must occur simultaneously
+
+Entry Rules (Short):
+1. VI- crosses above VI+ (bearish vortex crossover)
+2. Choppiness Index < 38 (market trending)
+3. Current volume > SMA(20) volume (participation confirmation)
+4. All conditions must occur simultaneously
+
+Exit Rules:
+1. Inverse Vortex crossover (VI- crosses above VI+ for longs, VI+ crosses above VI- for shorts)
+2. Choppiness Index > 62 (market becoming range-bound)
+3. Trailing stop: Close beyond recent swing high/low (for trend continuation)
+
+Risk Management:
+1. Initial stop-loss: 2x ATR(14) from entry price
+2. Position sizing: Risk ≤1% of capital per trade
+3. Maximum concurrent trades: 3 (diversified across instruments)
+4. Daily loss limit: 3% of account
+
+Indicator Settings:
+- Vortex Indicator: 14-period (standard)
+- Choppiness Index: 14-period (standard)
+- Volume SMA: 20-period
+- ATR: 14-period (for stops)
+
+Optimization Notes:
+1. Adjust Choppiness thresholds (38/62) based on instrument volatility
+2. Consider 50-period volume SMA for slower markets
+3. Test different ATR multiples (1.5-3x) for stop placement
+
+This strategy excels in trending markets while avoiding false signals during choppy conditions. The volume confirmation adds an extra layer of validation, making it particularly effective for liquid instruments with clear trends.

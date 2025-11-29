@@ -1,0 +1,34 @@
+STRATEGY_NAME: VoltaicBand  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Measurement**: Uses Average True Range (ATR) to gauge market volatility and set dynamic breakout thresholds.  
+2. **Price Anchor**: 20-period Volume-Weighted Average Price (VWAP) serves as the baseline for calculating breakout bands.  
+3. **Breakout Trigger**: Entries are triggered when price breaches ±2x ATR bands around VWAP, signaling strong momentum.  
+4. **Exit Logic**: Positions are closed when price retraces 50% of the initial breakout move, locking in profits while allowing room for continuation.  
+
+**Entry Rules:**  
+- **Long Entry**: Price closes *above* VWAP + (2 × ATR).  
+- **Short Entry**: Price closes *below* VWAP − (2 × ATR).  
+- **Confirmation**: Wait for the closing price beyond the band to avoid false breakouts.  
+
+**Exit Rules:**  
+- **Profit-Taking**: Exit when price retraces 50% of the distance from the breakout point to the extreme post-entry price (e.g., if long, measure from entry to highest subsequent high).  
+- **Stop-Loss**: Optional trailing stop (e.g., 1x ATR from recent extreme) to protect gains.  
+
+**Risk Management:**  
+- **Position Sizing**: Allocate ≤2% of capital per trade.  
+- **Volatility Filter**: Avoid trading if ATR is below a threshold (e.g., 10% of VWAP), indicating low volatility.  
+- **Time Exit**: Close trades after 5 bars if no retracement occurs to limit dead capital.  
+
+**Required Indicators:**  
+1. **VWAP (20-period)**: Baseline for breakout bands.  
+2. **ATR (14-period)**: Determines band width and stop levels.  
+3. **Price Close**: Confirms breakout validity.  
+
+**Unique Edge:** Combines volume-weighted price stability (VWAP) with volatility-adjusted breakout thresholds, reducing whipsaws in choppy markets while capturing strong trends. The 50% retracement exit balances profit-taking with trend persistence.  
+
+**Optimization Notes:**  
+- Test ATR multipliers (e.g., 1.5x–3x) for different asset volatilities.  
+- Adjust VWAP period (e.g., 10–30) for shorter/longer-term anchors.  
+- Add a volume confirmation filter (e.g., breakout with above-average volume).

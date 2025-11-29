@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolatilitySqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Analysis:** The strategy focuses on the Bollinger Band width (difference between upper and lower bands) to identify periods of extreme low volatility (squeeze) followed by potential breakouts.  
+2. **Historical Percentile Filter:** Only trades when the Bollinger Band width falls into the lowest 10% of its historical range, indicating a high-probability squeeze.  
+3. **Breakout Confirmation:** Exits are triggered when the Bollinger Band width expands beyond its 20-day average, signaling the end of the squeeze and the start of a new trend.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - The 5-minute Bollinger Band width (20-period, 2 standard deviations) must contract to the lowest 10% of its historical range (measured over at least 3 months of data).  
+  - Enter a long position at the current market price once the squeeze condition is met.  
+
+**Exit Rules:**  
+- **Take Profit/Stop Loss:**  
+  - **Breakout Exit:** Close the position when the Bollinger Band width expands above its 20-day simple moving average (SMA).  
+  - **Optional Stop Loss:** A fixed percentage (e.g., 1-2%) or a volatility-based stop (e.g., lower Bollinger Band) can be added for additional risk control.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Volatility Filter:** Avoid trading during high-impact news events or extreme market conditions where volatility may distort the Bollinger Band signals.  
+3. **Timeframe Consistency:** Strictly use 5-minute charts for entry/exit signals to maintain strategy alignment.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 standard deviations)** – To calculate the band width.  
+2. **Historical Percentile Rank (10th percentile threshold)** – To identify extreme squeezes.  
+3. **20-day SMA of Bollinger Band Width** – For breakout confirmation.  
+
+**Additional Notes:**  
+- Works best in ranging or consolidating markets where volatility cycles are predictable.  
+- Backtest optimization should focus on adjusting the percentile threshold (e.g., 5%-15%) and exit conditions (e.g., trailing stops).  
+- Pair with volume confirmation (e.g., rising volume on breakout) for higher accuracy.

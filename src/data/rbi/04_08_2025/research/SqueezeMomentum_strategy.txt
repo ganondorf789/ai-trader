@@ -1,0 +1,36 @@
+STRATEGY_NAME: SqueezeMomentum  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Hull Moving Average (HMA) Slope:** The strategy uses the slope of the HMA to determine trend direction. A positive slope indicates bullish momentum.  
+2. **Bollinger Band Squeeze:** Identifies low volatility periods when the 20-day Bollinger Band width is less than 50% of its 50-day average, signaling a potential breakout.  
+3. **Volume Confirmation:** Requires volume to exceed 1.5x the 30-day median to validate the breakout.  
+4. **Trailing Stop:** Uses a trailing stop set at 3x the 14-period Average True Range (ATR) to manage risk and lock in profits.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  1. The HMA slope turns positive (indicating bullish momentum).  
+  2. The Bollinger Band width (20-day) is below 50% of its 50-day average (squeeze condition).  
+  3. Volume exceeds 1.5x the 30-day median (confirms strong participation).  
+
+**Exit Rules:**  
+- **Trailing Stop Exit:** The position is closed if the price retraces 3x the 14-period ATR from the highest point reached after entry.  
+- **Optional Exit:** Consider exiting if the HMA slope turns negative or if Bollinger Bands expand significantly post-breakout (profit-taking signal).  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate capital based on the ATR to ensure the trailing stop distance aligns with risk tolerance (e.g., 1-2% of capital per trade).  
+- **Stop Placement:** The 3x ATR trailing stop adapts to volatility, protecting gains while allowing room for price fluctuations.  
+- **Avoid Overcrowded Trades:** Ensure the Bollinger Band squeeze is not overly extended (e.g., width < 30% of 50-day average) to avoid false breakouts.  
+
+**Required Indicators:**  
+1. **Hull Moving Average (HMA):** For slope analysis (typically 9-20 period).  
+2. **Bollinger Bands (20,2):** To measure band width and squeeze conditions.  
+3. **Volume (30-day median):** For breakout confirmation.  
+4. **Average True Range (ATR 14):** For trailing stop calculation.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (squeeze) with momentum (HMA slope) and volume confirmation for high-probability entries.  
+- The 3x ATR trailing stop ensures dynamic risk management tailored to market conditions.  
+- Avoids generic trend-following by focusing on breakout confirmation via volume and squeeze metrics.  
+
+**Note:** Backtest to optimize HMA period and Bollinger Band width thresholds for specific assets.

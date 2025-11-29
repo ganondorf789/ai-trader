@@ -1,0 +1,58 @@
+STRATEGY_NAME: FractalReversal
+
+STRATEGY_DETAILS:
+The FractalReversal strategy is a contrarian approach that capitalizes on potential trend reversals signaled by fractal formations following moving average crossovers. This strategy combines the predictive power of moving averages with the precision of fractal patterns to identify high-probability reversal points.
+
+### Key Strategy Components:
+1. **Moving Averages**: 
+   - Use two moving averages (e.g., 50-period and 200-period) to identify the overall trend direction.
+   - A bearish crossover occurs when the shorter moving average crosses below the longer moving average.
+   - A bullish crossover occurs when the shorter moving average crosses above the longer moving average.
+
+2. **Fractals**:
+   - Bullish fractals are identified when a candlestick has two lower highs on both sides.
+   - Bearish fractals are identified when a candlestick has two higher lows on both sides.
+   - Fractals are used to confirm potential reversal points after a moving average crossover.
+
+### Entry Rules:
+1. **Bearish Reversal Entry**:
+   - Wait for a bearish moving average crossover (shorter MA crosses below longer MA).
+   - Look for a bullish fractal formation after the crossover.
+   - Enter a short position at the close of the bullish fractal candlestick.
+
+2. **Bullish Reversal Entry**:
+   - Wait for a bullish moving average crossover (shorter MA crosses above longer MA).
+   - Look for a bearish fractal formation after the crossover.
+   - Enter a long position at the close of the bearish fractal candlestick.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set a take-profit level based on a predefined risk-reward ratio (e.g., 2:1).
+   - Alternatively, exit when the price reaches a key support/resistance level or when a new fractal forms in the opposite direction.
+
+2. **Stop Loss**:
+   - Place a stop-loss order just above the recent swing high for short positions.
+   - Place a stop-loss order just below the recent swing low for long positions.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital on any single trade.
+   - Adjust position size based on the distance between entry and stop-loss levels.
+
+2. **Risk-Reward Ratio**:
+   - Aim for a minimum risk-reward ratio of 2:1 to ensure profitability over the long term.
+
+### Required Indicators:
+1. **Moving Averages**:
+   - 50-period Simple Moving Average (SMA).
+   - 200-period Simple Moving Average (SMA).
+
+2. **Fractals**:
+   - Built-in fractal indicator available on most trading platforms.
+
+### Additional Considerations:
+- **Timeframe**: This strategy works best on higher timeframes (e.g., 1-hour, 4-hour, or daily charts) to reduce noise and false signals.
+- **Confirmation**: Consider using additional indicators like RSI or MACD to confirm overbought/oversold conditions before entering a trade.
+- **Market Conditions**: This strategy is most effective in ranging or sideways markets where reversals are more likely to occur.
+
+By following the FractalReversal strategy, traders can systematically identify and capitalize on potential trend reversals with a high degree of precision and confidence.

@@ -1,0 +1,34 @@
+STRATEGY_NAME: VoltaicBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Contraction:** Uses Bollinger Bandwidth percentile (<20) to identify periods of low volatility, signaling potential breakout opportunities.  
+2. **Volume Surge:** Requires trading volume to exceed the 50-day average, confirming strong participation in the breakout.  
+3. **Breakout Confirmation:** Enters trades only when price breaks the 3-day high (for long) or low (for short) to ensure momentum.  
+4. **Dynamic Stop-Loss:** Utilizes pivot points (e.g., daily or weekly) to set adaptive stop levels based on recent price structure.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - Bollinger Bandwidth percentile < 20 (low volatility).  
+  - Volume exceeds 50-day average.  
+  - Price breaks above the 3-day high.  
+- **Short Entry:** Triggered when:  
+  - Bollinger Bandwidth percentile < 20.  
+  - Volume exceeds 50-day average.  
+  - Price breaks below the 3-day low.  
+
+**Exit Rules:**  
+- **Take-Profit:** Use a trailing stop or predefined risk-reward ratio (e.g., 2:1).  
+- **Stop-Loss:** Placed below the nearest pivot support (long) or above pivot resistance (short). Adjust dynamically as new pivots form.  
+
+**Risk Management:**  
+- Position sizing based on stop distance (e.g., 1-2% risk per trade).  
+- Avoid trading during major news events to prevent false breakouts.  
+- Filter trades with higher timeframe alignment (e.g., only trade breakouts in the direction of the weekly trend).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 StdDev) + Bandwidth Percentile.  
+2. 50-day moving average of volume.  
+3. Pivot Point Calculator (daily/weekly).  
+
+**Unique Edge:** Combines volatility compression, volume confirmation, and dynamic stops to capture high-probability breakouts while minimizing false signals.

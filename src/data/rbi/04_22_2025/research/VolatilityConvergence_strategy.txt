@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolatilityConvergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **VWAP Convergence-Divergence:** The strategy uses Volume-Weighted Average Price (VWAP) to identify potential breakout points. A bullish signal occurs when price breaks above VWAP, indicating upward momentum.  
+2. **Bollinger Bandwidth Percentile:** Measures the historical volatility range. The strategy triggers only when the bandwidth is in its lowest 10% percentile, suggesting a period of extreme compression before a potential breakout.  
+3. **ATR-Based Exit:** The exit is determined by a 2x multiple of the daily Average True Range (ATR), ensuring a volatility-adjusted profit-taking mechanism.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Bandwidth percentile must be ≤ 10% (indicating low volatility).  
+- **Condition 2:** Price must break above VWAP (confirmation of bullish momentum).  
+- **Entry Action:** Go long at the breakout candle’s close or next open.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit when price reaches 2x the daily ATR from the entry point.  
+- **Stop-Loss:** A trailing or fixed stop can be applied (e.g., 1x ATR below entry for risk control).  
+
+**Risk Management:**  
+- Position sizing should align with volatility (e.g., risk ≤ 1-2% of capital per trade).  
+- Avoid entering during high-impact news events that may distort VWAP and bandwidth readings.  
+- Monitor for false breakouts—if price fails to sustain above VWAP, consider early exit.  
+
+**Required Indicators:**  
+1. **VWAP** (Volume-Weighted Average Price)  
+2. **Bollinger Bands** (20-period, 2 Std Dev) + Bandwidth calculation:  
+   - Bandwidth = (Upper Band - Lower Band) / Middle Band  
+   - Percentile rank over a lookback period (e.g., 100 days).  
+3. **Daily ATR** (14-period) for exit targeting.  
+
+**Notes:**  
+- Best suited for liquid assets with clear volatility cycles (e.g., indices, large-cap stocks).  
+- Backtest to optimize bandwidth percentile threshold and ATR multiplier.  
+- Combine with volume confirmation to filter higher-probability breakouts.

@@ -1,0 +1,46 @@
+STRATEGY_NAME: ForceBand Contraction  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Elder Force Index**: Measures the strength of price movement combined with volume, highlighting potential trend acceleration.  
+2. **Bollinger Bandwidth**: Tracks the volatility contraction by measuring the percentage difference between the upper and lower Bollinger Bands.  
+3. **Standard Deviation Threshold**: Identifies extreme Force Index spikes (beyond 2 standard deviations) as potential entry signals.  
+4. **20-Day Low Bandwidth**: Confirms low volatility conditions, suggesting an imminent breakout.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  - Elder Force Index crosses above +2 standard deviations of its 20-period moving average.  
+  - Bollinger Bandwidth reaches a 20-day low (indicating contraction).  
+- **Short Entry**:  
+  - Elder Force Index crosses below -2 standard deviations of its 20-period moving average.  
+  - Bollinger Bandwidth reaches a 20-day low.  
+
+**Exit Rules:**  
+- **Long Exit**: Elder Force Index crosses below its 20-period moving average (or a user-defined threshold, e.g., zero line).  
+- **Short Exit**: Elder Force Index crosses above its 20-period moving average (or zero line).  
+
+**Risk Management:**  
+1. **Stop-Loss**:  
+   - Fixed percentage (e.g., 1-2% of capital per trade).  
+   - Or, a volatility-based stop (e.g., 1.5x the recent ATR).  
+2. **Position Sizing**: Adjust based on account risk tolerance (e.g., 1-3% per trade).  
+3. **Avoid Overlapping Signals**: Wait for bandwidth to expand after a trade before re-entering.  
+
+**Required Indicators:**  
+1. **Elder Force Index (14-period default)**.  
+2. **Bollinger Bands (20,2 default) + Bandwidth Calculation**:  
+   - Bandwidth = (Upper Band - Lower Band) / Middle Band * 100.  
+3. **Standard Deviation (20-period) of Force Index** for spike detection.  
+
+**Unique Aspects:**  
+- Combines momentum (Force Index) with volatility cycles (Bandwidth).  
+- Filters false breakouts by requiring both an extreme Force spike *and* low volatility.  
+- Exits based on momentum decay, not arbitrary price targets.  
+
+**Optimization Tips:**  
+- Test different Force Index lookback periods (e.g., 10 vs. 20).  
+- Adjust Bandwidth low threshold (e.g., 15-day vs. 20-day).  
+- Add a confirmation filter (e.g., price above/below 200MA for trend alignment).  
+
+**Note**: Works best in ranging markets transitioning to trends; avoid during high volatility without contraction.

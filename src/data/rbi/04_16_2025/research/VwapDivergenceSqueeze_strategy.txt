@@ -1,0 +1,51 @@
+STRATEGY_NAME: VwapDivergenceSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines volume-weighted price divergence with volatility contraction for high-probability entries, using ATR-based dynamic exits.
+
+Key Components:
+1. VWAP 3-day Rate of Change (ROC) - Measures momentum of the volume-weighted average price
+2. Price-VWAP Divergence - Identifies when price action disagrees with volume-weighted momentum
+3. Bollinger Bandwidth Contraction - Measures volatility compression below its 20-day median
+4. 2x ATR Exit - Dynamic position management based on volatility
+
+Entry Rules:
+1. CONFIRM DIVERGENCE:
+   - Bullish Setup: Price makes lower low while VWAP 3-day ROC makes higher low
+   - Bearish Setup: Price makes higher high while VWAP 3-day ROC makes lower high
+2. VOLATILITY FILTER:
+   - Bollinger Bandwidth must be below its 20-day median value
+3. ENTRY EXECUTION:
+   - Long entries on bullish divergence confirmation
+   - Short entries on bearish divergence confirmation
+
+Exit Rules:
+1. PRIMARY EXIT:
+   - Close position when price moves against you by 2x the current ATR(14)
+2. OPTIONAL PROFIT TAKING:
+   - Consider 1:2 risk-reward ratio based on entry ATR
+   - Trail stop to 1x ATR after 2x ATR profit reached
+
+Risk Management:
+1. Position Sizing:
+   - Calculate position size using 1-2% of capital per trade
+   - Use ATR(14) to determine dollar risk per share
+2. Stop Placement:
+   - Initial stop at 2x ATR from entry price
+3. Maximum Exposure:
+   - Limit to 3-5 concurrent positions
+
+Required Indicators:
+1. VWAP (Volume Weighted Average Price)
+2. 3-day Rate of Change of VWAP
+3. Bollinger Bands (20,2 standard deviations)
+4. Bollinger Bandwidth (%)
+5. 20-day Median of Bandwidth
+6. ATR (14-period)
+
+Optimization Notes:
+- Test different ROC periods (2-5 days) for VWAP
+- Experiment with bandwidth thresholds (30th-40th percentile instead of median)
+- Adjust ATR multiplier (1.5x-3x) based on market volatility
+
+This strategy excels in ranging markets where volatility contractions precede directional moves, using volume-weighted momentum as a leading indicator. The combination of divergence detection with volatility filtering creates high-quality setups, while the ATR-based exit adapts to changing market conditions.

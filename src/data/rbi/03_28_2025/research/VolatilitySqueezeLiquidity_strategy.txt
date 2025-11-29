@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolatilitySqueezeLiquidity
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction, volume analysis, and liquidity gap identification for high-probability breakout trades. Here are the key components:
+
+1. KEY COMPONENTS:
+- Bollinger Band Contraction: Looks for periods when Bollinger Bands narrow significantly compared to historical volatility (measured by percentiles)
+- Volume Surge: Requires trading volume to spike above its 50-period median
+- Liquidity Gaps: Identifies price zones with recent high-frequency trade clusters that may act as targets
+
+2. ENTRY RULES:
+- Wait for Bollinger Band width to contract below 20th percentile of its historical range (100-period lookback)
+- Confirm volume spike exceeding 50-period median volume by at least 25%
+- Enter long on breakout above upper Bollinger Band or short below lower Bollinger Band
+- Only trade in direction of prevailing higher timeframe trend (confirmed by 200EMA)
+
+3. EXIT RULES:
+- Primary target: Nearest liquidity gap (recent high-frequency trade cluster zone)
+- Secondary exit: When Bollinger Band width expands beyond 80th percentile
+- Stop loss: Opposite side of the breakout Bollinger Band (upper band for shorts, lower band for longs)
+
+4. RISK MANAGEMENT:
+- Position size limited to 1-2% of capital per trade
+- Minimum 1:2 risk-reward ratio required
+- Avoid trading during major economic news events
+- Daily loss limit of 5% of capital
+
+5. REQUIRED INDICATORS:
+- Bollinger Bands (20,2 standard deviations)
+- Volume (50-period median)
+- Historical volatility percentile (100-period lookback)
+- 200-period EMA (trend filter)
+- High-frequency trade cluster detection (requires tick data or order book analysis)
+
+6. OPTIMIZATION TIPS:
+- Test different volatility percentile thresholds (15th-25th)
+- Adjust volume surge requirement based on asset liquidity
+- Validate liquidity gaps with recent price action (support/resistance)
+- Consider adding momentum confirmation (RSI between 40-60 at breakout)
+
+This strategy works best in ranging markets transitioning to trends, and requires careful monitoring of the volatility contraction phase before breakout opportunities emerge.

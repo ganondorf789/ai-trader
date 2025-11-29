@@ -1,0 +1,41 @@
+STRATEGY_NAME: BandwidthBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Trend Filter:** 50-period Exponential Moving Average (EMA) to identify the prevailing trend direction.  
+2. **Breakout Condition:** Price must cross the 50 EMA (either above for long or below for short).  
+3. **Volatility Filter:** Bollinger Band width must be at a 6-month low, indicating a period of low volatility and potential for an explosive breakout.  
+4. **Exit Mechanism:** 2x Average True Range (ATR) trailing stop to lock in profits and manage risk dynamically.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Price closes above the 50 EMA.  
+  - Bollinger Band width is at its lowest level in the past 6 months (confirming a volatility squeeze).  
+- **Short Entry:**  
+  - Price closes below the 50 EMA.  
+  - Bollinger Band width is at its lowest level in the past 6 months.  
+
+**Exit Rules:**  
+- **Trailing Stop:** Set a trailing stop at 2x the current ATR value.  
+  - For long positions, the stop moves up with price but never down.  
+  - For short positions, the stop moves down with price but never up.  
+- **Optional Exit:** Consider taking partial profits at 1x ATR and letting the remainder run with the trailing stop.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Stop Loss:** Initial stop can be placed at 1x ATR from entry if tighter risk control is desired.  
+- **Avoid Over-Trading:** Only take signals when the Bollinger Band width confirms a 6-month low (high-probability setup).  
+
+**Required Indicators:**  
+1. **50-period EMA** (Trend filter).  
+2. **Bollinger Bands (20,2)** – Specifically, the width calculation: (Upper Band - Lower Band) / Middle Band.  
+3. **Average True Range (ATR, 14-period)** – For trailing stop and volatility measurement.  
+
+**Notes:**  
+- This strategy thrives in ranging markets transitioning into trends.  
+- Backtest to confirm optimal parameters for your trading instrument (e.g., adjusting EMA period or ATR multiplier).  
+- Combine with higher timeframe trend alignment for additional confirmation.  
+
+**Why "BandwidthBreakout"?**  
+- "Bandwidth" reflects the Bollinger Band width volatility squeeze, the core setup filter.  
+- "Breakout" emphasizes the EMA-cross trigger, making it distinct from generic breakout strategies.

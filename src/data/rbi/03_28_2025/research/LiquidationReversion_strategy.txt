@@ -1,0 +1,38 @@
+STRATEGY_NAME: LiquidationReversion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Anchored VWAP (Volume-Weighted Average Price):** The strategy uses VWAP anchored to recent liquidation clusters, which are areas where significant stop-loss orders or liquidations have occurred. These clusters often act as reversal zones due to market overextension.  
+2. **Keltner Channel:** This volatility-based indicator helps confirm entry signals by identifying when price retracements reach extreme levels relative to recent volatility. The Keltner Channel consists of an exponential moving average (EMA) with upper and lower bands based on average true range (ATR).  
+3. **Low-Volume Retracements:** The strategy focuses on retracements that occur during periods of low trading volume, indicating weak continuation momentum and potential reversal opportunities.  
+
+**Entry Rules:**  
+1. **Identify Liquidation Clusters:** Locate recent price levels where liquidations or stop-loss cascades have occurred, typically marked by sharp price movements followed by consolidation.  
+2. **Anchored VWAP Setup:** Calculate VWAP starting from the liquidation cluster point. Price retesting this VWAP level suggests a potential reversal zone.  
+3. **Keltner Channel Confirmation:** Wait for the price to retrace to the outer bands of the Keltner Channel (either upper or lower, depending on the direction of the reversal).  
+4. **Low-Volume Filter:** Ensure the retracement occurs with declining volume, signaling lack of conviction in the current trend.  
+5. **Entry Trigger:** Enter a long position if price touches the lower Keltner band near anchored VWAP in a downtrend, or a short position if price touches the upper Keltner band near anchored VWAP in an uptrend.  
+
+**Exit Rules:**  
+1. **Profit Target:** Use a risk-reward ratio of at least 1:2, targeting the opposite Keltner band or a recent swing high/low.  
+2. **Stop-Loss Placement:** Place stops just beyond the recent swing high (for shorts) or swing low (for longs), or outside the Keltner Channel bands for added confirmation.  
+3. **Trailing Stop:** Adjust stops to breakeven once the trade moves favorably by 1x the initial risk, then trail using the Keltner Channel midline or a fixed ATR multiple.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Volatility Adjustment:** Widen stops during high ATR periods and tighten them during low volatility.  
+3. **Time Filter:** Avoid trading during major news events or periods of erratic volume spikes.  
+
+**Required Indicators:**  
+1. **Anchored VWAP** (custom-set from liquidation cluster points).  
+2. **Keltner Channel** (default settings: 20-period EMA, 2x ATR for bands).  
+3. **Volume Indicator** (to confirm low-volume retracements).  
+4. **ATR (Average True Range)** (optional, for additional volatility context).  
+
+**Unique Aspects:**  
+- Combines liquidation cluster analysis with anchored VWAP for precision in reversal zones.  
+- Uses Keltner Channel volatility thresholds to filter high-probability entries.  
+- Focuses on low-volume retracements to avoid false breakouts.  
+
+This strategy is ideal for mean-reversion traders in ranging or overextended markets, particularly in crypto or high-liquidity forex pairs where liquidation events are frequent.

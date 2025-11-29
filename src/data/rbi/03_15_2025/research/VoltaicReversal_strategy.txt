@@ -1,0 +1,55 @@
+STRATEGY_NAME: VoltaicReversal
+
+STRATEGY_DETAILS:
+The VoltaicReversal strategy is a long-term volatility-based mean reversion strategy that utilizes the Stochastic Oscillator to identify overbought and oversold conditions in the market. This strategy is designed to capitalize on extreme price movements, anticipating a reversal when volatility reaches unsustainable levels.
+
+### Key Strategy Components:
+1. **Volatility Analysis**: The strategy focuses on identifying periods of high volatility, which often precede market reversals. This is achieved by monitoring price movements over a long-term period.
+2. **Stochastic Oscillator**: The Stochastic Oscillator is used to determine overbought (above 80) and oversold (below 20) conditions, signaling potential reversal points.
+3. **Mean Reversion Principle**: The strategy assumes that prices will revert to their mean after extreme movements, making it ideal for counter-trend trading.
+
+### Entry Rules:
+1. **Long Entry**:
+   - Wait for the Stochastic Oscillator to drop below 20, indicating an oversold condition.
+   - Confirm that the market has experienced a significant downward move (high volatility).
+   - Enter a long position when the Stochastic Oscillator crosses back above 20, signaling a potential reversal.
+
+2. **Short Entry**:
+   - Wait for the Stochastic Oscillator to rise above 80, indicating an overbought condition.
+   - Confirm that the market has experienced a significant upward move (high volatility).
+   - Enter a short position when the Stochastic Oscillator crosses back below 80, signaling a potential reversal.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set a take-profit level based on a percentage of the average true range (ATR) or a fixed risk-reward ratio (e.g., 2:1).
+   - Alternatively, exit when the Stochastic Oscillator reaches the opposite threshold (80 for long trades, 20 for short trades).
+
+2. **Stop Loss**:
+   - Place a stop-loss order below the recent swing low for long trades or above the recent swing high for short trades.
+   - Use a volatility-based stop-loss (e.g., 1.5x ATR) to account for market fluctuations.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of the trading capital on any single trade.
+   - Adjust position size based on the distance between entry and stop-loss levels.
+
+2. **Diversification**:
+   - Apply the strategy across multiple uncorrelated assets to reduce risk.
+
+3. **Avoid Overtrading**:
+   - Only take trades that meet all entry criteria to maintain discipline and avoid false signals.
+
+### Required Indicators:
+1. **Stochastic Oscillator (14,3,3)**:
+   - Used to identify overbought and oversold conditions.
+2. **Average True Range (ATR, 14)**:
+   - Used to measure volatility and set stop-loss levels.
+3. **Price Action Analysis**:
+   - Used to confirm significant price movements and identify key support/resistance levels.
+
+### Additional Notes:
+- This strategy works best in ranging or mean-reverting markets. Avoid using it during strong trending conditions.
+- Backtest the strategy on historical data to optimize parameters and ensure robustness.
+- Combine with other technical indicators (e.g., RSI, Moving Averages) for additional confirmation if needed.
+
+By following the VoltaicReversal strategy, traders can effectively capitalize on long-term volatility reversals while managing risk through disciplined entry and exit rules.

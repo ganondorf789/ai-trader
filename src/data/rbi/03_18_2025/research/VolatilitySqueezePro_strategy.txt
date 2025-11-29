@@ -1,0 +1,49 @@
+STRATEGY_NAME: VolatilitySqueezePro
+
+STRATEGY_DETAILS:
+The VolatilitySqueezePro strategy is a sophisticated approach that combines Bollinger Bands and Keltner Channels to identify low-volatility periods and capitalize on subsequent breakouts. The strategy focuses on entering trades when volatility contracts below a historical threshold and exits based on a fixed risk-reward ratio adjusted by the recent average true range (ATR).
+
+### Key Strategy Components:
+1. **Bollinger Bands**: Used to measure volatility through the width of the bands. A narrow width indicates low volatility, while a wide width indicates high volatility.
+2. **Keltner Channels**: Used to identify potential breakout levels. The channels are based on the average true range (ATR) and provide dynamic support and resistance levels.
+3. **Average True Range (ATR)**: Used to adjust the risk-reward ratio dynamically based on recent market volatility.
+4. **Historical Volatility Threshold**: A predefined threshold that, when the Bollinger Band width falls below it, signals a potential volatility squeeze.
+
+### Entry Rules:
+1. **Volatility Squeeze Identification**: 
+   - Calculate the Bollinger Band width (BB Width) as the difference between the upper and lower Bollinger Bands.
+   - Identify when the BB Width falls below a historical threshold (e.g., the 20-period moving average of BB Width minus one standard deviation).
+2. **Breakout Confirmation**:
+   - Wait for the price to break out of the Keltner Channel (either above the upper channel or below the lower channel).
+   - Enter a long position if the price breaks above the upper Keltner Channel.
+   - Enter a short position if the price breaks below the lower Keltner Channel.
+
+### Exit Rules:
+1. **Fixed Risk-Reward Ratio**:
+   - Set a fixed risk-reward ratio (e.g., 1:2) for each trade.
+   - Adjust the target and stop-loss levels based on the recent ATR to account for current market conditions.
+2. **Stop-Loss**:
+   - Place the stop-loss just outside the opposite Keltner Channel level.
+3. **Take-Profit**:
+   - Set the take-profit level at a distance equal to the risk-reward ratio multiplied by the ATR.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Use a fixed percentage of the trading capital (e.g., 1-2%) for each trade to manage risk.
+2. **Volatility Filter**:
+   - Avoid entering trades if the ATR is excessively high, as this may indicate unstable market conditions.
+3. **Trade Frequency**:
+   - Limit the number of simultaneous trades to avoid overexposure during periods of high volatility.
+
+### Required Indicators:
+1. **Bollinger Bands**:
+   - Period: 20
+   - Standard Deviation: 2
+2. **Keltner Channels**:
+   - Period: 20
+   - ATR Multiplier: 1.5
+3. **Average True Range (ATR)**:
+   - Period: 14
+
+### Summary:
+The VolatilitySqueezePro strategy is designed to capitalize on periods of low volatility followed by significant breakouts. By combining Bollinger Bands and Keltner Channels, the strategy identifies potential entry points with high probability. The use of ATR-adjusted risk-reward ratios ensures that the strategy adapts to current market conditions, providing a balanced approach to risk management. This strategy is particularly effective in ranging markets where volatility tends to contract before significant price movements.

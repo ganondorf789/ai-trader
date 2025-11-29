@@ -1,0 +1,93 @@
+STRATEGY_NAME: DivergentBands
+
+STRATEGY_DETAILS:
+The DivergentBands strategy is a sophisticated approach that combines divergence analysis, volume confirmation, and dynamic risk management to identify high-probability trading opportunities. Here's a detailed breakdown of the strategy:
+
+---
+
+### **Key Strategy Components**
+1. **Divergence Setup**:
+   - **Bearish RSI Divergence**: RSI shows lower highs while price shows higher highs, indicating weakening momentum.
+   - **Bullish MACD Divergence**: MACD histogram or signal line shows higher lows, suggesting underlying strength.
+
+2. **Volume Confirmation**:
+   - Decreasing on-bar volume during the divergence setup confirms weakening participation in the current trend.
+
+3. **Trend Reversal Zone**:
+   - Defined by percentile levels (e.g., 20th and 80th percentiles of recent price action), acting as dynamic support/resistance zones.
+
+4. **Risk Management**:
+   - ATR (Average True Range) bands are used to set stop-loss and take-profit levels, ensuring trades are managed with volatility-adjusted risk.
+
+---
+
+### **Entry Rules**
+1. Wait for a **bearish RSI divergence** (price making higher highs, RSI making lower highs).
+2. Simultaneously, confirm a **bullish MACD divergence** (MACD histogram or signal line making higher lows).
+3. Ensure **decreasing volume** on the bars forming the divergence pattern.
+4. Enter the trade when price breaks below a key support level (e.g., the 20th percentile) or shows a reversal candlestick pattern.
+
+---
+
+### **Exit Rules**
+1. **Take Profit**:
+   - Exit when price reaches the opposite percentile level (e.g., 80th percentile for a short trade).
+   - Alternatively, use ATR-based profit targets (e.g., 1.5x ATR from entry).
+
+2. **Stop Loss**:
+   - Place a stop-loss above/below the recent swing high/low, adjusted by ATR (e.g., 1x ATR).
+
+3. **Trend Reversal Zone Exit**:
+   - Exit the trade if price crosses into the trend reversal zone (e.g., 80th percentile for a short trade), indicating a potential trend change.
+
+---
+
+### **Risk Management**
+1. **Position Sizing**:
+   - Use ATR to calculate position size based on a fixed percentage of account risk (e.g., 1% risk per trade).
+
+2. **Stop-Loss Placement**:
+   - Set stop-loss at 1x ATR from entry to account for volatility.
+
+3. **Trailing Stop**:
+   - Optionally, use a trailing stop based on ATR to lock in profits as the trade moves in your favor.
+
+---
+
+### **Required Indicators**
+1. **RSI (Relative Strength Index)**:
+   - Period: 14 (default).
+   - Used to identify bearish divergence.
+
+2. **MACD (Moving Average Convergence Divergence)**:
+   - Default settings (12, 26, 9).
+   - Used to confirm bullish divergence.
+
+3. **Volume**:
+   - On-bar volume to confirm weakening participation.
+
+4. **ATR (Average True Range)**:
+   - Period: 14 (default).
+   - Used for stop-loss, take-profit, and position sizing.
+
+5. **Percentile Levels**:
+   - Calculate dynamic support/resistance levels based on recent price action (e.g., 20th and 80th percentiles).
+
+---
+
+### **Example Trade Setup**
+1. **Setup**:
+   - Price makes a higher high, but RSI makes a lower high (bearish divergence).
+   - MACD histogram shows higher lows (bullish divergence).
+   - Volume decreases on the bars forming the divergence.
+
+2. **Entry**:
+   - Enter a short trade when price breaks below the 20th percentile level.
+
+3. **Exit**:
+   - Take profit at the 80th percentile level or 1.5x ATR.
+   - Stop-loss at 1x ATR above the entry point.
+
+---
+
+The DivergentBands strategy is designed to capitalize on high-probability divergence setups while managing risk effectively using ATR bands and dynamic percentile levels. This approach ensures trades are aligned with both momentum shifts and volatility conditions.

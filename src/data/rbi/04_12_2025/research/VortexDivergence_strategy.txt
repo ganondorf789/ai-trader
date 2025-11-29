@@ -1,0 +1,44 @@
+STRATEGY_NAME: VortexDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Used to confirm trend direction.  
+   - VI+ > VI- suggests bullish momentum.  
+   - VI- > VI+ suggests bearish momentum.  
+2. **Chaikin Money Flow (CMF):** Measures money flow volume to detect divergence.  
+   - Bullish divergence: Price makes lower lows while CMF makes higher lows.  
+   - Bearish divergence: Price makes higher highs while CMF makes lower highs.  
+3. **ADX (Average Directional Index):** Filters trades based on trend strength (ADX > 25 indicates a strong trend).  
+4. **CMF Moving Average (e.g., 20-period SMA):** Used for exit signals.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - VI+ crosses above VI- (bullish Vortex signal).  
+  - CMF shows bullish divergence (price lower low, CMF higher low).  
+  - ADX > 25 (confirms strong trend).  
+- **Short Entry:**  
+  - VI- crosses above VI+ (bearish Vortex signal).  
+  - CMF shows bearish divergence (price higher high, CMF lower high).  
+  - ADX > 25 (confirms strong trend).  
+
+**Exit Rules:**  
+- **Long Exit:** CMF crosses below its moving average (e.g., 20-period SMA).  
+- **Short Exit:** CMF crosses above its moving average (e.g., 20-period SMA).  
+
+**Risk Management:**  
+- Stop-loss placed below recent swing low (long) or above recent swing high (short).  
+- Position sizing based on volatility (e.g., ATR-based stops).  
+- Avoid trading if ADX < 25 (weak/no trend).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+ and VI-).  
+2. Chaikin Money Flow (CMF) + its moving average (e.g., 20-period SMA).  
+3. ADX (14-period default).  
+
+**Unique Aspects:**  
+- Combines trend confirmation (Vortex) with volume-based divergence (CMF).  
+- ADX ensures trades align with strong trends, reducing false signals.  
+- Exits based on CMF momentum shift rather than static profit targets.  
+
+This strategy is ideal for trending markets and avoids choppy conditions via ADX filtering.

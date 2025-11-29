@@ -1,0 +1,52 @@
+STRATEGY_NAME: LiquidationReversal
+
+STRATEGY_DETAILS:
+This strategy combines liquidation cluster analysis with RSI reversal signals to identify high-probability counter-trend opportunities. The approach focuses on extreme liquidity zones where forced position closures create potential reversal points.
+
+Key Components:
+1. Liquidation Cluster Analysis (4H timeframe)
+   - Tracks historical liquidation levels
+   - Identifies when current clusters exceed 90th percentile of historical data
+   - Suggests potential exhaustion points in the trend
+
+2. RSI Reversal Signal (1H timeframe)
+   - Uses standard 14-period RSI
+   - Requires reversal from oversold (<30) for long entries
+   - Requires reversal from overbought (>70) for short entries
+
+Entry Rules:
+- LONG ENTRY:
+  1. 4H liquidation cluster exceeds 90th percentile historical level
+  2. 1H RSI crosses above 30 from below (reversal from oversold)
+  3. Enter on confirmation candle close
+
+- SHORT ENTRY:
+  1. 4H liquidation cluster exceeds 90th percentile historical level
+  2. 1H RSI crosses below 70 from above (reversal from overbought)
+  3. Enter on confirmation candle close
+
+Exit Rules:
+- Primary Exit: 20-period EMA (closing price crosses opposite side of EMA)
+- Secondary Exit: Fixed 1:2 risk-reward ratio from entry point
+- Emergency Exit: If price moves against position by 2x initial stop distance
+
+Risk Management:
+- Initial stop placed at recent swing low (longs) or swing high (shorts)
+- Position size calculated to risk no more than 1-2% of capital per trade
+- No new entries if 3 consecutive losing trades occur (requires strategy review)
+
+Required Indicators:
+1. Liquidation cluster heatmap (4H)
+2. RSI (14-period, 1H)
+3. EMA (20-period, same timeframe as entry)
+
+Additional Notes:
+- Best performed in high-liquidity markets (major forex pairs, BTC, ETH)
+- Requires confirmation between liquidation extremes and RSI signals
+- Avoid trading during major news events that may disrupt normal liquidity patterns
+- Works particularly well after extended trends when liquidation levels become extreme
+
+Optimization Tips:
+- Backtest different RSI periods (12-16) for specific instruments
+- Experiment with EMA lengths (15-25) for exit sensitivity
+- Consider adding volume confirmation for higher probability setups

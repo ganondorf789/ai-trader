@@ -1,0 +1,55 @@
+STRATEGY_NAME: ChikouDivergence
+
+STRATEGY_DETAILS:
+The ChikouDivergence strategy combines Ichimoku Cloud's Chikou Span, RSI, and MACD histogram to identify high-probability divergence setups. This strategy focuses on spotting divergences between price action and the Chikou Span while confirming momentum conditions with RSI and MACD.
+
+Key Components:
+1. Chikou Span (Ichimoku Cloud): Analyzes price momentum by comparing current closing prices to historical prices.
+2. RSI (14-period): Identifies overbought (>70) or oversold (<30) conditions.
+3. MACD Histogram: Detects momentum divergences for exit signals.
+
+Entry Rules:
+1. Bullish Entry:
+   - Price makes a lower low
+   - Chikou Span makes a higher low (bullish divergence)
+   - RSI < 30 (oversold condition)
+   - Enter long on confirmation candle closing above previous high
+
+2. Bearish Entry:
+   - Price makes a higher high
+   - Chikou Span makes a lower high (bearish divergence)
+   - RSI > 70 (overbought condition)
+   - Enter short on confirmation candle closing below previous low
+
+Exit Rules:
+1. MACD Histogram Divergence:
+   - Exit long when price makes higher high but MACD histogram makes lower high
+   - Exit short when price makes lower low but MACD histogram makes higher low
+
+2. Stop Loss:
+   - Place stop loss below recent swing low for long trades
+   - Place stop loss above recent swing high for short trades
+
+3. Take Profit:
+   - Use 2:1 risk-reward ratio based on stop loss distance
+   - Consider partial profit taking at 1:1 R:R
+
+Risk Management:
+1. Risk no more than 1-2% of account per trade
+2. Use position sizing based on stop loss distance
+3. Avoid trading during major news events
+4. Maintain proper trade journaling
+
+Required Indicators:
+1. Ichimoku Cloud (with Chikou Span)
+2. RSI (14-period)
+3. MACD (12,26,9) with histogram
+
+Additional Notes:
+- Best used on 1-hour or 4-hour timeframes
+- Works well in trending markets
+- Combine with price action confirmation for better accuracy
+- Avoid trading during low liquidity periods
+- Consider using ATR for dynamic stop loss placement
+
+This strategy combines multiple confirmation signals to increase probability while maintaining clear risk management rules. The unique combination of Chikou Span divergence with RSI and MACD creates a robust framework for identifying high-probability setups.

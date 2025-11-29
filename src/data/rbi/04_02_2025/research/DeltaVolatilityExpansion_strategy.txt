@@ -1,0 +1,34 @@
+STRATEGY_NAME: DeltaVolatilityExpansion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Order Book Delta Imbalances**: Identifies liquidation clusters by analyzing significant imbalances in the order book delta, signaling potential volatility expansions.  
+2. **15m Keltner Channel Breakout**: Uses a 15-minute Keltner Channel to confirm breakout entries after the initial liquidity cluster is detected.  
+3. **Volatility-Based Exit**: Exits trades at 1.5x the average candle range to capitalize on volatility expansions while managing risk.  
+
+**Entry Rules:**  
+1. **Liquidation Cluster Detection**: Monitor order book delta for significant imbalances indicating liquidation events.  
+2. **Breakout Confirmation**: Wait for price to break out of the 15-minute Keltner Channel (upper band for long, lower band for short) in the direction of the delta imbalance.  
+3. **Entry Execution**: Enter the trade on the close of the breakout candle.  
+
+**Exit Rules:**  
+1. **Profit Target**: Exit the trade when price reaches 1.5x the average candle range (calculated over the last 20 candles) from the entry point.  
+2. **Stop Loss**: Use a trailing stop or a fixed stop at 1x the average candle range to protect against reversals.  
+
+**Risk Management:**  
+1. **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+2. **Volatility Adjustment**: Adjust position size based on the current average candle range to maintain consistent risk exposure.  
+3. **Avoid Overlapping Trades**: Do not enter new trades if another position is already active in the same direction.  
+
+**Required Indicators:**  
+1. **Order Book Delta**: To detect liquidation clusters and imbalances.  
+2. **15-minute Keltner Channel**: For breakout confirmation (typical settings: 20-period EMA with 2x ATR bands).  
+3. **Average Candle Range (ACR)**: Calculated over the last 20 candles to determine exit levels and stop placement.  
+
+**Additional Notes:**  
+- Works best in high-liquidity markets with frequent liquidation events (e.g., crypto, forex).  
+- Avoid trading during low-volatility periods where breakouts are less reliable.  
+- Combine with volume analysis to filter false breakouts.  
+
+This strategy capitalizes on post-liquidation volatility expansions while using a structured approach to entries and exits for consistency.

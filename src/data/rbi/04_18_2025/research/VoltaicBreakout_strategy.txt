@@ -1,0 +1,39 @@
+STRATEGY_NAME: VoltaicBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility expansion signals with trend confirmation to capture strong directional moves, using a multi-timeframe approach for confirmation.
+
+Key Components:
+1. Chaikin Volatility (15-min): Measures the rate of price change
+2. 24-hour SMA of Chaikin Volatility: Baseline for volatility expansion
+3. Supertrend Indicator: Confirms bullish trend direction
+4. 2x ATR Trailing Stop: Dynamic exit mechanism
+
+Entry Rules:
+1. Primary Condition: 15-minute Chaikin Volatility must cross ABOVE its 24-hour SMA
+2. Confirmation: Supertrend indicator must simultaneously flip to bullish (green)
+3. Execution: Enter long position on next candle open after both conditions are met
+
+Exit Rules:
+1. Trailing Stop: 2x the current ATR (14-period) value
+   - Calculated from the highest high since entry
+   - Stop moves up as price advances but never moves down
+2. Alternative Exit: Supertrend flipping bearish (red) if it occurs before stop is hit
+
+Risk Management:
+1. Position Sizing: Risk no more than 1-2% of capital per trade
+2. Stop Placement: Initial stop set at 2x ATR from entry price
+3. Volatility Filter: Only trade when ATR(14) > 1.5x its 20-period SMA (avoid low volatility periods)
+
+Required Indicators:
+1. Chaikin Volatility (standard settings)
+2. Simple Moving Average (24-hour period of Chaikin Volatility)
+3. Supertrend (recommended settings: 10-period ATR, 3x multiplier)
+4. Average True Range (14-period)
+
+Optimization Notes:
+- Test different ATR multipliers for trailing stop (1.5x-3x range)
+- Experiment with Chaikin Volatility periods (10-30 min)
+- Consider adding volume confirmation for stronger signals
+
+This strategy excels in trending markets with expanding volatility, while the multi-factor confirmation helps filter false breakouts. The dynamic exit adapts to market conditions, locking in profits during strong moves while giving trades room to develop.

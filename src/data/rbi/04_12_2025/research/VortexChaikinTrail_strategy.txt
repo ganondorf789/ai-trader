@@ -1,0 +1,42 @@
+STRATEGY_NAME: VortexChaikinTrail  
+
+STRATEGY_DETAILS:  
+This strategy combines the Vortex Indicator (VI) with Chaikin Money Flow (CMF) to identify high-probability trend entries, then uses Parabolic SAR for dynamic exit management. The approach focuses on momentum confirmation and adaptive risk control.  
+
+**Key Components:**  
+1. **Vortex Indicator (VI):**  
+   - VI+ (positive trend movement) crossing above VI- (negative trend movement) signals bullish momentum.  
+   - VI- crossing above VI+ signals bearish momentum.  
+2. **Chaikin Money Flow (CMF):**  
+   - Confirms bullish momentum when CMF > 0 (money flow into the asset).  
+   - Confirms bearish momentum when CMF < 0 (money flow out of the asset).  
+3. **Parabolic SAR (PSAR):**  
+   - Trailing stop adjusts with price acceleration, locking in profits during strong trends.  
+
+**Entry Rules:**  
+- **Long Entry:** VI+ crosses above VI- **AND** CMF > 0.  
+- **Short Entry:** VI- crosses above VI+ **AND** CMF < 0.  
+
+**Exit Rules:**  
+- **Trailing Stop:** Exit long when price closes below PSAR; exit short when price closes above PSAR.  
+- **Optional Time Exit:** Close trade after a fixed period (e.g., 5-10 bars) if PSAR hasn’t triggered.  
+
+**Risk Management:**  
+- Position sizing: Risk ≤ 1-2% per trade.  
+- Stop-loss: Initial stop at recent swing low (long) or swing high (short) as backup if PSAR is too loose.  
+- Filter: Avoid trades during low CMF values (-0.05 < CMF < 0.05) to reduce false signals.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-) – Default period (14).  
+2. Chaikin Money Flow (CMF) – Default period (20).  
+3. Parabolic SAR (PSAR) – Default step (0.02) and max step (0.2).  
+
+**Unique Edge:**  
+- Combines trend initiation (VI) with volume-backed momentum (CMF) for higher-confidence entries.  
+- PSAR adapts to volatility, allowing runners during strong trends while protecting gains.  
+- Avoids choppy markets via CMF filtering.  
+
+**Optimization Tips:**  
+- Test VI period (14 vs. 21) for sensitivity.  
+- Adjust PSAR acceleration for tighter/looser exits.  
+- Add a moving average filter (e.g., price > 200MA for longs) to align with broader trends.

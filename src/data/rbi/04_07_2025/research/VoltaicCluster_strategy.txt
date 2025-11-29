@@ -1,0 +1,42 @@
+STRATEGY_NAME: VoltaicCluster  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chaikin Volatility Indicator**: Measures the rate of price change (volatility expansion/contraction) by comparing the high-low range to exponential moving averages.  
+2. **Liquidation Cluster Zones**: Identified via order book delta imbalances (large buy/sell order clusters that indicate potential liquidation levels).  
+3. **Fibonacci Retracement Levels**: Used to define exit points based on price retracements from recent swings.  
+
+**Entry Rules:**  
+- Enter long when:  
+  - Chaikin Volatility expands sharply (e.g., crosses above a predefined threshold).  
+  - Price approaches a liquidation cluster zone with a bullish delta imbalance (more buy orders absorbed).  
+- Enter short when:  
+  - Chaikin Volatility expands sharply.  
+  - Price approaches a liquidation cluster zone with a bearish delta imbalance (more sell orders absorbed).  
+
+**Exit Rules:**  
+- Take profit when:  
+  - Chaikin Volatility contracts (falls below a threshold).  
+  - Price reaches a key Fibonacci extension level (e.g., 1.618).  
+- Stop loss when:  
+  - Price retraces beyond a Fibonacci level (e.g., 61.8% of the recent swing).  
+  - Liquidation cluster zone is invalidated (order book delta reverses).  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-adjusted).  
+- Maximum risk per trade: 1-2% of capital.  
+- Trailing stops activated after volatility peaks (Chaikin begins to contract).  
+
+**Required Indicators:**  
+1. Chaikin Volatility Indicator.  
+2. Order Book Delta (real-time liquidity data).  
+3. Fibonacci Retracement Tool.  
+4. Optional: ATR for dynamic position sizing.  
+
+**Unique Aspects:**  
+- Combines volatility signals with liquidity-based zones for high-probability entries.  
+- Uses Fibonacci levels for precision exits rather than fixed take-profit/stop-loss.  
+- Adaptive to market conditions via Chaikin’s volatility thresholds.  
+
+This strategy excels in trending markets with clear liquidity imbalances and is best applied on higher timeframes (1H+).

@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilityMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chande Momentum Oscillator (CMO):** A momentum indicator that measures the strength of price movement, ranging from -100 to +100.  
+2. **Bollinger Band Width:** Measures the volatility by calculating the difference between the upper and lower Bollinger Bands.  
+3. **Volatility-Momentum Convergence:** The strategy identifies low-volatility environments (via Bollinger Band width) combined with strong momentum shifts (via CMO).  
+
+**Entry Rules (Long):**  
+- **CMO Condition:** The Chande Momentum Oscillator (CMO) must cross **above 50**, indicating strong bullish momentum.  
+- **Bollinger Band Width Condition:** The Bollinger Band width must be **below its 20-day low**, signaling a period of unusually low volatility.  
+- **Confirmation:** Both conditions must occur simultaneously for a valid entry.  
+
+**Exit Rules:**  
+- **Take-Profit:** Set a fixed take-profit level (e.g., 2x ATR or a percentage-based target).  
+- **Stop-Loss:** Place a stop-loss below the recent swing low or use a volatility-based stop (e.g., 1.5x ATR).  
+- **Trailing Stop:** Optional—use a trailing stop to lock in profits if the trend continues.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Stop-Loss Discipline:** Always adhere to the stop-loss to prevent large drawdowns.  
+- **Avoid Over-Trading:** Only take signals when both conditions align—no forced entries.  
+
+**Required Indicators:**  
+1. **Chande Momentum Oscillator (CMO)** – Default period (14 or 20).  
+2. **Bollinger Bands** – Standard settings (20-period SMA, 2 standard deviations).  
+3. **Bollinger Band Width** – Calculated as (Upper Band - Lower Band).  
+4. **ATR (Optional)** – For dynamic stop-loss and take-profit adjustments.  
+
+**Additional Notes:**  
+- Works best in ranging or consolidating markets before breakouts.  
+- Avoid using during high-volatility trends (Bollinger Bands expanding).  
+- Backtest for optimal CMO period and Bollinger Band width threshold.  
+
+This strategy capitalizes on momentum shifts emerging from low-volatility environments, offering high-probability breakout opportunities.

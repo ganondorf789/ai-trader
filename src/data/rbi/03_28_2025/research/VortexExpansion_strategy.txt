@@ -1,0 +1,39 @@
+STRATEGY_NAME: VortexExpansion  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Vortex Indicator Crossover:** Uses the positive (VI+) and negative (VI-) lines of the Vortex Indicator to identify trend direction.  
+2. **ATR Expansion Filter:** Requires the 2-period Average True Range (ATR) to expand above its 10-day average, confirming volatility breakout.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - VI+ crosses above VI- (bullish signal).  
+  - The 2-period ATR is above its 10-day average (volatility expansion).  
+- **Confirmation:** Both conditions must align simultaneously.  
+
+**Exit Rules:**  
+- **Primary Exit:** VI+ crosses below VI- (bearish reversal signal).  
+- **Secondary Exit:** 2-period ATR falls below its 10-day average (volatility contraction).  
+- **Whichever occurs first** dictates the exit.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Set below the recent swing low or using a fixed percentage (e.g., 1-2% of capital).  
+2. **Position Sizing:** Adjusted based on ATR values to account for volatility (e.g., larger positions during high ATR).  
+3. **Time-Based Exit:** Optional exit if the trade remains open beyond a set period (e.g., 5-10 bars).  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI):** Default settings (typically 14-period).  
+2. **Average True Range (ATR):** 2-period for short-term expansion and 10-period for the moving average.  
+
+**Unique Aspects:**  
+- Combines trend confirmation (Vortex) with volatility expansion (ATR) for high-probability entries.  
+- Dual exit logic balances trend persistence (VI) and volatility decay (ATR).  
+- Avoids choppy markets by requiring ATR expansion.  
+
+**Optimization Notes:**  
+- Test different ATR periods (e.g., 3/15 or 5/20) for varying asset volatility.  
+- Adjust VI lookback if markets exhibit slower/faster trends.  
+
+**Example Chart Setup:**  
+- Plot VI+ (green), VI- (red), and ATR (2-period) with its 10-period MA (dashed line).  
+- Highlight entries where VI+ > VI- *and* ATR(2) > ATR(10).

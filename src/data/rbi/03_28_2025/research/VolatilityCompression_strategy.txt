@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolatilityCompression  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Focus:** The strategy capitalizes on periods of extreme volatility compression, identified by the VIX/realized volatility ratio exceeding 2 standard deviations.  
+2. **Volume Confirmation:** Requires trading volume to drop below its 20-day average to confirm low participation and potential breakout conditions.  
+3. **Mean-Reversion Signal:** Uses the 5-day EMA of the VIX/realized volatility ratio as a dynamic exit threshold.  
+
+**Entry Rules:**  
+- Enter a trade when:  
+  - The **VIX/realized volatility ratio** exceeds **2 standard deviations** above its mean (indicating extreme compression).  
+  - **Volume** is below its **20-day moving average** (confirming low activity).  
+- Suggested position: **Long** (anticipating a volatility expansion or breakout).  
+
+**Exit Rules:**  
+- Exit the trade when:  
+  - The **VIX/realized volatility ratio crosses below its 5-day EMA** (signaling mean reversion or loss of compression).  
+  - Optional: Use a trailing stop or fixed profit target (e.g., 2:1 reward-to-risk) to lock in gains.  
+
+**Risk Management:**  
+- **Stop-Loss:** Set below recent swing lows (for longs) or above swing highs (for shorts) to limit downside.  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Avoid Overexposure:** Do not trade during major macroeconomic events that may distort volatility signals.  
+
+**Required Indicators:**  
+1. **VIX/Realized Volatility Ratio** (primary signal).  
+2. **20-day Moving Average of Volume** (confirmation filter).  
+3. **5-day EMA of VIX/Realized Volatility Ratio** (exit trigger).  
+4. **Standard Deviation Bands** (to quantify extremes).  
+
+**Notes:**  
+- Best suited for **index futures, ETFs, or high-liquidity options markets**.  
+- Backtest for optimal lookback periods for the ratio’s mean/standard deviation.  
+- Combine with price action (e.g., support/resistance) to filter false signals.  
+
+This strategy thrives in **low-volatility regimes** and exploits the tendency of volatility to revert to its mean after extreme compression.

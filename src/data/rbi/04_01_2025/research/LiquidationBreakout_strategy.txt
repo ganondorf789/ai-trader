@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Clusters:** Focuses on high liquidation zones where price is likely to experience breakout momentum due to forced liquidations.  
+2. **Low Volatility Filter:** Uses Bollinger Band width narrowing to confirm low volatility conditions before breakout entries.  
+3. **Volume-Triggered Exits:** Exits trades when volatility expands with significant volume, indicating potential exhaustion or trend reversal.  
+
+**Entry Rules:**  
+1. **Identify Liquidation Zones:** Locate price levels with high liquidation clusters (using order flow or liquidation heatmap tools).  
+2. **Bollinger Band Confirmation:** Wait for Bollinger Band width to narrow (e.g., below a 20-period average), signaling low volatility.  
+3. **Breakout Trigger:** Enter long when price breaks above the high liquidation cluster or short when breaking below, with confirmation from a closing candle outside the cluster.  
+
+**Exit Rules:**  
+1. **Volatility Expansion:** Exit when Bollinger Band width expands significantly (e.g., crosses above a dynamic threshold).  
+2. **Volume Spike:** Confirm exit if the expansion coincides with a surge in trading volume (e.g., volume > 2x 20-period average).  
+3. **Trailing Stop:** Use a trailing stop (e.g., ATR-based) to capture extended moves while protecting profits.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place stop-loss just below the breakout level (for longs) or above (for shorts), considering recent swing points.  
+2. **Position Sizing:** Risk no more than 1-2% of capital per trade, adjusting for the volatility (ATR) of the asset.  
+3. **Time Filter:** Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** For volatility contraction/expansion signals.  
+2. **Volume Indicator:** To confirm exits (e.g., VWAP or raw volume).  
+3. **Liquidation Data Tool:** Order flow analytics (e.g., Heatmap, liquidation level trackers).  
+4. **ATR (14):** For trailing stop and volatility context.  
+
+**Unique Edge:** Combines liquidation-driven momentum with low-volatility setups, reducing false breakouts and leveraging institutional flow dynamics.

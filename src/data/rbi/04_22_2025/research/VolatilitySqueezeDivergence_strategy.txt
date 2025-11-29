@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolatilitySqueezeDivergence
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction patterns with volume divergence signals to identify high-probability breakout opportunities. The core approach focuses on periods of low volatility (squeeze) that typically precede significant directional moves, using volume confirmation to validate breakouts.
+
+Key Components:
+1. Keltner Channel (20-period EMA with 2.0 ATR bandwidth) - Identifies volatility contractions when price moves within narrowing channel
+2. On-Balance Volume (OBV) - Detects divergence between price and volume flow
+3. 20-day Volume Average - Provides reference for breakout confirmation
+
+Entry Rules:
+1. Wait for Keltner Channel squeeze (price contained within narrowing channel for minimum 5 periods)
+2. Identify OBV divergence (price making lower highs while OBV makes higher highs for long, or vice versa for short)
+3. Enter on breakout when:
+   - Price closes outside Keltner Channel
+   - Volume exceeds 20-day average by 20%
+   - Breakout direction aligns with OBV divergence
+
+Exit Rules:
+1. Profit Target: 2x ATR (14) from entry point
+2. Stop Loss: Opposite side of Keltner Channel or 1x ATR (14), whichever is closer
+3. Time Exit: Close position if target not hit within 5 periods after entry
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. No new entries if 3 consecutive losing trades occur (requires strategy review)
+3. Avoid trading during major economic news events
+
+Required Indicators:
+1. Keltner Channel (20EMA, 2.0 ATR multiplier)
+2. On-Balance Volume (OBV)
+3. Average True Range (14-period)
+4. 20-day Volume Average
+
+Optimization Tips:
+1. Adjust ATR multiplier (1.5-2.5) based on asset volatility
+2. Test different OBV lookback periods (3-5 periods for divergence)
+3. Consider adding MACD confirmation for stronger trend alignment
+
+This strategy works best on 1H-4H timeframes for forex and commodities, and daily charts for equities. The combination of volatility contraction, volume divergence, and breakout confirmation creates a high-probability trading edge with favorable risk/reward characteristics.

@@ -1,0 +1,46 @@
+STRATEGY_NAME: VortexSpike  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI) Crossover**: Uses the VI+ (positive trend) and VI- (negative trend) lines to identify trend direction. A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI+ crosses below VI-.  
+2. **ATR Spike & Bollinger Band Width**: A 14-period Average True Range (ATR) must spike above the Bollinger Band width, indicating volatility expansion.  
+3. **Volume Confirmation**: Requires above-average volume to validate the breakout signal, ensuring strong participation.  
+4. **Parabolic SAR Reversal**: Exits trades when the Parabolic SAR dots flip to the opposite side of the price, signaling a potential trend reversal.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  1. VI+ crosses above VI-.  
+  2. 14-period ATR spikes above Bollinger Band width (e.g., ATR > BB width).  
+  3. Volume is higher than the 20-period moving average of volume.  
+- **Short Entry**:  
+  1. VI+ crosses below VI-.  
+  2. 14-period ATR spikes above Bollinger Band width.  
+  3. Volume confirms with higher-than-average levels.  
+
+**Exit Rules:**  
+- **Long Exit**: Parabolic SAR dots appear below the price.  
+- **Short Exit**: Parabolic SAR dots appear above the price.  
+
+**Risk Management:**  
+1. **Stop-Loss**: Use a trailing stop based on the ATR (e.g., 2x ATR from entry).  
+2. **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+3. **Time Exit**: Exit if the trade does not move in the expected direction within 3-5 bars.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+ and VI-).  
+2. 14-period Average True Range (ATR).  
+3. Bollinger Bands (20-period, 2 standard deviations).  
+4. Volume (20-period moving average for confirmation).  
+5. Parabolic SAR (default settings: 0.02 step, 0.2 max).  
+
+**Unique Aspects:**  
+- Combines trend confirmation (Vortex) with volatility expansion (ATR + BB width) and volume validation.  
+- Uses Parabolic SAR for dynamic exits, adapting to changing market conditions.  
+- Avoids false breakouts by requiring multiple confirmations.  
+
+**Optimization Tips:**  
+- Adjust ATR period (e.g., 10 or 20) for different asset volatility.  
+- Test Bollinger Band settings (e.g., 1.5 or 2.5 std dev) for tighter/looser filters.  
+- Fine-tune Parabolic SAR step/max values for earlier/later exits.  
+
+This strategy is best suited for trending markets with clear volatility expansions and is less effective in choppy or range-bound conditions.

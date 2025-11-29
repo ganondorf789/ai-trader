@@ -1,0 +1,49 @@
+STRATEGY_NAME: VolatilitySqueezeEdge
+
+STRATEGY_DETAILS:
+The VolatilitySqueezeEdge strategy is designed to capitalize on periods of low volatility followed by potential explosive price movements. It combines Bollinger Bands, RSI, and ATR to identify high-probability setups and manage risk effectively.
+
+### Key Strategy Components:
+1. **Bollinger Bands Width**: Measures the volatility of the asset. A 20-day low in the width indicates a period of extreme compression, often preceding a breakout.
+2. **RSI (Relative Strength Index)**: Used to identify overbought (above 70) or oversold (below 30) conditions, signaling potential reversals or continuations.
+3. **ATR (Average True Range)**: Used to set dynamic exit points based on the asset's volatility.
+
+### Entry Rules:
+1. **Volatility Squeeze Condition**: 
+   - Bollinger Bands width must be at a 20-day low, indicating a period of low volatility.
+2. **RSI Confirmation**:
+   - For a long entry: RSI must be above 70, signaling overbought conditions and potential continuation.
+   - For a short entry: RSI must be below 30, signaling oversold conditions and potential continuation.
+3. **Entry Trigger**:
+   - Enter a long position when the price breaks above the upper Bollinger Band.
+   - Enter a short position when the price breaks below the lower Bollinger Band.
+
+### Exit Rules:
+1. **Profit Target**:
+   - Exit the trade when the price moves 2x the ATR value from the entry price in the direction of the trade.
+2. **Stop Loss**:
+   - Exit the trade if the price moves 1x the ATR value against the trade direction.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Use a fixed percentage of capital (e.g., 1-2%) per trade to manage risk.
+2. **Stop Loss**:
+   - The 1x ATR stop loss ensures that losses are limited relative to the asset's volatility.
+3. **Profit Target**:
+   - The 2x ATR profit target ensures that the reward-to-risk ratio is favorable (2:1).
+
+### Required Indicators:
+1. **Bollinger Bands**:
+   - Period: 20
+   - Standard Deviation: 2
+   - Calculate the width as (Upper Band - Lower Band).
+2. **RSI**:
+   - Period: 14
+   - Overbought Level: 70
+   - Oversold Level: 30
+3. **ATR**:
+   - Period: 14
+   - Use the ATR value to set stop loss and profit targets.
+
+### Summary:
+The VolatilitySqueezeEdge strategy is a high-probability, volatility-based approach that combines Bollinger Bands width, RSI, and ATR to identify low-volatility setups with explosive potential. It uses dynamic exits based on volatility to lock in profits and limit losses, making it suitable for traders looking to capitalize on breakout opportunities with controlled risk.

@@ -1,0 +1,25 @@
+STRATEGY_NAME: Momentum Divergence
+
+STRATEGY_DETAILS:
+
+Key Strategy Components:
+1. Uses the Relative Strength Index (RSI) as a momentum indicator, rather than a traditional overbought/oversold signal.
+2. Focuses on identifying divergences between the price action and the RSI trend.
+3. Removes the standard overbought (70) and oversold (30) levels, instead using the 50 level as a reference point for trend direction.
+4. Confirms the strategy's signals by combining the RSI with the 200-period moving average to trade in the direction of the overall trend.
+
+Entry/Exit Rules:
+- Entry: Look for a divergence between the price action and the RSI, where the price is making lower lows but the RSI is making higher lows (bullish divergence) or vice versa (bearish divergence).
+- Confirm the entry by ensuring the RSI is below the 50 level for a bearish trade or above the 50 level for a bullish trade, and the price is below/above the 200-period moving average.
+- Exit: Close the trade when the divergence is resolved, and/or the RSI crosses back above/below the 50 level in the opposite direction.
+
+Risk Management:
+- Use appropriate position sizing based on your risk tolerance and account size.
+- Place stop-loss orders at key support/resistance levels, or a fixed percentage of your account, to limit downside risk.
+- Consider using trailing stops to protect profits as the trade progresses.
+
+Required Indicators:
+- Relative Strength Index (RSI)
+- 200-period Simple Moving Average (SMA)
+
+This strategy focuses on identifying and trading momentum divergences, rather than relying solely on traditional overbought/oversold signals from the RSI. By combining the RSI with the 200-period moving average, it aims to capture stronger trends and avoid being whipsawed by false signals. The key is to use the RSI as a momentum indicator and look for divergences that signal a potential shift in the underlying trend.

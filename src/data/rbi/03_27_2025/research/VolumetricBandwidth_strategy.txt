@@ -1,0 +1,47 @@
+STRATEGY_NAME: VolumetricBandwidth
+
+STRATEGY_DETAILS:
+This strategy combines volume-confirmed momentum with volatility contraction patterns for high-probability mean reversion trades. The unique combination of Volume-Weighted RSI divergence and Bollinger Bandwidth contraction creates a powerful filter for identifying potential reversal points during periods of compressed volatility.
+
+Key Components:
+1. Volume-Weighted RSI (14-period) - Identifies momentum extremes with volume confirmation
+2. Bollinger Bands (20-period, 2 std dev) - Measures volatility and price extremes
+3. Bollinger Bandwidth - Calculated as (Upper Band - Lower Band)/Middle Band
+4. Volume - 50-period moving average as reference for "above-average" threshold
+
+Entry Rules (Long):
+1. Bollinger Bandwidth must be below its 20-period average (contraction phase)
+2. Price touches or crosses below lower Bollinger Band
+3. Volume exceeds 50-period moving average
+4. Volume-Weighted RSI shows bullish divergence (price makes lower low while RSI makes higher low)
+
+Entry Rules (Short):
+1. Bollinger Bandwidth must be below its 20-period average (contraction phase)
+2. Price touches or crosses above upper Bollinger Band
+3. Volume exceeds 50-period moving average
+4. Volume-Weighted RSI shows bearish divergence (price makes higher high while RSI makes lower high)
+
+Exit Rules:
+1. Primary exit when price reaches opposite Bollinger Band
+2. Secondary exit if Volume-Weighted RSI crosses back above 30 (for longs) or below 70 (for shorts)
+3. Emergency exit if price closes beyond 2.5 std dev from middle band
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Stop loss placed at 1.5x the Bollinger Band width from entry
+3. Maximum daily loss limit of 3%
+4. No new entries if Bandwidth > 20-period average
+
+Required Indicators:
+1. Volume-Weighted RSI (14-period)
+2. Bollinger Bands (20,2)
+3. Bollinger Bandwidth
+4. Volume MA (50-period)
+
+Optimization Notes:
+- Test different RSI periods (10-20) for various instruments
+- Adjust std dev parameters (1.8-2.2) based on asset volatility
+- Consider adding MACD confirmation for stronger signals
+- Works best on 1H-4H timeframes for swing trading
+
+This strategy excels in ranging markets and during volatility contraction periods, using volume as confirmation to avoid false breakouts. The Volume-Weighted RSI divergence adds an additional layer of confirmation to traditional Bollinger Band strategies.

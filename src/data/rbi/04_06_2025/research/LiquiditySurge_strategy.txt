@@ -1,0 +1,35 @@
+STRATEGY_NAME: LiquiditySurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Liquidation Clusters Identification:** Uses orderbook heatmaps to detect areas of high liquidity where stop-loss orders are likely clustered.  
+2. **Volume Surge Trigger:** Requires a breakout confirmation with trading volume exceeding 2x the 20-day average.  
+3. **Liquidity-Based Exits:** Targets exits at the next significant liquidity pool (support/resistance zones or orderbook imbalances).  
+
+**Entry Rules:**  
+- Price must approach a liquidation cluster (identified via orderbook heatmap analysis).  
+- A breakout must occur with a surge in volume (>2x the 20-day average volume).  
+- Entry is confirmed on a closing candle above (for long) or below (for short) the cluster zone.  
+
+**Exit Rules:**  
+- Take profit at the next major liquidity pool (predefined via orderbook or historical levels).  
+- Stop-loss placed just beyond the opposite side of the liquidation cluster.  
+- Early exit if volume sharply declines or price shows rejection (e.g., long wicks) at the target zone.  
+
+**Risk Management:**  
+- Position sizing based on the distance to stop-loss (1-2% risk per trade).  
+- Avoid trading during low-liquidity periods (e.g., overnight or major news gaps).  
+- Trailing stops can be used if the trend extends beyond the initial target.  
+
+**Required Indicators:**  
+1. **Orderbook Heatmap** (to identify liquidation clusters).  
+2. **20-Day Average Volume** (baseline for surge confirmation).  
+3. **Real-Time Volume Indicator** (to detect the 2x surge).  
+4. **Liquidity Zones** (marked via historical order flow or volume profiles).  
+
+**Unique Aspects:**  
+- Combines orderbook liquidity analysis with volume surges for high-probability breakouts.  
+- Focuses on "market structure" exits rather than fixed profit targets.  
+- Avoids false breakouts by requiring volume confirmation.  
+
+**Note:** This strategy works best in high-liquidity markets (e.g., major forex pairs, large-cap stocks) and requires real-time orderbook data.

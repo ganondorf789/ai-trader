@@ -1,0 +1,38 @@
+STRATEGY_NAME: FundingCloudBreak
+
+STRATEGY_DETAILS:
+
+Key Strategy Components:
+1. Funding Rate Extremes: Uses perpetual swap funding rates exceeding 90th percentile as a contrarian signal
+2. Ichimoku Cloud Break: Requires price confirmation below the Ichimoku Cloud (Senkou Span)
+3. Kijun-sen Exit: Uses the baseline (Kijun-sen) as trend confirmation for exits
+4. ATR Stop: Incorporates volatility-based risk management
+
+Entry Rules:
+1. Funding Rate Condition: Current funding rate must be above its 90th percentile (calculated over a relevant lookback period)
+2. Price Position: Price must break below the Ichimoku Cloud (both Senkou Span A and B)
+3. Timing: Wait for candle close confirmation below the Cloud
+
+Exit Rules:
+1. Primary Exit: 4-hour candle close above the Kijun-sen (Ichimoku baseline)
+2. Stop Loss: Place stop at 2xATR(14) below entry price
+3. Optional Profit Target: Consider 1:2 risk-reward ratio based on ATR
+
+Risk Management:
+1. Position Sizing: Allocate no more than 1-2% of capital per trade
+2. Volatility Adjustment: Use ATR to determine appropriate stop distance
+3. Market Context: Avoid trading during major news events that may distort funding rates
+
+Required Indicators:
+1. Perpetual Swap Funding Rate (with percentile calculation)
+2. Ichimoku Cloud (all components)
+3. Average True Range (ATR) - 14 period recommended
+4. Historical volatility metrics for percentile calculations
+
+Optimization Notes:
+1. Backtest different lookback periods for funding rate percentiles (30-90 days recommended)
+2. Experiment with ATR multiples for stop placement (1.5x-3x range)
+3. Consider adding volume confirmation for breakouts
+4. Test across different asset classes as funding rate dynamics vary
+
+This strategy combines mean-reversion signals (extreme funding) with trend confirmation (Ichimoku) and volatility-based risk management, making it particularly suited for crypto markets where funding rate extremes frequently occur.

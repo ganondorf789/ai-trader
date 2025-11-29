@@ -1,0 +1,45 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility, signaling potential upcoming volatility expansion.  
+2. **Chaikin Money Flow Surge:** Confirms strong buying/selling pressure, validating the breakout potential.  
+3. **Prior Day’s High/Low Breakout:** Entry trigger based on price breaking key levels from the previous trading session.  
+4. **Dynamic Exits via Rolling Sharpe Ratio:** Adjusts exit points based on recent risk-adjusted performance to lock in profits or cut losses.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Band width contracts below a predefined threshold (e.g., 20-period moving average of width).  
+  2. Chaikin Money Flow (CMF) surges above +0.2 (or another threshold) indicating strong buying pressure.  
+  3. Price breaks above the prior day’s high.  
+- **Short Entry:**  
+  1. Bollinger Band width contracts below the threshold.  
+  2. CMF drops below -0.2 indicating strong selling pressure.  
+  3. Price breaks below the prior day’s low.  
+
+**Exit Rules:**  
+- **Dynamic Exit:**  
+  - Calculate a rolling Sharpe ratio (e.g., 10-day window) of the strategy’s returns.  
+  - Exit the trade if the Sharpe ratio falls below a threshold (e.g., 0.5), signaling deteriorating risk-adjusted performance.  
+- **Stop-Loss:**  
+  - Set a stop-loss at 1.5x the average true range (ATR) of the past 14 days to limit downside risk.  
+
+**Risk Management:**  
+- Position sizing based on a fixed percentage of capital (e.g., 1-2% per trade).  
+- Avoid trading during major economic news events to prevent false breakouts.  
+- Regularly recalibrate Bollinger Band and CMF thresholds based on recent market conditions.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 standard deviations).  
+2. Bollinger Band Width (to measure contraction).  
+3. Chaikin Money Flow (21-period lookback).  
+4. Average True Range (ATR, 14-period for stop-loss).  
+5. Rolling Sharpe Ratio (10-day window for dynamic exits).  
+
+**Unique Aspects:**  
+- Combines volatility contraction (Bollinger Band width) with money flow confirmation (CMF) for high-probability breakouts.  
+- Uses adaptive exits via Sharpe ratio to avoid overstaying in trades during unfavorable conditions.  
+- Focuses on prior day’s high/low for clean, objective entry triggers.  
+
+This strategy is ideal for traders seeking to capitalize on volatility expansions with confirmed momentum, while dynamically managing risk.

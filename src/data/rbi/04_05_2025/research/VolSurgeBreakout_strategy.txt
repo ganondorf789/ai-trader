@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolSurge Breakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Adjusted Moving Average (VAMA):** A moving average that adjusts its sensitivity based on market volatility, ensuring dynamic responsiveness to price movements.  
+2. **Volume Surge Filter:** Volume must exceed its 90th percentile (high relative volume) to confirm breakout validity.  
+3. **Trailing Stop Mechanism:** Uses the Average True Range (ATR) to dynamically adjust stop-loss levels, locking in profits while allowing room for volatility.  
+
+**Entry Rules:**  
+1. **Breakout Signal:** Enter a long position when price closes above the volatility-adjusted moving average (VAMA).  
+2. **Volume Confirmation:** Ensure the breakout is accompanied by volume exceeding its 90th percentile (i.e., significantly higher than average volume).  
+3. **Trend Alignment (Optional):** For additional confirmation, ensure the breakout aligns with the broader trend (e.g., VAMA sloping upward for long trades).  
+
+**Exit Rules:**  
+1. **Trailing Stop:** Set a trailing stop based on a multiple (e.g., 1.5x or 2x) of the recent ATR. Adjust the stop upward as price moves favorably.  
+2. **Break of VAMA (Optional):** Exit the trade if price closes back below the VAMA, signaling a potential trend reversal.  
+
+**Risk Management:**  
+1. **Position Sizing:** Use a fixed percentage of capital per trade (e.g., 1-2%) to ensure consistency.  
+2. **Initial Stop-Loss:** Set an initial stop-loss below the recent swing low or at a fixed ATR distance (e.g., 2x ATR) from the entry price.  
+3. **Volatility Adjustment:** Reduce position size or avoid trades during excessively high volatility (e.g., ATR above a threshold).  
+
+**Required Indicators:**  
+1. **Volatility-Adjusted Moving Average (VAMA):** Can be implemented using an adaptive moving average (e.g., Kaufman’s Adaptive Moving Average or a standard EMA with volatility scaling).  
+2. **Volume Percentile:** Calculate volume relative to its recent historical range (e.g., 20-50 periods) to identify surges.  
+3. **Average True Range (ATR):** Used for trailing stop placement and volatility assessment (typically 14-period ATR).  
+
+**Unique Aspects:**  
+- Combines volatility sensitivity (VAMA) with volume surge confirmation for high-probability breakouts.  
+- Uses ATR-based trailing stops to adapt to changing market conditions, balancing profit protection and flexibility.  
+- Avoids false breakouts by requiring exceptional volume participation.  
+
+**Optimization Tips:**  
+- Test different VAMA periods (e.g., 20 vs. 50) and ATR multiples for the trailing stop.  
+- Adjust the volume percentile threshold (e.g., 85th or 95th) based on asset liquidity.  
+- Apply to trending markets for best results; avoid sideways conditions.

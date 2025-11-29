@@ -1,0 +1,32 @@
+STRATEGY_NAME: LiquidationVolt  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Liquidation Cluster Analysis**: Focuses on detecting abnormal liquidation activity (clusters exceeding 2x the 30-day average) near Bollinger Band extremes, signaling potential exhaustion points.  
+2. **Bollinger Band Extremes**: Uses standard Bollinger Bands (20-period SMA, 2 std dev) to identify overbought/oversold conditions.  
+3. **Volatility-Sensitive Volume Oscillators**: Confirms reversals with divergences in volume oscillators (e.g., VWAP divergence or modified Chaikin Money Flow) that respond to volatility shifts.  
+
+**Entry Rules:**  
+1. **Trigger Condition**: A liquidation cluster (e.g., aggregated liquidations via exchange data) exceeds 2x the 30-day rolling average.  
+2. **Location**: The cluster must occur near the upper/lower Bollinger Band (price within 5% of the band).  
+3. **Confirmation**: Bearish reversal requires:  
+   - Upper BB touch + liquidation cluster + volume oscillator showing bearish divergence (e.g., price higher highs, oscillator lower highs).  
+   - Bullish reversal requires the inverse at the lower BB.  
+
+**Exit Rules:**  
+1. **Take-Profit**:  
+   - Fixed RR (e.g., 1:2) targeting mid-Bollinger Band or prior swing high/low.  
+   - Trailing stop using the opposite Bollinger Band once price reaches 1R profit.  
+2. **Stop-Loss**: Placed beyond the recent swing high/low (for shorts/longs) or outside the Bollinger Band extreme + 1 ATR.  
+
+**Risk Management:**  
+1. Position sizing based on 1-2% risk per trade.  
+2. Avoid entries if broader market volatility (VIX/AVIX) is > 50% above its 30-day average (prevents false signals in erratic markets).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2).  
+2. Liquidation cluster data (e.g., Coinalyze, Hyblock metrics).  
+3. Custom volume oscillator (e.g., volatility-adjusted CMF or VWAP divergence tool).  
+4. ATR (14) for stop placement.  
+
+**Unique Edge:** Combines liquidation heatmaps (crowd behavior) with volatility-filtered volume to isolate high-probability reversals at structural extremes. Avoids generic mean-reversion by requiring outlier liquidity events.

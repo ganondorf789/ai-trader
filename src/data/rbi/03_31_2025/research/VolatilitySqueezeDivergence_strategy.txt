@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilitySqueezeDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bands Width Contraction:** The strategy identifies periods of low volatility when the Bollinger Bands width contracts below historical percentiles (e.g., below the 20th percentile), signaling a potential breakout.  
+2. **Cumulative Delta Divergence:** A positive divergence in cumulative delta (buying pressure) confirms strength behind the breakout, increasing the likelihood of a sustained move.  
+3. **Liquidity Void Anchored Stops:** Stops are placed beyond recent liquidity voids (areas of minimal order book depth), reducing the risk of premature exits due to minor retracements.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger a long position when:  
+  1. Bollinger Bands width is below its historical low percentile (e.g., 20th percentile).  
+  2. Price breaks above the upper Bollinger Band.  
+  3. Cumulative delta shows a positive divergence (higher lows in delta while price makes lower lows or consolidates).  
+
+**Exit Rules:**  
+- **Take Profit:** Use a trailing stop or predefined risk-reward ratio (e.g., 2:1) based on the initial stop distance.  
+- **Stop Loss:** Place the stop below the nearest liquidity void (recent swing low or order book thin zone).  
+
+**Risk Management:**  
+- Position size is determined by the distance to the stop level, ensuring risk per trade is capped (e.g., 1-2% of capital).  
+- Avoid trading during low-liquidity periods to reduce slippage.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2)** – To measure volatility contraction.  
+2. **Bollinger Bands Width** – Calculated as (Upper Band - Lower Band) / Middle Band, filtered by historical percentile.  
+3. **Cumulative Delta** – Tracks the net difference between buying and selling pressure.  
+4. **Order Book Analysis (optional)** – To identify liquidity voids for stop placement.  
+
+**Unique Aspects:**  
+- Combines volatility contraction with order flow confirmation (cumulative delta).  
+- Uses liquidity-based stops for improved risk management.  
+- Avoids false breakouts by requiring divergence in buying pressure.  
+
+**Note:** Backtest to optimize percentile thresholds for Bollinger Bands width and delta divergence sensitivity.

@@ -1,0 +1,48 @@
+STRATEGY_NAME: Volterra Divergence
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Dual volatility signal confirmation (VIX term structure inversion + VVIX spike)
+- Bollinger Band squeeze condition on the underlying index (SPX/SPY)
+- Momentum-based exit using band width expansion
+
+2. Entry Rules:
+LONG ENTRY:
+- VIX term structure inverts (front month > second month)
+- VVIX shows >15% spike from previous close
+- Underlying index shows Bollinger Band squeeze (band width < 50% of 20-day average)
+- Price closes above middle Bollinger Band
+
+SHORT ENTRY:
+- VIX term structure inverts (front month > second month) 
+- VVIX shows >15% spike from previous close
+- Underlying index shows Bollinger Band squeeze (band width < 50% of 20-day average)
+- Price closes below middle Bollinger Band
+
+3. Exit Rules:
+- Take profit when Bollinger Band width expands to 2x the squeeze threshold
+- Stop loss at opposite band (upper band for shorts, lower band for longs)
+- Time-based exit after 5 trading days if no target hit
+
+4. Risk Management:
+- Position sizing based on 1% risk per trade
+- Maximum portfolio allocation of 5% to this strategy
+- No overlapping positions in same direction
+- Daily volatility check (abandon trade if VIX drops >10% from entry)
+
+5. Required Indicators:
+- VIX futures term structure (front two months)
+- VVIX index with 15% spike filter
+- Bollinger Bands (20,2) with width measurement
+- Historical band width average (20-day)
+
+6. Special Considerations:
+- Works best during market regime transitions
+- Requires monitoring of both volatility indices
+- Most effective on SPX/SPY but can adapt to NDX/QQQ
+- Avoid trading during Fed announcement days
+
+The "Volterra Divergence" name reflects:
+1. "Volterra" - Combines volatility and terrain (representing the complex volatility landscape)
+2. "Divergence" - The core signal of VIX/VVIX divergence with price action
+This captures the strategy's unique approach of combining multiple volatility dimensions with technical patterns.

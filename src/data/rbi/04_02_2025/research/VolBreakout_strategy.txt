@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolBreakout  
+
+STRATEGY_DETAILS:  
+The **VolBreakout** strategy is designed to capitalize on high-probability breakout opportunities by combining overnight price action, volume surges, and volatility expansion. The strategy filters for meaningful breakouts by requiring confirmation from multiple market dynamics, reducing false signals.  
+
+### **Key Components:**  
+1. **Overnight Session High/Low**: Uses the high and low price range from the overnight trading session (typically 4:00 PM - 9:30 AM EST for US markets) as key reference levels.  
+2. **Relative Volume Surge**: Requires a **50% increase** in volume compared to the 20-day average volume at the time of breakout.  
+3. **Volatility Expansion**: Confirms breakout strength by requiring the **1-hour realized volatility** to exceed the **20-day average volatility**.  
+
+### **Entry Rules:**  
+- **Long Entry**: Price breaks **above** the overnight high **AND** volume is **50% higher** than the 20-day average **AND** 1-hour realized volatility exceeds the 20-day average.  
+- **Short Entry**: Price breaks **below** the overnight low **AND** volume is **50% higher** than the 20-day average **AND** 1-hour realized volatility exceeds the 20-day average.  
+
+### **Exit Rules:**  
+- **Take Profit**:  
+  - **Fixed Risk-Reward Ratio (1:2 or 1:3)** – Exit at a predefined multiple of the initial risk (e.g., 2x or 3x the stop distance).  
+  - **Trailing Stop** – Adjust stop to lock in profits if the trade moves favorably (e.g., 1.5x ATR trailing stop).  
+- **Stop Loss**:  
+  - **Fixed Stop**: Place stop at the **midpoint of the overnight range** (for mean-reversion protection).  
+  - **Volatility-Based Stop**: Use **1.5x the 1-hour ATR** from entry price.  
+
+### **Risk Management:**  
+- **Position Sizing**: Risk no more than **1-2% of capital per trade**.  
+- **Avoid Overlapping Signals**: If multiple breakouts occur, prioritize the one with the strongest volume & volatility confirmation.  
+- **Time Filter**: Only trade breakouts within the **first 2 hours of the regular session** (9:30 AM - 11:30 AM EST) to avoid late-day noise.  
+
+### **Required Indicators:**  
+1. **Overnight High/Low** (from pre-market session).  
+2. **Volume Comparison** (current volume vs. 20-day average).  
+3. **Realized Volatility** (1-hour vs. 20-day average).  
+4. **ATR (Average True Range)** for dynamic stop placement.  
+
+### **Additional Notes:**  
+- Works best on **liquid assets** (SPY, QQQ, ES futures, major forex pairs).  
+- Avoid using during **low-volume periods** (holidays, pre-FOMC).  
+- Backtest for optimal **timeframe & volatility threshold adjustments**.  
+
+This strategy ensures high-quality breakout trades by filtering for **volume-fueled momentum** and **volatility expansion**, reducing whipsaws and increasing win rate.

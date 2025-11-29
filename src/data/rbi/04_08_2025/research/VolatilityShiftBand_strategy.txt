@@ -1,0 +1,51 @@
+STRATEGY_NAME: VolatilityShiftBand
+
+STRATEGY_DETAILS:
+This strategy capitalizes on volatility regime shifts by combining historical volatility analysis with volume confirmation and Bollinger Band extremes for exits. Here's the detailed breakdown:
+
+Key Components:
+1. Volatility Regime Detection:
+   - 10-day historical volatility (HV) as the primary signal
+   - 30-day median volatility band as the threshold
+2. Volume Confirmation:
+   - Volume acceleration (increasing volume trend) required for entry
+3. Exit Mechanism:
+   - Bollinger Band extremes (typically ±2 standard deviations) as profit targets
+
+Entry Rules:
+1. Long Entry:
+   - When 10-day HV crosses ABOVE the 30-day median volatility band
+   - AND volume shows acceleration (e.g., 5-day volume MA > 20-day volume MA)
+2. Short Entry:
+   - When 10-day HV crosses BELOW the 30-day median volatility band
+   - AND volume shows acceleration
+
+Exit Rules:
+1. Profit Taking:
+   - Close long position when price touches upper Bollinger Band
+   - Close short position when price touches lower Bollinger Band
+2. Stop Loss:
+   - Trailing stop based on recent volatility (e.g., 2x ATR)
+   - OR fixed percentage stop (e.g., 2% from entry)
+
+Risk Management:
+1. Position Sizing:
+   - Volatility-adjusted sizing (larger positions in lower volatility regimes)
+2. Maximum Risk:
+   - 1-2% of capital per trade
+3. Trade Filter:
+   - Only trade when volatility shift is significant (e.g., >15% change in HV ratio)
+
+Required Indicators:
+1. Historical Volatility (10-day and 30-day)
+2. Volume Moving Averages (5-day and 20-day)
+3. Bollinger Bands (20-day with 2 standard deviations)
+4. Optional: ATR for stop loss calculation
+
+Additional Notes:
+- Works best in markets with clear volatility regimes
+- Performs well during transitions between low and high volatility periods
+- Requires monitoring of volume trends to confirm regime shifts
+- Backtest suggested for optimal parameter tuning (volatility bands, BB settings)
+
+This "VolatilityShiftBand" strategy is particularly effective in capturing the initial momentum when volatility regimes change, while using Bollinger Bands to capture the mean-reversion that typically follows such shifts.

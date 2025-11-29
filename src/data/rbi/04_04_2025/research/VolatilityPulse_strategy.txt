@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilityPulse  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Based Approach**: The strategy leverages volatility signals from the ATR (Average True Range) and VIX (Volatility Index) to identify favorable long entry conditions.  
+2. **ATR Crossover**: Uses a 5-minute ATR crossing above its 20-period moving average to confirm increasing volatility.  
+3. **VIX Filter**: Requires the VIX to be below its 10-day low, indicating a potentially oversold or low-volatility environment ripe for a breakout.  
+4. **Trailing Stop Exit**: Implements a dynamic 2x ATR trailing stop to lock in profits and limit downside risk.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  1. The 5-minute ATR crosses above its 20-period moving average (ATR > ATR_MA).  
+  2. The VIX is below its 10-day low (VIX < 10-day low).  
+- **Confirmation**: Consider waiting for a bullish candlestick pattern or price above a recent high for additional confirmation.  
+
+**Exit Rules:**  
+- **Trailing Stop**: Exit the trade when price retraces 2x the current ATR value from the highest point reached since entry.  
+- **Optional Time Exit**: Close the position after a set holding period (e.g., end of the trading day) if the trailing stop hasn’t been hit.  
+
+**Risk Management:**  
+1. **Position Sizing**: Allocate a fixed percentage of capital per trade (e.g., 1-2%) to ensure consistency.  
+2. **Stop-Loss**: The 2x ATR trailing stop acts as both a profit protector and risk limiter.  
+3. **VIX Filter**: Avoids entering trades during high-volatility regimes, reducing drawdowns.  
+
+**Required Indicators:**  
+1. **ATR (Average True Range)**: 5-minute period, 20-period moving average.  
+2. **VIX (Volatility Index)**: 10-day low filter.  
+3. **Price Chart**: 5-minute timeframe for execution.  
+
+**Additional Notes:**  
+- Works best in trending markets with low initial volatility (VIX filter).  
+- Backtest for optimal ATR period and multiplier adjustments (e.g., 1.5x vs. 2x ATR stop).  
+- Avoid using during major news events where VIX spikes may invalidate signals.  
+
+This strategy combines volatility expansion signals with a disciplined trailing stop, making it ideal for capturing short-term momentum shifts while managing risk dynamically.

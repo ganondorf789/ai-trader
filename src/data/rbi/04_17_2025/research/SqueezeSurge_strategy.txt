@@ -1,0 +1,35 @@
+STRATEGY_NAME: SqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection:** Identifies periods of low volatility when the Bollinger Band width (BB width) contracts to less than 10% of its 200-day average.  
+2. **Volume Surge Confirmation:** Requires a volume spike in the 90th percentile (compared to recent volume history) to validate the breakout.  
+3. **Breakout Execution:** Enters trades when price breaks out of the squeeze, confirmed by high volume.  
+4. **Profit Target & Trailing Stop:** Uses a 1.5x multiple of the Average True Range (ATR) for take-profit and implements a trailing stop to lock in gains.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Band width (BB width) must be below 10% of its 200-day average (indicating a squeeze).  
+- **Condition 2:** Volume must surge into the 90th percentile (compared to recent volume history).  
+- **Entry Signal:** A breakout (price closing above upper band for long, below lower band for short) with the high-volume confirmation triggers the trade.  
+
+**Exit Rules:**  
+- **Take-Profit:** Exit at 1.5x the current ATR from entry price.  
+- **Trailing Stop:** Adjusts dynamically, locking in profits if price retraces by a set percentage or ATR-based value.  
+- **Stop-Loss:** Initial stop placed at 1x ATR below (long) or above (short) entry to limit downside.  
+
+**Risk Management:**  
+- Position sizing based on ATR to ensure risk per trade is controlled (e.g., 1-2% of capital).  
+- Avoid trading during major news events that may cause erratic volume spikes.  
+- Only trade liquid assets to ensure smooth execution.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To detect squeeze conditions.  
+2. **BB Width Calculation** – (Upper Band - Lower Band) / Middle Band, compared to 200D average.  
+3. **Volume Percentile (90th)** – To confirm breakout validity.  
+4. **Average True Range (ATR, 14-period)** – For stop and profit target placement.  
+
+**Notes:**  
+- Works best in trending markets after consolidation.  
+- Avoid using in choppy or sideways conditions where false breakouts are frequent.  
+- Backtest to optimize ATR multiplier and trailing stop sensitivity.

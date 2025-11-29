@@ -1,0 +1,38 @@
+STRATEGY_NAME: DeviantBounce
+
+STRATEGY_DETAILS:
+This mean-reversion strategy combines extreme funding rate deviations with Bollinger Band breaches to identify high-probability long entries in perpetual swap markets.
+
+Key Components:
+1. Funding Rate Extremes: Uses -2 standard deviations below 30-day average funding rates to identify oversold conditions
+2. Price Extremes: Requires price to breach the lower Bollinger Band (typically set to 20 periods, 2 std dev)
+3. Profit Targets: Middle Bollinger Band serves as primary exit, with 2% gain as secondary target
+
+Entry Rules:
+1. Calculate 30-day average funding rate and standard deviation
+2. Wait for funding rate to drop below -2 standard deviations of its average
+3. Confirm price has breached the lower Bollinger Band
+4. Enter long position when both conditions are met
+
+Exit Rules:
+1. Primary Exit: When price reaches the middle Bollinger Band (20-period SMA)
+2. Secondary Exit: If 2% profit is reached before hitting middle band
+3. No stop-loss specified (consider adding for risk management)
+
+Risk Management:
+1. Position sizing should account for potential volatility
+2. Consider adding stop-loss at recent swing low or percentage-based
+3. Avoid trading during high volatility events that may distort funding rates
+
+Required Indicators:
+1. Bollinger Bands (20 periods, 2 std dev)
+2. 30-day funding rate average and standard deviation
+3. Price chart for visual confirmation
+
+Optimization Considerations:
+1. Test different standard deviation thresholds (-1.5 to -2.5)
+2. Experiment with Bollinger Band periods (14-26)
+3. Adjust profit target percentages (1.5-3%)
+4. Consider adding volume confirmation
+
+This strategy capitalizes on market overreactions shown through both funding rate extremes and price deviations, with built-in profit-taking at mean reversion points. The unique combination of derivatives market data (funding rates) with technical indicators creates a distinctive edge.

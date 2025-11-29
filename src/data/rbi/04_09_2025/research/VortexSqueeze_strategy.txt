@@ -1,0 +1,38 @@
+STRATEGY_NAME: VortexSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI)**: Used to confirm trend direction by comparing VI+ (positive trend) and VI- (negative trend) lines.  
+2. **Bollinger Band Width (BB Width)**: Measures volatility contraction (squeeze) and expansion.  
+3. **Historical Threshold**: A predefined level of BB Width expansion used to signal exits.  
+
+**Entry Rules (Long Position):**  
+- **VI+ Crosses Above VI-**: Signals a potential bullish trend.  
+- **Low Volatility Condition**: BB Width must be below a certain percentile (e.g., 20th percentile of its historical range), indicating a volatility squeeze.  
+
+**Exit Rules:**  
+- **BB Width Expansion**: Exit when BB Width expands above a historical threshold (e.g., 80th percentile), signaling increased volatility and potential trend exhaustion.  
+- **VI- Crosses Above VI+**: Optional secondary exit if the Vortex Indicator shows a bearish reversal.  
+
+**Risk Management:**  
+1. **Stop-Loss**: Set below the recent swing low or a fixed percentage (e.g., 2-3%) below the entry price.  
+2. **Position Sizing**: Adjust based on volatility (e.g., smaller positions during higher volatility).  
+3. **Time-Based Exit**: Exit after a fixed number of bars (e.g., 10-15) if no exit signal is triggered.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)**  
+2. **Bollinger Bands (for Band Width calculation)**  
+3. **Historical Volatility Percentile (for BB Width thresholds)**  
+
+**Unique Aspects:**  
+- Combines trend confirmation (Vortex) with volatility contraction (Bollinger Squeeze).  
+- Uses dynamic exit thresholds based on historical volatility ranges.  
+- Avoids trading during high volatility, focusing on high-probability setups.  
+
+**Optimization Tips:**  
+- Test different percentile thresholds for BB Width (e.g., 15th/85th).  
+- Add a filter like a moving average slope to avoid false breakouts.  
+- Experiment with trailing stops based on VI- crosses.  
+
+This strategy is ideal for swing trading in ranging or mildly trending markets where volatility cycles are predictable.

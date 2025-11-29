@@ -1,0 +1,30 @@
+STRATEGY_NAME: SqueezeLiquidity  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze (20-day, 2σ):** Identifies periods of low volatility where price is consolidating within tightening bands, signaling an impending breakout.  
+2. **Negative Funding Rates Surge:** Indicates strong short interest, which can fuel a short squeeze when price breaks out.  
+3. **Liquidity Gaps from Recent Liquidation Clusters:** Targets areas where stop-loss orders are likely clustered, providing high-probability profit targets.  
+
+**Entry Rules:**  
+1. Wait for the Bollinger Bands (20-day, 2σ) to tighten significantly (squeeze condition).  
+2. Confirm a surge in negative funding rates (e.g., funding rate drops sharply below its 7-day average).  
+3. Enter long on a bullish candle closing above the upper Bollinger Band or short on a bearish candle closing below the lower Bollinger Band.  
+
+**Exit Rules:**  
+1. **Take Profit:** Target the nearest liquidity gap (recent high/low clusters where liquidations likely occurred).  
+2. **Stop Loss:** Place below the recent swing low (for longs) or above the recent swing high (for shorts), or use a trailing stop based on ATR (e.g., 2x ATR).  
+
+**Risk Management:**  
+1. Risk no more than 1-2% of capital per trade.  
+2. Avoid trading during low-liquidity periods (e.g., weekends, holidays).  
+3. Scale out of positions (e.g., 50% at first target, 50% at extended target).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2σ)  
+2. Funding rate data (preferably with a 7-day moving average for trend confirmation)  
+3. Liquidation heatmap or recent high/low clusters (for target identification)  
+4. Optional: ATR (14) for dynamic stop placement  
+
+**Unique Edge:** Combines volatility contraction (squeeze), sentiment (funding rates), and liquidity dynamics (liquidation clusters) for high-probability breakout trades.

@@ -1,0 +1,28 @@
+STRATEGY_NAME: ConfluenceBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band & Keltner Channel Confluence:** The strategy identifies zones where Bollinger Bands and Keltner Channels converge, indicating a potential breakout point.  
+2. **Volume Confirmation:** Breakouts are only considered valid if accompanied by above-average trading volume, ensuring stronger momentum.  
+3. **Trailing Stop Based on ATR:** The stop-loss dynamically adjusts using the Average True Range (ATR) of the consolidation period, protecting profits while allowing room for volatility.  
+
+**Entry Rules:**  
+1. **Confluence Zone Identification:** Wait for price action to consolidate within the overlapping area of Bollinger Bands (typically set to 2 standard deviations) and Keltner Channels (typically 1.5-2x ATR).  
+2. **Breakout Confirmation:** Enter a long position if price breaks above the upper Bollinger Band AND Keltner Channel with volume exceeding its 20-period moving average. For short positions, enter if price breaks below the lower bands with high volume.  
+
+**Exit Rules:**  
+1. **Trailing Stop:** Set an initial stop-loss at 1.5x the ATR of the consolidation period. Adjust the stop-loss to trail the price by the same ATR multiple as the trade moves favorably.  
+2. **Profit Target (Optional):** Consider taking partial profits at 2x the initial ATR distance, while letting the remainder run with the trailing stop.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade based on the distance between entry and initial stop-loss.  
+2. **False Breakout Filter:** Avoid entering if volume does not confirm or if price quickly re-enters the confluence zone after the breakout.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 standard deviations)  
+2. **Keltner Channel** (20-period, 1.5-2x ATR multiplier)  
+3. **Volume** (20-period moving average for confirmation)  
+4. **Average True Range (ATR)** (14-period for trailing stop calculation)  
+
+This strategy combines volatility-based channels with volume confirmation for high-probability breakouts, while using ATR to manage risk dynamically. The confluence of Bollinger Bands and Keltner Channels helps filter out false signals, making it suitable for trending markets.

@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquiditySqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Donchian Channel Narrowing:** The strategy focuses on periods when the 20-period Donchian Channel contracts, indicating reduced volatility and potential impending breakout.  
+2. **Negative Funding Rate Surge:** A spike in negative funding rates suggests strong short interest, which may lead to a short squeeze if price breaks out.  
+3. **Liquidity Gap Targeting:** The strategy aims to exploit liquidity voids above/below recent consolidation zones, where stop losses and take-profit orders cluster.  
+
+**Entry Rules:**  
+1. **Setup Confirmation:**  
+   - The 20-period Donchian Channel must narrow significantly (e.g., width below a historical percentile).  
+   - Funding rates must turn sharply negative (e.g., below -0.01% or a predefined threshold).  
+2. **Breakout Trigger:**  
+   - Long Entry: Price breaks above the upper Donchian band with confirmation (e.g., closing candle above).  
+   - Short Entry: Price breaks below the lower Donchian band with confirmation (e.g., closing candle below).  
+
+**Exit Rules:**  
+1. **Take-Profit:** Target liquidity gaps beyond recent consolidation:  
+   - For longs, aim for the nearest swing high + buffer (e.g., 1.5x the Donchian width).  
+   - For shorts, aim for the nearest swing low - buffer (e.g., 1.5x the Donchian width).  
+2. **Stop-Loss:**  
+   - Place stops at the midpoint of the Donchian Channel to avoid false breakouts.  
+   - Alternatively, use a volatility-based stop (e.g., 1x ATR below/above entry).  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Filter for High-Probability Setups:** Only trade when funding rates are extreme and Donchian width is at a multi-day low.  
+3. **Avoid Choppy Markets:** Skip trades if price frequently re-enters the Donchian Channel after breakout.  
+
+**Required Indicators:**  
+1. **20-Period Donchian Channel** (Upper/Lower Bands + Width Measurement).  
+2. **Funding Rate Data** (Real-time or from exchanges like Binance/Bybit).  
+3. **Optional:** ATR (14-period) for dynamic stop placement.  
+
+**Unique Edge:** This strategy combines volatility compression (Donchian squeeze) with sentiment extremes (funding rates) to exploit high-probability breakout scenarios where liquidity gaps amplify moves. The focus on funding rates adds a layer of crowd psychology rarely used in traditional breakout systems.

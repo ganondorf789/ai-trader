@@ -1,0 +1,36 @@
+STRATEGY_NAME: BandFlow Accumulator
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band mean-reversion with Chaikin Money Flow confirmation to identify high-probability accumulation points during oversold conditions.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 std dev)
+2. Chaikin Money Flow (21-period standard setting)
+3. Price action analysis for swing low identification
+
+Entry Rules:
+1. Price must touch or cross below the lower Bollinger Band
+2. Chaikin Money Flow must cross above zero line on same candle
+3. Both conditions must occur simultaneously for valid entry
+
+Exit Rules:
+1. Primary take-profit at middle Bollinger Band (20-period SMA)
+2. Alternative exit if Chaikin Money Flow crosses below zero before reaching middle band
+
+Risk Management:
+1. Stop-loss placed at most recent swing low (must be below entry price)
+2. Position size calculated to risk no more than 1-2% of capital per trade
+3. No entries if stop distance exceeds 2x average true range (ATR)
+
+Indicator Settings:
+- Bollinger Bands: 20 period, 2 standard deviations
+- Chaikin Money Flow: 21 period standard
+- Optional: 14-period ATR for risk sizing
+
+Additional Rules:
+1. Only trade in direction of higher timeframe trend (for swing trades)
+2. Avoid trading during major news events
+3. Minimum 1:1.5 risk-reward ratio required
+4. Wait for candle close to confirm signals
+
+This strategy works best in ranging markets and requires confirmation from both volatility (Bollinger Bands) and money flow indicators to filter out false breakdowns. The combination provides a systematic approach to catching oversold bounces with institutional accumulation confirmation.

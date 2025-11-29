@@ -1,0 +1,33 @@
+STRATEGY_NAME: DeltaVolSpread
+
+STRATEGY_DETAILS:
+The DeltaVolSpread strategy focuses on identifying and capitalizing on breakouts from horizontal support levels using a unique 3-legged spread approach. The key innovation lies in prioritizing options contracts with the highest delta-to-volatility ratio, which provides a more efficient risk-reward profile compared to traditional ETF or futures contracts.
+
+### Key Strategy Components:
+1. **Horizontal Support Levels**: Identify clear horizontal support levels on the price chart using historical price action.
+2. **Breakout Confirmation**: Wait for a confirmed breakout above the support level, typically using a closing price above the support level as confirmation.
+3. **Delta-to-Volatility Ratio**: Calculate the delta-to-volatility ratio for available options contracts. This ratio helps identify contracts with the best combination of directional exposure (delta) and implied volatility (IV).
+4. **3-Legged Spread Construction**: Construct a 3-legged spread using the selected options contract as the primary leg, combined with two additional legs (e.g., a long call, short call, and long put) to manage risk and enhance profitability.
+
+### Entry Rules:
+1. **Breakout Confirmation**: Enter the trade when the price closes above the horizontal support level.
+2. **Option Selection**: Prioritize the options contract with the highest delta-to-volatility ratio for the primary leg of the spread.
+3. **Spread Construction**: Build the 3-legged spread using the selected options contract, ensuring that the overall position is delta-neutral or slightly directional based on the breakout.
+
+### Exit Rules:
+1. **Target Profit**: Exit the trade when the price reaches a predefined profit target, typically based on a percentage gain or a technical resistance level.
+2. **Stop Loss**: Use a stop-loss level below the breakout point to limit potential losses. Adjust the stop-loss level based on the volatility of the underlying asset.
+3. **Time Decay Management**: Monitor the time decay (theta) of the options contracts and exit the trade if the time decay begins to erode profits significantly.
+
+### Risk Management:
+1. **Position Sizing**: Limit the position size to a small percentage of the total portfolio to manage risk effectively.
+2. **Delta Hedging**: Adjust the position to maintain delta neutrality or a slight directional bias as the price moves.
+3. **Volatility Monitoring**: Keep an eye on implied volatility levels, as significant changes can impact the profitability of the options spread.
+
+### Required Indicators:
+1. **Price Chart**: For identifying horizontal support levels and breakout points.
+2. **Delta-to-Volatility Ratio**: To select the optimal options contract for the primary leg of the spread.
+3. **Implied Volatility (IV)**: To assess the volatility environment and its impact on options pricing.
+4. **Technical Indicators**: Optional use of indicators like RSI or MACD to confirm the strength of the breakout.
+
+The DeltaVolSpread strategy combines technical analysis with advanced options trading techniques to create a robust and efficient trading approach. By focusing on the delta-to-volatility ratio, traders can enhance their risk-reward profile and capitalize on breakouts with greater precision.

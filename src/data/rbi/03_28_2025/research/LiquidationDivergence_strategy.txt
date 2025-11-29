@@ -1,0 +1,47 @@
+STRATEGY_NAME: LiquidationDivergence
+
+STRATEGY_DETAILS:
+This strategy specializes in detecting potential liquidation cascades by combining funding rate analysis with technical indicators, focusing on high-leverage market conditions.
+
+Key Components:
+1. Funding Rate Divergence - Identifies when funding rates diverge from price action, signaling potential overleveraged positions
+2. Bollinger Band Breakouts - Uses volatility expansion to confirm cascade conditions
+3. RSI Oversold Threshold - Provides exit signals when markets stabilize
+4. Leverage Cluster Detection - Focuses on areas with concentrated high leverage positions
+
+Entry Rules:
+1. SHORT when:
+   - Funding rate shows negative divergence (rising rates while price stagnates/rises)
+   - Price breaks below lower Bollinger Band (20-period, 2 std dev)
+   - RSI crosses below 30 (confirming oversold conditions)
+   - Volume spikes above 20-period average
+
+Exit Rules:
+1. Cover short when:
+   - RSI crosses back above 35 from oversold territory
+   - Price closes back inside Bollinger Bands
+   - Funding rate normalizes (returns to mean or shows positive convergence)
+
+Risk Management:
+1. Position sizing based on volatility (ATR-based)
+2. Hard stop-loss at 2x Bollinger Band width below entry
+3. Time-based exit if no cascade occurs within 3 candles
+4. Avoid trading during low liquidity periods (as per volume indicator)
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. RSI (14 period)
+3. Volume (20-period MA)
+4. Funding Rate indicator (with divergence detection)
+5. ATR (14 period for volatility measurement)
+
+Special Considerations:
+- Works best in altcoin markets with high leverage ratios
+- Most effective during periods of high market stress
+- Requires real-time funding rate data feed
+- Should be combined with exchange liquidation heatmap data for best results
+
+Optimization Tips:
+- Adjust Bollinger Band parameters based on asset volatility
+- Fine-tune RSI thresholds for different crypto assets
+- Incorporate liquidation level clustering analysis if available

@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolCompressionDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection:** Uses Bollinger Bandwidth (BBW) to identify periods of extreme low volatility when the bandwidth falls below its historical 10th percentile.  
+2. **Sentiment Divergence Confirmation:** Requires a surge in the put/call ratio (PCR) divergence, indicating bearish sentiment during low volatility, to confirm potential reversal setups.  
+3. **Mean Reversion Exit:** Exits trades when either the BBW or PCR reverts to its mean, signaling the end of the compression or sentiment extreme.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Bandwidth (BBW) must drop below its 10th percentile over a lookback period (e.g., 20-50 days).  
+- **Condition 2:** Put/call ratio (PCR) must show a significant surge (e.g., >1.5x its 10-day moving average) while BBW remains compressed.  
+- **Entry Signal:** Go short (or prepare for a downside breakout) when both conditions align.  
+
+**Exit Rules:**  
+- **Exit Condition 1:** BBW expands back above its 20th percentile (mean reversion of volatility).  
+- **Exit Condition 2:** PCR drops below its 10-day moving average (mean reversion of sentiment).  
+- **Whichever occurs first triggers the exit.**  
+
+**Risk Management:**  
+- Position sizing based on volatility-adjusted risk (e.g., ATR-based stop).  
+- Initial stop-loss placed at recent swing high (for shorts) or low (for longs).  
+- Trailing stop can be used if the trade moves favorably.  
+
+**Required Indicators:**  
+1. **Bollinger Bandwidth (BBW):** Calculated as (Upper Band - Lower Band) / Middle Band (SMA).  
+2. **Put/Call Ratio (PCR):** Equity or index options PCR, smoothed with a moving average for divergence detection.  
+3. **Percentile Analysis:** Historical BBW percentile ranking (e.g., 10-day lookback for dynamic thresholds).  
+
+**Notes:**  
+- Works best in range-bound or transitioning markets.  
+- Avoid during strong trending phases where volatility may stay elevated.  
+- Combine with price action (e.g., breakdown below support) for higher-probability entries.  
+
+This strategy capitalizes on the "calm before the storm" effect, where low volatility and extreme sentiment often precede sharp moves. The name **VolCompressionDivergence** reflects its dual focus on volatility compression and sentiment divergence.

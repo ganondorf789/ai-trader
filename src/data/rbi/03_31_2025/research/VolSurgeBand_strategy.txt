@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolSurgeBand  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection:** Uses Bollinger Bandwidth (BBW) percentile rank below 10% to identify extreme compression, signaling potential breakout setups.  
+2. **Volume Confirmation:** Requires relative volume surges (>200% of 20-day average) to validate breakout potential and filter false signals.  
+3. **Bollinger Band Touch Exit:** Exits trades when price touches the opposing Bollinger Band (upper band for long exits, lower band for short exits).  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when:  
+  - BBW percentile rank <10% (volatility contraction)  
+  - Current volume > 200% of 20-day average volume  
+  - Price closes above the middle Bollinger Band (20MA)  
+- **Short Entry:** Trigger when:  
+  - BBW percentile rank <10%  
+  - Current volume > 200% of 20-day average volume  
+  - Price closes below the middle Bollinger Band  
+
+**Exit Rules:**  
+- **Profit Target/Stop:** Close position when price touches the opposing Bollinger Band:  
+  - Long exit: Upper band touch  
+  - Short exit: Lower band touch  
+- **Optional Stop-Loss:** Middle band (20MA) as trailing stop for aggressive risk management.  
+
+**Risk Management:**  
+1. Position sizing based on 1-2% risk per trade.  
+2. Avoid trading during major news events to prevent false volume spikes.  
+3. Filter entries to liquid assets to ensure smooth band interactions.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period MA, 2 standard deviations)  
+2. Bollinger Bandwidth (BBW) = (Upper Band - Lower Band) / Middle Band  
+3. BBW Percentile Rank (10% threshold)  
+4. 20-day rolling average volume + current volume comparison.  
+
+**Unique Edge:** Combines volatility compression (low BBW) with explosive volume surges, targeting mean-reversion breakouts with clear exit logic. Works best on 1H-4H timeframes for swing trades.

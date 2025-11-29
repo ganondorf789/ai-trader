@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolcanicBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Breakout Focus:** The strategy capitalizes on price breakouts, which are confirmed by a surge in trading volume.  
+2. **Volume Surge Filter:** Requires volume to exceed twice the 20-day average volume, ensuring strong participation in the breakout.  
+3. **Bollinger Bandwidth Contraction:** Identifies low volatility periods by requiring the Bollinger Bandwidth to be at a 10-day low, signaling a potential explosive move.  
+4. **ATR Trailing Stop:** Uses a 5-period Average True Range (ATR) trailing stop to dynamically manage exits and lock in profits.  
+
+**Entry Rules:**  
+1. **Setup Condition:** Bollinger Bandwidth (calculated as (Upper Band - Lower Band) / Middle Band) must be at a 10-day low, indicating contraction.  
+2. **Trigger Condition:** Volume must surge to at least twice the 20-day average volume.  
+3. **Entry Signal:** Enter a long position on the breakout of the current candle's high (for bullish breakouts) or short on the breakout of the current candle's low (for bearish breakouts).  
+
+**Exit Rules:**  
+1. **Trailing Stop:** Use a 5-period ATR trailing stop. For long positions, the stop is placed below the highest high since entry minus 5 x ATR. For short positions, the stop is placed above the lowest low since entry plus 5 x ATR.  
+2. **Time-Based Exit (Optional):** Consider exiting the trade if no significant follow-through occurs within 3-5 bars after entry to avoid stagnation.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate no more than 1-2% of capital per trade to limit downside risk.  
+2. **Stop-Loss Placement:** Initial stop-loss can be set at 2 x ATR from the entry price to account for volatility.  
+3. **Volatility Adjustment:** Avoid trading during extreme market conditions (e.g., news events) where ATR values may be unreliable.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** To measure bandwidth contraction.  
+2. **Volume (20-day MA):** To confirm volume surge.  
+3. **Average True Range (5-period):** For trailing stop calculations.  
+
+**Unique Aspects:**  
+- Combines low volatility (Bollinger Bandwidth contraction) with high momentum (volume surge) for high-probability breakouts.  
+- Uses ATR for adaptive risk management, adjusting stops based on market volatility.  
+- Name "VolcanicBreakout" reflects the explosive nature of the setup (low volatility "pressure" followed by a volume "eruption").  
+
+**Optimization Tips:**  
+- Test different ATR multiples (e.g., 3x or 4x) for the trailing stop to balance between giving trades room and protecting profits.  
+- Experiment with longer/shorter bandwidth contraction periods (e.g., 5-day or 15-day lows) to match asset volatility.

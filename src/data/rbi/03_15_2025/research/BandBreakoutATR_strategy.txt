@@ -1,0 +1,85 @@
+STRATEGY_NAME: BandBreakoutATR
+
+STRATEGY_DETAILS:
+The BandBreakoutATR strategy combines Bollinger Bands and Average True Range (ATR) to identify potential breakout opportunities while managing risk effectively. Here's a detailed breakdown of the strategy:
+
+---
+
+### **Key Strategy Components**
+1. **Bollinger Bands (20-period)**:
+   - Upper Band: 20-period SMA + (2 * Standard Deviation)
+   - Lower Band: 20-period SMA - (2 * Standard Deviation)
+   - Middle Band: 20-period Simple Moving Average (SMA)
+
+2. **Average True Range (ATR)**:
+   - Used to calculate a dynamic stop-loss level based on market volatility.
+
+3. **Stop-Loss Mechanism**:
+   - A fixed 10% stop-loss tied to the ATR value to protect against excessive losses.
+
+---
+
+### **Entry Rules**
+1. **Long Entry**:
+   - Trigger: When the **Upper Band** of the Bollinger Bands crosses **above** the 20-period SMA.
+   - Confirmation: Ensure the price is trending upward and the crossover is accompanied by increasing volume (optional but recommended).
+
+---
+
+### **Exit Rules**
+1. **Exit Condition 1**:
+   - Close the position if the **Lower Band** touches or closes **below** the 20-period SMA.
+   - This indicates a potential reversal or weakening of the trend.
+
+2. **Exit Condition 2**:
+   - Trigger a stop-loss if the price drops by **10%** of the ATR value from the entry point.
+   - Example: If ATR is 2 at entry, the stop-loss is placed at 10% of 2 (0.2) below the entry price.
+
+---
+
+### **Risk Management**
+1. **Position Sizing**:
+   - Use a fixed percentage of your capital (e.g., 1-2%) per trade to limit exposure.
+
+2. **Stop-Loss**:
+   - The 10% ATR-based stop-loss ensures that losses are controlled relative to market volatility.
+
+3. **Take-Profit**:
+   - No fixed take-profit level; rely on the Bollinger Bands' Lower Band or SMA crossover for exit signals.
+
+---
+
+### **Required Indicators**
+1. **Bollinger Bands**:
+   - Period: 20
+   - Standard Deviation: 2
+
+2. **Average True Range (ATR)**:
+   - Period: 14 (default)
+
+---
+
+### **Example Scenario**
+1. **Entry**:
+   - Upper Band crosses above the 20-period SMA at $100.
+   - ATR value at entry is 2.
+   - Stop-loss is set at $99.8 (100 - (10% of 2)).
+
+2. **Exit**:
+   - Lower Band touches or closes below the 20-period SMA at $105.
+   - Exit the position at $105.
+
+3. **Stop-Loss Trigger**:
+   - If the price drops to $99.8 before the exit condition is met, the trade is closed at $99.8.
+
+---
+
+### **Advantages**
+- Combines trend-following (Bollinger Bands) with volatility-based risk management (ATR).
+- Dynamic stop-loss adapts to market conditions.
+
+### **Limitations**
+- May produce false signals in choppy or sideways markets.
+- Requires careful monitoring of Bollinger Bands and ATR values.
+
+This strategy is best suited for trending markets and should be tested thoroughly before live implementation.

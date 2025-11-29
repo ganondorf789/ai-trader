@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolatilityYieldDivergence
+
+STRATEGY_DETAILS:
+The VolatilityYieldDivergence strategy is a momentum-based scalp trading approach that capitalizes on the divergence between VIX futures, S&P 500 price action, and 3-month T-Bill yields. The strategy focuses on identifying moments when VIX futures exhibit increasing inverse correlation with T-Bill yields while diverging from the S&P 500, signaling potential market stress or shifts in risk sentiment.
+
+### Key Strategy Components:
+1. **VIX Futures**: Measures market volatility expectations.
+2. **S&P 500 Price Action**: Tracks the overall market trend.
+3. **3-Month T-Bill Yields**: Reflects short-term interest rates and risk-free returns.
+4. **Inverse Correlation Analysis**: Identifies when VIX futures and T-Bill yields move in opposite directions.
+5. **Divergence Detection**: Flags when VIX futures diverge from S&P 500 price action.
+
+### Entry Rules:
+1. **Long Entry**:
+   - VIX futures must show an upward trend while S&P 500 is flat or declining.
+   - VIX futures and 3-month T-Bill yields must exhibit increasing inverse correlation (VIX rising while yields fall).
+   - Confirm with a momentum indicator (e.g., RSI or MACD) showing oversold conditions in S&P 500 or bullish momentum in VIX futures.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Exit when VIX futures show signs of reversal (e.g., bearish divergence or overbought RSI).
+   - Exit when S&P 500 resumes an upward trend or stabilizes.
+2. **Stop Loss**:
+   - Set a stop loss below the entry price, typically 1-2% of the position size.
+   - Exit if the inverse correlation between VIX futures and T-Bill yields weakens.
+
+### Risk Management:
+1. **Position Sizing**: Limit each trade to 1-2% of total capital to manage risk.
+2. **Stop Loss**: Always use a stop loss to protect against adverse moves.
+3. **Timeframe**: Focus on short-term timeframes (e.g., 5-minute or 15-minute charts) for scalping opportunities.
+4. **Correlation Monitoring**: Continuously monitor the correlation between VIX futures and T-Bill yields to ensure the trade thesis remains valid.
+
+### Required Indicators:
+1. **VIX Futures Chart**: To track volatility expectations.
+2. **S&P 500 Price Chart**: To monitor market trends.
+3. **3-Month T-Bill Yield Chart**: To assess short-term interest rate movements.
+4. **Correlation Coefficient Indicator**: To measure the inverse correlation between VIX futures and T-Bill yields.
+5. **Momentum Indicators (RSI or MACD)**: To confirm entry and exit signals.
+
+This strategy is designed for traders who can quickly interpret market dynamics and act on short-term opportunities. It requires constant monitoring of multiple asset classes and a disciplined approach to risk management.

@@ -1,0 +1,38 @@
+STRATEGY_NAME: FundingBandExtreme  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Counter-Trend Focus:** The strategy aims to capitalize on overextended price movements by taking positions opposite to the prevailing trend when specific conditions are met.  
+2. **Funding Rate Extremes:** Uses funding rate data to identify periods of excessive leverage or sentiment extremes, which often precede reversals.  
+3. **Bollinger Band Extremes:** Price approaching the upper or lower Bollinger Band (typically 2 standard deviations) signals potential overbought/oversold conditions.  
+4. **Volatility Contraction:** Exits trades when Bollinger Bands contract, indicating reduced momentum and potential trend exhaustion.  
+5. **Funding Rate Normalization:** Monitors funding rates returning to neutral levels as a signal to exit.  
+
+**Entry Rules:**  
+- **Short Entry:** Triggered when:  
+  - Price touches or exceeds the upper Bollinger Band.  
+  - Funding rate is significantly positive (indicating excessive long leverage).  
+- **Long Entry:** Triggered when:  
+  - Price touches or falls below the lower Bollinger Band.  
+  - Funding rate is significantly negative (indicating excessive short leverage).  
+
+**Exit Rules:**  
+- **Volatility Contraction:** Exit when the Bollinger Band width (distance between upper and lower bands) narrows by a predefined percentage (e.g., 20% from entry width).  
+- **Funding Rate Normalization:** Exit when the funding rate moves back within a neutral range (e.g., ±0.005% for perpetual contracts).  
+- **Stop-Loss:** Optional stop-loss at the opposite Bollinger Band extreme or a fixed percentage (e.g., 2-3%) beyond the entry point.  
+
+**Risk Management:**  
+- Position sizing should account for the high volatility inherent in counter-trend trades (e.g., 1-2% risk per trade).  
+- Avoid entering during major news events or periods of erratic funding rate fluctuations.  
+- Consider a maximum daily or weekly loss limit to prevent overexposure.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 standard deviations).  
+2. **Funding Rate Data** (real-time or historical from the exchange).  
+3. **Bollinger Band Width** (to measure volatility contraction).  
+
+**Additional Notes:**  
+- Works best in ranging or mean-reverting markets; may underperform in strong trending conditions.  
+- Ideal for crypto perpetual futures markets where funding rates are a key sentiment indicator.  
+- Backtest for optimal thresholds for "extreme" funding rates and Bollinger Band interactions.

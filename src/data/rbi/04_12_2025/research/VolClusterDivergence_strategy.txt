@@ -1,0 +1,49 @@
+STRATEGY_NAME: VolClusterDivergence
+
+STRATEGY_DETAILS:
+This strategy combines liquidation cluster analysis with perpetual funding rate dynamics to identify high-probability volatility breakouts. The approach focuses on detecting key liquidity zones where price movements are likely to accelerate due to clustered stop orders, confirmed by abnormal funding rate behavior.
+
+Key Components:
+1. Liquidation Cluster Threshold: Uses aggregated exchange heatmaps to identify dense liquidity zones where stop orders are clustered
+2. Funding Rate Divergence: Monitors abnormal deviations in perpetual futures funding rates from their normal range
+3. Volatility Breakout: Requires price to decisively surpass the identified liquidation cluster level
+
+Entry Rules:
+1. Long Entry Trigger:
+   - Price must close above the upper liquidation cluster threshold (from heatmap data)
+   - Simultaneous funding rate surge exceeding +0.05% (or 2 standard deviations from mean)
+   - Volume must be above 20-period moving average
+
+2. Short Entry Trigger:
+   - Price must close below the lower liquidation cluster threshold
+   - Simultaneous funding rate plunge below -0.05% (or 2 standard deviations)
+   - Volume confirmation as above
+
+Exit Rules:
+1. Take Profit:
+   - 1.5x the average true range (ATR) from entry point
+   - OR when funding rates normalize to within 1 standard deviation of mean
+
+2. Stop Loss:
+   - Fixed at 0.75x ATR from entry
+   - OR if price re-enters the liquidation cluster zone
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Only trade when volatility (VIX or asset-specific volatility index) is above its 20-day average
+3. Maximum of 3 concurrent positions to avoid overexposure
+
+Required Indicators:
+1. Exchange heatmap data (liquidation clusters)
+2. Perpetual futures funding rates
+3. Volume indicators (20-period MA)
+4. Average True Range (ATR 14-period)
+5. Volatility index (VIX or equivalent)
+
+Special Considerations:
+- Most effective during low-liquidity periods (overnight or weekends) when liquidity clusters are more significant
+- Requires real-time monitoring of funding rate anomalies
+- Works best on assets with active perpetual futures markets
+- Should be avoided during major scheduled news events when liquidity patterns become unpredictable
+
+The strategy capitalizes on the market's tendency for accelerated moves when hitting concentrated liquidity zones, with funding rate divergence confirming the sustainability of the breakout. The combination of these factors creates a high-probability volatility breakout system.

@@ -1,0 +1,27 @@
+STRATEGY_NAME: VolatilityThreshold  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Filter:** Uses the 20-day Average True Range (ATR) to identify low-volatility conditions when it drops below its 10th percentile (historically derived).  
+2. **Trend Confirmation:** Requires price to cross above the 200-day moving average (long-term trend filter).  
+3. **Exit Mechanics:** Implements a dynamic stop-loss (2x ATR) or a fixed 5-day holding period, whichever triggers first.  
+
+**Entry Rules:**  
+- Go **LONG** when:  
+  - The 20-day ATR falls below its 10th percentile (calculated over a lookback period, e.g., 1 year).  
+  - Price closes above the 200-day moving average (confirming bullish trend alignment).  
+
+**Exit Rules:**  
+- **Stop-Loss:** Exit if price drops **2x the current 20-day ATR** from the entry price.  
+- **Time-Based Exit:** Close the position after **5 trading days** if the stop-loss isn’t hit.  
+
+**Risk Management:**  
+- Position sizing should account for the 2x ATR stop to limit risk per trade (e.g., 1% risk of capital).  
+- Avoid trading during earnings or major news events that may distort volatility readings.  
+
+**Required Indicators:**  
+1. **20-day ATR** (for volatility percentile calculation).  
+2. **200-day Simple Moving Average** (trend filter).  
+3. **Historical ATR Percentiles** (requires backtesting to define the 10th percentile threshold).  
+
+**Unique Edge:** Combines mean-reversion logic (low volatility) with trend-following (200 MA), targeting breakouts from compressed price ranges while managing risk via adaptive stops.

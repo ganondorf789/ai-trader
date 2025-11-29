@@ -1,0 +1,44 @@
+STRATEGY_NAME: VortexSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI) Crossover:** Utilizes the VI+ (positive trend) and VI- (negative trend) lines to identify trend direction.  
+2. **Volume Percentile Surges:** Filters entries only on days with volume in the top 10% of recent historical volume.  
+3. **Dynamic ATR Threshold:** Adjusts exit conditions based on current market volatility using Average True Range (ATR).  
+
+**Entry Rules:**  
+- Enter a **long position** when:  
+  - VI+ crosses **above** VI- (bullish signal).  
+  - Daily volume is in the **top 10%** of the last 50-day volume range.  
+- Enter a **short position** when:  
+  - VI- crosses **above** VI+ (bearish signal).  
+  - Daily volume is in the **top 10%** of the last 50-day volume range.  
+
+**Exit Rules:**  
+- Exit long positions when:  
+  - VI+ crosses **below** VI-.  
+  - Price closes **below** a dynamic threshold (e.g., 1.5x ATR from entry price).  
+- Exit short positions when:  
+  - VI- crosses **below** VI+.  
+  - Price closes **above** a dynamic threshold (e.g., 1.5x ATR from entry price).  
+
+**Risk Management:**  
+- **Stop-Loss:** Set at 2x ATR from entry price to account for volatility.  
+- **Position Sizing:** Adjust based on ATR (e.g., risk 1% of capital per trade).  
+- **Trailing Stop:** Optional—adjust exit threshold as ATR changes.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)** – For trend confirmation.  
+2. **Volume Percentile (50-day lookback)** – To filter high-volume entries.  
+3. **Average True Range (ATR, 14-period)** – For dynamic exit thresholds and risk sizing.  
+
+**Unique Aspects:**  
+- Combines **trend-following (VI)** with **volume confirmation** for higher-probability entries.  
+- Uses **dynamic exits** based on volatility (ATR) rather than fixed price levels.  
+- Filters noise by requiring **top 10% volume days**, reducing false signals.  
+
+**Optimization Notes:**  
+- Test different ATR multipliers (e.g., 1.2x–2x) for exits.  
+- Adjust volume percentile threshold (e.g., top 5% or 15%) based on asset liquidity.  
+- Backtest VI lookback periods (default is 14) for sensitivity tuning.

@@ -1,0 +1,35 @@
+STRATEGY_NAME: MomentumCrossADX
+
+STRATEGY_DETAILS:
+The MomentumCrossADX strategy combines trend-following and momentum confirmation to identify high-probability long entries. It uses the EMA crossover as a primary trend signal, the ADX for trend strength confirmation, and the RSI for overbought conditions to manage exits.
+
+### Key Strategy Components:
+1. **50-period EMA**: Short-term exponential moving average to capture recent price momentum.
+2. **200-period EMA**: Long-term exponential moving average to identify the overall trend direction.
+3. **ADX (Average Directional Index)**: Measures the strength of the trend. A rising ADX above 25 confirms a strong trend.
+4. **RSI (Relative Strength Index)**: Identifies overbought conditions to signal potential exits.
+
+### Entry Rules:
+1. **EMA Crossover**: Wait for the 50-period EMA to cross above the 200-period EMA, indicating a bullish trend shift.
+2. **ADX Confirmation**: Ensure the ADX is rising and above 25, confirming strong trend momentum.
+3. **Entry Signal**: Enter a long position when both conditions are met.
+
+### Exit Rules:
+1. **Overbought RSI**: Exit the trade when the RSI exceeds 70, signaling overbought conditions and potential price reversal.
+2. **Weak Trend**: Exit the trade when the ADX drops below 20, indicating a weakening trend.
+
+### Risk Management:
+1. **Stop Loss**: Place a stop loss below the recent swing low or a fixed percentage below the entry price (e.g., 1-2%).
+2. **Position Sizing**: Use a consistent risk-per-trade percentage (e.g., 1-2% of account equity).
+3. **Trailing Stop**: Consider using a trailing stop to lock in profits as the trend progresses.
+
+### Required Indicators:
+1. **50-period EMA**
+2. **200-period EMA**
+3. **ADX (14-period default)**
+4. **RSI (14-period default)**
+
+### Additional Notes:
+- This strategy works best in trending markets. Avoid using it during choppy or sideways market conditions.
+- Backtest the strategy on multiple timeframes (e.g., 1H, 4H, Daily) to identify optimal settings for your trading style.
+- Combine with fundamental analysis or other technical tools for additional confirmation if needed.

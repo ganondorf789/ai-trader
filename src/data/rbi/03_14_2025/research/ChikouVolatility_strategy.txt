@@ -1,0 +1,44 @@
+STRATEGY_NAME: ChikouVolatility
+
+STRATEGY_DETAILS:
+The ChikouVolatility strategy is a trend-following approach that combines the Chikou Span from the Ichimoku Cloud with Bollinger Bands to identify potential price reversals and volatility-based entry/exit points. This strategy is designed to capitalize on both trend continuation and reversal opportunities by leveraging the unique insights provided by these two indicators.
+
+### Key Strategy Components:
+1. **Chikou Span**: The Chikou Span (lagging line) is used to confirm the strength of the current trend and identify potential reversals. It represents the current closing price plotted 26 periods behind.
+2. **Bollinger Bands**: These bands measure market volatility and provide dynamic support/resistance levels. The upper and lower bands are calculated based on standard deviations from a moving average.
+3. **Price Action**: The strategy focuses on the relationship between price, Chikou Span, and Bollinger Bands to determine entry and exit points.
+
+### Entry Rules:
+1. **Bullish Entry**:
+   - The Chikou Span must be above the price action from 26 periods ago, indicating a bullish trend.
+   - Price must touch or cross below the lower Bollinger Band, signaling potential oversold conditions.
+   - Enter a long position when price closes back inside the Bollinger Bands.
+
+2. **Bearish Entry**:
+   - The Chikou Span must be below the price action from 26 periods ago, indicating a bearish trend.
+   - Price must touch or cross above the upper Bollinger Band, signaling potential overbought conditions.
+   - Enter a short position when price closes back inside the Bollinger Bands.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Exit the trade when price reaches the opposite Bollinger Band (e.g., exit a long position when price touches the upper band).
+   - Alternatively, use a trailing stop based on the Chikou Span crossing below (for longs) or above (for shorts) the price action.
+
+2. **Stop Loss**:
+   - Place a stop loss just outside the Bollinger Band where the entry was triggered (e.g., below the lower band for a long entry or above the upper band for a short entry).
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of your trading capital per trade (e.g., 1-2%).
+2. **Risk-Reward Ratio**: Aim for a minimum 1:2 risk-reward ratio.
+3. **Volatility Filter**: Avoid trading during periods of extremely high volatility (e.g., when Bollinger Bands widen significantly).
+
+### Required Indicators:
+1. **Ichimoku Cloud**: Specifically, the Chikou Span component.
+2. **Bollinger Bands**: Standard settings (20-period moving average with 2 standard deviations).
+
+### Additional Notes:
+- This strategy works best in trending markets. Avoid using it during choppy or sideways market conditions.
+- Combine with higher timeframes (e.g., 1-hour or 4-hour charts) for better reliability.
+- Always backtest and optimize the strategy for your specific trading instrument and market conditions.
+
+The ChikouVolatility strategy is a powerful tool for traders looking to combine trend confirmation with volatility-based entries, offering a balanced approach to capturing both reversals and continuations.

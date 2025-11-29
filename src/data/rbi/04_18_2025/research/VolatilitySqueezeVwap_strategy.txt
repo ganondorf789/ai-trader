@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilitySqueezeVwap  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **VWAP Slope Analysis**: The strategy uses the slope of the Volume-Weighted Average Price (VWAP) to determine the underlying trend direction. A rising VWAP indicates bullish momentum.  
+2. **Bollinger Band Squeeze**: The strategy identifies periods of low volatility when the Bollinger Bands contract (squeeze), signaling potential breakout opportunities.  
+3. **Volatility Breakout**: Entries are triggered when price breaks above the rising VWAP during a Bollinger Band squeeze, confirming a breakout from low volatility.  
+4. **Historical Volatility Percentiles**: Exits are based on Bollinger Band expansion exceeding historical volatility thresholds, indicating overextended price movement.  
+
+**Entry Rules:**  
+- **Condition 1**: VWAP slope must be positive (rising) over a defined lookback period (e.g., 5-10 bars).  
+- **Condition 2**: Bollinger Bands must be in a squeeze state (bandwidth below a threshold, e.g., 20th percentile of historical bandwidth).  
+- **Trigger**: Price breaks and closes above the VWAP while the Bollinger Bands are still tight.  
+
+**Exit Rules:**  
+- **Profit-Taking**: Exit when Bollinger Band expansion exceeds a high volatility percentile (e.g., 80th percentile of historical bandwidth).  
+- **Stop-Loss**: Exit if price closes below the VWAP or if Bollinger Band expansion fails to confirm momentum (e.g., reversion back inside bands).  
+
+**Risk Management:**  
+- Position sizing based on volatility-adjusted risk (e.g., ATR-based stop distance).  
+- Avoid trading during high-volatility regimes unless confirming a breakout.  
+- Maximum risk per trade capped at a fixed percentage of capital (e.g., 1-2%).  
+
+**Required Indicators:**  
+1. **VWAP** (Volume-Weighted Average Price) – Slope calculation required.  
+2. **Bollinger Bands** (20-period SMA, 2 Std Dev) – Bandwidth measurement for squeeze detection.  
+3. **Historical Volatility Percentiles** (e.g., rolling percentile rank of Bollinger Bandwidth).  
+
+**Additional Notes:**  
+- Works best in trending markets after consolidation phases.  
+- Avoid false breakouts by waiting for confirmation (e.g., higher volume on breakout).  
+- Backtest optimal parameters for VWAP slope sensitivity and volatility percentiles.  
+
+This strategy combines trend confirmation (VWAP slope) with volatility contraction/expansion (Bollinger Bands) for high-probability breakout trades.

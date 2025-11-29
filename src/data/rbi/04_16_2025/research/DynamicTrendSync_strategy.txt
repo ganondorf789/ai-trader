@@ -1,0 +1,62 @@
+STRATEGY_NAME: DynamicTrendSync
+
+STRATEGY_DETAILS:
+The DynamicTrendSync strategy combines trend confirmation with momentum strength to identify high-probability trading opportunities. This systematic approach uses three key technical indicators to filter trades and manage risk.
+
+Key Components:
+1. Trend Identification (EMA Crossover):
+   - 50-period EMA crossing above 200-period EMA signals bullish trend establishment
+   - This "Golden Cross" serves as the primary trend confirmation
+
+2. Trend Strength Filter (ADX):
+   - Requires ADX > 25 to confirm strong trending conditions
+   - Exits when ADX < 20 indicating weakening trend momentum
+
+3. Overbought Protection (RSI):
+   - Uses RSI > 70 as exit signal to prevent holding during potential reversals
+   - Provides secondary exit condition independent of trend strength
+
+Entry Rules:
+- Enter long position when ALL conditions are met:
+  1. 50-EMA crosses above 200-EMA (bullish crossover)
+  2. ADX rises above 25 (strong trend confirmation)
+  3. Price must be above both EMAs (additional confirmation)
+
+Exit Rules:
+- Close position when ANY condition occurs:
+  1. ADX falls below 20 (trend weakening)
+  2. RSI exceeds 70 (overbought condition)
+  3. 50-EMA crosses below 200-EMA (trend reversal)
+
+Risk Management:
+1. Position Sizing:
+   - Recommended 1-2% risk per trade
+   - Adjust position size based on stop-loss distance
+
+2. Stop-Loss Placement:
+   - Initial stop below recent swing low
+   - Trailing stop can be placed below 50-EMA as trade progresses
+
+3. Trade Filtering:
+   - Only trades with ADX > 25 ensure strong trends
+   - RSI filter prevents chasing overextended moves
+
+Required Indicators:
+1. Exponential Moving Averages:
+   - 50-period EMA (fast)
+   - 200-period EMA (slow)
+
+2. Average Directional Index (ADX):
+   - 14-period standard setting
+   - Thresholds at 25 (entry) and 20 (exit)
+
+3. Relative Strength Index (RSI):
+   - 14-period standard setting
+   - 70 level for overbought exit
+
+Optimization Notes:
+- ADX period can be adjusted between 10-20 for different markets
+- EMA periods can be modified (e.g., 20/50 for shorter timeframes)
+- RSI threshold can be tightened to 65 for more conservative exits
+
+This strategy works best in trending markets and may produce false signals during ranging conditions. The combination of trend confirmation (EMA crossover) with momentum validation (ADX) creates a robust framework for capturing sustained moves while the RSI provides protection against overextension.

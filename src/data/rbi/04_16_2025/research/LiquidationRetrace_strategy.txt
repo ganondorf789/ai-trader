@@ -1,0 +1,34 @@
+STRATEGY_NAME: LiquidationRetrace  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Clustered Liquidation Events:** The strategy identifies periods of high liquidation activity, which often precede reversals due to forced position closures.  
+2. **200-period SMA Retest:** The price must retest the 200-period Simple Moving Average (SMA), acting as a key support/resistance level.  
+3. **RSI Crossover:** The Relative Strength Index (RSI) must cross above 30, signaling a potential shift from oversold conditions to upward momentum.  
+4. **Volume-Driven Resistance Exit:** Positions are closed at the nearest significant resistance level confirmed by high trading volume.  
+
+**Entry Rules:**  
+- **Trigger Condition:** A clustered liquidation event occurs (detected via liquidation heatmaps or order flow tools).  
+- **Confirmation 1:** Price retests the 200-period SMA (either bouncing off or briefly dipping below before recovering).  
+- **Confirmation 2:** RSI crosses above 30 from below, indicating weakening bearish momentum.  
+- **Execution:** Enter a long position once all conditions align.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit at the nearest resistance level where volume spikes significantly, suggesting selling pressure.  
+- **Stop-Loss:** Place below the recent swing low or a fixed percentage (e.g., 1-2%) below the 200 SMA, whichever is tighter.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Stop-Loss Discipline:** Adjust stops to breakeven if price moves favorably (e.g., beyond the entry candle’s high).  
+- **Avoid Overleveraging:** Given liquidation sensitivity, use moderate leverage (e.g., 5x-10x max).  
+
+**Required Indicators/Tools:**  
+1. **200-period SMA** (for trend alignment and retest confirmation).  
+2. **RSI (14-period default)** to gauge oversold conditions.  
+3. **Liquidation Heatmap/Order Flow Tool** (e.g., Coinalyze, Hyblock) to detect clustered liquidations.  
+4. **Volume Profile** to identify high-volume resistance zones for exits.  
+
+**Unique Edge:** Combines liquidation-driven reversals with classical technical levels (SMA + RSI), targeting high-probability retracements in volatile markets. Works best in crypto or highly leveraged markets.  
+
+**Note:** Backtest for asset-specific nuances (e.g., BTC vs. altcoins) and optimize SMA/RSI periods if needed.

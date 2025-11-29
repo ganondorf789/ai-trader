@@ -1,0 +1,29 @@
+STRATEGY_NAME: LiquidationBandwidth  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation-Level Prediction:** Uses open interest clusters to identify potential liquidation zones where price may experience accelerated moves due to forced exits.  
+2. **Bollinger Band Width Contraction:** Confirms low volatility conditions before the breakout, signaling a potential explosive move.  
+3. **Volatility-Based Exit:** Exits trades when volatility expands post-liquidation, capturing the momentum phase before mean reversion.  
+
+**Entry Rules:**  
+1. **Identify Liquidation Zones:** Locate price levels where open interest clusters suggest high liquidation probability (e.g., using order book data or derivatives metrics).  
+2. **Bollinger Band Width Confirmation:** Ensure Bollinger Band Width is contracting (indicating low volatility) as price approaches the liquidation zone.  
+3. **Breakout Trigger:** Enter long/short when price breaches the liquidation level with confirmation from a closing candle outside the Bollinger Bands.  
+
+**Exit Rules:**  
+1. **Volatility Expansion:** Exit when Bollinger Band Width expands significantly (e.g., exceeding a threshold like 1.5x the average width of the last 10 periods).  
+2. **Time-Based Exit:** Close the trade after a fixed period (e.g., 4-6 candles) if volatility does not expand, avoiding dead trades.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place stops just beyond the opposite side of the liquidation zone or at a recent swing high/low.  
+2. **Position Sizing:** Risk no more than 1-2% per trade, adjusting for the volatility of the asset.  
+3. **Filtering Trades:** Avoid trading during major news events or when overall market volatility is elevated (e.g., VIX spikes).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** To measure contraction/expansion of volatility.  
+2. **Open Interest/Order Book Data:** For liquidation zone identification (e.g., via exchanges’ API or platforms like Glassnode).  
+3. **Volume Indicator:** To confirm breakout validity (e.g., volume spike on liquidation breach).  
+
+**Unique Edge:** Combines liquidity hunting (a high-probability catalyst) with volatility cycles, targeting explosive moves while avoiding choppy markets. The name "LiquidationBandwidth" reflects the synergy between liquidation zones and Bollinger Band dynamics.

@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationRetrace  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Liquidation Cascade Detection:** Identifies potential long opportunities by monitoring sudden drops in open interest (OI) combined with extreme negative funding rates, signaling forced liquidations and potential market overselling.  
+2. **Bollinger Band Midline Retracement:** Uses the Bollinger Band midline (typically the 20-period SMA) as a profit-taking exit point, capitalizing on mean reversion after liquidation-driven price drops.  
+
+**Entry Rules:**  
+- **Trigger Condition:** A sharp decline in open interest (e.g., >10% drop within a short timeframe) paired with a deeply negative funding rate (e.g., below -0.1%).  
+- **Confirmation:** Price should show signs of stabilization or a bullish reversal candle (e.g., hammer, engulfing) post-cascade.  
+- **Entry Action:** Enter a long position at the close of the confirmation candle or on a break above its high.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit the trade when price reaches the Bollinger Band midline (20-period SMA).  
+- **Stop-Loss:** Place a stop below the recent swing low or a fixed percentage (e.g., 2-3%) below the entry price to limit downside risk.  
+
+**Risk Management:**  
+- Position sizing should account for volatility (e.g., 1-2% risk per trade).  
+- Avoid trading during low-liquidity periods to prevent slippage.  
+- Monitor funding rates post-entry; if they remain excessively negative, consider early exit to avoid prolonged adverse conditions.  
+
+**Required Indicators:**  
+1. **Open Interest (OI):** Tracked via exchange data or derivatives platforms.  
+2. **Funding Rate:** Real-time funding rate from perpetual swap markets.  
+3. **Bollinger Bands (20,2):** Midline (20-period SMA) acts as the exit guide.  
+4. **Price Action Tools:** Candlestick patterns for confirmation (optional but recommended).  
+
+**Unique Edge:**  
+This strategy exploits market overreactions from liquidations, combining derivatives metrics (OI/funding) with technical mean reversion for high-probability counter-trend entries. The Bollinger midline exit ensures disciplined profit-taking before potential resistance.  
+
+**Note:** Backtest for asset-specific OI/funding thresholds and adjust stop/exit parameters based on volatility (e.g., wider bands for high-beta assets).

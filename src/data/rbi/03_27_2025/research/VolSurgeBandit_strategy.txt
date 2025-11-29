@@ -1,0 +1,49 @@
+STRATEGY_NAME: VolSurge Bandit
+
+STRATEGY_DETAILS:
+This strategy combines volatility-adjusted VWAP bands with volume surges to identify high-probability breakout opportunities, while using VWAP reversion as the exit signal.
+
+Key Components:
+1. Volatility-Adjusted VWAP Bands: Standard VWAP with upper/lower bands adjusted by recent volatility (ATR or standard deviation)
+2. Volume Surge Filter: Requires trading volume to exceed a multiple (e.g., 1.5-2x) of recent average volume
+3. Mean Reversion Exit: Returns to VWAP serve as profit-taking signals
+
+Entry Rules:
+LONG ENTRY:
+- Price closes ABOVE upper VWAP volatility band
+- Current volume > (1.5x 20-period volume average)
+- Confirmation: Next candle opens in same direction
+
+SHORT ENTRY:
+- Price closes BELOW lower VWAP volatility band
+- Current volume > (1.5x 20-period volume average)
+- Confirmation: Next candle opens in same direction
+
+Exit Rules:
+LONG EXIT:
+- Price crosses back below VWAP line
+- OR reaches 2:1 profit target based on band width
+
+SHORT EXIT:
+- Price crosses back above VWAP line
+- OR reaches 2:1 profit target based on band width
+
+Risk Management:
+1. Stop Loss: 
+   - Longs: Below recent swing low or lower band
+   - Shorts: Above recent swing high or upper band
+2. Position Sizing: Risk ≤1-2% per trade
+3. Time Filter: Avoid first/last 30 minutes of session
+
+Required Indicators:
+1. VWAP (Volume Weighted Average Price)
+2. Volatility Bands (VWAP ± 2*ATR or 1.5 StdDev)
+3. Volume Indicator (20-period MA)
+4. Optional: Confirmation oscillator (RSI or MACD)
+
+Optimization Notes:
+- Adjust band multiplier based on asset volatility
+- Fine-tune volume surge threshold (1.5-3x avg)
+- Test different confirmation periods (1-3 candles)
+
+This strategy works best in trending markets with clear volatility expansions, and benefits from combining the reliability of VWAP with the momentum confirmation of volume surges.

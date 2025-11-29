@@ -1,0 +1,43 @@
+STRATEGY_NAME: LiquidationDivergence
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Utilizes cumulative liquidation heatmaps to identify high-probability reversal zones
+- Incorporates on-chain exchange flow data for confirmation
+- Focuses on counter-trend entries at key liquidity clusters
+- Combines price action with blockchain data signals
+
+2. Entry Rules:
+- Identify significant liquidation clusters on heatmap (areas with high historical liquidations)
+- Wait for price to revisit these levels
+- Confirm with diverging exchange flows (e.g., price approaching liquidation zone while exchange outflows increase)
+- Require supporting technical factors (e.g., oversold RSI, bullish candlestick patterns)
+
+3. Exit Rules:
+- Take profit at next significant liquidity zone (opposite side liquidation cluster)
+- Stop loss placed beyond the liquidation zone (typically 1.5-2x average zone width)
+- Exit on exchange flow reversal (sudden inflows after position established)
+- Time-based exit if expected move doesn't materialize within 3-5 candles
+
+4. Risk Management:
+- Position size limited to 1-2% of capital per trade
+- Maximum daily loss limit of 5%
+- No trades during high-impact news events
+- Requires minimum 3:1 reward-to-risk ratio
+- Adjust position size based on liquidation cluster strength
+
+5. Required Indicators:
+- Cumulative liquidation heatmap (historical and real-time)
+- On-chain exchange flow metrics (net inflows/outflows)
+- Volume profile analysis
+- Optional: RSI (14 period) for overbought/oversold confirmation
+- Price action patterns (pin bars, engulfing candles)
+
+6. Special Considerations:
+- Works best in ranging or mean-reverting markets
+- Less effective during strong trending conditions
+- Requires real-time data feeds for liquidation heatmaps
+- Most effective on higher timeframes (4H+)
+- Should be combined with volatility filters to avoid whipsaws
+
+Note: This strategy requires access to specialized liquidation data and on-chain analytics platforms. Backtesting should account for slippage when entering near liquidation zones where price movement can be volatile.

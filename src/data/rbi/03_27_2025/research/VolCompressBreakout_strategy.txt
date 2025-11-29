@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolCompress Breakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Compression Detection:** Uses Bollinger Band width to identify periods of low volatility (compression) when the width reaches a 20-day low.  
+2. **Breakout Confirmation:** Requires price to break above the upper Bollinger Band (for long) or below the lower Bollinger Band (for short) with volume confirmation.  
+3. **Volume Spike Filter:** Entry is only valid if volume exceeds the 50-day average volume, ensuring momentum supports the breakout.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Band width (BB Width) reaches a 20-day low (indicating compression).  
+  2. Price closes above the upper Bollinger Band.  
+  3. Volume on breakout candle exceeds the 50-day average volume.  
+- **Short Entry:**  
+  1. BB Width reaches a 20-day low.  
+  2. Price closes below the lower Bollinger Band.  
+  3. Volume on breakout candle exceeds the 50-day average volume.  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  1. Price closes back inside the Bollinger Bands (below the upper band).  
+  2. Or, if trailing stop is used: Exit when price retraces a fixed percentage (e.g., 2%) from the recent high after entry.  
+- **Short Exit:**  
+  1. Price closes back inside the Bollinger Bands (above the lower band).  
+  2. Or, trailing stop: Exit when price rallies a fixed percentage (e.g., 2%) from the recent low after entry.  
+
+**Risk Management:**  
+- Position sizing based on a fixed percentage of capital (e.g., 1-2% risk per trade).  
+- Stop-loss placed at the opposite Bollinger Band (for long: lower band; for short: upper band) or a fixed ATR-based distance.  
+- Avoid trading during major news events or low-liquidity periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 standard deviations).  
+2. Bollinger Band Width (BB Width = (Upper Band - Lower Band) / Middle Band).  
+3. 50-day average volume (simple moving average of volume).  
+
+**Notes:**  
+- Works best in trending markets after consolidation phases.  
+- False breakouts are mitigated by the volume filter.  
+- Adjust parameters (e.g., BB period, ATR multiplier for stops) based on asset volatility.  
+
+This strategy capitalizes on the "squeeze" effect, where low volatility often precedes high-momentum moves, while volume confirms genuine breakout strength.

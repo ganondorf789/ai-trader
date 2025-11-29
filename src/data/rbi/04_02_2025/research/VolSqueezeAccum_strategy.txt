@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolSqueezeAccum  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Bands Width:** Measures volatility contraction (squeeze) when the width hits 3-month lows, signaling potential breakout opportunities.  
+2. **On-Balance Volume (OBV):** Confirms accumulation phase with an ascending OBV trend, indicating strong buying pressure.  
+3. **Breakout/Reversal Signals:** Uses Bollinger Band breakout (price crossing upper/lower band) or volume reversal (OBV trend break) for exits.  
+
+**Entry Rules:**  
+- Enter long when:  
+  - Bollinger Bands width is at a 3-month low (volatility squeeze).  
+  - OBV is in a confirmed uptrend (higher highs/lows).  
+- Enter short when:  
+  - Bollinger Bands width is at a 3-month low.  
+  - OBV is in a confirmed downtrend (lower highs/lows).  
+
+**Exit Rules:**  
+- Take profit:  
+  - Price breaks above the upper Bollinger Band (long) or below the lower band (short).  
+- Stop loss:  
+  - OBV reverses trend (breaks its recent high/low structure).  
+  - Fixed percentage or ATR-based stop for additional protection.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., 1-2% risk per trade).  
+- Trailing stops can be applied after breakout confirmation.  
+- Avoid trading during major news events to prevent false squeezes.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 Std Dev).  
+2. Bollinger Band Width (derived from BB).  
+3. On-Balance Volume (OBV).  
+4. Optional: ATR for dynamic stop placement.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (mean-reversion signal) with volume-based accumulation/distribution confirmation.  
+- Filters false breakouts by requiring OBV alignment.  
+- Works best in ranging or consolidating markets with periodic volatility expansions.

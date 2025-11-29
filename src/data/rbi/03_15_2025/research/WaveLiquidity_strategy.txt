@@ -1,0 +1,82 @@
+STRATEGY_NAME: WaveLiquidity
+
+STRATEGY_DETAILS:
+The WaveLiquidity strategy is designed to identify and capitalize on liquidity reversals by analyzing wave patterns and volume dynamics. This approach combines technical analysis of price waves with volume-based confirmation to pinpoint potential reversal zones where liquidity is likely to shift. Below are the key components, rules, and requirements for implementing this strategy:
+
+---
+
+### **Key Strategy Components**
+1. **Wave Pattern Analysis**:
+   - Identify clear wave structures (impulse and corrective waves) using price action.
+   - Focus on key swing highs and swing lows to determine potential reversal zones.
+   - Use Fibonacci retracement levels (e.g., 38.2%, 50%, 61.8%) to identify areas of interest within the wave structure.
+
+2. **Volume Dynamics**:
+   - Monitor volume spikes or divergences to confirm potential reversals.
+   - Look for increasing volume during the formation of a wave, followed by a volume drop-off at key reversal points.
+   - Use volume profile analysis to identify high-volume nodes (HVN) and low-volume nodes (LVN) as potential support/resistance zones.
+
+3. **Liquidity Zones**:
+   - Identify areas where stop-loss orders are likely clustered (e.g., above swing highs or below swing lows).
+   - Target these zones for potential reversals as price approaches and absorbs liquidity.
+
+---
+
+### **Entry Rules**
+1. **Wave Confirmation**:
+   - Wait for a clear wave structure to form (e.g., a 5-wave impulse followed by a 3-wave correction).
+   - Confirm the wave structure aligns with Fibonacci retracement levels.
+
+2. **Volume Confirmation**:
+   - Look for a volume spike or divergence at the potential reversal zone.
+   - Ensure volume decreases as price approaches the key level, signaling exhaustion.
+
+3. **Price Action Trigger**:
+   - Enter a trade when price shows a reversal candlestick pattern (e.g., pin bar, engulfing, or inside bar) at the identified level.
+   - Use a break of a short-term trendline or moving average as additional confirmation.
+
+---
+
+### **Exit Rules**
+1. **Take Profit**:
+   - Set take-profit levels at the next significant Fibonacci extension level (e.g., 127.2%, 161.8%) or a key swing high/low.
+   - Use trailing stops to capture extended moves.
+
+2. **Stop Loss**:
+   - Place stop-loss orders just beyond the identified liquidity zone (e.g., above a swing high for a short trade or below a swing low for a long trade).
+   - Ensure the risk-reward ratio is at least 1:2.
+
+---
+
+### **Risk Management**
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital per trade.
+   - Adjust position size based on the distance to the stop-loss level.
+
+2. **Diversification**:
+   - Avoid over-concentration in a single asset or market.
+   - Spread trades across multiple timeframes or instruments to reduce risk.
+
+3. **Trade Filtering**:
+   - Only take trades with a clear wave structure, volume confirmation, and favorable risk-reward ratio.
+   - Avoid trading during low-volume periods or major news events.
+
+---
+
+### **Required Indicators**
+1. **Fibonacci Retracement Tool**:
+   - To identify key levels within wave structures.
+
+2. **Volume Indicator**:
+   - Use a standard volume indicator or volume profile to analyze volume dynamics.
+
+3. **Moving Average (Optional)**:
+   - A short-term moving average (e.g., 9-period EMA) can help confirm trend direction and potential reversals.
+
+4. **Candlestick Patterns**:
+   - Monitor for reversal patterns at key levels.
+
+---
+
+### **Summary**
+The WaveLiquidity strategy is a sophisticated approach that combines wave pattern analysis, volume dynamics, and liquidity zone identification to trade reversals effectively. By focusing on high-probability setups with clear confirmations, this strategy aims to capitalize on shifts in market liquidity while maintaining disciplined risk management.

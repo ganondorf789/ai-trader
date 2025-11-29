@@ -1,0 +1,29 @@
+STRATEGY_NAME: BandwidthSurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** Measures volatility compression, signaling potential breakout when bandwidth hits a 20-day low.  
+2. **ADX Confirmation:** Requires ADX > 25 with a rising trend to validate breakout strength.  
+3. **Volume Spike:** Breakout must coincide with volume exceeding the 50-day average for conviction.  
+4. **Directional Breakout:** Enter in the direction of the breakout (upper band for long, lower band for short).  
+
+**Entry Rules:**  
+- Trigger: Bollinger Bandwidth contracts to a 20-day low.  
+- Confirmation: ADX > 25 and rising + volume > 50-day average.  
+- Action: Enter long if price breaks upper band; short if breaking lower band.  
+
+**Exit Rules:**  
+- Close trade when Bollinger Bandwidth expands above its 20-day average, signaling volatility resurgence.  
+- Optional: Trail stop using the opposite band (e.g., lower band for long positions).  
+
+**Risk Management:**  
+- Position size: 1-2% risk per trade.  
+- Stop-loss: Place below recent swing low (long) or above swing high (short).  
+- Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) + Bandwidth calculation.  
+2. ADX (14-period) with +DI/-DI lines.  
+3. Volume (50-day MA overlay).  
+
+**Unique Edge:** Combines volatility compression, trend strength, and volume surge for high-probability breakouts, exiting before volatility decays.

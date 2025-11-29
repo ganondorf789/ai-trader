@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolCrushBounce
+
+STRATEGY_DETAILS:
+This strategy combines volatility compression, funding rate analysis, and Bollinger Band breakouts to identify high-probability short volatility opportunities during market stress conditions.
+
+Key Components:
+1. Funding Rate Regime Filter - Only trade when funding rates are abnormally high (indicating crowded longs)
+2. Open Interest Collapse - Requires significant OI decrease (suggesting long liquidation)
+3. Bollinger Band Breakout - Price must breach lower Bollinger Band (20,2)
+4. Mean Reversion Target - 20-period SMA as exit level
+
+Entry Rules:
+1. Confirm funding rates are in top 20% of historical range
+2. Verify open interest has dropped ≥15% from recent peak
+3. Wait for price to close below lower Bollinger Band
+4. Enter short position on next candle open
+
+Exit Rules:
+1. Primary Exit: When price closes above 20-period SMA
+2. Emergency Exit: If price makes new 5-period high
+3. Time Exit: Close position after 24 hours if not triggered
+
+Risk Management:
+1. Position Size: 1-2% of capital per trade
+2. Stop Loss: 1.5x average true range (14) below entry
+3. Max Drawdown: 5% of portfolio per day
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. 20-period Simple Moving Average
+3. Funding Rate historical percentile
+4. Open Interest change indicator
+5. Average True Range (14)
+
+Special Notes:
+- Works best in crypto markets with perpetual contracts
+- Most effective on 4h-1d timeframes
+- Avoid news events that may cause abnormal volatility
+- Requires monitoring of liquidation heatmaps for confirmation
+
+This strategy capitalizes on the "volatility crush" effect when overleveraged longs get liquidated, followed by a mechanical bounce as markets revert to mean. The unique combination of funding rates, OI collapse, and Bollinger Bands creates a high-probability setup with clearly defined risk parameters.

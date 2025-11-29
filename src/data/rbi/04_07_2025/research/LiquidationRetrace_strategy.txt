@@ -1,0 +1,32 @@
+STRATEGY_NAME: LiquidationRetrace  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on post-liquidation market retracements by taking contrarian positions when price moves significantly away from the Volume-Weighted Average Price (VWAP). The approach is designed to exploit overextended price movements that often occur after liquidations, with well-defined entry and exit criteria.  
+
+**Key Components:**  
+1. **VWAP (Volume-Weighted Average Price):** Acts as the baseline for identifying deviations.  
+2. **15-minute ATR (Average True Range):** Measures volatility to determine the threshold for entry.  
+3. **Deviation Multiplier (3x ATR):** Triggers contrarian trades when price moves 3 times the 15-minute ATR away from VWAP.  
+4. **Exit Conditions:**  
+   - **50% Retracement:** Close the trade if price retraces halfway back to VWAP.  
+   - **1-Hour Timeout:** Exit the trade if the retracement doesn’t occur within one hour.  
+
+**Entry Rules:**  
+- Go **long** if price drops **3x 15-minute ATR below VWAP**.  
+- Go **short** if price rises **3x 15-minute ATR above VWAP**.  
+
+**Exit Rules:**  
+- Take profit when price retraces **50% of the initial deviation** (e.g., if price moved 3 ATR down, exit after a 1.5 ATR rebound).  
+- Exit the trade after **1 hour** if no retracement occurs, to avoid prolonged exposure.  
+
+**Risk Management:**  
+- Position sizing should account for the volatility (ATR) to avoid excessive risk.  
+- Stop-loss can be placed slightly beyond the 3x ATR deviation point to protect against further adverse moves.  
+- Avoid trading during low-liquidity periods where retracements may be less reliable.  
+
+**Required Indicators:**  
+1. VWAP  
+2. 15-minute ATR  
+3. Time-based exit (1-hour countdown)  
+
+This strategy is best suited for volatile assets with frequent liquidation events (e.g., crypto, forex majors, or indices). It relies on mean reversion principles but incorporates strict timing and volatility-based filters to improve edge.

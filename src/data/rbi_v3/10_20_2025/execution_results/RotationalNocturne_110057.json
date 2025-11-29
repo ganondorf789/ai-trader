@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 Moon Dev RotationalNocturne Entry Long at ~24533.45, Size: 23, SL: 23724.74, TP: 26959.57 \ud83d\ude80\n   - New 60m High Confirmed \ud83c\udf1f | RSI (EROD Proxy): 64.9 | Vol OK: True | Trend OK: True | MACD OK: True | ADX OK: True | Bull Candle: True\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/RotationalNocturne_OPT_v6.py\", line 163, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/RotationalNocturne_OPT_v6.py\", line 100, in next\n    stop_frac = (entry_price - self.position.sl) / entry_price if self.position.sl else 0\nAttributeError: 'Position' object has no attribute 'sl'. Did you mean: 'pl'?\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/RotationalNocturne_OPT_v6.py` failed. (See above for error)\n",
+  "execution_time": 1.532664,
+  "timestamp": "2025-10-20T11:00:57.191067"
+}

@@ -1,0 +1,36 @@
+STRATEGY_NAME: ChaikinBandSqueeze  
+
+STRATEGY_DETAILS:  
+This strategy combines the Chaikin Oscillator, Bollinger Band width contraction, and a moving average crossover to identify high-probability breakout trades with controlled risk.  
+
+**Key Components:**  
+1. **Chaikin Oscillator**: Measures accumulation/distribution momentum.  
+2. **50-period SMA of Chaikin Oscillator**: Smooths the oscillator for trend confirmation.  
+3. **Bollinger Band Width Contraction**: Identifies low volatility conditions (squeeze) when width falls below its 20-day percentile.  
+
+**Entry Rules:**  
+- Go **LONG** when:  
+  1. Bollinger Band width contracts below its 20-day percentile (volatility squeeze).  
+  2. Chaikin Oscillator crosses **above** its 50-period SMA (bullish momentum confirmation).  
+
+- Go **SHORT** when:  
+  1. Bollinger Band width contracts below its 20-day percentile.  
+  2. Chaikin Oscillator crosses **below** its 50-period SMA (bearish momentum confirmation).  
+
+**Exit Rules:**  
+- Close LONG position when Chaikin Oscillator crosses **below** its 50-period SMA.  
+- Close SHORT position when Chaikin Oscillator crosses **above** its 50-period SMA.  
+
+**Risk Management:**  
+- Set stop-loss at recent swing low (for long) or swing high (for short).  
+- Use a trailing stop based on ATR (e.g., 2x ATR) to lock in profits.  
+- Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Chaikin Oscillator (default settings).  
+2. 50-period Simple Moving Average (SMA) of the Chaikin Oscillator.  
+3. Bollinger Bands (20-period, 2 standard deviations).  
+4. Bollinger Band Width (20-day percentile filter).  
+
+**Unique Edge:**  
+The strategy capitalizes on breakout opportunities emerging from low volatility (Bollinger squeeze) while using Chaikin Oscillator crossover to confirm momentum shifts, reducing false signals.

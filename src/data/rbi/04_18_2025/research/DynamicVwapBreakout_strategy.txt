@@ -1,0 +1,48 @@
+STRATEGY_NAME: DynamicVwapBreakout
+
+STRATEGY_DETAILS:
+This strategy combines dynamic VWAP envelopes with ATR-based adjustments and volume confirmation for high-probability breakout trading.
+
+Key Components:
+1. VWAP Envelope: Uses Volume Weighted Average Price as the baseline
+2. ATR Adjustment: Dynamically widens/narrows the envelope based on volatility
+3. Volume Acceleration: Requires trading volume to exceed 5-day rolling average
+4. Breakout Confirmation: Price must close beyond the adjusted VWAP envelope
+
+Entry Rules:
+1. Long Entry:
+   - Price closes ABOVE the upper VWAP envelope (VWAP + ATR-adjusted band)
+   - Current volume > 5-day rolling average volume
+   - Enter at next open or on pullback to broken envelope level
+
+2. Short Entry:
+   - Price closes BELOW the lower VWAP envelope (VWAP - ATR-adjusted band)
+   - Current volume > 5-day rolling average volume
+   - Enter at next open or on pullback to broken envelope level
+
+Exit Rules:
+1. Profit Taking:
+   - 1.5x ATR target from entry point
+   - OR when price re-enters VWAP envelope
+
+2. Stop Loss:
+   - Fixed at 1x ATR from entry
+   - OR when opposite envelope is touched (for counter-trend protection)
+
+Risk Management:
+1. Position sizing based on 1% risk per trade (ATR stop determines share quantity)
+2. Maximum 5 concurrent positions open
+3. No new entries if 3 consecutive losing trades occur (cool-down period)
+
+Required Indicators:
+1. VWAP (Volume Weighted Average Price)
+2. ATR (14-period recommended)
+3. Volume (5-day simple moving average)
+4. Custom VWAP envelope bands (VWAP ± ATR multiplier)
+
+Optimization Notes:
+- Test different ATR multipliers (1.5-3x typical range)
+- Adjust volume acceleration threshold (1.2-2x average)
+- Consider time-based exits (e.g., 3-5 day hold period)
+
+This strategy excels in trending markets with expanding volatility, using volume confirmation to filter false breakouts while dynamically adjusting to changing market conditions through the ATR component.

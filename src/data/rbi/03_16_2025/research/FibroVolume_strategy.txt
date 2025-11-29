@@ -1,0 +1,55 @@
+STRATEGY_NAME: FibroVolume
+
+STRATEGY_DETAILS:
+The FibroVolume strategy combines Fibonacci retracement levels with volume analysis and momentum indicators to identify high-probability pullback trades. The strategy focuses on price retracements to key Fibonacci levels (38.2%, 50%, or 61.8%) accompanied by reduced volume, signaling a potential reversal. Exits are determined using RSI divergence or MACD crossovers, ensuring timely profit-taking or stop-loss execution.
+
+### Key Strategy Components:
+1. **Fibonacci Retracement Levels**: Used to identify potential support/resistance zones during pullbacks.
+2. **Volume Analysis**: Reduced volume at Fibonacci levels indicates weakening momentum and potential reversal.
+3. **RSI Divergence**: Detects momentum shifts for exit signals.
+4. **MACD Crossover**: Confirms trend reversals for exit decisions.
+
+### Entry Rules:
+1. Identify a strong trend (uptrend or downtrend) using price action or a trend indicator (e.g., EMA).
+2. Draw Fibonacci retracement levels from the recent swing high to swing low (for uptrends) or swing low to swing high (for downtrends).
+3. Wait for price to retrace to a key Fibonacci level (38.2%, 50%, or 61.8%).
+4. Confirm reduced volume at the retracement level compared to the previous trend's volume.
+5. Enter a trade in the direction of the original trend:
+   - **Long Entry**: In an uptrend, when price touches a Fibonacci level with reduced volume.
+   - **Short Entry**: In a downtrend, when price touches a Fibonacci level with reduced volume.
+
+### Exit Rules:
+1. **RSI Divergence Exit**:
+   - For long trades, exit when RSI shows bearish divergence (price makes higher highs while RSI makes lower highs).
+   - For short trades, exit when RSI shows bullish divergence (price makes lower lows while RSI makes higher lows).
+2. **MACD Crossover Exit**:
+   - For long trades, exit when MACD line crosses below the signal line.
+   - For short trades, exit when MACD line crosses above the signal line.
+3. **Stop-Loss Placement**:
+   - Place stop-loss slightly below the Fibonacci level for long trades or above the Fibonacci level for short trades.
+
+### Risk Management:
+1. Risk no more than 1-2% of your trading capital per trade.
+2. Use a fixed risk-reward ratio (e.g., 1:2 or 1:3) based on the distance between entry and stop-loss levels.
+3. Avoid trading during high-impact news events to prevent erratic price movements.
+
+### Required Indicators:
+1. **Fibonacci Retracement Tool**: To identify key retracement levels.
+2. **Volume Indicator**: To confirm reduced volume at Fibonacci levels.
+3. **RSI (Relative Strength Index)**: To detect divergence for exit signals.
+4. **MACD (Moving Average Convergence Divergence)**: To confirm trend reversals for exits.
+
+### Example Setup:
+- **Uptrend Scenario**:
+  - Price retraces to the 50% Fibonacci level.
+  - Volume decreases significantly compared to the previous uptrend.
+  - Enter a long trade with a stop-loss below the 61.8% level.
+  - Exit when RSI shows bearish divergence or MACD crosses below the signal line.
+
+- **Downtrend Scenario**:
+  - Price retraces to the 38.2% Fibonacci level.
+  - Volume decreases significantly compared to the previous downtrend.
+  - Enter a short trade with a stop-loss above the 38.2% level.
+  - Exit when RSI shows bullish divergence or MACD crosses above the signal line.
+
+This strategy is ideal for traders who prefer combining technical levels with volume and momentum analysis to capture high-probability reversals in trending markets.

@@ -1,0 +1,29 @@
+STRATEGY_NAME: BandwidthBreakout  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on volatility contraction followed by expansion, using Bollinger Band width and volume confirmation to identify high-probability breakout trades.  
+
+**Key Components:**  
+1. **Bollinger Band Width Contraction:** Measures the difference between upper and lower Bollinger Bands (typically 20-period, 2 Std Dev). A contraction below its 10-day low signals reduced volatility and potential impending breakout.  
+2. **Volume Spike:** Breakouts require confirmation via volume exceeding the 20-day average, ensuring participation.  
+3. **ATR-Based Risk/Reward:** Uses 3x the 14-period Average True Range (ATR) for both trailing stop-loss and profit target, adapting to market volatility.  
+
+**Entry Rules:**  
+- Trigger: Bollinger Band width (Upper Band - Lower Band) reaches a 10-day low.  
+- Confirmation: Volume exceeds 20-day average volume.  
+- Entry: Buy/sell on breakout of the prior candle’s high/low (for long/short).  
+
+**Exit Rules:**  
+- **Profit Target:** 3x ATR from entry price.  
+- **Stop-Loss:** Trailing stop set at 3x ATR below/above the highest/lowest close since entry (for long/short).  
+
+**Risk Management:**  
+- Position sizing based on stop distance (e.g., risking 1-2% of capital per trade).  
+- Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 Std Dev) + width calculation.  
+2. 20-day average volume.  
+3. 14-period ATR for stop/target.  
+
+**Unique Edge:** Combines volatility compression (Bandwidth) with volume-fueled breakouts, filtered by ATR for dynamic risk/reward. Avoids choppy markets via volume confirmation.

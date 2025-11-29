@@ -1,0 +1,39 @@
+STRATEGY_NAME: FibStochTrend
+
+STRATEGY_DETAILS:
+The FibStochTrend strategy combines Fibonacci retracement levels with the Stochastic Oscillator to identify high-probability trend-following opportunities. This approach focuses on entering trades during pullbacks within a strong trend, using Fibonacci levels as support/resistance zones and the Stochastic Oscillator to confirm momentum alignment.
+
+### Key Components:
+1. **Fibonacci Retracement Levels**: Used to identify potential support/resistance zones during pullbacks in a trending market.
+2. **Stochastic Oscillator**: Used to confirm momentum alignment with the trend and identify overbought/oversold conditions.
+3. **Trend Identification**: Relies on higher timeframes (e.g., daily or 4-hour charts) to determine the primary trend direction.
+
+### Entry Rules:
+1. **Identify the Trend**: Use a higher timeframe (e.g., daily chart) to determine the primary trend (uptrend or downtrend).
+2. **Draw Fibonacci Retracement Levels**: On the lower timeframe (e.g., 1-hour chart), draw Fibonacci retracement levels from the most recent swing high to swing low (in an uptrend) or swing low to swing high (in a downtrend).
+3. **Wait for Pullback**: Look for price to retrace to key Fibonacci levels (38.2%, 50%, or 61.8%) within the trend.
+4. **Stochastic Confirmation**: 
+   - In an **uptrend**, wait for the Stochastic Oscillator to exit the oversold zone (below 20) and cross above 20, indicating bullish momentum.
+   - In a **downtrend**, wait for the Stochastic Oscillator to exit the overbought zone (above 80) and cross below 80, indicating bearish momentum.
+5. **Entry Signal**: Enter a long trade in an uptrend or a short trade in a downtrend when the above conditions align.
+
+### Exit Rules:
+1. **Take Profit**: Set take-profit levels at the next Fibonacci extension level (e.g., 127.2% or 161.8%) or at a key resistance/support level.
+2. **Stop Loss**: Place the stop loss below the recent swing low (for long trades) or above the recent swing high (for short trades).
+3. **Stochastic Overbought/Oversold Exit**: Consider exiting the trade if the Stochastic Oscillator reaches extreme overbought (above 80) or oversold (below 20) levels, depending on the trend direction.
+
+### Risk Management:
+1. **Position Sizing**: Risk no more than 1-2% of your trading capital per trade.
+2. **Risk-Reward Ratio**: Aim for a minimum risk-reward ratio of 1:2 or better.
+3. **Trailing Stop**: Use a trailing stop to lock in profits as the trade moves in your favor.
+
+### Required Indicators:
+1. **Fibonacci Retracement Tool**: Available on most trading platforms.
+2. **Stochastic Oscillator**: Default settings (14, 3, 3) are typically sufficient.
+
+### Additional Notes:
+- This strategy works best in trending markets. Avoid using it during choppy or sideways market conditions.
+- Always confirm the trend direction on a higher timeframe before executing trades on a lower timeframe.
+- Combine this strategy with price action confirmation (e.g., candlestick patterns) for higher accuracy.
+
+By following the FibStochTrend strategy, traders can effectively capitalize on pullbacks within strong trends while managing risk through clear entry and exit rules.

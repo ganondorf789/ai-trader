@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolatilityFundament  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Negative Funding Rate Filter:** Identifies potential long opportunities when traders are paying shorts (negative funding), suggesting overcrowded short positioning.  
+2. **Volatility-Scaled Moving Average (VSMA):** Uses a dynamic moving average (e.g., 20-period) adjusted by recent volatility (ATR or standard deviation) to define trend direction. Breakouts above this adaptive MA confirm entries.  
+3. **Exit Conditions:** Monitors funding rate reversals (to positive) or price closing below the VSMA to secure profits or limit losses.  
+
+**Entry Rules:**  
+- **Trigger:** Price closes *above* the VSMA (e.g., 20-period SMA + 1x ATR multiplier).  
+- **Confirmation:** Funding rate is negative (e.g., ≤ -0.01% per 8h interval).  
+- **Action:** Enter long at market/open of next candle.  
+
+**Exit Rules:**  
+- **Primary Exit:** Funding rate turns positive (≥ 0%) or price closes *below* VSMA.  
+- **Emergency Exit:** Fixed stop-loss (e.g., 2x ATR below entry) if price moves against position before exit triggers.  
+
+**Risk Management:**  
+- Position size: 1–2% of capital per trade.  
+- Stop-loss: Dynamic (e.g., VSMA or 2x ATR) or static (e.g., 5% below entry).  
+- Avoid trading during low volatility (e.g., ATR < recent median) to reduce false signals.  
+
+**Required Indicators:**  
+1. **Funding Rate Data:** Real-time perpetual futures funding rates (negative values critical).  
+2. **Volatility-Scaled MA:** SMA/EMA adjusted by ATR (e.g., SMA20 + ATR(14)).  
+3. **ATR (14-period):** Measures volatility for MA scaling and stop-loss placement.  
+
+**Unique Edge:** Combines mean-reversion (funding rate extremes) with trend-following (VSMA breakout), exploiting overcrowded shorts while aligning with volatility-adjusted momentum.  
+
+**Optimization Tips:**  
+- Test VSMA period (e.g., 10–50) and volatility multiplier (e.g., 0.5x–2x ATR).  
+- Filter for high-volume coins to ensure liquidity during reversals.  
+- Backtest across multiple funding regimes (prolonged negative/positive phases).

@@ -1,0 +1,39 @@
+STRATEGY_NAME: DeltaChannelBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Heikin-Ashi trend filtering with Keltner Channel breakouts during high-liquidity session overlaps, confirmed by Cumulative Delta Volume divergence for enhanced probability trades.
+
+Key Components:
+1. Timeframe Synergy: Uses 15m Heikin-Ashi candles for clean trend visualization within 2h Keltner Channel structure
+2. Session Timing: Focuses specifically on NYSE-London overlap (8:00-11:30 EST) when liquidity and volatility peak
+3. Volume Confirmation: Requires Cumulative Delta divergence to validate breakout strength
+
+Entry Rules:
+1. Trigger: 15m Heikin-Ashi candle closes completely outside 2h Keltner Channel
+2. Confirmation: Cumulative Delta must show divergence (price making new high/low while delta fails to confirm)
+3. Timing: Only valid during NYSE-London overlap hours
+4. Direction: Long if above upper channel, short if below lower channel
+
+Exit Rules:
+1. Profit Taking: 
+   - Primary: When price re-enters Keltner Channel
+   - Secondary: 2:1 risk-reward ratio
+2. Stop Loss: 
+   - Fixed: Opposite side of Keltner Channel
+   - Dynamic: Recent swing high/low (whichever is closer)
+
+Risk Management:
+1. Position Size: 1-2% risk per trade
+2. Maximum Daily Trades: 3 (to avoid overtrading during active session)
+3. Filter: Skip trades if VIX < 12 (low volatility environment)
+
+Required Indicators:
+1. Heikin-Ashi candles (15m chart)
+2. Keltner Channel (2h chart, 20-period EMA, 2.5x ATR width)
+3. Cumulative Delta Volume (with divergence detection)
+4. Session overlap indicator (NYSE-London hours)
+
+Special Notes:
+- Works best in trending markets, may produce false signals during choppy conditions
+- Requires monitoring of news events that may disrupt normal volume patterns
+- Ideal for futures, forex, and liquid equities with strong session participation

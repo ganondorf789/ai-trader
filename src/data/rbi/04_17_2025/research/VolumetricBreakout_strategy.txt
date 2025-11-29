@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **EMA Crossover:** The strategy uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as a primary trend confirmation signal.  
+2. **Volume Spike:** A breakout is only valid if trading volume exceeds its 20-day average, ensuring momentum confirmation.  
+3. **ATR Trailing Stop:** Exits are managed using a trailing stop set at 2x the Average True Range (ATR) to lock in profits while allowing room for volatility.  
+
+**Entry Rules:**  
+- Enter a long position when:  
+  1. The 50-period EMA crosses **above** the 200-period EMA (bullish crossover).  
+  2. Volume on the breakout candle is **higher than the 20-day average volume**.  
+- Optional: Wait for a candle close above the breakout level for additional confirmation.  
+
+**Exit Rules:**  
+- Use a **trailing stop** set at **2x the current ATR value** (e.g., if ATR = 10 pips, trail stop at 20 pips below the highest high since entry).  
+- Exit the trade when price hits the trailing stop.  
+
+**Risk Management:**  
+- Position sizing should be based on a fixed percentage of capital (e.g., 1-2% risk per trade).  
+- Avoid entering trades if the ATR is excessively high (indicating unstable volatility).  
+- Consider filtering trades during major news events to avoid false breakouts.  
+
+**Required Indicators:**  
+1. **50-period EMA** (Exponential Moving Average)  
+2. **200-period EMA**  
+3. **20-day Average Volume** (simple moving average of volume)  
+4. **ATR (14-period default)** for trailing stop calculation  
+
+**Additional Notes:**  
+- Works best in trending markets; may produce false signals in choppy/range-bound conditions.  
+- Backtest optimal ATR multiplier (e.g., 1.5x-3x) for different asset classes.  
+- Combine with price action (e.g., breakout above key resistance) for higher probability setups.  
+
+This strategy combines **volume-confirmed trend momentum** with **adaptive volatility-based exits**, making it distinct from generic breakout systems.

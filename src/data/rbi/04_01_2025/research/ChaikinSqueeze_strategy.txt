@@ -1,0 +1,56 @@
+STRATEGY_NAME: ChaikinSqueeze  
+
+STRATEGY_DETAILS:  
+This strategy combines Chaikin Money Flow (CMF) divergence with Bollinger Bandwidth contraction to identify potential accumulation/distribution phases before volatility expansion. The approach focuses on spotting hidden strength/weakness during low volatility periods and capitalizing on the subsequent breakout.  
+
+**Key Components:**  
+1. **Chaikin Money Flow (CMF):**  
+   - Measures money flow volume over a set period (typically 20-21 bars)  
+   - Positive values indicate buying pressure, negative values show selling pressure  
+   - Divergence between price and CMF signals potential reversals  
+
+2. **Bollinger Bandwidth:**  
+   - Measures the percentage difference between upper and lower bands  
+   - Contraction indicates low volatility and potential impending expansion  
+   - Breakout from contraction often leads to strong directional moves  
+
+**Entry Rules:**  
+1. **Setup Conditions:**  
+   - Bollinger Bandwidth reaches lowest 20% of its 50-period range (contraction)  
+   - Price forms at least 3 consecutive inside bars within the bands  
+   - CMF shows divergence (price makes lower low while CMF makes higher low for long, or vice versa for short)  
+
+2. **Trigger:**  
+   - Long Entry: Price closes above upper Bollinger Band with expanding volume  
+   - Short Entry: Price closes below lower Bollinger Band with expanding volume  
+
+**Exit Rules:**  
+1. **Take Profit:**  
+   - Opposite Bollinger Band (exit long at lower band, exit short at upper band)  
+   - Or when CMF crosses zero in opposite direction  
+
+2. **Stop Loss:**  
+   - For longs: Recent swing low below lower band  
+   - For shorts: Recent swing high above upper band  
+   - Or fixed percentage (e.g., 2-3%) based on volatility  
+
+**Risk Management:**  
+1. Position size limited to 1-2% of capital per trade  
+2. Stop loss must be placed immediately after entry  
+3. Avoid trading during major economic news events when false breakouts are common  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2 standard deviations)  
+2. Bollinger Bandwidth (50-period lookback for contraction detection)  
+3. Chaikin Money Flow (21-period)  
+4. Volume indicator (for confirmation)  
+
+**Optimal Conditions:**  
+- Works best in ranging markets transitioning to trends  
+- Higher timeframe (4H/Daily) provides more reliable signals  
+- Combine with sector/overall market direction for confluence  
+
+**Special Notes:**  
+- False breakouts are common - wait for closing confirmation  
+- CMF divergence must be clear and significant (not minor wobbles)  
+- Bandwidth contraction should be at extreme lows compared to recent history

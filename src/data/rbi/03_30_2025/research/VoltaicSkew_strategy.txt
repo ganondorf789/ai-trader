@@ -1,0 +1,29 @@
+STRATEGY_NAME: VoltaicSkew  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Regime Focus**: Targets shifts from low to high volatility environments.  
+2. **IV Percentile Threshold**: Uses the 10-day implied volatility (IV) percentile crossing above 80 as a primary filter.  
+3. **Delta Skew Divergence**: Requires simultaneous *negative* delta skew divergence (skew trending downward while IV rises).  
+4. **Exit Mechanic**: Relies on mean-reversion of the IV/spot correlation (e.g., when IV stabilizes or reverts relative to spot price movement).  
+
+**Entry Rules:**  
+- Trigger: 10-day IV percentile > 80 (indicating elevated volatility).  
+- Confirmation: Negative delta skew divergence (skew declining as IV rises, signaling bearish sentiment mismatch).  
+- Entry Type: Likely short volatility (e.g., selling options or spreads) given the skew divergence context.  
+
+**Exit Rules:**  
+- Primary: IV/spot correlation mean-reversion (e.g., IV decelerates while spot stabilizes or reverses).  
+- Secondary: Fixed profit target (e.g., 1.5x risk) or trailing stop based on IV percentile dropping below 60.  
+
+**Risk Management:**  
+- Position Sizing: Allocate 1–3% of capital per trade due to volatility sensitivity.  
+- Stop-Loss: Exit if IV percentile surges further (e.g., > 90) *without* skew divergence confirmation.  
+- Hedging: Consider long-delta hedges (e.g., long underlying) if skew divergence weakens abruptly.  
+
+**Required Indicators:**  
+1. **10-Day IV Percentile** (historical implied volatility range).  
+2. **Delta Skew** (measure of put/call demand imbalance).  
+3. **IV/Spot Correlation** (rolling correlation between IV and price moves).  
+
+**Unique Edge:** Combines *regime shift timing* (IV percentile) with *sentiment confirmation* (skew divergence), avoiding false breakouts in volatile markets. The name "VoltaicSkew" reflects the strategy’s focus on abrupt volatility shifts ("Voltaic") and skew-based filtering ("Skew").

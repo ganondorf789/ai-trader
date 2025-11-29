@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolumeSilhouetteEMA
+
+STRATEGY_DETAILS:
+This strategy combines trend confirmation with volume analysis and momentum exhaustion signals to capture high-probability moves during low-volume consolidation periods.
+
+Key Components:
+1. Trend Identification: Uses the 50/200 EMA crossover as primary trend confirmation
+2. Volume Filter: Requires declining volume during the setup period
+3. Momentum Exit: Uses RSI overbought condition as profit-taking signal
+4. Risk Management: Implements strict 2:1 reward-to-risk ratio
+
+Entry Rules:
+1. Wait for 50-period EMA to cross above 200-period EMA (golden cross)
+2. Confirm volume is in a declining trend (at least 3 consecutive lower volume bars)
+3. Enter long on next candle open after both conditions are met
+
+Exit Rules:
+1. Profit Target: Set at 2x initial risk (e.g., if stop is 50 pips, target is +100 pips)
+2. Protective Stop: Place below most recent swing low or 1% of account equity
+3. Early Exit: Close position if RSI(14) exceeds 70
+
+Required Indicators:
+1. 50-period Exponential Moving Average (EMA)
+2. 200-period Exponential Moving Average (EMA)
+3. Volume indicator (preferably with 5-period MA for trend analysis)
+4. 14-period Relative Strength Index (RSI)
+
+Risk Management:
+1. Position size should not exceed 1-2% of account per trade
+2. Maintain 2:1 reward-to-risk ratio on all trades
+3. Avoid trading during major news events that may cause volume spikes
+4. Consider time-based exits if trade doesn't develop within 3-5 periods
+
+Special Considerations:
+- Works best in trending markets, may produce false signals in choppy conditions
+- Volume decline should be noticeable but not extreme (avoid ultra-low volume)
+- Combine with price action confirmation for higher probability entries
+- Most effective on daily or 4-hour timeframes for swing trading

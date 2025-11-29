@@ -1,0 +1,50 @@
+STRATEGY_NAME: VortexVolumeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines three powerful technical elements - the Vortex Indicator for trend confirmation, volume surge for momentum validation, and Fibonacci levels for precision profit-taking.
+
+Key Components:
+1. Vortex Indicator (VI) - Uses VI+ and VI- lines to identify trend direction
+2. Volume Analysis - Requires 50%+ increase from average volume
+3. Fibonacci Retracement - Sets dynamic profit targets at key levels (38.2%, 50%, 61.8%)
+
+Entry Rules:
+1. Long Entry:
+   - VI+ crosses above VI- (bullish signal)
+   - Current volume exceeds 50-day average by 50%+
+   - Price breaks above recent resistance level
+
+2. Short Entry:
+   - VI- crosses above VI+ (bearish signal)
+   - Current volume exceeds 50-day average by 50%+
+   - Price breaks below recent support level
+
+Exit Rules:
+1. Profit Targets:
+   - First target: 38.2% Fibonacci retracement of recent swing
+   - Second target: 50% retracement level
+   - Final target: 61.8% retracement level
+   (Scale out positions at each level)
+
+2. Stop Loss:
+   - Place below recent swing low (for longs) or above swing high (for shorts)
+   - Alternative: 1.5x ATR (14-period) from entry point
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Risk-reward ratio minimum 1:2
+3. Avoid trading during major economic news events
+4. Daily loss limit of 5% of total capital
+
+Required Indicators:
+1. Vortex Indicator (default 14-period)
+2. Volume (50-day average comparison)
+3. Fibonacci Retracement tool
+4. Optional: ATR (14-period) for stop placement
+
+Optimization Tips:
+1. Test different volume threshold percentages (40-60%)
+2. Experiment with Fibonacci extensions beyond 61.8% for stronger trends
+3. Consider adding a volatility filter (e.g., only trade when ATR > recent average)
+
+This strategy excels in trending markets with clear breakouts, using volume confirmation to filter false signals and Fibonacci levels for disciplined profit-taking. The Vortex Indicator provides reliable trend direction while the volume surge confirms strong participation in the move.

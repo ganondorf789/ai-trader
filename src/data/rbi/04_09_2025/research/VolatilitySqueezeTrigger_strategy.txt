@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolatilitySqueezeTrigger
+
+STRATEGY_DETAILS:
+This strategy combines three key technical indicators (Bollinger Bands, Volume, and MACD) with Keltner Channels to identify high-probability entries during low volatility periods and exits when volatility expands.
+
+Key Components:
+1. Bollinger Bands (20,2) - Identifies volatility contraction (squeeze)
+2. Volume (50-period MA) - Confirms breakout validity
+3. MACD (12,26,9) - Provides momentum confirmation
+4. Keltner Channels (20,2) - Defines exit points
+
+Entry Rules:
+1. Primary Condition: Bollinger Band width must be below its 20-period average (volatility squeeze)
+2. Confirmation 1: Volume must spike above its 50-period MA
+3. Confirmation 2: MACD must show bullish crossover (for long) or bearish crossover (for short)
+4. Entry: Buy when all three conditions align in the same direction
+
+Exit Rules:
+1. Take Profit: When price touches the opposite Keltner Channel (upper for long, lower for short)
+2. Stop Loss: When price breaches the same-side Keltner Channel (lower for long, upper for short)
+3. Alternative Exit: MACD shows reversal signal in profit zone
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Stop placement: 1.5x the Bollinger Band width at entry
+3. Maximum daily trades: 3 to avoid over-trading low volatility periods
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Volume with 50-period MA
+3. MACD (12,26,9)
+4. Keltner Channels (20,2)
+
+Special Notes:
+- Works best in ranging markets
+- Avoid during high volatility/news events
+- Requires confirmation from all three indicators to filter false breakouts
+- Ideal timeframe: 1H-4H charts for swing trades

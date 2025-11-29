@@ -1,0 +1,52 @@
+STRATEGY_NAME: VolatilitySqueeze
+
+STRATEGY_DETAILS:
+The VolatilitySqueeze strategy focuses on identifying periods of low volatility followed by potential breakouts, using a combination of Bollinger Bands and Keltner Channels. The strategy enters trades when volatility expands after a contraction, confirmed by a surge in volume, and exits using a dynamic trailing stop based on recent price action.
+
+### Key Strategy Components:
+1. **Bollinger Bands**: Measures volatility and identifies periods of contraction (squeeze).
+2. **Keltner Channels**: Provides a secondary volatility measure to confirm the squeeze.
+3. **Volume Surge**: Confirms breakout strength and validates the trade signal.
+4. **Trailing Stop**: Manages risk and locks in profits as the trade moves favorably.
+
+### Entry Rules:
+1. **Volatility Squeeze Identification**:
+   - Wait for the Bollinger Bandwidth (BBW) to reach a low level, indicating a contraction in volatility.
+   - Confirm the squeeze by ensuring the Keltner Channel width is also narrow.
+2. **Breakout Confirmation**:
+   - Enter a long trade when the price breaks above the upper Bollinger Band or Keltner Channel.
+   - Enter a short trade when the price breaks below the lower Bollinger Band or Keltner Channel.
+3. **Volume Surge**:
+   - Ensure the breakout is accompanied by a significant increase in trading volume (e.g., volume > 1.5x the 20-period average volume).
+
+### Exit Rules:
+1. **Trailing Stop**:
+   - Set a trailing stop at 2x the recent average candle range (e.g., 14-period ATR multiplied by 2).
+   - Adjust the stop level as the price moves in your favor, locking in profits while allowing room for volatility.
+2. **Manual Exit**:
+   - Exit the trade if the price retraces and closes back inside the Bollinger Bands or Keltner Channels.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital per trade.
+2. **Stop Loss**:
+   - Use the trailing stop as your primary risk management tool.
+3. **Avoid Overtrading**:
+   - Only take trades during high-probability setups (confirmed squeeze + volume surge).
+
+### Required Indicators:
+1. **Bollinger Bands**:
+   - Period: 20
+   - Standard Deviation: 2
+2. **Keltner Channels**:
+   - Period: 20
+   - ATR Multiplier: 1.5
+3. **Volume Indicator**:
+   - 20-period moving average of volume.
+4. **Average True Range (ATR)**:
+   - Period: 14 (used to calculate trailing stop distance).
+
+### Additional Notes:
+- This strategy works best in trending or breakout-prone markets.
+- Avoid using it during choppy or range-bound conditions.
+- Backtest thoroughly to optimize parameters for your specific trading instrument and timeframe.

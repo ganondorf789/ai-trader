@@ -1,0 +1,40 @@
+STRATEGY_NAME: DynamicCrossfire
+
+STRATEGY_DETAILS:
+The DynamicCrossfire strategy combines trend confirmation with momentum analysis to identify high-probability trading opportunities while avoiding overbought conditions. This systematic approach uses three key technical indicators to create a robust trading framework.
+
+Key Components:
+1. EMA Crossover (50-period & 200-period) - Primary trend confirmation
+2. ADX (25 threshold) - Trend strength filter
+3. RSI (70 threshold) - Overbought exit signal
+
+Entry Rules:
+1. Wait for the 50-period EMA to cross ABOVE the 200-period EMA (Golden Cross)
+2. Confirm the ADX is above 25, indicating strong trend strength
+3. Only enter long positions when both conditions are met simultaneously
+
+Exit Rules:
+1. Monitor RSI for values crossing BELOW 70 from above
+2. Exit the position when RSI shows this overbought reversal signal
+3. Alternative exit: If the 50-EMA crosses back below 200-EMA (Death Cross)
+
+Risk Management:
+1. Recommended stop-loss: 2-3% below entry price or below recent swing low
+2. Position sizing: Risk no more than 1-2% of capital per trade
+3. Avoid trading during major news events that may cause false signals
+4. Consider time-based exits if RSI doesn't trigger (e.g., 5-10 day hold period)
+
+Required Indicators:
+1. 50-period Exponential Moving Average (EMA)
+2. 200-period Exponential Moving Average (EMA)
+3. Average Directional Index (ADX) with 14-period default setting
+4. Relative Strength Index (RSI) with 14-period default setting
+
+Additional Notes:
+- Best suited for daily or 4-hour timeframes in trending markets
+- Works well with liquid assets showing clear trends
+- Combine with price action confirmation for higher accuracy
+- Backtest suggested for optimal ADX threshold (25-30 range)
+- Consider volume confirmation for additional validation
+
+The DynamicCrossfire strategy provides a balanced approach between trend-following and momentum analysis, aiming to capture the middle portion of strong trends while avoiding late-cycle entries near potential reversals.

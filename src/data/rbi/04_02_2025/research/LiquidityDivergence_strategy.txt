@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquidityDivergence  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Order Book Imbalance (OBI)**: Measures bid-side dominance in the order book. A threshold of >10% signals strong buying pressure.  
+2. **Perpetual Swap Funding Rate**: Negative funding rates indicate traders are paying to hold long positions, often preceding price rallies.  
+3. **Exit Conditions**: Funding rate flipping positive or OBI dropping below 5% signals weakening momentum or profit-taking.  
+
+**Entry Rules:**  
+- Enter a **long position** when:  
+  - Order book imbalance (bid-side) exceeds **10%** (e.g., bids > asks by 10%+ of total liquidity).  
+  - Perpetual funding rate is **negative** (confirming bearish sentiment among shorts).  
+
+**Exit Rules:**  
+- Close the position if **either**:  
+  - Funding rate turns **positive** (indicating fading bearish pressure).  
+  - Order book imbalance drops below **5%** (loss of bid-side dominance).  
+
+**Risk Management:**  
+1. **Stop-Loss**: Optional trailing stop based on recent swing lows (e.g., -2% from entry).  
+2. **Position Sizing**: Allocate 1-3% of capital per trade to limit exposure.  
+3. **Time Exit**: Exit after 24 hours if conditions persist but price stagnates.  
+
+**Required Indicators:**  
+1. **Real-Time Order Book Data**: To calculate bid/ask imbalance:  
+   - Formula: `(Total Bids - Total Asks) / (Total Bids + Total Asks) * 100`.  
+2. **Funding Rate Feed**: Negative values must be confirmed across multiple exchanges.  
+
+**Unique Edge:**  
+- Combines **liquidity dynamics** (OBI) with **sentiment extremes** (funding rates) to catch reversals before price reacts.  
+- Avoids chasing overextended moves by exiting early on fading signals.  
+
+**Optimization Tips:**  
+- Test imbalance thresholds (e.g., 8%-12%) for different assets.  
+- Filter for high-liquidity pairs to reduce slippage.  
+- Pair with volume spikes for higher-probability entries.

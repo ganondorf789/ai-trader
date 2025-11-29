@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolumetricMomentum
+
+STRATEGY_DETAILS:
+This strategy combines volume-weighted price confirmation with strong momentum signals for high-probability entries, using adaptive trend-following for exits.
+
+Key Components:
+1. Volume-Weighted Average Price (VWAP) - 5-day vs 50-day crossover
+2. Chande Momentum Oscillator (14-day) - Momentum confirmation
+3. Fractal Adaptive Moving Average (10-day) - Dynamic exit mechanism
+
+Entry Rules:
+1. Primary Condition: 5-day VWAP must cross ABOVE 50-day VWAP (volume-confirmed trend shift)
+2. Momentum Filter: 14-day Chande Oscillator must be > +50 (strong bullish momentum)
+3. Both conditions must be met simultaneously for entry
+
+Exit Rules:
+1. Primary Exit: Close position when price closes below 10-day FRAMA for 2 consecutive days
+2. Optional Stop-Loss: Consider 2% below entry price or below recent swing low
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Stop-loss placement: Either:
+   - Fixed percentage (1.5-2% below entry)
+   - Below recent swing low
+   - Below 50-day VWAP (whichever is higher)
+3. Take-profit: Consider 2:1 or 3:1 risk-reward ratio based on volatility
+
+Required Indicators:
+1. Volume-Weighted Average Price (VWAP) - 5-day and 50-day periods
+2. Chande Momentum Oscillator - 14-day period
+3. Fractal Adaptive Moving Average (FRAMA) - 10-day period with default parameters
+
+Additional Notes:
+- Best suited for trending markets, may underperform in ranging conditions
+- Works well on daily timeframe for swing trading
+- Volume confirmation adds reliability to momentum signals
+- FRAMA exit adapts to market volatility for dynamic trend-following
+- Consider filtering with overall market trend for higher accuracy
+
+Optimization Suggestions:
+1. Test different VWAP periods (e.g., 3-day vs 50-day)
+2. Experiment with Chande threshold levels (+40 to +60)
+3. Adjust FRAMA period or confirmation days (1-3 days)
+4. Add additional filters like ADX > 25 for stronger trends

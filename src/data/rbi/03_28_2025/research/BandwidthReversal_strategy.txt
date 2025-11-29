@@ -1,0 +1,33 @@
+STRATEGY_NAME: BandwidthReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility by measuring when the Bollinger Band width (difference between upper and lower bands) contracts below its 20-day low.  
+2. **Stochastic RSI Confirmation:** Uses the Stochastic RSI (oversold condition) crossing above 20 to confirm potential reversal momentum.  
+3. **Exit Conditions:** Takes profit when price touches the upper Bollinger Band or triggers a 1.5x daily ATR (Average True Range) trailing stop for risk management.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - Bollinger Band width (BB Width) falls below its 20-day low (indicating extreme contraction).  
+  - Stochastic RSI (StochRSI) crosses above 20 (signaling momentum shift from oversold conditions).  
+
+**Exit Rules:**  
+- **Profit-Taking:** Close position when price touches the upper Bollinger Band.  
+- **Stop-Loss:** Dynamic trailing stop set at 1.5x the daily ATR from the entry price.  
+
+**Risk Management:**  
+- Position sizing should align with the 1.5x ATR stop to limit risk per trade (e.g., 1-2% of capital).  
+- Avoid trading during major news events to prevent false breakouts due to sudden volatility spikes.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To measure volatility contraction and identify upper band exit.  
+2. **Stochastic RSI (14,3,3)** – For oversold confirmation.  
+3. **Average True Range (ATR, 14-day)** – To set the trailing stop distance.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (BB Width) with momentum reversal (StochRSI) for high-probability entries.  
+- Uses ATR for adaptive risk management, adjusting stops to market conditions.  
+- Avoids generic trend-following by focusing on mean-reversion signals during low volatility.  
+
+**Note:** Backtest optimal parameters for BB period/StochRSI settings and validate across multiple asset classes.

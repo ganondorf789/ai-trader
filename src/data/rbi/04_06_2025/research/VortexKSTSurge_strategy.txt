@@ -1,0 +1,42 @@
+STRATEGY_NAME: VortexKST Surge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI)**: Used for trend confirmation. The strategy requires both VI+ (positive trend) and VI- (negative trend) lines to cross, indicating a strong trend direction.  
+2. **Know Sure Thing (KST) Oscillator**: A momentum oscillator that combines multiple smoothed ROC periods. Crossovers of the KST line above/below its signal line generate trade signals.  
+3. **Volume Surge Filter**: Trades are only taken when volume exceeds the 20-day average by a significant margin, confirming strong participation in the move.  
+4. **Bollinger Bands**: Used for exit signals when price touches the upper or lower band extremes, indicating potential overbought/oversold conditions.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  - VI+ crosses above VI- (bullish trend confirmation).  
+  - KST line crosses above its signal line (bullish momentum).  
+  - Volume exceeds the 20-day average by a significant margin (e.g., 1.5x or more).  
+- **Short Entry**:  
+  - VI- crosses above VI+ (bearish trend confirmation).  
+  - KST line crosses below its signal line (bearish momentum).  
+  - Volume exceeds the 20-day average by a significant margin (e.g., 1.5x or more).  
+
+**Exit Rules:**  
+- **Long Exit**: Price touches the upper Bollinger Band (potential overbought condition).  
+- **Short Exit**: Price touches the lower Bollinger Band (potential oversold condition).  
+- Additional exit: If the KST line reverses direction (crosses back below/above its signal line) before price touches the Bollinger Band, consider closing the trade.  
+
+**Risk Management:**  
+- Use a stop-loss below the recent swing low (for longs) or above the recent swing high (for shorts).  
+- Position sizing should account for volatility (e.g., ATR-based sizing).  
+- Avoid trading during low-volume periods or when Bollinger Bands are contracting (low volatility).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI) – Default period (14).  
+2. Know Sure Thing (KST) Oscillator – Default settings (ROC 10, 15, 20, 30; SMA 10, 10, 10, 15).  
+3. Volume (20-day moving average for comparison).  
+4. Bollinger Bands (20-period SMA with 2 standard deviations).  
+
+**Unique Aspects:**  
+- Combines trend (VI), momentum (KST), and volume confirmation for high-probability entries.  
+- Uses Bollinger Bands for dynamic exit points rather than fixed profit targets.  
+- Volume surge filter reduces false signals in low-participation environments.  
+
+This strategy is best suited for trending markets and avoids choppy or sideways conditions where Bollinger Bands and KST may generate whipsaws.

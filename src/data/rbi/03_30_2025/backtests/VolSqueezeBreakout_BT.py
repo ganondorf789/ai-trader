@@ -1,0 +1,115 @@
+```python
+import pandas as pd
+import talib
+from backtesting import Backtest, Strategy
+from backtesting.lib import crossover, crossunder
+
+# Load and prepare data
+data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
+
+# Clean data
+data.columns = data.columns.str.strip().str.lower()
+data = data.drop(columns=[col for col in data.columns if 'unnamed' in col])
+
+# Convert and set datetime index
+data['datetime'] = pd.to_datetime(data['datetime'])
+data.set_index('datetime', inplace=True)
+
+# Standardize column names
+data = data.rename(columns={
+    'open': 'Open',
+    'high': 'High',
+    'low': 'Low',
+    'close': 'Close',
+    'volume': 'Volume'
+})
+
+class VolSqueezeBreakout(Strategy):
+    risk_percent = 0.01  # 1% risk per trade
+    
+    def init(self):
+        # Calculate indicators using TA-Lib with self.I()
+        close = self.data.Close
+        volume = self.data.Volume
+        
+        # Bollinger Bands (20,2)
+        def bb_bands(close):
+            upper, middle, lower = talib.BBANDS(
+                close, timeperiod=20, nbdevup=2, nbdevdn=2, matype=0
+            )
+            return upper, middle, lower
+        
+        self.bb_upper, self.bb_middle, self.bb_lower = self.I(
+            bb_bands, close, name=['BB_Upper', 'BB_Middle', 'BB_Lower']
+        )
+        
+        # Bollinger Bandwidth
+        def bb_width(close):
+            upper, middle, lower = talib.BBANDS(
+                close, timeperiod=20, nbdevup=2, nbdevdn=2, matype=0
+            )
+            return (upper - lower) / middle
+        
+        self.bb_width = self.I(bb_width, close, name='BB_Width')
+        
+        # 20-period minimum bandwidth
+        self.bb_width_min = self.I(
+            talib.MIN, self.bb_width, timeperiod=20, name='BB_Width_Min'
+        )
+        
+        # Volume indicators
+        self.volume_avg = self.I(
+            talib.SMA, volume, timeperiod=20, name='Volume_Avg'
+        )
+        
+        # Historical volatility (5-day stddev of returns)
+        self.returns = self.I(talib.ROCP, close, name='Returns')
+        self.hist_vol = self.I(
+            talib.STDDEV, self.returns, timeperiod=5, nbdev=1, name='Hist_Vol'
+        )
+        self.avg_hist_vol = self.I(
+            talib.SMA, self.hist_vol, timeperiod=20, name='Avg_Hist_Vol'
+        )
+        
+        print("🌙 MOON DEV INDICATORS READY FOR LIFTOFF! 🚀")
+
+    def next(self):
+        # Emergency volatility exit
+        if self.position:
+            current_vol = self.hist_vol[-1]
+            avg_vol = self.avg_hist_vol[-1]
+            if current_vol > 2 * avg_vol:
+                self.position.close()
+                print(f"🌪️ VOLATILITY STORM! Closing position at {self.data.Close[-1]} ✨")
+        
+        # Entry logic
+        else:
+            upper = self.bb_upper[-1]
+            lower = self.bb_lower[-1]
+            width_current = self.bb_width[-1]
+            width_min = self.bb_width_min[-1]
+            volume_current = self.data.Volume[-1]
+            volume_avg = self.volume_avg[-1]
+            
+            # Long entry conditions
+            if (self.data.High[-1] > upper and
+                width_current <= width_min and
+                volume_current >= 1.5 * volume_avg):
+                
+                sl_price = lower
+                entry_price = self.data.Close[-1]
+                risk_per_share = entry_price - sl_price
+                
+                if risk_per_share > 0:
+                    position_size = int(round(
+                        (self.risk_percent * self.equity) / risk_per_share
+                    ))
+                    tp_price = entry_price + 1.5 * (upper - lower)
+                    
+                    self.buy(size=position_size, 
+                            sl=sl_price,
+                            tp=tp_price)
+                    print(f"🚀 BULLISH BREAKOUT! Long {position_size} @ {entry_price} 🌙")
+            
+            # Short entry conditions        
+            elif (self.data

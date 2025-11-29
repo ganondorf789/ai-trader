@@ -1,0 +1,70 @@
+STRATEGY_NAME: VolClusterBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction signals with volume surges to identify high-probability breakout opportunities near historical liquidation zones. The approach focuses on catching explosive moves following periods of compressed volatility, with volume confirmation and liquidity analysis.
+
+Key Components:
+1. Volatility Squeeze Detection:
+   - Bollinger Band Width (BBW) contraction below 10th percentile of its 200-period historical range
+   - Uses standard 20-period Bollinger Bands with 2 standard deviations
+
+2. Volume Surge Filter:
+   - Current volume must exceed 150% of 20-day average volume
+   - Volume spike should coincide with BBW expansion
+
+3. Liquidity Zone Analysis:
+   - Identifies prior liquidation clusters (areas of high stop-loss concentration)
+   - Focuses on failed breakouts from these zones as potential reversal points
+
+Entry Rules:
+1. Long Entry:
+   - BBW expands after being below 10th percentile threshold
+   - Volume exceeds 150% of 20-day average
+   - Price breaks above prior resistance near liquidation cluster
+   - MACD(12,26,9) shows bullish crossover confirmation
+
+2. Short Entry:
+   - BBW expands after being below 10th percentile threshold
+   - Volume exceeds 150% of 20-day average
+   - Price breaks below prior support near liquidation cluster
+   - MACD(12,26,9) shows bearish crossover confirmation
+
+Exit Rules:
+1. Profit Taking:
+   - 2:1 reward-risk ratio minimum
+   - Partial profits at 1R (risk amount), trail stop on remainder
+   - Secondary target at previous swing high/low beyond liquidity zone
+
+2. Stop Loss:
+   - Initial stop placed beyond the opposite side of the liquidity cluster
+   - For longs: below most recent swing low before breakout
+   - For shorts: above most recent swing high before breakdown
+
+Risk Management:
+1. Position Sizing:
+   - Maximum 1-2% risk per trade
+   - Adjust position size based on stop distance
+
+2. Trade Filtering:
+   - Only trade when VIX is above 15 (for stocks) or equivalent volatility measure for other assets
+   - Avoid trading during major economic news events
+
+Required Indicators:
+1. Primary:
+   - Bollinger Bands (20,2)
+   - Bollinger Band Width (BBW)
+   - Volume (20-day average)
+   - MACD (12,26,9)
+
+2. Supplementary:
+   - Historical volatility percentile ranking
+   - Liquidity cluster identification tool
+   - VIX or equivalent volatility measure
+
+Optimization Notes:
+- Backtest BBW percentile threshold (5th-15th percentile range)
+- Test volume surge multiples (125%-200% of average)
+- Adjust MACD parameters for different timeframes
+- Validate liquidity cluster identification method
+
+This strategy excels in trending markets following periods of low volatility, particularly when breakouts occur near key liquidity zones where stops are likely clustered. The volume confirmation helps filter false breakouts while the liquidity analysis provides favorable risk-reward setups.

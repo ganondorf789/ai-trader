@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolumetricVortex
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Volume Profile Analysis: Identifies low-volume nodes (areas of minimal trading activity) which often act as breakout zones
+- Vortex Indicator: Confirms trend direction with VI+ (positive) and VI- (negative) crossover signals
+- Chande's Kroll Volatility Bands: Used for dynamic trailing stop placement based on market volatility
+
+2. Entry Rules:
+- Wait for price to approach a identified low-volume node on the volume profile
+- Enter long when:
+  * Price breaks above the low-volume node
+  * VI+ crosses above VI- (bullish confirmation)
+- Enter short when:
+  * Price breaks below the low-volume node
+  * VI- crosses above VI+ (bearish confirmation)
+
+3. Exit Rules:
+- Initial stop placed at the opposite side of the low-volume node
+- Trailing stop adjusted using Chande's Kroll Volatility Bands:
+  * For long positions: trail stop below the lower volatility band
+  * For short positions: trail stop above the upper volatility band
+- Exit entire position when trailing stop is hit
+
+4. Risk Management:
+- Position size calculated based on distance between entry and initial stop
+- Maximum risk per trade typically 1-2% of account
+- No new entries if current trade is active (prevents over-trading)
+
+5. Required Indicators:
+- Volume Profile (to identify low-volume nodes)
+- Vortex Indicator (default 14-period recommended)
+- Chande's Kroll Volatility Bands (standard settings: 10-period Average True Range with 3x multiplier)
+
+6. Additional Notes:
+- Best suited for 1-hour or 4-hour charts
+- Works well in trending markets, may produce false signals in ranging conditions
+- Volume profile should be built using at least 20 trading sessions of data
+- Confirm breakouts with increased volume for higher probability trades
+
+This strategy combines volume-based support/resistance levels with momentum confirmation and volatility-adjusted exits, creating a systematic approach to breakout trading.

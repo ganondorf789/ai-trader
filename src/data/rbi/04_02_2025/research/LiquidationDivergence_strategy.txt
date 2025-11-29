@@ -1,0 +1,53 @@
+STRATEGY_NAME: LiquidationDivergence
+
+STRATEGY_DETAILS:
+This strategy combines liquidation level analysis with RSI divergence to identify high-probability counter-trend entries. The approach focuses on detecting market exhaustion points where forced liquidations create potential reversal opportunities.
+
+Key Components:
+1. Liquidation Level Detection: Identifies "open interest cliffs" - sudden drops in open interest indicating potential liquidation events
+2. Divergence Confirmation: Uses 2-hour RSI to spot bullish/bearish divergences against price action
+3. Swing Structure: Analyzes nearest swing highs/lows for stop placement and confirmation
+
+Entry Rules:
+- Long Entry:
+  1. Spot a significant drop in open interest (liquidation event)
+  2. Observe bullish RSI divergence (higher lows in RSI while price makes lower lows)
+  3. Price must be near a visible support level
+  4. Enter on first bullish candle closing above previous candle high
+
+- Short Entry:
+  1. Spot a significant increase in open interest (potential long squeeze)
+  2. Observe bearish RSI divergence (lower highs in RSI while price makes higher highs)
+  3. Price must be near a visible resistance level
+  4. Enter on first bearish candle closing below previous candle low
+
+Exit Rules:
+- Take Profit: 
+  1. Primary target at 1.5x risk (distance from entry to stop)
+  2. Secondary target at 2.5x risk for partial closes
+  3. Exit fully if RSI reaches overbought (longs) or oversold (shorts) territory
+
+- Stop Loss:
+  1. Placed beyond the nearest swing high (for shorts) or swing low (for longs)
+  2. Adjust stop to breakeven when price reaches 1x risk
+  3. Trail stop at swing points as trend develops
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Never enter without clear divergence confirmation
+3. Avoid trading during major news events when liquidations may continue
+4. Maximum daily loss limit of 5% of capital
+
+Required Indicators:
+1. Open Interest (OI) chart/indicator
+2. 2-hour RSI (14 period standard settings)
+3. Price action swing point analysis
+4. Volume profile (optional but recommended for confirmation)
+
+Additional Notes:
+- Best suited for crypto markets with high leverage and frequent liquidations
+- Most effective on 15m-1h timeframes for entries
+- Requires patience to wait for proper divergence setups
+- Works best in ranging or mildly trending markets (avoid strong trends)
+
+This strategy capitalizes on the market's tendency to overextend during liquidation events, using RSI divergence as confirmation of potential reversals while maintaining strict risk controls around swing structure.

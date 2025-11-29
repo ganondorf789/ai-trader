@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolSqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection**: Uses Bollinger Bands (BB) contraction below a historical percentile (e.g., 20th percentile of BB width over 100 periods) to identify low-volatility conditions.  
+2. **Breakout Confirmation**: Requires BB expansion (price closing outside the bands) accompanied by a surge in volume exceeding its 20-day moving average.  
+3. **Directional Bias**: Long entries on upper BB breakout, short entries on lower BB breakout.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  1. BB width (upper - lower band) is below its 20th percentile (indicating squeeze).  
+  2. Price closes above the upper BB.  
+  3. Volume exceeds its 20-day average by at least 1.5x.  
+- **Short Entry**:  
+  1. BB width is below its 20th percentile.  
+  2. Price closes below the lower BB.  
+  3. Volume exceeds its 20-day average by at least 1.5x.  
+
+**Exit Rules:**  
+- **Profit-Taking**:  
+  - Trailing stop: Exit when price retraces 50% of the breakout candle’s range.  
+  - Or, fixed risk-reward ratio (e.g., 2:1).  
+- **Stop-Loss**:  
+  - Place stop below the breakout candle’s low (for longs) or above its high (for shorts).  
+
+**Risk Management:**  
+- Position sizing: Risk ≤ 1% of capital per trade.  
+- Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 standard deviations).  
+2. BB width percentile (100-period lookback).  
+3. Volume 20-day moving average.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (squeeze) with volume-confirmed expansion.  
+- Filters false breakouts using volume surge, reducing whipsaw trades.  
+- Adaptive to low-volatility regimes, capitalizing on impending volatility spikes.

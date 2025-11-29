@@ -1,0 +1,44 @@
+STRATEGY_NAME: LiquidationVolBreakout
+
+STRATEGY_DETAILS:
+This strategy combines liquidation cluster analysis with volatility contraction patterns to identify high-probability breakout opportunities in futures markets. The approach focuses on areas where price approaches significant liquidation levels while exhibiting reduced volatility, then enters when volatility expands beyond a defined threshold.
+
+Key Components:
+1. Liquidation Cluster Detection: Identifies price levels with high liquidity concentrations where forced liquidations are likely to occur
+2. Volatility Contraction: Uses Bollinger Bands Width to measure periods of compressed volatility
+3. Breakout Confirmation: Requires price to break through both the liquidation cluster and volatility threshold
+
+Entry Rules:
+1. Price must approach within 1% of a identified high liquidation cluster level
+2. Bollinger Bands Width (20,2) must be below its 20-period moving average (volatility contraction)
+3. Entry triggered when:
+   - Price breaks above liquidation cluster level
+   - AND Bollinger Bands Width expands above its 20-period moving average
+   - Volume must be above average on breakout candle
+
+Exit Rules:
+1. Initial target: 1.5x the average true range (ATR) from entry point
+2. Secondary target: 2.5x ATR with partial position closing
+3. Stop loss placed at:
+   - 0.5x ATR below entry for long positions
+   - 0.5x ATR above entry for short positions
+4. Trailing stop activates after price reaches 1x ATR profit
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5% of account
+3. No new entries if 3 consecutive losing trades occur
+4. Avoid trading during major economic news events
+
+Required Indicators:
+1. Liquidation cluster heatmap (proprietary or exchange-provided)
+2. Bollinger Bands (20,2) with Width calculation
+3. 20-period moving average of Bollinger Bands Width
+4. Average True Range (14-period)
+5. Volume indicator with 20-period average
+
+Optimization Notes:
+1. Best suited for 15min-4hr timeframes in liquid futures markets
+2. Works particularly well in trending market conditions
+3. Requires periodic recalibration of volatility thresholds based on current market conditions
+4. Performance improves when combined with order flow analysis for confirmation

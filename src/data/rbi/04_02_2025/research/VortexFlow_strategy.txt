@@ -1,0 +1,38 @@
+STRATEGY_NAME: VortexFlow  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator Crossover:** Uses the VI+ (positive trend) and VI- (negative trend) lines to identify trend direction. A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI+ crosses below VI-.  
+2. **Exchange Netflow Divergence:** Monitors the netflow of assets into/out of exchanges. Bullish divergence occurs when price makes a lower low but netflow shows higher inflows (accumulation). Bearish divergence occurs when price makes a higher high but netflow shows higher outflows (distribution).  
+3. **Bollinger Bandwidth Contraction:** Measures volatility compression using Bollinger Bands. A contraction signals reduced volatility, often preceding a breakout or reversal.  
+4. **Funding Rate Momentum Reversal:** Tracks the rate of change in perpetual futures funding rates. A reversal from positive to negative (or vice versa) indicates shifting sentiment.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - VI+ crosses above VI- (bullish vortex signal).  
+  - Bullish netflow divergence (price lower low, netflow higher low).  
+- **Short Entry:**  
+  - VI+ crosses below VI- (bearish vortex signal).  
+  - Bearish netflow divergence (price higher high, netflow lower high).  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  - Bollinger Bandwidth contracts below a threshold (e.g., 20-period SMA of bandwidth).  
+  - Funding rate momentum reverses from positive to negative.  
+- **Short Exit:**  
+  - Bollinger Bandwidth contracts below threshold.  
+  - Funding rate momentum reverses from negative to positive.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-based stops).  
+- Stop-loss placed below recent swing low (long) or above swing high (short).  
+- Take-profit at 1.5-2x risk or trailing stop based on Bollinger Band expansion.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. Exchange Netflow Data (on-chain metric).  
+3. Bollinger Bands (20,2) + Bandwidth calculation.  
+4. Funding Rate Momentum (e.g., 3-period ROC of funding rates).  
+
+**Unique Edge:** Combines trend-following (Vortex) with on-chain accumulation/distribution signals and volatility/funding rate reversals for high-probability entries and exits.

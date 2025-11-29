@@ -1,0 +1,29 @@
+STRATEGY_NAME: DivergentVolumetric  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **MACD Histogram Divergence:** Identifies bullish divergence when price makes lower lows while MACD histogram forms higher lows, signaling potential upward momentum.  
+2. **On-Balance Volume (OBV) Confirmation:** Ensures volume supports the bullish divergence by trending upward, validating the strength of the move.  
+3. **MACD Signal Line Exit:** Uses the MACD signal line crossing below zero as a clear exit signal to lock in profits or minimize losses.  
+
+**Entry Rules:**  
+- **Condition 1:** Bullish MACD histogram divergence (price lower low, MACD histogram higher low).  
+- **Condition 2:** OBV must be in an uptrend (higher highs or sustained upward slope).  
+- **Action:** Enter long at the close of the candle confirming both conditions.  
+
+**Exit Rules:**  
+- **Primary Exit:** MACD signal line crosses *below* the zero line (indicates weakening momentum).  
+- **Optional Exit:** Trailing stop or fixed risk-reward ratio (e.g., 2:1) if the signal line crossover is delayed.  
+
+**Risk Management:**  
+- **Stop-Loss:** Place below the most recent swing low (for divergence trades) or a fixed percentage (e.g., 1-2%).  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+
+**Required Indicators:**  
+1. **MACD (12, 26, 9):** Standard settings for histogram and signal line analysis.  
+2. **On-Balance Volume (OBV):** No settings needed; focus on trend direction.  
+
+**Notes:**  
+- Avoid trading during low-volume periods or choppy markets (OBV flat).  
+- Works best on daily/weekly timeframes for clearer divergence signals.  
+- Combine with price action (e.g., support/resistance) for higher-probability entries.

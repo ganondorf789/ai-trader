@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolumeSurgeEMA
+
+STRATEGY_DETAILS:
+The VolumeSurgeEMA strategy combines trend-following principles with volume confirmation and momentum-based exits. It focuses on capturing strong trending moves initiated by high-volume breakouts while using RSI to identify overbought conditions for exits.
+
+Key Components:
+1. EMA Crossover: Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as the primary trend confirmation
+2. Volume Spike: Requires a significant increase in volume to confirm the strength of the breakout
+3. RSI Filter: Uses RSI as an exit signal when momentum starts to wane
+4. Risk Management: Implements a 2:1 risk-reward ratio for position sizing
+
+Entry Rules:
+1. Wait for the 50-period EMA to cross above the 200-period EMA
+2. Confirm the crossover with a volume spike (minimum 2x average volume of last 20 periods)
+3. Enter long position at the next candle's open after confirmation
+
+Exit Rules:
+1. Primary Exit: When RSI crosses below 70 from above
+2. Secondary Exit: If price reaches 2x the initial risk level (2:1 reward target)
+3. Stop Loss: Place stop loss at the most recent swing low before entry
+
+Risk Management:
+1. Position Size: Calculate position size based on 1-2% of account risk per trade
+2. Stop Loss: Set at the most recent swing low before entry
+3. Reward Target: Set at 2x the distance between entry and stop loss
+4. Maximum Drawdown: Limit to 5% of account equity
+
+Required Indicators:
+1. 50-period Exponential Moving Average (EMA)
+2. 200-period Exponential Moving Average (EMA)
+3. Relative Strength Index (RSI, 14-period default)
+4. Volume Indicator (with 20-period average volume line)
+
+Additional Notes:
+- Best suited for trending markets and higher timeframes (1H or above)
+- Volume spike confirmation helps filter out false breakouts
+- RSI exit helps capture profits before potential reversals
+- Consider adding a time-based exit if price stagnates without reaching target
+- Backtest thoroughly to determine optimal volume spike threshold for your market

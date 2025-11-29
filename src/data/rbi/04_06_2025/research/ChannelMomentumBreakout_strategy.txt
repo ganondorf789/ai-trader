@@ -1,0 +1,40 @@
+STRATEGY_NAME: ChannelMomentumBreakout
+
+STRATEGY_DETAILS:
+This strategy combines momentum confirmation with channel-based breakout signals for high-probability entries, using a unique combination of three technical indicators to filter trades.
+
+Key Components:
+1. Keltner Channel (Primary Filter) - Identifies low volatility periods when breakouts are more significant
+2. Chande Momentum Oscillator (Trigger) - Confirms momentum direction for breakout validity
+3. Bollinger Band %B (Exit Signal) - Provides objective profit-taking and stop-loss levels
+
+Entry Rules:
+1. Wait for Keltner Channel bandwidth to narrow (indicating consolidation)
+2. When price breaks above/below Keltner Channel:
+   - Long Entry: Price breaks above upper Keltner Channel AND Chande Oscillator crosses above its signal line
+   - Short Entry: Price breaks below lower Keltner Channel AND Chande Oscillator crosses below its signal line
+
+Exit Rules:
+1. Profit Taking:
+   - Long positions: Exit when %B reaches 1.0 (upper Bollinger Band)
+   - Short positions: Exit when %B reaches 0.0 (lower Bollinger Band)
+2. Stop Loss:
+   - Opposite %B extreme (1.0 for shorts, 0.0 for longs) if reached before target
+   - Alternative: Channel midpoint as trailing stop
+
+Risk Management:
+1. Position size based on volatility (Keltner Channel width)
+2. Maximum risk per trade (recommended 1-2% of capital)
+3. Avoid trading during news events that may cause false breakouts
+
+Required Indicators:
+1. Keltner Channel (20-period, 2x ATR multiplier)
+2. Chande Momentum Oscillator (14-period with 9-period signal line)
+3. Bollinger Bands (20-period, 2 standard deviations) with %B calculation
+
+Optimization Notes:
+- Adjust Keltner period length for different timeframes
+- Test different signal line periods for Chande Oscillator
+- Consider adding volume confirmation for breakouts
+
+This strategy works best in ranging markets transitioning to trends, and should be avoided during strong, established trends where false breakouts are more common.

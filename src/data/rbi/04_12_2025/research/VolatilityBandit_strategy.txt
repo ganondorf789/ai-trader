@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolatilityBandit  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Filter:** 20-period Exponential Moving Average (EMA) acts as the baseline for directional bias.  
+2. **Volatility Measurement:** Average True Range (ATR) calculates market volatility to set dynamic breakout thresholds.  
+3. **Breakout Bands:** Entry triggers occur when price crosses ±2x ATR from the 20 EMA (upper band for long, lower band for short).  
+4. **Exit Logic:** Positions close when price retraces 50% of the initial breakout move (measured from entry to extreme post-breakout price).  
+
+**Entry Rules:**  
+- **Long Entry:** Price closes *above* the 20 EMA + (2 × ATR).  
+- **Short Entry:** Price closes *below* the 20 EMA − (2 × ATR).  
+- *Note:* Requires confirmation (close beyond band) to avoid false breakouts.  
+
+**Exit Rules:**  
+- **Long Exit:** Price retraces 50% downward from the highest high after entry.  
+- **Short Exit:** Price retraces 50% upward from the lowest low after entry.  
+- *Alternative Exit:* Trailing stop (e.g., 1x ATR) can be added to protect profits.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Initial stop at 1x ATR from entry (adjust based on volatility).  
+2. **Position Sizing:** Risk per trade ≤1–2% of capital (e.g., if ATR = $2 and account = $10k, risk $100 = 50 shares).  
+3. **Volatility Adjustment:** Reduce position size during high ATR regimes to maintain consistent risk.  
+
+**Required Indicators:**  
+1. **20-period EMA** (trend baseline).  
+2. **ATR (14-period default)** (volatility bands and stop calculation).  
+3. *Optional:* Trailing stop or time-based exit (e.g., close after 5 bars).  
+
+**Unique Edge:**  
+- Combines trend-following (EMA) with volatility-adaptive entries (ATR bands).  
+- Retracement exits lock in profits while allowing room for extended moves.  
+- Avoids choppy markets by requiring large breakouts (2x ATR).  
+
+**Optimization Tips:**  
+- Test ATR multiplier (1.5x–3x) and EMA period (10–30) for different assets.  
+- Add a time filter (e.g., only trade first 2 hours of session) for intraday.

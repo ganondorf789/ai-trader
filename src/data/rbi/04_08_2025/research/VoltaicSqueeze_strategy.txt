@@ -1,0 +1,50 @@
+STRATEGY_NAME: VoltaicSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction with momentum confirmation to identify high-probability breakout opportunities. The core concept revolves around detecting periods of compressed volatility followed by explosive moves confirmed by volume and momentum indicators.
+
+Key Components:
+1. Keltner Channel (20-period, 2.0 ATR multiplier) - Identifies volatility contraction when channels narrow significantly
+2. RSI (14-period) - Detects bullish/bearish divergence patterns during the squeeze
+3. Volume (20-day SMA) - Confirms breakout validity through surge above average
+
+Entry Rules:
+1. Volatility Squeeze Condition:
+   - Keltner Channel width must be below 30% of its 50-period average
+   - Price must be trading within the middle 50% of the channel
+
+2. Divergence Confirmation:
+   - Bullish Setup: Lower price lows with higher RSI lows
+   - Bearish Setup: Higher price highs with lower RSI highs
+
+3. Breakout Trigger:
+   - Price must close outside Keltner Channel
+   - Volume must exceed 20-day SMA by 20%
+   - RSI must be moving in direction of breakout (above 50 for long, below 50 for short)
+
+Exit Rules:
+1. Profit Taking:
+   - Take partial profits at 1.5x initial channel width
+   - Remainder runs until price re-enters channel
+
+2. Stop Loss:
+   - Initial stop placed at opposite channel boundary
+   - Trailed to breakeven after 1x channel width profit
+
+Risk Management:
+1. Position sizing based on channel width at breakout
+2. Maximum risk per trade: 1% of capital
+3. No new entries if 3 consecutive losing trades occur
+
+Required Indicators:
+1. Keltner Channel (20,2.0)
+2. RSI (14)
+3. Volume + 20-period SMA
+4. ATR (50-period for width calculation)
+
+Optimization Notes:
+- Adjust channel multiplier (1.5-2.5) based on asset volatility
+- Test different RSI periods (7-21) for divergence sensitivity
+- Volume threshold can range from 15-25% above average
+
+This strategy excels in ranging markets transitioning to trends, using the volatility contraction as an "energy buildup" signal and the volume surge as confirmation of breakout validity. The RSI divergence adds an additional layer of confirmation to filter false breakouts.

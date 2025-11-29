@@ -1,0 +1,39 @@
+STRATEGY_NAME: LiquiSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Clusters:** Uses exchange liquidation heatmaps to identify high-probability zones where price may accelerate due to forced liquidations.  
+2. **Bollinger Band Squeeze:** Waits for volatility contraction (Bollinger Band squeeze) as a precursor to potential explosive moves.  
+3. **Volume-Weighted Parabolic SAR:** Exits trades when the parabolic SAR flips direction, weighted by volume to confirm reversal validity.  
+
+**Entry Rules:**  
+- Enter long when:  
+  1. Price approaches a liquidation cluster (long liquidations dominate heatmap).  
+  2. Bollinger Band width is below a threshold (e.g., 20-period SMA of width < X% of price).  
+  3. Price breaks above the upper Bollinger Band with confirmation volume.  
+- Enter short when:  
+  1. Price approaches a liquidation cluster (short liquidations dominate heatmap).  
+  2. Bollinger Band width is below the same threshold.  
+  3. Price breaks below the lower Bollinger Band with confirmation volume.  
+
+**Exit Rules:**  
+- Exit long when:  
+  1. Volume-weighted parabolic SAR (e.g., SAR calculated using volume-adjusted sensitivity) flips below price.  
+  2. Or if Bollinger Band width expands beyond a dynamic threshold (e.g., 2x the squeeze baseline).  
+- Exit short when:  
+  1. Volume-weighted parabolic SAR flips above price.  
+  2. Or if Bollinger Band width expands beyond the dynamic threshold.  
+
+**Risk Management:**  
+- Position sizing: Allocate 1-2% of capital per trade.  
+- Stop-loss: Place stops just beyond the opposite Bollinger Band or recent swing low/high.  
+- Avoid trading during low-liquidity periods (e.g., weekends, holidays).  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 StdDev).  
+2. **Liquidation Heatmap** (exchange-specific data feed).  
+3. **Volume-Weighted Parabolic SAR** (custom implementation adjusting SAR sensitivity based on volume spikes).  
+4. **Volume Confirmation** (e.g., 1.5x average volume on breakout).  
+
+**Unique Edge:** Combines liquidity dynamics (forced liquidations) with volatility contraction/expansion and volume-filtered reversals for high-probability breakouts.

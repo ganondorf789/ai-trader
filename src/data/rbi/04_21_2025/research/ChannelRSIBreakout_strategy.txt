@@ -1,0 +1,33 @@
+STRATEGY_NAME: ChannelRSI Breakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Donchian Channel Breakout:** The strategy uses a 20-day Donchian Channel (high and low range) to identify potential breakout levels.  
+2. **RSI Confirmation:** The 2-day RSI is used to confirm overbought (RSI > 70) or oversold (RSI < 30) conditions, ensuring entries align with momentum extremes.  
+3. **ATR-Based Trailing Stop:** A trailing stop set at 3x the Average True Range (ATR) ensures dynamic risk management and locks in profits during favorable moves.  
+
+**Entry Rules:**  
+- **Long Entry:** Price closes above the upper 20-day Donchian Channel **AND** 2-day RSI is below 30 (oversold condition).  
+- **Short Entry:** Price closes below the lower 20-day Donchian Channel **AND** 2-day RSI is above 70 (overbought condition).  
+
+**Exit Rules:**  
+- **Trailing Stop Exit:** The position is closed if price moves against the trade by 3x the current ATR value from the highest (for long) or lowest (for short) point since entry.  
+- **Optional Time Exit:** Consider adding a time-based exit (e.g., 10 days) if no stop is triggered.  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%).  
+- **Stop Loss:** The trailing ATR stop dynamically adjusts to volatility, reducing risk during adverse moves.  
+- **Avoid Overcrowding:** Do not enter new trades if the RSI condition is not met, even if the Donchian breakout occurs.  
+
+**Required Indicators:**  
+1. **Donchian Channel (20-day):** Tracks the highest high and lowest low over 20 days.  
+2. **RSI (2-day):** Identifies short-term overbought/oversold conditions.  
+3. **ATR (14-day recommended):** Sets the trailing stop distance (3x ATR).  
+
+**Notes:**  
+- Works best in trending markets; may produce false signals in choppy conditions.  
+- Backtest optimal ATR multiplier (e.g., 2.5x-4x) for different instruments.  
+- Combine with volume filters for higher-confidence breakouts.  
+
+This strategy combines volatility breakout signals with momentum confirmation, aiming to capture strong trends while managing risk adaptively.

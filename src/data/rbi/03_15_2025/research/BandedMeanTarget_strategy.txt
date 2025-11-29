@@ -1,0 +1,41 @@
+STRATEGY_NAME: BandedMeanTarget
+
+STRATEGY_DETAILS:
+The BandedMeanTarget strategy is a mean-reversion approach that combines historical price levels with Bollinger Bands for dynamic adjustments. It focuses on identifying key price thresholds relative to historical highs and incorporates volatility-based risk management.
+
+Key Components:
+1. Historical High Reference: Uses the stock's all-time high as a benchmark for price levels.
+2. Entry Threshold: 75% of historical high acts as the mean-reversion entry point.
+3. Exit Threshold: 125% of historical high serves as the profit-taking level.
+4. Bollinger Bands: Used for dynamic stop-loss adjustments based on market volatility.
+
+Entry Rules:
+- Go long when the stock price reaches 75% of its historical high.
+- Confirm entry when the price is above the lower Bollinger Band (20-period, 2 standard deviations).
+
+Exit Rules:
+- Take profit when the price reaches 125% of the historical high.
+- Use a trailing stop based on Bollinger Band width:
+  - If bands widen (increased volatility), tighten stop to 40% of entry.
+  - If bands narrow (decreased volatility), maintain 50% stop.
+
+Risk Management:
+- Initial stop-loss at 50% of the entry price level.
+- Dynamic stop adjustment based on Bollinger Band width:
+  - Wide bands (volatile market): 40% stop
+  - Normal bands: 50% stop
+  - Narrow bands (stable market): 60% stop
+- Position sizing based on distance between entry and stop levels.
+
+Required Indicators:
+1. Historical High Price (all-time high)
+2. Bollinger Bands (20-period, 2 standard deviations)
+3. Percentage Calculator (for 75% and 125% levels)
+
+Additional Considerations:
+- Backtest the strategy across different market conditions.
+- Adjust percentage levels based on asset volatility.
+- Consider implementing a time-based exit for positions that don't reach target levels.
+- Monitor Bollinger Band width changes for dynamic risk management.
+
+This strategy combines mean-reversion principles with volatility-based adjustments, making it particularly suitable for range-bound markets with occasional breakouts. The Bollinger Band integration adds a dynamic element to risk management, adapting to changing market conditions.

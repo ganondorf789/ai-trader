@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolumeReversalBreakout
+
+STRATEGY_DETAILS:
+The VolumeReversalBreakout strategy focuses on identifying undervalued stocks that are experiencing significant price reversals accompanied by high volume divergence, followed by breakouts from consolidation patterns on daily timeframe charts. This strategy combines volume analysis, price action, and breakout confirmation to capture potential trend reversals and continuation moves.
+
+### Key Strategy Components:
+1. **Undervalued Stocks**: Focus on stocks that are fundamentally undervalued based on metrics like P/E ratio, P/B ratio, or other valuation indicators.
+2. **Price Reversal**: Look for a clear reversal pattern (e.g., double bottom, bullish engulfing, or hammer) after a downtrend.
+3. **Volume Divergence**: Confirm the reversal with a significant increase in trading volume compared to the average volume during the downtrend.
+4. **Consolidation Pattern**: Identify a period of consolidation (e.g., triangle, rectangle, or flag) following the reversal.
+5. **Breakout Confirmation**: Wait for a breakout above the consolidation pattern's resistance level with above-average volume.
+
+### Entry Rules:
+1. **Reversal Confirmation**: Enter a long position when the stock price forms a clear reversal pattern (e.g., bullish engulfing or hammer) and closes above the reversal candle's high.
+2. **Volume Spike**: Ensure the reversal is accompanied by a volume spike that is at least 1.5x the average volume of the previous 20 days.
+3. **Breakout Entry**: After the reversal, wait for the price to consolidate and then break out above the consolidation pattern's resistance level with above-average volume.
+
+### Exit Rules:
+1. **Stop Loss**: Place a stop loss below the low of the reversal candle or the consolidation pattern's support level, whichever is lower.
+2. **Take Profit**: Set a take profit target at 1.5x to 2x the risk (distance between entry and stop loss) or use a trailing stop to capture extended moves.
+3. **Volume Drop**: Exit the trade if volume drops significantly during the breakout, indicating a lack of follow-through.
+
+### Risk Management:
+1. **Position Sizing**: Risk no more than 1-2% of your trading capital on any single trade.
+2. **Diversification**: Avoid overconcentration in a single sector or stock.
+3. **Risk-Reward Ratio**: Aim for a minimum risk-reward ratio of 1:1.5.
+
+### Required Indicators:
+1. **Volume Indicator**: To measure volume divergence and confirm breakouts.
+2. **Moving Averages (Optional)**: Use a 50-day or 200-day moving average to confirm the overall trend direction.
+3. **Support/Resistance Levels**: Identify key levels for consolidation patterns and breakout points.
+
+This strategy is designed to capitalize on undervalued stocks that are poised for a trend reversal and subsequent breakout, with volume acting as a key confirmation tool. By combining technical and volume analysis, the VolumeReversalBreakout strategy aims to identify high-probability trading opportunities with favorable risk-reward profiles.

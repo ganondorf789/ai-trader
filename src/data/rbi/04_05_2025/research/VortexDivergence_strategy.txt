@@ -1,0 +1,37 @@
+STRATEGY_NAME: VortexDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Identifies trend direction and potential reversals. A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI- crosses above VI+.  
+2. **Chande Momentum Oscillator (CMO):** Measures momentum strength. Divergence between price and CMO (e.g., price makes a higher high while CMO makes a lower high) confirms weakening momentum, reinforcing reversal signals.  
+3. **Volume Confirmation:** Requires volume spikes above the 20-day moving average to validate entries, ensuring strong participation in the move.  
+4. **Keltner Channels:** Used for exits—breakouts outside the channels signal trend exhaustion or continuation, depending on direction.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. VI+ crosses above VI- (bullish trend initiation).  
+  2. Bearish divergence on CMO (price higher high, CMO lower high).  
+  3. Volume exceeds 20-day average.  
+- **Short Entry:**  
+  1. VI- crosses above VI+ (bearish trend initiation).  
+  2. Bullish divergence on CMO (price lower low, CMO higher low).  
+  3. Volume exceeds 20-day average.  
+
+**Exit Rules:**  
+- **Long Exit:** Price closes below the lower Keltner Channel.  
+- **Short Exit:** Price closes above the upper Keltner Channel.  
+- Optional: Trail stops using Keltner Channel mid-line for trend continuation.  
+
+**Risk Management:**  
+- Position sizing: Risk ≤1-2% per trade.  
+- Stop-loss: Place below recent swing low (long) or above swing high (short) for volatility-adjusted protection.  
+- Avoid trading during low-volume periods or major economic events to reduce false signals.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. Chande Momentum Oscillator (CMO, default 14-period).  
+3. Volume 20-day moving average.  
+4. Keltner Channels (typical settings: 20-period EMA, 2x ATR multiplier).  
+
+**Unique Edge:** Combines trend-following (Vortex) with momentum divergence (CMO) and volume confirmation, filtered by volatility-based exits (Keltner). High-probability reversals with reduced whipsaws.

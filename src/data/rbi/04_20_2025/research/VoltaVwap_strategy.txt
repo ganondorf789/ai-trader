@@ -1,0 +1,34 @@
+STRATEGY_NAME: VoltaVwap  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Measurement:** Uses Average True Range (ATR) to gauge market volatility.  
+2. **Price Anchor:** 20-period Volume-Weighted Average Price (VWAP) serves as the baseline.  
+3. **Breakout Bands:** 2x ATR bands plotted around VWAP to define breakout thresholds.  
+4. **Momentum Filter:** Relative Strength Index (RSI) confirms entries/exits.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when price closes **above** the upper band (VWAP + 2x ATR).  
+- **Short Entry:** Triggered when price closes **below** the lower band (VWAP - 2x ATR).  
+- **RSI Confirmation:**  
+  - For longs, RSI must be **above 40** (avoid weak momentum).  
+  - For shorts, RSI must be **below 60** (avoid overbought reversals).  
+
+**Exit Rules:**  
+- **Long Exit:** RSI crosses **below 60** (captures profit before pullback).  
+- **Short Exit:** RSI crosses **above 40** (covers before potential rebound).  
+- **Stop-Loss:**  
+  - Longs: Lower band (VWAP - 2x ATR).  
+  - Shorts: Upper band (VWAP + 2x ATR).  
+
+**Risk Management:**  
+1. **Position Sizing:** Adjust based on ATR (e.g., 1% risk per trade).  
+2. **Dynamic Bands:** ATR adapts to changing volatility, tightening in calm markets and expanding in volatile ones.  
+3. **RSI Filter:** Reduces false breakouts by requiring momentum alignment.  
+
+**Required Indicators:**  
+1. **VWAP (20-period)** – Core baseline.  
+2. **ATR (14-period recommended)** – Volatility bands.  
+3. **RSI (14-period)** – Momentum filter.  
+
+**Unique Edge:** Combines volume-weighted price (VWAP) with volatility-adjusted breakouts, filtered by RSI to avoid whipsaws. Ideal for trending markets with clear volatility expansions.

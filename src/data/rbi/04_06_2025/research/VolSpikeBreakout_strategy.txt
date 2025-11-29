@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolSpikeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Breakout:** Uses Bollinger Bands to identify volatility expansion.  
+2. **Volume Confirmation:** Requires a volume spike (2x 20-day average) to validate the breakout.  
+3. **Mean Reversion Exit:** Exits when price retraces to the 20-period moving average (MA).  
+
+**Entry Rules:**  
+- **Condition 1:** Price closes above the upper Bollinger Band (default 20-period, 2 standard deviations).  
+- **Condition 2:** Volume exceeds 2x the 20-day average volume.  
+- **Entry Action:** Enter long at the next candle's open.  
+
+**Exit Rules:**  
+- **Primary Exit:** Close the position when price touches or crosses below the 20-period MA.  
+- **Optional Stop-Loss:** A fixed percentage (e.g., 2-3%) or a volatility-based stop (e.g., lower Bollinger Band) can be added for additional risk control.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%).  
+2. **Stop-Loss:** Optional but recommended to limit downside (e.g., 2x the average true range (ATR) for dynamic stops).  
+3. **Volume Filter:** Avoid false breakouts by requiring the 2x volume spike.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 standard deviations).  
+2. **20-Period Simple Moving Average (SMA)** for exit signal.  
+3. **Volume Indicator** (20-day average volume for comparison).  
+4. **Optional:** ATR for dynamic stop-loss calculation.  
+
+**Unique Aspects:**  
+- Combines volatility breakout with volume confirmation for higher-probability entries.  
+- Exits on mean reversion to the 20 MA, capturing the "impulse-retracement" cycle.  
+- Volume filter reduces false signals in low-liquidity environments.  
+
+**Best Suited For:**  
+- High-volatility assets (e.g., crypto, growth stocks).  
+- Intraday to swing trading (timeframe-agnostic but works best on 1H-4H charts).  
+
+**Notes:**  
+- Backtest to optimize Bollinger Band settings (e.g., 14-period vs. 20-period).  
+- Avoid using during low-volume periods (e.g., holidays).

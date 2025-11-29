@@ -1,0 +1,33 @@
+STRATEGY_NAME: VortexVolumeDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator Crossover**: The strategy uses the Vortex Indicator (VI) to identify potential trend reversals. A long signal is triggered when the VI+ (positive trend) crosses above the VI- (negative trend), while a short signal occurs when VI- crosses above VI+.  
+2. **Volume Confirmation**: The crossover must be accompanied by declining volume, indicating weakening momentum in the current trend.  
+3. **ADX Filter**: The Average Directional Index (ADX) must be below 20 to confirm a lack of strong trend, ensuring trades are taken in range-bound or consolidating markets. Exits occur if ADX rises above 25, signaling the start of a strong trend.  
+
+**Entry Rules:**  
+- **Long Entry**: VI+ crosses above VI- AND volume is declining AND ADX < 20.  
+- **Short Entry**: VI- crosses above VI+ AND volume is declining AND ADX < 20.  
+
+**Exit Rules:**  
+- **Long Exit**: VI- crosses above VI+ OR ADX rises above 25.  
+- **Short Exit**: VI+ crosses above VI- OR ADX rises above 25.  
+
+**Risk Management:**  
+1. **Stop-Loss**: A fixed percentage or ATR-based stop-loss can be applied to limit downside risk.  
+2. **Position Sizing**: Adjust position size based on volatility (e.g., using ATR) to ensure consistent risk per trade.  
+3. **Time-Based Exit**: Consider exiting trades if no significant movement occurs within a predefined timeframe (e.g., 3-5 bars).  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI)**: Comprising VI+ and VI- lines for trend direction.  
+2. **Volume**: To confirm weakening momentum.  
+3. **Average Directional Index (ADX)**: To filter out strong trending markets.  
+
+**Unique Aspects:**  
+- Combines Vortex crossovers with volume divergence for higher-probability reversals.  
+- Uses ADX as a dynamic filter to avoid trading in strong trends.  
+- Exits are based on both inverse crossovers and ADX strength, capturing early trend changes.  
+
+This strategy is ideal for range-bound markets and avoids false signals in strong trends, making it a "VortexVolumeDivergence" approach.

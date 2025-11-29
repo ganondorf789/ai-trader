@@ -1,0 +1,43 @@
+STRATEGY_NAME: BandChannelBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Bands, Keltner Channels, volume analysis, Parabolic SAR, and RSI divergence to identify high-probability breakout trades with built-in confirmation filters and trailing stop management.
+
+Key Components:
+1. Bollinger Bands (20,2) - Measures volatility contraction
+2. Keltner Channels (20,1.5) - Defines the breakout range
+3. Volume Percentile (90th) - Confirms breakout strength
+4. Parabolic SAR (0.02,0.2) - Provides trailing stop mechanism
+5. RSI (14) - Identifies divergence for confirmation
+
+Entry Rules:
+1. Wait for Bollinger Bands to contract INSIDE Keltner Channels (volatility squeeze)
+2. Price must break above upper Keltner Channel (long) or below lower Keltner Channel (short)
+3. Volume must exceed its 90-day 90th percentile on breakout
+4. RSI must show bullish divergence (for longs) or bearish divergence (for shorts)
+   - Bullish: Higher low in price with lower low in RSI
+   - Bearish: Lower high in price with higher high in RSI
+
+Exit Rules:
+1. Primary Exit: Follow Parabolic SAR dots as trailing stop
+2. Secondary Exit: If RSI crosses back over 50 (for longs) or under 50 (for shorts)
+3. Emergency Exit: If price returns inside Keltner Channel after breakout
+
+Risk Management:
+1. Position size based on 1-2% risk of capital
+2. Initial stop placed at opposite Keltner Channel band
+3. Trailing stop activates immediately using Parabolic SAR
+4. Maximum trade duration of 5 days (prevents overexposure)
+
+Indicator Settings:
+- Bollinger Bands: 20 period, 2 std dev
+- Keltner Channels: 20 period, 1.5 ATR multiplier
+- Volume: 90-day lookback period, 90th percentile threshold
+- Parabolic SAR: 0.02 step, 0.2 maximum
+- RSI: 14 period
+
+Optimal Conditions:
+- Works best in ranging markets transitioning to trends
+- Most effective on 1-hour to daily timeframes
+- Ideal for liquid stocks/forex pairs with consistent volume patterns
+- Avoid during major news events when volatility spikes unpredictably

@@ -1,0 +1,54 @@
+STRATEGY_NAME: VortexVolumePullback  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):**  
+   - Uses two lines: VI+ (positive trend movement) and VI- (negative trend movement).  
+   - Confirms trend direction when VI+ > VI- (uptrend) or VI- > VI+ (downtrend).  
+   - Signals trend exhaustion when the lines cross or converge.  
+
+2. **On-Balance Volume (OBV):**  
+   - Measures cumulative buying/selling pressure.  
+   - Divergence between OBV and price indicates potential reversals or continuations.  
+
+3. **Pullback Identification:**  
+   - In an uptrend, look for temporary price retracements with declining volume.  
+   - In a downtrend, seek short-term rallies with weak volume.  
+
+**Entry Rules:**  
+1. **Trend Confirmation:**  
+   - Uptrend: VI+ > VI- and price above a moving average (e.g., 50-period SMA).  
+   - Downtrend: VI- > VI+ and price below a moving average.  
+
+2. **Pullback Setup:**  
+   - Uptrend: Price retraces toward support (e.g., Fibonacci level or SMA) while OBV remains flat or rises, showing accumulation.  
+   - Downtrend: Price rallies toward resistance while OBV stays flat or declines, showing distribution.  
+
+3. **Entry Trigger:**  
+   - Buy when price bounces off support with VI+ > VI- and OBV divergence.  
+   - Sell short when price rejects resistance with VI- > VI+ and OBV divergence.  
+
+**Exit Rules:**  
+1. **Trend Exhaustion:**  
+   - Exit long when VI+ crosses below VI- or lines converge sharply.  
+   - Exit short when VI- crosses below VI+ or lines converge sharply.  
+
+2. **Volume Surge:**  
+   - Close trade if OBV spikes opposite to the trend (e.g., OBV surges downward in an uptrend).  
+
+3. **Profit Target/Stop-Loss:**  
+   - Set stop-loss below recent swing low (long) or above swing high (short).  
+   - Take profit at a 2:1 risk-reward ratio or when VI/OBV signals weaken.  
+
+**Risk Management:**  
+1. Position size: Risk 1-2% of capital per trade.  
+2. Avoid trading during choppy markets (VI+ and VI- close together).  
+3. Filter trades with higher timeframes (e.g., daily trend alignment).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. On-Balance Volume (OBV).  
+3. Optional: 50-period SMA for trend context.  
+
+**Unique Edge:** Combines trend momentum (Vortex) with smart money flow (OBV) to exploit high-probability pullbacks, avoiding false breakouts.

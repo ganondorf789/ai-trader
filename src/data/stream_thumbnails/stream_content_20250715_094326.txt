@@ -1,0 +1,17 @@
+STREAM TITLES:
+--------------------------------------------------
+Coding Real-Time Trading Algorithms: From Idea to Execution
+Live Debugging: Building a Profitable Trading Algorithm
+Crafting AI-Powered Trading Strategies: A Live Coding Session
+Trading Bots from Scratch: Live Algorithm Development
+Streamlining Algorithmic Trading: Live Coding with Moon Dev
+Behind the Code: Developing High-Impact Trading Algorithms
+Interactive Coding: Building an Efficient Trading Bot Live
+Live Trading Strategy Creation: Code, Test, Profit
+Mastering Algorithmic Trading: Live Coding & Debugging
+Algorithmic Trading Innovation: Live Coding with Moon Dev
+
+
+TRANSCRIPT:
+--------------------------------------------------
+ So better and better, better and better. You know what they say. You know what they say, dude? So stream content here, the TXT. Let's delete all of these PNGs here. Move to trash. Okay, so I really admire the devs that make things like cursor possible for real, dude. If I could do that, I'd make my own AI app dev tool. Go see the article of Anthropics about how to use multi-it.

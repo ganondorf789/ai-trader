@@ -1,0 +1,73 @@
+STRATEGY_NAME: FractalVolatility
+
+STRATEGY_DETAILS:
+The FractalVolatility strategy is a sophisticated trend-following approach that combines RSI (Relative Strength Index), ATR (Average True Range), and fractal analysis to identify high-probability entry points. The strategy focuses on confirming overbought/oversold conditions, measuring market volatility, and leveraging self-similar patterns in price action for precise entries.
+
+### Key Strategy Components:
+1. **RSI (Relative Strength Index):**
+   - Used to identify overbought (above 70) and oversold (below 30) conditions.
+   - Acts as a confirmation tool to ensure the market is not overextended before entering a trade.
+
+2. **ATR (Average True Range):**
+   - Measures market volatility to determine the strength of the trend.
+   - Helps set appropriate stop-loss and take-profit levels based on current market conditions.
+
+3. **Fractals:**
+   - Identifies self-similar patterns in price action, which often signal potential reversals or continuations.
+   - Fractals are used as entry signals when they align with RSI and ATR conditions.
+
+### Entry Rules:
+1. **Long Entry:**
+   - RSI must be below 30 (oversold condition).
+   - ATR must indicate increasing volatility (e.g., ATR value is above its moving average).
+   - A bullish fractal pattern must form (a fractal with a higher low followed by a higher high).
+   - All three conditions must align for a valid long entry.
+
+2. **Short Entry:**
+   - RSI must be above 70 (overbought condition).
+   - ATR must indicate increasing volatility (e.g., ATR value is above its moving average).
+   - A bearish fractal pattern must form (a fractal with a lower high followed by a lower low).
+   - All three conditions must align for a valid short entry.
+
+### Exit Rules:
+1. **Take-Profit:**
+   - Use a multiple of the ATR (e.g., 2x ATR) to set a dynamic take-profit level.
+   - Alternatively, exit when RSI reaches the opposite threshold (e.g., RSI > 70 for long trades or RSI < 30 for short trades).
+
+2. **Stop-Loss:**
+   - Place the stop-loss below the most recent fractal low for long trades or above the most recent fractal high for short trades.
+   - Alternatively, use a fixed percentage or ATR-based stop-loss.
+
+### Risk Management:
+1. **Position Sizing:**
+   - Use a fixed percentage of the account balance (e.g., 1-2%) per trade.
+   - Adjust position size based on ATR to account for volatility.
+
+2. **Diversification:**
+   - Avoid overconcentration in a single asset or market.
+   - Spread trades across multiple timeframes or instruments to reduce risk.
+
+3. **Risk-Reward Ratio:**
+   - Aim for a minimum risk-reward ratio of 1:2.
+   - Ensure the potential reward justifies the risk taken.
+
+### Required Indicators:
+1. **RSI (Relative Strength Index):**
+   - Period: 14 (default).
+   - Overbought level: 70.
+   - Oversold level: 30.
+
+2. **ATR (Average True Range):**
+   - Period: 14 (default).
+   - Use ATR to measure volatility and set stop-loss/take-profit levels.
+
+3. **Fractals:**
+   - Use the built-in fractal indicator or manually identify fractal patterns.
+   - Look for self-similar patterns that align with RSI and ATR conditions.
+
+### Additional Notes:
+- This strategy works best in trending markets with clear directional bias.
+- Avoid using it in highly choppy or sideways markets, as false signals may increase.
+- Backtest the strategy on multiple timeframes and assets to ensure robustness.
+
+By combining RSI, ATR, and fractals, the FractalVolatility strategy provides a systematic and disciplined approach to trend-following, ensuring high-probability entries and effective risk management.

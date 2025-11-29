@@ -1,0 +1,31 @@
+STRATEGY_NAME: ATRRatioReversal
+
+STRATEGY_DETAILS:
+The ATRRatioReversal strategy is designed to identify potential market downturns and capitalize on reversal opportunities by analyzing the relationship between the closing price and its average true range (ATR). This strategy focuses on the ratio of the closing price to the ATR, which provides a normalized measure of price volatility relative to the current price level. When this ratio falls below a specific threshold (in this case, 0), it signals a potential oversold condition, indicating a possible reversal point.
+
+Key Strategy Components:
+1. **Average True Range (ATR)**: A volatility indicator that measures the average range of price movement over a specified period. It helps in understanding the market's volatility and setting appropriate stop-loss levels.
+2. **Closing Price to ATR Ratio**: This ratio is calculated by dividing the closing price by the ATR. A low ratio suggests that the price is relatively close to its recent low, indicating a potential oversold condition.
+3. **Threshold Level**: The strategy uses a threshold of 0 for the ratio, meaning that when the ratio falls below this level, it triggers a potential entry signal.
+
+Entry Rules:
+- **Buy Signal**: When the ratio of the closing price to the ATR falls below 0, it indicates a potential oversold condition. This is the primary entry signal for a long position, anticipating a reversal from the downtrend.
+- **Confirmation**: It is advisable to wait for additional confirmation, such as a bullish candlestick pattern or a positive divergence in a momentum oscillator (e.g., RSI or MACD), before entering the trade.
+
+Exit Rules:
+- **Take Profit**: Set a take-profit level based on a multiple of the ATR (e.g., 1x or 2x ATR) or a predefined resistance level.
+- **Stop Loss**: Place a stop-loss order below the recent low or at a level determined by the ATR (e.g., 1x ATR below the entry price) to manage risk.
+- **Trailing Stop**: Consider using a trailing stop based on the ATR to lock in profits as the price moves in your favor.
+
+Risk Management:
+- **Position Sizing**: Determine the position size based on the stop-loss distance and your risk tolerance. For example, if you are willing to risk 1% of your capital on a trade, calculate the position size accordingly.
+- **Diversification**: Avoid concentrating all your capital in a single trade. Diversify across different assets or markets to spread risk.
+- **Risk-Reward Ratio**: Aim for a favorable risk-reward ratio (e.g., 1:2 or higher) to ensure that potential profits outweigh potential losses.
+
+Required Indicators:
+1. **Average True Range (ATR)**: To measure volatility and set stop-loss levels.
+2. **Closing Price**: To calculate the ratio with ATR.
+3. **Optional Confirmation Indicators**: RSI, MACD, or other momentum oscillators to confirm the entry signal.
+
+Summary:
+The ATRRatioReversal strategy is a volatility-based approach that identifies potential market reversals by analyzing the ratio of the closing price to the ATR. By entering trades when this ratio falls below 0, the strategy aims to capitalize on oversold conditions and subsequent price reversals. Proper risk management, including position sizing and stop-loss placement, is crucial to the success of this strategy. Additional confirmation from momentum indicators can enhance the reliability of the entry signals.

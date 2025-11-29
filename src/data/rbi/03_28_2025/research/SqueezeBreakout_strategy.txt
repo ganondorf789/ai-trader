@@ -1,0 +1,32 @@
+STRATEGY_NAME: SqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection**: The strategy identifies periods of low volatility when the price is confined within a narrow Bollinger Band (20-day SMA with 1.5σ). This squeeze indicates potential breakout opportunities.  
+2. **ADX Confirmation**: The Average Directional Index (ADX) crossing above 30 confirms a strong trend, validating the breakout signal.  
+3. **Stochastic Oscillator Exit**: The exit is triggered by a reversal signal from the 5-day Stochastic Oscillator when it crosses above 80 (overbought) or below 20 (oversold).  
+
+**Entry Rules:**  
+1. Wait for the Bollinger Bands (20-day SMA, 1.5σ) to contract, indicating a squeeze.  
+2. Confirm the breakout when the price exits the squeeze (closes outside the Bollinger Bands).  
+3. Ensure the 10-day ADX crosses above 30 on the same day or shortly after the breakout, confirming trend strength.  
+
+**Exit Rules:**  
+1. **Long Trades**: Exit when the 5-day Stochastic Oscillator crosses below 80 (overbought reversal).  
+2. **Short Trades**: Exit when the 5-day Stochastic Oscillator crosses above 20 (oversold reversal).  
+
+**Risk Management:**  
+1. **Stop-Loss**: Place a stop-loss just below the recent swing low (for long trades) or above the recent swing high (for short trades) to limit downside risk.  
+2. **Position Sizing**: Allocate a fixed percentage of capital per trade (e.g., 1-2%) to manage risk.  
+3. **Avoid Overlapping Signals**: Only trade when both the Bollinger Band squeeze breakout and ADX > 30 conditions are met to filter false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands**: 20-day SMA with 1.5 standard deviations.  
+2. **Average Directional Index (ADX)**: 10-day period, threshold at 30.  
+3. **Stochastic Oscillator**: 5-day period, overbought (80) and oversold (20) levels.  
+
+**Notes:**  
+- This strategy works best in trending markets and may underperform in choppy or range-bound conditions.  
+- Backtest the strategy on historical data to optimize parameters (e.g., ADX period, Bollinger Band settings) for specific assets.  
+- Combine with additional filters (e.g., volume spikes, candlestick patterns) for higher accuracy.

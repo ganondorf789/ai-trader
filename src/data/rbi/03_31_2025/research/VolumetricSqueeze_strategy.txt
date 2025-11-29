@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolumetricSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines volume divergence analysis with Bollinger Band compression to identify high-probability breakout opportunities with controlled risk. The unique combination of volume dynamics and volatility contraction creates a powerful confluence for entries.
+
+Key Components:
+1. Volume Divergence EMA (3-day exponential moving average of volume divergence)
+2. Volatility-scaled threshold (dynamic level adjusted to market conditions)
+3. Bollinger Band Width (measures band contraction/expansion)
+4. Risk-adjusted stop (position sizing based on volatility)
+
+Entry Rules:
+1. Primary Condition: 3-day EMA of volume divergence must cross ABOVE the volatility-scaled threshold
+2. Confirmation: Bollinger Band width must be in contraction phase (narrowing bands)
+3. Entry Trigger: Both conditions must be met simultaneously
+
+Exit Rules:
+1. Primary Exit: When volume divergence EMA crosses BELOW the volatility-scaled threshold
+2. Protective Stop: Fixed percentage stop based on ATR (Average True Range) or volatility measure
+3. Optional Profit Target: 2:1 risk-reward ratio or trailing stop based on band expansion
+
+Risk Management:
+1. Position sizing based on account risk (typically 1-2% per trade)
+2. Stop placement at recent swing low (for longs) or volatility-based distance
+3. Volatility scaling adjusts position size for current market conditions
+
+Required Indicators:
+1. Volume Divergence Indicator (custom calculation)
+2. 3-day Exponential Moving Average (applied to volume divergence)
+3. Bollinger Bands (standard 20-period, 2 std dev)
+4. Volatility measure (ATR or standard deviation)
+5. Threshold scaling mechanism (dynamic level calculation)
+
+Unique Aspects:
+- Combines volume dynamics with price compression
+- Uses volatility-adjusted thresholds for adaptive entries
+- Requires confluence of two independent technical factors
+- Incorporates both momentum and mean-reversion principles
+
+Optimization Notes:
+- Threshold scaling factor may need calibration for different instruments
+- EMA period can be adjusted for more/less sensitivity
+- Band width contraction threshold should be tested for optimal settings
+- Timeframe agnostic but works best on daily or 4H charts

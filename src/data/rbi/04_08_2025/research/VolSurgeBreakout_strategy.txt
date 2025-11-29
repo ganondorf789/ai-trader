@@ -1,0 +1,29 @@
+STRATEGY_NAME: VolSurgeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Based Entries**: Uses Bollinger Bands (2-standard deviation) to identify extreme price movements signaling potential breakouts.  
+2. **Volume Confirmation**: Requires a 50% increase in volume compared to the 20-day average to validate the breakout, reducing false signals.  
+3. **Mean-Reversion Exits**: Closes positions when price retraces to the 1-standard deviation Bollinger Band, locking in profits or cutting losses.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when price closes *above* the upper 2-standard deviation Bollinger Band AND volume is ≥ 150% of the 20-day average volume.  
+- **Short Entry**: Triggered when price closes *below* the lower 2-standard deviation Bollinger Band AND volume is ≥ 150% of the 20-day average volume.  
+
+**Exit Rules:**  
+- **Long Exit**: Close position when price touches or crosses *below* the upper 1-standard deviation Bollinger Band.  
+- **Short Exit**: Close position when price touches or crosses *above* the lower 1-standard deviation Bollinger Band.  
+
+**Risk Management:**  
+1. **Stop-Loss**: Optional trailing stop set at the 2-standard deviation band (entry level) to protect against reversals.  
+2. **Position Sizing**: Allocate ≤ 2% of capital per trade to limit risk exposure.  
+3. **Time Filter**: Avoid trading during low-liquidity periods (e.g., holidays, overnight gaps).  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 and 1 standard deviations).  
+2. **Volume** (20-day average + real-time comparison).  
+
+**Unique Edge:** Combines volatility expansion with volume surge, filtering noise while capitalizing on high-probability breakouts. Suitable for intraday or swing trading in trending markets.  
+
+**Note**: Backtest parameters (e.g., 20-period SMA, 2σ) can be optimized for specific assets/timeframes.

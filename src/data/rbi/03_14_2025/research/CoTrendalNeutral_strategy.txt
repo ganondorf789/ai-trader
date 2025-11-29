@@ -1,0 +1,43 @@
+STRATEGY_NAME: CoTrendalNeutral
+
+STRATEGY_DETAILS:
+
+**Key Strategy Components:**
+1. **Co-Trendality Analysis**: The strategy focuses on the relationship between S&P 500 futures (SPX) and VIX futures. Co-trendality refers to the tendency of these two instruments to move in opposite directions during periods of market stress or stability. When SPX trends downward, VIX typically trends upward, and vice versa.
+2. **Delta-Neutral ETFs**: The strategy uses delta-neutral ETFs to maintain a balanced exposure. These ETFs are designed to be insensitive to small price movements in the underlying assets, allowing the strategy to focus on the co-trendality relationship without being overly exposed to directional risk.
+3. **Weighted Average Risk-Reward Ratio**: The strategy enforces a minimum risk-reward ratio of 3:1, ensuring that potential rewards outweigh risks by a significant margin.
+
+**Entry Rules:**
+1. **Long Entry (SPX)**: Enter a long position in SPX futures when:
+   - The VIX futures show a significant downward trend (e.g., VIX drops below a moving average or a specific threshold).
+   - The SPX futures show a clear upward trend (e.g., SPX breaks above a resistance level or a moving average).
+   - The risk-reward ratio for the trade is at least 3:1.
+
+2. **Short Entry (VIX)**: Enter a short position in VIX futures when:
+   - The SPX futures show a significant upward trend (e.g., SPX breaks above a moving average or a specific threshold).
+   - The VIX futures show a clear downward trend (e.g., VIX drops below a support level or a moving average).
+   - The risk-reward ratio for the trade is at least 3:1.
+
+**Exit Rules:**
+1. **Long Exit (SPX)**: Exit the long position in SPX futures when:
+   - The VIX futures start to trend upward, indicating potential market stress.
+   - The SPX futures show signs of reversal (e.g., break below a support level or moving average).
+   - The risk-reward target (3:1) is achieved.
+
+2. **Short Exit (VIX)**: Exit the short position in VIX futures when:
+   - The SPX futures start to trend downward, indicating potential market stability.
+   - The VIX futures show signs of reversal (e.g., break above a resistance level or moving average).
+   - The risk-reward target (3:1) is achieved.
+
+**Risk Management:**
+1. **Position Sizing**: Use a fixed percentage of the portfolio for each trade (e.g., 1-2%) to ensure no single trade can significantly impact the overall portfolio.
+2. **Stop-Loss Orders**: Place stop-loss orders based on the volatility of the instruments. For SPX, use a stop-loss below a recent support level. For VIX, use a stop-loss above a recent resistance level.
+3. **Diversification**: Ensure that the portfolio is diversified across multiple delta-neutral ETFs to reduce exposure to any single instrument.
+
+**Required Indicators:**
+1. **Moving Averages**: Use simple moving averages (e.g., 50-day and 200-day) to identify trends in SPX and VIX futures.
+2. **Support and Resistance Levels**: Identify key support and resistance levels for both SPX and VIX futures to determine entry and exit points.
+3. **Risk-Reward Calculator**: Use a risk-reward calculator to ensure that each trade meets the minimum 3:1 ratio before entering.
+
+**Summary:**
+The CoTrendalNeutral strategy leverages the inverse relationship between SPX and VIX futures, using delta-neutral ETFs to maintain a balanced exposure. By focusing on co-trendality and enforcing a strict risk-reward ratio, the strategy aims to capitalize on market trends while minimizing directional risk. Proper risk management and the use of key indicators ensure that the strategy remains robust and adaptable to changing market conditions.

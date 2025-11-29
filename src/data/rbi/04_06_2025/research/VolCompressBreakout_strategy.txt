@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolCompress Breakout  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on periods of low volatility followed by potential breakouts, using Bollinger Bands and volume confirmation for precise entries and exits.  
+
+**Key Components:**  
+1. **Bollinger Band Width:** Measures volatility compression (20-day low width signals potential breakout).  
+2. **Volume Spike:** Confirms breakout validity (must exceed 50-day average volume).  
+3. **Bollinger Band Cross:** Defines exit points (upper/lower band cross).  
+
+**Entry Rules:**  
+- Trigger when Bollinger Band width (BBW) reaches a 20-day low.  
+- Confirm entry with volume exceeding the 50-day average volume.  
+- Enter long if price breaks above the middle band (SMA 20) with volume confirmation.  
+- Enter short if price breaks below the middle band with volume confirmation.  
+
+**Exit Rules:**  
+- **Take Profit/Stop Loss:** Exit when price crosses the opposite Bollinger Band (upper band for longs, lower band for shorts).  
+- **Emergency Exit:** Close position if volume drops below 50-day average for 2 consecutive bars.  
+
+**Risk Management:**  
+- Position size: 1-2% of capital per trade.  
+- Avoid trading during major news events to prevent false breakouts.  
+- Filter trades using a higher timeframe trend (e.g., only trade longs if weekly trend is up).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) – for width calculation and band cross.  
+2. Volume MA (50-day) – to confirm breakout strength.  
+3. Optional: SMA 200 (higher timeframe trend filter).  
+
+**Unique Edge:**  
+Combines volatility compression (BBW) with volume-fueled breakouts, reducing false signals common in pure Bollinger strategies.

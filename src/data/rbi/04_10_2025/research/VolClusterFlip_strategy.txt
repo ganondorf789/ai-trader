@@ -1,0 +1,73 @@
+STRATEGY_NAME: VolClusterFlip
+
+STRATEGY_DETAILS:
+This sophisticated volatility trading strategy combines VIX term structure analysis with on-chain liquidity data to identify high-probability short volatility opportunities. The approach focuses on two key market phenomena: VIX term structure flips and clustered liquidity zones.
+
+Key Components:
+1. VIX Term Structure Analysis:
+   - Monitor daily VIX futures term structure (contango/backwardation)
+   - Identify transitions from contango to backwardation
+   - Confirm sustained backwardation (minimum 3 consecutive days)
+
+2. On-Chain Liquidity Zones:
+   - Analyze blockchain data for significant liquidity clusters
+   - Identify high-density resistance levels (top 5% of liquidity zones)
+   - Confirm price interaction with these zones (touch or slight breach)
+
+Entry Rules:
+1. Primary Trigger:
+   - VIX term structure in confirmed backwardation
+   - Price touches or slightly breaches identified high-liquidity resistance zone
+   - Volume confirmation (above 30-day average)
+
+2. Secondary Confirmation:
+   - RSI(14) above 60 (showing overbought conditions)
+   - Negative funding rates in perpetual futures markets
+   - Open interest increase at resistance level
+
+Exit Rules:
+1. Profit Targets:
+   - First target: 1.5x average true range (ATR) from entry
+   - Second target: Return to contango in VIX term structure
+   - Final target: Liquidity zone below current price (next support)
+
+2. Stop Loss:
+   - Hard stop: 1x ATR above entry
+   - Time stop: 5 days without expected movement
+   - Term structure stop: Backwardation deepens beyond 2 standard deviations
+
+Risk Management:
+1. Position Sizing:
+   - Maximum 2% capital per trade
+   - Adjust size based on liquidity zone strength (higher liquidity = larger position)
+   - Volatility-adjusted sizing (reduce position if VIX > 30)
+
+2. Portfolio Constraints:
+   - Maximum 3 concurrent volatility short positions
+   - No new entries when VIX > 35
+   - Mandatory 24-hour cooldown after stopped out
+
+Required Indicators:
+1. Core Indicators:
+   - VIX futures term structure (front month vs second month)
+   - On-chain liquidity heatmap (aggregated exchange data)
+   - Volume profile (30-day)
+
+2. Confirmation Indicators:
+   - RSI (14-period)
+   - ATR (14-period)
+   - Perpetual futures funding rate
+   - Open interest change
+
+3. Monitoring Tools:
+   - VIX historical percentile (50-day lookback)
+   - Put/Call ratio (for sentiment confirmation)
+   - Term structure steepness indicator
+
+Special Considerations:
+- Most effective during periods of elevated but declining volatility
+- Requires real-time monitoring of VIX futures rolls
+- Best applied to major crypto assets with robust on-chain data
+- Avoid around major macroeconomic events (FOMC, CPI releases)
+
+This strategy capitalizes on the unique intersection of derivatives market structure and blockchain liquidity patterns, creating a high-edge approach to volatility trading. The VolClusterFlip name reflects both the volatility structure analysis (Flip) and the liquidity cluster component (VolCluster).

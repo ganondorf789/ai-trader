@@ -1,0 +1,38 @@
+STRATEGY_NAME: Voltrend Flip
+
+STRATEGY_DETAILS:
+The Voltrend Flip strategy combines trend direction confirmation with explosive volume momentum for high-probability entries, using a volatility-based trailing stop for exits.
+
+Key Components:
+1. SuperTrend Indicator (Primary Trend Filter)
+2. Elder Force Index (Volume-Momentum Confirmation)
+3. ATR (Volatility-Based Stop Management)
+
+Entry Rules:
+1. Wait for SuperTrend to flip direction (bullish when price crosses above, bearish when below)
+2. Concurrently require Elder Force Index's volume component to show 2x surge compared to its 10-period average
+3. Both conditions must occur within the same candle or consecutive candles
+
+Exit Rules:
+1. Primary Exit: When SuperTrend flips to opposite direction
+2. Secondary Exit: 1.5x ATR trailing stop (calculated from entry price)
+   - For long positions: trail stop at (current price - 1.5x ATR)
+   - For short positions: trail stop at (current price + 1.5x ATR)
+
+Risk Management:
+1. Position sizing based on 1.5x ATR stop distance
+2. Maximum risk per trade: 1-2% of capital
+3. No pyramiding - single position per signal
+4. Time-based exit if price stagnates (consider exiting if no significant movement after 5-7 bars)
+
+Required Indicators:
+1. SuperTrend (recommended settings: 10 period, 3 multiplier)
+2. Elder Force Index (13-period EMA recommended)
+3. Average True Range (14-period standard)
+
+Optimization Notes:
+1. Test different ATR multiples (1.25x-2x) for stop placement
+2. Experiment with SuperTrend period (7-14) and multiplier (2-4)
+3. Validate volume surge threshold (1.8x-2.5x) for your instrument
+
+This strategy excels in trending markets with strong volume participation, while the ATR stop protects profits during volatile reversals. The unique combination of trend confirmation with volume surge creates high-quality signals with favorable risk/reward profiles.

@@ -1,0 +1,26 @@
+STRATEGY_NAME: VolumetricVWAP  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Dynamic VWAP Envelope**: Uses a 20-period Volume-Weighted Average Price (VWAP) with upper and lower bands set at 2 standard deviations.  
+2. **Volume Surge Confirmation**: Requires trading volume to exceed 2x the 10-day average volume for signal validation.  
+3. **Mean Reversion Exit**: Positions are closed when price retraces to 1 standard deviation of the VWAP.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when price crosses *above* the upper VWAP envelope (2 std dev) AND volume surges (>2x 10-day avg).  
+- **Short Entry**: Triggered when price crosses *below* the lower VWAP envelope (2 std dev) AND volume surges (>2x 10-day avg).  
+
+**Exit Rules:**  
+- **Long Exit**: Price falls back to the 1 std dev upper VWAP band or below.  
+- **Short Exit**: Price rises back to the 1 std dev lower VWAP band or above.  
+
+**Risk Management:**  
+- **Stop-Loss**: Optional trailing stop at 1.5x the recent ATR (14-period) to protect against false breakouts.  
+- **Position Sizing**: Allocate ≤2% of capital per trade to limit drawdowns.  
+
+**Required Indicators:**  
+1. VWAP (20-period) with ±2 and ±1 standard deviation bands.  
+2. Volume (10-day average for surge detection).  
+3. Optional: ATR (14-period) for stop-loss calibration.  
+
+**Unique Edge:** Combines volatility (VWAP bands) with volume confirmation to filter high-probability breakouts, while mean-reversion exits lock in gains. The name "VolumetricVWAP" reflects this dual focus on volume spikes and VWAP dynamics.

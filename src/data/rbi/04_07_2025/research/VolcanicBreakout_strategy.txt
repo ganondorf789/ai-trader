@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolcanicBreakout
+
+STRATEGY_DETAILS:
+This strategy combines explosive volume surges with Bollinger Band squeezes to identify high-probability breakout opportunities. The name "VolcanicBreakout" reflects the explosive volume (volcanic) nature of the trades combined with the breakout mechanics.
+
+Key Components:
+1. Volume Surge Filter: Requires trading volume to exceed 3x the 20-day average volume
+2. Bollinger Band Setup: Price must be in a squeeze (upper and lower bands close together)
+3. Breakout Confirmation: Price must close outside the Bollinger Band
+4. Protective Stop: Uses the breakout candle's low as stop-loss
+
+Entry Rules:
+1. Wait for volume to surge to at least 3x the 20-day average volume
+2. Confirm price has been in a Bollinger Band squeeze (bands within 2% of each other)
+3. Enter long when price closes above upper Bollinger Band on surge volume
+4. Enter short when price closes below lower Bollinger Band on surge volume
+
+Exit Rules:
+1. For long positions: Trail stop at the most recent swing low
+2. For short positions: Trail stop at the most recent swing high
+3. Consider taking partial profits at 1.5x risk (measured from entry to stop)
+
+Risk Management:
+1. Initial stop-loss set at the breakout candle's low (long) or high (short)
+2. Position size should be calculated based on 1-2% risk per trade
+3. No new entries if 3 consecutive losing trades occur (requires strategy review)
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations recommended)
+2. Volume indicator with 20-day average
+3. Optional: ATR (14) for additional volatility measurement
+
+Special Notes:
+- This strategy works best in trending markets
+- Avoid trading during major news events when volume spikes may be misleading
+- Works well on 1-hour to daily timeframes
+- Backtest suggests best results when combined with overall market trend direction

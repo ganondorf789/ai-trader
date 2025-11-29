@@ -1,0 +1,36 @@
+STRATEGY_NAME: VoltaicSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Filter:** Uses the 14-day ATR (Average True Range) being below its 50-day average to identify periods of low volatility, signaling potential breakout setups.  
+2. **Breakout Trigger:** Enters long when price breaks above the 20-day high, confirming momentum.  
+3. **Volume Confirmation:** Requires volume to exceed 1.5x the 50-day average volume, ensuring strong participation in the breakout.  
+4. **Trailing Stop Exit:** Uses a dynamic 3x ATR trailing stop to lock in profits while allowing room for volatility expansion.  
+
+**Entry Rules:**  
+- **Condition 1:** 14-day ATR < 50-day ATR average (volatility contraction).  
+- **Condition 2:** Price breaks above the 20-day high (breakout confirmation).  
+- **Condition 3:** Current volume > 1.5x 50-day average volume (participation validation).  
+- **Action:** Enter long at the breakout level or next candle open.  
+
+**Exit Rules:**  
+- **Trailing Stop:** Set a stop-loss at 3x the current 14-day ATR below the highest high since entry. Adjust dynamically as price moves higher.  
+- **Optional Time Exit:** Consider exiting after a fixed period (e.g., 10 days) if no stop is hit, to avoid stagnation.  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%) to limit downside.  
+- **Stop-Loss Initialization:** The 3x ATR trailing stop ensures risk is proportional to recent volatility.  
+- **Avoid Overcrowding:** Do not enter if multiple correlated assets are signaling breakouts simultaneously (diversify entries).  
+
+**Required Indicators:**  
+1. **ATR (14-period & 50-period average)** – For volatility contraction detection.  
+2. **20-day High** – Breakout level reference.  
+3. **Volume (50-day average & current)** – To confirm breakout strength.  
+
+**Unique Edge:** Combines volatility contraction, high-volume breakouts, and adaptive trailing stops to capture explosive moves while minimizing false signals. The 3x ATR stop allows for wider swings in high-momentum trades.  
+
+**Optimization Tips:**  
+- Test different ATR multiples (e.g., 2.5x–3.5x) for the trailing stop.  
+- Adjust volume thresholds (e.g., 1.3x–2x) based on asset liquidity.  
+- Filter for assets with historically strong breakout tendencies (e.g., equities during earnings season).

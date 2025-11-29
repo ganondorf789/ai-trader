@@ -1,0 +1,36 @@
+STRATEGY_NAME: VoltaicBreakout
+
+STRATEGY_DETAILS:
+The VoltaicBreakout strategy is designed to capitalize on periods of high market volatility by identifying and trading breakouts from established price ranges. This strategy is particularly effective in trending markets and during news events when volatility spikes.
+
+Key Components:
+1. **Volatility Measurement**: Uses Average True Range (ATR) to gauge market volatility.
+2. **Range Identification**: Identifies the previous day's high and low as the breakout levels.
+3. **Breakout Confirmation**: Requires price to close beyond the breakout level to confirm the signal.
+
+Entry Rules:
+1. **Long Entry**: 
+   - Wait for the price to close above the previous day's high.
+   - Confirm with ATR being above a predefined threshold (e.g., 1.5 times the 14-day ATR).
+   - Enter a long position on the next candle's open.
+
+2. **Short Entry**:
+   - Wait for the price to close below the previous day's low.
+   - Confirm with ATR being above a predefined threshold (e.g., 1.5 times the 14-day ATR).
+   - Enter a short position on the next candle's open.
+
+Exit Rules:
+1. **Profit Target**: Set a profit target based on a multiple of the ATR (e.g., 2x ATR).
+2. **Stop Loss**: Place a stop loss at the opposite breakout level (previous day's low for long positions, previous day's high for short positions).
+3. **Time Exit**: Exit the trade if the profit target or stop loss is not hit by the end of the trading session.
+
+Risk Management:
+1. **Position Sizing**: Adjust position size based on the ATR to ensure consistent risk per trade.
+2. **Maximum Risk**: Limit risk to a small percentage of the trading capital (e.g., 1-2% per trade).
+3. **Volatility Filter**: Avoid trading if the ATR is below a certain threshold, indicating low volatility.
+
+Required Indicators:
+1. **Average True Range (ATR)**: To measure volatility and set profit targets/stop losses.
+2. **Previous Day's High/Low**: To identify breakout levels.
+
+This strategy leverages the natural ebb and flow of market volatility, aiming to enter trades when the market is most likely to continue in the direction of the breakout. By using ATR for both entry confirmation and risk management, the VoltaicBreakout strategy ensures that trades are taken only when the potential reward justifies the risk.

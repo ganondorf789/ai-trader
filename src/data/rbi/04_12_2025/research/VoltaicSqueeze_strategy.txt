@@ -1,0 +1,31 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Squeeze Identification:** Uses Bollinger Bandwidth (20,2) to detect periods of low volatility (10-day minimum bandwidth).  
+2. **Breakout Confirmation:** Requires price to close outside the Keltner Channel (20,1.5) in the same direction as the squeeze resolution.  
+3. **Exit Mechanism:** Implements a trailing stop set at 2x the 14-day ATR to lock in profits and limit losses.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  1. Bollinger Bandwidth reaches a 10-day low (squeeze condition).  
+  2. Price closes ABOVE the upper Keltner Channel.  
+- **Short Entry:** Triggered when:  
+  1. Bollinger Bandwidth reaches a 10-day low (squeeze condition).  
+  2. Price closes BELOW the lower Keltner Channel.  
+
+**Exit Rules:**  
+- **Trailing Stop:** Exit position when price reverses by 2x the 14-day ATR from the highest high (long) or lowest low (short) since entry.  
+- **Optional Time Exit:** Close trade after 5 bars if no trailing stop is hit (prevoves stagnation).  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate ≤2% of capital per trade.  
+2. **Stop Loss:** Initial stop set at 1x ATR from entry (optional for aggressive traders).  
+3. **Filter:** Avoid trading during major economic news events to reduce false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To calculate bandwidth squeeze.  
+2. **Keltner Channel (20,1.5)** – For breakout confirmation.  
+3. **ATR (14)** – For trailing stop and risk sizing.  
+
+**Unique Edge:** Combines volatility contraction (Bollinger) with expansion signals (Keltner) while using adaptive exits (ATR) for dynamic risk/reward. Works best on 1H/4H timeframes in trending markets.

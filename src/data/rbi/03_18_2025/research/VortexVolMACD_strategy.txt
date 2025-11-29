@@ -1,0 +1,51 @@
+STRATEGY_NAME: VortexVolMACD
+
+STRATEGY_DETAILS:
+The VortexVolMACD strategy combines three key technical indicators to identify high-probability trading opportunities while filtering out high-volatility conditions. The strategy focuses on trend confirmation, momentum, and volume-weighted signals, ensuring trades are taken only when multiple factors align.
+
+### Key Components:
+1. **Vortex Indicator (VI)**: Used to confirm the trend direction. The strategy uses the VI+ (positive trend) and VI- (negative trend) lines to determine bullish or bearish momentum.
+2. **Volume-Weighted MACD**: A modified MACD that incorporates volume data to confirm momentum shifts. The crossover of the MACD line and signal line is used as a trigger.
+3. **Keltner Channels**: Measures volatility. Trades are only taken when volatility is below its 20-day average, ensuring calmer market conditions.
+
+### Entry Rules:
+1. **Bullish Entry**:
+   - VI+ crosses above VI- (bullish trend confirmation).
+   - Volume-weighted MACD line crosses above the signal line (bullish momentum).
+   - Current price is within the Keltner Channels, and volatility (channel width) is below its 20-day average.
+2. **Bearish Entry**:
+   - VI- crosses above VI+ (bearish trend confirmation).
+   - Volume-weighted MACD line crosses below the signal line (bearish momentum).
+   - Current price is within the Keltner Channels, and volatility (channel width) is below its 20-day average.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Use a fixed risk-reward ratio (e.g., 2:1) based on the initial stop-loss distance.
+   - Alternatively, exit when the Vortex Indicator shows a reversal (VI+ crosses below VI- for long trades or VI- crosses below VI+ for short trades).
+2. **Stop Loss**:
+   - Place the stop-loss just outside the Keltner Channel boundaries to account for potential volatility expansion.
+   - Alternatively, use a percentage-based stop-loss (e.g., 1-2% of the entry price).
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of the trading capital per trade.
+   - Adjust position size based on the distance between the entry price and stop-loss level.
+2. **Volatility Filter**:
+   - Avoid trading when Keltner Channel width is above its 20-day average to reduce exposure to high-volatility conditions.
+
+### Required Indicators:
+1. **Vortex Indicator (VI)**: Default settings (14-period lookback).
+2. **Volume-Weighted MACD**: 
+   - Fast Length: 12
+   - Slow Length: 26
+   - Signal Smoothing: 9
+   - Volume Multiplier: Applied to the MACD calculation.
+3. **Keltner Channels**:
+   - EMA Length: 20
+   - ATR Length: 20
+   - ATR Multiplier: 1.5
+
+### Additional Notes:
+- This strategy works best in trending markets and may underperform in choppy or sideways conditions.
+- Backtest the strategy on multiple timeframes (e.g., 1H, 4H, Daily) to identify optimal settings for your trading style.
+- Consider adding a volume spike confirmation to further validate entries during low-volatility conditions.

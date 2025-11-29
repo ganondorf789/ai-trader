@@ -1,0 +1,53 @@
+STRATEGY_NAME: VoltaicLiquidity  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Dynamic Bollinger Band Width Threshold:**  
+   - Uses Bollinger Band width (BBW) as a volatility filter.  
+   - Adjusts the breakout threshold based on recent market volatility.  
+   - Breakout signals are only valid when BBW exceeds a dynamically calculated threshold (e.g., 20-period moving average of BBW + 1 standard deviation).  
+
+2. **On-Chain Liquidity Clustering Levels:**  
+   - Identifies key liquidity zones using on-chain data (e.g., large buy/sell orders, exchange net flows).  
+   - Breakouts are confirmed only if price moves beyond a liquidity cluster level, increasing the probability of continuation.  
+
+3. **VWAP Deviation Exit:**  
+   - Uses Volume-Weighted Average Price (VWAP) as a trailing reference.  
+   - Exits trades when price deviates beyond 2 historical standard deviations from VWAP, locking in profits or cutting losses.  
+
+**Entry Rules:**  
+1. **Long Entry:**  
+   - BBW exceeds the dynamic threshold (e.g., 20-period BBW MA + 1σ).  
+   - Price breaks above a liquidity cluster resistance level.  
+   - Confirm with rising volume to validate the breakout.  
+
+2. **Short Entry:**  
+   - BBW exceeds the dynamic threshold.  
+   - Price breaks below a liquidity cluster support level.  
+   - Confirm with rising volume to validate the breakdown.  
+
+**Exit Rules:**  
+1. **Profit-Taking/Stop-Loss:**  
+   - Exit long positions when price closes >2σ below VWAP.  
+   - Exit short positions when price closes >2σ above VWAP.  
+   - Adjust VWAP lookback period (e.g., 50-100 bars) based on timeframe.  
+
+2. **Time-Based Exit:**  
+   - Close trades after a fixed holding period (e.g., 24 hours) if no VWAP deviation occurs.  
+
+**Risk Management:**  
+1. Position sizing based on volatility (e.g., ATR-based risk per trade).  
+2. Stop-loss at the opposite liquidity cluster level or 1.5σ VWAP deviation, whichever is tighter.  
+3. Avoid trading during low-liquidity periods (e.g., weekends, holidays).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) for BBW calculation.  
+2. On-chain liquidity data (e.g., order book heatmaps, exchange net flows).  
+3. VWAP with standard deviation bands (2σ).  
+4. Volume indicator for confirmation.  
+
+**Unique Aspects:**  
+- Combines technical (Bollinger Band volatility) and on-chain (liquidity clusters) signals for high-probability breakouts.  
+- Uses VWAP deviation instead of fixed take-profit/stop-loss levels for adaptive exits.  
+- Dynamic BBW threshold avoids false breakouts in low-volatility regimes.

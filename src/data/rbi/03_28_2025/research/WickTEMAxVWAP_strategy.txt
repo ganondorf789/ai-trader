@@ -1,0 +1,40 @@
+STRATEGY_NAME: WickTEMAxVWAP
+
+STRATEGY_DETAILS:
+This strategy combines Heikin-Ashi candlestick patterns with technical indicators for precise entries and exits. The key components are:
+
+1. KEY COMPONENTS:
+- Heikin-Ashi candlestick analysis (4-hour timeframe)
+- Triple Exponential Moving Average (TEMA 20)
+- Volume Weighted Average Price (VWAP)
+- Stochastic RSI (1-hour timeframe for exits)
+
+2. ENTRY RULES:
+- Must observe three consecutive bullish Heikin-Ashi candles on 4H chart
+- Each consecutive candle must show progressively smaller upper wicks
+- TEMA(20) must cross above VWAP simultaneously
+- All conditions must be met simultaneously for valid entry
+
+3. EXIT RULES:
+- Monitor 1-hour chart for bearish divergence on Stochastic RSI
+- Divergence occurs when price makes higher highs while Stochastic RSI makes lower highs
+- Exit entire position when divergence is confirmed
+
+4. RISK MANAGEMENT:
+- Recommended stop-loss below the lowest point of the three entry candles
+- Position size should be calculated based on 1-2% risk per trade
+- Consider trailing stop after significant move in your favor
+
+5. REQUIRED INDICATORS:
+- Heikin-Ashi candles (set chart to display these)
+- TEMA (20 period)
+- VWAP (standard settings)
+- Stochastic RSI (standard 14,3,3 settings on 1H chart)
+
+6. SPECIAL NOTES:
+- Works best in trending markets
+- Requires patience to wait for all conditions to align
+- Best applied to liquid assets with good volume
+- Backtest suggested before live implementation
+
+The unique combination of wick analysis with TEMA/VWAP crossover makes this strategy particularly effective at catching strong momentum moves while filtering out false signals. The 1-hour Stochastic RSI divergence exit helps capture profits before major reversals.

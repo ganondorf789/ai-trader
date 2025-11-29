@@ -1,0 +1,41 @@
+STRATEGY_NAME: DeltaFlow Momentum
+
+STRATEGY_DETAILS:
+The DeltaFlow Momentum strategy is a sophisticated approach that combines momentum trading with order flow analysis, focusing on bid-ask spread dynamics and cumulative net delta to identify high-probability trading opportunities. Here's a detailed breakdown of the strategy:
+
+1. **Key Strategy Components**:
+   - **Order Flow Imbalance**: Monitors the relationship between bid and ask volumes to identify potential momentum shifts.
+   - **Bid-Ask Spread Analysis**: Tracks the narrowing or widening of spreads as a key indicator of liquidity and market sentiment.
+   - **Cumulative Net Delta**: Uses delta (difference between buying and selling pressure) to scale position sizes dynamically.
+   - **Momentum Confirmation**: Ensures trades align with the prevailing momentum direction.
+
+2. **Entry Rules**:
+   - **Long Entry**: Buy when:
+     - Bid-ask spread is decreasing (indicating improving liquidity and potential upward momentum).
+     - Cumulative net delta is positive and increasing (showing strong buying pressure).
+     - Price is above a short-term moving average (e.g., 20-period SMA) for momentum confirmation.
+   - **Short Entry**: Sell when:
+     - Bid-ask spread is increasing (indicating deteriorating liquidity and potential downward momentum).
+     - Cumulative net delta is negative and decreasing (showing strong selling pressure).
+     - Price is below a short-term moving average for momentum confirmation.
+
+3. **Exit Rules**:
+   - **Take Profit**: Exit when:
+     - The bid-ask spread reverses direction (e.g., starts widening for long positions or narrowing for short positions).
+     - Cumulative net delta shows signs of weakening (e.g., flattening or reversing).
+   - **Stop Loss**: Exit when:
+     - Price moves against the position by a predefined percentage (e.g., 1-2% of entry price).
+     - Cumulative net delta sharply reverses, indicating a potential trend change.
+
+4. **Risk Management**:
+   - **Position Sizing**: Scale position sizes based on the strength of cumulative net delta. Larger positions are taken when delta is strongly positive (for longs) or strongly negative (for shorts).
+   - **Diversification**: Limit exposure to any single stock or sector to avoid concentration risk.
+   - **Volatility Adjustment**: Reduce position sizes during high-volatility periods to account for increased risk.
+
+5. **Required Indicators**:
+   - **Bid-Ask Spread Indicator**: Tracks the difference between the best bid and ask prices in real-time.
+   - **Cumulative Net Delta**: Calculates the cumulative difference between buying and selling pressure over a specified period.
+   - **Moving Average (e.g., 20-period SMA)**: Used for momentum confirmation and trend alignment.
+   - **Volume Profile**: Helps identify key support and resistance levels based on historical volume data.
+
+This strategy is ideal for traders who want to capitalize on short- to medium-term momentum shifts while incorporating advanced order flow analysis. It requires access to real-time market data and a robust trading platform capable of tracking bid-ask spreads and cumulative net delta.

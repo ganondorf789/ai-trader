@@ -1,0 +1,56 @@
+STRATEGY_NAME: VortexSqueeze  
+
+STRATEGY_DETAILS:  
+This strategy combines the Vortex Indicator's trend confirmation with Bollinger Bandwidth contraction to identify high-probability breakout trades. The approach focuses on entering trades only when volatility is low (as indicated by Bollinger Bandwidth) and the Vortex Indicator confirms a strong trend direction.  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):**  
+   - VI+ (Positive Vortex) measures upward trend movement.  
+   - VI- (Negative Vortex) measures downward trend movement.  
+   - A bullish signal occurs when VI+ crosses above VI-.  
+   - A bearish signal occurs when VI- crosses above VI+.  
+
+2. **Bollinger Bandwidth:**  
+   - Measures the percentage difference between the upper and lower Bollinger Bands.  
+   - Low bandwidth indicates contraction (low volatility), often preceding breakouts.  
+   - A threshold of the 20-day average bandwidth is used to confirm low volatility.  
+
+3. **Breakout Confirmation:**  
+   - Entry is triggered when the Vortex Indicator aligns with the trend direction AND Bollinger Bandwidth is below its 20-day average.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. VI+ crosses above VI- (bullish Vortex signal).  
+  2. Bollinger Bandwidth is below its 20-day average (low volatility).  
+  3. Price breaks above the upper Bollinger Band (confirms breakout).  
+
+- **Short Entry:**  
+  1. VI- crosses above VI+ (bearish Vortex signal).  
+  2. Bollinger Bandwidth is below its 20-day average (low volatility).  
+  3. Price breaks below the lower Bollinger Band (confirms breakout).  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Close the trade when price reaches a predefined risk-reward ratio (e.g., 2:1).  
+  - Alternatively, exit when Bollinger Bandwidth expands significantly (volatility increases).  
+
+- **Stop Loss:**  
+  - For long trades: Place below the recent swing low or lower Bollinger Band.  
+  - For short trades: Place above the recent swing high or upper Bollinger Band.  
+
+**Risk Management:**  
+- Risk no more than 1-2% of capital per trade.  
+- Adjust position size based on stop-loss distance.  
+- Avoid trading during major news events that may cause erratic volatility.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+ and VI-).  
+2. Bollinger Bands (standard settings: 20-period SMA, 2 standard deviations).  
+3. Bollinger Bandwidth (calculated as: (Upper Band - Lower Band) / Middle Band).  
+
+**Additional Notes:**  
+- Works best on 1H or 4H timeframes for swing trading.  
+- Avoid using in ranging markets; wait for clear trend signals.  
+- Backtest to optimize the Bollinger Bandwidth threshold if needed.  
+
+This strategy capitalizes on the "squeeze" effect (low volatility) combined with Vortex trend confirmation to catch strong breakouts with reduced false signals.

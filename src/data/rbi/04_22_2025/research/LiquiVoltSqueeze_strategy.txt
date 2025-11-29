@@ -1,0 +1,37 @@
+STRATEGY_NAME: LiquiVolt Squeeze
+
+STRATEGY_DETAILS:
+This strategy capitalizes on extreme volatility contractions during periods of concentrated liquidation activity, combining Bollinger Band analysis with liquidation cluster detection for high-probability entries.
+
+Key Components:
+1. Bollinger Band Width (BBW) - Measures volatility contraction when near yearly lows
+2. Liquidation Cluster Zones - Identifies price levels with high liquidity concentrations
+3. ATR Trailing Stop - Dynamic exit mechanism for volatility expansion phases
+
+Entry Rules:
+1. Primary Condition: BBW must be at/near its lowest 5% of yearly range (extreme contraction)
+2. Secondary Condition: Price must be trading within a pre-identified liquidation cluster zone
+3. Confirmation: Wait for price to touch the Bollinger Band (upper for short, lower for long)
+
+Exit Rules:
+1. Primary Exit: ATR-based trailing stop (suggested 2.5-3x current ATR)
+2. Secondary Exit: BBW expansion beyond contraction threshold (e.g., above 20th percentile)
+3. Emergency Exit: Price exits liquidation cluster zone against position
+
+Risk Management:
+1. Position sizing based on distance to liquidation cluster boundaries
+2. Hard stop at opposite side of liquidation zone
+3. Volatility-adjusted position sizing (reduce size during higher baseline ATR)
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviation)
+2. Bollinger Band Width (BBW) indicator
+3. ATR (14-period recommended)
+4. Liquidation heatmap/cluster indicator (or volume profile analysis)
+
+Optimal Conditions:
+- Works best in ranging markets with clear liquidity pools
+- Avoid during strong trending markets without consolidation
+- Most effective on 4H/daily timeframes for cleaner signals
+
+Note: Requires continuous monitoring of liquidity conditions and yearly volatility ranges for proper calibration. Backtest suggested to determine optimal BBW threshold and ATR multiplier for specific instruments.

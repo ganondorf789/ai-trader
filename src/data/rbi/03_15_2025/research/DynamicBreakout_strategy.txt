@@ -1,0 +1,66 @@
+STRATEGY_NAME: DynamicBreakout
+
+STRATEGY_DETAILS:
+The Dynamic Range Breakout Strategy is designed to capitalize on significant price movements following periods of consolidation. This strategy dynamically adjusts its breakout levels based on recent price action, making it adaptable to changing market conditions. Below are the key components, rules, and requirements for implementing this strategy effectively.
+
+### Key Strategy Components:
+1. **Dynamic Range Calculation**: The strategy calculates a dynamic range based on recent price action, typically using a combination of moving averages and volatility measures.
+2. **Breakout Levels**: Upper and lower breakout levels are determined by adding and subtracting a multiple of the average true range (ATR) from a central moving average.
+3. **Entry Signals**: Entries are triggered when the price breaks above the upper level (for a long position) or below the lower level (for a short position).
+4. **Exit Signals**: Exits are based on either a trailing stop or a fixed profit target, ensuring that gains are locked in while minimizing losses.
+
+### Entry Rules:
+1. **Long Entry**: 
+   - Wait for the price to close above the upper dynamic breakout level.
+   - Confirm the breakout with increased volume or a momentum indicator (e.g., RSI above 50).
+   - Enter a long position at the next candle's open.
+
+2. **Short Entry**:
+   - Wait for the price to close below the lower dynamic breakout level.
+   - Confirm the breakout with increased volume or a momentum indicator (e.g., RSI below 50).
+   - Enter a short position at the next candle's open.
+
+### Exit Rules:
+1. **Trailing Stop Exit**:
+   - Use a trailing stop based on a percentage of the ATR or a fixed price distance.
+   - Adjust the stop level as the price moves in your favor.
+
+2. **Profit Target Exit**:
+   - Set a fixed profit target (e.g., 2x ATR or a predefined price level).
+   - Exit the position when the target is reached.
+
+3. **Time-Based Exit**:
+   - If the trade does not reach the profit target or stop loss within a specified time frame (e.g., 5-10 candles), exit the position to avoid prolonged exposure.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Use a fixed percentage of your account balance per trade (e.g., 1-2%).
+   - Adjust position size based on the distance between the entry price and the stop-loss level.
+
+2. **Stop-Loss Placement**:
+   - Place the initial stop-loss just below the breakout level for long trades or above the breakout level for short trades.
+   - Use the ATR to determine a reasonable stop-loss distance.
+
+3. **Risk-Reward Ratio**:
+   - Aim for a minimum risk-reward ratio of 1:2 or higher.
+   - Ensure that potential profits justify the risk taken on each trade.
+
+### Required Indicators:
+1. **Moving Average (MA)**:
+   - A central moving average (e.g., 20-period SMA or EMA) to define the dynamic range's midpoint.
+
+2. **Average True Range (ATR)**:
+   - Used to calculate the dynamic breakout levels and determine stop-loss distances.
+
+3. **Relative Strength Index (RSI)**:
+   - Optional for confirming breakout strength and momentum.
+
+4. **Volume Indicator**:
+   - Optional for confirming breakout validity with increased trading volume.
+
+### Additional Notes:
+- This strategy works best in trending markets with clear consolidation phases.
+- Avoid using it during highly volatile or choppy market conditions, as false breakouts may occur.
+- Regularly backtest and optimize the parameters (e.g., ATR multiplier, moving average period) to suit your trading style and market conditions.
+
+By following these rules and guidelines, the DynamicBreakout strategy can help you identify and capitalize on high-probability breakout opportunities while managing risk effectively.

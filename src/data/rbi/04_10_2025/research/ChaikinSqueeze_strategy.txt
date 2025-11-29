@@ -1,0 +1,33 @@
+STRATEGY_NAME: ChaikinSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chaikin Money Flow (CMF)**: A volume-weighted momentum indicator used to confirm bullish/bearish trends.  
+2. **Bollinger Band Squeeze**: Identifies low volatility periods when the 20-day bandwidth is less than half of the 14-day Average True Range (ATR).  
+3. **Exit Conditions**: Based on either a volatility expansion (2x bandwidth) or a reversal in CMF momentum.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  - The 3-day CMF crosses **above zero**, indicating bullish money flow.  
+  - The Bollinger Band (20,2) bandwidth is **below 0.5 * ATR(14)**, confirming a squeeze.  
+
+**Exit Rules:**  
+- **Take Profit/Volatility Exit**: Close the position when the Bollinger Band bandwidth **expands to 2x its squeeze value** (indicating volatility breakout).  
+- **Momentum Reversal Exit**: Exit if the 3-day CMF **reverses below zero** within 5 days, signaling weakening bullish momentum.  
+
+**Risk Management:**  
+- **Stop Loss**: Consider using a trailing stop (e.g., 1.5x ATR) or a fixed percentage (e.g., 2-3%) below entry.  
+- **Position Sizing**: Allocate capital based on volatility (e.g., risk 1% per trade).  
+
+**Required Indicators:**  
+1. **Chaikin Money Flow (CMF, 3-day)**  
+2. **Bollinger Bands (20,2) + Bandwidth Calculation**  
+3. **Average True Range (ATR, 14-day)**  
+
+**Notes:**  
+- Works best in ranging markets with periodic volatility contractions.  
+- Avoid trading during strong trending phases (use ADX > 25 as a filter if needed).  
+- Backtest to optimize CMF period (3-day vs. 5-day) and squeeze threshold (0.5x vs. 0.4x ATR).  
+
+This strategy combines **low-volatility squeeze detection** with **volume-confirmed momentum**, offering a systematic way to trade breakouts with defined risk parameters.

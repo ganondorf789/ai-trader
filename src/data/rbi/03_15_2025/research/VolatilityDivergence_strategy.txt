@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolatilityDivergence
+
+STRATEGY_DETAILS:
+The VolatilityDivergence strategy is a momentum-neutral approach that capitalizes on significant discrepancies between VIX futures and cash prices. This strategy is designed to identify potential overpricing in the options market and profit from mean reversion in volatility spreads.
+
+Key Strategy Components:
+1. VIX Futures vs. Cash Spread: The core of the strategy revolves around monitoring the percentage difference between VIX futures and cash prices.
+2. Put Options Selection: Focuses on purchasing put options with a 60-day expiration timeframe.
+3. Momentum-Neutral Approach: The strategy doesn't rely on directional market momentum, making it suitable for various market conditions.
+
+Entry Rules:
+1. Monitor the VIX futures and cash prices daily
+2. Calculate the percentage difference: (VIX Futures - VIX Cash) / VIX Cash * 100
+3. Enter a trade when the spread exceeds 10%
+4. Purchase at-the-money put options with 60 days to expiration
+
+Exit Rules:
+1. Close the position when the spread narrows to less than 5%
+2. Use a stop-loss at 2x the premium paid for the options
+3. Exit the trade if the options reach 50% of their maximum potential value
+
+Risk Management:
+1. Position sizing should be limited to 2-5% of total portfolio value per trade
+2. Implement the 2x premium stop-loss rule strictly
+3. Avoid trading during major economic announcements or earnings seasons
+4. Maintain a maximum of 3-5 concurrent positions to manage portfolio risk
+
+Required Indicators:
+1. Real-time VIX cash price
+2. VIX futures prices (front-month contract)
+3. Options pricing data for 60-day expiration puts
+4. Spread percentage calculation tool
+
+Additional Considerations:
+- Monitor the VIX term structure for additional confirmation
+- Be aware of rollover dates for VIX futures
+- Consider implied volatility levels when selecting strike prices
+- Track historical spread patterns for better timing of entries
+
+This strategy requires careful monitoring of the VIX market and disciplined execution of risk management rules. The 60-day expiration period provides sufficient time for the spread to normalize while limiting time decay effects. The 2x premium stop-loss helps protect against unexpected volatility spikes that could lead to significant losses.

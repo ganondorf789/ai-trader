@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilityCascade  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cascade Detection:** The strategy identifies liquidation events by monitoring sharp declines in open interest ("open interest cliffs"), signaling potential market exhaustion.  
+2. **Volatility Expansion:** Uses HVOL (high volatility) bands to confirm breakout conditions post-cascade.  
+3. **Funding Rate Polarity Flip:** Requires funding rates to reverse direction (from positive to negative or vice versa) as a confirmation of sentiment shift.  
+4. **Straddle Entries:** Enters both long and short positions simultaneously to capitalize on volatility expansion regardless of direction.  
+5. **VIX Term Structure:** Monitors the shape of the VIX futures curve (contango/backwardation) to time exits.  
+
+**Entry Rules:**  
+- Trigger: A sharp drop in open interest (OI) exceeding a predefined threshold (e.g., -20% over 4 hours).  
+- Confirmation: Break of HVOL bands (upper or lower) with concurrent flip in funding rate polarity.  
+- Execution: Enter a straddle (long call + long put or equivalent delta-neutral position) to capture volatility expansion.  
+
+**Exit Rules:**  
+- Primary Exit: VIX term structure shifts from backwardation to contango (or vice versa), signaling reduced volatility risk premium.  
+- Secondary Exit: HVOL bands reconverge, indicating volatility contraction.  
+- Time-Based Exit: If no clear signal, exit after 24-48 hours to avoid theta decay in options.  
+
+**Risk Management:**  
+- Position Sizing: Allocate no more than 5% of capital per straddle trade.  
+- Stop-Loss: Exit if HVOL bands re-cross without a VIX term structure shift.  
+- Volatility Filter: Avoid trading if implied volatility (IV) percentile is below 30%, reducing false signals.  
+
+**Required Indicators:**  
+1. Open Interest (OI) change rate  
+2. HVOL bands (e.g., 2 standard deviations from a rolling volatility mean)  
+3. Funding rate polarity (positive/negative)  
+4. VIX futures term structure (front-month vs. second-month)  
+5. Implied volatility percentile (IV% rank)  
+
+**Unique Edge:** Combines derivatives market dynamics (OI, funding) with volatility regimes (HVOL, VIX) for high-probability post-cascade trades. Avoids directional bias via straddles.  
+
+**Note:** Optimize OI cliff thresholds and HVOL parameters per asset (e.g., crypto vs. equities). Backtest for asymmetric performance in high-vol regimes.

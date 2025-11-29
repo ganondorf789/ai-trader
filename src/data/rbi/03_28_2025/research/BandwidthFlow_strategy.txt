@@ -1,0 +1,33 @@
+STRATEGY_NAME: BandwidthFlow  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** Identifies periods of low volatility when the Bollinger Bandwidth reaches a 20-day low, signaling potential breakout opportunities.  
+2. **Chaikin Money Flow (CMF):** Confirms buying pressure when CMF crosses above zero, indicating accumulation and bullish momentum.  
+3. **Exit Conditions:** Uses a dynamic 5% trailing stop to lock in profits and exits when volatility increases (Bandwidth expands beyond its 10-day average).  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when both conditions are met:  
+  - Bollinger Bandwidth contracts to a 20-day low (volatility squeeze).  
+  - Chaikin Money Flow (CMF) crosses above zero (bullish money flow confirmation).  
+
+**Exit Rules:**  
+- **Trailing Stop Exit:** Close the position if the price retraces 5% from its highest point since entry.  
+- **Volatility Expansion Exit:** Exit when Bollinger Bandwidth expands beyond its 10-day average, signaling increased volatility and potential trend exhaustion.  
+
+**Risk Management:**  
+- Position sizing should align with risk tolerance (e.g., 1-2% of capital per trade).  
+- The 5% trailing stop ensures controlled downside risk while allowing for upside potential.  
+- Avoid entering during high market noise or when CMF is weakly positive (below +0.05).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** To calculate Bandwidth (Upper Band - Lower Band / Middle Band).  
+2. **Chaikin Money Flow (20-period):** For volume-weighted money flow confirmation.  
+3. **Trailing Stop (5%):** Dynamic exit to protect profits.  
+
+**Additional Notes:**  
+- Works best in ranging or consolidating markets; avoid strong trending phases without pullbacks.  
+- Backtest for optimal Bandwidth lookback periods (e.g., 20-day vs. 14-day) and CMF thresholds.  
+- Combine with price action (e.g., candle closes above Band squeeze) for higher accuracy.  
+
+This strategy capitalizes on volatility cycles and money flow shifts, balancing aggression (squeeze entries) with discipline (trailing stops).

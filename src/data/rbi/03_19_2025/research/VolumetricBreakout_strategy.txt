@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolumetricBreakout
+
+STRATEGY_DETAILS:
+The VolumetricBreakout strategy is a volatility-based trading approach that combines Bollinger Bands with volume analysis to identify high-probability breakout opportunities. The strategy focuses on capturing momentum during periods of increased volatility while using volume as a confirmation tool.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Volume indicator
+3. Risk-reward ratio management (2:1)
+
+Entry Rules:
+- Long Entry: Trigger when price closes above the upper Bollinger Band AND volume is increasing compared to the previous period.
+- Short Entry: Trigger when price closes below the lower Bollinger Band AND volume is decreasing compared to the previous period.
+
+Exit Rules:
+- Take Profit: Set at 2x the initial risk (distance from entry to stop-loss)
+- Stop Loss: Place at the middle Bollinger Band (20-period SMA)
+- Time Exit: Close position if target not reached within 5 periods
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Maximum daily loss limit of 5%
+3. No new trades if 3 consecutive losses occur
+4. Stop-loss automatically adjusts to breakeven once price moves 1x risk in favorable direction
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Volume indicator (standard volume bars or OBV)
+3. Simple Moving Average (20-period for middle band)
+
+Additional Considerations:
+- Best suited for 15-minute to 4-hour timeframes
+- Works well in trending markets, less effective in ranging conditions
+- Volume confirmation helps filter false breakouts
+- Combine with fundamental analysis for higher timeframes
+- Avoid trading during low liquidity periods
+
+Optimization Tips:
+- Test different Bollinger Band periods (14-26) for specific instruments
+- Experiment with volume thresholds (e.g., 20% increase/decrease)
+- Consider adding a momentum filter (e.g., RSI above/below 50)
+- Backtest across multiple market conditions for robustness
+
+This strategy combines the reliability of Bollinger Bands with the confirmation power of volume analysis, creating a systematic approach to volatility breakouts while maintaining strict risk management protocols.

@@ -1,0 +1,42 @@
+STRATEGY_NAME: BandwidthBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Contraction:** The strategy identifies periods of low volatility when the Bollinger Band width contracts below a historical percentile (e.g., 20th percentile).  
+2. **Breakout Confirmation:** A breakout is confirmed when price closes outside the Bollinger Band.  
+3. **Futures Basis Filter:** The breakout must coincide with a spike in futures basis differentials (contango/backwardation), indicating strong institutional interest.  
+4. **Volume Filter:** Volume must exceed the 20-day moving average to confirm participation in the breakout.  
+
+**Entry Rules:**  
+- Enter long if:  
+  - Bollinger Band width is below its historical percentile (e.g., 20th percentile).  
+  - Price closes above the upper Bollinger Band.  
+  - Futures basis differential spikes (e.g., basis > 0.5% in contango or < -0.5% in backwardation).  
+  - Volume exceeds the 20-day moving average.  
+- Enter short if:  
+  - Bollinger Band width is below its historical percentile.  
+  - Price closes below the lower Bollinger Band.  
+  - Futures basis differential spikes (same threshold as above).  
+  - Volume exceeds the 20-day moving average.  
+
+**Exit Rules:**  
+- **Take Profit:** Close the trade when price reverts to the middle Bollinger Band (20-period SMA).  
+- **Stop Loss:** Exit if price closes back inside the Bollinger Band or if volume drops below the 20-day average.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-based sizing).  
+- Maximum risk per trade: 1-2% of capital.  
+- Avoid trading during major economic events that may distort basis differentials.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 standard deviations).  
+2. Bollinger Band width (BB width = (Upper Band - Lower Band) / Middle Band).  
+3. 20-day moving average of volume.  
+4. Futures basis differential (spot vs. futures price).  
+
+**Notes:**  
+- The strategy combines mean-reversion (Bollinger Band contraction) and momentum (breakout).  
+- The futures basis filter adds a macro/market-structure layer to avoid false breakouts.  
+- Works best in trending markets after consolidation periods.  
+
+This strategy is unique in combining Bollinger Band dynamics with futures basis and volume filters for high-probability breakouts.

@@ -1,0 +1,36 @@
+STRATEGY_NAME: MomentumSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **On-Balance Volume (OBV) Breakout:** The strategy uses OBV to confirm strong buying pressure when it breaks above its 20-period EMA, signaling accumulation.  
+2. **Bollinger Band Squeeze:** Identifies low volatility periods where a breakout is imminent. The squeeze occurs when the bands narrow significantly.  
+3. **Price Breakout Confirmation:** A long entry is triggered only when price closes above the upper Bollinger Band, confirming momentum.  
+4. **Exit Signal:** The trade is closed when OBV reverses and drops below its 20-period EMA, indicating weakening momentum.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Bands (20,2) are in a squeeze (bands narrowing to a predefined threshold).  
+- **Condition 2:** OBV crosses and closes above its 20-period EMA.  
+- **Condition 3:** Price closes above the upper Bollinger Band.  
+- **Entry Action:** Go long on the next candle’s open if all conditions are met.  
+
+**Exit Rules:**  
+- **Condition:** OBV crosses and closes below its 20-period EMA.  
+- **Exit Action:** Close the position on the next candle’s open.  
+
+**Risk Management:**  
+- **Stop-Loss:** Place a stop-loss below the recent swing low or the middle Bollinger Band (20-period SMA).  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Trailing Stop (Optional):** Use a trailing stop based on ATR (e.g., 2x ATR) to lock in profits if the trend extends.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To identify squeeze and breakout levels.  
+2. **On-Balance Volume (OBV) with 20-period EMA** – To confirm volume-backed momentum.  
+3. **Optional:** Average True Range (ATR) for dynamic stop placement.  
+
+**Notes:**  
+- Works best in trending markets; avoid ranging conditions.  
+- Backtest squeeze thresholds (e.g., band width percentile) for optimal performance.  
+- Combine with higher timeframe trend alignment for better accuracy.  
+
+This strategy capitalizes on high-probability breakouts with volume confirmation, exiting before momentum fades.

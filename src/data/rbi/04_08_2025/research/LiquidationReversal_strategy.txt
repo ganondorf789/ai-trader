@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Event Detection:** The strategy identifies clustered liquidation events by monitoring extreme funding rates and volume spikes.  
+2. **Reversal Trading:** It trades reversals following these liquidation events, assuming that excessive liquidations may lead to short-term price corrections.  
+3. **Volatility-Based Exit:** Exits are triggered when volatility contracts below a rolling average, indicating a potential end to the reversal move.  
+
+**Entry Rules:**  
+1. **Funding Rate Extremes:** Look for funding rates that are significantly above or below their historical average (e.g., ±2 standard deviations).  
+2. **Volume Spike:** Confirm the liquidation event with a sudden surge in trading volume (e.g., volume exceeding a 20-period moving average by 50% or more).  
+3. **Price Reversal Signal:** Enter a long position if the funding rate was extremely negative (indicating short liquidations) and price shows signs of reversal (e.g., bullish candlestick patterns or RSI divergence). Enter a short position if the funding rate was extremely positive (indicating long liquidations) and price shows bearish reversal signals.  
+
+**Exit Rules:**  
+1. **Volatility Contraction:** Exit the trade when the volatility (measured by ATR or Bollinger Band width) falls below its 10-period moving average.  
+2. **Profit Target:** Optionally, set a fixed profit target (e.g., 2:1 reward-to-risk ratio) to lock in gains.  
+3. **Stop-Loss:** Place a stop-loss at a recent swing high/low or a fixed percentage (e.g., 1-2%) to limit downside risk.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss:** Always use a stop-loss to protect against adverse moves.  
+3. **Avoid Overcrowded Trades:** If multiple signals cluster in a short time, consider reducing position size to avoid overexposure.  
+
+**Required Indicators:**  
+1. **Funding Rate Data:** To detect extremes in market positioning.  
+2. **Volume Indicator:** To confirm liquidation events (e.g., volume moving average).  
+3. **Volatility Measure:** Such as ATR or Bollinger Band width, to determine exit conditions.  
+4. **Optional:** RSI or candlestick patterns for additional confirmation of reversals.  
+
+This strategy capitalizes on market overreactions during liquidation events and exits when volatility normalizes, aiming to capture short-term mean reversion moves.

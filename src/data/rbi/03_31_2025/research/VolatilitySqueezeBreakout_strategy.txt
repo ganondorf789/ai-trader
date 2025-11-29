@@ -1,0 +1,46 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Bandwidth contraction with Donchian Channel breakout signals, specifically triggered by volume-weighted conditions and exited using ATR-based volatility measurements.
+
+Key Components:
+1. Volume-Weighted Bollinger Bandwidth (10-day)
+2. Donchian Channel (default 20-period)
+3. Average True Range (ATR, 14-period)
+4. 1-year lookback period for bandwidth extremes
+
+Entry Rules:
+LONG ENTRY:
+- When 10-day volume-weighted Bollinger Bandwidth reaches its lowest point in 1 year (showing extreme contraction)
+- AND price breaks ABOVE the Donchian Channel upper band
+
+SHORT ENTRY:
+- When 10-day volume-weighted Bollinger Bandwidth reaches its lowest point in 1 year
+- AND price breaks BELOW the Donchian Channel lower band
+
+Exit Rules:
+- LONG POSITION: Exit when price falls 3x ATR from the highest point since entry
+- SHORT POSITION: Exit when price rises 3x ATR from the lowest point since entry
+
+Risk Management:
+1. The 3x ATR exit serves as both profit-taking and stop-loss mechanism
+2. Consider position sizing based on ATR to maintain consistent risk
+3. Only trade when bandwidth reaches statistically significant lows (1-year extreme)
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations) with volume weighting
+2. Donchian Channel (20-period recommended)
+3. Average True Range (14-period recommended)
+4. Volume data for weighting calculations
+
+Unique Aspects:
+- Combines volatility contraction (Bollinger Bandwidth) with breakout confirmation (Donchian)
+- Uses volume-weighting for more significant squeeze detection
+- Employs ATR-based dynamic exits rather than fixed targets
+- Requires annual extremes for higher probability setups
+
+Optimization Notes:
+- Test different periods for Bollinger Bandwidth calculation (10-day vs others)
+- Experiment with Donchian Channel lengths
+- Adjust ATR multiplier (3x) based on market conditions
+- Consider adding volume confirmation on breakout day

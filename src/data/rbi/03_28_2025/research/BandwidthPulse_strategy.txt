@@ -1,0 +1,31 @@
+STRATEGY_NAME: BandwidthPulse  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** Measures the volatility contraction by tracking the narrowing of Bollinger Bands. A contraction below the 10-day low signals reduced volatility and potential breakout conditions.  
+2. **Klinger Volume Oscillator (KVO) Spike:** Confirms momentum shifts when the KVO crosses above its 100-period SMA, validating the breakout signal with volume participation.  
+3. **Exit Trigger:** Bandwidth expansion (widening Bollinger Bands) crossing above its 5-day moving average indicates volatility resurgence and signals an exit.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Bandwidth contracts below its 10-day low (volatility squeeze).  
+  2. Klinger Volume Oscillator spikes above its 100-period SMA (momentum confirmation).  
+- **Short Entry:**  
+  1. Bollinger Bandwidth contracts below its 10-day low (volatility squeeze).  
+  2. Klinger Volume Oscillator drops below its 100-period SMA (bearish momentum confirmation).  
+
+**Exit Rules:**  
+- Exit all positions when Bollinger Bandwidth expands and crosses above its 5-day moving average, signaling increased volatility and potential trend exhaustion.  
+
+**Risk Management:**  
+- Set stop-loss orders at 1.5x the average true range (ATR) of the past 14 days to account for volatility.  
+- Position sizing should not exceed 2% of total capital per trade.  
+- Avoid trading during major economic news events to prevent false signals from erratic volume/volatility.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To calculate bandwidth (Upper Band - Lower Band).  
+2. **Klinger Volume Oscillator (34,55,13)** – For volume-based momentum confirmation.  
+3. **Simple Moving Averages (100-period for KVO, 5-day for bandwidth exit)** – To define signal thresholds.  
+4. **Average True Range (14)** – For dynamic stop-loss placement.  
+
+**Unique Edge:** This strategy combines volatility contraction with volume-confirmed momentum, filtering false breakouts while capturing early trend phases. The exit mechanism ensures timely profit-taking before volatility reversals.

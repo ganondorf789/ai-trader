@@ -1,0 +1,42 @@
+STRATEGY_NAME: VortexVolumeSurge
+
+STRATEGY_DETAILS:
+This strategy combines the Vortex Indicator's trend detection with volume confirmation and volatility-based exits for high-probability trades.
+
+Key Components:
+1. Vortex Indicator (VI+ and VI-) - Identifies trend direction and strength
+2. Volume Filter - Confirms entries with significant volume surge
+3. ATR Trailing Stop - Manages exits based on market volatility
+
+Entry Rules:
+1. Primary Condition: VI+ (positive trend indicator) crosses above VI- (negative trend indicator)
+2. Confirmation: Current volume must exceed 1.5x the 20-day average volume
+3. Ideal Context: Best used in trending markets, avoid during choppy/rangebound conditions
+
+Exit Rules:
+1. Primary Exit: VI- crosses back above VI+ (trend reversal signal)
+2. Protective Stop: 3x ATR trailing stop (adjusts with volatility)
+3. Optional Profit Target: Consider 2:1 risk-reward ratio based on entry-to-stop distance
+
+Risk Management:
+1. Position Sizing: Risk no more than 1-2% of capital per trade
+2. Stop Placement: Initial stop at 3x ATR from entry point
+3. Trade Filter: Only take trades with clear trend direction (VI+ > VI- by significant margin)
+
+Required Indicators:
+1. Vortex Indicator (VI+ and VI- lines)
+   - Typical period setting: 14 (default)
+2. Volume (with 20-day moving average)
+3. Average True Range (ATR)
+   - Recommended period: 14
+
+Optimization Tips:
+1. Test different volume multipliers (1.3x-2x) for your market
+2. Adjust ATR multiplier (2.5x-3.5x) based on volatility tolerance
+3. Consider adding a trend filter (e.g., price above 200MA for longs)
+
+Special Notes:
+- Works best on daily charts for swing trading
+- More reliable in liquid markets with clear trends
+- Combine with price action confirmation for higher accuracy
+- Avoid using during major news events when volume spikes may be misleading

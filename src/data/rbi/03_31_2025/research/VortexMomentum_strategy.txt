@@ -1,0 +1,37 @@
+STRATEGY_NAME: VortexMomentum  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Measures trend direction and strength using two lines (VI+ and VI-). VI+ crossing above VI- signals bullish trend, while VI- crossing above VI+ signals bearish trend.  
+2. **Chande Momentum Oscillator (CMO):** Identifies overbought/oversold conditions (typically above +50 or below -50).  
+3. **Volume Surge:** Confirms entries when volume exceeds the 20-day moving average.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - VI+ crosses above VI- (bullish trend confirmation).  
+  - CMO is below -50 (oversold condition).  
+  - Current volume > 20-day average volume.  
+- **Short Entry:**  
+  - VI- crosses above VI+ (bearish trend confirmation).  
+  - CMO is above +50 (overbought condition).  
+  - Current volume > 20-day average volume.  
+
+**Exit Rules:**  
+- **Long Exit:** VI- crosses above VI+ (trend reversal to bearish).  
+- **Short Exit:** VI+ crosses above VI- (trend reversal to bullish).  
+
+**Risk Management:**  
+- Set stop-loss at recent swing low (for longs) or swing high (for shorts).  
+- Use a trailing stop (e.g., 2x ATR) to lock in profits.  
+- Avoid trading during low-volume periods or major news events.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. Chande Momentum Oscillator (CMO, 14-period default).  
+3. 20-day moving average of volume.  
+4. Optional: ATR for dynamic stop placement.  
+
+**Notes:**  
+- Works best in trending markets; avoid ranging conditions.  
+- Combine with price action (e.g., support/resistance) for higher accuracy.  
+- Backtest optimal CMO thresholds for your asset (e.g., ±40 or ±60).

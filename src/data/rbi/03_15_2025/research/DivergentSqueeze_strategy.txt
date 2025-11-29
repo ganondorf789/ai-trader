@@ -1,0 +1,75 @@
+STRATEGY_NAME: DivergentSqueeze
+
+STRATEGY_DETAILS:
+The DivergentSqueeze strategy is a mean-reversion approach that capitalizes on MACD divergence, volume contraction, and Bollinger Bands narrowing to identify potential reversal opportunities. This strategy is designed to catch price reversals when the market is in a consolidation phase, combining momentum, volume, and volatility indicators for high-probability setups.
+
+### Key Strategy Components:
+1. **MACD Divergence**: Identifies potential reversals when price action diverges from MACD momentum.
+2. **Volume Contraction**: Decreasing volume signals a lack of conviction in the current trend.
+3. **Bollinger Bands Narrowing**: Indicates reduced volatility and potential for a breakout or reversal.
+
+### Required Indicators:
+1. **MACD (Moving Average Convergence Divergence)**:
+   - Fast Length: 12
+   - Slow Length: 26
+   - Signal Smoothing: 9
+2. **Volume Indicator**:
+   - Standard volume histogram or line chart.
+3. **Bollinger Bands**:
+   - Period: 20
+   - Standard Deviation: 2
+
+---
+
+### Entry Rules:
+1. **MACD Divergence**:
+   - Bullish Divergence: Price makes a lower low, but MACD makes a higher low.
+   - Bearish Divergence: Price makes a higher high, but MACD makes a lower high.
+2. **Volume Contraction**:
+   - Volume must be decreasing over the last 3-5 candles.
+3. **Bollinger Bands Narrowing**:
+   - Bollinger Bands must be visibly narrowing, indicating reduced volatility.
+4. **Confirmation**:
+   - Wait for a candle to close in the opposite direction of the prevailing trend (e.g., a bullish candle after a bearish divergence).
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set take profit at the middle Bollinger Band (20-period SMA) or the opposite Bollinger Band.
+2. **Stop Loss**:
+   - Place stop loss just beyond the recent swing high (for short trades) or swing low (for long trades).
+3. **Time-Based Exit**:
+   - Exit the trade if the price does not move in your favor within 5-7 candles.
+
+---
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your account per trade.
+2. **Stop Loss Placement**:
+   - Use the swing high/low as a reference for stop loss placement.
+3. **Risk-Reward Ratio**:
+   - Aim for a minimum 1:2 risk-reward ratio.
+
+---
+
+### Example Setup:
+1. **Bullish Trade**:
+   - Price makes a lower low, but MACD makes a higher low (bullish divergence).
+   - Volume is decreasing over the last 3-5 candles.
+   - Bollinger Bands are narrowing.
+   - A bullish candle closes above the previous candle's high.
+   - Enter long with a stop loss below the recent swing low and take profit at the middle Bollinger Band.
+
+2. **Bearish Trade**:
+   - Price makes a higher high, but MACD makes a lower high (bearish divergence).
+   - Volume is decreasing over the last 3-5 candles.
+   - Bollinger Bands are narrowing.
+   - A bearish candle closes below the previous candle's low.
+   - Enter short with a stop loss above the recent swing high and take profit at the middle Bollinger Band.
+
+---
+
+### Notes:
+- This strategy works best in ranging or consolidating markets.
+- Avoid trading during high-impact news events or periods of extreme volatility.
+- Always backtest and optimize parameters for your specific trading instrument and timeframe.

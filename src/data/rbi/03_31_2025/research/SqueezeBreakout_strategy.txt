@@ -1,0 +1,37 @@
+STRATEGY_NAME: SqueezeBreakout  
+
+STRATEGY_DETAILS:  
+This strategy combines Bollinger Band contraction (the "squeeze") with MACD confirmation to identify high-probability breakout opportunities. The key components are:  
+
+1. **Key Indicators**:  
+   - **Bollinger Bands (20,2)**: Measures volatility contraction when band width hits 20-day low  
+   - **MACD (12,26,9)**: Confirms momentum shift with bullish crossover  
+   - **ATR (14)**: Used for dynamic trailing stop placement  
+
+2. **Entry Rules**:  
+   - Primary Condition: Bollinger Band width reaches 20-day lowest value (volatility squeeze)  
+   - Confirmation: Price breaks above upper Bollinger Band  
+   - Momentum Check: MACD shows bullish crossover (signal line cross above)  
+
+3. **Exit Rules**:  
+   - **Passive Exit**: Price touches lower Bollinger Band (indicates squeeze resolution)  
+   - **Active Protection**: 3x ATR trailing stop (measured from entry point)  
+
+4. **Risk Management**:  
+   - Position sizing based on 1-2% risk per trade  
+   - Stop placement:  
+     - Initial: 1x ATR below entry  
+     - Trailing: Adjusts to 3x ATR from highest high  
+   - No entries if VIX > 30 (avoid high volatility regimes)  
+
+5. **Filter Enhancements**:  
+   - Only trade in direction of 50EMA slope  
+   - Volume should be above 20-day average on breakout  
+   - Avoid earnings announcement periods  
+
+6. **Optimal Conditions**:  
+   - Works best in ranging markets transitioning to trends  
+   - Most effective on 1H-4H timeframes  
+   - Ideal for liquid stocks/forex pairs with mean-reverting tendencies  
+
+The "SqueezeBreakout" strategy capitalizes on the explosive potential after volatility compression, using MACD to filter false breakouts and ATR for adaptive risk management.

@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityReversion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Based Mean Reversion**: This strategy capitalizes on low-volatility conditions, anticipating a reversion to the mean when volatility is at extreme lows.  
+2. **ATR Percentile Filter**: Uses the 20-day Average True Range (ATR) to identify periods of unusually low volatility (below the 10th percentile).  
+3. **RSI Exit Trigger**: The 5-day RSI acts as an overbought signal to exit positions, ensuring profits are captured before potential reversals.  
+
+**Entry Rules:**  
+- **Condition**: Enter a long position when the 20-day ATR falls below its 10th percentile (calculated over a lookback period, e.g., 100 days).  
+- **Confirmation**: Optional: Add a price filter (e.g., closing price above the 50-day SMA) to avoid catching "falling knives."  
+
+**Exit Rules:**  
+- **Primary Exit**: Close the position when the 5-day RSI crosses above 70, signaling overbought conditions.  
+- **Secondary Exit (Optional)**: Implement a trailing stop (e.g., 2x ATR) to protect profits if RSI does not trigger.  
+
+**Risk Management:**  
+- **Position Sizing**: Use volatility-adjusted sizing (e.g., risk 1% of capital per trade based on ATR).  
+- **Stop-Loss**: Set a stop at 1.5x the 20-day ATR below entry to account for potential false breakouts.  
+- **Max Drawdown Control**: Limit strategy exposure during prolonged low-volatility regimes (e.g., reduce position size if ATR percentile remains below 10th percentile for >5 days).  
+
+**Required Indicators:**  
+1. **Average True Range (ATR)**: 20-day period for volatility measurement.  
+2. **RSI**: 5-day period for exit timing.  
+3. **Percentile Calculation**: Rolling 100-day window to determine the 10th percentile of ATR.  
+
+**Unique Edge:**  
+- Combines volatility extremes (ATR percentile) with short-term momentum (RSI) for high-probability mean-reversion trades.  
+- Avoids choppy markets by focusing on statistically significant low-volatility regimes.  
+
+**Optimization Notes:**  
+- Test different percentile thresholds (e.g., 5th or 15th) for ATR.  
+- Experiment with RSI periods (3-day vs. 5-day) to fine-tune exits.  
+- Backtest across asset classes (stocks, forex) to validate robustness.

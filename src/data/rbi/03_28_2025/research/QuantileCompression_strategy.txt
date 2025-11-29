@@ -1,0 +1,30 @@
+STRATEGY_NAME: QuantileCompression  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Compression Clusters:** The strategy identifies periods where Bollinger Bandwidth contracts significantly, indicating reduced volatility.  
+2. **Rolling Quantile Analysis:** Uses historical quantiles (e.g., 90th percentile) to determine extreme compression levels.  
+3. **Mean-Reverting Volatility Spikes:** Exits trades when volatility expands sharply, signaling a potential reversal or breakout.  
+
+**Entry Rules:**  
+- Trigger an entry when Bollinger Bandwidth (BBW) falls below a rolling historical quantile threshold (e.g., 10th percentile) for **N consecutive periods** (e.g., 3-5 bars).  
+- Confirm with price trading near the midpoint of the Bollinger Bands (e.g., between upper and lower bands).  
+- Optional: Use a secondary filter like RSI (30-70 range) to avoid overbought/oversold conditions.  
+
+**Exit Rules:**  
+- Exit when BBW expands above a predefined mean-reversion threshold (e.g., 50th percentile of recent history).  
+- Alternatively, exit on a breakout beyond the Bollinger Bands (upper/lower) if volatility spikes sharply.  
+- Set a trailing stop or fixed take-profit (e.g., 1.5x ATR) to lock in gains.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-adjusted risk per trade).  
+- Stop-loss placed just outside recent compression range (e.g., beyond the opposite Bollinger Band).  
+- Avoid trading during major news events or low-liquidity periods.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 StdDev) → Derive Bandwidth (BBW = (Upper Band - Lower Band) / Middle Band).  
+2. **Rolling Quantile Calculator** (e.g., 90-day lookback for BBW percentile analysis).  
+3. **Optional Filters:** RSI (14-period) or ATR (14-period) for confirmation.  
+
+**Unique Edge:** This strategy exploits the statistical rarity of prolonged volatility compression, betting on eventual expansion while managing risk through quantile-based thresholds. The rolling analysis adapts to changing market regimes, avoiding static overfitting.

@@ -1,0 +1,36 @@
+STRATEGY_NAME: SqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze (20-period, 2σ):** Identifies low-volatility periods where price consolidates within tightening bands, signaling potential breakout conditions.  
+2. **Relative Volume Surge (50% increase):** Confirms breakout validity by detecting a significant spike in trading volume, indicating strong participation.  
+3. **Breakout Confirmation:** Entry is triggered when price closes outside the Bollinger Band after the squeeze.  
+4. **Profit Target (1.5x squeeze range):** Calculated as 1.5 times the width of the Bollinger Bands at the squeeze’s narrowest point.  
+5. **Stop Placement (opposite band):** Initial stop-loss is set at the opposite Bollinger Band to limit risk if the breakout fails.  
+
+**Entry Rules:**  
+- Wait for a confirmed Bollinger Band squeeze (bands narrow significantly).  
+- Volume must surge by at least 50% compared to the recent average.  
+- Enter on the first close outside the Bollinger Band in the direction of the breakout.  
+
+**Exit Rules:**  
+- **Take Profit:** Exit when price reaches 1.5x the squeeze range (measured from breakout point).  
+- **Stop Loss:** Exit if price reverses to touch the opposite Bollinger Band.  
+
+**Risk Management:**  
+- Position size should align with a risk-per-trade limit (e.g., 1-2% of capital).  
+- Avoid trading during major news events to prevent false breakouts.  
+- Filter trades using higher timeframes (e.g., daily squeeze for intraday confirmation).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations).  
+2. Volume indicator (to measure relative volume surge).  
+3. Optional: ATR (14-period) to assess volatility context.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (squeeze) with volume confirmation for high-probability breakouts.  
+- Uses a dynamic profit target based on the squeeze range, adapting to market conditions.  
+- Stop-loss is mechanically tied to Bollinger Band structure, reducing subjectivity.  
+
+**Note:** Backtest to optimize squeeze detection thresholds (e.g., band width percentile) and volume surge parameters for your asset class.

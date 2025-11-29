@@ -1,0 +1,43 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Breakout Focus:** The strategy targets breakouts when price closes outside the Keltner Channel, indicating a potential expansion in volatility.  
+2. **Volume Confirmation:** Requires volume to surge above its 20-day moving average (MA) to validate the breakout, ensuring participation and reducing false signals.  
+3. **Exit Mechanism:** Uses RSI crossover for early exits and a dynamic trailing stop to lock in profits while allowing for trend continuation.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Price closes **above the upper Keltner Channel band** (indicating bullish breakout).  
+  2. Volume exceeds its **20-day moving average** (confirms strong interest).  
+  3. Optional: RSI (14-period) is below 70 (avoids overbought conditions).  
+
+- **Short Entry (if applicable):**  
+  1. Price closes **below the lower Keltner Channel band** (bearish breakout).  
+  2. Volume exceeds its **20-day MA**.  
+  3. Optional: RSI above 30 (avoids oversold conditions).  
+
+**Exit Rules:**  
+- **Primary Exit:**  
+  - **RSI Crossover:** Exit long when RSI crosses **below 70** (for longs) or above 30 (for shorts).  
+- **Dynamic Trailing Stop:**  
+  - For longs: Trail stop at the **lowest low of the last 3 bars** or a fixed ATR multiple (e.g., 1.5x ATR).  
+  - For shorts: Trail stop at the **highest high of the last 3 bars**.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss:** Initial stop placed at the **opposite Keltner band** or a recent swing low/high.  
+3. **Volatility Filter:** Avoid trading if ATR is below a threshold (e.g., 50% of its 20-day MA), indicating low volatility.  
+
+**Required Indicators:**  
+1. **Keltner Channel** (20-period EMA, 2x ATR bands).  
+2. **Volume 20-day MA**.  
+3. **RSI (14-period)**.  
+4. **ATR (14-period)** for trailing stops/volatility filter.  
+
+**Unique Aspects:**  
+- Combines **volume surge** with **volatility breakout**, reducing false signals.  
+- Uses **dynamic trailing stops** to capture extended moves while protecting gains.  
+- Optional RSI filter prevents entries in overextended conditions.  
+
+**Note:** Backtest to optimize parameters (e.g., Keltner band multiplier, RSI thresholds) for specific assets.

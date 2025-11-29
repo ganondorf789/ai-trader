@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolBand Breakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction patterns with volume confirmation to trade high-probability breakout opportunities. The key innovation lies in using TICK volume as a confirmation signal alongside traditional Bollinger Band width analysis.
+
+Key Components:
+1. Bollinger Band Width Contraction: Identifies consolidation periods when volatility decreases (bands narrow)
+2. TICK Volume Confirmation: Requires increasing volume during the contraction phase
+3. Volume-Weighted Moving Average: Acts as dynamic support/resistance for exit signals
+
+Entry Rules:
+1. Wait for Bollinger Band width (upper-lower band) to reach lowest 20% of its 50-period range (consolidation)
+2. Confirm TICK volume shows rising trend during consolidation (3 consecutive higher lows)
+3. Enter long when price breaks above upper Bollinger Band with volume > 20-period average
+4. Enter short when price breaks below lower Bollinger Band with volume > 20-period average
+
+Exit Rules:
+1. Long positions: Exit when price closes below 20-period VWMA
+2. Short positions: Exit when price closes above 20-period VWMA
+3. Optional: Trail stop at 2x Bollinger Band width from entry point
+
+Risk Management:
+1. Initial stop placed at opposite Bollinger Band (longs: lower band, shorts: upper band)
+2. Position size limited to 1-2% risk per trade
+3. Maximum 5 concurrent positions open
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Bollinger Band Width indicator
+3. TICK Volume indicator
+4. Volume-Weighted Moving Average (20 period)
+
+Optimization Notes:
+1. Best suited for 15min-4hr timeframes
+2. Works well with liquid instruments (forex majors, large cap stocks)
+3. Most effective during US/London overlap sessions
+4. Filter for ADX < 25 before entry to confirm consolidation
+
+This "VolBand Breakout" strategy offers a systematic approach to trading volatility contractions with volume confirmation, providing clear rules for both entry and risk-managed exits.

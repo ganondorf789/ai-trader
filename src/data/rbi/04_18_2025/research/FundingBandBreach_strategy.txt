@@ -1,0 +1,35 @@
+STRATEGY_NAME: FundingBandBreach
+
+STRATEGY_DETAILS:
+Key Components:
+1. Funding Rate Extremes: Focuses on extreme negative funding rates as a contrarian signal
+2. Bollinger Band Breakout: Uses lower Bollinger Band breach as confirmation
+3. Mean Reversion Exit: Exits when funding rates normalize to 30-day average
+
+Entry Rules:
+1. Wait for funding rate to reach extreme negative level (suggested threshold: bottom 5% of historical distribution)
+2. Confirm price has closed below lower Bollinger Band (standard 20-period, 2 std dev)
+3. Enter short position when both conditions are met simultaneously
+
+Exit Rules:
+1. Primary Exit: When current funding rate crosses above its 30-day simple moving average
+2. Emergency Exit: If price closes back inside Bollinger Bands while still in extreme funding territory
+
+Risk Management:
+1. Position sizing based on distance from Bollinger Band (wider breach = smaller position)
+2. Suggested stop-loss at 2x Bollinger Band width above entry price
+3. Maximum allocation of 5% per trade
+
+Required Indicators:
+1. Funding rate data feed (platform-specific)
+2. Bollinger Bands (20-period, 2 std dev)
+3. 30-day simple moving average of funding rates
+4. Historical funding rate distribution analysis tool
+
+Optimization Notes:
+1. Test different lookback periods for funding rate extremes (30/60/90 days)
+2. Experiment with Bollinger Band periods (14/20/26) and deviations (1.5/2/2.5)
+3. Consider adding volume confirmation on the breakout
+4. May combine with RSI oversold filter for additional confirmation
+
+This strategy combines mean-reversion in funding rates with momentum confirmation via Bollinger Bands, creating a high-probability shorting opportunity during market panic periods.

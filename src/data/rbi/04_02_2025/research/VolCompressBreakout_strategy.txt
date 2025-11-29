@@ -1,0 +1,43 @@
+STRATEGY_NAME: VolCompressBreakout
+
+STRATEGY_DETAILS:
+This strategy focuses on trading volatility compression breakouts by combining Bollinger Bandwidth analysis with volume confirmation. The core principle is to identify periods of extreme low volatility (compression) followed by high-volume breakouts, suggesting strong directional moves.
+
+Key Components:
+1. Bollinger Bandwidth Threshold: Measures volatility compression when bandwidth falls below its 10-day average
+2. Volume Spike Filter: Requires volume >200% of 30-day median volume
+3. Compression Range Measurement: Calculates the price range during compression period
+4. Profit Target: 1.5x the compression range
+
+Entry Rules:
+1. Wait for Bollinger Bandwidth (BBW) to drop below its 10-day average (indicating compression)
+2. Monitor for breakout candle that closes outside the Bollinger Bands
+3. Confirm breakout with volume spike >200% of 30-day median volume
+4. Enter on next candle's open in breakout direction
+
+Exit Rules:
+1. Calculate compression range (high-low during compression period)
+2. Set profit target at 1.5x the compression range from entry point
+3. Maintain stop loss at opposite side of compression range
+4. Exit immediately if volume drops below 30-day median
+
+Risk Management:
+1. Position size based on compression range (risk 1-2% of capital per trade)
+2. Stop loss placed at opposite side of compression range
+3. No new entries if 3 consecutive losing trades occur
+4. Avoid trading during major economic news events
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Bollinger Bandwidth (BBW) indicator
+3. Volume indicator with 30-day median calculation
+4. Price range measurement tool
+
+Additional Notes:
+- Best suited for 15min-4hr timeframes
+- Works well in ranging markets preceding trends
+- Requires confirmation of both volatility compression AND volume spike
+- Avoid using in strongly trending markets (high BBW values)
+- Most effective on liquid instruments with consistent volume patterns
+
+The VolCompressBreakout strategy combines the reliability of volatility cycles with the confirmation power of volume spikes, creating a high-probability breakout system with clearly defined risk parameters.

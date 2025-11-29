@@ -1,0 +1,37 @@
+STRATEGY_NAME: LiquidityBand  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Measures volatility compression, signaling potential breakout opportunities when the bands narrow significantly.  
+2. **Liquidation Heatmap Clusters:** Identifies high-density liquidity zones where price is likely to react due to stop-loss clustering or order book imbalances.  
+3. **Volatility Expansion Exit:** Uses historical average Bollinger Band width to determine when volatility has expanded beyond normal levels, signaling an exit.  
+4. **Liquidity Zone Shifts:** Monitors changes in liquidity clusters to confirm trend continuation or reversal.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  1. Bollinger Band Width contracts below a predefined threshold (e.g., 20-period low).  
+  2. Price breaks above a liquidation heatmap cluster (high-density sell-stop zone).  
+  3. Volume confirms the breakout.  
+- **Short Entry:** Triggered when:  
+  1. Bollinger Band Width contracts below the threshold.  
+  2. Price breaks below a liquidation heatmap cluster (high-density buy-stop zone).  
+  3. Volume confirms the breakdown.  
+
+**Exit Rules:**  
+- **Take Profit:** Close position when Bollinger Band Width expands beyond its historical average (e.g., 50-period mean).  
+- **Stop Loss:** Place stop beyond the opposite liquidity cluster or recent swing high/low.  
+- **Early Exit:** Exit if liquidity zones shift significantly against the position (e.g., new high-density cluster forms in the opposite direction).  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-adjusted risk per trade).  
+- Maximum risk per trade capped at 1-2% of capital.  
+- Avoid trading during low-liquidity periods or major news events.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2 standard deviations) + Band Width calculation.  
+2. Liquidation Heatmap (order book or historical stop-loss clustering data).  
+3. Volume indicator (e.g., OBV or VWAP).  
+4. Historical volatility measure (e.g., 50-period average Band Width).  
+
+**Unique Edge:** Combines volatility contraction with liquidity-driven price reactions, targeting explosive moves while filtering false breakouts using real-time order flow data.

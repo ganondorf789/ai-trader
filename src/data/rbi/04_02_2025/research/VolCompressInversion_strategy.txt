@@ -1,0 +1,43 @@
+STRATEGY_NAME: VolCompress Inversion
+
+STRATEGY_DETAILS:
+This strategy capitalizes on extreme volatility compression combined with market sentiment shifts, using a multi-indicator approach for high-probability entries and exits.
+
+Key Components:
+1. Bollinger Band Width (BBW) - Measures volatility compression
+2. VIX Term Structure - Identifies fear-driven market conditions
+3. 20-day Moving Average - Defines trend direction
+4. Put/Call Ratio - Confirms bearish sentiment
+
+Entry Rules:
+1. Primary Condition: BBW reaches 6-month low (extreme volatility compression)
+2. Confirmation: VIX term structure inverts (front month > back month)
+3. Entry Trigger: Price closes below lower Bollinger Band while conditions 1-2 are met
+
+Exit Rules:
+1. Primary Exit: Price breaks above 20-day MA with above-average volume
+2. Sentiment Confirmation: Put/Call ratio spikes > 1.2x 10-day average
+3. Emergency Exit: BBW expands beyond 2x entry level (volatility expansion)
+
+Risk Management:
+1. Position Size: 1-2% of capital per trade
+2. Stop Loss: 2x ATR(14) below entry point
+3. Time Exit: Close position after 10 days if no exit triggers hit
+4. Maximum Drawdown: 5% per trade
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Band Width (BBW)
+3. VIX Futures Term Structure
+4. 20-day Simple Moving Average
+5. Put/Call Ratio (10-day MA)
+6. ATR(14) for stop calculation
+7. Volume indicator
+
+Optimization Notes:
+- Backtest BBW lookback period (3-9 months)
+- Test various put/call ratio thresholds (1.1-1.5x)
+- Experiment with different MA periods (10-50 days)
+- Adjust ATR multiplier (1.5-3x) based on volatility regime
+
+This strategy works best in transitioning markets where prolonged low volatility precedes significant moves. The VIX inversion adds confirmation that professional traders are pricing in increased risk.

@@ -1,0 +1,59 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Bands and Keltner Channels to identify volatility squeeze conditions, then waits for confirmed breakouts with volume and ADX confirmation for high-probability trades.
+
+Key Components:
+1. Volatility Squeeze Detection:
+   - Bollinger Bands (20,2)
+   - Keltner Channel (20,1.5)
+   - Squeeze occurs when Bollinger Bands are inside Keltner Channel
+
+2. Breakout Confirmation:
+   - Price closes outside Bollinger Bands
+   - Volume exceeds 20-period average by 50%
+   - ADX crosses above 25 (trend strength confirmation)
+
+Entry Rules:
+1. Long Entry:
+   - Squeeze condition present (BB inside KC)
+   - Price closes above upper Bollinger Band
+   - Volume > 1.5x 20-period average volume
+   - ADX > 25 and rising
+
+2. Short Entry:
+   - Squeeze condition present (BB inside KC)
+   - Price closes below lower Bollinger Band
+   - Volume > 1.5x 20-period average volume
+   - ADX > 25 and rising
+
+Exit Rules:
+1. Trailing Stop:
+   - Set at 2x recent volatility (ATR 14 period)
+   - Adjusts with price movement in favorable direction
+   - Exit when price touches trailing stop level
+
+2. Time-based Exit:
+   - Close position if no significant movement after 5 bars
+
+Risk Management:
+1. Position Sizing:
+   - Risk no more than 1-2% of capital per trade
+   - Calculate position size based on stop distance
+
+2. Stop Placement:
+   - Initial stop at opposite Bollinger Band
+   - Moves to breakeven when price moves 1x ATR in favor
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Keltner Channel (20,1.5)
+3. ADX (14 period)
+4. Volume (20-period average)
+5. ATR (14 period for volatility measurement)
+
+Additional Notes:
+- Works best on 1H or 4H timeframes for swing trading
+- Most effective in trending market conditions
+- Avoid trading during news events that may cause false breakouts
+- Combine with higher timeframe trend analysis for better results

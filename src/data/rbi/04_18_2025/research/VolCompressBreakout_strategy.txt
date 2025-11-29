@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolCompress Breakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Compression Detection:** Uses Bollinger Bands width to identify periods of extreme low volatility (6-month lows), signaling potential breakout opportunities.  
+2. **Breakout Confirmation:** Requires RSI to cross above 50 to validate the entry, ensuring momentum aligns with the volatility expansion.  
+3. **Dynamic Exit:** Exits positions when Bollinger Bands width exceeds 2x the entry value, capturing the volatility expansion phase.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Bands (20-period, 2 Std Dev) width reaches a 6-month low (measured by the lowest width value in the past 126 trading days).  
+- **Condition 2:** RSI (14-period) crosses above 50, confirming upward momentum.  
+- **Action:** Enter a long position at the next candle's open after both conditions are met.  
+
+**Exit Rules:**  
+- **Primary Exit:** Bollinger Bands width exceeds 2x the width value at the time of entry.  
+- **Secondary Exit (Optional):** Trailing stop or fixed profit target (e.g., 2:1 reward-to-risk ratio) to lock in gains if volatility expands slowly.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Stop Loss:** Place a stop below the recent swing low or use a volatility-based stop (e.g., 1.5x ATR).  
+- **Avoid Overexposure:** Limit concurrent trades to 3-5 positions to diversify across instruments.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2 Std Dev)** – To measure volatility compression/expansion.  
+2. **RSI (14-period)** – For momentum confirmation.  
+3. **ATR (14-period, optional)** – For dynamic stop placement.  
+
+**Notes:**  
+- Works best in ranging markets transitioning to trends; avoid during high-volatility regimes.  
+- Backtest on multiple asset classes (stocks, forex, commodities) to ensure robustness.  
+- Adjust the RSI period or Bollinger Bands settings for shorter/longer timeframes.  
+
+**Unique Edge:** Combines volatility extremes with momentum, reducing false breakouts common in traditional Bollinger Band strategies.

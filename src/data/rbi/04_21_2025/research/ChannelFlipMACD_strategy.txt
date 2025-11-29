@@ -1,0 +1,43 @@
+STRATEGY_NAME: ChannelFlipMACD
+
+STRATEGY_DETAILS:
+This strategy combines Donchian channel breakouts with MACD momentum confirmation for high-probability entries, using a disciplined risk-reward approach for exits.
+
+Key Components:
+1. Donchian Channel (20-day): Tracks the highest high and lowest low over 20 periods
+2. MACD Histogram: Uses standard 12/26/9 settings to confirm momentum shifts
+3. Fixed Risk-Reward: Maintains strict 2:1 profit-taking discipline
+
+Entry Rules:
+1. Long Entry Trigger:
+   - Price closes ABOVE the 20-day Donchian upper channel
+   - MACD histogram transitions from negative to positive on the same candle
+2. Short Entry Trigger:
+   - Price closes BELOW the 20-day Donchian lower channel
+   - MACD histogram transitions from positive to negative on the same candle
+
+Exit Rules:
+1. Profit Target:
+   - 2x the initial risk (distance from entry to stop loss)
+2. Stop Loss:
+   - For longs: Recent swing low or lower channel boundary
+   - For shorts: Recent swing high or upper channel boundary
+3. Optional Time Exit:
+   - Close position if not profitable within 5 days
+
+Risk Management:
+1. Position Size: 1-2% of capital per trade
+2. Maximum Drawdown: 5% of account per week
+3. Trade Filter: Only take signals in direction of 50-day SMA trend
+
+Required Indicators:
+1. Donchian Channel (20-period)
+2. MACD (12,26,9) - specifically the histogram component
+3. Optional: 50-day SMA for trend filtering
+
+Optimization Notes:
+- Test different Donchian periods (15-30 days)
+- Experiment with MACD settings for different instruments
+- Adjust risk-reward ratio based on volatility (1.5:1 to 3:1)
+
+This strategy works best in trending markets and requires patience during consolidation periods when false breakouts may occur. The MACD histogram flip adds crucial momentum confirmation to filter out weak breakouts.

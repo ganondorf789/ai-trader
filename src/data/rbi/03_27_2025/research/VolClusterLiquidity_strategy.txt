@@ -1,0 +1,58 @@
+STRATEGY_NAME: VolClusterLiquidity
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction patterns with liquidity zone analysis to identify high-probability breakout opportunities. The core approach focuses on detecting periods of compressed volatility that are likely to resolve with strong directional moves, while incorporating liquidity pool analysis for precise entry and exit targeting.
+
+Key Components:
+1. Bollinger Band Width Thresholds:
+   - Monitor the width between upper/lower Bollinger Bands (typically 20-period, 2 StdDev)
+   - Identify when band width falls below historical volatility thresholds (e.g., bottom 20th percentile)
+   - This signals a volatility contraction cluster (VCC) - periods where price is coiling for potential breakout
+
+2. Liquidation Heatmap Zones:
+   - Analyze order book liquidity concentrations
+   - Identify significant liquidity pools above/below current price
+   - These act as natural magnets for price movement (liquidity grabs)
+
+Entry Rules:
+1. Primary Trigger:
+   - Bollinger Band width reaches extreme contraction level (pre-breakout signal)
+   - Price begins pushing against either band (showing initial breakout attempt)
+
+2. Confirmation:
+   - Breakout direction aligns with nearest significant liquidity pool
+   - Volume begins increasing in breakout direction
+   - Enter on retest of broken Bollinger Band (now acting as support/resistance)
+
+Exit Rules:
+1. Profit Targets:
+   - Primary target at opposing liquidity pool (where resting orders cluster)
+   - Secondary target at 1.5x average true range from entry
+
+2. Stop Loss:
+   - Place below opposite Bollinger Band (for long) or above (for short)
+   - Alternative: Below recent swing low/high outside the contraction zone
+
+Risk Management:
+1. Position Sizing:
+   - Risk no more than 1-2% per trade
+   - Adjust size based on distance to stop level
+
+2. Trade Filtering:
+   - Only trade VCCs that form after established trends (higher probability)
+   - Avoid mid-range contractions without clear liquidity targets
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Band Width indicator
+3. Volume indicator
+4. Liquidation heatmap (order book analysis tool)
+5. Average True Range (for risk calculation)
+
+Special Considerations:
+- Works best in trending markets with periodic consolidations
+- More effective on higher timeframes (4H/Daily)
+- Requires clean chart structure (avoid news events)
+- Combines technical (Bollinger) with order flow (liquidity) analysis
+
+This strategy capitalizes on the market's tendency to move from periods of low volatility to high volatility, while using liquidity zones as natural profit targets where large players are likely taking profits.

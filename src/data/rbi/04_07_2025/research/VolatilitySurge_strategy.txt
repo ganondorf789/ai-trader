@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Filter:** Uses 20-day historical volatility to identify low-volatility conditions (below the 10th percentile).  
+2. **Trend Confirmation:** Requires price to cross above the 200-day moving average (long-term trend filter).  
+3. **Risk-Managed Exits:** Implements a 2x ATR (Average True Range) trailing stop-loss and a fixed 5% profit target.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - 20-day historical volatility falls below its 10th percentile (indicating suppressed volatility).  
+  - Price closes above the 200-day moving average (confirming bullish trend alignment).  
+
+**Exit Rules:**  
+- **Stop-Loss:** Trailing stop set at 2x the 14-day ATR to account for volatility expansion.  
+- **Profit Target:** Fixed 5% take-profit level from the entry price.  
+- **Optional Exit:** If volatility spikes above a predefined threshold (e.g., 90th percentile), consider closing to avoid reversals.  
+
+**Risk Management:**  
+- Position sizing based on ATR (e.g., 1% risk per trade).  
+- Avoid entries during high-volatility regimes (e.g., above 50th percentile).  
+- Re-enter only after volatility resets below the 10th percentile again.  
+
+**Required Indicators:**  
+1. 20-day historical volatility (percentile-based).  
+2. 200-day simple moving average (SMA).  
+3. 14-day Average True Range (ATR) for stop-loss.  
+
+**Unique Edge:** Combines mean-reverting volatility signals with trend-following filters, targeting "quiet before the storm" setups where low volatility often precedes strong directional moves.  
+
+**Note:** Backtest to optimize volatility percentiles and ATR multipliers for specific assets.

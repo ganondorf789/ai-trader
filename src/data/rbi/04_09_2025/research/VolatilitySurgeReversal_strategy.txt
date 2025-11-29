@@ -1,0 +1,48 @@
+STRATEGY_NAME: VolatilitySurgeReversal
+
+STRATEGY_DETAILS:
+This strategy capitalizes on extreme market conditions by identifying oversold situations with unusual volume and open interest activity, then riding the potential reversal with tight risk controls.
+
+Key Components:
+1. Extreme Price Drop: 3-standard deviation move (statistically significant outlier)
+2. Volume Surge: 50% increase in trading volume (confirms panic selling)
+3. Open Interest Decline: Shows short covering/long liquidation (potential exhaustion)
+4. RSI Confirmation: 5-minute RSI crossing 50 (momentum shift confirmation)
+5. ATR-based Trailing Stop: 2x ATR protects profits while allowing room for recovery
+
+Entry Rules:
+1. Trigger Condition: Simultaneous occurrence of:
+   - Price drops 3 standard deviations from mean
+   - Volume increases ≥50% from 20-period average
+   - Open interest decreases
+2. Entry Execution: Market order at next available price after conditions met
+
+Exit Rules:
+1. Primary Exit: When 5-minute RSI crosses above 50 (momentum confirmation)
+2. Protective Exit: Trailing stop at 2x 14-period ATR from highest point since entry
+3. Emergency Exit: If price makes new low after entry (failed reversal)
+
+Risk Management:
+1. Position Sizing: Maximum 2% of capital per trade
+2. Stop Placement: Initial stop at entry price minus 1x ATR (if not using trailing stop immediately)
+3. Time Filter: Avoid trading first/last 30 minutes of session
+4. Session Filter: Only trade during high liquidity hours (e.g., 9:30am-3:30pm EST)
+
+Required Indicators:
+1. Standard Deviation (20-period)
+2. Volume (20-period average as baseline)
+3. Open Interest (futures/options markets)
+4. RSI (5-minute, 14-period)
+5. ATR (14-period)
+
+Optimization Notes:
+- Test different standard deviation thresholds (2.5-3.5σ)
+- Experiment with volume surge percentages (40-60%)
+- Adjust RSI timeframe (3-10 minutes)
+- Vary ATR multiplier (1.5-2.5x)
+
+This strategy works best in:
+- Futures markets with good liquidity
+- During earnings seasons or news events
+- In markets prone to overreactions
+- When VIX is elevated (>20)

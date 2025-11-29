@@ -1,0 +1,31 @@
+STRATEGY_NAME: BandwidthMomentum  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** Identifies low-volatility periods by measuring when the Bollinger Bandwidth (difference between upper and lower bands) falls below its 10th percentile, signaling potential breakout conditions.  
+2. **Chande Momentum Oscillator (CMO) & SMA Crossover:** Uses the 50-period SMA of the CMO to confirm momentum shifts—entries occur when CMO crosses above (long) or below (short) its SMA.  
+3. **Volatility-Based Exit:** Exits trades when volatility expands beyond 2x the 20-day average Bollinger Bandwidth, capturing profit before mean reversion.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - Bollinger Bandwidth is below its 10th percentile (contraction).  
+  - CMO crosses **above** its 50-period SMA.  
+- **Short Entry:** Triggered when:  
+  - Bollinger Bandwidth is below its 10th percentile.  
+  - CMO crosses **below** its 50-period SMA.  
+
+**Exit Rules:**  
+- **Volatility Expansion Exit:** Close position when Bollinger Bandwidth exceeds 2x its 20-day average.  
+- **Optional Stop-Loss:** Set at 1.5x the average true range (ATR) of the contraction period to limit risk.  
+
+**Risk Management:**  
+- Position sizing based on 1-2% risk per trade.  
+- Avoid trading during major news events to prevent false breakouts.  
+- Filter trades with higher timeframes (e.g., only long if weekly trend is bullish).  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 Std Dev) + Bandwidth calculation.  
+2. **Chande Momentum Oscillator (CMO)** (default 14-period) + 50-period SMA.  
+3. **Average True Range (ATR)** (optional for stop-loss).  
+
+**Unique Edge:** Combines momentum confirmation (CMO) with low-volatility setups (Bandwidth contraction), targeting explosive moves while exiting before volatility normalizes.

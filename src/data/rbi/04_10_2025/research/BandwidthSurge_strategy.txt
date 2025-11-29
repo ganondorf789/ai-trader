@@ -1,0 +1,34 @@
+STRATEGY_NAME: BandwidthSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** The strategy identifies periods of low volatility when Bollinger Bandwidth reaches a 6-month low, signaling potential breakout conditions.  
+2. **Volume Surge Confirmation:** A breakout is only valid if accompanied by a surge in volume above its 30-day average, ensuring strong participation.  
+3. **Trend-Following Exit:** Positions are closed when price closes below the 20-period SMA, locking in profits or cutting losses.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Bandwidth (BBW) must be at a 6-month low (indicating extreme contraction).  
+- **Condition 2:** Volume must exceed its 30-day moving average (confirming breakout strength).  
+- **Action:** Enter long on a breakout above the upper Bollinger Band or short on a breakout below the lower Bollinger Band.  
+
+**Exit Rules:**  
+- **For Long Positions:** Close the trade if price closes below the 20-period SMA.  
+- **For Short Positions:** Close the trade if price closes above the 20-period SMA.  
+
+**Risk Management:**  
+- **Stop-Loss:** Set a stop-loss at the opposite Bollinger Band (upper band for shorts, lower band for longs) or a fixed percentage (e.g., 2-3%).  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Avoid Overcrowding:** Do not take trades if multiple conflicting signals appear simultaneously.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To measure volatility contraction (BBW = (Upper Band - Lower Band) / Middle Band).  
+2. **Volume (30-day MA)** – To confirm breakout validity.  
+3. **20-period SMA** – For trend-based exit signals.  
+
+**Additional Notes:**  
+- Best suited for **daily or 4H timeframes** to avoid noise.  
+- Works well in **ranging markets transitioning to trends**.  
+- Avoid using during **high-impact news events** due to erratic volatility.  
+
+This strategy combines **low-volatility setups with volume confirmation** for high-probability breakouts while using a simple trailing exit to capture trends.

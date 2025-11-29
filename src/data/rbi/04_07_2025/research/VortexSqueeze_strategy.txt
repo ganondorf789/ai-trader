@@ -1,0 +1,46 @@
+STRATEGY_NAME: VortexSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI)**: Measures trend direction and strength using two lines (VI+ and VI-). A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI- crosses above VI+.  
+2. **Keltner Channel (KC)**: A volatility-based channel that helps identify squeeze conditions. A squeeze occurs when price volatility contracts (narrowing KC bands), often preceding a breakout.  
+3. **Parabolic SAR**: Used as a trailing stop or exit signal when the dots flip to the opposite side of the price.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  1. VI+ crosses above VI- (bullish trend confirmation).  
+  2. Price breaks above the upper Keltner Channel band after a squeeze (volatility contraction followed by expansion).  
+  3. Ensure the breakout occurs with increasing volume for confirmation.  
+
+- **Short Entry**:  
+  1. VI- crosses above VI+ (bearish trend confirmation).  
+  2. Price breaks below the lower Keltner Channel band after a squeeze.  
+  3. Confirm with decreasing volume or bearish candlestick patterns.  
+
+**Exit Rules:**  
+- **Long Exit**:  
+  1. VI- crosses above VI+ (opposing Vortex signal).  
+  2. Parabolic SAR flips below the price (trend reversal indication).  
+  3. Price closes back inside the Keltner Channel (loss of momentum).  
+
+- **Short Exit**:  
+  1. VI+ crosses above VI- (opposing Vortex signal).  
+  2. Parabolic SAR flips above the price.  
+  3. Price closes back inside the Keltner Channel.  
+
+**Risk Management:**  
+- **Stop Loss**: Place initial stop below the recent swing low (for longs) or above the recent swing high (for shorts). Alternatively, use the opposite Keltner Channel band as a dynamic stop.  
+- **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+- **Take Profit**: Use a trailing stop (e.g., Parabolic SAR) or a fixed risk-reward ratio (e.g., 2:1).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI) – Default period (14).  
+2. Keltner Channel – Typical settings: 20-period EMA, 2x ATR (10-period).  
+3. Parabolic SAR – Default settings (0.02 step, 0.2 maximum).  
+
+**Additional Notes:**  
+- This strategy works best in trending markets. Avoid trading during choppy or sideways conditions (use ADX > 25 to confirm trend strength).  
+- Combine with higher timeframe analysis for better confluence.  
+- Backtest to optimize parameters for specific assets (e.g., stocks, forex, or crypto).  
+
+This "VortexSqueeze" strategy combines trend confirmation (VI) with volatility breakouts (KC) for high-probability entries, while using SAR for disciplined exits.

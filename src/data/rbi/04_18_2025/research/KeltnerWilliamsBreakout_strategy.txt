@@ -1,0 +1,39 @@
+STRATEGY_NAME: KeltnerWilliams Breakout
+
+STRATEGY_DETAILS:
+This strategy combines mean-reversion signals from Williams %R with trend-confirmation from Keltner Channels, creating a unique breakout approach with defined risk management.
+
+Key Components:
+1. Williams %R (3-day): Identifies oversold conditions when crossing above -80
+2. Keltner Channel (20-period): Confirms breakout momentum when price breaks upper band
+3. Bollinger Band: Serves as profit target (upper band)
+4. Trailing Stop (5%): Secondary exit mechanism for risk control
+
+Entry Rules:
+- Primary Condition: 3-day Williams %R crosses above -80 (oversold signal)
+- Confirmation: Price simultaneously breaks above upper 20-period Keltner Channel
+- Both conditions must occur on same candle for valid entry
+
+Exit Rules:
+1. Profit Target: Exit when price touches upper Bollinger Band
+2. Protective Stop: 5% trailing stop (adjusts with price movement)
+3. Whichever condition triggers first executes the exit
+
+Risk Management:
+- Position sizing should maintain risk below 2% of capital per trade
+- Stop loss is dynamic (5% trailing) but initial risk is distance from entry to 5% below entry price
+- No trades if volatility (BB width) exceeds 3x average
+
+Required Indicators:
+1. Williams %R (3-day period)
+2. Keltner Channel (20-period, default settings)
+3. Bollinger Bands (20-period, 2 std dev)
+4. Price chart with all three indicators displayed
+
+Optimization Notes:
+- Test different Williams %R periods (2-5 days)
+- Experiment with Keltner Channel lengths (15-25 periods)
+- Adjust trailing stop percentage (3-7%) based on volatility
+- Consider adding volume confirmation for stronger signals
+
+This strategy works best in ranging markets with clear support/resistance levels, combining oversold reversal signals with momentum confirmation for higher-probability trades.

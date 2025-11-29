@@ -1,0 +1,38 @@
+STRATEGY_NAME: BandwidthReversal
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with RSI oversold conditions to identify potential reversal opportunities in low-volatility environments.
+
+Key Components:
+1. Bollinger Band Width (BBW) - Measures volatility contraction
+2. Relative Strength Index (RSI) - Identifies oversold conditions
+3. Dynamic exit mechanism based on volatility expansion
+
+Entry Rules:
+1. Primary Condition: Bollinger Band Width must reach a 20-day low (indicating extreme contraction)
+2. Confirmation: RSI must cross above 30 from below (shifting momentum)
+3. Both conditions must occur simultaneously for valid entry
+
+Exit Rules:
+1. Profit Target: 5% gain from entry price (fixed take-profit)
+2. Stop Condition: Exit when BBW exceeds its 10-day average (volatility expansion)
+3. Whichever condition triggers first determines the exit
+
+Risk Management:
+1. Position sizing should account for the 5% target (risk 1-2% of capital per trade)
+2. Consider adding a stop-loss at 2-3% below entry as additional protection
+3. Avoid trading during major news events that may cause false signals
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations recommended)
+2. Bollinger Band Width (BBW) calculation
+3. RSI (14-period standard setting)
+4. 10-day simple moving average of BBW
+
+Optimization Notes:
+1. Test different RSI thresholds (25-35) for various instruments
+2. Experiment with BBW lookback periods (15-25 days)
+3. Adjust profit targets based on asset volatility (3-7% range)
+4. Consider time-based exits (e.g., 5 days) if price stagnates
+
+This strategy works best in ranging markets and may produce false signals during strong trends. It's particularly effective in mean-reverting assets and should be avoided in strongly trending instruments without additional confirmation.

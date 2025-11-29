@@ -1,0 +1,31 @@
+STRATEGY_NAME: VortexSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Momentum Focus:** The strategy capitalizes on strong momentum signals by combining the Vortex Indicator crossover with a significant volume surge.  
+2. **Volume Confirmation:** Requires a 1.5x increase in volume compared to the 20-day average to validate the momentum signal.  
+3. **Trend Strength Exit:** Uses the ADX (Average Directional Index) to exit trades when trend strength weakens (ADX < 25).  
+
+**Entry Rules:**  
+1. **Vortex Crossover:** Enter long when the VI+ (positive Vortex line) crosses above the VI- (negative Vortex line). Enter short when VI- crosses above VI+.  
+2. **Volume Surge Confirmation:** The crossover must coincide with a volume spike of at least 1.5x the 20-day average volume.  
+
+**Exit Rules:**  
+1. **ADX Weakness:** Exit the trade when the ADX drops below 25, indicating weakening trend momentum.  
+2. **Optional Stop-Loss:** Consider adding a trailing stop or fixed percentage stop (e.g., 2-3%) for additional risk management.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%) to limit risk.  
+2. **Stop-Loss:** Implement a stop-loss (e.g., below recent swing low for longs, above recent swing high for shorts) to protect against adverse moves.  
+3. **ADX Filter:** Avoid entering new trades if ADX is below 25, as this indicates a lack of strong trend.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-):** To identify momentum crossovers.  
+2. **Volume (20-day average):** To confirm the strength of the momentum signal.  
+3. **ADX (Average Directional Index):** To gauge trend strength and determine exits.  
+
+**Additional Notes:**  
+- This strategy performs best in trending markets and may underperform in choppy or sideways conditions.  
+- Backtest across multiple timeframes (e.g., daily, 4-hour) to optimize parameters for different instruments.  
+- Combine with price action (e.g., support/resistance levels) for higher-probability entries.

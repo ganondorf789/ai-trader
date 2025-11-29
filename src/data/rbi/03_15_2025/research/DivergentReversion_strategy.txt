@@ -1,0 +1,46 @@
+STRATEGY_NAME: DivergentReversion
+
+STRATEGY_DETAILS:
+The DivergentReversion strategy is a mean-reversion approach that combines RSI divergence, ADX trend strength, and ATR-based exit levels to identify short opportunities in bearish market conditions. This strategy is designed to capitalize on overextended price movements and potential reversals.
+
+Key Components:
+1. RSI (Relative Strength Index) - Used to identify oversold conditions and divergence patterns
+2. ADX (Average Directional Index) - Measures trend strength and direction
+3. ATR (Average True Range) - Determines exit levels based on volatility
+
+Entry Rules:
+1. Wait for RSI to drop below 20, indicating oversold conditions
+2. Confirm bearish divergence: Price makes lower lows while RSI makes higher lows
+3. Verify ADX is above 25 and the -DI line is above the +DI line, confirming bearish trend strength
+4. Enter short position when all conditions are met
+
+Exit Rules:
+1. Calculate ATR-based exit levels:
+   - First target: 1x ATR below entry price
+   - Second target: 2x ATR below entry price
+2. Use a trailing stop based on 0.5x ATR to protect profits
+3. Exit entire position if price moves against the trade by 1x ATR
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Maximum daily loss limit of 3%
+3. Maximum weekly loss limit of 5%
+4. Stop-loss set at 1x ATR above entry price
+
+Required Indicators:
+1. RSI (14-period)
+2. ADX (14-period)
+3. ATR (14-period)
+
+Additional Notes:
+- This strategy performs best in ranging or mildly trending markets
+- Avoid trading during high-impact news events
+- Monitor for potential trend reversals using price action confirmation
+- Adjust ATR multiplier based on market volatility (higher multipliers for more volatile markets)
+
+Optimization Tips:
+- Test different RSI periods (10-20) for specific instruments
+- Experiment with ADX thresholds (20-30) for trend confirmation
+- Adjust ATR multipliers based on individual risk tolerance and market conditions
+
+This strategy combines the precision of divergence patterns with the reliability of trend strength indicators and volatility-based exits, creating a robust mean-reversion approach for bearish market conditions.

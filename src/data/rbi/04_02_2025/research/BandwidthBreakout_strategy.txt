@@ -1,0 +1,35 @@
+STRATEGY_NAME: BandwidthBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility when the Bollinger Bands contract significantly, often preceding strong price movements.  
+2. **Volume Spike:** Confirms breakout validity with a notable increase in trading volume, indicating strong participation.  
+3. **ADX Filter (Above 25):** Ensures the market has sufficient trend strength to support the breakout, reducing false signals in ranging markets.  
+4. **Historical Bandwidth Threshold:** Defines exit conditions based on the expansion of Bollinger Band width beyond a predefined historical level, capturing the bulk of the trend before volatility normalizes.  
+
+**Entry Rules:**  
+1. Wait for Bollinger Band width to contract to a low level (e.g., below the 20-period moving average of the width).  
+2. Observe a spike in volume (e.g., volume exceeding the 20-period average by 50% or more).  
+3. Confirm ADX is above 25, indicating a strong trend.  
+4. Enter long on a breakout above the upper Bollinger Band or short on a breakout below the lower Bollinger Band.  
+
+**Exit Rules:**  
+1. Exit the trade when the Bollinger Band width expands beyond a historical threshold (e.g., 1.5x the width at entry or a percentile-based level like the 80th percentile of recent width values).  
+2. Alternatively, use a trailing stop (e.g., a percentage or ATR-based stop) to lock in profits if the bandwidth expansion criterion is not met.  
+
+**Risk Management:**  
+1. Position sizing based on a fixed percentage of capital (e.g., 1-2% risk per trade).  
+2. Initial stop-loss placed at the opposite Bollinger Band or a recent swing low/high.  
+3. Avoid trading during major economic news events to prevent erratic volatility.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations).  
+2. Bollinger Band Width (derived from the bands).  
+3. Volume (with moving average for comparison).  
+4. ADX (14-period, threshold at 25).  
+
+**Notes:**  
+- This strategy excels in trending markets but may underperform in choppy conditions.  
+- Backtest to determine optimal bandwidth contraction/expansion thresholds for your instrument and timeframe.  
+- Combine with price action (e.g., candle closes outside bands) to filter false breakouts.

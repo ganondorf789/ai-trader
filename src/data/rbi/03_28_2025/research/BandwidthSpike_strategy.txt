@@ -1,0 +1,33 @@
+STRATEGY_NAME: BandwidthSpike  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** The strategy identifies periods of low volatility when the Bollinger Bandwidth reaches a 10-day low, signaling potential breakout conditions.  
+2. **Volume Confirmation:** A volume spike above the 20-day average confirms strong participation in the breakout, increasing the likelihood of a sustained move.  
+3. **ATR-Based Exit:** A trailing stop set at 2x the Average True Range (ATR) ensures dynamic risk management, locking in profits while allowing room for volatility.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger a long position when both conditions are met:  
+  1. Bollinger Bandwidth (BBW) reaches its lowest level in the last 10 days.  
+  2. Current trading volume exceeds the 20-day moving average of volume.  
+
+**Exit Rules:**  
+- **Trailing Stop Exit:** Exit the trade when the price retraces by 2x the current ATR value from the highest point reached since entry.  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate capital based on a fixed percentage of account equity (e.g., 1-2% per trade).  
+- **Stop-Loss:** The 2x ATR trailing stop dynamically adjusts to market conditions, protecting gains and limiting losses.  
+- **Avoid Overcrowding:** Avoid entering multiple positions in highly correlated assets to prevent overexposure.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (BB):** Used to derive Bollinger Bandwidth (BBW = (Upper Band - Lower Band) / Middle Band).  
+2. **Volume Moving Average (20-day):** To confirm breakout strength.  
+3. **Average True Range (ATR):** For setting the trailing stop distance.  
+
+**Additional Notes:**  
+- This strategy performs best in trending markets after periods of consolidation.  
+- Backtest across multiple asset classes to validate robustness.  
+- Adjust the ATR multiplier (e.g., 1.5x to 3x) based on volatility tolerance.  
+
+The **BandwidthSpike** strategy combines volatility contraction, volume confirmation, and adaptive exits for a systematic approach to breakout trading.

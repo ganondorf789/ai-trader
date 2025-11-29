@@ -1,0 +1,48 @@
+STRATEGY_NAME: FlowStochastic
+
+STRATEGY_DETAILS:
+The FlowStochastic strategy combines the Chaikin Money Flow (CMF) and Stochastic Oscillator to identify potential breakout opportunities during downtrends with strong money flow. This strategy focuses on exploiting the divergence between price momentum and money flow strength.
+
+### Key Strategy Components:
+1. **Chaikin Money Flow (CMF)**:
+   - Measures the accumulation/distribution of money flow over a specified period.
+   - A positive CMF indicates buying pressure, while a negative CMF indicates selling pressure.
+   - The strategy uses a 20-period CMF and its average (typically a 20-period moving average of CMF).
+
+2. **Stochastic Oscillator**:
+   - Measures the momentum of price movements relative to the recent price range.
+   - The strategy uses the %K and %D lines (14,3,3 settings).
+   - A downtrend in the Stochastic Oscillator is identified when %K crosses below %D.
+
+### Entry Rules:
+1. **Condition 1**: The Stochastic Oscillator (%K) must cross below %D, indicating a downtrend in momentum.
+2. **Condition 2**: The Chaikin Money Flow (CMF) must be above its 20-period moving average, indicating strong buying pressure despite the downtrend in momentum.
+3. **Entry Signal**: When both conditions are met, enter a long position.
+
+### Exit Rules:
+1. **Take Profit**: Set a take profit level at 1.5x the Average True Range (ATR) of the last 14 periods.
+2. **Stop Loss**: Place a stop loss at 1x the ATR of the last 14 periods below the entry price.
+3. **Exit Signal**: Exit the trade if the Stochastic Oscillator (%K) crosses back above %D, indicating a potential reversal in momentum.
+
+### Risk Management:
+1. **Position Sizing**: Risk no more than 1-2% of the trading capital per trade.
+2. **Risk-Reward Ratio**: Aim for a minimum risk-reward ratio of 1:1.5.
+3. **Trailing Stop**: Consider using a trailing stop of 0.5x ATR to lock in profits if the trade moves favorably.
+
+### Required Indicators:
+1. **Chaikin Money Flow (CMF)**:
+   - Period: 20
+   - Moving Average of CMF: 20
+2. **Stochastic Oscillator**:
+   - %K Period: 14
+   - %D Period: 3
+   - Smoothing: 3
+3. **Average True Range (ATR)**:
+   - Period: 14
+
+### Additional Notes:
+- This strategy works best in trending markets where momentum and money flow diverge.
+- Avoid using this strategy in highly volatile or choppy markets, as false signals may occur.
+- Backtest the strategy on historical data to optimize parameters and ensure consistency.
+
+By combining the strength of money flow with momentum analysis, the FlowStochastic strategy aims to capture breakout opportunities with a favorable risk-reward profile.

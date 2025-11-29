@@ -1,0 +1,44 @@
+STRATEGY_NAME: OscillatorDivergence
+
+STRATEGY_DETAILS:
+The OscillatorDivergence strategy is a sophisticated trend-following approach that leverages a custom oscillator combining the Chikou Span, MACD histogram, and Stochastic indicator to identify divergence patterns and confirm trading signals. This strategy is designed to capitalize on momentum shifts while managing risk through predefined stop-loss and take-profit levels.
+
+### Key Strategy Components:
+1. **Custom Oscillator**: Combines three key indicators:
+   - **Chikou Span**: Used to assess price momentum by comparing the current closing price to past prices.
+   - **MACD Histogram**: Measures the difference between the MACD line and its signal line, highlighting momentum strength.
+   - **Stochastic Indicator**: Identifies overbought or oversold conditions and potential reversals.
+
+2. **Divergence Detection**: The strategy focuses on identifying divergence between price action and the custom oscillator. Bullish divergence occurs when the price makes a lower low while the oscillator makes a higher low, signaling potential upward momentum. Bearish divergence occurs when the price makes a higher high while the oscillator makes a lower high, signaling potential downward momentum.
+
+3. **Confirmation Signals**: Trades are only entered when divergence is confirmed by alignment across all three components of the custom oscillator.
+
+### Entry Rules:
+- **Long Entry**: 
+  - Identify bullish divergence (price lower low, oscillator higher low).
+  - Confirm with Chikou Span above the price, MACD histogram rising, and Stochastic exiting oversold territory.
+- **Short Entry**: 
+  - Identify bearish divergence (price higher high, oscillator lower high).
+  - Confirm with Chikou Span below the price, MACD histogram falling, and Stochastic exiting overbought territory.
+
+### Exit Rules:
+- **Take-Profit**: Set at 2-3% above the entry price for long trades or 2-3% below the entry price for short trades.
+- **Stop-Loss**: Set at 2-3% below the entry price for long trades or 2-3% above the entry price for short trades.
+- **Divergence Reversal**: Close the trade if the custom oscillator shows a reversal in divergence before hitting take-profit or stop-loss levels.
+
+### Risk Management:
+- Position sizing is based on a fixed percentage of the account balance (e.g., 1-2% per trade).
+- Stop-loss and take-profit levels are strictly enforced to limit losses and lock in gains.
+- Avoid trading during high-impact news events or periods of low liquidity to reduce volatility risks.
+
+### Required Indicators:
+1. **Chikou Span**: Part of the Ichimoku Cloud indicator.
+2. **MACD Histogram**: Derived from the MACD indicator.
+3. **Stochastic Oscillator**: Set to standard parameters (14, 3, 3).
+
+### Additional Notes:
+- This strategy performs best in trending markets and may produce false signals in choppy or sideways conditions.
+- Backtesting and optimization are recommended to fine-tune parameters for specific assets and timeframes.
+- Use higher timeframes (e.g., 1-hour or 4-hour charts) for more reliable signals.
+
+By combining multiple indicators into a custom oscillator and focusing on divergence patterns, the OscillatorDivergence strategy provides a robust framework for identifying high-probability trades while maintaining disciplined risk management.

@@ -1,0 +1,40 @@
+STRATEGY_NAME: LiquidationReverser
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Focuses on detecting liquidation cluster levels using on-chain leverage data
+- Identifies volatility contraction through Bollinger Band Width (5-day low)
+- Targets reversal trades at key liquidity zones
+- Uses opposing cluster zones for profit-taking
+
+2. Entry Rules:
+- Wait for price to reach a pre-identified liquidation cluster level (from on-chain leverage data)
+- Confirm volatility contraction when Bollinger Band Width reaches 5-day low
+- Enter reversal trade when price breaches the volatility contraction threshold
+- Position direction should be opposite of the prevailing trend into the liquidation zone
+
+3. Exit Rules:
+- Set profit targets at opposing liquidation cluster zones
+- Consider partial exits at intermediate liquidity levels
+- Implement stop-loss beyond the initial liquidation cluster level
+- Exit if Bollinger Band Width expands significantly beyond entry threshold
+
+4. Risk Management:
+- Position size should account for distance to opposing cluster zone
+- Maximum risk per trade typically 1-2% of capital
+- Avoid trading during high-impact news events that may disrupt liquidity patterns
+- Monitor on-chain leverage changes that may invalidate cluster zones
+
+5. Required Indicators:
+- On-chain leverage data (exchange-specific liquidation levels)
+- Bollinger Bands (20,2 standard settings) with Width calculation
+- 5-day rolling minimum of Bollinger Band Width
+- Price levels corresponding to significant liquidation clusters
+
+6. Additional Notes:
+- Works best in ranging markets with clear liquidity zones
+- Requires frequent monitoring of on-chain data updates
+- Most effective on liquid assets with high leverage trading activity
+- Timeframe agnostic but typically used on 4h-1d charts for reliability
+
+This strategy capitalizes on market maker behavior around liquidation levels, using volatility contraction as confirmation of potential reversal points. The unique combination of on-chain liquidation data with technical volatility measurements creates a high-probability reversal trading approach.

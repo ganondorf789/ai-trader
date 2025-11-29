@@ -1,0 +1,30 @@
+STRATEGY_NAME: VolSqueezeAccel  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volume Acceleration Rate (5-day):** Measures the rate of change in trading volume over 5 days, indicating increasing/decreasing market participation.  
+2. **Bollinger Band Squeeze:** Identifies periods of low volatility when price is confined within tightening Bollinger Bands (typically using 20-period SMA with 2 standard deviations).  
+3. **ATR (Average True Range):** Used for dynamic exit thresholds based on recent volatility (1.5x multiplier).  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - 5-day volume acceleration rate exceeds +2 standard deviations from its mean.  
+  - Price is within a Bollinger Band squeeze (bands width ≤ 50% of 20-day average width).  
+- **Short Entry:** Triggered when:  
+  - 5-day volume acceleration rate drops below -2 standard deviations from its mean.  
+  - Price remains confined in the Bollinger Band squeeze.  
+
+**Exit Rules:**  
+- **Profit-Taking:** Close position when price touches the opposing Bollinger Band (upper band for shorts, lower band for longs).  
+- **Stop-Loss:** Exit if price moves against the position by 1.5x the current 14-period ATR.  
+
+**Risk Management:**  
+- Position sizing based on 1-2% risk per trade (stop distance = 1.5x ATR).  
+- No new entries if volatility (BB width) expands beyond 150% of the squeeze threshold.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 StdDev).  
+2. Volume Acceleration Rate (5-day ROC of volume, standardized).  
+3. ATR (14-period for stop calculation).  
+
+**Unique Edge:** Combines volume spikes (breakout fuel) with low-volatility setups (squeeze), targeting explosive moves while capping risk via ATR.

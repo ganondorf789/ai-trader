@@ -1,0 +1,39 @@
+STRATEGY_NAME: SqueezeMomentum
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Bollinger Band Squeeze (20-period, 2 STD) identifies low volatility periods before potential breakouts
+- Volume-Weighted MACD confirms momentum shift with volume confirmation
+- ATR-based stops provide dynamic risk management
+- Fixed 1:3 risk-reward ratio ensures positive expectancy
+
+2. Entry Rules:
+- Wait for Bollinger Bands to contract (squeeze) to below 50% of their 20-period average width
+- Enter long when:
+  a) Price closes outside the upper Bollinger Band (breakout)
+  b) Volume-Weighted MACD crosses above zero line simultaneously
+- Enter short when:
+  a) Price closes outside the lower Bollinger Band (breakdown)
+  b) Volume-Weighted MACD crosses below zero line simultaneously
+
+3. Exit Rules:
+- Profit Target: 3x ATR(14) from entry price in direction of trade
+- Stop Loss: 1x ATR(14) from entry price against trade direction
+- Secondary Exit: Close trade if Volume-Weighted MACD crosses back below zero (for longs) or above zero (for shorts)
+
+4. Risk Management:
+- Position size calculated based on 1% risk per trade using ATR stop distance
+- No new entries if account drawdown exceeds 5% from peak
+- Maximum 3 concurrent positions open
+
+5. Required Indicators:
+- Bollinger Bands (20,2)
+- Volume-Weighted MACD (standard parameters with volume input)
+- ATR (14-period)
+- Bollinger Band Width indicator (for squeeze detection)
+
+6. Additional Notes:
+- Best suited for 1-hour or 4-hour timeframes
+- Works well in trending markets, avoid ranging conditions
+- Volume confirmation is critical to filter false breakouts
+- Backtest suggests optimal performance in commodities and indices

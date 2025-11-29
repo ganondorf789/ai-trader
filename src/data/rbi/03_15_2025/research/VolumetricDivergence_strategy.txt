@@ -1,0 +1,49 @@
+STRATEGY_NAME: VolumetricDivergence
+
+STRATEGY_DETAILS:
+The VolumetricDivergence strategy is a sophisticated approach that combines price action, volatility, and volume analysis to identify high-probability trading opportunities. The strategy focuses on detecting divergences between price movement, ATR-based volatility, and volume strength, providing a unique edge in identifying potential reversals or continuations.
+
+Key Strategy Components:
+1. Price Action Analysis: Monitor the direction and strength of price movement.
+2. ATR Volatility: Use Average True Range to measure market volatility.
+3. Volume Strength: Analyze volume trends to confirm or contradict price action.
+4. Divergence Detection: Identify when price action diverges from both ATR and volume indicators.
+
+Required Indicators:
+1. Average True Range (ATR) - Default period 14
+2. Volume Indicator (e.g., Volume Weighted Moving Average or On-Balance Volume)
+3. Price Action Tools (Candlestick patterns, support/resistance levels)
+
+Entry Rules:
+1. Look for price making higher highs while:
+   - ATR shows decreasing volatility (lower highs)
+   - Volume shows decreasing strength (lower highs)
+2. Alternatively, look for price making lower lows while:
+   - ATR shows increasing volatility (higher lows)
+   - Volume shows increasing strength (higher lows)
+3. Confirm divergence with at least two consecutive price swings
+4. Enter trade in the direction opposite to the divergence (short for bullish divergence, long for bearish divergence)
+
+Exit Rules:
+1. Use ATR-based trailing stops:
+   - Set initial stop at 1.5x ATR from entry point
+   - Adjust stop to 1x ATR when price moves 2x ATR in your favor
+   - Tighten stop to 0.5x ATR when price moves 3x ATR in your favor
+2. Take profit at 3x ATR from entry point
+3. Exit if divergence pattern fails (price continues in original direction)
+
+Risk Management:
+1. Risk no more than 1-2% of account per trade
+2. Use position sizing based on ATR:
+   - Position size = (Account risk %) / (1.5x ATR in points)
+3. Avoid trading during major news events
+4. Implement maximum daily loss limit (e.g., 5% of account)
+
+Additional Considerations:
+1. Best suited for 1-hour or 4-hour timeframes
+2. Works well in trending markets with clear price swings
+3. Combine with fundamental analysis for higher probability setups
+4. Backtest thoroughly across different market conditions
+5. Consider using multiple timeframes for confirmation
+
+This strategy requires patience and discipline, as divergence patterns may take time to develop. The combination of volatility and volume analysis with price action provides a robust framework for identifying high-probability setups while managing risk effectively.

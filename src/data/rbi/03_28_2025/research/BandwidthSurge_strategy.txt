@@ -1,0 +1,31 @@
+STRATEGY_NAME: BandwidthSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** The strategy focuses on periods of low volatility when the Bollinger Band width (difference between upper and lower bands) contracts below its 10-day low, signaling potential breakout conditions.  
+2. **Volume Surge:** A 50% increase in volume compared to recent averages confirms heightened interest and potential momentum behind the breakout.  
+3. **Breakout Direction:** The actual trade is entered in the direction of the breakout (either above upper band or below lower band).  
+4. **Exit Conditions:** The trade is exited when the Bollinger Band width expands beyond 2x its contraction level, indicating volatility has increased significantly. A trailing stop at 1.5x the Average True Range (ATR) protects profits and limits downside risk.  
+
+**Entry Rules:**  
+- Wait for Bollinger Band width to contract below its 10-day low.  
+- Confirm a 50% surge in volume compared to recent average volume (e.g., 20-day moving average of volume).  
+- Enter long if price breaks above the upper Bollinger Band.  
+- Enter short if price breaks below the lower Bollinger Band.  
+
+**Exit Rules:**  
+- Exit the trade when the Bollinger Band width expands to more than 2x its width at the time of entry.  
+- Use a trailing stop set at 1.5x the 14-day ATR to lock in profits and manage risk dynamically.  
+
+**Risk Management:**  
+- Position sizing should be based on a fixed percentage of capital (e.g., 1-2% per trade).  
+- The trailing stop (1.5x ATR) ensures risk is adjusted for current volatility.  
+- Avoid trading during major news events or low-liquidity periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA with 2 standard deviations, width calculated as Upper Band - Lower Band).  
+2. **Volume** (20-day moving average for comparison).  
+3. **Average True Range (ATR)** (14-period for trailing stop calculation).  
+
+This strategy combines volatility contraction, volume confirmation, and dynamic exits to capitalize on high-probability breakout opportunities while managing risk effectively.

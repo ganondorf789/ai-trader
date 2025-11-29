@@ -1,0 +1,34 @@
+STRATEGY_NAME: VoltaicCrush  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Focus:** This strategy capitalizes on extreme volatility spikes in the VIX (CBOE Volatility Index) and subsequent mean reversion signals from the VVIX (VIX of VIX).  
+2. **Z-Score Filter:** Uses the 1-year Z-score of the VIX to identify statistically significant spikes, ensuring only high-probability setups are traded.  
+3. **VVIX Confirmation:** Requires the VVIX to break below its 20-day SMA, signaling a loss of momentum in volatility-of-volatility and potential reversal.  
+4. **Bollinger Band Exit:** Exits the trade when VIX closes below the midpoint of its 10-day Bollinger Bands, indicating a return to normal volatility levels.  
+
+**Entry Rules:**  
+- **Short SPX** when:  
+  1. VIX spikes above its 1-year Z-score threshold (e.g., Z > 2 for extreme moves).  
+  2. VVIX simultaneously breaks below its 20-day SMA.  
+
+**Exit Rules:**  
+- Close the short position when:  
+  1. VIX closes below the midpoint of its 10-day Bollinger Bands (middle band).  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%) to limit downside.  
+2. **Stop-Loss:** Optional stop-loss can be placed above recent highs in SPX or if VVIX reverses back above its 20-day SMA.  
+3. **Time-Based Exit:** Consider exiting after a set period (e.g., 5-10 days) if the exit condition isn’t met.  
+
+**Required Indicators:**  
+1. **VIX 1-Year Z-Score:** To quantify extreme volatility spikes.  
+2. **VVIX 20-Day SMA:** For confirmation of weakening volatility momentum.  
+3. **VIX 10-Day Bollinger Bands:** To identify mean reversion exit points.  
+
+**Unique Aspects:**  
+- Combines volatility (VIX) and volatility-of-volatility (VVIX) for high-conviction reversals.  
+- Uses statistical (Z-score) and trend-following (SMA) filters to avoid false signals.  
+- Bollinger Band midpoint provides a dynamic, adaptive exit threshold.  
+
+**Note:** This strategy is best deployed during periods of elevated market stress (e.g., post-earnings, macro events) when VIX spikes are more likely to revert. Backtest for optimal Z-score threshold and SMA period adjustments.

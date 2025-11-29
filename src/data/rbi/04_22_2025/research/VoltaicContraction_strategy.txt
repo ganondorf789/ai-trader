@@ -1,0 +1,38 @@
+STRATEGY_NAME: VoltaicContraction  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Focus**: Targets periods of high ATR (Average True Range) to identify potential volatility contractions.  
+2. **VWAP Divergence**: Uses Volume-Weighted Average Price (VWAP) to detect deviations (>2 standard deviations) as a signal for potential reversals or breakouts.  
+3. **ADX Confirmation**: Requires an ADX (Average Directional Index) crossunder 25 to confirm weakening trend strength before entry.  
+4. **Bollinger Band Exit**: Monitors 4-hour Bollinger Band width for volatility normalization as an exit signal.  
+
+**Entry Rules:**  
+1. **Volatility Context**: Ensure the ATR is above its 14-period moving average (high volatility environment).  
+2. **VWAP Deviation**: Price must deviate >2σ from the VWAP, indicating extreme displacement.  
+3. **ADX Filter**: ADX must cross under 25, signaling a loss of trend momentum.  
+4. **Directional Bias**: Enter long if price is below VWAP (mean reversion) or short if above (breakout continuation).  
+
+**Exit Rules:**  
+1. **Bollinger Band Width Threshold**: Exit when the 4-hour Bollinger Band width contracts below a predefined threshold (e.g., 20% of its 14-period range), signaling volatility normalization.  
+2. **Stop-Loss**: Place a stop-loss at 1.5x the 14-period ATR from the entry price to manage risk.  
+3. **Time-Based Exit**: Close the trade if the Bollinger Band width does not contract within 48 hours.  
+
+**Risk Management:**  
+1. **Position Sizing**: Allocate no more than 2% of capital per trade.  
+2. **Stop-Loss**: Fixed at 1.5x ATR to account for volatility swings.  
+3. **Profit Target**: None—rely solely on the Bollinger Band width exit signal.  
+
+**Required Indicators:**  
+1. **VWAP** (Volume-Weighted Average Price) with 2σ bands.  
+2. **ATR** (14-period) to gauge volatility.  
+3. **ADX** (14-period) with +DI/-DI for trend confirmation.  
+4. **Bollinger Bands** (20,2) on 4-hour charts for width analysis.  
+
+**Unique Aspects:**  
+- Combines mean-reversion (VWAP) and breakout (ATR/ADX) logic.  
+- Uses Bollinger Band width as a dynamic exit metric instead of fixed profit targets.  
+- Requires dual confirmation from both volatility (ATR) and trend (ADX) indicators.  
+
+**Note:** This strategy excels in ranging or transitioning markets but may underperform in strong trending conditions without pullbacks.

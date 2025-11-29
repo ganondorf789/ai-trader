@@ -1,0 +1,30 @@
+STRATEGY_NAME: GammaReversion  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on post-liquidation price reversals by identifying high gamma options levels and extreme funding rate spikes in perpetual futures markets. It combines derivatives market dynamics with liquidation cluster analysis for high-probability mean reversion trades.  
+
+**Key Components:**  
+1. **High Gamma Options Level Breach** – Identifies price levels where options dealers are forced to hedge aggressively, creating temporary price distortions.  
+2. **Perpetual Funding Rate Spike** – Confirms excessive leverage in the market when funding rates surge, signaling potential overextension.  
+3. **Liquidation Cluster Zones** – Volume-weighted areas where forced liquidations are likely to occur, serving as profit-taking targets.  
+
+**Entry Rules:**  
+- **Short Trigger:** Price breaches a high gamma level (e.g., dealer hedging boundary) while perpetual funding rates spike (e.g., > 0.1% per 8h).  
+- **Confirmation:** High gamma level should align with a recent liquidation sweep (e.g., price wicking beyond a key level before reversing).  
+
+**Exit Rules:**  
+- **Take-Profit:** Exit at the nearest volume-weighted liquidation cluster (e.g., where open interest was previously dense).  
+- **Stop-Loss:** If price reclaims the high gamma level and holds for more than 2-4 candles, invalidating the reversal thesis.  
+
+**Risk Management:**  
+- Position sizing based on distance to liquidation clusters (e.g., 1-2% risk per trade).  
+- Avoid trading during low-liquidity periods to prevent slippage.  
+- Monitor options open interest changes to confirm dealer hedging activity.  
+
+**Required Indicators:**  
+1. Gamma exposure levels (from options flow data).  
+2. Perpetual funding rate tracker.  
+3. Liquidation heatmap (volume-weighted zones).  
+4. Order book depth to confirm liquidity near key levels.  
+
+This strategy works best in high-leverage crypto markets where liquidations and gamma squeezes are frequent. Backtesting should focus on assets with active options markets (e.g., BTC, ETH).

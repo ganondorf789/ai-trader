@@ -1,0 +1,84 @@
+STRATEGY_NAME: ShortSqueezeReversion
+
+STRATEGY_DETAILS:
+The ShortSqueezeReversion strategy is a value-based momentum approach that focuses on identifying stocks with high short interest relative to their trading volume, aiming to capitalize on potential short squeezes and RSI mean-reversion opportunities. Here's a detailed breakdown of the strategy:
+
+---
+
+### **Key Strategy Components**
+1. **High Short Interest Relative to Volume**: 
+   - Focus on stocks with a high short interest ratio (short interest / average daily volume). This indicates a higher likelihood of a short squeeze if the stock begins to rise.
+   - Example: A short interest ratio above 20% is considered high.
+
+2. **1-Day RSI Mean-Reversion Threshold**:
+   - Use the Relative Strength Index (RSI) on a 1-day timeframe to identify overbought or oversold conditions.
+   - Target stocks with an RSI below 30 (oversold) for long entries, anticipating a mean-reversion bounce.
+
+3. **Momentum Confirmation**:
+   - Ensure the stock is showing signs of upward momentum (e.g., recent price increase or volume spike) to confirm the potential for a short squeeze.
+
+---
+
+### **Entry Rules**
+1. **Stock Selection**:
+   - Screen for stocks with a short interest ratio above 20%.
+   - Ensure the stock is liquid enough to trade (e.g., average daily volume > 1 million shares).
+
+2. **RSI Condition**:
+   - Enter a long position when the 1-day RSI drops below 30, indicating oversold conditions.
+
+3. **Momentum Confirmation**:
+   - Confirm entry if the stock price has shown a recent upward movement (e.g., 3 consecutive green candles) or a spike in volume.
+
+---
+
+### **Exit Rules**
+1. **Profit Target**:
+   - Set a profit target based on the stock's average true range (ATR) or a fixed percentage gain (e.g., 5-10%).
+   - Alternatively, exit when the 1-day RSI reaches 70 (overbought), signaling a potential reversal.
+
+2. **Stop Loss**:
+   - Place a stop loss below the recent swing low or at a fixed percentage loss (e.g., 3-5%) to manage risk.
+
+3. **Time-Based Exit**:
+   - Exit the trade if the expected short squeeze or momentum does not materialize within 1-2 days.
+
+---
+
+### **Risk Management**
+1. **Position Sizing**:
+   - Allocate a small percentage of the portfolio (e.g., 1-2%) to each trade to limit exposure to any single position.
+
+2. **Diversification**:
+   - Trade multiple stocks simultaneously to spread risk across different sectors and avoid overconcentration.
+
+3. **Stop Loss Discipline**:
+   - Strictly adhere to stop-loss levels to prevent large drawdowns.
+
+---
+
+### **Required Indicators**
+1. **Short Interest Ratio**:
+   - Calculate as (Short Interest / Average Daily Volume). Use this to identify high short interest stocks.
+
+2. **1-Day RSI**:
+   - Use the Relative Strength Index on a 1-day timeframe to identify oversold conditions (RSI < 30).
+
+3. **Volume Analysis**:
+   - Monitor trading volume for spikes or unusual activity, which can signal the start of a short squeeze.
+
+4. **ATR (Optional)**:
+   - Use the Average True Range to set profit targets or stop-loss levels based on volatility.
+
+---
+
+### **Example Trade Setup**
+1. **Stock**: XYZ has a short interest ratio of 25% and an average daily volume of 2 million shares.
+2. **RSI**: The 1-day RSI drops to 28, indicating oversold conditions.
+3. **Momentum**: XYZ shows 3 consecutive green candles with increasing volume.
+4. **Entry**: Enter a long position at $50.
+5. **Exit**: Set a profit target at $55 (10% gain) or exit if RSI reaches 70. Place a stop loss at $47.50 (5% loss).
+
+---
+
+This strategy combines value (high short interest) with momentum (RSI mean-reversion) to identify high-probability short squeeze opportunities while managing risk through disciplined position sizing and stop-loss rules.

@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolSqueezeLiquidity  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies periods of low volatility (compression) before potential explosive moves.  
+2. **Negative Funding Rates:** Signals excessive short positioning, increasing the likelihood of a short squeeze.  
+3. **Liquidity Gaps:** Targets areas where recent liquidations occurred, acting as natural profit-taking zones.  
+
+**Entry Rules:**  
+1. **Setup Confirmation:**  
+   - Bollinger Bands (20,2) show width contraction (squeeze), defined as bandwidth < X% of recent average (adjustable parameter).  
+   - Funding rates turn significantly negative (e.g., below -0.01% per 8h).  
+2. **Trigger:**  
+   - Price breaks above the upper Bollinger Band with volume surge (> Y% of recent average).  
+   - Confirm RSI (14) is not overbought (>70) to avoid false breakouts.  
+
+**Exit Rules:**  
+1. **Profit Target:**  
+   - Nearest liquidity gap (recent high/low with clustered liquidations) or 1.5x the Bollinger Band width.  
+2. **Stop Loss:**  
+   - Below the breakout candle’s low (for longs) or trailing stop at lower Bollinger Band.  
+
+**Risk Management:**  
+- Position size: 1-2% of capital per trade.  
+- Maximum drawdown per day: 5%.  
+- Avoid trading during low-liquidity periods (e.g., weekends).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2).  
+2. Funding rate data (platform-specific).  
+3. RSI (14) for overbought/oversold context.  
+4. Volume oscillator (to confirm breakout strength).  
+
+**Unique Edge:** Combines volatility compression, crowd sentiment (funding rates), and liquidity hunting—a trifecta for high-probability breakout trades.

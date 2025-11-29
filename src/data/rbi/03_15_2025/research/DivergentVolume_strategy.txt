@@ -1,0 +1,67 @@
+STRATEGY_NAME: DivergentVolume
+
+STRATEGY_DETAILS:
+The DivergentVolume strategy is a trend-following approach that combines MACD histogram divergence signals with volume-based confirmation to identify high-probability entry points during strong market movements. The strategy focuses on aligning momentum and volume indicators to confirm trend strength and potential reversals.
+
+### Key Components:
+1. **MACD Histogram Divergence**: 
+   - Used to identify momentum shifts and potential trend reversals.
+   - Positive divergence occurs when the MACD histogram forms higher lows while price forms lower lows, signaling potential bullish momentum.
+
+2. **Volume Ratio**:
+   - Measures the strength of the trend by comparing recent volume to historical volume.
+   - A rising Volume Ratio confirms strong participation in the trend, adding validity to the MACD divergence signal.
+
+3. **Average True Range (ATR)**:
+   - Used for setting dynamic stop-loss and take-profit levels based on market volatility.
+
+### Entry Rules:
+1. **Confirmation of Positive Divergence**:
+   - MACD histogram must show higher lows while price shows lower lows (bullish divergence).
+   - Volume Ratio must be rising, indicating increasing buying pressure.
+
+2. **Trend Alignment**:
+   - Price must be above a key moving average (e.g., 50-period EMA) to confirm an uptrend.
+
+3. **Entry Trigger**:
+   - Enter a long position when the MACD histogram crosses above the zero line after a positive divergence, and the Volume Ratio is above a predefined threshold (e.g., 1.2).
+
+### Exit Rules:
+1. **Price Reversal**:
+   - Exit the trade if the price closes below a recent swing low or a key support level.
+
+2. **ATR-Based Exit**:
+   - Set a trailing stop-loss at 2x ATR below the entry price.
+   - Take profit at 3x ATR above the entry price.
+
+3. **MACD Signal Line Cross**:
+   - Exit if the MACD line crosses below the signal line, indicating weakening momentum.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of the trading capital per trade.
+   - Use ATR to calculate position size based on the distance to the stop-loss level.
+
+2. **Stop-Loss Placement**:
+   - Initial stop-loss is placed at 2x ATR below the entry price.
+   - Trailing stop-loss is adjusted as the price moves in favor of the trade.
+
+3. **Take-Profit Levels**:
+   - Primary take-profit is set at 3x ATR above the entry price.
+   - Secondary take-profit can be set at key resistance levels or when the Volume Ratio starts to decline.
+
+### Required Indicators:
+1. **MACD (12, 26, 9)**:
+   - Focus on the histogram for divergence signals.
+
+2. **Volume Ratio**:
+   - Calculate as (Current Volume / Average Volume over the last 20 periods).
+
+3. **Average True Range (ATR)**:
+   - Use a 14-period ATR for volatility-based exits.
+
+4. **Exponential Moving Average (EMA)**:
+   - 50-period EMA to confirm the overall trend direction.
+
+### Summary:
+The DivergentVolume strategy leverages the synergy between momentum divergence and volume confirmation to identify high-probability trend-following opportunities. By combining MACD histogram analysis with Volume Ratio and ATR-based exits, the strategy aims to capture strong market movements while managing risk effectively. This approach is particularly effective in trending markets with clear momentum shifts and strong volume participation.

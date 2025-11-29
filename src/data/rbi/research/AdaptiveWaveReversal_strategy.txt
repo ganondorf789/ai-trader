@@ -1,0 +1,31 @@
+STRATEGY_NAME: AdaptiveWaveReversal
+
+STRATEGY_DETAILS:
+
+Key Strategy Components:
+- Focuses on identifying the market's natural wave-like price action and trends
+- Utilizes multiple timeframe analysis to confirm momentum and trend direction
+- Incorporates adaptive entry and exit rules based on the current market conditions
+
+Entry Rules:
+1. Identify the overall market trend direction on the higher timeframes (e.g., 15-minute, hourly, daily)
+2. Wait for the market to pull back and form a higher low or lower high, depending on the trend direction
+3. Enter a long position when the market breaks above the previous swing high (in an uptrend) or a short position when the market breaks below the previous swing low (in a downtrend)
+4. Use the VWAP (Volume Weighted Average Price) and key pivot points as dynamic support/resistance levels to time entries
+
+Exit Rules:
+1. Set a profit target based on the measured move from the entry point, typically aiming for 10-20 points of profit
+2. Trail a stop loss to lock in profits as the trade progresses, using the VWAP and pivot points as reference levels
+3. Exit the trade if the market reverses and breaks back below/above the entry level, signaling a potential trend reversal
+
+Risk Management:
+- Use a tight stop loss, typically placing it just below/above the entry level or a recent swing low/high
+- Limit position size to 1-2% of the account balance per trade
+- Implement a trailing stop loss to protect profits as the trade moves in the desired direction
+
+Required Indicators:
+- VWAP (Volume Weighted Average Price)
+- Pivot Points (Standard)
+- Price Action Concepts indicator (optional)
+
+This "AdaptiveWaveReversal" strategy focuses on identifying and capitalizing on the market's natural wave-like price movements. By using a multi-timeframe approach and dynamic support/resistance levels, the strategy aims to enter trades at favorable points and manage risk effectively. The adaptive nature of the strategy allows the trader to adjust their approach based on the current market conditions, making it a versatile and potentially profitable trading system.

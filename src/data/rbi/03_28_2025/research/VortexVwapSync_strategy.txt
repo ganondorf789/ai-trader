@@ -1,0 +1,54 @@
+STRATEGY_NAME: VortexVwapSync
+
+STRATEGY_DETAILS:
+This intraday breakout strategy combines VWAP dynamics with Vortex Indicator signals for high-probability trades. The core innovation lies in synchronizing slope-based VWAP confirmation with directional Vortex crossovers.
+
+Key Components:
+1. VWAP Slope Analysis (Primary Filter)
+   - Bullish Setup: Price above rising VWAP (positive slope)
+   - Bearish Setup: Price below falling VWAP (negative slope)
+   - Slope threshold: Minimum 15-degree angle on 5-min chart
+
+2. Vortex Indicator (Signal Generator)
+   - VI+ crossing above VI- for long entries
+   - VI- crossing above VI+ for short entries
+   - Must occur within 1% of VWAP line
+
+Entry Rules:
+Long Entry:
+1. VWAP slope >15 degrees upward
+2. Price pulls back to VWAP (within 0.5%)
+3. VI+ crosses above VI- while above VWAP
+4. Confirmed when price breaks recent high
+
+Short Entry:
+1. VWAP slope >15 degrees downward
+2. Price rallies to VWAP (within 0.5%)
+3. VI- crosses above VI+ while below VWAP
+4. Confirmed when price breaks recent low
+
+Exit Rules:
+1. Primary Exit: Opposite Vortex crossover occurs
+2. Secondary Exit: Price crosses VWAP ±1.5% dynamic band
+3. Emergency Exit: 2% adverse move from entry
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Stop placement: 
+   - Longs: Below recent swing low or 1% below entry
+   - Shorts: Above recent swing high or 1% above entry
+3. Time filter: Only trade first 6 hours of session
+4. Max trades/day: 3 per direction
+
+Required Indicators:
+1. Volume-Weighted Average Price (VWAP) with slope measurement
+2. Vortex Indicator (14-period standard settings)
+3. Dynamic bands at ±1.5% from VWAP
+
+Optimization Notes:
+- Best performance in high-volume index ETFs (SPY, QQQ)
+- Ideal timeframe: 5-minute charts
+- Requires minimum $25 average true range
+- Avoid first 30 minutes after open
+
+This strategy capitalizes on the synergy between institutional VWAP flows and directional momentum from the Vortex Indicator, creating a robust intraday trading framework.

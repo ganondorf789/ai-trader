@@ -1,0 +1,33 @@
+STRATEGY_NAME: DeltaClusterReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Identification:** The strategy focuses on detecting areas in the order book where large liquidity clusters (potential liquidation zones) exist, identified through delta imbalances (buy/sell pressure divergence).  
+2. **Stochastic RSI Divergence:** A short-term Stochastic RSI (e.g., 5,3,3) is used to spot divergences against price action, signaling potential reversals.  
+3. **Cumulative Volume Delta (CVD):** Lower timeframe (e.g., 1m or 5m) CVD is analyzed to confirm whether the delta imbalance aligns with the reversal signal.  
+4. **Multi-Timeframe Confirmation:** The strategy requires alignment between higher timeframe liquidation zones and lower timeframe divergence signals for high-probability entries.  
+
+**Entry Rules:**  
+1. **Liquidation Zone Proximity:** Price must approach a previously identified liquidation cluster (high delta imbalance zone).  
+2. **Stochastic RSI Divergence:** The short-term Stochastic RSI must show a bullish divergence (higher low while price makes a lower low) for long entries, or bearish divergence (lower high while price makes a higher high) for short entries.  
+3. **CVD Confirmation:** Cumulative Volume Delta must show a reversal in direction (e.g., CVD starts rising after a downtrend for longs, or falling after an uptrend for shorts).  
+4. **Entry Trigger:** Enter on a break of the nearest swing high/low (for confirmation) or on a pullback into the liquidation zone with CVD/stochastic alignment.  
+
+**Exit Rules:**  
+1. **Take-Profit:** Target the next significant liquidity zone or a 1:2 or 1:3 risk-reward ratio.  
+2. **Stop-Loss:** Place stops just beyond the liquidation cluster (invalidating the reversal thesis) or below/above the recent swing low/high.  
+3. **Early Exit:** If CVD sharply reverses against the trade or Stochastic RSI crosses back mid-level (50), consider partial or full exit.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% per trade.  
+2. **Trade Filter:** Only take trades where liquidation zone, Stochastic RSI divergence, and CVD alignment are present.  
+3. **Avoid Choppy Markets:** If CVD shows no clear trend or Stochastic RSI is flat, avoid trading.  
+
+**Required Indicators:**  
+1. **Order Book Delta Imbalance Tool** (to identify liquidation clusters).  
+2. **Stochastic RSI (5,3,3)** for divergence signals.  
+3. **Cumulative Volume Delta (CVD)** on lower timeframe.  
+4. **Price Action Structure** (swing highs/lows for confirmation).  
+
+This strategy excels in high-liquidity markets where liquidation-driven reversals are frequent, particularly in crypto or forex. The combination of delta-based liquidity analysis and multi-timeframe divergence confirmation ensures high-probability setups.

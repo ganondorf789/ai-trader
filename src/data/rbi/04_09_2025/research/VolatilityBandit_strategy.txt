@@ -1,0 +1,43 @@
+STRATEGY_NAME: VolatilityBandit
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Bands and Keltner Channels to identify high-probability volatility breakouts with volume confirmation.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Keltner Channels (20-period, 1.5 ATR multiplier)
+3. Volume filter (20% above 20-period average)
+4. Price closing outside both bands as trigger
+
+Entry Rules:
+1. Wait for price to close completely outside both Bollinger Bands AND Keltner Channels
+2. Confirm volume is at least 20% above 20-period average volume
+3. Enter long if above upper bands, short if below lower bands
+4. Only take first breakout signal per direction
+
+Exit Rules:
+1. Close position when price closes back inside either channel
+2. Optional trailing stop at opposite band (e.g., for longs, trail at lower Bollinger Band)
+
+Risk Management:
+1. Position size based on distance between entry and opposite band
+2. Maximum risk per trade (e.g., 1-2% of capital)
+3. Avoid trading during major news events
+4. Consider time-based exits if no reversal occurs (e.g., 5-10 periods)
+
+Indicator Settings:
+- Bollinger Bands: 20 periods, 2 std dev
+- Keltner Channels: 20 periods, 1.5 ATR multiplier
+- Volume: 20-period simple moving average
+
+Optimization Tips:
+1. Test different period lengths (14-30)
+2. Adjust standard deviation (1.8-2.2)
+3. Vary ATR multiplier (1.3-1.8)
+4. Test volume thresholds (15-25%)
+
+Special Notes:
+- Works best in trending markets
+- May generate false signals in ranging markets
+- Combine with trend filter (e.g., 50/200 EMA) for better results
+- Most effective on 1H-4H timeframes for swing trading

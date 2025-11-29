@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolatilityBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **EMA Crossover Signal:** The strategy relies on the 50-period EMA crossing above the 200-period EMA (Golden Cross) to confirm a bullish breakout or below (Death Cross) for a bearish breakout.  
+2. **Low ATR Filter:** The strategy only takes trades when the Average True Range (ATR) is below a certain threshold, indicating reduced volatility and potential for a strong breakout.  
+3. **ATR-Based Risk Management:** Uses multiples of ATR for stop-loss (2x ATR) and take-profit (1.5x ATR) to dynamically adjust to market conditions.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when the 50-period EMA crosses above the 200-period EMA, and the current ATR is below a predefined low-volatility threshold (e.g., 20-period ATR below its median).  
+- **Short Entry:** Triggered when the 50-period EMA crosses below the 200-period EMA under the same low ATR condition.  
+
+**Exit Rules:**  
+- **Stop-Loss:** Placed at 2x ATR from the entry price (e.g., if ATR is 10 pips, stop-loss is 20 pips away).  
+- **Take-Profit:** Set at 1.5x ATR from the entry price (e.g., if ATR is 10 pips, take-profit is 15 pips away).  
+
+**Risk Management:**  
+- Position sizing should be adjusted so that the stop-loss distance (2x ATR) aligns with the trader’s risk tolerance (e.g., 1-2% of account per trade).  
+- Avoid trading during high ATR periods to reduce false breakouts.  
+
+**Required Indicators:**  
+1. **50-period Exponential Moving Average (EMA)**  
+2. **200-period Exponential Moving Average (EMA)**  
+3. **Average True Range (ATR) – Typically 14-period**  
+
+**Additional Notes:**  
+- The low ATR filter ensures the strategy capitalizes on breakouts during consolidation phases, increasing the likelihood of sustained moves.  
+- Backtesting should optimize the ATR threshold for low volatility to maximize strategy effectiveness.  
+- Works best on higher timeframes (e.g., 1H or 4H) to avoid noise.  
+
+**Why "VolatilityBreakout"?**  
+- "Volatility" highlights the ATR-based filtering and risk management.  
+- "Breakout" emphasizes the EMA crossover as the primary trigger, making the name specific to this strategy’s unique combination of signals.

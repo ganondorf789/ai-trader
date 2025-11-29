@@ -1,0 +1,40 @@
+STRATEGY_NAME: VortexFisher  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Tracks trend direction using positive (VI+) and negative (VI-) trendlines. A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI- crosses above VI+.  
+2. **Fisher Transform:** Identifies overbought/oversold conditions and potential reversals. Extreme values (typically above 2 or below -2) suggest reversal opportunities.  
+3. **Volume Confirmation:** Uses expanding volume to validate signals, ensuring higher conviction in the trade direction.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - VI+ crosses above VI- (bullish trend confirmation).  
+  - Fisher Transform exits oversold territory (crosses above -2).  
+  - Volume is expanding (higher than previous period).  
+- **Short Entry:**  
+  - VI- crosses above VI+ (bearish trend confirmation).  
+  - Fisher Transform exits overbought territory (crosses below 2).  
+  - Volume is expanding (higher than previous period).  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  - VI- crosses above VI+ (trend reversal).  
+  - Volume contracts significantly (lower than previous period).  
+  - Fisher Transform reaches overbought (above 2) and starts reversing.  
+- **Short Exit:**  
+  - VI+ crosses above VI- (trend reversal).  
+  - Volume contracts significantly (lower than previous period).  
+  - Fisher Transform reaches oversold (below -2) and starts reversing.  
+
+**Risk Management:**  
+- **Stop-Loss:** Place below recent swing low (long) or above recent swing high (short).  
+- **Take-Profit:** Use trailing stops based on VI crossovers or Fisher Transform extremes.  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI)** – Default period (14).  
+2. **Fisher Transform** – Default period (10).  
+3. **Volume Indicator** – Raw volume or volume moving average.  
+
+This strategy combines trend confirmation (VI) with momentum extremes (Fisher) and volume dynamics for high-probability entries and exits.

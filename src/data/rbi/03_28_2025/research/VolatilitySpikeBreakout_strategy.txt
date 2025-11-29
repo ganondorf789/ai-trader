@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolatilitySpikeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility-adjusted price levels with liquidity-based volume confirmation to identify high-probability breakout opportunities during low-liquidity market conditions.
+
+Key Components:
+1. Volatility-adjusted VWAP bands (2 standard deviations)
+2. Low-liquidity time filter (typically overnight or lunch hours)
+3. Volume spike confirmation (150% of 15-period median)
+4. 3-minute timeframe for volume confirmation
+
+Indicators Required:
+1. VWAP (Volume Weighted Average Price) with 2 standard deviation bands
+2. Volume indicator with 15-period median calculation
+3. Time-based filter for low-liquidity periods
+
+Entry Rules:
+1. Wait for price to break outside the 2-standard deviation VWAP band
+2. Confirm the breakout with a volume spike (150% of 15-period median) within 3 minutes
+3. Entry occurs on the close of the 3-minute bar that confirms the volume spike
+4. Trade must occur during predefined low-liquidity hours
+
+Exit Rules:
+1. Initial stop-loss placed at the opposite VWAP band (2 standard deviations)
+2. Take-profit set at 1.5x the initial risk (distance from entry to stop)
+3. Trailing stop activated after price reaches 1x risk, trailing at 0.5 standard deviations
+
+Risk Management:
+1. Position size calculated to risk no more than 1-2% of capital per trade
+2. Maximum of 3 concurrent positions open
+3. No trading during high-impact news events
+4. Daily loss limit of 5% of account
+
+Additional Notes:
+- Low-liquidity hours should be backtested for the specific instrument
+- Volume spike threshold may need adjustment based on market conditions
+- Works best on liquid instruments with consistent overnight sessions (forex, futures)
+- Requires monitoring of economic calendar for potential news interference

@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityBackwardation  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Based Entry:** The strategy focuses on low volatility conditions, using the 20-day Average True Range (ATR) to identify periods of compressed volatility.  
+2. **VIX Backwardation Filter:** The strategy requires the VIX term structure to be in backwardation (front-month VIX higher than subsequent months), indicating heightened short-term volatility expectations.  
+3. **Mean-Reversion Bias:** By entering when ATR is extremely low (below its 10th percentile), the strategy anticipates a reversion to higher volatility and potential upward price movement.  
+4. **ATR-Based Exit:** Positions are closed when price moves 2x the current ATR from the entry point, locking in profits during volatility expansion.  
+
+**Entry Rules:**  
+- **Condition 1:** The 20-day ATR must drop below its 10th percentile (calculated over a rolling 252-day lookback period).  
+- **Condition 2:** The VIX term structure must be in backwardation (VIX front-month > VIX second-month).  
+- **Action:** Enter a long position when both conditions are met.  
+
+**Exit Rules:**  
+- **Profit-Taking:** Exit the long position if the price moves 2x the current ATR value (at entry) above the entry price.  
+- **Optional Stop-Loss:** Consider adding a 1x ATR trailing stop below the entry price for additional risk management.  
+
+**Risk Management:**  
+- **Position Sizing:** Use ATR-based position sizing to ensure consistent risk per trade (e.g., risk 1% of capital per trade based on 1x ATR stop).  
+- **Volatility Filter:** Avoid trading during high-volatility regimes (e.g., when ATR is above its 50th percentile).  
+- **VIX Confirmation:** The backwardation requirement reduces false signals by ensuring short-term volatility expectations align with the trade thesis.  
+
+**Required Indicators:**  
+1. **Average True Range (ATR):** 20-day ATR for volatility measurement and exit criteria.  
+2. **VIX Term Structure:** To confirm backwardation (front-month VIX > second-month VIX).  
+3. **ATR Percentile:** Rolling 252-day lookback to identify the 10th percentile threshold.  
+
+**Unique Aspects:**  
+- Combines volatility compression (ATR percentile) with VIX term structure for high-probability entries.  
+- Uses ATR dynamically for both entry filtering and profit-taking, creating a self-adjusting exit mechanism.  
+- Ideal for mean-reversion strategies in equity indices or ETFs during low-volatility regimes.  
+
+**Note:** Backtest this strategy across multiple asset classes to confirm robustness, as VIX backwardation may behave differently in non-equity markets.

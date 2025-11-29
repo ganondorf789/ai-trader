@@ -1,0 +1,48 @@
+STRATEGY_NAME: VoltaVwap  
+
+STRATEGY_DETAILS:  
+The VoltaVwap strategy combines volatility-adjusted VWAP crossovers with Bollinger Band contraction to identify high-probability entries, while using dynamic profit targets and opposing signals for exits.  
+
+**Key Components:**  
+1. **Volatility-Adjusted VWAP**: Uses a modified VWAP that adjusts for recent volatility conditions  
+2. **Bollinger Band Width Filter**: Requires contraction below 10-day low to confirm low-volatility setup  
+3. **Dynamic Profit Targets**: Uses 2x average daily range for take-profit levels  
+4. **Opposing Signal Exit**: Triggers exit when price crosses VWAP in opposite direction  
+
+**Entry Rules (Long):**  
+1. Price crosses ABOVE volatility-adjusted VWAP  
+2. Bollinger Band width is at 10-day low (contraction)  
+3. Both conditions must occur simultaneously  
+
+**Entry Rules (Short):**  
+1. Price crosses BELOW volatility-adjusted VWAP  
+2. Bollinger Band width is at 10-day low (contraction)  
+3. Both conditions must occur simultaneously  
+
+**Exit Rules:**  
+1. **Profit Target**: Close position when price reaches 2x average daily range from entry  
+2. **Stop Loss**: Opposite VWAP crossover (long exits when crosses below, short exits when crosses above)  
+3. **Time Exit**: Close all positions at end of trading session if not triggered  
+
+**Risk Management:**  
+1. Position sizing based on 1% risk per trade  
+2. No pyramiding allowed - single position only  
+3. Stop loss automatically moves to breakeven when price reaches 1x ADR  
+
+**Required Indicators:**  
+1. Volatility-adjusted VWAP (20-period lookback with volatility multiplier)  
+2. Bollinger Bands (20,2) with width calculation  
+3. 10-day Bollinger Band width minimum filter  
+4. Average Daily Range (14-day calculation)  
+
+**Unique Aspects:**  
+- Combines VWAP reliability with volatility contraction setups  
+- Uses adaptive profit targets based on market conditions  
+- Requires confirmation from both price action and volatility indicators  
+- Particularly effective in ranging markets transitioning to trends  
+
+**Implementation Notes:**  
+1. Calculate volatility-adjusted VWAP by multiplying standard deviation by recent ATR  
+2. Bollinger Band width = (Upper Band - Lower Band)/Middle Band  
+3. Verify 10-day width low using rolling minimum calculation  
+4. ADR should be calculated excluding overnight gaps

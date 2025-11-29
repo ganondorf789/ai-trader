@@ -1,0 +1,69 @@
+STRATEGY_NAME: WaveletBreakout
+
+STRATEGY_DETAILS:
+The WaveletBreakout strategy is designed to identify and capitalize on false breakouts in financial markets using wavelet transform analysis combined with rigorous backtesting. This approach leverages the unique properties of wavelet transforms to filter out market noise and detect genuine breakout signals while avoiding false signals that often trap traders.
+
+### Key Strategy Components:
+1. **Wavelet Transform Analysis**:
+   - Utilizes wavelet transforms to decompose price data into different time-frequency components.
+   - Helps identify short-term noise versus long-term trends, enabling better detection of false breakouts.
+   - Focuses on specific wavelet coefficients that correspond to significant price movements.
+
+2. **Breakout Identification**:
+   - Defines breakout levels based on support and resistance zones derived from wavelet-filtered price data.
+   - Monitors price action around these levels to distinguish between genuine and false breakouts.
+
+3. **Backtesting Framework**:
+   - Incorporates historical data to validate the effectiveness of the wavelet-based breakout detection.
+   - Tests the strategy across multiple timeframes and market conditions to ensure robustness.
+
+### Entry Rules:
+1. **False Breakout Detection**:
+   - Enter a trade when the price initially breaks a key level (support/resistance) but quickly reverses, indicating a false breakout.
+   - Confirm the false breakout using wavelet-filtered price data, ensuring the reversal is supported by the underlying trend.
+
+2. **Wavelet Confirmation**:
+   - Use wavelet coefficients to confirm the strength of the reversal signal.
+   - Enter long if the price reverses above a support level with strong wavelet confirmation.
+   - Enter short if the price reverses below a resistance level with strong wavelet confirmation.
+
+### Exit Rules:
+1. **Profit Target**:
+   - Set a profit target based on the average true range (ATR) or a predefined risk-reward ratio (e.g., 2:1).
+   - Exit the trade when the target is reached.
+
+2. **Stop Loss**:
+   - Place a stop loss just beyond the breakout level to minimize losses if the price continues in the breakout direction.
+   - Adjust the stop loss based on wavelet-filtered volatility levels.
+
+3. **Wavelet Divergence**:
+   - Exit the trade if wavelet coefficients indicate a weakening trend or divergence from the price action.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Use a fixed percentage of the trading capital (e.g., 1-2%) per trade to manage risk.
+   - Adjust position size based on the confidence level of the wavelet signal.
+
+2. **Volatility Filter**:
+   - Avoid trading during periods of extreme volatility, as wavelet transforms may produce less reliable signals.
+   - Use ATR or wavelet-based volatility indicators to filter out high-risk conditions.
+
+3. **Diversification**:
+   - Apply the strategy across multiple instruments and timeframes to reduce dependency on a single market.
+
+### Required Indicators:
+1. **Wavelet Transform**:
+   - A wavelet transform tool (e.g., Morlet, Daubechies) to analyze price data and filter noise.
+   - Custom scripts or platforms that support wavelet analysis (e.g., Python, MATLAB, or specialized trading software).
+
+2. **Support and Resistance Levels**:
+   - Key levels derived from historical price data and wavelet-filtered trends.
+
+3. **Average True Range (ATR)**:
+   - To measure volatility and set stop-loss and profit-target levels.
+
+4. **Price Action Tools**:
+   - Candlestick patterns and volume analysis to confirm breakout reversals.
+
+### Summary:
+The WaveletBreakout strategy combines advanced signal processing techniques with traditional price action analysis to identify and trade false breakouts effectively. By leveraging wavelet transforms, traders can filter out market noise and focus on high-probability setups, while backtesting ensures the strategy's reliability across various market conditions. Proper risk management and position sizing are critical to maximizing returns and minimizing losses.

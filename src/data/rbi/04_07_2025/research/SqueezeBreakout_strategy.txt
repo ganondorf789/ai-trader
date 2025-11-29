@@ -1,0 +1,38 @@
+STRATEGY_NAME: SqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bands (BB) & Keltner Channels (KC) Squeeze:** The strategy identifies periods of low volatility when Bollinger Bands (typically set to 20 periods, 2 standard deviations) are inside the Keltner Channels (typically 20-period ATR with a 1.5x multiplier). This "squeeze" suggests a potential breakout is imminent.  
+2. **Volume Confirmation:** The breakout is confirmed when volume drops below its 20-day moving average (MA), indicating weakening participation before a potential explosive move.  
+3. **Breakout Entry:** The trade is triggered when price exits the overlapping BB-KC zone, signaling the start of a new trend.  
+4. **Reversion Exit:** The position is closed if price re-enters the BB-KC zone, suggesting the breakout may be failing.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Bands (20, 2.0) are inside Keltner Channels (20, 1.5 ATR).  
+- **Condition 2:** Price closes outside the overlapping BB-KC zone.  
+- **Condition 3:** Volume is below its 20-day MA.  
+- **Direction:** Go long if price breaks above the upper bands; go short if price breaks below the lower bands.  
+
+**Exit Rules:**  
+- **Stop Loss:** None explicitly defined (consider adding a trailing stop or volatility-based stop).  
+- **Take Profit:** None (exit only on re-entry into BB-KC).  
+- **Exit Signal:** Price closes back inside the BB-KC overlap.  
+
+**Risk Management Suggestions:**  
+- **Volatility Stop:** Use a multiple of ATR (e.g., 1.5x) from entry to trail stops.  
+- **Position Sizing:** Risk no more than 1-2% per trade.  
+- **Avoid Choppy Markets:** Filter trades with ADX > 20 to confirm trending conditions.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20 periods, 2.0 std dev).  
+2. **Keltner Channels** (20 periods, 1.5x ATR multiplier).  
+3. **Volume MA** (20-period simple moving average of volume).  
+4. **(Optional) ADX** (14 periods, for trend confirmation).  
+
+**Notes:**  
+- Works best in trending markets after consolidation.  
+- False breakouts are common—volume confirmation helps filter noise.  
+- Consider combining with RSI or MACD for additional momentum confirmation.  
+
+This strategy capitalizes on volatility contractions followed by expansions, using volume as a key filter to improve breakout reliability.

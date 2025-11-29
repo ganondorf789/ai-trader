@@ -1,0 +1,46 @@
+STRATEGY_NAME: MomentumConvergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Fisher Transform Crossover:** Identifies potential trend reversals by transforming price data into a Gaussian normal distribution, making extreme values more apparent. A bullish crossover occurs when the Fisher Transform line crosses above its signal line, while a bearish crossover occurs when it crosses below.  
+2. **Volume-Weighted MACD Histogram Convergence:** Uses a modified MACD histogram where the histogram values are weighted by trading volume. Convergence occurs when the histogram bars start moving toward the zero line, indicating weakening momentum.  
+3. **Chaikin Money Flow (CMF) Confirmation:** Ensures institutional accumulation (bullish) or distribution (bearish) is present. A CMF value above zero confirms accumulation, while a value below zero confirms distribution.  
+
+**Entry Rules (Long Trade):**  
+1. Fisher Transform line crosses above its signal line (bullish crossover).  
+2. Volume-weighted MACD histogram shows convergence (bars moving toward zero line).  
+3. CMF is above zero, confirming institutional accumulation.  
+4. All three conditions must align for entry.  
+
+**Entry Rules (Short Trade):**  
+1. Fisher Transform line crosses below its signal line (bearish crossover).  
+2. Volume-weighted MACD histogram shows convergence (bars moving toward zero line).  
+3. CMF is below zero, confirming institutional distribution.  
+4. All three conditions must align for entry.  
+
+**Exit Rules:**  
+1. **Profit-Taking:** Exit when the Fisher Transform line crosses back below its signal line (for long trades) or above its signal line (for short trades).  
+2. **Stop-Loss:** Place a stop-loss below the recent swing low (long) or above the recent swing high (short). Alternatively, use a trailing stop based on ATR (e.g., 2x ATR).  
+3. **Time-Based Exit:** Exit if the trade does not move in the expected direction within a set number of bars (e.g., 5-10 bars).  
+
+**Risk Management:**  
+1. Risk no more than 1-2% of capital per trade.  
+2. Adjust position size based on stop-loss distance to maintain consistent risk.  
+3. Avoid trading during low-volume periods or major economic events unless confirmed by CMF.  
+
+**Required Indicators:**  
+1. **Fisher Transform** (with signal line, typically a 9-period moving average).  
+2. **Volume-Weighted MACD Histogram** (standard MACD settings: 12, 26, 9, but weighted by volume).  
+3. **Chaikin Money Flow (CMF)** (21-period standard).  
+4. Optional: **ATR** (14-period for stop-loss adjustments).  
+
+**Unique Aspects:**  
+- Combines momentum (Fisher Transform), volume confirmation (MACD histogram), and institutional flow (CMF) for high-probability entries.  
+- Filters out weak signals by requiring alignment across all three indicators.  
+- Volume weighting on MACD ensures only meaningful momentum shifts are considered.  
+
+**Best Suited For:**  
+- Swing trading (1-5 day holds) in trending markets.  
+- Works best on liquid assets (stocks, forex majors, crypto with high volume).  
+- Avoid ranging markets unless CMF shows strong accumulation/distribution.

@@ -1,0 +1,36 @@
+STRATEGY_NAME: VortexDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Confirms the prevailing trend direction (uptrend if VI+ > VI-, downtrend if VI- > VI+).  
+2. **Chande Momentum Oscillator (CMO):** Detects momentum divergence (bullish divergence in downtrends, bearish divergence in uptrends).  
+3. **Volume Analysis:** Requires decreasing volume during divergence to validate weakening trend momentum.  
+4. **Dynamic Trailing EMA Band:** Acts as exit trigger (price crossing EMA band signals trend resumption).  
+
+**Entry Rules:**  
+- **Counter-Trend Long Entry:**  
+  1. VI- > VI+ (downtrend confirmed).  
+  2. CMO shows higher low while price makes lower low (bullish divergence).  
+  3. Volume decreases during divergence.  
+- **Counter-Trend Short Entry:**  
+  1. VI+ > VI- (uptrend confirmed).  
+  2. CMO shows lower high while price makes higher high (bearish divergence).  
+  3. Volume decreases during divergence.  
+
+**Exit Rules:**  
+- **Long Exit:** Price closes below the lower band of the dynamic trailing EMA (e.g., EMA-2%).  
+- **Short Exit:** Price closes above the upper band of the dynamic trailing EMA (e.g., EMA+2%).  
+
+**Risk Management:**  
+- **Stop-Loss:** Place below the recent swing low (long) or above the swing high (short).  
+- **Position Sizing:** Risk ≤1-2% of capital per trade.  
+- **Filter:** Avoid trading during high-impact news events to prevent false signals.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. Chande Momentum Oscillator (CMO, default 14-period).  
+3. Volume (confirming decreasing trend).  
+4. Dynamic EMA Band (e.g., 20-period EMA ±2% bands).  
+
+**Unique Edge:** Combines trend confirmation (VI), momentum reversal (CMO divergence), and volume decay for high-probability counter-trend setups, while the trailing EMA band ensures adaptive exits.

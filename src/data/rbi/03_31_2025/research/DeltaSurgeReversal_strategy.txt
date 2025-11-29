@@ -1,0 +1,32 @@
+STRATEGY_NAME: DeltaSurgeReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cascade Detection**: Identifies short-term market reversals triggered by liquidation events using order book delta imbalances (buy/sell pressure divergence).  
+2. **Volume Surge Confirmation**: Requires a surge in trading volume exceeding the 90th percentile of recent volume to validate the liquidation signal.  
+3. **Fibonacci Retracement Exits**: Uses key Fibonacci levels (38.2%, 50%, 61.8%) as profit-taking zones for the reversal trade.  
+
+**Entry Rules:**  
+- Enter a **long position** when:  
+  1. Order book delta shows a sharp negative imbalance (indicating forced selling/liquidations).  
+  2. Volume spikes above the 90th percentile of the last 50-100 periods, confirming panic selling exhaustion.  
+- Enter a **short position** when:  
+  1. Order book delta shows a sharp positive imbalance (indicating forced buying/short squeezes).  
+  2. Volume spikes above the 90th percentile, confirming overbought conditions.  
+
+**Exit Rules:**  
+- **Take Profit**: Scale out at Fibonacci retracement levels (38.2%, 50%, 61.8%) from the initial liquidation swing.  
+- **Stop Loss**: Place below the recent swing low (for longs) or above the swing high (for shorts) to limit downside.  
+
+**Risk Management:**  
+- Position sizing: Risk ≤ 1-2% of capital per trade.  
+- Stop loss must be triggered before volume confirmation weakens.  
+- Avoid trading during low-liquidity periods to prevent false signals.  
+
+**Required Indicators:**  
+1. **Order Book Delta Imbalance** (real-time bid/ask flow analysis).  
+2. **Volume Surge Filter** (90th percentile threshold).  
+3. **Fibonacci Retracement Tool** (applied to the liquidation swing).  
+
+**Unique Edge:** Combines order flow dynamics with statistical volume extremes to exploit high-probability reversal setups post-liquidation events.

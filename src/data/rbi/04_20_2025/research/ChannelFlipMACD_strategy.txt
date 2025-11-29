@@ -1,0 +1,45 @@
+STRATEGY_NAME: ChannelFlipMACD
+
+STRATEGY_DETAILS:
+This strategy combines Donchian channel breakouts with MACD momentum confirmation and ATR-based risk management for a systematic trading approach.
+
+Key Components:
+1. Donchian Channel (20-period) - Identifies breakout levels
+2. MACD Histogram - Confirms momentum shift
+3. ATR (14-period) - Determines dynamic stop placement
+
+Entry Rules:
+1. Long Entry Trigger:
+   - Price closes above upper Donchian channel boundary (20-period high)
+   - MACD histogram flips from negative to positive on same bar
+   - Both conditions must occur simultaneously
+
+Exit Rules:
+1. Trailing Stop:
+   - Initial stop placed at 2x ATR(14) below entry price
+   - Stop trails upward at 2x ATR(14) below subsequent highs
+   - No profit target - runs until stopped out
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade using stop distance
+2. Stop level calculated as: Entry Price - (2 × ATR(14))
+3. No entries allowed if volatility (ATR) exceeds 3% of instrument price
+
+Required Indicators:
+1. Donchian Channel (20-period)
+   - Upper band: 20-period high
+   - Lower band: 20-period low
+2. MACD (Standard 12,26,9 settings)
+   - Focus on histogram crossing zero
+3. ATR (14-period) for stop calculation
+
+Additional Notes:
+- Works best on 1H or 4H timeframes for swing trading
+- Requires confirmation candle close beyond channel
+- Avoid trading during major news events due to false breakouts
+- Performs well in trending markets, may underperform in ranges
+
+Optimization Considerations:
+1. Test different Donchian periods (15-30)
+2. Experiment with ATR multiples (1.5-3x)
+3. Consider adding volume filter for breakout confirmation

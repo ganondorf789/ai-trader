@@ -1,0 +1,49 @@
+STRATEGY_NAME: VolumetricBreakout
+
+STRATEGY_DETAILS:
+The VolumetricBreakout strategy is a volatility-based trading approach that combines Bollinger Bands, volume analysis, and RSI to identify high-probability breakout opportunities. The strategy focuses on capturing strong momentum moves while incorporating volume confirmation to filter out false breakouts.
+
+Key Strategy Components:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Volume analysis (20-day average volume)
+3. RSI (14-period)
+
+Entry Rules:
+1. Long entry is triggered when:
+   - Price crosses above the upper Bollinger Band
+   - Current volume exceeds 2x the 20-day average volume
+   - RSI is above 50 (confirming bullish momentum)
+
+Exit Rules:
+1. Take profit when:
+   - RSI crosses below 70 (indicating overbought conditions)
+   OR
+   - Price closes below the middle Bollinger Band (20-period SMA)
+
+Risk Management:
+1. Initial stop-loss placed at:
+   - The lower Bollinger Band (for aggressive traders)
+   OR
+   - 1 ATR below entry price (for conservative traders)
+2. Position sizing based on 1-2% risk per trade
+3. Maximum daily loss limit of 5% of account equity
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Volume (20-day average)
+3. RSI (14)
+4. ATR (14) - optional for stop-loss placement
+
+Additional Considerations:
+- Best suited for volatile markets and trending conditions
+- Works well on 1-hour to daily timeframes
+- Combine with fundamental analysis for higher probability setups
+- Avoid trading during low-volume periods or major news events
+
+Optimization Tips:
+- Adjust Bollinger Band settings based on market volatility
+- Experiment with different volume multipliers (1.5x to 3x)
+- Consider adding a moving average filter for trend confirmation
+- Test different RSI thresholds for exit conditions
+
+This strategy is particularly effective for capturing strong momentum moves in liquid assets while using volume as a confirmation filter to reduce false breakouts. The combination of volatility, volume, and momentum indicators creates a robust framework for identifying high-probability trading opportunities.

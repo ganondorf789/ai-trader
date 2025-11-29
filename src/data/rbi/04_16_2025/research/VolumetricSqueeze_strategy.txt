@@ -1,0 +1,54 @@
+STRATEGY_NAME: VolumetricSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band volatility compression with volume-based confirmation signals for high-probability breakout trades. The core concept revolves around identifying periods of low volatility (squeeze) followed by high-volume breakouts with trend confirmation.
+
+Key Components:
+1. Bollinger Band Width Percentile (20,2) - Measures volatility compression
+2. Klinger Volume Oscillator (34,55,13) - Detects volume divergences
+3. Price action relative to Bollinger Bands
+
+Entry Rules:
+1. Primary Entry:
+- Bollinger Band width percentile < 20 (volatility squeeze condition)
+- Price closes outside the Bollinger Bands
+- KVO shows bullish divergence (price makes lower low while KVO makes higher low) for long entries
+- KVO shows bearish divergence (price makes higher high while KVO makes lower high) for short entries
+
+2. Secondary Confirmation:
+- Volume on breakout candle exceeds 20-period average
+- Breakout occurs in direction of prevailing higher timeframe trend
+
+Exit Rules:
+1. Profit Taking:
+- Trail stop at opposite Bollinger Band
+- Close 50% position when price reaches 1.5x average true range (ATR) target
+- Close remaining position at 3x ATR target
+
+2. Stop Loss:
+- Initial stop placed at middle Bollinger Band
+- For long positions, stop below most recent swing low
+- For short positions, stop above most recent swing high
+
+Risk Management:
+1. Position sizing limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5%
+3. No new entries if 3 consecutive losing trades occur
+4. Avoid trading during major economic news events
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Band Width Percentile (20-period)
+3. Klinger Volume Oscillator (34,55,13)
+4. Average True Range (14-period)
+5. Volume MA (20-period)
+
+Optimal Conditions:
+- Works best in trending markets after consolidation periods
+- Most effective on 1H-4H timeframes
+- Ideal for liquid instruments with consistent volume patterns
+
+Special Notes:
+- Requires manual confirmation of volume patterns
+- Works best when combined with higher timeframe trend analysis
+- May generate false signals in choppy, range-bound markets

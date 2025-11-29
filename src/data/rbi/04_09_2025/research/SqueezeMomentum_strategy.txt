@@ -1,0 +1,37 @@
+STRATEGY_NAME: SqueezeMomentum
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band squeeze detection with On-Balance Volume (OBV) confirmation to identify high-probability breakout opportunities with strong volume backing. The approach focuses on periods of low volatility followed by expansion, filtered by volume confirmation.
+
+Key Components:
+1. Bollinger Bands (20,2) - Identifies squeeze conditions when bands contract
+2. On-Balance Volume (OBV) - Confirms breakout with volume momentum
+3. Trailing Stop (5%) - Manages risk on open positions
+
+Entry Rules:
+1. Wait for Bollinger Band squeeze condition (upper and lower bands within 10% of each other)
+2. Price must close outside the Bollinger Bands (upper for long, lower for short)
+3. OBV must be at a 10-day high (confirms volume participation)
+4. All three conditions must align for entry
+
+Exit Rules:
+1. Primary exit: 5% trailing stop from entry price
+2. Secondary exit: If OBV drops below its 5-day moving average
+3. Emergency exit: If price re-enters the Bollinger Bands
+
+Risk Management:
+1. Position size limited to 2% of capital per trade
+2. Stop loss activated immediately after entry
+3. No new entries if 3 consecutive losing trades occur
+
+Required Indicators:
+1. Bollinger Bands (20 periods, 2 standard deviations)
+2. On-Balance Volume (OBV)
+3. 5-day MA of OBV (for exit confirmation)
+
+Optimization Notes:
+- Backtest different squeeze thresholds (8-12%)
+- Test alternative OBV lookback periods (7-14 days)
+- Experiment with trailing stop percentages (3-7%)
+
+This strategy excels in trending markets after periods of consolidation, using volume confirmation to filter false breakouts. The combination of volatility contraction/expansion with volume momentum creates a robust trading edge.

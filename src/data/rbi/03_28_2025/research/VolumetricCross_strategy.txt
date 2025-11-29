@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolumetricCross  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **EMA Crossover:** Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as the primary trend confirmation.  
+2. **Volume Spike:** Requires a high-volume spike to validate the crossover signal, ensuring strong momentum.  
+3. **RSI Overbought Exit:** Exits trades when the RSI exceeds 70, locking in profits before potential reversals.  
+4. **Risk-Reward Ratio:** Targets a 2:1 reward-to-risk ratio for disciplined trade management.  
+
+**Entry Rules:**  
+- Enter a **long position** when:  
+  - The 50-period EMA crosses **above** the 200-period EMA.  
+  - Volume exceeds the 20-period average by at least **50%** (high-volume spike).  
+- Confirm the broader trend is bullish (e.g., price above both EMAs).  
+
+**Exit Rules:**  
+- **Take Profit:** Set at **2x the risk amount** (e.g., if stop loss is 50 pips, take profit is 100 pips).  
+- **Stop Loss:** Place below the most recent swing low or the 200 EMA, whichever is closer.  
+- **Emergency Exit:** Close the trade if RSI exceeds **70** (overbought condition).  
+
+**Risk Management:**  
+- Risk no more than **1-2% of capital per trade**.  
+- Adjust position size based on stop-loss distance to maintain consistent risk.  
+- Avoid trading during low-liquidity periods (e.g., holidays, overnight gaps).  
+
+**Required Indicators:**  
+1. **50-period EMA** (fast moving average).  
+2. **200-period EMA** (slow moving average).  
+3. **Volume indicator** (to detect spikes above the 20-period average).  
+4. **RSI (14-period)** for overbought confirmation.  
+
+**Unique Edge:** Combines **trend confirmation (EMA cross)**, **volume-backed momentum**, and **RSI-based profit-taking** to filter high-probability trades while minimizing false signals.

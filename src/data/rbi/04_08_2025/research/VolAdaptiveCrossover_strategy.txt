@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolAdaptiveCrossover  
+
+STRATEGY_DETAILS:  
+This strategy combines trend-following momentum with volatility-based mean reversion, using EMA crossovers as primary signals while dynamically adjusting entries/exits based on historical volatility thresholds.  
+
+**Key Components:**  
+1. **Trend Identification:**  
+   - 50-period EMA crossing above 200-period EMA (Golden Cross) signals bullish momentum.  
+2. **Volatility Filter:**  
+   - Historical volatility (HV20) must be below its 20th percentile (low volatility regime) for entry.  
+   - Exits trigger when HV20 rises above its 50th percentile (volatility expansion).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. 50EMA > 200EMA (confirmed bullish trend).  
+  2. HV20 < 20th percentile (low volatility, anticipating mean reversion).  
+- **Short Entry:** Not defined in this strategy (long-only approach).  
+
+**Exit Rules:**  
+- **Profit/Stop Loss:** No fixed TP/SL; volatility-driven exit:  
+  1. Close position when HV20 > 50th percentile (volatility normalizes/expands).  
+  2. Optional: Exit if 50EMA crosses back below 200EMA (trend reversal).  
+
+**Risk Management:**  
+- Position sizing should account for volatility expansion risk (e.g., reduce size if HV20 is near 20th percentile).  
+- Avoid entries during high-volatility regimes (HV20 > 50th percentile).  
+
+**Required Indicators:**  
+1. Exponential Moving Averages (50EMA, 200EMA).  
+2. Historical Volatility (HV20, 20-day lookback).  
+3. Percentile bands for HV20 (20th and 50th percentiles, calculated over a trailing window, e.g., 252 trading days).  
+
+**Unique Aspects:**  
+- Dual focus on *trend confirmation* (EMA crossover) and *volatility cycles* (mean-reverting exits).  
+- Statistically derived thresholds (percentiles) adapt to changing market regimes.  
+
+**Optimization Notes:**  
+- Test different lookback periods for HV percentiles (e.g., 63 vs. 252 days).  
+- Consider adding a trailing stop to capture extended trends during low-volatility phases.  
+
+**Name Justification:**  
+"VolAdaptive" reflects the volatility-adaptive exits, while "Crossover" emphasizes the EMA-based trend trigger. The name avoids generic terms by specifying the hybrid approach.

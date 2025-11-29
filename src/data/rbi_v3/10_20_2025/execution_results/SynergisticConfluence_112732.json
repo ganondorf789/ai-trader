@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 Moon Dev LONG Entry at 29097.72, Size: 21, SL: 28630.63911455469, TP: 30031.88177089062 \ud83d\ude80\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_package/SynergisticConfluence_PKG.py\", line 181, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_package/SynergisticConfluence_PKG.py\", line 100, in next\n    self.sell(size=partial_size)\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 223, in sell\n    assert 0 < size < 1 or round(size) == size, \\\nAssertionError: size must be a positive fraction of equity, or a positive whole number of units\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_package/SynergisticConfluence_PKG.py` failed. (See above for error)\n",
+  "execution_time": 1.190278,
+  "timestamp": "2025-10-20T11:27:32.581811"
+}

@@ -1,0 +1,41 @@
+STRATEGY_NAME: BandwidthBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** The strategy identifies periods of low volatility when the Bollinger Band Width reaches a 20-day low, signaling potential breakout conditions.  
+2. **Breakout Confirmation:** A breakout candle must close outside the Bollinger Bands, indicating a strong directional move.  
+3. **Volume Filter:** The breakout must be accompanied by volume exceeding 1.5x the 10-day average to confirm genuine participation.  
+4. **Exit Signal:** Positions are closed when a reversal occurs, measured by a 2x ATR (Average True Range) move against the position.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Band Width contracts to a 20-day low.  
+  2. A bullish candle closes above the upper Bollinger Band.  
+  3. Volume exceeds 1.5x the 10-day average volume.  
+- **Short Entry:**  
+  1. Bollinger Band Width contracts to a 20-day low.  
+  2. A bearish candle closes below the lower Bollinger Band.  
+  3. Volume exceeds 1.5x the 10-day average volume.  
+
+**Exit Rules:**  
+- **Long Exit:** Close the position when price moves 2x ATR below the highest high since entry.  
+- **Short Exit:** Close the position when price moves 2x ATR above the lowest low since entry.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Use the 2x ATR reversal as a dynamic stop-loss to protect profits and limit losses.  
+2. **Position Sizing:** Adjust position size based on ATR to ensure consistent risk per trade (e.g., 1% risk per trade).  
+3. **Avoid Overcrowded Breakouts:** If multiple assets signal simultaneously, prioritize those with the highest volume confirmation.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** To measure volatility contraction and breakout levels.  
+2. **Bollinger Band Width:** To identify 20-day lows in volatility.  
+3. **Volume (10-day average):** To filter high-probability breakouts.  
+4. **ATR (14-period):** To determine exit conditions and risk management.  
+
+**Additional Notes:**  
+- This strategy works best in trending markets after consolidation phases.  
+- Avoid trading during major news events that may cause false breakouts.  
+- Backtest on multiple timeframes (e.g., 1H, 4H, Daily) to confirm robustness.  
+
+The **BandwidthBreakout** strategy combines volatility contraction, volume confirmation, and dynamic exits for high-probability breakout trading.

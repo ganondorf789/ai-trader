@@ -1,0 +1,39 @@
+STRATEGY_NAME: LiquidityReversalTrigger
+
+STRATEGY_DETAILS:
+This strategy capitalizes on liquidity-driven reversals by identifying high-density liquidation clusters and combining them with volatility-based exits. Here's the detailed breakdown:
+
+1. KEY COMPONENTS:
+- Liquidation Cluster Detection: Uses aggregated stop-loss order book data to identify high-density zones where many stop orders cluster
+- Volatility Filter: 1-hour ATR (Average True Range) compared against 5-day average
+- Reversal Confirmation: Price approaching these liquidation zones triggers entries
+
+2. ENTRY RULES:
+- Identify high-density liquidation clusters from stop-loss order book data
+- Wait for price to approach within 0.5% of the cluster level
+- Confirm with bearish price action (e.g., rejection wicks, decreasing momentum)
+- Enter short position at cluster boundary or on break below recent support
+
+3. EXIT RULES:
+- Primary Exit: When 1-hour ATR spikes above its 5-day average
+- Secondary Exit: If price moves 1.5x the initial risk in profit (trail stop)
+- Emergency Exit: If price moves 2% beyond the liquidation cluster against position
+
+4. RISK MANAGEMENT:
+- Position size limited to 1-2% of capital per trade
+- Initial stop placed 1% above the liquidation cluster (for shorts)
+- Never trade during major news events when liquidity patterns may distort
+- Daily loss limit of 5% of capital
+
+5. REQUIRED INDICATORS:
+- Custom liquidation cluster detection algorithm (stop-loss order book analysis)
+- 1-hour ATR (14-period)
+- 5-day average of 1-hour ATR
+- Price action confirmation tools (candlestick patterns, volume spikes)
+
+6. OPTIMIZATION TIPS:
+- Backtest different cluster proximity thresholds (0.3%-0.7%)
+- Experiment with ATR multiplier for exits (1.2x-2x average)
+- Adjust stop placement based on volatility (wider stops in high ATR environments)
+
+This strategy works best in ranging markets and requires careful monitoring of order flow dynamics. The LiquidityReversalTrigger approach combines institutional-level liquidation patterns with retail-friendly volatility measurements for high-probability reversal trades.

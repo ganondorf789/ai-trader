@@ -1,0 +1,58 @@
+STRATEGY_NAME: VolatilitySurgeBreakout
+
+STRATEGY_DETAILS:
+This strategy capitalizes on volatility compression followed by explosive breakouts, combining Bollinger Bands and Keltner Channels with volume confirmation and RSI-based exits.
+
+Key Components:
+1. Volatility Squeeze Detection:
+   - Bollinger Bands (20,2) and Keltner Channels (20,1.5) must converge
+   - Squeeze confirmed when Bollinger Bands are inside Keltner Channels
+
+2. Breakout Confirmation:
+   - Price must close outside both Bollinger Bands AND Keltner Channels
+   - Volume must surge 150% above 20-period average volume
+
+3. Exit Signal:
+   - 5-period RSI crossing below 70 (long exit) or above 30 (short exit)
+   - Alternative exit when price re-enters Keltner Channel
+
+Entry Rules:
+LONG:
+1. Wait for volatility squeeze (BB inside KC)
+2. Price closes above upper BB AND upper KC
+3. Volume exceeds 150% of 20-period average
+4. Enter at next open
+
+SHORT:
+1. Wait for volatility squeeze (BB inside KC)
+2. Price closes below lower BB AND lower KC
+3. Volume exceeds 150% of 20-period average
+4. Enter at next open
+
+Exit Rules:
+LONG:
+1. 5-period RSI crosses below 70
+2. OR price closes back inside Keltner Channel
+3. Whichever occurs first
+
+SHORT:
+1. 5-period RSI crosses above 30
+2. OR price closes back inside Keltner Channel
+3. Whichever occurs first
+
+Risk Management:
+1. Initial stop-loss placed at opposite side of Keltner Channel
+2. Position size based on 1-2% risk per trade
+3. No new entries if 3 consecutive losing trades occur
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Keltner Channels (20,1.5)
+3. Volume (20-period average)
+4. 5-period RSI
+
+Optimization Notes:
+- Best suited for 15min-4hr timeframes
+- Works well with liquid, volatile instruments
+- Volume threshold can be adjusted between 125-200% based on asset volatility
+- Consider adding ADX >25 filter for stronger trends

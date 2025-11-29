@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolDivergence  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Contraction:** Uses Bollinger Band Width (BBW) to identify periods of low volatility, specifically when BBW is below its 1-month low.  
+2. **Volume-Weighted Put/Call Divergence:** Analyzes divergences in put/call ratios weighted by volume to detect potential reversals or breakouts.  
+3. **Volatility Expansion Exit:** Exits trades when Bollinger Band Width expands beyond the 90th percentile of its historical volatility range, signaling increased market activity.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Band Width (BBW) must be below its 1-month low, indicating a volatility contraction.  
+- **Condition 2:** Divergence in volume-weighted put/call ratios must be present (e.g., rising put/call ratio while price stagnates or falls, or falling put/call ratio while price rises).  
+- **Entry Signal:** Both conditions must be met simultaneously to trigger a trade entry.  
+
+**Exit Rules:**  
+- **Primary Exit:** Bollinger Band Width (BBW) crosses above the 90th percentile of its historical volatility range, indicating volatility expansion.  
+- **Optional Exit:** A predefined profit target or stop-loss level can be added for additional risk management (e.g., 2:1 reward-to-risk ratio).  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%) to limit exposure.  
+2. **Stop-Loss:** Set a stop-loss at a logical level (e.g., recent swing high/low or a volatility-based ATR stop).  
+3. **Volatility Filter:** Avoid trading during high-volatility regimes unless the setup aligns with the strategy’s rules.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (BB):** To calculate Bollinger Band Width (BBW = (Upper Band - Lower Band) / Middle Band).  
+2. **Put/Call Ratio:** Volume-weighted put/call data from options markets.  
+3. **Historical Volatility Percentile:** To determine the 90th percentile threshold for exit signals.  
+
+**Additional Notes:**  
+- This strategy thrives in ranging or consolidating markets where volatility contractions often precede breakouts.  
+- Backtest the put/call divergence component to ensure robustness across different market conditions.  
+- Consider combining with a trend filter (e.g., 200-day moving average) to avoid counter-trend trades in strongly trending markets.  
+
+The name "VolDivergence" reflects the core elements: **Vol**atility contraction and **Divergence** in put/call ratios, making it unique and specific to this approach.

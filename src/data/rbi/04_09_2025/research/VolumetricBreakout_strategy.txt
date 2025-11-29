@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Breakout:** The strategy capitalizes on significant price movements by using Bollinger Bands to identify volatility expansion.  
+2. **Volume Confirmation:** Requires a volume spike (2x the 20-day average) to validate the breakout, reducing false signals.  
+3. **Trend Filter:** The 20-period moving average acts as a dynamic exit threshold, ensuring trades remain aligned with short-term momentum.  
+
+**Entry Rules:**  
+- **Long Entry Triggered When:**  
+  - Price breaks **above** the upper Bollinger Band (default settings: 20-period SMA with 2 standard deviations).  
+  - Volume exceeds **2x the 20-day average volume** simultaneously.  
+
+**Exit Rules:**  
+- **Exit Condition:** Close the position when price **closes below** the 20-period simple moving average (SMA).  
+
+**Risk Management:**  
+1. **Stop-Loss:** Optional but recommended—set below the breakout candle’s low or a recent swing low.  
+2. **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%) to limit risk exposure.  
+3. **Avoid Choppy Markets:** Use Bollinger Band width (contraction/expansion) to filter low-volatility periods.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 standard deviations).  
+2. **20-Day Average Volume** (for volume spike confirmation).  
+3. **20-Period Simple Moving Average** (exit signal).  
+
+**Unique Edge:**  
+- Combines volatility breakout with volume confirmation, reducing false breakouts common in traditional Bollinger Band strategies.  
+- The 20-SMA exit dynamically adapts to trend shifts, locking in profits during extended moves.  
+
+**Note:** Backtest for optimal parameters (e.g., adjusting Bollinger Band deviations or volume multiplier) based on asset class (stocks, crypto, forex).

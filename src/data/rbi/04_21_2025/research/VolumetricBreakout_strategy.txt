@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Donchian Channel Breakout**: Uses a 20-period Donchian channel (upper and lower bounds) to identify potential breakout levels.  
+2. **MACD Histogram Confirmation**: Requires the MACD histogram to be above zero, indicating bullish momentum.  
+3. **Volume Filter**: Entry is only valid if the current volume is at least 1.5x the 10-day average volume, ensuring strong participation in the breakout.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  - Price closes above the upper Donchian channel (20-period high).  
+  - MACD histogram is above zero (bullish confirmation).  
+  - Volume is ≥ 1.5x the 10-day average volume.  
+- **Short Entry**: Not explicitly defined in this strategy, but could be mirrored (price below lower channel, MACD histogram < 0, high volume).  
+
+**Exit Rules:**  
+- **Take Profit**: Could use a trailing stop, fixed risk-reward ratio (e.g., 2:1), or a reversal signal (e.g., MACD histogram crossing below zero).  
+- **Stop Loss**: Place below the recent swing low (for longs) or above the recent swing high (for shorts). Alternatively, use the Donchian channel’s opposite bound (e.g., exit long if price closes below the lower channel).  
+
+**Risk Management:**  
+- Position sizing based on account risk (e.g., 1-2% per trade).  
+- Stop loss must be defined before entry (e.g., 1 ATR or a fixed percentage below entry).  
+- Avoid trading during low-volume periods or major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Donchian Channel (20-period)**: Tracks the highest high and lowest low over 20 periods.  
+2. **MACD (Standard Settings: 12, 26, 9)**: Histogram must be above zero for bullish entries.  
+3. **Volume (10-day SMA)**: Current volume must exceed 1.5x the 10-day average.  
+
+**Unique Aspects:**  
+- Combines price breakout (Donchian) with momentum (MACD) and volume confirmation for high-probability entries.  
+- Filters out weak breakouts with the volume requirement, reducing false signals.  
+- Adaptable to intraday or swing trading by adjusting the Donchian period.  
+
+**Note**: Backtest to optimize parameters (e.g., Donchian period, volume multiplier) for specific assets/timeframes.

@@ -1,0 +1,52 @@
+STRATEGY_NAME: CrossfireBreakout
+
+STRATEGY_DETAILS:
+The CrossfireBreakout strategy combines trend confirmation, momentum strength, and volatility-based exits for high-probability breakout trades. Here's the detailed breakdown:
+
+1. KEY COMPONENTS:
+- Trend Identification: Uses the 50/200 EMA crossover as primary trend filter
+- Momentum Confirmation: Requires ADX > 25 to validate trend strength
+- Volatility Management: Uses ATR for dynamic stop placement
+- Exit Signals: Combines overbought/oversold RSI with volatility stops
+
+2. ENTRY RULES:
+- Long Entry:
+  * 50 EMA crosses ABOVE 200 EMA (Golden Cross)
+  * ADX rises above 25 (confirming trend strength)
+  * Enter on first bullish candle after conditions met
+
+- Short Entry:
+  * 50 EMA crosses BELOW 200 EMA (Death Cross)
+  * ADX rises above 25 (confirming trend strength)
+  * Enter on first bearish candle after conditions met
+
+3. EXIT RULES:
+- Stop-Loss: 
+  * 2x ATR from entry price (volatility-adjusted)
+  * Trailed daily using closing prices
+
+- Profit Taking:
+  * Close long when 5-period RSI > 70 (overbought)
+  * Close short when 5-period RSI < 30 (oversold)
+  * Alternative exit when opposite EMA crossover occurs
+
+4. RISK MANAGEMENT:
+- Position sizing based on 1-2% risk per trade
+- Stop-loss is mandatory on all positions
+- No new entries when ADX < 20 (choppy market filter)
+- Avoid trading during major economic news events
+
+5. REQUIRED INDICATORS:
+- 50-period Exponential Moving Average (EMA)
+- 200-period Exponential Moving Average (EMA)
+- Average Directional Index (ADX) 14-period
+- Average True Range (ATR) 14-period
+- Relative Strength Index (RSI) 5-period
+
+6. OPTIMIZATION TIPS:
+- Test different EMA periods (e.g., 21/55) for various markets
+- Adjust ADX threshold (20-30 range) based on volatility
+- Consider using 1.5-3x ATR for stop placement
+- May add volume confirmation for stronger signals
+
+This strategy works best on daily charts of liquid assets with strong trending characteristics. The combination of trend confirmation (EMA cross), momentum (ADX), and smart exits (ATR/RSI) creates a robust framework for capturing sustained moves while limiting downside risk.

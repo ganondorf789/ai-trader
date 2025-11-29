@@ -1,0 +1,41 @@
+STRATEGY_NAME: VortexBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Used to confirm the trend direction. The strategy enters trades when the VI+ (positive trend) line is above the VI- (negative trend) line, indicating a bullish trend, or vice versa for bearish trends.  
+2. **Choppiness Index (CI):** Measures market consolidation. A CI value below a set threshold (e.g., 38.2) suggests the market is trending, making it favorable for breakout trades.  
+3. **Volume Confirmation:** Rising volume during the breakout strengthens the signal, indicating increased participation and momentum.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - VI+ > VI- (bullish trend confirmation).  
+  - CI < threshold (e.g., 38.2, indicating trending conditions).  
+  - Volume is rising compared to recent average (e.g., 20-period SMA of volume).  
+  - Price breaks above a recent high or key resistance level.  
+
+- **Short Entry:**  
+  - VI- > VI+ (bearish trend confirmation).  
+  - CI < threshold (e.g., 38.2).  
+  - Volume is rising compared to recent average.  
+  - Price breaks below a recent low or key support level.  
+
+**Exit Rules:**  
+- **Long Exit:** VI+ crosses below VI-, signaling a potential trend reversal.  
+- **Short Exit:** VI- crosses below VI+, signaling a potential trend reversal.  
+- **Stop-Loss:** Place below the recent swing low (for long) or above the recent swing high (for short). Alternatively, use a fixed percentage or ATR-based stop.  
+
+**Risk Management:**  
+- Position sizing based on account risk (e.g., 1-2% per trade).  
+- Trailing stops can be used to lock in profits as the trend progresses.  
+- Avoid trading during high CI periods (choppy markets) to reduce false breakouts.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI) – Default period (14).  
+2. Choppiness Index (CI) – Default period (14).  
+3. Volume (with moving average for comparison).  
+
+**Additional Notes:**  
+- This strategy works best in trending markets and may underperform in ranging conditions.  
+- Backtest optimal CI thresholds for different assets/timeframes.  
+- Combine with price action (e.g., candlestick patterns) for higher-probability entries.

@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolClusterSqueeze
+
+STRATEGY_DETAILS:
+This strategy focuses on identifying and capitalizing on short-term volatility squeeze opportunities triggered by liquidation events, using a combination of liquidation heatmap analysis, Bollinger Bands, and RSI signals.
+
+Key Components:
+1. Liquidation Heatmap Clusters - Identifies concentrated areas of liquidations that often precede volatility spikes
+2. Bollinger Band Contraction - Measures compression relative to historical volatility percentiles
+3. RSI Flip - Confirms momentum shift for exit timing
+
+Entry Rules:
+1. Primary Trigger: Sudden surge in liquidation heatmap clusters indicating forced position unwinding
+2. Confirmation: Price pushing against upper Bollinger Band while showing contraction below 20th percentile of historical volatility
+3. Volume Spike: Increased trading volume accompanying the liquidation cluster formation
+
+Exit Rules:
+1. Primary Exit: Bollinger Band contraction reaching extreme levels (below 10th percentile of historical volatility)
+2. Secondary Exit: RSI (14-period) crossing above 30 from below (bullish flip)
+3. Emergency Exit: Price closing above upper Bollinger Band for two consecutive periods
+
+Risk Management:
+1. Position Sizing: 1-2% risk per trade based on distance between entry and stop
+2. Stop Loss: Placed at recent swing high (for shorts) plus buffer of average true range
+3. Time Exit: Close position if no exit signal triggers within 3 bars of entry
+
+Required Indicators:
+1. Liquidation Heatmap (cluster detection)
+2. Bollinger Bands (20,2 settings with historical volatility percentile analysis)
+3. RSI (14-period)
+4. Volume indicator
+5. Average True Range (for stop calculation)
+
+Optimization Notes:
+1. Backtest different historical volatility percentile thresholds (15th-25th percentile)
+2. Test various RSI periods (10-14) for exit confirmation
+3. Experiment with Bollinger Band deviations (1.8-2.2)
+
+This strategy works best in high-liquidity markets during periods of elevated leverage, where liquidation cascades create predictable volatility patterns. The combination of liquidation clusters and volatility compression provides high-probability short-term trading opportunities.

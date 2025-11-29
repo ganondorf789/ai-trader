@@ -1,0 +1,47 @@
+STRATEGY_NAME: VolatilitySqueezeImpulse
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with Elder Impulse signals to identify high-probability breakout opportunities during low volatility periods, exiting when volatility expands beyond optimal trading conditions.
+
+Key Components:
+1. Bollinger Band Width Analysis: Measures contraction using historical percentile ranking
+2. Elder Impulse System: Color-coded momentum indicator (green=bullish, red=bearish)
+3. Dynamic Volatility Threshold: Adaptive exit mechanism based on current market conditions
+
+Entry Rules:
+1. Long Entry:
+   - Bollinger Band width contracts below 20th historical percentile (extreme squeeze)
+   - Elder Impulse flips to green (bullish momentum confirmed)
+   - Price closes above upper Bollinger Band (breakout confirmation)
+
+2. Short Entry:
+   - Bollinger Band width contracts below 20th historical percentile
+   - Elder Impulse flips to red (bearish momentum confirmed)
+   - Price closes below lower Bollinger Band (breakdown confirmation)
+
+Exit Rules:
+1. Profit Taking:
+   - When Bollinger Band width expands above 80th historical percentile (volatility expansion)
+   - OR when Elder Impulse flips to opposite color (momentum reversal)
+
+2. Stop Loss:
+   - Fixed percentage stop (e.g., 1-2% of account)
+   - OR volatility-based stop (e.g., 2x average true range)
+
+Risk Management:
+1. Position sizing based on volatility (lower size during high volatility)
+2. Maximum 2% risk per trade
+3. No new entries when overall market volatility exceeds 90th percentile
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations recommended)
+2. Bollinger Band Width indicator (for contraction measurement)
+3. Elder Impulse System (13-period EMA + MACD histogram)
+4. Historical percentile calculator (for volatility thresholds)
+
+Optimization Notes:
+1. Test different historical percentile thresholds (15-25% for entries, 75-85% for exits)
+2. Experiment with Bollinger Band periods (14-26) and deviations (1.8-2.2)
+3. Consider adding volume confirmation for breakout validity
+
+This strategy excels in ranging markets transitioning to trends, avoiding false breakouts through the dual confirmation of volatility contraction and momentum shift. The dynamic exit mechanism helps capture the majority of trending moves while protecting profits when volatility becomes excessive.

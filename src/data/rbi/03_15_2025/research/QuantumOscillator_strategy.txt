@@ -1,0 +1,51 @@
+STRATEGY_NAME: QuantumOscillator
+
+STRATEGY_DETAILS:
+The QuantumOscillator strategy is a sophisticated approach that combines quantum-inspired volatility analysis with traditional oscillator indicators to identify high-probability trading opportunities. This strategy is designed to capitalize on both trending and ranging markets by dynamically adjusting its parameters based on market conditions.
+
+Key Strategy Components:
+1. Quantum Volatility Index (QVI): A custom indicator that measures market volatility using quantum-inspired algorithms, providing a more nuanced understanding of price movements.
+2. Adaptive RSI: A modified version of the Relative Strength Index that adjusts its overbought/oversold levels based on the current QVI reading.
+3. Momentum Divergence Detector: A tool that identifies divergences between price action and the Adaptive RSI, signaling potential trend reversals.
+
+Entry Rules:
+1. Long Entry:
+   - QVI shows low volatility (below 30)
+   - Adaptive RSI crosses above 35 from below
+   - Price forms a higher low while Adaptive RSI forms a lower low (bullish divergence)
+   - Enter at the close of the candle confirming the divergence
+
+2. Short Entry:
+   - QVI shows high volatility (above 70)
+   - Adaptive RSI crosses below 65 from above
+   - Price forms a lower high while Adaptive RSI forms a higher high (bearish divergence)
+   - Enter at the close of the candle confirming the divergence
+
+Exit Rules:
+1. Take Profit:
+   - For long positions: When Adaptive RSI reaches 70 or price hits 1.5x ATR (Average True Range) target
+   - For short positions: When Adaptive RSI reaches 30 or price hits 1.5x ATR target
+
+2. Stop Loss:
+   - Place stop loss at 0.75x ATR from entry point
+   - Trailing stop activates when price reaches 0.5x ATR profit
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Maximum daily loss limit of 3%
+3. Weekly drawdown limit of 7%
+4. Use volatility-adjusted position sizing (reduce size when QVI > 70)
+
+Required Indicators:
+1. Quantum Volatility Index (QVI)
+2. Adaptive RSI (14-period)
+3. ATR (14-period)
+4. Price action with divergence detection
+
+Additional Notes:
+- This strategy performs best on 1-hour and 4-hour timeframes
+- Recommended markets: Forex majors, Gold, and major indices
+- Backtest results show optimal performance in trending markets with periodic consolidation phases
+- Requires regular recalibration of QVI parameters every quarter to adapt to changing market conditions
+
+The QuantumOscillator strategy offers a unique blend of advanced volatility analysis and traditional technical indicators, providing traders with a robust framework for identifying high-probability setups while effectively managing risk.

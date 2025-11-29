@@ -1,0 +1,33 @@
+STRATEGY_NAME: VoltaicBandit  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Breakout Core**: Uses 2x ATR (Average True Range) bands around a 20-period EMA to identify potential breakout zones.  
+2. **Trend Confirmation**: Volume must confirm the breakout direction to filter false signals.  
+3. **Momentum Exit**: RSI crossing 50 acts as a dynamic exit signal, ensuring trades are closed when momentum wanes.  
+
+**Entry Rules:**  
+- **Long Entry**: Price crosses *above* the 20 EMA + (2 x ATR) with volume higher than the 20-period average.  
+- **Short Entry**: Price crosses *below* the 20 EMA - (2 x ATR) with volume higher than the 20-period average.  
+
+**Exit Rules:**  
+- **Long Exit**: RSI (14-period) crosses *below* 50.  
+- **Short Exit**: RSI (14-period) crosses *above* 50.  
+
+**Risk Management:**  
+1. **Stop-Loss**:  
+   - Long trades: Place stop at 20 EMA - (1 x ATR).  
+   - Short trades: Place stop at 20 EMA + (1 x ATR).  
+2. **Position Sizing**: Risk ≤ 1-2% of capital per trade based on stop distance.  
+3. **Time Filter**: Avoid trading during low-volume periods (e.g., first/last 30 minutes of session).  
+
+**Required Indicators:**  
+1. **20-period EMA** (Exponential Moving Average) – Baseline for ATR bands.  
+2. **ATR (14-period)** – Volatility measurement for band width.  
+3. **RSI (14-period)** – Momentum-based exit trigger.  
+4. **Volume (20-period average)** – Trend confirmation filter.  
+
+**Unique Edge:** Combines volatility expansion (ATR bands), trend alignment (volume), and momentum decay (RSI) for high-probability breakouts with controlled risk. Avoids choppy markets via volume confirmation.  
+
+**Note**: Backtest optimal ATR multiplier (e.g., 1.5x-2.5x) for different assets. Works best on liquid, trending instruments (e.g., indices, forex majors).

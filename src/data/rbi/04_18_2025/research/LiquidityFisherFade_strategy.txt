@@ -1,0 +1,37 @@
+STRATEGY_NAME: LiquidityFisherFade
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines Fisher Transform indicator for identifying potential reversal points
+- Uses order book delta analysis to detect liquidity clusters (areas of significant buying/selling pressure)
+- Incorporates Bollinger Bands around a 20-period median price channel for exit signals
+- Designed to fade price extremes by trading against overextended moves
+
+2. Entry Rules:
+- Look for Fisher Transform values crossing above +2.5 (for short entries) or below -2.5 (for long entries)
+- Confirm the presence of a liquidity cluster in the order book delta at the same price level
+- Entry is triggered when price reaches the identified liquidity cluster level with confirming Fisher Transform extreme
+
+3. Exit Rules:
+- For long positions: Exit when price penetrates the upper Bollinger Band of the 20-period median price channel
+- For short positions: Exit when price penetrates the lower Bollinger Band of the 20-period median price channel
+- Alternative exit: When Fisher Transform crosses back through zero in the opposite direction
+
+4. Risk Management:
+- Stop loss placed beyond the liquidity cluster zone (typically 1.5-2x the average cluster width)
+- Position sizing based on distance to stop loss to maintain consistent risk per trade
+- Avoid trading during high volatility periods when Bollinger Bands are expanding rapidly
+
+5. Required Indicators:
+- Fisher Transform (9-14 period recommended)
+- Order Book Delta analyzer (to identify liquidity clusters)
+- Bollinger Bands (20-period, 2 standard deviations) applied to median price channel
+- Median Price Channel (20-period high+low+close/3)
+
+6. Additional Notes:
+- Works best in ranging markets with clear support/resistance levels
+- Requires careful monitoring of order book dynamics
+- Most effective on liquid assets with sufficient order book depth
+- Timeframe recommendation: 15min to 4hr charts for optimal results
+
+This strategy capitalizes on the combination of technical extremes (Fisher Transform) and market microstructure (liquidity clusters) to identify high-probability reversal points, with Bollinger Bands providing objective exit criteria. The unique LiquidityFisherFade approach merges technical analysis with order flow dynamics for contrarian trading opportunities.

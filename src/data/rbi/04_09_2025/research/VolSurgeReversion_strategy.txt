@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolSurgeReversion
+
+STRATEGY_DETAILS:
+This strategy combines volatility breakout signals with volume confirmation for mean-reversion trades, focusing on oversold conditions with strong volume participation.
+
+Key Components:
+1. Volatility Bands: Uses 30-day volatility bands (likely Bollinger Bands or Keltner Channels) to identify extreme price levels
+2. Volume Surge Filter: Requires trading volume >2x the average volume as confirmation
+3. RSI Mean Reversion: Uses RSI crossing 50 as exit signal for profit-taking
+
+Entry Rules:
+1. Price must breach the lower volatility band (indicating oversold condition)
+2. Volume must surge to at least 2x the average volume (confirming strong participation)
+3. Both conditions must occur simultaneously to trigger a long entry
+
+Exit Rules:
+1. Primary Exit: When RSI crosses back above 50 level (signaling mean reversion complete)
+2. Optional Stop-Loss: Could be placed below recent swing low or volatility band extreme
+
+Risk Management:
+1. Position sizing should account for the volatility band width
+2. Stop-loss placement should consider the strategy's mean-reversion nature
+3. Avoid trading during low-volume periods or major news events
+
+Required Indicators:
+1. 30-day volatility bands (Bollinger Bands or Keltner Channels recommended)
+2. Volume indicator with 30-day average calculation
+3. 14-period RSI (or customizable period)
+
+Optimization Notes:
+1. Volatility band period (30 days) could be tested for different market conditions
+2. Volume multiplier (2x) could be adjusted based on asset liquidity
+3. RSI period could be optimized for different timeframes
+
+This strategy works best in ranging markets with clear mean-reversion tendencies, and may underperform in strong trending markets. The volume surge requirement helps filter out false breakdowns.

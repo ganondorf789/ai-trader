@@ -1,0 +1,27 @@
+STRATEGY_NAME: VolumetricCloud  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volume Surge Detection**: Uses the 5-day EMA of volume exceeding its 20-day EMA by 2 standard deviations to identify significant volume spikes.  
+2. **Trend Confirmation**: Requires price to close above the Ichimoku Cloud to confirm bullish momentum.  
+3. **Dynamic Exit**: Implements a 5% trailing stop to lock in profits and minimize downside risk.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  - The 5-day EMA of volume > 20-day EMA of volume + (2 × standard deviation of volume EMA difference).  
+  - Price closes above the Ichimoku Cloud (Tenkan-Sen/Kijun-Sen/Cloud).  
+
+**Exit Rules:**  
+- **Trailing Stop**: Exit the position if price retraces 5% from its highest point since entry.  
+
+**Risk Management:**  
+1. **Position Sizing**: Allocate capital based on a fixed percentage of account balance (e.g., 1-2% per trade).  
+2. **Stop-Loss**: The 5% trailing stop acts as both profit protection and risk control.  
+3. **Avoid Overlap**: Do not re-enter unless volume EMA conditions reset (5-day EMA drops below 20-day EMA).  
+
+**Required Indicators:**  
+1. **Volume EMAs**: 5-day and 20-day exponential moving averages of volume.  
+2. **Standard Deviation**: Of the difference between 5-day and 20-day volume EMAs (lookback period: 20-50 days).  
+3. **Ichimoku Cloud**: Includes Tenkan-Sen, Kijun-Sen, Senkou Span A/B for trend confirmation.  
+
+**Unique Edge:** Combines rare volume anomalies with Ichimoku’s multi-layered trend filter, reducing false breakouts. Works best on mid-to-large-cap stocks with consistent liquidity.

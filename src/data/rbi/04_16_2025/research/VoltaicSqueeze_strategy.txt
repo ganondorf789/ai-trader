@@ -1,0 +1,43 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection:** Uses Bollinger Bands (BB) and Keltner Channels (KC) to identify periods of low volatility (squeeze) when BB is inside KC.  
+2. **Breakout Confirmation:** Requires a breakout above (long) or below (short) the Bollinger Bands with volume confirmation.  
+3. **Trend Strength Filter:** Uses ADX (Average Directional Index) to ensure the breakout has sufficient momentum (ADX > 25).  
+4. **Volume Validation:** Entry is confirmed only if volume is above its moving average (e.g., 20-period MA).  
+5. **Exit Condition:** Exits when volume drops below its moving average, signaling weakening momentum.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. BB is inside KC (volatility squeeze).  
+  2. Price breaks above the upper Bollinger Band.  
+  3. Volume is above its 20-period moving average.  
+  4. ADX > 25 (confirming trend strength).  
+
+- **Short Entry:**  
+  1. BB is inside KC (volatility squeeze).  
+  2. Price breaks below the lower Bollinger Band.  
+  3. Volume is above its 20-period moving average.  
+  4. ADX > 25 (confirming trend strength).  
+
+**Exit Rules:**  
+- Exit the trade when volume falls below its 20-period moving average.  
+- Optional: Use a trailing stop (e.g., ATR-based) to protect profits.  
+
+**Risk Management:**  
+- Set stop-loss just outside the opposite Bollinger Band (e.g., lower band for long, upper band for short).  
+- Position sizing based on volatility (e.g., 1-2% risk per trade).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2).  
+2. Keltner Channels (20, 2).  
+3. Volume (20-period MA).  
+4. ADX (14-period).  
+
+**Unique Aspects:**  
+- Combines volatility squeeze (BB + KC) with volume and ADX filters for high-probability breakouts.  
+- Exits on volume decline rather than fixed targets, capturing trends while avoiding false reversals.  
+
+**Note:** Works best in trending markets; avoid ranging conditions (ADX < 20).

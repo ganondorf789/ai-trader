@@ -1,0 +1,51 @@
+STRATEGY_NAME: VolatilityZipper
+
+STRATEGY_DETAILS:
+The VolatilityZipper strategy is designed to capture explosive price movements during periods of heightened volatility and volume acceleration. This approach combines statistical analysis of price dispersion with volume dynamics to identify high-probability trading opportunities.
+
+Key Components:
+1. Rolling Z-Score of 1-hour Price Dispersion (Volatility Measurement)
+   - Calculates the standard deviation of price movements over a rolling 1-hour window
+   - Converts this into a Z-score to measure how extreme current volatility is relative to historical norms
+
+2. Volume Acceleration Indicator
+   - Measures the rate of change in trading volume compared to its moving average
+   - Identifies when volume is increasing at an unusually rapid pace
+
+Entry Rules:
+- LONG Entry when:
+  * Price dispersion Z-score > +2 standard deviations
+  * Volume acceleration > +2 standard deviations
+  * Price is above the 20-period moving average (confirms uptrend)
+
+- SHORT Entry when:
+  * Price dispersion Z-score < -2 standard deviations
+  * Volume acceleration > +2 standard deviations
+  * Price is below the 20-period moving average (confirms downtrend)
+
+Exit Rules:
+- Take Profit: 
+  * 2:1 reward-to-risk ratio minimum
+  * Alternatively, when volatility Z-score returns to mean (0)
+
+- Stop Loss:
+  * Fixed percentage (e.g., 1-2% of account)
+  * Or when opposite volatility signal occurs (Z-score crosses back below 1.5 SD)
+
+Risk Management:
+1. Position sizing based on volatility (smaller positions during higher volatility)
+2. Maximum 2% of capital risked per trade
+3. No new entries if 3 consecutive losing trades occur (cool-down period)
+
+Required Indicators:
+1. Rolling 1-hour price dispersion Z-score
+2. Volume acceleration indicator (standard deviations from mean)
+3. 20-period moving average (trend filter)
+4. Standard deviation bands (for threshold levels)
+
+Optimal Market Conditions:
+- Works best in markets transitioning from low to high volatility
+- Particularly effective during earnings announcements, economic data releases
+- Performs well in both trending and mean-reverting markets when volatility clusters occur
+
+Note: This strategy requires frequent monitoring as volatility clusters tend to be short-lived. Backtesting should focus on different volatility regimes to ensure robustness.

@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolatilitySqueezeExtension
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band squeezes with Chaikin Oscillator confirmation and Fibonacci extension targets for precise volatility-based entries and profit-taking.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 std dev) to identify volatility contractions
+2. Chaikin Oscillator (3,10 periods) for volume-flow confirmation
+3. Fibonacci extensions (127%, 161.8%) derived from recent volatility range
+
+Entry Rules:
+1. Wait for Bollinger Band width to contract below 30% of its 20-period average (squeeze condition)
+2. Chaikin Oscillator must cross above zero line confirming accumulation
+3. Enter long when price breaks and closes above upper Bollinger Band
+4. Entry only valid if all conditions occur within 3 bars of each other
+
+Exit Rules:
+1. Primary target: 127% Fibonacci extension of recent squeeze range (high-low during squeeze period)
+2. Secondary target: 161.8% extension (trail stop after hitting 127%)
+3. Emergency stop: Close below lower Bollinger Band
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Initial stop placed at recent swing low or lower band (whichever is closer)
+3. Volatility-adjusted position sizing (reduce size during high ATR periods)
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Chaikin Oscillator (3,10)
+3. Fibonacci extension tool
+4. Bandwidth indicator (optional but helpful for squeeze detection)
+
+Optimization Notes:
+1. Best applied to 1H-4H timeframes for reliable signals
+2. Works particularly well in ranging markets transitioning to trends
+3. Combine with sector/overall market confirmation for higher probability trades
+4. Filter for ADX > 25 to confirm emerging trend strength
+
+This strategy captures the explosive moves following volatility contractions while using volume confirmation to filter false breakouts and Fibonacci extensions to lock in profits at logical levels.

@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatileFractal
+
+STRATEGY_DETAILS:
+The VolatileFractal strategy is a sophisticated approach that combines fractal geometry with volatility analysis to identify high-probability trend reversal opportunities. This strategy is particularly effective in markets experiencing elevated volatility, where price patterns tend to form more distinct and reliable fractal structures.
+
+Key Strategy Components:
+1. Fractal Identification: The strategy uses fractal indicators to detect geometric price patterns, such as the classic five-bar fractal structure, which often signals potential reversal points.
+2. Volatility Filter: A volatility indicator (e.g., ATR or Bollinger Bands) is used to ensure trades are only taken during periods of elevated market volatility, increasing the likelihood of significant price movements.
+3. Trend Confirmation: A secondary trend indicator (e.g., EMA or MACD) is used to confirm the overall market direction and filter out false signals.
+
+Entry Rules:
+1. Identify a valid fractal pattern (e.g., a five-bar fractal) on the price chart.
+2. Confirm that the fractal formation occurs during a period of elevated volatility (e.g., ATR above a specific threshold or price outside Bollinger Bands).
+3. Wait for price to break the fractal level in the opposite direction of the prevailing trend.
+4. Enter a position in the direction of the breakout, anticipating a trend reversal.
+
+Exit Rules:
+1. Set a stop-loss just beyond the opposite fractal level to manage risk.
+2. Take profit when price reaches a predefined risk-reward ratio (e.g., 2:1) or when volatility decreases significantly (e.g., ATR drops below a specific threshold).
+3. Exit the trade if the fractal pattern fails to confirm (e.g., price returns to the original fractal level).
+
+Risk Management:
+1. Position sizing should be based on the volatility of the instrument, with smaller positions taken during higher volatility periods.
+2. Use a fixed percentage risk per trade (e.g., 1-2% of account equity).
+3. Implement a trailing stop to lock in profits as the trade moves in your favor.
+
+Required Indicators:
+1. Fractal Indicator (e.g., Bill Williams Fractals)
+2. Volatility Indicator (e.g., ATR or Bollinger Bands)
+3. Trend Confirmation Indicator (e.g., EMA or MACD)
+
+This strategy requires careful observation of price action and patience to wait for high-quality setups. It is particularly well-suited for traders who specialize in volatility trading and have experience with fractal analysis.

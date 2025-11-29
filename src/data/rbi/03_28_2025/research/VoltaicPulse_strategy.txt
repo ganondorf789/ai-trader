@@ -1,0 +1,43 @@
+STRATEGY_NAME: VoltaicPulse
+
+STRATEGY_DETAILS:
+This strategy combines volatility expansion with trend confirmation to capture strong directional moves while maintaining disciplined risk management. The name "VoltaicPulse" reflects the strategy's focus on volatility (Voltaic) and its pulse-like trading signals (Pulse).
+
+Key Components:
+1. Trend Filter: 200-period EMA (long positions only allowed above this level)
+2. Volatility Trigger: 5-minute ATR crossing above its 20-period MA
+3. Exit Conditions: 
+   - Profit target at 2:1 reward-to-risk ratio
+   - Protective stop at 50-period EMA breakdown
+
+Entry Rules:
+1. Price must be trading above the 200-period EMA (bullish trend confirmation)
+2. The 5-minute ATR must cross above its 20-period moving average (volatility expansion signal)
+3. Both conditions must occur simultaneously for a valid long entry
+
+Exit Rules:
+1. Take Profit: 
+   - Calculate entry price to 50-EMA distance as risk (R)
+   - Set profit target at entry price + 2R
+2. Stop Loss: 
+   - Exit position if price closes below the 50-period EMA
+   - Alternatively, use a fixed stop based on ATR value
+
+Risk Management:
+1. Position sizing should be based on the distance between entry and 50-EMA stop level
+2. Maximum risk per trade typically 1-2% of account capital
+3. Avoid trading during major news events that may cause abnormal volatility
+
+Required Indicators:
+1. 200-period Exponential Moving Average (trend filter)
+2. 50-period Exponential Moving Average (exit trigger)
+3. 5-minute Average True Range (volatility measurement)
+4. 20-period MA of ATR (volatility expansion signal)
+
+Additional Notes:
+- Best suited for liquid assets with consistent volatility patterns
+- Works particularly well in trending markets after consolidation periods
+- Consider higher time frame confluence for improved signal quality
+- Backtest suggested for optimal ATR period settings across different instruments
+
+The VoltaicPulse strategy excels in capturing strong momentum moves while using volatility expansion as its primary trigger, making it distinct from simple trend-following approaches.

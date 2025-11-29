@@ -1,0 +1,53 @@
+STRATEGY_NAME: VolatilityFractal
+
+STRATEGY_DETAILS:
+This strategy combines volatility clustering detection with fractal efficiency confirmation and dynamic Renko-based exits for a multi-dimensional approach to trading volatility regimes.
+
+Key Components:
+1. Volatility Z-Score Trigger (Primary Entry Signal)
+   - Calculates 3-day exponential volatility z-score
+   - Threshold set at 2.5 standard deviations
+   - Identifies periods of significant volatility expansion
+
+2. Fractal Efficiency Confirmation (Secondary Filter)
+   - Measures price efficiency using fractal dimension
+   - Requires breakout above efficiency threshold
+   - Filters false volatility spikes
+
+3. Dynamic Renko Exit Mechanism
+   - Uses adaptive brick size based on volatility
+   - Triggers exit on brick reversal pattern
+   - Provides clean trend-following exits
+
+Entry Rules:
+1. Primary Trigger: 3-day exponential volatility z-score > 2.5
+2. Confirmation: Fractal efficiency breakout occurs
+3. Direction: Trade in direction of volatility expansion
+   - Long if volatility expansion occurs during uptrend
+   - Short if volatility expansion occurs during downtrend
+
+Exit Rules:
+1. Main Exit: Renko brick reversal pattern forms
+   - For longs: First red brick after series of green bricks
+   - For shorts: First green brick after series of red bricks
+2. Emergency Exit: Volatility z-score drops below 1.0
+
+Risk Management:
+1. Position Sizing: Volatility-adjusted (1% risk per trade)
+2. Stop Loss: 
+   - Initial: 2x recent average true range
+   - Trailing: Adjusted with Renko brick progression
+3. Maximum Drawdown: 5% account limit
+
+Required Indicators:
+1. Exponential Volatility Z-Score (3-day lookback)
+2. Fractal Efficiency Index (custom calculation)
+3. Dynamic Renko Bricks (volatility-adjusted sizing)
+4. Average True Range (14-period for stop calculation)
+
+Optimization Notes:
+1. Volatility z-score threshold can be adjusted between 2.0-3.0
+2. Fractal efficiency period can be optimized (5-10 days typical)
+3. Renko brick size multiplier can be tuned to market conditions
+
+This strategy excels in trending markets with clear volatility regimes, while the fractal filter helps avoid false signals during choppy periods. The Renko exits provide clean trend-following while locking in profits during volatility contractions.

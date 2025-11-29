@@ -1,0 +1,33 @@
+STRATEGY_NAME: DivergenceSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Double Bullish Divergence:** The strategy identifies two consecutive higher lows in price while the MACD histogram shows two consecutive lower lows, signaling weakening downward momentum and potential reversal.  
+2. **Bollinger Band Width Squeeze:** Confirms the setup when Bollinger Band Width (BBW) reaches a 10-day low, indicating low volatility and a potential breakout.  
+3. **ATR-Based Profit Target:** Uses 1.5x the Average True Range (ATR) for dynamic take-profit placement.  
+
+**Entry Rules:**  
+- **Condition 1:** Price forms two higher lows (HL1, HL2) while MACD histogram forms two lower lows (LL1, LL2).  
+- **Condition 2:** Bollinger Band Width (BBW) is at a 10-day low (confirming a squeeze).  
+- **Entry Trigger:** Buy on the first bullish candle closing above the high of the prior candle after both conditions are met.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit at 1.5x the current ATR (14-period) from the entry price.  
+- **Stop Loss:** Place initial stop below the most recent swing low (or use a fixed ATR-based stop if preferred).  
+
+**Risk Management:**  
+- Position sizing should align with a max risk of 1-2% per trade.  
+- If BBW expands sharply without hitting the target, consider an early exit to avoid whipsaw.  
+
+**Required Indicators:**  
+1. **MACD Histogram** (12,26,9) – For divergence detection.  
+2. **Bollinger Bands** (20,2) – Band Width (BBW) must be calculated.  
+3. **Average True Range (ATR)** (14) – For dynamic profit target.  
+
+**Notes:**  
+- Works best in ranging or mildly trending markets.  
+- Avoid during high-volatility news events.  
+- Backtest optimal ATR multiplier (1.5x is a starting point).  
+
+This strategy combines divergence confirmation with volatility contraction for high-probability reversals.

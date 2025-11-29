@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolSyncBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection:** Uses Bollinger Band Width (BBW) to identify periods of low volatility (contraction).  
+2. **Volume Confirmation:** On-Balance Volume (OBV) must be rising during the contraction phase to validate accumulation.  
+3. **Breakout Trigger:** Entry occurs when price breaks above the upper Bollinger Band, confirming volatility expansion.  
+4. **Fixed Volatility Expansion Exit:** Exits are based on a predefined threshold of volatility expansion (e.g., BBW reaching a specific multiple of its contraction value).  
+
+**Entry Rules:**  
+1. **BBW Contraction:** Bollinger Band Width must be below a defined threshold (e.g., 20-period BBW < 0.5 * its 50-period average).  
+2. **OBV Confirmation:** On-Balance Volume must show an upward trend (e.g., OBV > its 20-period moving average).  
+3. **Breakout Signal:** Price closes above the upper Bollinger Band.  
+
+**Exit Rules:**  
+1. **Volatility Expansion Threshold:** Exit when BBW expands to a predefined level (e.g., 2x the contraction value at entry).  
+2. **Stop-Loss:** Optional trailing stop (e.g., 2x ATR below the entry price) to protect against false breakouts.  
+
+**Risk Management:**  
+1. Position sizing based on volatility (e.g., 1-2% risk per trade).  
+2. Stop-loss placement to limit downside (e.g., below recent swing low or using ATR).  
+3. Avoid trading during major news events to prevent erratic volatility.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To identify bands and calculate BBW.  
+2. **Bollinger Band Width (BBW)** – To measure volatility contraction/expansion.  
+3. **On-Balance Volume (OBV)** – To confirm accumulation during contractions.  
+4. **Average True Range (ATR)** – Optional for stop-loss placement.  
+
+**Unique Aspects:**  
+- Combines volatility cycles (BBW) with volume trends (OBV) for higher-probability breakouts.  
+- Exits are volatility-based rather than fixed price targets, adapting to market conditions.  
+- Avoids false signals by requiring both technical and volume confirmation.  
+
+**Note:** Backtest to optimize BBW thresholds and OBV filters for specific assets/timeframes.

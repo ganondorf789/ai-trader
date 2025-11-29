@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityFade  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility-Based Fading:** The strategy capitalizes on extreme price moves exceeding 3x the daily Average True Range (ATR), anticipating a mean-reversion retracement.  
+2. **Volume Confirmation:** Requires a surge in trading volume (150% of the 20-day average) to validate the extreme move and increase the likelihood of a reversal.  
+3. **VWAP Target:** Aims for price retracement to the Volume-Weighted Average Price (VWAP), a key intraday benchmark for fair value.  
+4. **Aggressive Stop-Loss:** Uses a wide stop-loss at 5x ATR to account for high volatility while allowing room for the trade to develop.  
+
+**Entry Rules:**  
+- Trigger when price moves **3x the daily ATR** beyond the previous close (either up or down).  
+- Confirm with **volume exceeding 150% of the 20-day average** to ensure participation in the extreme move.  
+- Enter in the **opposite direction** of the extreme move (fade the spike).  
+
+**Exit Rules:**  
+- **Profit Target:** Close the position when price retraces to **VWAP**.  
+- **Stop-Loss:** Exit if price moves **5x the daily ATR** against the entry (beyond the initial extreme).  
+- **Time-Based Exit:** Consider closing the trade by end-of-day if targets aren’t met, as extreme moves may stabilize.  
+
+**Risk Management:**  
+- Position sizing should account for the wide stop (5x ATR) to limit risk per trade (e.g., 1-2% of capital).  
+- Avoid trading during major news events or illiquid periods where volatility spikes may persist.  
+- Prioritize fading moves in **liquid assets** to ensure volume reliability.  
+
+**Required Indicators:**  
+1. **Average True Range (ATR):** 1-day period to gauge extreme moves.  
+2. **Volume Average:** 20-day simple moving average of volume for surge detection.  
+3. **VWAP:** Intraday benchmark for profit-taking.  
+
+**Notes:**  
+- Works best in **mean-reverting markets** (e.g., indices, large-cap stocks).  
+- Avoid trending assets or breakouts where extremes may continue.  
+- Combine with price action (e.g., rejection candles at extremes) for higher accuracy.  
+
+This strategy thrives on overextended volatility exhaustion, leveraging volume and ATR to define high-probability fade opportunities.

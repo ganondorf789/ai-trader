@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolatilityConvergence
+
+STRATEGY_DETAILS:
+This is a sophisticated intraday pairs trading strategy that capitalizes on mean-reverting behavior between cointegrated volatility ETFs, using VIX correlation dynamics and volume-confirmed momentum signals.
+
+Key Components:
+1. Cointegrated ETF Pair Selection: Focuses on volatility ETFs with proven mean-reverting characteristics (e.g., VXX/UVXY or other VIX-linked products)
+2. VIX Correlation Framework: Uses rolling correlation to the VIX as the foundation for spread calculation
+3. Bollinger Band Trigger: Enters when spread exceeds Bollinger Bands (typically 2 standard deviations) of the VIX-correlated spread
+4. Volume-Confirmed Momentum: Requires supporting volume patterns for exit signals
+
+Entry Rules:
+1. Calculate the normalized spread between the selected ETFs based on their rolling VIX correlation
+2. When spread exceeds upper/lower Bollinger Band (2 std dev) of its 20-period moving average
+3. Confirm with volume ratio between the pair showing divergence (higher volume in the underperforming leg)
+
+Exit Rules:
+1. Primary Exit: When spread returns to its 20-period moving average
+2. Secondary Exit: If momentum diverges (RSI crosses 50) with confirming volume patterns
+3. Emergency Exit: If spread exceeds 3 std dev from mean (risk control)
+
+Risk Management:
+1. Position sizing based on spread volatility (ATR of spread)
+2. Maximum risk per trade: 1% of capital
+3. Stop-loss at 1.5x the Bollinger Band width
+4. Daily loss limit: 5% of capital
+
+Required Indicators:
+1. Rolling VIX correlation (20-period)
+2. Bollinger Bands (20,2) on normalized spread
+3. Volume ratio oscillator
+4. RSI (14-period) for momentum confirmation
+5. Average True Range of spread for sizing
+
+Optimization Notes:
+- Best performance during high VIX regimes (>20)
+- Requires liquid ETF pairs with tight bid-ask spreads
+- Most effective between 10am-2pm ET when volatility markets are most active
+
+This strategy combines statistical arbitrage principles with volatility market dynamics, creating a unique approach to ETF pairs trading that differs from traditional mean-reversion strategies through its VIX-correlation foundation and volume-confirmed exits.

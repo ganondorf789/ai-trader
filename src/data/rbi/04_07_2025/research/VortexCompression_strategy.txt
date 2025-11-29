@@ -1,0 +1,29 @@
+STRATEGY_NAME: VortexCompression  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Tracks directional movement (VI+ for bullish, VI- for bearish).  
+2. **Volume Confirmation:** Requires accelerating volume (e.g., volume > SMA(volume, 20)) to validate VI crossovers.  
+3. **Bollinger Bandwidth Contraction:** Measures volatility compression (Bandwidth < SMA(Bandwidth, 50)) to filter low-noise setups.  
+4. **Volatility Expansion Exit:** Monitors Bandwidth expansion or opposing VI crossover for exits.  
+
+**Entry Rules:**  
+- **Long Entry:** VI+ crosses above VI- *and* volume > SMA(volume, 20) *and* Bollinger Bandwidth < SMA(Bandwidth, 50).  
+- **Short Entry:** VI- crosses above VI+ *and* volume > SMA(volume, 20) *and* Bollinger Bandwidth < SMA(Bandwidth, 50).  
+
+**Exit Rules:**  
+- **Long Exit:** VI- crosses above VI+ *or* Bollinger Bandwidth expands beyond SMA(Bandwidth, 50).  
+- **Short Exit:** VI+ crosses above VI- *or* Bollinger Bandwidth expands beyond SMA(Bandwidth, 50).  
+
+**Risk Management:**  
+- **Stop-Loss:** Place at 1.5x the average true range (ATR) from entry.  
+- **Position Sizing:** Risk ≤ 1% of capital per trade.  
+- **Time Filter:** Avoid trading during first/last 30 minutes of session to reduce noise.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. Volume (with 20-period SMA for acceleration filter).  
+3. Bollinger Bandwidth (50-period SMA for contraction threshold).  
+4. ATR (14-period for stop-loss calculation).  
+
+**Unique Edge:** Combines trend (VI), volume conviction, and volatility cycles for high-probability reversals/breakouts. Avoids choppy markets via Bandwidth contraction.

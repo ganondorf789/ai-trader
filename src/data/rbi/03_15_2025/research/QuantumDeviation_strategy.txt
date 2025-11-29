@@ -1,0 +1,86 @@
+STRATEGY_NAME: QuantumDeviation
+
+STRATEGY_DETAILS:
+The QuantumDeviation strategy leverages a hybrid machine learning model to identify and capitalize on significant deviations in cointegrated pairs. The strategy focuses on predicting deviations that exceed twice the historical average and executes contrarian trades based on prediction confidence levels. Below is a detailed breakdown of the strategy components, rules, and requirements:
+
+---
+
+### **Key Strategy Components**
+1. **Cointegration Analysis**: 
+   - Identify pairs of assets that exhibit a stable long-term relationship (cointegrated pairs).
+   - Use statistical tests (e.g., Engle-Granger or Johansen) to confirm cointegration.
+
+2. **Hybrid Machine Learning Model**:
+   - Combine traditional statistical methods (e.g., ARIMA, Kalman Filter) with advanced machine learning techniques (e.g., LSTM, Random Forest).
+   - Train the model on historical price data, spread deviations, and other relevant features (e.g., volume, volatility).
+
+3. **Deviation Prediction**:
+   - Predict deviations in the spread of cointegrated pairs.
+   - Focus on deviations that are more than twice the historical average spread.
+
+4. **Prediction Confidence**:
+   - Use the model's confidence score (e.g., probability output) to determine trade execution.
+   - Higher confidence levels trigger larger position sizes or more aggressive entries.
+
+5. **Contrarian Trading**:
+   - Trade in the opposite direction of the predicted deviation (mean reversion approach).
+   - Exit the trade when the spread reverts to the mean or reaches a predefined profit target.
+
+---
+
+### **Entry Rules**
+1. **Signal Generation**:
+   - The model predicts a deviation exceeding twice the historical average spread.
+   - The prediction confidence score is above a predefined threshold (e.g., 70%).
+
+2. **Trade Execution**:
+   - If the predicted deviation is positive (spread widening), go short the overperforming asset and long the underperforming asset.
+   - If the predicted deviation is negative (spread narrowing), go long the overperforming asset and short the underperforming asset.
+
+---
+
+### **Exit Rules**
+1. **Mean Reversion**:
+   - Exit the trade when the spread reverts to its historical mean or a predefined level.
+
+2. **Stop Loss**:
+   - Set a stop loss at a level where the spread exceeds three times the historical average deviation.
+
+3. **Profit Target**:
+   - Exit the trade when the spread reaches a profit target (e.g., 1.5 times the historical average deviation).
+
+---
+
+### **Risk Management**
+1. **Position Sizing**:
+   - Adjust position sizes based on prediction confidence levels.
+   - Higher confidence levels allow for larger positions, while lower confidence levels reduce position sizes.
+
+2. **Diversification**:
+   - Trade multiple cointegrated pairs to reduce exposure to any single pair.
+
+3. **Leverage Control**:
+   - Use minimal leverage to avoid excessive risk during extreme market conditions.
+
+---
+
+### **Required Indicators**
+1. **Cointegration Test**:
+   - Engle-Granger or Johansen test to identify cointegrated pairs.
+
+2. **Spread Calculation**:
+   - Calculate the spread between the two assets in the pair.
+
+3. **Historical Average Spread**:
+   - Compute the historical mean and standard deviation of the spread.
+
+4. **Machine Learning Model**:
+   - Hybrid model combining statistical and machine learning techniques for deviation prediction.
+
+5. **Confidence Score**:
+   - Output from the machine learning model indicating the probability of a significant deviation.
+
+---
+
+### **Summary**
+The QuantumDeviation strategy is a sophisticated approach that combines cointegration analysis with advanced machine learning to predict and trade significant deviations in asset pairs. By focusing on deviations exceeding twice the historical average and using prediction confidence to guide trades, the strategy aims to capitalize on mean reversion opportunities while managing risk effectively.

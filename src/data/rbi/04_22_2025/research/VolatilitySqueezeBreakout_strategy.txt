@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of extreme volatility contraction followed by high-volume breakouts, combining Bollinger Band analysis with volume confirmation for high-probability trades.
+
+Key Components:
+1. Bollinger Band Width Contraction: Measures the 20-period BB width reaching its narrowest point in 3 months (60 trading days)
+2. Volume Surge Confirmation: Requires volume to spike 200% above the 50-day average
+3. Breakout Execution: Enters when price breaks through the Bollinger Band boundaries with volume confirmation
+
+Entry Rules:
+1. Wait for the 20-period Bollinger Band width to reach its lowest level in 3 months (confirmed by lowest BB width value in past 60 candles)
+2. Monitor for volume exceeding the 50-day average volume by 200%
+3. Enter long when price breaks above the upper Bollinger Band with volume confirmation
+4. Enter short when price breaks below the lower Bollinger Band with volume confirmation
+
+Exit Rules:
+1. For long positions: Exit when price closes back inside the Bollinger Bands OR when the BB width expands to 3x the entry width
+2. For short positions: Exit when price closes back inside the Bollinger Bands OR when the BB width expands to 3x the entry width
+3. Optional trailing stop: Set at 2x the average true range (ATR) of past 14 periods
+
+Risk Management:
+1. Position sizing: Risk no more than 1-2% of capital per trade
+2. Stop loss: Place initial stop at the opposite Bollinger Band level
+3. Maximum holding period: Close all positions after 5 days if not stopped out
+
+Required Indicators:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Volume indicator with 50-day average
+3. Bollinger Band width indicator (for measuring contraction)
+4. Optional: 14-period ATR for trailing stops
+
+Additional Notes:
+- Best used on daily or 4-hour timeframes for reliable signals
+- Works well with liquid assets that have consistent volume patterns
+- Avoid using during major news events when volume spikes may be misleading
+- Combine with price action confirmation (closing outside bands) for better reliability

@@ -1,0 +1,38 @@
+STRATEGY_NAME: DivergentBand
+
+STRATEGY_DETAILS:
+The DivergentBand strategy combines MACD divergence analysis with Bollinger Bands and ATR-based profit targets to identify high-probability trading opportunities. Here's a detailed breakdown of the strategy:
+
+1. Key Components:
+- MACD (12,26,9) for divergence detection
+- Bollinger Bands (14-period, 2 standard deviations)
+- ATR (14-period) for profit target calculation
+
+2. Entry Rules:
+- Look for MACD divergence (price makes higher high while MACD makes lower high, or vice versa)
+- Confirm price is within Bollinger Bands (not breaking out)
+- Wait for price to touch or approach the opposite band from the divergence direction
+- Enter trade in the direction of the divergence when both conditions align
+
+3. Exit Rules:
+- Set profit target at 1.5x ATR from entry price
+- Place stop loss at 0.75x ATR from entry price
+- Exit immediately if price breaks through the opposite Bollinger Band
+
+4. Risk Management:
+- Risk no more than 1-2% of account per trade
+- Use ATR-based position sizing to maintain consistent risk
+- Avoid trading during major news events or low liquidity periods
+
+5. Required Indicators:
+- MACD (12,26,9)
+- Bollinger Bands (14,2)
+- ATR (14)
+
+6. Additional Notes:
+- Best applied on 1-hour or 4-hour charts for optimal results
+- Works well in ranging or mildly trending markets
+- Avoid using in strongly trending markets where price may break through bands
+- Combine with volume analysis for additional confirmation
+
+This strategy aims to capture mean-reversion moves within established ranges while using MACD divergence as a leading indicator of potential reversals. The ATR-based profit targets and stop losses help maintain a favorable risk-reward ratio while adapting to current market volatility.

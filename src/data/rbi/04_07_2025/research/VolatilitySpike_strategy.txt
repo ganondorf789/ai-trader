@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolatilitySpike  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Breakout:** The strategy identifies breakouts when the 5-minute ATR (Average True Range) exceeds the daily ATR by 50%, signaling heightened intraday volatility.  
+2. **Volume Confirmation:** A volume spike above the 20-period moving average confirms the breakout, adding validity to the trade signal.  
+3. **Risk-Reward Management:** Positions are exited based on a strict 2:1 risk-reward ratio, ensuring disciplined profit-taking and loss control.  
+
+**Entry Rules:**  
+- **Long Entry Trigger:** When the 5-minute ATR crosses above 1.5x the daily ATR.  
+- **Volume Confirmation:** The current volume must exceed the 20-period moving average of volume.  
+- **Entry Execution:** Enter long at the next candle's open after both conditions are met.  
+
+**Exit Rules:**  
+- **Profit Target:** Set at 2x the initial risk (e.g., if stop loss is 10 pips, take profit is 20 pips).  
+- **Stop Loss:** Placed at the recent swing low or a fixed ATR-based distance (e.g., 1x daily ATR).  
+- **Time-Based Exit:** Exit the trade if the profit target isn’t hit within a predefined session (e.g., end of the trading day).  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Stop Loss:** Mandatory and calculated based on volatility (daily ATR) or recent price structure.  
+- **Avoid Overtrading:** Only take signals when both volatility and volume conditions align.  
+
+**Required Indicators:**  
+1. **ATR (Average True Range):**  
+   - 5-minute ATR for intraday volatility.  
+   - Daily ATR for baseline volatility.  
+2. **Volume Moving Average:** 20-period moving average of volume for confirmation.  
+
+**Unique Aspects:**  
+- Combines volatility expansion with volume confirmation for high-probability breakouts.  
+- Strict 2:1 risk-reward ensures positive expectancy over time.  
+- Avoids false breakouts by requiring both ATR and volume alignment.  
+
+**Optimization Tips:**  
+- Adjust the ATR multiplier (e.g., 1.3x to 1.7x) based on asset volatility.  
+- Test different volume lookback periods (e.g., 10 or 30) for confirmation.  
+- Apply to liquid assets with strong trending tendencies (e.g., indices, major forex pairs).

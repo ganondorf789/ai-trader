@@ -1,0 +1,37 @@
+STRATEGY_NAME: SqueezeReversion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection:** Identifies periods of low volatility when the 1-hour Bollinger Band width falls below its 5th percentile, signaling potential breakout conditions.  
+2. **Funding Rate Analysis:** Monitors sharp drops in funding rates, indicating potential oversold conditions or sentiment shifts in perpetual futures markets.  
+3. **ATR-Based Exit:** Uses the Average True Range (ATR) to set a dynamic profit target at 2x the current ATR, ensuring exits adapt to market volatility.  
+4. **Funding Rate Reversion Exit:** Closes positions if funding rates revert to neutral or positive, suggesting the sentiment-driven opportunity has passed.  
+
+**Entry Rules:**  
+- **Long Entry Trigger:**  
+  1. Bollinger Band width (1-hour) must be below its 5th percentile (calculated over a lookback period, e.g., 14 days).  
+  2. Funding rates must show a sharp drop (e.g., below a threshold like the 20th percentile or a predefined negative value).  
+- **Confirmation:** Wait for the next candle close after both conditions are met to confirm the entry.  
+
+**Exit Rules:**  
+1. **Profit Target:** Exit the trade when the price reaches **2x ATR (14-period)** from the entry price.  
+2. **Funding Rate Reversion:** Exit if funding rates revert above a neutral threshold (e.g., moving back into positive territory or crossing a short-term moving average).  
+3. **Stop-Loss (Optional):** Consider a stop-loss at 1x ATR or a fixed percentage (e.g., 2-3%) below the entry price for additional risk control.  
+
+**Risk Management:**  
+- Position sizing should align with the ATR to ensure risk per trade is consistent (e.g., risking 1% of capital per trade).  
+- Avoid trading during major news events or extreme market conditions where funding rates may be erratic.  
+- Monitor the Bollinger Band width for false squeezes (e.g., prolonged low volatility without follow-through).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** + Band Width (1-hour chart).  
+2. **Funding Rate Data** (preferably with a percentile or threshold filter).  
+3. **ATR (14-period)** for dynamic exit targets.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (squeeze) with sentiment extremes (funding rates) for high-probability reversals.  
+- Dual exit logic (momentum-driven ATR target + sentiment-based funding rate reversion) ensures adaptability.  
+- Avoids generic trend-following by focusing on mean-reversion opportunities in low-volatility regimes.  
+
+**Note:** Backtest the percentile thresholds for Bollinger Band width and funding rates to optimize for specific assets (e.g., crypto perpetuals).

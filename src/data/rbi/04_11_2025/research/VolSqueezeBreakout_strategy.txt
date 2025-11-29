@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of low volatility followed by high-volume breakouts, using Bollinger Band width contraction as the primary signal.
+
+Key Components:
+1. Bollinger Band Width (20-period) - Measures volatility contraction when at 20-day low
+2. Volume Surge - Confirmation via volume exceeding 50-day average
+3. Dynamic Exit - Based on 2x entry Bollinger Band width
+
+Entry Rules:
+1. Wait for Bollinger Band width (20,2) to reach its lowest point in 20 days (volatility contraction)
+2. Confirm breakout with volume exceeding 50-day moving average
+3. Enter long/short on first candle that closes outside the Bollinger Bands after contraction
+
+Exit Rules:
+1. Calculate Bollinger Band width at entry (Upper Band - Lower Band)
+2. Set profit target at 2x the entry band width from entry price
+3. Stop loss placed at opposite band (long trades: lower band, short trades: upper band)
+
+Risk Management:
+1. Position size based on stop loss distance (1-2% risk per trade)
+2. No trades during major economic news events (avoid false breakouts)
+3. Maximum 5% portfolio exposure to single trade
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Band Width indicator (Upper-Lower)
+3. Volume 50-day moving average
+
+Optimization Notes:
+1. Test different multiples for exit (1.5x-3x band width)
+2. Consider adding ADX filter (>25) for stronger trends
+3. Backtest different lookback periods for band width lows (15-30 days)
+
+This strategy works best in ranging markets transitioning to trending conditions, with the volume surge confirming genuine breakout potential rather than false moves.

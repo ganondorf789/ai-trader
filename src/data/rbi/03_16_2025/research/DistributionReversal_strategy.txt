@@ -1,0 +1,76 @@
+STRATEGY_NAME: DistributionReversal
+
+STRATEGY_DETAILS:
+The DistributionReversal strategy combines momentum and contrarian approaches by identifying in-distribution breakouts for long positions and out-of-distribution mean reversion setups for short positions. This strategy leverages statistical distribution analysis to determine optimal entry and exit points, balancing momentum continuation with mean reversion opportunities.
+
+---
+
+### Key Strategy Components:
+1. **In-Distribution Breakouts (Longs):**
+   - Identify price levels within the normal distribution range (e.g., within 1 standard deviation of the mean).
+   - Look for breakouts above resistance levels within this range, signaling strong momentum continuation.
+
+2. **Out-of-Distribution Mean Reversion (Shorts):**
+   - Identify price levels outside the normal distribution range (e.g., beyond 2 standard deviations from the mean).
+   - Look for overextended price movements that are likely to revert to the mean.
+
+3. **Statistical Distribution Analysis:**
+   - Use Bollinger Bands or standard deviation channels to define in-distribution and out-of-distribution price levels.
+   - Combine with volume analysis to confirm the strength of breakouts or reversals.
+
+---
+
+### Entry Rules:
+1. **Long Entry (In-Distribution Breakout):**
+   - Price breaks above the upper Bollinger Band or resistance level within the normal distribution range.
+   - Volume must confirm the breakout (e.g., above-average volume).
+   - RSI should be above 50 but not overbought (e.g., below 70).
+
+2. **Short Entry (Out-of-Distribution Mean Reversion):**
+   - Price moves beyond 2 standard deviations from the mean (e.g., above the upper Bollinger Band or below the lower band).
+   - RSI is in overbought (above 70) or oversold (below 30) territory.
+   - Volume shows signs of exhaustion (e.g., declining volume during the overextension).
+
+---
+
+### Exit Rules:
+1. **Long Exit:**
+   - Take profit when price reaches the next resistance level or the upper Bollinger Band.
+   - Exit if RSI moves into overbought territory (above 70) or if price closes below the breakout level.
+
+2. **Short Exit:**
+   - Take profit when price reverts to the mean (e.g., middle Bollinger Band or moving average).
+   - Exit if RSI moves out of overbought/oversold territory or if price breaks above/below the recent high/low.
+
+---
+
+### Risk Management:
+1. **Position Sizing:**
+   - Risk no more than 1-2% of the trading capital per trade.
+   - Adjust position size based on the distance to the stop-loss level.
+
+2. **Stop-Loss Placement:**
+   - For longs, place the stop-loss below the breakout level or the lower Bollinger Band.
+   - For shorts, place the stop-loss above the recent high or the upper Bollinger Band.
+
+3. **Risk-Reward Ratio:**
+   - Aim for a minimum risk-reward ratio of 1:2 for both long and short trades.
+
+---
+
+### Required Indicators:
+1. **Bollinger Bands (20-period, 2 standard deviations):**
+   - Defines in-distribution and out-of-distribution price levels.
+
+2. **Relative Strength Index (RSI, 14-period):**
+   - Identifies overbought/oversold conditions and confirms momentum strength.
+
+3. **Volume Indicator:**
+   - Confirms breakout strength or exhaustion during overextensions.
+
+4. **Moving Average (50-period):**
+   - Acts as a dynamic support/resistance level and mean reversion target.
+
+---
+
+The DistributionReversal strategy is ideal for traders who want to capitalize on both momentum and mean reversion opportunities while maintaining a disciplined risk management framework. By focusing on statistical distribution analysis, this strategy provides a systematic approach to identifying high-probability setups in trending and ranging markets.

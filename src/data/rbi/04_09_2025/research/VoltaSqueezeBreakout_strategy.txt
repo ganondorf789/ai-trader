@@ -1,0 +1,44 @@
+STRATEGY_NAME: VoltaSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction with explosive breakout signals, using a multi-indicator confirmation system for high-probability entries.
+
+Key Components:
+1. Volatility Filter: Bollinger Bandwidth (20,2) in lowest 10th percentile indicates extreme contraction
+2. Channel Confirmation: Keltner Channel (20,1.5) provides secondary volatility reference
+3. Volume Surge: 2x 20-period average volume confirms breakout validity
+
+Entry Rules (Long):
+1. Bollinger Bandwidth(20,2) < 10th percentile (extreme squeeze)
+2. Price closes ABOVE upper Bollinger Band
+3. Volume exceeds 2x 20-period average
+4. Keltner Channel trending upward (optional confirmation)
+
+Entry Rules (Short):
+1. Bollinger Bandwidth(20,2) < 10th percentile 
+2. Price closes BELOW lower Bollinger Band  
+3. Volume exceeds 2x 20-period average
+4. Keltner Channel trending downward (optional confirmation)
+
+Exit Rules:
+1. Trailing stop: Close beyond opposite Bollinger Band
+2. Time-based: Exit after 5 bars if no continuation
+3. Profit target: 2x recent Average True Range (14)
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Initial stop: Opposite Bollinger Band or 1.5x ATR
+3. Maximum daily loss limit: 5% of account
+
+Required Indicators:
+1. Bollinger Bands (20,2) + Bandwidth calculation
+2. Keltner Channel (20,1.5)
+3. Volume average (20 period)
+4. ATR (14) for risk sizing
+
+Optimization Notes:
+- Test different percentile thresholds (5-15%)
+- Adjust volume multiplier (1.5x-3x)
+- Experiment with channel periods (14-30)
+
+This strategy capitalizes on the explosive moves following periods of extreme volatility compression, with volume confirmation reducing false breakouts. The multi-indicator approach provides layered confirmation for higher probability trades.

@@ -1,0 +1,53 @@
+STRATEGY_NAME: FractalDivergence
+
+STRATEGY_DETAILS:
+The FractalDivergence strategy combines fractal pattern analysis with RSI divergence to identify high-probability trend-following opportunities. This approach focuses on detecting emerging trends early while filtering out false signals using momentum confirmation.
+
+### Key Components:
+1. **Fractal Patterns**: Identifies key support/resistance levels and potential trend reversals
+2. **RSI Divergence**: Confirms momentum shifts in alignment with fractal signals
+3. **Trend Confirmation**: Uses price action and moving averages to validate the trend direction
+
+### Required Indicators:
+1. Fractal Indicator (standard MT4/MT5 or TradingView)
+2. RSI (14-period default)
+3. 50-period EMA (Exponential Moving Average)
+
+### Entry Rules:
+1. **Bullish Setup**:
+   - Price forms a bullish fractal (higher low pattern)
+   - RSI shows bullish divergence (price makes lower low while RSI makes higher low)
+   - Price breaks above the fractal resistance level
+   - EMA(50) is sloping upward
+   - Enter long on close of breakout candle
+
+2. **Bearish Setup**:
+   - Price forms a bearish fractal (lower high pattern)
+   - RSI shows bearish divergence (price makes higher high while RSI makes lower high)
+   - Price breaks below the fractal support level
+   - EMA(50) is sloping downward
+   - Enter short on close of breakout candle
+
+### Exit Rules:
+1. **Take Profit**:
+   - Use 2:1 risk-reward ratio
+   - Exit at nearest significant support/resistance level
+   - Trail stop using fractal levels as price moves in your favor
+
+2. **Stop Loss**:
+   - Place stop loss below the most recent fractal low (for longs) or above the most recent fractal high (for shorts)
+   - Ensure stop loss is at least 1.5x the average true range (ATR) of the last 14 periods
+
+### Risk Management:
+1. Risk no more than 1-2% of account balance per trade
+2. Use position sizing based on stop loss distance
+3. Avoid trading during major news events or low liquidity periods
+4. Only trade when RSI is between 30-70 (avoid overbought/oversold extremes)
+
+### Additional Notes:
+- Best timeframes: 1H, 4H, Daily
+- Works well in trending markets, avoid ranging conditions
+- Combine with volume analysis for additional confirmation
+- Backtest on multiple currency pairs to identify optimal settings
+
+This strategy provides a systematic approach to trend following while incorporating momentum confirmation through RSI divergence and fractal patterns, making it particularly effective in capturing early trend movements with reduced false signals.

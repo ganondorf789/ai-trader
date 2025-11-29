@@ -1,0 +1,46 @@
+STRATEGY_NAME: LiquidationDivergence
+
+STRATEGY_DETAILS:
+This is a sophisticated contrarian strategy that combines liquidation cluster analysis with cross-exchange funding rate divergence to identify high-probability reversal points. The strategy operates on the principle that concentrated liquidity zones become dynamic support/resistance levels, and extreme funding rate disparities signal potential market exhaustion.
+
+Key Components:
+1. Dynamic Liquidation Heatmap: 
+   - Tracks cumulative liquidation clusters across timeframes
+   - Identifies high-density zones that act as strong support/resistance
+   - Adjusts levels based on recent market volatility (ATR-based scaling)
+
+2. Cross-Exchange Funding Divergence:
+   - Monitors funding rates across 3+ major exchanges
+   - Requires minimum 2 standard deviation spread between highest and lowest funding
+   - Confirms with volume-weighted average funding rate crossing threshold
+
+Entry Rules (Long Example):
+1. Price must breach lower liquidation cluster boundary (support)
+2. Concurrent funding rate divergence spike (minimum 2σ spread)
+3. Volume confirmation (minimum 1.5x 20-period average)
+4. Entry on close of first candle showing rejection of breached level
+
+Exit Rules:
+1. Take-profit at next significant liquidation cluster (1:2 RR minimum)
+2. Stop-loss placed beyond opposite side of breached cluster
+3. Emergency exit if funding divergence collapses below 1σ spread
+
+Risk Management:
+1. Position sizing based on cluster density (higher density = larger position)
+2. Maximum 2% risk per trade
+3. Daily loss limit of 5%
+4. Cooling period after 3 consecutive losses
+
+Required Indicators:
+1. Liquidation heatmap (cluster density analyzer)
+2. Multi-exchange funding rate monitor
+3. Volume oscillator (for confirmation)
+4. Volatility-adjusted ATR (for dynamic level scaling)
+
+Optimization Notes:
+- Best performance on 4h-1d timeframes
+- Requires liquid markets with robust funding rate data
+- Most effective during high volatility regimes
+- Backtest across multiple market cycles for validation
+
+This strategy capitalizes on the market's tendency to overextend beyond liquidation clusters when funding becomes unsustainable, creating high-probability mean-reversion opportunities. The cross-exchange confirmation filter helps avoid false signals from single-exchange anomalies.

@@ -1,0 +1,57 @@
+STRATEGY_NAME: VolumeBoundary
+
+STRATEGY_DETAILS:
+The VolumeBoundary strategy focuses on identifying market consolidation phases and executing trades based on volume and price action dynamics. Here’s a detailed breakdown of the strategy:
+
+### Key Strategy Components:
+1. **Consolidation Identification**: 
+   - Identify periods where the market is consolidating by observing price action within a defined range (upper and lower bands).
+   - Use relative volume analysis to confirm consolidation phases. During consolidation, volume typically decreases compared to trending periods.
+
+2. **Volume Analysis**:
+   - Calculate the average volume during the consolidation period.
+   - Monitor for significant deviations in volume, particularly when volume drops below the average, signaling potential exhaustion of the consolidation phase.
+
+3. **Price Action**:
+   - Use the upper and lower bands of the consolidation range as key levels for trade entries and exits.
+
+### Entry Rules:
+- **Long Entry**: 
+  - Enter a long position when the price candle touches or breaches the lower band of the consolidation range.
+  - Confirm the entry with a relative volume check to ensure volume is not significantly lower than the average during consolidation.
+
+- **Short Entry**: 
+  - Enter a short position when the price candle touches or breaches the upper band of the consolidation range.
+  - Confirm the entry with a relative volume check to ensure volume is not significantly lower than the average during consolidation.
+
+### Exit Rules:
+- **Long Exit**: 
+  - Close the long position when the volume is significantly lower than the average volume during the consolidation period, indicating potential exhaustion of the move.
+  - Alternatively, exit when the price reaches the upper band of the consolidation range.
+
+- **Short Exit**: 
+  - Close the short position when the volume is significantly lower than the average volume during the consolidation period, indicating potential exhaustion of the move.
+  - Alternatively, exit when the price reaches the lower band of the consolidation range.
+
+### Risk Management:
+- **Stop Loss**: 
+  - Place a stop loss just outside the consolidation range (e.g., a few pips above the upper band for short positions or below the lower band for long positions).
+  
+- **Position Sizing**: 
+  - Use a fixed percentage of the account balance per trade (e.g., 1-2%) to manage risk.
+
+- **Risk-Reward Ratio**: 
+  - Aim for a minimum risk-reward ratio of 1:2, ensuring that potential profits outweigh potential losses.
+
+### Required Indicators:
+1. **Volume Indicator**: 
+   - To measure relative volume and compare it to the average volume during consolidation.
+
+2. **Price Bands**: 
+   - Use Bollinger Bands or a similar indicator to define the upper and lower boundaries of the consolidation range.
+
+3. **Moving Average (Optional)**: 
+   - A simple moving average (SMA) can be used to confirm the overall trend direction, though the primary focus is on the consolidation phase.
+
+### Summary:
+The VolumeBoundary strategy is designed to capitalize on market consolidation phases by using volume and price action as key indicators. By entering trades at the boundaries of the consolidation range and exiting on volume exhaustion signals, the strategy aims to capture small, consistent profits while managing risk effectively. The use of relative volume ensures that trades are only taken when the market conditions are favorable, reducing the likelihood of false breakouts.

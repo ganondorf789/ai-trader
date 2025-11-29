@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolumetricBand
+
+STRATEGY_DETAILS:
+The VolumetricBand strategy combines Bollinger Band breakouts with volume confirmation and VWAP trend alignment for high-probability trades. This approach filters false breakouts by requiring three simultaneous confirmations: price action, volume surge, and underlying trend confirmation.
+
+Key Components:
+1. Bollinger Bands (20,2) - Identifies potential breakout levels
+2. VWAP - Confirms underlying trend direction
+3. Volume (20-day average) - Filters for meaningful breakouts
+4. Price-VWAP relationship - Provides exit signals
+
+Long Entry Rules:
+1. Price must close above upper Bollinger Band
+2. VWAP slope must be upward (current VWAP > previous period VWAP)
+3. Current volume must be 50% greater than 20-day average volume
+4. All three conditions must occur simultaneously
+
+Short Entry Rules (inverse):
+1. Price must close below lower Bollinger Band
+2. VWAP slope must be downward (current VWAP < previous period VWAP)
+3. Current volume must be 50% greater than 20-day average volume
+4. All three conditions must occur simultaneously
+
+Exit Rules:
+- Long positions exit when price crosses below VWAP
+- Short positions exit when price crosses above VWAP
+
+Risk Management:
+1. Initial stop-loss placed at opposite Bollinger Band
+2. Position sizing based on 1-2% risk per trade
+3. No new entries if account drawdown exceeds 5% in a day
+4. Maximum 3 concurrent positions
+
+Required Indicators:
+1. Bollinger Bands (20 periods, 2 standard deviations)
+2. Volume Weighted Average Price (VWAP)
+3. Volume (20-day simple moving average)
+
+Optimization Notes:
+- Test different Bollinger Band periods (14-26) and deviations (1.8-2.2)
+- Adjust volume surge threshold (40-60%) based on instrument volatility
+- Consider adding RSI filter (e.g., >50 for longs, <50 for shorts) for additional confirmation
+
+This strategy works best in trending markets and requires strict discipline to wait for all three confirmation signals before entering trades. The volume filter helps avoid false breakouts while the VWAP alignment ensures trades are taken with the underlying trend.

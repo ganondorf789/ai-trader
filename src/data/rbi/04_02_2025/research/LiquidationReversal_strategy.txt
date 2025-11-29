@@ -1,0 +1,35 @@
+STRATEGY_NAME: LiquidationReversal  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Liquidation Heatmaps:** Identifies high liquidation zones where price is likely to reverse due to forced liquidations.  
+2. **On-Balance Volume (OBV) Divergence:** Confirms reversal signals when price approaches liquidation zones while OBV shows divergence (e.g., price makes a higher high but OBV makes a lower high).  
+3. **Keltner Channel Exits:** Uses volatility-adjusted Keltner Channels to determine exit points, ensuring trades are closed before momentum shifts.  
+
+**Entry Rules:**  
+- **Signal:** Price approaches a high liquidation zone (from heatmap data).  
+- **Confirmation:** OBV shows divergence (bearish divergence for short entries, bullish divergence for long entries).  
+- **Action:** Enter trade in the direction of the reversal (short if bearish divergence, long if bullish divergence).  
+
+**Exit Rules:**  
+- **Primary Exit:** Close position when price breaches the opposite Keltner Channel band (upper band for shorts, lower band for longs).  
+- **Volatility Adjustment:** Keltner Channel width is dynamically adjusted based on recent ATR (Average True Range) or similar volatility metrics.  
+- **Stop-Loss:** Place stop-loss just beyond the liquidation zone to avoid false breakouts.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Stop-Loss:** Tight stop-loss beyond the liquidation zone to limit downside.  
+- **Volatility Filter:** Avoid trading if recent volatility exceeds a predefined threshold (e.g., ATR spike).  
+
+**Required Indicators:**  
+1. Liquidation Heatmap (from exchange or third-party data).  
+2. On-Balance Volume (OBV).  
+3. Keltner Channel (adjusted by ATR or volatility metric).  
+4. Optional: ATR for volatility filtering.  
+
+**Notes:**  
+- Works best in high-liquidity markets with clear liquidation zones.  
+- Avoid using during low-liquidity periods or major news events.  
+- Backtest to optimize Keltner Channel parameters (e.g., multiplier, lookback period).  
+
+This strategy capitalizes on forced liquidations while using OBV divergence and volatility-adjusted exits to improve accuracy.

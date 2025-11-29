@@ -1,0 +1,39 @@
+STRATEGY_NAME: LiquidityReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **24-Hour High/Low Breach:** The strategy focuses on price breaking the highest or lowest point of the last 24 hours, indicating a potential extreme in market movement.  
+2. **Volume Spike (200%+):** A significant surge in trading volume (at least double the average) confirms strong participation, increasing the likelihood of a reversal.  
+3. **RSI Divergence:** The Relative Strength Index (RSI) must show divergence (price makes a new high/low but RSI does not), signaling weakening momentum.  
+4. **Liquidity Gap Targeting:** The strategy aims for clustered stop-loss levels (liquidity pools) beyond recent highs/lows, where price often reverses due to order flow imbalances.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Price breaches the 24-hour low.  
+  - Volume spikes ≥200% above recent average.  
+  - RSI shows bullish divergence (price makes lower low, RSI makes higher low).  
+  - Enter on a confirming candle (e.g., bullish engulfing or hammer) near the liquidity zone.  
+
+- **Short Entry:**  
+  - Price breaches the 24-hour high.  
+  - Volume spikes ≥200% above recent average.  
+  - RSI shows bearish divergence (price makes higher high, RSI makes lower high).  
+  - Enter on a confirming candle (e.g., bearish engulfing or shooting star) near the liquidity zone.  
+
+**Exit Rules:**  
+- **Take Profit:** Target the nearest liquidity gap (identified via order book analysis or recent swing highs/lows where stop clusters are likely).  
+- **Stop Loss:** Place below the recent swing low (for longs) or above the recent swing high (for shorts), ensuring a favorable risk-reward ratio (minimum 1:2).  
+
+**Risk Management:**  
+- Position size should not exceed 1-2% of capital per trade.  
+- Avoid trading during low-liquidity periods (e.g., holidays, overnight sessions).  
+- Filter trades with high volatility (e.g., ATR > recent average) to avoid false breakouts.  
+
+**Required Indicators:**  
+1. **24-Hour High/Low:** Tracked via price action or custom indicator.  
+2. **Volume Spike:** Compare current volume to a 20-period moving average.  
+3. **RSI (14-period):** Set to standard settings, watch for divergence.  
+4. **Order Flow Tools (optional):** Depth of Market (DOM) or footprint charts to identify liquidity gaps.  
+
+**Unique Edge:** This strategy exploits institutional stop hunts and retail trader overreactions, combining volume confirmation, RSI divergence, and liquidity-based targets for high-probability reversals.

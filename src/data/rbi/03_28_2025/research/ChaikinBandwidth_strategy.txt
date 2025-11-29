@@ -1,0 +1,39 @@
+STRATEGY_NAME: ChaikinBandwidth  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chaikin Oscillator**: Measures accumulation/distribution by combining price and volume to identify trend strength and potential reversals.  
+2. **Bollinger Bandwidth**: Tracks volatility contraction/expansion by measuring the width between Bollinger Bands.  
+3. **Divergence Analysis**: Identifies discrepancies between price action (via Bollinger Bandwidth) and volume flow (via Chaikin Oscillator) to spot trend shifts.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  - Chaikin Oscillator shows bullish divergence (higher lows while price makes lower lows).  
+  - Bollinger Bandwidth contracts significantly (volatility squeeze).  
+  - Price closes above the middle Bollinger Band (20-period SMA) for confirmation.  
+- **Short Entry**:  
+  - Chaikin Oscillator shows bearish divergence (lower highs while price makes higher highs).  
+  - Bollinger Bandwidth contracts significantly (volatility squeeze).  
+  - Price closes below the middle Bollinger Band (20-period SMA) for confirmation.  
+
+**Exit Rules:**  
+- **Take Profit**:  
+  - Close trade when Bollinger Bandwidth expands beyond a threshold (e.g., 1.5x the entry width).  
+  - Chaikin Oscillator crosses zero in the opposite direction (e.g., long exit when it turns negative).  
+- **Stop Loss**:  
+  - For longs: Below the recent swing low or lower Bollinger Band.  
+  - For shorts: Above the recent swing high or upper Bollinger Band.  
+
+**Risk Management:**  
+- Position sizing: Risk no more than 1-2% of capital per trade.  
+- Stop loss must be placed immediately after entry.  
+- Avoid trading during major news events to prevent false volatility signals.  
+
+**Required Indicators:**  
+1. Chaikin Oscillator (default settings: 3-day EMA of ADL, 10-day EMA of ADL).  
+2. Bollinger Bands (20-period SMA, 2 standard deviations).  
+3. Bollinger Bandwidth (calculated as: (Upper Band - Lower Band) / Middle Band).  
+
+**Unique Edge:**  
+This strategy combines volume-based accumulation/distribution (Chaikin) with volatility cycles (Bollinger) to filter high-probability reversals during low-volatility phases, reducing false signals from pure price action.

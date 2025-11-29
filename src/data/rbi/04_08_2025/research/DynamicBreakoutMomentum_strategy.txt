@@ -1,0 +1,32 @@
+STRATEGY_NAME: DynamicBreakoutMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Confirmation:** The strategy uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) to confirm a bullish trend.  
+2. **Momentum Strength:** The ADX (Average Directional Index) must rise above 25 to ensure strong trending conditions.  
+3. **Breakout Entry:** Trades are initiated on breakouts, typically when price moves above a recent high or resistance level.  
+4. **Exit Signals:** Exits are triggered either by a trailing stop-loss (2x ATR) or when the 5-period RSI exceeds 70, indicating overbought conditions.  
+
+**Entry Rules:**  
+1. Wait for the 50-period EMA to cross above the 200-period EMA (Golden Cross).  
+2. Confirm that the ADX is rising and above 25, indicating strong trend momentum.  
+3. Enter a long position on a breakout (e.g., price surpassing a recent high or resistance level).  
+
+**Exit Rules:**  
+1. **Stop-Loss:** Set a trailing stop-loss at 2x the current ATR (Average True Range) to account for volatility.  
+2. **Profit-Taking:** Exit the trade if the 5-period RSI exceeds 70, signaling overbought conditions.  
+
+**Risk Management:**  
+1. **Position Sizing:** Adjust position size based on the ATR to ensure risk per trade is controlled (e.g., 1-2% of capital).  
+2. **Volatility Adjustment:** The 2x ATR stop-loss dynamically adapts to market conditions, widening in high volatility and tightening in low volatility.  
+3. **Trend Filter:** The EMA crossover and ADX > 25 act as filters to avoid false breakouts in weak trends.  
+
+**Required Indicators:**  
+1. **50-period EMA** (Exponential Moving Average)  
+2. **200-period EMA** (Exponential Moving Average)  
+3. **ADX (14-period)** with threshold at 25  
+4. **ATR (14-period)** for stop-loss calculation  
+5. **5-period RSI** for overbought exit signals  
+
+This strategy combines trend confirmation, momentum strength, and volatility-based exits to capitalize on high-probability breakout trades while managing risk effectively. The name "DynamicBreakoutMomentum" reflects its adaptive nature (Dynamic), focus on breakouts (Breakout), and reliance on momentum (Momentum) through the ADX and EMA cross.

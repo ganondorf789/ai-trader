@@ -1,0 +1,27 @@
+STRATEGY_NAME: MomentumOscillator
+
+STRATEGY_DETAILS:
+
+This strategy, called MomentumOscillator, focuses on using the Relative Strength Index (RSI) as a momentum indicator rather than an overbought/oversold oscillator. The main components of this strategy are:
+
+1. Key strategy components:
+- RSI indicator with a 14-period setting
+- Moving averages (preferably 200-period) for trend identification
+
+2. Entry rules:
+- Enter a short position when the RSI is below the 50-line and moving downwards, indicating a downtrend
+- Enter a long position when the RSI is above the 50-line and moving upwards, indicating an uptrend
+
+3. Exit rules:
+- Exit the short position when the RSI crosses above the 50-line, indicating an uptrend
+- Exit the long position when the RSI crosses below the 50-line, indicating a downtrend
+
+4. Risk management:
+- Set stop-loss levels based on support and resistance levels or the recent price action
+- Adjust position size according to your risk tolerance and the volatility of the asset
+
+5. Required indicators:
+- Relative Strength Index (RSI) with a 14-period setting
+- Moving averages (200-period recommended)
+
+The MomentumOscillator strategy emphasizes using the RSI as a momentum indicator instead of the traditional overbought/oversold levels at 70 and 30. By removing these levels and focusing on the direction of the RSI, this strategy aims to avoid false signals and improve trading performance.

@@ -1,0 +1,35 @@
+STRATEGY_NAME: DivergentVwap
+
+STRATEGY_DETAILS:
+The DivergentVwap strategy combines Stochastic Oscillator (SO), Volume Weighted Average Price (VWAP), and Relative Strength Index (RSI) to identify high-probability long entries during oversold conditions with confirmation from volume-weighted price action. The strategy focuses on divergence patterns and uses RSI as an exit signal.
+
+Key Components:
+1. Stochastic Oscillator (SO): Identifies oversold conditions (below 20) and divergence from price action.
+2. Volume Weighted Average Price (VWAP): Confirms the trend direction with volume-weighted price movement.
+3. Relative Strength Index (RSI): Used as an exit signal when approaching 30.
+
+Entry Rules:
+1. Wait for Stochastic Oscillator (SO) to drop below 20, indicating oversold conditions.
+2. Confirm divergence between price action and SO (price making lower lows while SO makes higher lows).
+3. Ensure VWAP is moving upward, confirming bullish momentum with volume support.
+4. Enter a long position when all conditions align.
+
+Exit Rules:
+1. Monitor RSI as the trade progresses.
+2. Close the position when RSI approaches 30, indicating potential overbought conditions or weakening momentum.
+
+Risk Management:
+1. Set a stop-loss below the recent swing low or a fixed percentage (e.g., 1-2%) to limit downside risk.
+2. Use a trailing stop to lock in profits as the trade moves in your favor.
+3. Avoid over-leveraging; maintain a risk-reward ratio of at least 1:2.
+
+Required Indicators:
+1. Stochastic Oscillator (SO): Default settings (14,3,3).
+2. Volume Weighted Average Price (VWAP): Standard calculation.
+3. Relative Strength Index (RSI): Default setting (14).
+4. Price chart for divergence analysis.
+
+Additional Notes:
+- This strategy works best in trending or range-bound markets.
+- Avoid using it during high volatility or news events, as false signals may occur.
+- Backtest the strategy on historical data to optimize parameters and confirm its effectiveness in your chosen market.

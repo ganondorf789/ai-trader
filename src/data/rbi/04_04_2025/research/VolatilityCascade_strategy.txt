@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityCascade  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Market Condition:** Focuses on high perpetual futures funding rates, indicating excessive leverage and potential for short squeezes or liquidation cascades.  
+2. **Technical Indicators:**  
+   - **50-period SMA:** Acts as a dynamic resistance/support level.  
+   - **Bollinger Band Width Expansion:** Signals increasing volatility, often preceding sharp moves.  
+3. **Price Action:** Targets breakdowns below the 50 SMA, confirming bearish momentum.  
+4. **Liquidation Cascades:** Identifies key support levels where forced liquidations may accelerate downward moves.  
+
+**Entry Rules:**  
+1. **Trigger:** Price breaks below the 50-period SMA.  
+2. **Confirmation:** Bollinger Band width expands (volatility spike).  
+3. **Context:** Perpetual funding rates are elevated (e.g., >0.01% per 8h), suggesting overcrowded longs.  
+4. **Execution:** Enter short on a retest of the 50 SMA as resistance or breakdown continuation.  
+
+**Exit Rules:**  
+1. **Profit Target:** Near identified liquidation cascade support levels (e.g., previous swing lows or high-volume nodes).  
+2. **Stop-Loss:** Above recent swing high or Bollinger Band upper band to limit risk.  
+3. **Early Exit:** Funding rates normalize sharply (indicating short-covering risk).  
+
+**Risk Management:**  
+1. **Position Size:** Risk ≤1-2% of capital per trade.  
+2. **Stop Placement:** Dynamic—adjusts with volatility (e.g., 1.5x recent ATR).  
+3. **Avoid Overexposure:** Skip trades if multiple conflicting signals (e.g., funding high but RSI oversold).  
+
+**Required Indicators:**  
+1. 50-period Simple Moving Average (SMA).  
+2. Bollinger Bands (20-period, 2 StdDev) + Width metric.  
+3. Perpetual funding rate data (exchange-specific).  
+4. Optional: ATR (14-period) for stop calibration, liquidation heatmaps (if available).  
+
+**Unique Edge:** Combines derivatives sentiment (funding rates) with volatility expansion and liquidation-driven price action, targeting high-probability breakdowns.

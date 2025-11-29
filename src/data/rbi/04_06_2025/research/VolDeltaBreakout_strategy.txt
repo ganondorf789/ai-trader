@@ -1,0 +1,47 @@
+STRATEGY_NAME: VolDeltaBreakout
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Volatility-adjusted VWAP envelope (VWAP ± 2x ATR) forms the core trading range
+- Volume delta (buying vs selling pressure) acts as confirmation filter
+- Breakout trades only trigger when both price and volume conditions are met
+- Mean-reversion exit logic based on VWAP
+
+2. Entry Rules:
+- Long Entry:
+  * Price closes ABOVE upper VWAP envelope (VWAP + 2ATR)
+  * Volume delta shows significant buying surge (minimum +25% vs 20-period average)
+  * Entry on next candle open after confirmation
+
+- Short Entry:
+  * Price closes BELOW lower VWAP envelope (VWAP - 2ATR)
+  * Volume delta shows significant selling surge (minimum -25% vs 20-period average)
+  * Entry on next candle open after confirmation
+
+3. Exit Rules:
+- Long Exit:
+  * Price crosses back below VWAP line
+  * OR price touches lower VWAP envelope (VWAP - 2ATR)
+
+- Short Exit:
+  * Price crosses back above VWAP line
+  * OR price touches upper VWAP envelope (VWAP + 2ATR)
+
+4. Risk Management:
+- Position sizing: 1-2% risk per trade
+- Stop loss placed at opposite envelope boundary (for long: VWAP - 2ATR, for short: VWAP + 2ATR)
+- Time-based exit if trade doesn't develop within 3 bars
+- No new entries if 3 consecutive losing trades occur
+
+5. Required Indicators:
+- VWAP (Volume Weighted Average Price)
+- ATR (14-period recommended)
+- Volume delta indicator (buy volume - sell volume)
+- 20-period moving average of volume delta for comparison
+
+6. Additional Notes:
+- Best suited for 15min-4hr timeframes
+- Works well in trending markets, avoid ranging conditions
+- Volume delta confirmation reduces false breakouts
+- VWAP acts as dynamic profit target and stop level
+- ATR multiple can be adjusted based on market volatility (1.5-3x)

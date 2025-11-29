@@ -1,0 +1,47 @@
+STRATEGY_NAME: ChannelMomentumBreakout
+
+STRATEGY_DETAILS:
+This strategy combines momentum confirmation with volatility contraction to identify high-probability breakout opportunities. The key components work together to filter trades during optimal market conditions when volatility is compressing before an expansion.
+
+Key Components:
+1. Keltner Channels (20-period, 2xATR) - Identifies volatility contraction when channels narrow
+2. Chande Momentum Oscillator (14-period) - Measures trend strength and momentum
+3. Signal Line (9-period SMA of CMO) - Provides crossover signals
+4. Volume Filter (20-day SMA) - Confirms breakout participation
+
+Entry Rules:
+LONG ENTRY:
+- Keltner Channels show visible narrowing pattern
+- CMO crosses ABOVE its signal line
+- Current volume exceeds 20-day average volume
+- Price closes above upper Keltner Channel
+
+SHORT ENTRY:
+- Keltner Channels show visible narrowing pattern
+- CMO crosses BELOW its signal line
+- Current volume exceeds 20-day average volume
+- Price closes below lower Keltner Channel
+
+Exit Rules:
+- Take Profit: When Keltner Channels begin expanding significantly (visual assessment)
+- Stop Loss: Opposite Keltner Channel line (upper for shorts, lower for longs)
+- Emergency Exit: When CMO crosses back over signal line in opposite direction
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop loss mandatory on all positions
+3. Avoid trading during major news events when false breakouts are common
+4. Only trade when all conditions align (no partial entries)
+
+Required Indicators:
+1. Keltner Channels (20-period EMA, 2xATR multiplier)
+2. Chande Momentum Oscillator (14-period)
+3. SMA (9-period) for CMO signal line
+4. Volume with 20-period SMA overlay
+
+Optimization Notes:
+- Adjust ATR multiplier for Keltner Channels based on instrument volatility
+- Test different CMO periods (14 is default) for various timeframes
+- Volume filter can be adjusted to 10-30 day average depending on trading frequency
+
+This strategy works best on 1-hour or 4-hour charts for swing trading, and requires patience to wait for the ideal volatility contraction setup before entries. The combination of momentum confirmation with volume-filtered breakouts provides a robust framework for catching meaningful moves while avoiding false breakouts.

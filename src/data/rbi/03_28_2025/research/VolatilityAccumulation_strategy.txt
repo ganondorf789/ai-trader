@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolatilityAccumulation
+
+STRATEGY_DETAILS:
+Key Components:
+1. Volatility Measurement: Uses 2 standard deviations of historical volatility to identify extreme price drops
+2. Accumulation Detection: Requires On-Balance Volume (OBV) to confirm accumulation during price drops
+3. Mean Reversion: Exits positions when price returns to mean volatility levels
+
+Entry Rules:
+1. Trigger Condition: 3-day percentage price drop must exceed 2 standard deviations of historical volatility (20-day lookback period recommended)
+2. Confirmation: OBV must show accumulation (rising OBV during price drop)
+3. Entry Execution: Enter long position at market price when both conditions are met
+
+Exit Rules:
+1. Primary Exit: When price returns to mean volatility levels (calculated as 0 standard deviations from the mean)
+2. Secondary Exit: If OBV starts declining while position is open
+3. Time-based Exit: Close position after 5 trading days if no exit signal triggers
+
+Risk Management:
+1. Position Sizing: Risk no more than 1-2% of capital per trade
+2. Stop Loss: Set at 1.5 times the 3-day price drop that triggered entry
+3. Volatility Filter: Only trade when 20-day historical volatility is above its 50-day moving average (to avoid low-volatility traps)
+
+Required Indicators:
+1. Standard Deviation (20-day period) for volatility measurement
+2. On-Balance Volume (OBV) for accumulation confirmation
+3. Simple Moving Average (50-day) of volatility as filter
+
+Optimization Notes:
+1. Test different lookback periods for volatility (14-30 days)
+2. Experiment with standard deviation thresholds (1.8-2.2)
+3. Consider adding RSI filter (e.g., require RSI < 30) for additional oversold confirmation
+
+This strategy combines statistical volatility extremes with volume confirmation, targeting oversold conditions where institutional accumulation is occurring while maintaining strict volatility-based exits.

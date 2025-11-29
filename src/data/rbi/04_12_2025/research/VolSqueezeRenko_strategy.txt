@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolSqueezeRenko  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Contraction:** Uses Bollinger Bandwidth (BBW) to identify periods of low volatility when the bandwidth falls below a historical percentile (e.g., 20th percentile).  
+2. **Volume Imbalance Surge:** Monitors TICK volume imbalance (buying vs. selling pressure) for a sudden spike, confirming potential breakout momentum.  
+3. **Renko Brick Reversal:** Requires a breakout confirmation via a Renko brick reversal (e.g., a green brick after a squeeze) to filter false breakouts.  
+
+**Entry Rules:**  
+- **Condition 1:** BBW contracts below its 20th percentile (indicating a volatility squeeze).  
+- **Condition 2:** TICK volume imbalance surges above a predefined threshold (e.g., +500 or -500 for extreme buying/selling pressure).  
+- **Condition 3:** A Renko brick reversal occurs in the direction of the breakout (e.g., a bullish reversal brick after a squeeze).  
+- **Entry:** Go long/short on the close of the confirming Renko brick.  
+
+**Exit Rules:**  
+- **Take Profit:** Use a multiple of the recent ATR (e.g., 2x ATR) or a fixed percentage target.  
+- **Stop Loss:** Place below the recent swing low (long) or above the swing high (short) on the Renko chart.  
+- **Trailing Stop:** Optional – trail using a percentage or Renko brick reversal in the opposite direction.  
+
+**Risk Management:**  
+- Position size based on a fixed % of capital (e.g., 1-2% risk per trade).  
+- Stop loss is mandatory and should be adjusted based on Renko brick size to avoid whipsaws.  
+- Avoid trading during major news events to prevent erratic TICK spikes.  
+
+**Required Indicators:**  
+1. Bollinger Bands (for BBW calculation).  
+2. TICK volume imbalance data (NYSE TICK or similar).  
+3. Renko chart with adjustable brick size (e.g., ATR-based).  
+4. ATR (for profit target sizing).  
+
+**Unique Aspects:**  
+- Combines volatility compression, volume imbalance, and Renko’s noise-filtering properties.  
+- Renko confirmation reduces false breakouts common in traditional squeeze strategies.  
+- TICK surge adds momentum confirmation, improving breakout reliability.  
+
+**Note:** Backtest optimal BBW percentile threshold, TICK imbalance levels, and Renko brick size for the traded instrument.

@@ -1,0 +1,36 @@
+STRATEGY_NAME: ContrarianVolt  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Contrarian Approach:** The strategy capitalizes on extreme bearish sentiment by taking long positions when the market is oversold.  
+2. **Chande Momentum Oscillator (CMO):** A momentum indicator used to identify oversold conditions when it crosses below -50.  
+3. **Negative Funding Rates:** A spike in negative funding rates signals excessive short positioning, reinforcing the contrarian signal.  
+4. **Volatility Band Exit:** The 20-period volatility band (likely Bollinger Bands or Keltner Channels) acts as a dynamic exit point for profit-taking.  
+
+**Entry Rules:**  
+1. **Trigger Condition:** Enter a long position when:  
+   - The Chande Momentum Oscillator (CMO) crosses below -50 (oversold condition).  
+   - There is a concurrent spike in negative funding rates (indicating extreme bearish sentiment).  
+2. **Confirmation:** Ensure price is not in a strong downtrend (e.g., check if the 50-period moving average is not sloping downward sharply).  
+
+**Exit Rules:**  
+1. **Profit-Taking:** Exit the trade when price retraces to the upper 20-period volatility band (e.g., Bollinger Band upper band or Keltner Channel upper line).  
+2. **Stop-Loss:** Place a stop-loss below the recent swing low or a fixed percentage (e.g., 2-3%) to limit downside risk.  
+
+**Risk Management:**  
+1. **Position Sizing:** Use conservative position sizing (e.g., 1-2% of capital per trade) due to the high volatility of contrarian plays.  
+2. **Stop-Loss Discipline:** Strictly adhere to stop-loss levels to avoid large drawdowns.  
+3. **Avoid Overleveraging:** Given the mean-reversion nature, excessive leverage can lead to quick liquidation.  
+
+**Required Indicators:**  
+1. **Chande Momentum Oscillator (CMO):** Default settings (typically 14-period).  
+2. **Funding Rate Data:** Real-time or historical funding rates from the exchange.  
+3. **Volatility Bands:** 20-period Bollinger Bands (2 standard deviations) or Keltner Channels (1.5 ATR multiplier).  
+
+**Additional Notes:**  
+- This strategy works best in ranging or moderately trending markets but may fail in strong bearish trends.  
+- Backtest across multiple assets to validate robustness, as funding rate dynamics vary by market.  
+- Combine with volume analysis to confirm capitulation (e.g., high volume during CMO breakdown).  
+
+The name "ContrarianVolt" reflects the strategy’s core: a contrarian play ("Contrarian") combined with volatility-based exits ("Volt" for volatility bands).

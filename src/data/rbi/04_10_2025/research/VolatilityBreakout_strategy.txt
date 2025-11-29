@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilityBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Contraction Signal:** Uses the 10-day ATR dropping below its 20-day average to identify periods of reduced volatility, often preceding significant breakouts.  
+2. **Breakout Confirmation:** Requires price to break the 20-day Donchian Channel high, ensuring the breakout is statistically significant.  
+3. **Volume Filter:** Entry is only valid if volume is at least 20% above the average volume, confirming strong participation in the breakout.  
+4. **Trailing Exit:** Uses a trailing stop set at 2x the current ATR to lock in profits while allowing for extended trends.  
+
+**Entry Rules:**  
+1. **Volatility Condition:** The 10-day ATR must be below its 20-day average (indicating contraction).  
+2. **Price Breakout:** Price must close above the 20-day Donchian Channel high.  
+3. **Volume Confirmation:** Volume on the breakout day must be at least 20% higher than the average volume (e.g., 50-day moving average of volume).  
+
+**Exit Rules:**  
+1. **Trailing Stop:** Exit the trade when price retraces 2x the current ATR from the highest point reached after entry.  
+2. **Optional Time Exit:** Consider exiting if no significant follow-through occurs within 5-10 bars to avoid dead capital.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss:** Initial stop can be set at 1x ATR below entry if a tighter stop is preferred.  
+3. **Avoid Overcrowding:** Do not enter if multiple correlated assets are signaling breakouts simultaneously (diversify entries).  
+
+**Required Indicators:**  
+1. **ATR (10-period & 20-period average):** For volatility contraction detection.  
+2. **Donchian Channel (20-period high):** For breakout levels.  
+3. **Volume (50-period average + 20% threshold):** For confirmation.  
+
+**Notes:**  
+- Works best in trending markets after consolidation phases.  
+- Avoid using during low-liquidity periods or major news events.  
+- Backtest across multiple asset classes to confirm robustness.

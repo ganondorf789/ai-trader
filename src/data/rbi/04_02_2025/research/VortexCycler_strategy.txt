@@ -1,0 +1,49 @@
+STRATEGY_NAME: VortexCycler
+
+STRATEGY_DETAILS:
+The VortexCycler strategy combines trend confirmation from the Vortex Indicator (VI) with cycle timing from the Detrended Price Oscillator (DPO) to create a systematic approach for capturing trend reversals at optimal cycle points.
+
+Key Components:
+1. Vortex Indicator (VI) - Uses VI+ (bullish trend) and VI- (bearish trend) lines
+2. Detrended Price Oscillator (DPO) - Identifies price cycles by removing longer-term trends
+3. Cycle-based entry timing - Uses DPO extremes for optimal entry points
+4. Trend-confirmed exits - Uses opposing DPO extremes for exit signals
+
+Entry Rules:
+LONG ENTRY:
+1. VI+ line must cross above VI- line (bullish trend confirmation)
+2. Must occur during a DPO trough (cycle low point)
+3. Entry on confirmation candle close
+
+SHORT ENTRY:
+1. VI- line must cross above VI+ line (bearish trend confirmation)
+2. Must occur during a DPO peak (cycle high point)
+3. Entry on confirmation candle close
+
+Exit Rules:
+LONG EXIT:
+1. When DPO reaches a peak (cycle high point)
+2. Or when VI- crosses above VI+ (trend reversal)
+
+SHORT EXIT:
+1. When DPO reaches a trough (cycle low point)
+2. Or when VI+ crosses above VI- (trend reversal)
+
+Risk Management:
+1. Initial stop-loss placed at recent swing low (long) or swing high (short)
+2. Position sizing based on 1-2% risk per trade
+3. Trailing stops can be implemented using DPO extremes
+4. Consider time-based exits if DPO doesn't reach target extreme
+
+Required Indicators:
+1. Vortex Indicator (VI) - Standard settings (14 period recommended)
+2. Detrended Price Oscillator (DPO) - 20-30 period for cycle identification
+3. Optional: Moving average (34-50 period) for trend filter
+
+Optimization Notes:
+1. Adjust DPO period based on market (shorter for volatile, longer for stable)
+2. Test different VI periods (14-28) for trend sensitivity
+3. Combine with volume confirmation for stronger signals
+4. Best suited for 4hr/daily timeframes in trending markets
+
+This strategy excels in markets with clear cyclical behavior and emerging trends, using the VI to confirm trend direction while the DPO ensures entries at favorable cycle points. The combination provides both trend-following and mean-reversion elements for balanced performance.

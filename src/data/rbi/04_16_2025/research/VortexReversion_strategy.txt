@@ -1,0 +1,51 @@
+STRATEGY_NAME: VortexReversion  
+
+STRATEGY_DETAILS:  
+This strategy combines trend confirmation, momentum divergence, and volume analysis to identify high-probability mean-reversion opportunities. It uses the Vortex Indicator for trend validation, the Chande Momentum Oscillator (CMO) for divergence detection, and volume analysis to confirm weakening momentum before entry. Exits are based on Bollinger Band touches or a fixed profit target.  
+
+**Key Components:**  
+1. **Vortex Indicator (VI+ and VI-):**  
+   - Confirms the prevailing trend. VI+ > VI- indicates bullish trend; VI- > VI+ indicates bearish trend.  
+2. **Chande Momentum Oscillator (CMO):**  
+   - Identifies divergence between price and momentum (e.g., price makes higher highs while CMO makes lower highs for bearish divergence).  
+3. **Volume Analysis:**  
+   - Declining volume during the trend suggests weakening momentum, supporting a mean-reversion setup.  
+4. **Bollinger Bands (20-period, 2 StdDev):**  
+   - Acts as a dynamic profit target or exit signal when price touches the opposite band.  
+5. **Average True Range (ATR 14-period):**  
+   - Used to set a 1.5x ATR profit target as an alternative exit.  
+
+**Entry Rules:**  
+1. **For Short Entries (Bearish Reversion):**  
+   - VI+ > VI- (uptrend confirmed).  
+   - Price makes a higher high, but CMO shows a lower high (bearish divergence).  
+   - Volume is declining during the uptrend.  
+   - Enter short on the first bearish candle after divergence confirmation.  
+2. **For Long Entries (Bullish Reversion):**  
+   - VI- > VI+ (downtrend confirmed).  
+   - Price makes a lower low, but CMO shows a higher low (bullish divergence).  
+   - Volume is declining during the downtrend.  
+   - Enter long on the first bullish candle after divergence confirmation.  
+
+**Exit Rules:**  
+1. **Profit Target:**  
+   - Take profit at 1.5x ATR from entry price.  
+2. **Bollinger Band Touch:**  
+   - Exit short when price touches the lower Bollinger Band.  
+   - Exit long when price touches the upper Bollinger Band.  
+3. **Stop Loss:**  
+   - Place stop loss at 1x ATR beyond the recent swing high (for shorts) or swing low (for longs).  
+
+**Risk Management:**  
+1. Position size should be adjusted so that the maximum risk per trade is 1-2% of the account.  
+2. Avoid trading during high-impact news events to prevent false signals.  
+3. Only trade in the direction of the higher timeframe trend for additional confirmation.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+ and VI-, default 14-period).  
+2. Chande Momentum Oscillator (CMO, default 20-period).  
+3. Bollinger Bands (20-period, 2 StdDev).  
+4. Average True Range (ATR, 14-period).  
+5. Volume (for confirming declining participation).  
+
+This strategy is best suited for 1-hour or 4-hour charts in trending markets with periodic pullbacks. It avoids choppy or range-bound conditions where mean-reversion setups are less reliable.

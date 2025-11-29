@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolumeSilhouetteEMA
+
+STRATEGY_DETAILS:
+The VolumeSilhouetteEMA strategy combines trend confirmation with volume analysis and momentum exhaustion signals for precise entries and exits. Here's the detailed breakdown:
+
+1. KEY COMPONENTS:
+- Trend Identification: Uses the golden cross (50EMA > 200EMA) as primary trend confirmation
+- Volume Filter: Requires declining volume during the crossover for added confirmation
+- Momentum Exit: Relies on RSI overbought levels (70+) to capture profit before potential reversals
+
+2. ENTRY RULES:
+- Primary Condition: 50-period EMA must cross above 200-period EMA (golden cross)
+- Secondary Filter: Volume must be in a declining trend during the crossover
+- Confirmation: Wait for the candle to close above both EMAs after crossover
+
+3. EXIT RULES:
+- Profit-taking: Exit when RSI(14) crosses above 70
+- Stop-loss: Place below the most recent swing low or 2% below entry (whichever is closer)
+- Emergency Exit: Immediate exit if 50EMA crosses back below 200EMA
+
+4. RISK MANAGEMENT:
+- Position sizing: Risk no more than 1-2% of capital per trade
+- Stop placement: Dynamic (swing low based) or fixed percentage (2%)
+- Trade frequency: Only trade clear golden crosses with volume confirmation
+
+5. REQUIRED INDICATORS:
+- 50-period Exponential Moving Average (EMA)
+- 200-period Exponential Moving Average (EMA)
+- Volume indicator (standard or OBV)
+- Relative Strength Index (RSI) with 14-period setting
+
+6. OPTIMIZATION TIPS:
+- Test different RSI periods (12-16) for exit sensitivity
+- Experiment with volume decline thresholds (e.g., 3 consecutive lower volume bars)
+- Consider adding a minimum price distance requirement between EMAs at crossover
+
+7. MARKET CONDITIONS:
+- Best suited for trending markets
+- Less effective in choppy or range-bound conditions
+- Works across multiple timeframes (4H and above recommended)
+
+The unique "VolumeSilhouette" aspect comes from the strategy's reliance on declining volume patterns during the EMA crossover, creating a distinctive setup silhouette on the chart. This volume confirmation helps filter out false breakouts while the RSI exit captures profits before typical pullbacks.

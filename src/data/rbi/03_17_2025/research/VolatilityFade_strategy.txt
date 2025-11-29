@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolatilityFade
+
+STRATEGY_DETAILS:
+The VolatilityFade strategy is designed to capitalize on extreme liquidation events during periods of low volatility. The strategy uses a combination of volatility analysis and price action to identify high-probability reversal opportunities. Here’s a detailed breakdown of the strategy:
+
+### Key Strategy Components:
+1. **Volatility Ratio**: The strategy uses the 1D volatility ratio, which is calculated as the current ATR (Average True Range) divided by the 20D ATR. A ratio below 0.5 indicates that the market is experiencing unusually low volatility, which often precedes significant price movements.
+2. **Liquidation Clusters**: The strategy focuses on extreme liquidation clusters, which are areas where a large number of stop-loss orders are likely to be triggered. These clusters often lead to sharp price reversals.
+3. **4H Close**: Entries are based on the 4-hour (4H) closing price, ensuring that the trade is confirmed by a full candle close against the liquidation direction.
+4. **Swing Highs/Lows**: Stops are placed at recent swing highs or lows, providing a clear risk management point.
+
+### Entry Rules:
+1. **Volatility Condition**: Wait for the 1D volatility ratio (current ATR / 20D ATR) to drop below 0.5. This indicates that the market is in a low volatility state, which is conducive to reversals.
+2. **Liquidation Direction**: Identify the direction of the recent liquidation cluster. This is typically the direction in which the price has moved sharply, often due to stop-loss orders being triggered.
+3. **4H Close**: Enter the trade on a 4H close that is against the liquidation direction. For example, if the liquidation cluster was to the downside, look for a 4H close that is above the recent low.
+
+### Exit Rules:
+1. **Stop Loss**: Place the stop loss at the recent swing high or low, depending on the direction of the trade. This ensures that the trade is exited if the price moves against the expected reversal.
+2. **Take Profit**: The take profit level can be set based on a risk-reward ratio, such as 2:1 or 3:1, or by using a trailing stop to capture extended moves.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of the account balance for each trade, typically 1-2%, to manage risk.
+2. **Stop Loss**: Always use a stop loss to limit potential losses. The stop loss should be placed at the recent swing high or low, as mentioned above.
+3. **Volatility Filter**: Only trade when the 1D volatility ratio is below 0.5, ensuring that the strategy is only active during low volatility conditions.
+
+### Required Indicators:
+1. **ATR (Average True Range)**: Used to calculate the 1D and 20D ATR for the volatility ratio.
+2. **Price Action**: Used to identify liquidation clusters and recent swing highs/lows.
+
+### Summary:
+The VolatilityFade strategy is a mean-reversion approach that leverages low volatility conditions and extreme liquidation events to identify high-probability reversal trades. By focusing on the 4H close and using recent swing highs/lows for stop placement, the strategy aims to capture significant price movements while managing risk effectively.

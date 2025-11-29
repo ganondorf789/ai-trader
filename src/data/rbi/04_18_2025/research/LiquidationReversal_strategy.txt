@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquidationReversal
+
+STRATEGY_DETAILS:
+This strategy focuses on identifying high-probability reversal opportunities at key liquidation zones where stop-loss orders are historically clustered, combined with volatility compression signals.
+
+Key Components:
+1. Liquidation Zones: Historical price levels where high-frequency stop-loss orders are clustered (typically near swing highs/lows)
+2. Volatility Filter: ATR must be below its 20-day average (compression signal)
+3. Reversal Confirmation: Price approaching these zones with signs of rejection
+
+Entry Rules:
+1. Identify historical liquidation zones (areas where price previously triggered clusters of stop orders)
+2. Wait for price to approach these zones while ATR is below its 20-day average
+3. Enter short when price shows rejection at upper liquidation zone (bearish reversal patterns, wicks)
+4. Enter long when price shows rejection at lower liquidation zone (bullish reversal patterns, wicks)
+
+Exit Rules:
+1. For short positions: Take profit at next significant support level or when ATR rises above 20-day average
+2. For long positions: Take profit at next significant resistance level or when ATR rises above 20-day average
+3. Stop-loss placed just beyond the liquidation zone (allowing for some stop-hunting)
+
+Risk Management:
+1. Position size based on distance to stop-loss (1-2% risk per trade)
+2. Maximum 5% portfolio risk at any time
+3. Avoid trading during major news events that may cause abnormal volatility
+
+Required Indicators:
+1. Historical liquidation zone identification (requires analysis of order flow data or historical stop-run areas)
+2. 20-day ATR (Average True Range) for volatility compression filter
+3. Price action tools for reversal confirmation (candlestick patterns, wicks)
+
+Additional Notes:
+- Works best in ranging markets with clear support/resistance levels
+- Less effective during strong trending markets
+- Requires careful identification of true liquidation zones (not just random support/resistance)
+- Best timeframes: 4H and Daily charts for reliable signals

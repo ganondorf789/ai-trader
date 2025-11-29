@@ -1,0 +1,41 @@
+STRATEGY_NAME: BandRetraceReversal
+
+STRATEGY_DETAILS:
+The BandRetraceReversal strategy combines Bollinger Bands and Fibonacci retracement levels to identify potential reversal opportunities in the market. This strategy focuses on short entries when price touches the upper Bollinger Band and confirms a Fibonacci retracement high, with exits triggered by a break below the lower Bollinger Band.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Fibonacci retracement tool
+3. Price action confirmation
+
+Entry Rules:
+1. Wait for price to touch or exceed the upper Bollinger Band
+2. Draw Fibonacci retracement from the most recent swing low to the current high
+3. Enter short when price retraces to the 61.8% or 78.6% Fibonacci level
+4. Confirm entry with a bearish candlestick pattern at the retracement level
+
+Exit Rules:
+1. Initial target: Lower Bollinger Band
+2. Stop loss: Above the recent Fibonacci high
+3. Exit long if price breaks above the Fibonacci high while below the lower Bollinger Band
+
+Risk Management:
+1. Position size based on 1-2% risk per trade
+2. Use ATR (14) to determine stop loss distance
+3. Trail stop loss below recent swing highs
+4. Maximum daily loss limit of 5% of account
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Fibonacci retracement tool
+3. ATR (14) for risk calculation
+4. Candlestick patterns for confirmation
+
+Additional Notes:
+- Best suited for trending markets
+- Works well on 1-hour to daily timeframes
+- Combine with volume analysis for stronger confirmation
+- Avoid trading during major news events
+- Backtest on multiple instruments to verify consistency
+
+This strategy combines mean reversion (Bollinger Bands) with Fibonacci levels to identify high-probability reversal setups while maintaining strict risk management protocols.

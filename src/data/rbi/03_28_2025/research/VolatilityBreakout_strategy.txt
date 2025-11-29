@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Choppiness Index (CI) Filter:** Identifies when the market transitions from a choppy/range-bound phase (CI > 61.8) to a trending phase (CI < 61.8).  
+2. **Volume-Weighted Moving Average (VWMA):** Acts as a dynamic support/resistance level, confirming breakouts when price closes above (for longs) or below (for shorts).  
+3. **Breakout Confirmation:** Requires both CI exiting overbought (>61.8) AND price closing beyond the VWMA to filter false breakouts.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. CI crosses *below* 61.8 (exiting overbought).  
+  2. Price closes *above* the VWMA (e.g., 20-period VWMA).  
+  3. Enter on next candle open.  
+- **Short Entry:**  
+  1. CI crosses *below* 61.8.  
+  2. Price closes *below* the VWMA.  
+  3. Enter on next candle open.  
+
+**Exit Rules:**  
+- **Profit-Taking:** Trail stop or use a fixed risk-reward ratio (e.g., 2:1).  
+- **Stop-Loss:** Place below the recent swing low (longs) or above swing high (shorts).  
+- **CI Reversal Exit:** Close trade if CI crosses *back above* 61.8 (signaling return to choppiness).  
+
+**Risk Management:**  
+- Position size: 1-2% risk per trade.  
+- Stop-loss must be respected; avoid widening it.  
+- Avoid trading during low-volume periods to prevent false VWMA breakouts.  
+
+**Required Indicators:**  
+1. Choppiness Index (default 14-period).  
+2. Volume-Weighted Moving Average (e.g., 20-period).  
+
+**Unique Edge:** Combines volatility contraction (CI) with volume-confirmed breakouts (VWMA) to capture early trend momentum while filtering noise. The CI reversal exit locks in profits before chop resumes.  
+
+**Optimization Tip:** Test VWMA lengths (e.g., 10-50 periods) and CI thresholds (e.g., 55-65) for different assets.

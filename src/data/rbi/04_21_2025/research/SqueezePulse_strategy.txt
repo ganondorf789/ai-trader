@@ -1,0 +1,36 @@
+STRATEGY_NAME: SqueezePulse  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze (20-period, 2 STD):** Identifies periods of low volatility, where price is consolidating within tightening Bollinger Bands. A breakout from this squeeze signals potential strong directional movement.  
+2. **Volume-Weighted MACD (50-period):** Combines MACD with volume data to confirm momentum shifts. A crossover (signal line crossing the MACD line) validates the breakout direction with added volume confirmation.  
+
+**Entry Rules:**  
+1. **Long Entry:**  
+   - Price breaks **above** the upper Bollinger Band after a squeeze (bands have narrowed significantly).  
+   - The Volume-Weighted MACD (50-period) shows a **bullish crossover** (MACD line crosses above the signal line) **concurrently** with the breakout.  
+2. **Short Entry:**  
+   - Price breaks **below** the lower Bollinger Band after a squeeze.  
+   - The Volume-Weighted MACD shows a **bearish crossover** (MACD line crosses below the signal line) **concurrently** with the breakout.  
+
+**Exit Rules:**  
+1. **Take Profit:**  
+   - Partial exit when price **retraces back inside the Bollinger Bands** (suggesting weakening momentum).  
+   - Full exit if the opposing Volume-Weighted MACD crossover occurs (e.g., bearish crossover after a long trade).  
+2. **Stop Loss:**  
+   - Place stop loss **just inside the opposite Bollinger Band** (e.g., below the lower band for long trades, above the upper band for short trades).  
+   - Alternatively, use a trailing stop based on recent swing highs/lows.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Confirmation:** Avoid entries without **both** the Bollinger Band breakout and Volume-Weighted MACD crossover.  
+3. **Avoid Choppy Markets:** Only trade when Bollinger Bands have visibly narrowed (squeeze) before the breakout.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 STD).  
+2. Volume-Weighted MACD (50-period, standard settings for signal line).  
+
+**Unique Edge:** Combines volatility contraction (squeeze) with volume-confirmed momentum, reducing false breakouts. The Volume-Weighted MACD adds reliability by filtering noise with volume data.  
+
+**Note:** Works best on higher timeframes (e.g., 1H or 4H) for clearer squeeze patterns. Backtest to optimize MACD period for specific assets.

@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Keltner Channel Breakout:** The strategy identifies breakouts when price exits the Keltner Channel (typically set with a 20-period EMA and 2x ATR width).  
+2. **OBV Divergence Confirmation:** Uses On-Balance Volume (OBV) to confirm breakouts—bullish divergence (price makes lower low, OBV makes higher low) for long entries, bearish divergence (price makes higher high, OBV makes lower high) for short entries.  
+3. **Volatility-Based Exit:** Exits trades when the 20-day ATR falls below a rolling threshold (e.g., 50% of its 20-day median), signaling contraction in volatility.  
+
+**Entry Rules:**  
+- **Long Entry:** Price closes above the upper Keltner Channel + OBV shows bullish divergence.  
+- **Short Entry:** Price closes below the lower Keltner Channel + OBV shows bearish divergence.  
+
+**Exit Rules:**  
+- **Volatility Exit:** Close position when the 20-day ATR drops below its 20-day median multiplied by a threshold (e.g., 0.5).  
+- **Stop-Loss:** Initial stop at the opposite Keltner Channel boundary or a fixed ATR-based distance (e.g., 1.5x ATR).  
+
+**Risk Management:**  
+- Position sizing based on ATR (e.g., risk 1% of capital per trade).  
+- Trailing stops can be applied using the Keltner Channel or a dynamic ATR multiple.  
+
+**Required Indicators:**  
+1. Keltner Channel (20-period EMA, 2x ATR width).  
+2. On-Balance Volume (OBV).  
+3. 20-day Average True Range (ATR) for volatility filtering.  
+
+**Unique Aspects:**  
+- Combines breakout momentum with volume divergence for higher-probability entries.  
+- Uses volatility contraction (not just price action) to exit trades, capturing trends before reversals.  
+- Avoids choppy markets by requiring OBV confirmation and ATR-based exits.  
+
+**Optimization Tips:**  
+- Adjust Keltner Channel multiplier (e.g., 1.5x vs. 2x ATR) for sensitivity.  
+- Test different OBV lookback periods for divergence detection.  
+- Fine-tune ATR exit threshold (e.g., 0.4–0.6 of median) for volatility regimes.

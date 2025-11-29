@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolSqueezeReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility (squeeze) when the BB width falls below historical volatility levels, signaling potential breakout conditions.  
+2. **Negative Funding Rates:** Acts as a sentiment filter, indicating oversold conditions or excessive short positioning in perpetual futures markets.  
+3. **VWAP Anchored to High-Volume Nodes:** Provides dynamic support/resistance levels based on volume-weighted price action, used for exit signals.  
+4. **Volatility Expansion Trigger:** Exits trades when volatility expands beyond the squeeze condition, measured against the anchored VWAP.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when ALL conditions are met:  
+  - 4-hour Bollinger Band width (standard deviation % of middle band) contracts below its 20-period historical volatility (e.g., BB width < HV(20)).  
+  - Perpetual futures funding rates turn negative (confirming bearish sentiment extremes).  
+  - Price is above the anchored VWAP (to avoid counter-trend entries in strong downtrends).  
+
+**Exit Rules:**  
+- **Take Profit/Stop Loss:**  
+  - **Volatility Expansion Exit:** Close position when the Bollinger Band width expands above its 5-period moving average AND price crosses above/below the anchored VWAP (depending on direction).  
+  - **Time-Based Exit:** Auto-exit after 12 candles (48 hours) if no volatility expansion occurs.  
+
+**Risk Management:**  
+- Position sizing: 1-2% risk per trade.  
+- Stop loss placed at the recent swing low (for longs) or below the anchored VWAP, whichever is tighter.  
+- No entries if the 4-hour RSI(14) > 60 (to avoid overbought traps).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) + width calculation.  
+2. Historical Volatility (20-period).  
+3. VWAP anchored to high-volume nodes (e.g., session opens or major swing points).  
+4. Funding rate data (exchange API).  
+5. Optional: RSI(14) for overbought confirmation.  
+
+**Unique Edge:** Combines volatility cycles (squeeze/expansion) with derivatives market sentiment (funding rates) and volume-based price levels for high-probability mean-reversion entries.

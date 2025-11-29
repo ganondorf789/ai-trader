@@ -1,0 +1,49 @@
+STRATEGY_NAME: SqueezeImpulse
+
+STRATEGY_DETAILS:
+The SqueezeImpulse strategy combines Bollinger Bands and Keltner Channels to identify volatility compression periods followed by high-probability breakout opportunities confirmed by volume surges. This systematic approach capitalizes on the explosive moves that often follow periods of low volatility.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Keltner Channels (20-period, 1.5 ATR multiplier)
+3. Volume indicator (with 20-period moving average)
+4. Squeeze condition (when Bollinger Bands are inside Keltner Channels)
+5. Breakout confirmation (price closing outside bands with above-average volume)
+
+Entry Rules:
+1. Wait for squeeze condition (Bollinger upper/lower bands inside Keltner Channels)
+2. Enter long on first close above upper Bollinger Band when:
+   - Volume exceeds 20-period average by 20%
+   - Squeeze was present for at least 5 consecutive bars
+3. Enter short on first close below lower Bollinger Band when:
+   - Volume exceeds 20-period average by 20%
+   - Squeeze was present for at least 5 consecutive bars
+
+Exit Rules:
+1. Profit Targets:
+   - Long: Entry price + (squeeze width at breakout * 1.5)
+   - Short: Entry price - (squeeze width at breakout * 1.5)
+   (Squeeze width = Keltner upper - Keltner lower band at breakout)
+2. Stop Loss:
+   - Long: Below the breakout candle low or lower Bollinger Band
+   - Short: Above the breakout candle high or upper Bollinger Band
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5%
+3. No new entries if 3 consecutive losing trades occur
+4. Trade only during high liquidity periods (avoid first/last 30 minutes)
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Keltner Channels (20,1.5 ATR)
+3. Volume with 20-period MA
+4. Custom squeeze detector (optional but recommended)
+
+Optimization Notes:
+1. Best suited for 15min-4hr timeframes
+2. Works well on indices, commodities, and liquid forex pairs
+3. Requires at least 3 months of backtesting for parameter optimization
+4. Most effective in trending market conditions
+
+The SqueezeImpulse strategy's unique combination of volatility measurement, volume confirmation, and proportional target setting creates a disciplined approach to trading breakouts from compression periods. The strategy name reflects both the squeeze condition detection and the impulse move that follows the breakout.

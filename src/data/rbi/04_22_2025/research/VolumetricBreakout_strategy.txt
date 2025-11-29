@@ -1,0 +1,48 @@
+STRATEGY_NAME: VolumetricBreakout
+
+STRATEGY_DETAILS:
+This strategy combines price breakout dynamics with volume confirmation to identify high-probability trading opportunities. The system requires multiple confirmations before entering trades, reducing false breakouts through its layered approach.
+
+Key Components:
+1. Price Breakout Component:
+   - 20-day high/low serves as the primary breakout level
+   - 3-day EMA acts as a short-term momentum filter
+
+2. Volume Confirmation:
+   - Requires volume spike exceeding 30-day average volume by 50%
+   - Ensures institutional participation in the breakout
+
+Entry Rules (Long):
+1. Price must close above the 20-day high
+2. Price must simultaneously be above the 3-day EMA
+3. Current volume must exceed 30-day average volume by 50%
+4. All conditions must be met on the same candle
+
+Entry Rules (Short):
+1. Price must close below the 20-day low
+2. Price must simultaneously be below the 3-day EMA
+3. Current volume must exceed 30-day average volume by 50%
+4. All conditions must be met on the same candle
+
+Exit Rules:
+1. Trailing Stop: Exit when price crosses back through the 3-day EMA
+2. Time-based Exit: Close position after 5 days if not stopped out
+3. Profit Target: Optional 2:1 risk-reward ratio can be applied
+
+Risk Management:
+1. Position sizing: Risk no more than 1-2% of capital per trade
+2. Stop Placement: Initial stop at recent swing low (long) or swing high (short)
+3. Maximum daily loss limit of 5% of capital
+
+Required Indicators:
+1. 20-day high/low (price channel)
+2. 3-day Exponential Moving Average
+3. 30-day average volume
+4. Current volume (for spike comparison)
+
+Optimization Notes:
+- The 20-day period can be adjusted between 15-25 days based on market volatility
+- Volume spike threshold can be tuned between 40-60% depending on the asset
+- EMA period can be tested between 2-5 days for optimal filtering
+
+This strategy works best in trending markets and may produce false signals during ranging conditions. Traders should avoid using it during low-volume periods or major economic events that may distort normal volume patterns.

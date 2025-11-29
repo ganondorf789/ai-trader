@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilitySqueezeBreach  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection:** Uses Bollinger Bands (BB) width contraction below its 10-day moving average to identify low volatility periods.  
+2. **Breakout Confirmation:** Requires price to breach Keltner Channels (KC) to confirm a potential breakout from the squeeze.  
+3. **Exit Triggers:** Uses volume spikes (3x the 15-minute average) or a trailing stop based on 1.5x ATR (Average True Range) to secure profits or limit losses.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Band width (BB Width = Upper BB - Lower BB) must be below its 10-day simple moving average (SMA), signaling a volatility squeeze.  
+- **Condition 2:** Price must close outside the Keltner Channels (either above the upper KC for long or below the lower KC for short).  
+- **Entry Execution:** Enter the trade in the direction of the breakout (long if above upper KC, short if below lower KC).  
+
+**Exit Rules:**  
+- **Volume Spike Exit:** Exit the trade if the 15-minute volume exceeds 3x the average 15-minute volume over a recent lookback period (e.g., last 20 periods).  
+- **ATR Trailing Stop:** Maintain a dynamic trailing stop at 1.5x the current ATR (14-period). Adjust the stop level as price moves favorably.  
+- **Optional Time Exit:** Consider exiting if the trade does not show significant momentum within 2-3 days to avoid stagnation.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Stop-Loss:** Initial stop can be set at 1x ATR from entry or just beyond the opposite Keltner Channel band.  
+- **Take-Profit:** No fixed take-profit; rely on trailing stop or volume spike exit.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To measure volatility contraction (BB Width).  
+2. **Keltner Channels (20,1.5)** – To confirm breakout direction.  
+3. **ATR (14)** – For trailing stop and risk sizing.  
+4. **Volume (15-minute average)** – To detect exit signals.  
+
+**Additional Notes:**  
+- Works best in trending markets after consolidation.  
+- Avoid trading during low-liquidity periods to prevent false breakouts.  
+- Backtest optimal parameters for BB/KC periods and ATR multiplier based on asset volatility.  
+
+This strategy capitalizes on volatility compression followed by explosive moves, using a systematic approach to entries and exits.

@@ -1,0 +1,58 @@
+STRATEGY_NAME: LiquidationBreakout
+
+STRATEGY_DETAILS:
+This strategy combines liquidation cluster analysis with volatility-based breakout trading, using open interest dynamics and Bollinger Band thresholds for entries, and ATR-based trailing stops for exits.
+
+Key Components:
+1. Liquidation Cluster Identification:
+   - Monitor for sharp declines in open interest (minimum 15% drop)
+   - Confirm with price rejection patterns (long wicks or engulfing candles)
+   
+2. Volatility Filter:
+   - Bollinger Band Width must be above its 20-period average
+   - Price must be trading outside the Bollinger Bands
+
+3. Breakout Confirmation:
+   - Price must close beyond recent swing high/low
+   - Volume should be above average on breakout candle
+
+Entry Rules:
+1. Long Entry:
+   - Open interest drops sharply after downtrend
+   - Price breaks above upper Bollinger Band
+   - Breakout candle closes above recent swing high
+   - Bollinger Band width expanding
+
+2. Short Entry:
+   - Open interest drops sharply after uptrend
+   - Price breaks below lower Bollinger Band
+   - Breakout candle closes below recent swing low
+   - Bollinger Band width expanding
+
+Exit Rules:
+1. Profit Taking:
+   - ATR-based trailing stop (3x current ATR from entry)
+   - Move stop to breakeven after 2x ATR profit
+
+2. Stop Loss:
+   - Initial stop at 1.5x ATR from entry
+   - Maximum risk per trade: 1-2% of capital
+
+Risk Management:
+- Position size calculated based on stop distance
+- Never risk more than 2% per trade
+- Avoid trading during low liquidity periods
+- Wait for confirmation candle to close before entering
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. ATR (14-period for stops)
+3. Open Interest tracking
+4. Volume indicator
+
+Optimization Notes:
+- Test different ATR multiples for stops (2-4x)
+- Experiment with Bollinger Band periods (14-20)
+- Adjust open interest threshold (10-20% drop)
+
+This strategy capitalizes on the increased volatility following liquidation events, using the Bollinger Band expansion as confirmation of potential continuation, while the ATR trailing stop adapts to market conditions to lock in profits.

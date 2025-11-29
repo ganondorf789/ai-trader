@@ -1,0 +1,35 @@
+STRATEGY_NAME: DeltaHedgedReversal
+
+STRATEGY_DETAILS:
+The DeltaHedgedReversal strategy is a sophisticated options trading approach that capitalizes on overbought conditions in the market while simultaneously hedging against potential downside risks. This strategy involves buying overbought puts and selling calls to create a delta-hedged position, aiming to profit from a potential reversal in the underlying asset's price.
+
+### Key Strategy Components:
+1. **Overbought Conditions**: The strategy focuses on identifying overbought conditions in the market, typically using technical indicators like RSI (Relative Strength Index) or Bollinger Bands.
+2. **Options Selection**: 
+   - **Buy Puts**: Purchase put options with a delta greater than 0.5, indicating a higher sensitivity to the underlying asset's price movement.
+   - **Sell Calls**: Simultaneously sell call options with a delta less than -0.5, which helps to hedge against potential losses and generate additional premium income.
+3. **Expiration**: The options selected should have an expiration date of T+7 days, ensuring a short-term focus and reducing the impact of time decay (theta).
+
+### Entry Rules:
+1. **Identify Overbought Conditions**: Use technical indicators to confirm that the underlying asset is in an overbought state (e.g., RSI above 70).
+2. **Select Options**:
+   - **Buy Puts**: Choose put options with a delta > 0.5 and an expiration date of T+7 days.
+   - **Sell Calls**: Select call options with a delta < -0.5 and the same expiration date.
+3. **Execute the Trade**: Enter the position by buying the selected puts and selling the corresponding calls.
+
+### Exit Rules:
+1. **Price Reversal**: Exit the position if the underlying asset's price shows a significant reversal, indicating that the overbought condition has been resolved.
+2. **Expiration**: If the options expire without a significant price movement, let the options expire worthless or close the position before expiration to avoid assignment.
+3. **Stop-Loss**: Implement a stop-loss based on the underlying asset's price movement or the total loss on the options position.
+
+### Risk Management:
+1. **Delta Hedging**: The strategy inherently includes delta hedging by selling calls, which helps to mitigate potential losses if the underlying asset's price continues to rise.
+2. **Position Sizing**: Limit the size of each position to a small percentage of the total portfolio to manage risk effectively.
+3. **Stop-Loss**: Set a stop-loss level to limit potential losses, either based on the underlying asset's price or the total loss on the options position.
+
+### Required Indicators:
+1. **RSI (Relative Strength Index)**: To identify overbought conditions (RSI > 70).
+2. **Delta**: To select appropriate options with delta > 0.5 for puts and delta < -0.5 for calls.
+3. **Expiration Date**: Ensure all options have an expiration date of T+7 days.
+
+The DeltaHedgedReversal strategy is designed for traders who are comfortable with options trading and have a good understanding of delta hedging. It is particularly suited for short-term traders looking to capitalize on overbought market conditions while managing risk through hedging.

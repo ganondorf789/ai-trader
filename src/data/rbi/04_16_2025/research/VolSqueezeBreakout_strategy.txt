@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of extreme volatility contraction followed by high-volume breakouts, using Bollinger Band metrics and volume z-scores for precise timing.
+
+Key Components:
+1. Bollinger Band Width Percentile (BBWP) - Measures volatility contraction
+2. Volume Z-Score - Identifies abnormal volume spikes
+3. Bollinger Band Expansion Threshold - Signals potential exit conditions
+
+Entry Rules:
+1. Wait for BBWP to drop below 10th percentile (extreme volatility contraction)
+2. Confirm with volume z-score > 2 (significant volume surge)
+3. Enter long/short in direction of price breaking the Bollinger Band
+
+Exit Rules:
+1. Primary exit when BBWP exceeds 90th percentile (volatility expansion)
+2. Secondary exit if price closes back inside Bollinger Bands
+3. Optional: Trail stop at recent swing low/high
+
+Risk Management:
+1. Position size: 1-2% risk per trade
+2. Initial stop: Recent swing low/high or opposite band
+3. Maximum holding period: 5 days (prevents overexposure)
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations recommended)
+2. Bollinger Band Width calculation: (Upper Band - Lower Band)/Middle Band
+3. Volume Z-Score: (Current Volume - 20-day MA Volume)/20-day Std Dev of Volume
+4. Historical percentile calculations for both metrics
+
+Optimization Notes:
+1. Test different lookback periods for percentile calculations (50-200 days)
+2. Experiment with band settings (18-22 periods, 1.8-2.2 std dev)
+3. Adjust volume z-score threshold between 1.5-2.5 based on asset volatility
+
+This strategy works best in ranging markets transitioning to trends, avoiding prolonged trends or choppy conditions. The combination of volatility contraction and volume surge provides high-probability breakout signals.

@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolatilitySqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction (<1%)**: Identifies periods of low volatility, often preceding significant price movements.  
+2. **RSI Crossover (>35)**: Confirms emerging bullish momentum after oversold conditions.  
+3. **Volume Surge (>15%)**: Validates increased participation in the breakout.  
+4. **ATR-Based Target (1.5x)**: Uses Average True Range for dynamic profit-taking.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  - Bollinger Band width (Upper Band - Lower Band) / Middle Band < 1% (volatility squeeze).  
+  - RSI crosses above 35 (momentum shift from oversold).  
+  - Volume exceeds 15% of its 20-period average (surge confirmation).  
+
+**Exit Rules:**  
+- **Profit Target**: 1.5x the current ATR (14-period) from entry price.  
+- **Stop Loss**: None explicitly defined; consider adding a trailing stop (e.g., 0.5x ATR) or fixed % risk (e.g., 2%).  
+
+**Risk Management:**  
+- **Position Sizing**: Allocate 1-2% of capital per trade.  
+- **Stop Loss Suggestion**: Add a stop at 0.5x ATR or recent swing low to limit downside.  
+- **Filter**: Avoid trades during major news events or illiquid sessions.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – For width calculation.  
+2. **RSI (14-period)** – Momentum confirmation.  
+3. **Volume (20-period average)** – Surge detection.  
+4. **ATR (14-period)** – Dynamic exit scaling.  
+
+**Unique Edge:** Combines volatility contraction, momentum reversal, and volume confirmation for high-probability breakouts. Works best in ranging or consolidating markets.  
+
+**Optimization Tips:**  
+- Test RSI thresholds (e.g., 30-40) for different assets.  
+- Adjust ATR multiplier (1.2x-2x) based on asset volatility.  
+- Add a time filter (e.g., only trade first 2 hours of session).  
+
+**Note:** Backtest for asset-specific tuning—cryptocurrencies may require wider ATR targets vs. forex.

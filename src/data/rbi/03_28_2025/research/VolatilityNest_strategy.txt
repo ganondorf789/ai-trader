@@ -1,0 +1,47 @@
+STRATEGY_NAME: VolatilityNest  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band (BB) Width Contraction:** Measures volatility compression, signaling potential breakout opportunities.  
+2. **Keltner Channel (KC) Breakout:** Acts as a volatility filter, confirming the breakout direction.  
+3. **Nested Donchian Channel:** Defines the immediate price range, with breakouts indicating entry signals.  
+4. **Volatility Ratio (BB/KC):** Compares Bollinger Band width to Keltner Channel width, highlighting low-volatility conditions when crossing below a historical percentile.  
+5. **Volume Acceleration:** Confirms breakout validity with increasing trading volume.  
+
+**Entry Rules:**  
+1. **Volatility Setup:**  
+   - Bollinger Band width contracts (narrowing bands).  
+   - Volatility ratio (BB width / KC width) crosses below a predefined historical percentile (e.g., 20th percentile).  
+2. **Price Trigger:**  
+   - Price breaks out of the nested Donchian Channel (e.g., 20-period high/low).  
+   - The breakout aligns with the Keltner Channel direction (upper KC for long, lower KC for short).  
+3. **Confirmation:**  
+   - Volume must show acceleration (e.g., 5-period moving average of volume rising).  
+
+**Exit Rules:**  
+1. **Profit-Taking:**  
+   - Close position when price reaches a multiple of the Donchian Channel width (e.g., 1.5x).  
+   - Alternatively, exit on a reversal signal (price re-entering the Donchian Channel).  
+2. **Stop-Loss:**  
+   - Place stop below the Donchian Channel breakout level (for long) or above it (for short).  
+   - Adjust stop to breakeven if price moves favorably by a set distance (e.g., 0.5x Donchian width).  
+
+**Risk Management:**  
+1. Position sizing based on volatility (e.g., risk 1-2% of capital per trade).  
+2. Avoid trading during major news events or erratic volume spikes.  
+3. Filter trades to higher timeframes (e.g., 1H or 4H) for stronger signals.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 StdDev).  
+2. Keltner Channel (20-period, 2x ATR multiplier).  
+3. Donchian Channel (20-period high/low).  
+4. Volume moving average (5-period).  
+5. Custom volatility ratio (BB width / KC width) with percentile analysis.  
+
+**Unique Aspects:**  
+- Combines nested volatility channels (BB, KC, Donchian) for high-probability breakouts.  
+- Uses percentile-based volatility thresholds to avoid false signals.  
+- Volume acceleration adds confirmation, reducing whipsaw risk.  
+
+**Note:** Backtest the volatility ratio percentile threshold and Donchian multiplier for optimal performance in your market.

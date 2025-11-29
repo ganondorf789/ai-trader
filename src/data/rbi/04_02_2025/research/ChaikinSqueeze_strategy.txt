@@ -1,0 +1,46 @@
+STRATEGY_NAME: ChaikinSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Chaikin Money Flow (CMF):** A volume-weighted momentum indicator that measures buying and selling pressure. A CMF above zero indicates bullish accumulation, while below zero suggests distribution.  
+2. **Bollinger Bands (BB):** Volatility bands that contract (squeeze) during low volatility and expand during high volatility. The squeeze signals potential breakout opportunities.  
+3. **Entry/Exit Logic:** Combines CMF confirmation with BB squeeze conditions for high-probability trades.  
+
+**Entry Rules (Long Only):**  
+1. **Bollinger Band Squeeze:** Identify when the BB bands contract significantly (e.g., bandwidth at lowest 20% of recent values).  
+2. **CMF Confirmation:** Wait for CMF (20-period) to cross above zero, signaling bullish accumulation.  
+3. **Price Action:** Enter long on the next candle after both conditions are met.  
+
+**Exit Rules:**  
+1. **Take Profit:** Exit when price touches or crosses the upper Bollinger Band.  
+2. **Stop Loss:** Place below the recent swing low or lower Bollinger Band (adjust based on volatility).  
+3. **Optional Time Exit:** Close trade after X bars if no TP/SL is hit (prevents stagnation).  
+
+**Risk Management:**  
+- **Position Sizing:** Risk 1-2% per trade.  
+- **Stop Placement:** Dynamic (lower BB or recent support) to adapt to volatility.  
+- **Avoid Overcrowding:** Skip trades if multiple signals cluster (wait for clear setups).  
+
+**Required Indicators:**  
+1. **Chaikin Money Flow (20-period default).**  
+2. **Bollinger Bands (20,2 default, adjust squeeze threshold).**  
+3. **Optional:** Volume confirmation or RSI to filter extreme overbought conditions.  
+
+**Unique Edge:**  
+- Combines volume-backed momentum (CMF) with volatility contraction (BB squeeze) for high-quality breakouts.  
+- Avoids false breakouts by requiring CMF confirmation.  
+- Exits at logical resistance (upper BB), capturing mean reversion tendencies.  
+
+**Backtest Notes:**  
+- Test different CMF periods (14-21) and BB settings (length, deviation).  
+- Works best on 1H-4H timeframes; avoid low-volume periods.  
+- Pair with trend filter (e.g., 200EMA) to align with broader momentum.  
+
+**Example Setup:**  
+- BB bands pinch to narrowest width in 50 bars.  
+- CMF crosses above zero with rising volume.  
+- Enter long, stop below lower BB, exit at upper BB touch.  
+
+**Avoid:**  
+- Trading during news events (volatility spikes distort BB).  
+- Ignoring CMF direction (false squeezes without accumulation).

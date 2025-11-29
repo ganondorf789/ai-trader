@@ -1,0 +1,40 @@
+STRATEGY_NAME: ContangoFade
+
+STRATEGY_DETAILS:
+This strategy combines volatility term structure analysis with trend strength measurement to identify favorable short volatility opportunities, using Bollinger Band expansion as an exit signal.
+
+Key Components:
+1. VIX Term Structure (Contango/Backwardation)
+2. ADX (Average Directional Index) for trend strength
+3. Bollinger Band Width for exit signals
+
+Entry Rules:
+1. VIX term structure must show contango > 2% (front month VIX futures trading at least 2% below second month)
+2. ADX must be below 20 (indicating weak trend strength)
+3. Both conditions must be met simultaneously to enter short volatility position
+
+Exit Rules:
+1. Monitor Bollinger Band width (standard deviation of price)
+2. Exit position when Bollinger Band width expands beyond its 20-period moving average
+3. Alternative exit: If contango flips to backwardation (VIX futures curve inverts)
+
+Risk Management:
+1. Position sizing based on volatility (smaller positions during high VIX)
+2. Stop-loss if VIX spikes > 10% from entry level
+3. Maximum allocation of 5% per trade
+4. Avoid trading during major economic events
+
+Required Indicators:
+1. VIX futures term structure (front two months)
+2. ADX (14-period standard setting)
+3. Bollinger Bands (20,2 standard settings)
+4. Bollinger Band width calculation
+
+Additional Notes:
+- Best suited for VIX futures or volatility ETFs
+- Works well in range-bound markets
+- Avoid during strong trending markets (when ADX > 30)
+- Most effective when combined with mean-reversion indicators
+- Requires monitoring of VIX futures roll dates
+
+This strategy capitalizes on the tendency of volatility to mean-revert during periods of weak trends and favorable term structure, while using Bollinger Band expansion as an early warning for potential volatility spikes.

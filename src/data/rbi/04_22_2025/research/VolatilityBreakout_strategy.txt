@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilityBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Filter:** Uses the 20-day Average True Range (ATR) to measure market volatility.  
+2. **Volatility Condition:** Requires the 20-day ATR to be below its 10-day moving average, indicating reduced volatility and potential for a breakout.  
+3. **Breakout Signal:** Price must close above the upper Bollinger Band, confirming the breakout.  
+4. **Profit Target:** Exits the trade at 1.5x the current ATR value from the entry point.  
+
+**Entry Rules:**  
+- **Condition 1:** The 20-day ATR is below its 10-day moving average (volatility contraction).  
+- **Condition 2:** Price closes above the upper Bollinger Band (breakout confirmation).  
+- **Entry Action:** Enter a long position at the next candle's open after both conditions are met.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit the trade when price reaches 1.5x the ATR value from the entry price.  
+- **Stop Loss:** No explicit stop loss is mentioned, but traders may consider using a trailing stop or a fixed ATR-based stop (e.g., 1x ATR below entry) for risk management.  
+
+**Risk Management:**  
+- **Position Sizing:** Adjust trade size based on the ATR value to ensure consistent risk per trade.  
+- **Volatility Awareness:** Avoid trading during high volatility (when 20-day ATR is above its 10-day MA).  
+- **Optional Stop Loss:** Implement a stop loss at 1x ATR below entry to limit downside risk.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 standard deviations)** – Identifies breakout levels.  
+2. **Average True Range (ATR, 20-day)** – Measures volatility and sets profit targets.  
+3. **Moving Average of ATR (10-day)** – Filters for low-volatility conditions.  
+
+**Additional Notes:**  
+- This strategy works best in ranging or consolidating markets where breakouts are more likely to sustain.  
+- Avoid using it during strong trending phases, as false breakouts may occur.  
+- Backtest and optimize the ATR multiplier (1.5x) for different instruments and timeframes.  
+
+**Summary:**  
+The *VolatilityBreakout* strategy capitalizes on low-volatility environments to trade high-probability breakouts, using ATR for both filtering and profit targeting. It combines Bollinger Bands for breakout confirmation with ATR-based volatility analysis for precision.

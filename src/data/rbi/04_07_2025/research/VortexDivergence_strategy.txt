@@ -1,0 +1,39 @@
+STRATEGY_NAME: VortexDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI)**: Comprises two lines (VI+ and VI-) that measure trend direction and strength. A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI+ crosses below VI-.  
+2. **On-Balance Volume (OBV) Divergence**: Confirms trend reversals when price makes a higher high but OBV makes a lower high (bearish divergence) or price makes a lower low but OBV makes a higher low (bullish divergence).  
+3. **Dynamic Trailing Stop**: Uses volatility bands (e.g., ATR-based or Bollinger Bands) to adjust stop-loss levels based on recent market volatility.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  - VI+ crosses above VI- (bullish vortex signal).  
+  - Price makes a higher low, but OBV makes a higher high (bullish divergence confirmation).  
+- **Short Entry**:  
+  - VI+ crosses below VI- (bearish vortex signal).  
+  - Price makes a lower high, but OBV makes a lower low (bearish divergence confirmation).  
+
+**Exit Rules:**  
+- **Trailing Stop**: Adjusts dynamically based on volatility (e.g., 2x ATR or Bollinger Band width).  
+  - For long positions, trail stop below the lower volatility band.  
+  - For short positions, trail stop above the upper volatility band.  
+- **Manual Exit**: If OBV shows early divergence against the current position (e.g., OBV weakening while price continues).  
+
+**Risk Management:**  
+- Initial stop-loss placed at the recent swing low (long) or swing high (short).  
+- Position sizing based on a fixed percentage of capital (e.g., 1-2% risk per trade).  
+- Avoid trading during low volatility (e.g., when ATR is below a threshold).  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)** – Default period (14).  
+2. **On-Balance Volume (OBV)** – Confirms divergence.  
+3. **Average True Range (ATR) or Bollinger Bands** – For dynamic trailing stop.  
+
+**Optimization Tips:**  
+- Test different VI lookback periods (e.g., 10-20).  
+- Adjust OBV sensitivity by pairing it with price swings (e.g., 2-3 candle confirmation).  
+- Fine-tune trailing stop multiplier (e.g., 1.5x-3x ATR).  
+
+This strategy combines trend-following (Vortex) with volume-based confirmation (OBV divergence) while using adaptive risk management for exits.

@@ -1,0 +1,44 @@
+STRATEGY_NAME: VoltaicBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Chande Momentum Oscillator (CMO)**: A momentum indicator that measures the strength of price movement, with values ranging from -100 to +100.  
+2. **20-period SMA of CMO**: Used to smooth the CMO and identify momentum shifts.  
+3. **Volume Surge Filter**: Requires volume to exceed 2x the 10-day average volume to confirm breakout validity.  
+4. **Keltner Channels**: Volatility-based bands used for trailing stop placement, calculated using ATR (Average True Range) to adapt to market conditions.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  1. CMO crosses **above** its 20-period SMA, indicating strengthening bullish momentum.  
+  2. Volume exceeds **2x the 10-day average volume**, confirming strong participation.  
+- **Short Entry**: Triggered when:  
+  1. CMO crosses **below** its 20-period SMA, indicating weakening momentum.  
+  2. Volume exceeds **2x the 10-day average volume**, confirming bearish conviction.  
+
+**Exit Rules:**  
+- **Trailing Stop**:  
+  - For long positions, the stop is placed at the **lower Keltner Channel band**, adjusted dynamically as price moves up.  
+  - For short positions, the stop is placed at the **upper Keltner Channel band**, adjusted dynamically as price moves down.  
+- **Profit Target**: None (pure trailing stop approach).  
+
+**Risk Management:**  
+1. **Position Sizing**: Risk per trade should not exceed 1-2% of capital.  
+2. **Stop-Loss Initialization**: Set initial stop at the opposite Keltner band upon entry.  
+3. **Avoid Low-Volume Breakouts**: Only trade when volume confirms the move (2x avg volume).  
+
+**Required Indicators:**  
+1. Chande Momentum Oscillator (CMO)  
+2. 20-period SMA of CMO  
+3. Volume (10-day average comparison)  
+4. Keltner Channels (typically 20-period EMA + 2x ATR)  
+
+**Unique Aspects:**  
+- Combines **momentum confirmation (CMO + SMA)** with **volume surge validation** for high-probability breakouts.  
+- Uses **Keltner Channels** for adaptive trailing stops instead of fixed percentages, improving risk-adjusted returns.  
+- Avoids false breakouts by requiring **both momentum and volume** to align.  
+
+**Best Suited For:**  
+- Trending markets (stocks, forex, or crypto with clear momentum shifts).  
+- Timeframes: 1H or higher (to reduce noise).  
+
+**Note:** Backtest to optimize CMO period (default 14) and Keltner Channel settings (e.g., ATR multiplier).

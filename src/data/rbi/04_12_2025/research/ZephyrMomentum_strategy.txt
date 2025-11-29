@@ -1,0 +1,45 @@
+STRATEGY_NAME: ZephyrMomentum
+
+STRATEGY_DETAILS:
+This intraday momentum strategy combines statistical price deviation with trend confirmation filters for high-probability trades. The core approach uses a rolling Z-score of price deviation from VWAP as the primary momentum signal, enhanced by directional confirmation from both MACD and TEMA indicators.
+
+Key Components:
+1. VWAP Z-Score: Calculates how many standard deviations the current price is from VWAP (typically 20-period lookback)
+2. MACD Filter: Uses standard MACD (12,26,9) for trend direction confirmation
+3. TEMA Filter: Triple Exponential Moving Average (typically 8-period) for additional trend confirmation
+
+Entry Rules (Long):
+1. Price crosses above VWAP with Z-score > 1 (showing momentum)
+2. MACD histogram is positive and above signal line
+3. Price crosses above TEMA
+4. All conditions must align within same candle
+
+Entry Rules (Short):
+1. Price crosses below VWAP with Z-score < -1
+2. MACD histogram is negative and below signal line
+3. Price crosses below TEMA
+4. All conditions must align within same candle
+
+Exit Rules:
+1. Take Profit: When Z-score returns to mean (crosses 0) or reaches +2/-2 extremes
+2. Stop Loss: Fixed percentage (e.g., 0.5-1%) or when VWAP Z-score reverses direction
+3. Time Exit: Close all positions before market close
+
+Risk Management:
+1. Position sizing based on account risk (typically 1-2% per trade)
+2. Maximum 3-5 concurrent positions
+3. Avoid trading first/last 30 minutes of session
+4. Pause trading during major news events
+
+Required Indicators:
+1. VWAP with 20-period standard deviation channel
+2. MACD (12,26,9)
+3. TEMA (8-period recommended)
+4. Real-time Z-score calculation
+
+Optimization Notes:
+- Adjust Z-score thresholds based on volatility (higher for more volatile instruments)
+- TEMA period can be optimized between 5-10 periods
+- VWAP lookback period can be tested between 15-30 periods
+
+This strategy excels in trending markets but may produce false signals during choppy conditions. The triple confirmation (Z-score, MACD, TEMA) helps filter out low-quality setups while capturing strong intraday momentum moves.

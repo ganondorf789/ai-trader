@@ -1,0 +1,40 @@
+STRATEGY_NAME: VoltaicPulse
+
+STRATEGY_DETAILS:
+This volatility-based strategy combines the Average True Range (ATR) indicator with VIX analysis to identify favorable long entry points during periods of controlled market volatility. The strategy focuses on capturing moves during low-volatility conditions when volatility begins to expand.
+
+Key Components:
+1. ATR (14-period) - Measures market volatility
+2. ATR EMA (20-period) - Smoothed volatility baseline
+3. VIX (10-day average) - Market fear gauge filter
+4. 2x ATR trailing stop - Dynamic exit mechanism
+
+Entry Rules:
+1. Primary Condition: 5-minute ATR crosses above its 20-period EMA
+2. Confirmation Filter: Current VIX must be below its 10-day average
+3. Entry Execution: Market order long on confirmation of both conditions
+
+Exit Rules:
+1. Trailing Stop: 2x the current ATR value from the highest point since entry
+2. Stop Adjustment: Updated with each new candle if price moves favorably
+3. No time-based exit - Position remains open until stop is hit
+
+Risk Management:
+1. Position sizing based on 1% risk of capital
+2. Initial stop distance calculated as 2x ATR at entry
+3. No pyramiding or adding to positions
+4. Trade only during regular market hours (9:30-16:00 ET)
+
+Required Indicators:
+1. ATR (14-period) - Default settings
+2. EMA of ATR (20-period) - Applied to ATR values
+3. VIX index with 10-day simple moving average
+4. Price chart with volume (5-minute timeframe)
+
+Special Considerations:
+1. Works best in trending market conditions
+2. Avoid trading during major economic news events
+3. Most effective on liquid instruments (SPY, QQQ, ES futures)
+4. Requires real-time VIX data feed for optimal performance
+
+The VoltaicPulse strategy capitalizes on the "volatility pulse" phenomenon where expanding volatility during low-VIX conditions often precedes sustained directional moves. The 2x ATR trailing stop ensures profits are protected while allowing room for normal price fluctuations.

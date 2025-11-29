@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolumetricStochastic
+
+STRATEGY_DETAILS:
+The VolumetricStochastic strategy combines momentum and volume analysis to identify high-probability reversal opportunities. This approach synchronizes stochastic oscillator signals with OBV divergence patterns, filtered through volatility-adjusted position sizing.
+
+Key Components:
+1. Stochastic Oscillator (14,3,3 settings) - Identifies overbought (>80) and oversold (<20) conditions
+2. On-Balance Volume (OBV) - Detects bullish/bearish divergence against price
+3. ATR (14-period) - Calculates volatility-adjusted profit targets
+
+Entry Rules:
+LONG ENTRY:
+- Stochastic crosses above 20 from oversold territory
+- Price making lower low while OBV makes higher low (bullish divergence)
+- Confirm with price closing above recent swing low
+
+SHORT ENTRY:
+- Stochastic crosses below 80 from overbought territory
+- Price making higher high while OBV makes lower high (bearish divergence)
+- Confirm with price closing below recent swing high
+
+Exit Rules:
+- Take Profit: 1.5x current ATR from entry price
+- Stop Loss: 0.75x current ATR from entry price
+- Emergency Exit: Stochastic reverses direction (crosses back through 20/80 level)
+
+Risk Management:
+1. Position size based on 1% risk per trade (stop loss distance)
+2. Maximum 3 concurrent open positions
+3. No trading during major economic news events
+4. Daily time filter - only trade first 6 hours of session
+
+Required Indicators:
+1. Stochastic Oscillator (14,3,3)
+2. On-Balance Volume
+3. Average True Range (14)
+4. Price chart with swing points marked
+
+Optimization Notes:
+- Test different ATR multiples (1.25x-2x) for profit targets
+- Experiment with stochastic settings (13-15 periods)
+- Consider adding 50-period EMA as trend filter for stronger signals
+
+This strategy works best in ranging markets and requires patience to wait for the confluence of both momentum and volume signals before entering trades.

@@ -1,0 +1,52 @@
+STRATEGY_NAME: CrossVolatility
+
+STRATEGY_DETAILS:
+The CrossVolatility strategy combines a dual moving average crossover system with volatility-based profit targets and dynamic stop-loss placement. This approach aims to capture trending markets while managing risk using recent price action and market volatility.
+
+Key Components:
+1. Moving Averages:
+   - 50-period Simple Moving Average (SMA)
+   - 200-period Exponential Moving Average (EMA)
+2. Volatility Measurement:
+   - Average True Range (ATR) for profit target calculation
+3. Price Action:
+   - Previous swing high for stop-loss placement
+
+Entry Rules:
+1. Go long when:
+   - 50 SMA crosses above 200 EMA (Golden Cross)
+   - Price is above both moving averages
+   - Confirmation candle closes above the crossover point
+
+Exit Rules:
+1. Take-Profit:
+   - Set at 20% of current ATR value from entry price
+   - Example: If ATR is 10, take-profit is set at 2 points above entry
+2. Stop-Loss:
+   - Placed at the previous swing high
+   - Must be below the entry price
+   - Minimum distance of 10% ATR from entry price
+
+Risk Management:
+1. Position Sizing:
+   - Risk no more than 1-2% of account per trade
+   - Calculate position size based on stop-loss distance
+2. Trade Filter:
+   - Only trade when ATR is above its 20-period average
+   - Avoid trading during low volatility periods
+3. Time Filter:
+   - Only take trades during active market hours
+   - Avoid trading during major news events
+
+Required Indicators:
+1. 50-period Simple Moving Average (SMA)
+2. 200-period Exponential Moving Average (EMA)
+3. Average True Range (ATR) - 14 period recommended
+
+Additional Notes:
+- Use this strategy on daily or 4-hour timeframes for best results
+- Consider adding volume confirmation for stronger signals
+- Backtest thoroughly across different market conditions
+- Adjust ATR percentage based on market volatility and personal risk tolerance
+
+This strategy combines trend-following principles with volatility-based profit targets, creating a balanced approach to capturing trends while managing risk through dynamic stop-loss placement and ATR-based profit targets.

@@ -1,0 +1,63 @@
+STRATEGY_NAME: BandwidthAccumulator
+
+STRATEGY_DETAILS:
+The BandwidthAccumulator strategy combines Bollinger Band contraction patterns with volume accumulation signals for high-probability breakout trades. This approach focuses on periods of low volatility (as measured by Bollinger Band width) that coincide with underlying accumulation activity.
+
+Key Components:
+1. Bollinger Band Width Analysis (20-period)
+   - Measures the contraction of volatility
+   - Width must contract below a historical percentile (typically 20th percentile)
+   
+2. Klinger Volume Oscillator
+   - Must show positive values indicating accumulation
+   - Confirms underlying buying pressure during the contraction phase
+
+Entry Rules:
+1. Primary Trigger:
+   - Bollinger Band width contracts below historical low percentile threshold
+   - Price must be trading within the bands (not outside)
+
+2. Confirmation:
+   - Klinger Volume Oscillator must be positive (above zero line)
+   - Recent upward slope preferred for additional confirmation
+
+3. Execution:
+   - Enter long on breakout above upper band
+   - Enter short on breakdown below lower band
+   - Requires closing price confirmation outside the band
+
+Exit Rules:
+1. Profit Taking:
+   - Trailing stop based on opposite band edge
+   - Alternative: Fixed risk-reward ratio (e.g., 2:1)
+
+2. Stop Loss:
+   - Initial stop placed at opposite band edge
+   - For long positions: lower band edge
+   - For short positions: upper band edge
+
+Risk Management:
+1. Position Sizing:
+   - Standard 1-2% risk per trade
+   - Adjust stop distance to maintain consistent risk
+
+2. Volatility Filter:
+   - Avoid trading if average true range is excessively high
+   - Ensures stops aren't too wide for account size
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+   - Standard deviation setting may be adjusted for different instruments
+   - Must calculate band width (upper band - lower band)
+
+2. Klinger Volume Oscillator (default settings typically 34,55,13)
+   - Must be properly configured for the trading timeframe
+
+3. Historical Percentile Calculator (for band width)
+   - Requires lookback period (typically 100-200 periods)
+
+Additional Notes:
+- Works best on 1H or 4H timeframes for swing trading
+- Requires sufficient historical data for percentile calculations
+- Performs well in ranging markets transitioning to trends
+- Less effective during strong, established trends where bands remain wide

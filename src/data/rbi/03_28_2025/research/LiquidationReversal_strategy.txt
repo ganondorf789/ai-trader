@@ -1,0 +1,45 @@
+STRATEGY_NAME: LiquidationReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Zones:** Identified via order book heatmaps, these zones represent areas with high liquidity where stop-loss orders are likely clustered, increasing the probability of price reversals.  
+2. **RSI Divergence (4-hour):** Confirms weakening momentum when price makes a higher high but RSI makes a lower high (bearish divergence) or price makes a lower low but RSI makes a higher low (bullish divergence).  
+3. **Volatility Squeeze:** Bollinger Bandwidth hitting a 10-day low indicates a period of low volatility, often preceding a breakout or reversal.  
+
+**Entry Rules:**  
+1. **Bearish Reversal Entry:**  
+   - Price approaches a high liquidation cluster zone.  
+   - Bearish RSI divergence on the 4-hour chart.  
+   - Bollinger Bandwidth reaches a 10-day low (volatility squeeze).  
+   - Enter short on a break below the recent swing low or a bearish candlestick pattern (e.g., engulfing, pin bar).  
+
+2. **Bullish Reversal Entry:**  
+   - Price approaches a low liquidation cluster zone.  
+   - Bullish RSI divergence on the 4-hour chart.  
+   - Bollinger Bandwidth reaches a 10-day low (volatility squeeze).  
+   - Enter long on a break above the recent swing high or a bullish candlestick pattern.  
+
+**Exit Rules:**  
+1. **Take Profit:**  
+   - Target the next significant liquidity zone or support/resistance level.  
+   - Alternatively, use a 2:1 or 3:1 risk-reward ratio based on the entry stop-loss distance.  
+
+2. **Stop Loss:**  
+   - For short entries, place the stop above the recent swing high or the liquidation cluster zone.  
+   - For long entries, place the stop below the recent swing low or the liquidation cluster zone.  
+
+**Risk Management:**  
+1. Risk no more than 1-2% of the trading capital per trade.  
+2. Adjust position size based on stop-loss distance to maintain consistent risk per trade.  
+3. Avoid trading during major news events or periods of erratic order book activity.  
+
+**Required Indicators:**  
+1. **Order Book Heatmap:** To identify high liquidation cluster zones.  
+2. **RSI (14-period, 4-hour chart):** To spot divergences.  
+3. **Bollinger Bands (20-period, 2 standard deviations):** To monitor Bandwidth for volatility squeeze conditions.  
+
+**Additional Notes:**  
+- This strategy works best in ranging or mildly trending markets. Avoid strong trending markets without confirmation.  
+- Combine with price action (e.g., rejection candles, volume spikes) for higher-probability entries.  
+- Backtest to fine-tune parameters like RSI period, Bollinger Band settings, and liquidity zone thresholds.

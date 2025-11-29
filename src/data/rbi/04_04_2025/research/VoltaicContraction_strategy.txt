@@ -1,0 +1,41 @@
+STRATEGY_NAME: VoltaicContraction
+
+STRATEGY_DETAILS:
+This strategy capitalizes on volatility contractions following liquidation events, combining Bollinger Band analysis with basis divergence and volume-confirmed reversals.
+
+Key Components:
+1. Bollinger Band Width (BBW) - Measures volatility contraction (20-period SMA, 2 std dev)
+2. Spot-CME Basis Divergence - Tracks futures/spot price differentials
+3. Volume-Weighted Reversal Candles - Identifies high-conviction turning points
+
+Entry Rules:
+1. Wait for liquidation cascade (sharp price move with elevated volume)
+2. BBW must cross below threshold (suggesting volatility contraction)
+3. Spot-CME basis must show divergence (price moving opposite to basis)
+4. Volume-weighted reversal candle must form (close > open with volume > 20-period avg)
+
+Exit Rules:
+1. Primary: Take profit at 1.5x average true range (ATR) from entry
+2. Secondary: Exit if BBW expands beyond entry threshold
+3. Emergency: Stop loss at 0.5x ATR from entry
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop loss mandatory on all positions
+3. No trading during scheduled high-impact news events
+4. Daily loss limit of 5% across all positions
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Band Width (BBW)
+3. Volume-weighted moving average (VWMA)
+4. Average True Range (ATR 14)
+5. Spot-CME basis differential indicator
+
+Optimization Notes:
+1. Backtest BBW thresholds (typically 0.5-1.5 range)
+2. Test various ATR multiples for profit targets
+3. Validate basis divergence sensitivity
+4. Adjust volume thresholds based on asset liquidity
+
+This strategy works best in crypto and high-beta assets prone to liquidation events, requiring patience to wait for proper setups. The "VoltaicContraction" name reflects both the electrical surge/recovery analogy of liquidations and the precise measurement of volatility contractions.

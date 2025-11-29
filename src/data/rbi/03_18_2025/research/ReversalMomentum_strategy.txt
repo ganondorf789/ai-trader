@@ -1,0 +1,32 @@
+STRATEGY_NAME: ReversalMomentum
+
+STRATEGY_DETAILS:
+The ReversalMomentum strategy is designed to identify potential trend reversals and capitalize on the early stages of a new trend while avoiding strong trending markets. It combines the use of moving averages for trend identification and the ADX (Average Directional Index) for trend strength analysis.
+
+Key Strategy Components:
+1. **50-period EMA (Exponential Moving Average)**: Used to identify short-term price momentum.
+2. **200-period EMA**: Represents the long-term trend and acts as a baseline for trend confirmation.
+3. **ADX (Average Directional Index)**: Measures the strength of a trend, helping to filter out strong trending markets and focus on potential reversals.
+
+Entry Rules:
+- Enter a **long position** when the 50-period EMA crosses **above** the 200-period EMA (a bullish crossover).
+- The ADX must be **below 20** at the time of the crossover, indicating a weak or non-existent trend, which suggests a potential reversal or the beginning of a new trend.
+
+Exit Rules:
+- Exit the long position when the ADX rises **above 40**, signaling that the trend has gained significant strength and may be nearing exhaustion or continuation.
+- Alternatively, consider exiting if the 50-period EMA crosses **below** the 200-period EMA, indicating a potential trend reversal to the downside.
+
+Risk Management:
+- Use a **stop-loss** below a recent swing low or a fixed percentage/point value to limit downside risk.
+- Position sizing should be based on account size and risk tolerance, typically risking no more than 1-2% of the account per trade.
+- Avoid entering trades during high-impact news events or periods of extreme volatility, as these can lead to false signals.
+
+Required Indicators:
+1. **50-period EMA**
+2. **200-period EMA**
+3. **ADX (14-period default setting is recommended)**
+
+Additional Notes:
+- This strategy works best in markets that exhibit cyclical behavior or frequent trend reversals.
+- It may underperform in strongly trending markets, as the ADX filter will prevent entries during such conditions.
+- Backtesting and optimization of the EMA periods and ADX thresholds are recommended to adapt the strategy to specific markets or timeframes.

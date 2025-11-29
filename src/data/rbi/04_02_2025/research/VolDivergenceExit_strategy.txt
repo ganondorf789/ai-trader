@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolDivergenceExit
+
+STRATEGY_DETAILS:
+This strategy combines volatility channel breakouts with volume divergence for high-probability entries and uses dynamic channel-based stops for exits.
+
+Key Components:
+1. Keltner Channels (20-period, 2.5x ATR multiplier) - defines volatility boundaries
+2. On-Balance Volume (OBV) - detects volume divergence
+3. Trailing stop mechanism based on channel width
+
+Entry Rules:
+1. LONG Entry Trigger:
+   - Price closes above upper Keltner Channel
+   - OBV shows negative divergence (price making higher highs while OBV makes lower highs)
+   - Both conditions must occur simultaneously
+
+Exit Rules:
+1. Primary Exit:
+   - OBV confirms price movement by making new high
+2. Secondary Exit:
+   - Trailing stop triggered (set at 1x channel width below recent high)
+3. Emergency Exit:
+   - Price closes below lower Keltner Channel
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Initial stop placed at lower Keltner Channel (or 1.5x channel width for tighter stops)
+3. No trades taken when channels are unusually narrow (volatility contraction)
+
+Required Indicators:
+1. Keltner Channels (20EMA, 2.5x ATR(20))
+2. On-Balance Volume (standard settings)
+3. ATR (20) for channel width calculation
+
+Optimization Notes:
+- Channel multiplier can be adjusted between 2.0-3.0 based on asset volatility
+- OBV lookback period for divergence can be 3-5 periods
+- Trailing stop multiple can range from 0.8x to 1.5x channel width
+
+This strategy excels in trending markets with clear volume patterns, while the channel-based exits help protect profits during volatile swings. The negative volume divergence filters out false breakouts, increasing win rate.

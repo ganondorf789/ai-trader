@@ -1,0 +1,39 @@
+STRATEGY_NAME: SqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Condition:** Identifies low volatility periods where the Bollinger Band width is less than 50% of its 20-day range, signaling a potential breakout.  
+2. **VWAP Breakout Trigger:** Uses the 12-period Volume-Weighted Average Price (VWAP) as the breakout confirmation level.  
+3. **Keltner Channel Exit:** Exits trades when price closes outside Keltner Channels with volume confirmation, ensuring momentum alignment.  
+
+**Entry Rules:**  
+- Enter a **long** position when:  
+  - Bollinger Band width is below 50% of its 20-day range (squeeze condition).  
+  - Price crosses **above** the 12-period VWAP.  
+- Enter a **short** position when:  
+  - Bollinger Band width is below 50% of its 20-day range (squeeze condition).  
+  - Price crosses **below** the 12-period VWAP.  
+
+**Exit Rules:**  
+- Exit **long** positions when:  
+  - Price closes **below** the lower Keltner Channel with above-average volume.  
+- Exit **short** positions when:  
+  - Price closes **above** the upper Keltner Channel with above-average volume.  
+
+**Risk Management:**  
+- Use a **stop-loss** at the recent swing low (for longs) or swing high (for shorts) beyond the breakout candle.  
+- Position sizing should account for volatility (e.g., ATR-based risk per trade).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To measure squeeze conditions.  
+2. **VWAP (12-period)** – For breakout confirmation.  
+3. **Keltner Channels (20,1.5)** – For exit signals.  
+4. **Volume** – To confirm exits.  
+
+**Unique Aspects:**  
+- Combines **low-volatility detection (Bollinger Squeeze)** with **volume-weighted breakout triggers (VWAP)** for high-probability entries.  
+- Uses **Keltner Channels + volume** for dynamic exits, reducing false breakouts.  
+- Avoids generic trend-following by focusing on **compression-to-expansion** phases.  
+
+**Note:** Works best on **15M-1H timeframes** for swing/day trading. Backtest optimal parameters for asset-specific volatility.

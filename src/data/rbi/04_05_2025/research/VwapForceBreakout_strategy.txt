@@ -1,0 +1,35 @@
+STRATEGY_NAME: VwapForceBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volume-weighted price analysis with momentum confirmation to identify high-probability breakout opportunities. The key components are:
+
+1. KEY INDICATORS:
+- 20-period VWAP (Volume Weighted Average Price): Acts as dynamic support/resistance
+- Elder's Force Index (13-period recommended): Measures buying/selling pressure combining price and volume
+- Price action: For breakout confirmation
+
+2. ENTRY RULES:
+- Long Entry: When price crosses ABOVE 20-period VWAP AND Elder's Force Index shows significant positive momentum (suggested: > +0.5 or breaking above its own moving average)
+- Short Entry: When price crosses BELOW 20-period VWAP AND Elder's Force Index shows significant negative momentum (suggested: < -0.5 or breaking below its own moving average)
+
+3. EXIT RULES:
+- Take Profit: 2:1 risk-reward ratio (target = 2x initial risk)
+- Stop Loss: Price closing back below (for longs) or above (for shorts) the 20-period VWAP
+- Emergency Exit: If Elder's Force Index reverses direction sharply (e.g., crosses zero line)
+
+4. RISK MANAGEMENT:
+- Position size should be calculated based on distance between entry and stop loss
+- Maximum risk per trade: 1-2% of account
+- Avoid trading during low volume periods when VWAP may be less reliable
+
+5. FILTERS FOR HIGHER QUALITY TRADES:
+- Look for breakouts that occur with above-average volume
+- Prefer breakouts that align with the broader trend (e.g., long breakouts in uptrends)
+- Wait for price to close beyond VWAP for confirmation
+
+6. SPECIAL CONSIDERATIONS:
+- Works best on liquid assets with good volume patterns
+- More effective on 1-hour or 4-hour charts for swing trading
+- Adjust VWAP period based on trading style (shorter for day trading)
+
+This strategy leverages the confluence of institutional price levels (VWAP) with professional momentum analysis (Force Index) to identify breakouts with higher probability of continuation. The 2:1 reward ratio ensures positive expectancy over time.

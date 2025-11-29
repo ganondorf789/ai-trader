@@ -1,0 +1,54 @@
+STRATEGY_NAME: FibroVoltaic  
+
+STRATEGY_DETAILS:  
+The FibroVoltaic strategy combines Fibonacci retracement levels with contracting Average True Range (ATR) bands to identify high-probability entries during uptrends with declining volatility, exiting on volatility expansion.  
+
+**Key Components:**  
+1. **Trend Identification:**  
+   - Use a 50-period EMA to confirm uptrend (price > EMA)  
+   - Require higher highs/higher lows structure  
+
+2. **Fibonacci Framework:**  
+   - Draw retracement levels (38.2%, 50%, 61.8%) from recent swing low to high  
+   - Focus on the 50-61.8% "golden zone" for entries  
+
+3. **Volatility Contraction:**  
+   - 14-period ATR must be below its 20-period SMA  
+   - Price must be compressing within narrowing ATR bands  
+
+**Entry Rules:**  
+1. Price must pull back to 50-61.8% Fib level  
+2. ATR(14) must be below its 20-period SMA (contracting volatility)  
+3. Enter long when:  
+   - Price touches Fib level + shows bullish reversal candle  
+   - Stop placed below recent swing low  
+
+**Exit Rules:**  
+1. **Profit Taking:**  
+   - First target at 161.8% Fib extension  
+   - Trail stop using 3x ATR  
+
+2. **Stop Out:**  
+   - Close if price breaks below entry swing low  
+   - Emergency exit if ATR expands >20% from entry level  
+
+**Risk Management:**  
+- Position size limited to 1-2% risk per trade  
+- Minimum 1:3 risk-reward ratio required  
+- No trades during major economic events  
+
+**Required Indicators:**  
+1. Fibonacci retracement tool  
+2. 14-period ATR with 20-period SMA overlay  
+3. 50-period EMA for trend filter  
+4. Volume confirmation (optional but recommended)  
+
+**Unique Aspects:**  
+- Combines mean-reversion (Fib levels) with volatility contraction signals  
+- Exploits the transition between low-volatility accumulation and high-volatility expansion phases  
+- Particularly effective in ranging markets within broader uptrends  
+
+**Optimization Notes:**  
+- Test different ATR periods (10-20) based on asset volatility  
+- Adjust Fib zone focus (e.g., 38.2-50% for stronger trends)  
+- Combine with RSI(14) >40 for additional confirmation

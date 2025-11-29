@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityReversion  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on mean-reversion opportunities in low-volatility environments by combining historical volatility analysis with RSI-based exit signals.  
+
+**Key Components:**  
+1. **Historical Volatility (HV) Filter:** Uses 10-day HV to identify low-volatility conditions when it drops below its 20-day moving average (MA).  
+2. **RSI Exit Signal:** Monitors 5-day RSI for overbought conditions (crossing above 70) to exit positions.  
+3. **Mean-Reversion Focus:** Aims to profit from price rebounds after periods of suppressed volatility.  
+
+**Entry Rules:**  
+- Go **LONG** when:  
+  - 10-day HV crosses **below** its 20-day MA (confirming low volatility).  
+
+**Exit Rules:**  
+- Close the position when:  
+  - 5-day RSI crosses **above 70** (indicating overbought conditions).  
+
+**Risk Management:**  
+1. **Stop-Loss:** Optional trailing stop (e.g., 2x the 10-day ATR) to limit downside.  
+2. **Position Sizing:** Adjust based on volatility (e.g., larger positions in lower volatility regimes).  
+3. **Avoid Overexposure:** Limit trades to assets with clear mean-reverting tendencies (e.g., indices, ETFs).  
+
+**Required Indicators:**  
+1. 10-day Historical Volatility (standard deviation of logarithmic returns).  
+2. 20-day Moving Average of 10-day HV.  
+3. 5-day RSI (for exit timing).  
+4. Optional: ATR for stop-loss placement.  
+
+**Notes:**  
+- Works best in range-bound or mildly trending markets.  
+- Avoid during high-volatility news events or breakouts.  
+- Backtest to confirm optimal parameters for specific assets.  
+
+This strategy is ideal for traders seeking to exploit the "calm before the storm" in volatility cycles while using RSI to capture short-term overextensions.

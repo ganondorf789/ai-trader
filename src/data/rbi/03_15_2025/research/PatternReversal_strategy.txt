@@ -1,0 +1,30 @@
+STRATEGY_NAME: PatternReversal
+
+STRATEGY_DETAILS:
+The PatternReversal strategy is a long-term directional trading approach that focuses on identifying and capitalizing on Inverse Head and Shoulders patterns on the 4-hour chart. This strategy combines pattern recognition, volatility-based stop-loss placement, and momentum confirmation to execute trades with precision.
+
+Key Strategy Components:
+1. Inverse Head and Shoulders Pattern: The strategy identifies this classic reversal pattern, which consists of three troughs, with the middle trough (head) being the lowest and the two outside troughs (shoulders) being higher and roughly equal in depth.
+2. ATR (Average True Range): Used to determine the stop-loss distance, scaled to 2 times the ATR to account for market volatility.
+3. RSI (Relative Strength Index): Used to confirm the breakout and potential reversal, ensuring the momentum aligns with the pattern's direction.
+
+Entry Rules:
+1. Identify a well-formed Inverse Head and Shoulders pattern on the 4-hour chart.
+2. Enter a long position at the high of the right shoulder, confirming the pattern's completion.
+3. Ensure the entry is accompanied by increasing volume to validate the pattern's strength.
+
+Exit Rules:
+1. Exit the position when the price breaks out above the neckline of the Inverse Head and Shoulders pattern.
+2. Confirm the breakout with an RSI reversal signal, typically indicated by the RSI crossing above a key level (e.g., 50) or showing bullish divergence.
+
+Risk Management:
+1. Place the stop-loss below the neckline of the Inverse Head and Shoulders pattern, scaled to 2 times the ATR to accommodate market volatility.
+2. Position sizing should be calculated based on the stop-loss distance and the trader's risk tolerance, ensuring no more than 1-2% of the trading capital is risked per trade.
+3. Regularly monitor the trade and adjust the stop-loss if the price moves favorably, using trailing stops or moving the stop-loss to breakeven once a certain profit level is reached.
+
+Required Indicators:
+1. ATR (Average True Range): To measure market volatility and set the stop-loss distance.
+2. RSI (Relative Strength Index): To confirm the breakout and reversal momentum.
+3. Volume Indicator: To validate the strength of the pattern and the breakout.
+
+By combining these elements, the PatternReversal strategy aims to capture significant price movements following the completion of an Inverse Head and Shoulders pattern, while effectively managing risk through volatility-adjusted stop-losses and momentum confirmation.

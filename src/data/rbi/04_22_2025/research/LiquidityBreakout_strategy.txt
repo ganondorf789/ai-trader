@@ -1,0 +1,30 @@
+STRATEGY_NAME: LiquidityBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Clusters (On-Chain Order Book Delta):** Identifies high-probability zones where stop-loss orders cluster, increasing the likelihood of a breakout when price approaches these levels.  
+2. **Volatility Contraction (Bollinger Band Width):** Confirms low volatility periods before potential breakouts, ensuring entries occur during consolidation phases.  
+3. **Liquidity Pocket Exits:** Targets exits at the next significant liquidity pocket (support/resistance or order book imbalance) to capture optimal profit before reversal.  
+
+**Entry Rules:**  
+1. **Liquidation Cluster Proximity:** Price must be within a predefined range (e.g., 1-2%) of a detected liquidation cluster.  
+2. **Volatility Contraction:** Bollinger Band Width (BBW) must be below a threshold (e.g., 0.5) indicating low volatility.  
+3. **Breakout Confirmation:** Price must close above (for long) or below (for short) the recent consolidation range.  
+
+**Exit Rules:**  
+1. **Liquidity Pocket Hit:** Exit when price reaches the next major liquidity pocket (identified via order book delta or historical levels).  
+2. **Volatility Expansion:** If Bollinger Band Width expands significantly (e.g., >1.5), consider early exit to avoid fakeouts.  
+3. **Stop-Loss:** Place stop-loss just beyond the opposite side of the liquidation cluster to avoid being caught in a false breakout.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% per trade.  
+2. **Stop-Loss:** Tight stop-loss beyond the opposing liquidation cluster.  
+3. **Take-Profit:** Target 1.5-3x risk-reward ratio based on liquidity pocket distance.  
+
+**Required Indicators:**  
+1. **On-Chain Order Book Delta (Liquidation Clusters)**  
+2. **Bollinger Band Width (BBW) for Volatility Contraction**  
+3. **Price Action Confirmation (Breakout Close)**  
+
+This strategy combines on-chain liquidity analysis with technical volatility signals for high-probability breakout trades.

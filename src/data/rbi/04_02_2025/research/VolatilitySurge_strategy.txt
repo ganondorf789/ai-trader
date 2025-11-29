@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Breakout Trigger:** The strategy identifies high-momentum conditions by comparing the 5-minute ATR (Average True Range) to the daily ATR. A long position is triggered when the 5-minute ATR exceeds the daily ATR by 50%, signaling a significant surge in volatility.  
+2. **Risk-Reward Exit:** Positions are closed based on a fixed 2:1 risk-reward ratio, ensuring disciplined profit-taking.  
+3. **Trailing Stop Protection:** A trailing stop is set at 1.5x the entry ATR to lock in profits while allowing room for volatility expansion.  
+
+**Entry Rules:**  
+- **Condition:** Go long when the 5-minute ATR > (Daily ATR * 1.5).  
+- **Confirmation:** Entry occurs on the next candle after the breakout condition is met to avoid false signals.  
+
+**Exit Rules:**  
+1. **Profit Target:** Exit at 2x the initial risk (e.g., if stop loss is $10 below entry, take profit at $20 above entry).  
+2. **Trailing Stop:** Adjust the stop loss to 1.5x the current ATR (from entry) as the trade moves favorably.  
+3. **Emergency Stop:** If the trailing stop is not triggered but price reverses sharply, exit if the 5-minute ATR drops below 75% of the daily ATR.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Stop Loss:** Initial stop is set at 1x the entry ATR (not trailing) to define risk.  
+- **Volatility Filter:** Avoid trading if the daily ATR is below a threshold (e.g., 50% of its 20-day average), indicating low volatility.  
+
+**Required Indicators:**  
+1. **ATR (5-minute & daily)** – To measure volatility and define breakout conditions.  
+2. **Price Chart (5-minute timeframe)** – For execution and monitoring.  
+
+**Unique Aspects:**  
+- Focuses on **short-term volatility surges** rather than traditional breakouts.  
+- Uses a **dynamic trailing stop** tied to real-time ATR, adapting to market conditions.  
+- Combines **fixed risk-reward exits** with **volatility-based stops** for balanced trade management.  
+
+**Note:** This strategy performs best in trending markets with expanding volatility. Avoid ranging/low-volatility conditions.

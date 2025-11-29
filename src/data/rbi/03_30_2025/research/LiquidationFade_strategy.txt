@@ -1,0 +1,37 @@
+STRATEGY_NAME: LiquidationFade
+
+STRATEGY_DETAILS:
+This strategy capitalizes on short-term price distortions caused by high-frequency liquidation events, fading the spike and profiting from the subsequent retracement to normalized levels.
+
+Key Components:
+1. Liquidation Cluster Detection: Identifies forced liquidations via order book imbalance metrics (bid/ask volume ratios)
+2. Spike Quantification: Measures the magnitude of price movement from pre-event VWAP
+3. Mean Reversion: Expects price to return to pre-spike equilibrium levels
+
+Entry Rules:
+1. Trigger: When price spikes >2% from VWAP within 5 minutes
+2. Confirmation: Order book shows >70% imbalance in spike direction (indicating forced liquidations)
+3. Entry: Short position at spike peak (for upward spikes) or long position at spike trough (for downward spikes)
+
+Exit Rules:
+1. Primary: When price retraces to pre-spike VWAP level
+2. Secondary: If price continues beyond spike extreme by >1%, stop out
+3. Time-based: Close position if not profitable within 30 minutes
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Stop loss: 1.5x spike magnitude beyond entry point
+3. Maximum daily trades: 5 to avoid overexposure to volatile conditions
+
+Required Indicators:
+1. Real-time VWAP (15-minute lookback)
+2. Order book imbalance indicator (bid/ask volume ratio)
+3. Price change alert (>2% within 5 minutes)
+4. Liquidation volume metrics (when available)
+
+Optimal Conditions:
+- Works best in high-liquidity markets during periods of elevated leverage
+- Most effective when overall market volatility is moderate (not trending strongly)
+- Avoid news events/fundamental catalysts that may override technical retracement
+
+Note: Requires fast execution capabilities to capitalize on short-lived opportunities. Works particularly well in crypto markets with high leverage ratios.

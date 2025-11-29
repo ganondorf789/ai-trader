@@ -1,0 +1,48 @@
+STRATEGY_NAME: VoltaicFibreversal
+
+STRATEGY_DETAILS:
+The VoltaicFibreversal strategy is a volatility-based approach that combines Fibonacci retracement levels with divergence signals and volatility bars for precise entries and exits. This strategy is designed to capitalize on strong momentum shifts while using Fibonacci levels as profit targets and volatility-based exits to lock in gains.
+
+### Key Components:
+1. **Fibonacci Retracement Levels**: Used as price targets for taking profits.
+2. **Volatility Bars**: Used to determine exit points after a significant move.
+3. **Bullish Divergence**: Used as the primary entry signal, indicating a potential reversal or strong upward momentum.
+4. **Implied Volatility (IV) Breach**: Used to confirm the strength of the breakout and validate the entry.
+
+### Entry Rules:
+1. **Identify Bullish Divergence**:
+   - Look for a bullish divergence between price and a momentum oscillator (e.g., RSI, MACD).
+   - Price makes lower lows, but the oscillator makes higher lows, signaling weakening downward momentum.
+2. **Confirm IV Breach**:
+   - Wait for implied volatility (IV) to breach a key resistance level, indicating a potential breakout.
+3. **Enter Long**:
+   - Enter a long position when both the bullish divergence and IV breach are confirmed.
+
+### Exit Rules:
+1. **Fibonacci Price Targets**:
+   - Set profit targets at key Fibonacci retracement levels (e.g., 38.2%, 50%, 61.8%) drawn from the recent swing low to the swing high.
+2. **Volatility Bars**:
+   - Exit the trade when volatility bars (e.g., ATR-based bars) show a significant contraction or reversal, indicating a loss of momentum.
+3. **Stop Loss**:
+   - Place a stop loss below the recent swing low or at a predefined risk level (e.g., 1-2% of account equity).
+
+### Risk Management:
+1. **Position Sizing**:
+   - Use a fixed percentage of account equity per trade (e.g., 1-2%) to manage risk.
+2. **Stop Loss**:
+   - Always use a stop loss to limit downside risk.
+3. **Trailing Stop**:
+   - Consider using a trailing stop to lock in profits as the trade moves in your favor.
+
+### Required Indicators:
+1. **Fibonacci Retracement Tool**:
+   - For setting price targets.
+2. **Momentum Oscillator (RSI or MACD)**:
+   - For identifying bullish divergence.
+3. **Implied Volatility (IV) Indicator**:
+   - For confirming breakout strength.
+4. **Volatility Bars (ATR-based)**:
+   - For determining exit points.
+
+### Summary:
+The VoltaicFibreversal strategy is a sophisticated approach that leverages Fibonacci levels, divergence signals, and volatility analysis to identify high-probability trades. By combining these elements, the strategy aims to capture strong momentum moves while managing risk effectively. This strategy is best suited for traders who are comfortable with technical analysis and have a solid understanding of volatility dynamics.

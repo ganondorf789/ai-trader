@@ -1,0 +1,47 @@
+STRATEGY_NAME: VortexDivergence
+
+STRATEGY_DETAILS:
+This strategy combines the Vortex Indicator and Money Flow Index (MFI) to identify potential trend reversals with confirmation from both momentum and volume flow. The strategy waits for synchronized signals from these indicators before entering trades, while using ADX to confirm trend strength and determine exits.
+
+Key Components:
+1. Vortex Indicator (VI+ and VI-): Measures positive and negative trend movement
+2. Money Flow Index (MFI, 14-period): Identifies overbought/oversold conditions with volume confirmation
+3. Average Directional Index (ADX, 14-period): Measures trend strength
+
+Entry Rules (Long):
+1. VI+ crosses above VI- (bullish vortex crossover)
+2. MFI shows bullish divergence (price makes lower low while MFI makes higher low)
+3. Current price must be above 200-period moving average (trend filter)
+4. ADX must be above 25 (confirming strong trend potential)
+
+Entry Rules (Short):
+1. VI- crosses above VI+ (bearish vortex crossover)
+2. MFI shows bearish divergence (price makes higher high while MFI makes lower high)
+3. Current price must be below 200-period moving average (trend filter)
+4. ADX must be above 25 (confirming strong trend potential)
+
+Exit Rules:
+1. For long positions: ADX declines below 20 (trend weakening)
+2. For short positions: ADX declines below 20 (trend weakening)
+3. Alternative exit: 2:1 risk-reward ratio achieved
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Stop-loss placement:
+   - Longs: Below most recent swing low
+   - Shorts: Above most recent swing high
+3. Trailing stop: Move to breakeven when price reaches 1.5x initial risk
+
+Indicator Settings:
+- Vortex Indicator: 14-period (standard)
+- Money Flow Index: 14-period
+- ADX: 14-period
+- 200-period Simple Moving Average (trend filter)
+
+Additional Notes:
+1. Best used on 1-hour or 4-hour charts for swing trading
+2. More reliable in trending markets than ranging conditions
+3. Divergence should be clear and span at least 5-7 periods
+4. Avoid trading during major news events that may cause false signals
+
+This VortexDivergence strategy provides a systematic approach to catching trend reversals with multiple confirmation points, while using ADX to ride trends until they weaken significantly.

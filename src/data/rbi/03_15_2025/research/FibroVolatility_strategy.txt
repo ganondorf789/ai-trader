@@ -1,0 +1,70 @@
+STRATEGY_NAME: FibroVolatility
+
+STRATEGY_DETAILS:
+The FibroVolatility strategy combines Fibonacci retracement levels with volatility-based exits, focusing on specific market hours and low-volatility conditions. Here's a detailed breakdown of the strategy:
+
+---
+
+### **Key Strategy Components**
+1. **Fibonacci Retracement Levels**: 
+   - Use Fibonacci retracement levels (e.g., 38.2%, 50%, 61.8%) to identify potential support or resistance zones.
+   - These levels are drawn from the most recent significant swing high to swing low (or vice versa).
+
+2. **GMT+2 Market Hours**:
+   - Trades are only executed during GMT+2 market hours, which may align with specific liquidity or volatility patterns in the chosen market.
+
+3. **Low Volatility Filter**:
+   - Use a volatility indicator (e.g., Average True Range - ATR) to confirm low volatility conditions before entering a trade.
+   - Low volatility ensures the market is not overly erratic, increasing the likelihood of a successful retracement play.
+
+4. **ATR-Based Exits**:
+   - Exit trades when the price moves beyond a multiple of the ATR (e.g., 1x, 1.5x, or 2x ATR) from the entry point.
+   - This ensures risk is managed dynamically based on current market conditions.
+
+---
+
+### **Entry Rules**
+1. Identify a clear trend and draw Fibonacci retracement levels from the most recent swing high to swing low (or vice versa).
+2. Wait for the price to touch a key Fibonacci level (e.g., 38.2%, 50%, or 61.8%).
+3. Confirm low volatility using ATR (e.g., ATR value below a predefined threshold).
+4. Ensure the trade is executed during GMT+2 market hours.
+5. Enter a long position if the price bounces off a support level or a short position if it rejects a resistance level.
+
+---
+
+### **Exit Rules**
+1. Set an initial stop-loss at a multiple of the ATR (e.g., 1x ATR) from the entry point.
+2. Take profit when the price moves beyond a predefined ATR multiple (e.g., 1.5x or 2x ATR) in the direction of the trade.
+3. Exit the trade immediately if the price breaches the stop-loss level.
+
+---
+
+### **Risk Management**
+1. **Position Sizing**: 
+   - Use a fixed percentage of the trading account (e.g., 1-2%) for each trade to manage risk.
+2. **Stop-Loss Placement**:
+   - Place the stop-loss at 1x ATR from the entry point to limit downside risk.
+3. **Volatility Filter**:
+   - Avoid trading during high volatility periods to reduce the risk of false breakouts or erratic price movements.
+
+---
+
+### **Required Indicators**
+1. **Fibonacci Retracement Tool**:
+   - To identify key support and resistance levels.
+2. **Average True Range (ATR)**:
+   - To measure volatility and set stop-loss/take-profit levels.
+3. **Time Zone Filter**:
+   - Ensure trades are executed only during GMT+2 market hours.
+
+---
+
+### **Example Setup**
+1. **Scenario**: EUR/USD is in an uptrend, and the price retraces to the 50% Fibonacci level during GMT+2 hours.
+2. **Volatility Check**: ATR is below the predefined threshold, indicating low volatility.
+3. **Entry**: Enter a long position as the price bounces off the 50% level.
+4. **Exit**: Set a stop-loss at 1x ATR below the entry and take profit at 1.5x ATR above the entry.
+
+---
+
+The FibroVolatility strategy is designed to capitalize on precise retracement levels during specific market hours while managing risk through volatility-based exits. This approach ensures a disciplined and systematic trading process.

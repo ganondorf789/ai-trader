@@ -1,0 +1,38 @@
+STRATEGY_NAME: LiquiCluster Breakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Analysis**: Focuses on high liquidation zones in the order book, indicating potential price acceleration points.  
+2. **Order Book Imbalance**: Monitors significant buy/sell pressure imbalances near these clusters.  
+3. **Taker Volume Surge**: Requires confirmation via a sharp increase in aggressive (taker) volume.  
+4. **Bid-Ask Spread Compression**: Looks for narrowing spreads as a sign of impending breakout momentum.  
+
+**Entry Rules:**  
+- **Trigger**: Price approaches a high liquidation cluster (e.g., within 1-2% of the cluster level).  
+- **Confirmation**:  
+  - Order book shows >60% buy/sell imbalance in the direction of the breakout.  
+  - Taker volume spikes ≥2x the 10-period moving average.  
+  - Bid-ask spread narrows to ≤50% of its 5-minute average.  
+- **Entry Point**: Enter on a closing candle break above/below the cluster level with the above confirmations.  
+
+**Exit Rules:**  
+- **Take Profit**:  
+  - Fixed ratio: 1.5x the average recent candle range (e.g., 1.5x ATR(14)).  
+  - OR target next liquidation cluster in the direction of the trend.  
+- **Stop Loss**:  
+  - Place below/above the opposite side of the liquidation cluster.  
+  - OR if bid-ask spread widens beyond its 5-minute average +20%.  
+
+**Risk Management:**  
+- Position size capped at 2% of equity per trade.  
+- No trades during low liquidity periods (e.g., weekends, holidays).  
+- Cancel entry if taker volume fails to sustain within 3 candles post-trigger.  
+
+**Required Indicators/Tools:**  
+1. Order book liquidity heatmap (e.g., liquidation cluster markers).  
+2. Real-time taker volume indicator.  
+3. Bid-ask spread tracker with moving average.  
+4. ATR(14) for volatility-adjusted profit targets.  
+
+**Unique Edge:** Combines latent liquidity traps (clusters) with real-time aggressive volume and market microstructure (spread) for high-probability breakouts. Avoids false breaks by requiring multi-factor confirmation.

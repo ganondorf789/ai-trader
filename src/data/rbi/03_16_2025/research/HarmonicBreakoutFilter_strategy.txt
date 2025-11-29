@@ -1,0 +1,78 @@
+STRATEGY_NAME: HarmonicBreakoutFilter
+
+STRATEGY_DETAILS:
+The HarmonicBreakoutFilter strategy is designed to identify and filter out false breakouts by combining harmonic pattern recognition with key support and resistance levels. This approach helps traders avoid entering trades during deceptive market movements and instead focus on high-probability setups.
+
+### Key Strategy Components:
+1. **Harmonic Pattern Recognition**: 
+   - Identify classic harmonic patterns such as Gartley, Bat, Butterfly, and Crab patterns.
+   - Use Fibonacci retracement and extension levels to confirm the validity of these patterns.
+
+2. **Support and Resistance Levels**:
+   - Mark significant support and resistance levels based on recent price action.
+   - Use these levels to confirm potential breakout zones.
+
+3. **Volume Analysis**:
+   - Analyze volume spikes to confirm the strength of a breakout.
+   - Low volume during a breakout may indicate a false breakout.
+
+4. **Candlestick Patterns**:
+   - Look for reversal candlestick patterns (e.g., Doji, Engulfing, Pin Bar) near key levels to confirm potential reversals.
+
+### Entry Rules:
+1. **Harmonic Pattern Confirmation**:
+   - Wait for a harmonic pattern to complete and confirm near a key support or resistance level.
+   - Ensure the pattern aligns with Fibonacci retracement and extension levels.
+
+2. **Breakout Confirmation**:
+   - Wait for a breakout above resistance or below support.
+   - Confirm the breakout with a strong candlestick close beyond the level.
+
+3. **Volume Confirmation**:
+   - Ensure the breakout is accompanied by a significant increase in volume.
+   - Low volume breakouts are considered false and should be avoided.
+
+4. **Reversal Candlestick**:
+   - Look for a reversal candlestick pattern near the breakout level to confirm the entry.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set take profit levels based on the Fibonacci extension levels derived from the harmonic pattern.
+   - Alternatively, use the next significant support or resistance level as a target.
+
+2. **Stop Loss**:
+   - Place a stop loss just below the recent swing low (for long positions) or above the recent swing high (for short positions).
+   - Ensure the stop loss is outside the harmonic pattern's completion zone.
+
+3. **Trailing Stop**:
+   - Use a trailing stop to lock in profits as the trade moves in your favor.
+   - Adjust the trailing stop based on key support and resistance levels.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital on any single trade.
+   - Adjust position size based on the distance to the stop loss level.
+
+2. **Risk-Reward Ratio**:
+   - Aim for a minimum risk-reward ratio of 1:2.
+   - Only enter trades where the potential reward justifies the risk.
+
+3. **Diversification**:
+   - Avoid over-concentration in a single asset or market.
+   - Spread risk across different instruments and timeframes.
+
+### Required Indicators:
+1. **Fibonacci Retracement and Extension Tool**:
+   - Essential for identifying and confirming harmonic patterns.
+
+2. **Volume Indicator**:
+   - Use volume to confirm the strength of breakouts.
+
+3. **Support and Resistance Levels**:
+   - Manually mark key levels based on recent price action.
+
+4. **Candlestick Patterns**:
+   - Use candlestick analysis to confirm potential reversals.
+
+### Summary:
+The HarmonicBreakoutFilter strategy is a sophisticated approach that combines harmonic pattern recognition with key support and resistance levels to filter out false breakouts. By focusing on high-probability setups and using volume and candlestick analysis for confirmation, traders can improve their chances of success while minimizing risk. Proper risk management and disciplined execution are crucial for the effective implementation of this strategy.

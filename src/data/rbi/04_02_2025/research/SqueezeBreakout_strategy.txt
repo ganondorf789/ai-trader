@@ -1,0 +1,37 @@
+STRATEGY_NAME: SqueezeBreakout
+
+STRATEGY_DETAILS:
+The SqueezeBreakout strategy capitalizes on periods of low volatility (squeeze) followed by potential breakout moves, using Keltner Channel contraction and volume confirmation for high-probability entries.
+
+Key Components:
+1. Keltner Channel (20-period, 2x ATR)
+2. Volume analysis (declining trend)
+3. Breakout confirmation (close outside channel)
+4. Mean-reversion exit signal
+
+Entry Rules:
+1. Wait for Keltner Channel width to reach 20-day low (volatility squeeze)
+2. Confirm volume is in a downtrend (lower highs/lower lows)
+3. Enter long on close above upper channel
+4. Enter short on close below lower channel
+
+Exit Rules:
+1. Close position when price closes back inside the Keltner Channel
+2. Optional: Trail stop at opposite channel boundary
+
+Risk Management:
+1. Position size based on channel width at entry (wider channels = smaller position)
+2. Initial stop placed at opposite channel boundary
+3. Risk no more than 1-2% of capital per trade
+
+Required Indicators:
+1. Keltner Channel (20-period EMA, 2x ATR multiplier)
+2. Volume indicator (simple moving average optional)
+3. Channel width measurement (high-low difference)
+
+Optimization Notes:
+1. Test different channel periods (14-30 days)
+2. Experiment with ATR multipliers (1.5-2.5)
+3. Consider adding minimum price move filter (e.g., 1.5x channel width)
+
+This strategy works best in ranging markets transitioning to trends, avoiding false breakouts through the volatility contraction filter. The declining volume confirms decreasing participation during the squeeze phase, increasing breakout validity.

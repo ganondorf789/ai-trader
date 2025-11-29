@@ -1,0 +1,44 @@
+STRATEGY_NAME: VortexAccelTrend
+
+STRATEGY_DETAILS:
+This strategy combines trend confirmation from the Vortex Indicator with volume acceleration to identify high-probability trade entries, using a dynamic trailing stop for exits.
+
+Key Components:
+1. Vortex Indicator (VI+ and VI- lines) - Primary trend confirmation tool
+2. Volume Acceleration - 3-day volume change exceeding 20% threshold
+3. ATR (Average True Range) - For dynamic position sizing and stop placement
+
+Entry Rules:
+LONG:
+- When VI+ crosses above VI- (bullish trend confirmation)
+- AND 3-day volume acceleration > 20% (calculated as: (Today's Volume - 3-day MA Volume)/3-day MA Volume > 0.2)
+
+SHORT:
+- When VI- crosses above VI+ (bearish trend confirmation)
+- AND 3-day volume acceleration > 20% (same calculation as long)
+
+Exit Rules:
+1. Primary Exit: Opposite Vortex crossover (VI+ crosses below VI- for long positions or VI- crosses below VI+ for short positions)
+2. Protective Exit: Trailing stop at 2x ATR from the most recent extreme:
+   - For longs: High price - (2 x ATR)
+   - For shorts: Low price + (2 x ATR)
+
+Risk Management:
+1. Position sizing based on 1% risk per trade using ATR:
+   - Position Size = (Account Risk per Trade) / (2 x ATR)
+2. Maximum portfolio exposure: 5 concurrent positions
+3. Daily time frame recommended for reduced noise
+
+Required Indicators:
+1. Vortex Indicator (default 14-period)
+2. Volume (for acceleration calculation)
+3. ATR (14-period recommended)
+
+Optimization Notes:
+- Volume acceleration threshold can be adjusted between 15-25% based on market volatility
+- ATR multiplier can be tested between 1.5-2.5 for stop sensitivity
+- Strategy performs best in trending markets, may underperform in ranging conditions
+
+Additional Filters (optional):
+- Can add 200-day MA filter to only trade in direction of primary trend
+- Can require RSI(14) between 30-70 to avoid overbought/oversold conditions

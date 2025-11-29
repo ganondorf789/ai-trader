@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **ATR-Based Volatility Filter**: The strategy uses the 20-period Average True Range (ATR) to identify high-volatility conditions. A trade is only considered when the current 20-period ATR exceeds its 90-day average, signaling an unusual surge in volatility.  
+2. **Volume Confirmation**: A volume spike above the 95th percentile of recent volume (e.g., 50-day lookback) is required to confirm the breakout, ensuring participation and reducing false signals.  
+3. **Breakout Entry**: The strategy enters trades on breakouts (e.g., new highs/lows or key resistance/support breaks) that occur under the above conditions.  
+4. **Trailing Stop Exit**: Exits are managed using a trailing stop set at 2x the current 20-period ATR, allowing profits to run while protecting gains during volatile moves.  
+
+**Entry Rules:**  
+- Enter a long position when:  
+  1. Price breaks above a recent high (or resistance level).  
+  2. The 20-period ATR is above its 90-day average.  
+  3. Volume exceeds the 95th percentile of recent volume (e.g., last 50 days).  
+- Enter a short position when:  
+  1. Price breaks below a recent low (or support level).  
+  2. The 20-period ATR is above its 90-day average.  
+  3. Volume exceeds the 95th percentile of recent volume.  
+
+**Exit Rules:**  
+- Use a trailing stop set at 2x the current 20-period ATR:  
+  - For longs: Trail below the highest high since entry minus 2x ATR.  
+  - For shorts: Trail above the lowest low since entry plus 2x ATR.  
+- Exit the trade immediately if the trailing stop is hit.  
+
+**Risk Management:**  
+- Position sizing should account for the high volatility (e.g., smaller position sizes when ATR is elevated).  
+- Avoid trading during low-volume or low-volatility periods to reduce false breakouts.  
+- Consider a maximum risk per trade (e.g., 1-2% of capital) based on the distance to the trailing stop.  
+
+**Required Indicators:**  
+1. **Average True Range (ATR, 20-period)** – To measure volatility and set the trailing stop.  
+2. **Volume (with 95th percentile calculation)** – To confirm breakout strength.  
+3. **Price Levels (highs/lows or support/resistance)** – To define breakout points.  
+
+**Unique Aspects:**  
+- Combines volatility expansion (ATR) with volume confirmation for high-probability breakouts.  
+- Uses an adaptive trailing stop based on current volatility (2x ATR) to maximize gains during strong trends.  
+- Filters out low-quality breakouts by requiring both ATR and volume to exceed historical thresholds.  
+
+This strategy is best suited for trending markets and requires disciplined execution to avoid overtrading during choppy conditions.

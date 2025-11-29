@@ -1,0 +1,48 @@
+STRATEGY_NAME: LiquidationFractal
+
+STRATEGY_DETAILS:
+This strategy combines liquidation zone analysis with Fibonacci cluster confirmation to identify high-probability reversal opportunities in volatile markets. The approach focuses on three key components:
+
+1. Liquidation Heatmap Analysis:
+- Monitor exchange-provided liquidation heatmaps to identify dense clusters of liquidation levels
+- Prioritize zones where both long and short liquidations are concentrated
+- Validate zones with higher timeframe significance (daily/weekly levels)
+
+2. Fibonacci Cluster Confirmation:
+- Draw Fibonacci retracement from recent swing high to swing low (or vice versa)
+- Look for confluences where multiple Fib levels (38.2%, 50%, 61.8%) align with liquidation zones
+- Require at least 2 Fib levels to cluster within 0.5% of liquidation zone
+
+3. ATR-Based Risk Management:
+- Calculate 14-period ATR on the timeframe you're trading
+- Set initial stop loss at 1.5x ATR beyond the liquidation zone
+- Trail stop to breakeven when price moves 1x ATR in your favor
+- Take partial profits at 1x ATR and 2x ATR levels
+
+Entry Rules:
+1. Wait for price to approach identified liquidation zone (within 0.5%)
+2. Confirm Fibonacci cluster alignment (minimum 2 levels)
+3. Require rejection candle pattern (pinbar, engulfing, etc.) at the zone
+4. Enter on break of rejection candle high/low with 50% position
+5. Add remaining 50% on retest of zone if occurs
+
+Exit Rules:
+1. Initial target: 1x ATR (take 50% position off)
+2. Secondary target: 2x ATR (close remaining position)
+3. Emergency exit if price closes beyond 1.5x ATR stop level
+4. Trail stop to breakeven once 1x ATR profit achieved
+
+Required Indicators:
+1. Exchange liquidation heatmap data
+2. Fibonacci retracement tool
+3. 14-period ATR
+4. Volume profile (optional confirmation)
+
+Risk Management:
+1. Never risk more than 1-2% per trade
+2. Maximum 3 concurrent trades
+3. Avoid trading during low liquidity periods
+4. Adjust position size based on ATR value
+5. Daily loss limit of 5% account equity
+
+This strategy excels in volatile market conditions where liquidation cascades create exaggerated moves that often reverse sharply. The combination of liquidation zones with Fibonacci clusters provides high-probability reversal areas, while the ATR-based stops adapt to current market volatility.

@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolatilityReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Dynamic Support/Resistance Levels:** The strategy uses a 50-period volume-weighted standard deviation channel to identify key price boundaries. These levels adapt to market volatility and volume, providing more relevant zones for potential reversals.  
+2. **Divergence Filtering:** The Chaikin Money Flow (CMF) and Fisher Transform indicators are used to confirm reversals. Divergences between price action and these indicators help filter high-probability trades.  
+3. **Short-Term Focus:** The strategy is designed for quick reversals, capitalizing on overextended price moves that breach dynamic levels but show weakening momentum.  
+
+**Entry Rules:**  
+1. **Price Breach:** Enter a trade when price breaches the upper or lower boundary of the 50-period volume-weighted standard deviation channel.  
+   - **Short Entry:** Price breaks above the upper channel boundary, but CMF shows bearish divergence (price makes higher highs while CMF makes lower highs).  
+   - **Long Entry:** Price breaks below the lower channel boundary, but CMF shows bullish divergence (price makes lower lows while CMF makes higher lows).  
+2. **Fisher Transform Confirmation:** The Fisher Transform should show extreme values (overbought/oversold) aligning with the divergence signal for additional confirmation.  
+
+**Exit Rules:**  
+1. **Profit Target:** Close the trade when price retraces to the midpoint of the volume-weighted standard deviation channel.  
+2. **Stop Loss:** Place a stop loss just beyond the opposite channel boundary (for shorts, below the lower boundary; for longs, above the upper boundary).  
+3. **Time-Based Exit:** If the trade doesn’t reach the profit target within a set number of bars (e.g., 5-10 periods), exit to avoid prolonged exposure.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop Loss:** Strict adherence to stop levels to limit downside.  
+3. **Avoid Overlapping Trades:** Do not enter a new trade until the previous one is closed to prevent overexposure.  
+
+**Required Indicators:**  
+1. **Volume-Weighted Standard Deviation Channel (50-period):** Defines dynamic support/resistance.  
+2. **Chaikin Money Flow (CMF):** Identifies divergences to filter trades.  
+3. **Fisher Transform:** Confirms extreme conditions and adds confluence.  
+
+This strategy thrives in ranging or mildly trending markets where reversals are frequent. It avoids strong trending environments where breakouts are more likely to sustain.

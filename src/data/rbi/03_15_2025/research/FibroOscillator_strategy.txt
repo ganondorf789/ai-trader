@@ -1,0 +1,64 @@
+STRATEGY_NAME: FibroOscillator
+
+STRATEGY_DETAILS:
+The FibroOscillator strategy is a trend-following approach that combines Fibonacci retracement levels with oscillator-based signals to identify high-probability entry and exit points. This strategy is designed to capitalize on both trending and retracement phases within a market.
+
+### Key Strategy Components:
+1. **Fibonacci Retracement Levels**: 
+   - Primary levels used: 38.2%, 50%, and 61.8%.
+   - These levels act as potential support/resistance zones during retracements.
+
+2. **Oscillator (RSI or Stochastic)**:
+   - RSI (Relative Strength Index) or Stochastic Oscillator is used to confirm overbought/oversold conditions.
+   - Default settings: RSI (14-period) or Stochastic (14,3,3).
+
+3. **Trend Identification**:
+   - Use a moving average (e.g., 50-period SMA) to determine the overall trend direction.
+   - Price above the moving average indicates an uptrend; below indicates a downtrend.
+
+### Entry Rules:
+1. **Uptrend Entry**:
+   - Wait for price to retrace to a Fibonacci level (38.2%, 50%, or 61.8%) in an uptrend.
+   - Confirm with oscillator: RSI should be below 30 (oversold) or Stochastic should be below 20.
+   - Enter a long position when price bounces off the Fibonacci level and the oscillator starts rising.
+
+2. **Downtrend Entry**:
+   - Wait for price to retrace to a Fibonacci level (38.2%, 50%, or 61.8%) in a downtrend.
+   - Confirm with oscillator: RSI should be above 70 (overbought) or Stochastic should be above 80.
+   - Enter a short position when price rejects the Fibonacci level and the oscillator starts falling.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set take profit at the next Fibonacci extension level (e.g., 127.2% or 161.8%).
+   - Alternatively, use a trailing stop to lock in profits as the trend continues.
+
+2. **Stop Loss**:
+   - Place stop loss just below the Fibonacci level for long trades or above the Fibonacci level for short trades.
+   - Use a fixed percentage (e.g., 1-2%) or ATR (Average True Range) to determine stop-loss distance.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of the trading account on any single trade.
+   - Adjust position size based on stop-loss distance to maintain consistent risk.
+
+2. **Diversification**:
+   - Avoid over-concentration in a single asset or market.
+   - Spread trades across multiple instruments to reduce risk.
+
+### Required Indicators:
+1. **Fibonacci Retracement Tool**:
+   - Available on most trading platforms.
+   - Draw retracement levels from the recent swing high to swing low (or vice versa).
+
+2. **Oscillator (RSI or Stochastic)**:
+   - RSI (14-period) or Stochastic (14,3,3) for overbought/oversold confirmation.
+
+3. **Moving Average (50-period SMA)**:
+   - Used to identify the overall trend direction.
+
+### Additional Notes:
+- This strategy works best in trending markets. Avoid using it during choppy or sideways conditions.
+- Always backtest the strategy on historical data before applying it to live trading.
+- Combine with price action confirmation (e.g., candlestick patterns) for higher accuracy.
+
+By following the FibroOscillator strategy, traders can systematically identify high-probability setups while managing risk effectively.

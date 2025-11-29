@@ -1,0 +1,60 @@
+STRATEGY_NAME: BandDivergence
+
+STRATEGY_DETAILS:
+The BandDivergence strategy is a mean-reversion approach that combines Bollinger Bands and MACD histogram divergence to identify high-probability entry points. The strategy focuses on capturing reversals when the price crosses the upper Bollinger Band while showing bullish divergence on the MACD histogram.
+
+### Key Strategy Components:
+1. **Bollinger Bands (BB):**
+   - Upper Band: Used as a resistance level to identify overbought conditions.
+   - Middle Band (SMA): Acts as a reference for mean reversion.
+   - Lower Band: Not directly used in this strategy but provides context for overall volatility.
+
+2. **MACD Histogram:**
+   - Bullish Divergence: When the MACD histogram shows higher lows while the price is making lower highs or flat, indicating potential upward momentum.
+
+3. **Price Action:**
+   - Price crossing above the upper Bollinger Band signals overbought conditions, creating a potential mean-reversion opportunity.
+
+---
+
+### Entry Rules:
+1. **Condition 1:** The price must cross above the upper Bollinger Band.
+2. **Condition 2:** The MACD histogram must show bullish divergence (higher lows) at the same time or shortly after the price crosses the upper band.
+3. **Entry Signal:** Enter a short position when both conditions are met, anticipating a mean reversion toward the middle band (SMA).
+
+---
+
+### Exit Rules:
+1. **Take Profit:** Close the position when the price reaches the middle Bollinger Band (SMA).
+2. **Stop Loss:** Place a stop loss slightly above the upper Bollinger Band to limit losses if the price continues to rise.
+3. **Time-Based Exit:** If the price does not revert to the middle band within a predefined time frame (e.g., 5-10 candles), exit the trade to avoid prolonged exposure.
+
+---
+
+### Risk Management:
+1. **Position Sizing:** Risk no more than 1-2% of your trading capital per trade.
+2. **Stop Loss:** Always use a stop loss to protect against adverse price movements.
+3. **Risk-Reward Ratio:** Aim for a minimum 1:2 risk-reward ratio (e.g., risking $10 to make $20).
+
+---
+
+### Required Indicators:
+1. **Bollinger Bands:**
+   - Period: 20 (default)
+   - Standard Deviation: 2 (default)
+   - Upper Band: Used for overbought signals.
+
+2. **MACD (Moving Average Convergence Divergence):**
+   - Fast Length: 12 (default)
+   - Slow Length: 26 (default)
+   - Signal Smoothing: 9 (default)
+   - Histogram: Used to identify divergence.
+
+---
+
+### Additional Notes:
+- **Timeframe:** This strategy works best on higher timeframes (e.g., 1-hour, 4-hour, or daily charts) to reduce noise and false signals.
+- **Market Conditions:** Ideal for ranging or slightly trending markets. Avoid using this strategy during strong trending markets, as the price may continue to move away from the upper band.
+- **Confirmation:** Consider adding volume analysis or RSI to confirm overbought conditions for higher accuracy.
+
+By combining Bollinger Bands and MACD divergence, the BandDivergence strategy provides a systematic approach to identifying mean-reversion opportunities with clear entry and exit rules.

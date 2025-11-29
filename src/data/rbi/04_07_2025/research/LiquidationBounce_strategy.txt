@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquidationBounce  
+
+STRATEGY_DETAILS:  
+This strategy combines technical analysis with on-chain liquidation data to identify potential reversal opportunities. The core premise is that when price reaches oversold conditions (lower Bollinger Band) while liquidation clusters exceed their 30-day average, it signals excessive market stress that may lead to a corrective bounce.  
+
+Key Components:  
+1. Bollinger Bands (20-period, 2 standard deviations)  
+2. On-chain liquidation cluster data (30-day moving average)  
+3. Price action confirmation at lower band  
+
+Entry Rules:  
+- Price must touch or penetrate the lower Bollinger Band  
+- Concurrent on-chain liquidation clusters must be above their 30-day average  
+- Entry occurs on the next candle's open after both conditions are met  
+
+Exit Rules:  
+- Take profit at middle Bollinger Band (20-period SMA)  
+- Stop loss placed at 1.5x the distance between entry and lower band  
+- Time-based exit if middle band isn't reached within 5 periods  
+
+Risk Management:  
+- Position size limited to 2% of capital per trade  
+- Stop loss mandatory on all positions  
+- No new entries if 3 consecutive losing trades occur  
+
+Required Indicators:  
+1. Bollinger Bands (20,2)  
+2. Custom liquidation cluster indicator (30-day MA)  
+3. Simple Moving Average (20-period) for middle band  
+
+Optimization Notes:  
+- Test different Bollinger Band periods (14-26)  
+- Experiment with liquidation threshold multiples (1.2x-2x average)  
+- Adjust stop loss multiplier based on volatility (ATR can be added)  
+
+This strategy works best in ranging or mean-reverting markets and may underperform during strong trending conditions. The combination of technical oversold signals with on-chain stress indicators provides a unique confluence for potential reversals.

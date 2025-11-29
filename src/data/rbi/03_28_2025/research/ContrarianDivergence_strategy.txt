@@ -1,0 +1,38 @@
+STRATEGY_NAME: ContrarianDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Contrarian Approach:** The strategy takes positions opposite to the prevailing market sentiment when extreme funding rates are detected.  
+2. **Funding Rate Extremes:** Uses +/-2 standard deviations from the mean funding rate to identify overbought (positive extreme) or oversold (negative extreme) conditions.  
+3. **RSI Divergence:** Confirms entries with bearish (price higher highs, RSI lower highs) or bullish (price lower lows, RSI higher lows) divergence on the Relative Strength Index (RSI).  
+4. **Mean Reversion Exit:** Exits trades when funding rates revert to their 7-day mean, signaling a normalization of sentiment.  
+
+**Entry Rules:**  
+- **Short Entry:** Triggered when:  
+  - Perpetual funding rate exceeds +2 standard deviations (overbought).  
+  - Bearish RSI divergence is present (price makes higher highs, RSI makes lower highs).  
+- **Long Entry:** Triggered when:  
+  - Perpetual funding rate falls below -2 standard deviations (oversold).  
+  - Bullish RSI divergence is present (price makes lower lows, RSI makes higher lows).  
+
+**Exit Rules:**  
+- Close the position when the funding rate crosses back to its 7-day simple moving average (SMA).  
+- Optional: Use a trailing stop or fixed profit target (e.g., 2:1 reward-to-risk) to secure gains if the mean reversion is delayed.  
+
+**Risk Management:**  
+- Position sizing should account for volatility (e.g., 1-2% risk per trade).  
+- Stop-loss placed beyond recent swing highs (for shorts) or swing lows (for longs) to avoid premature exits.  
+- Avoid trading during low-liquidity periods or major news events that may distort funding rates.  
+
+**Required Indicators:**  
+1. **Funding Rate Standard Deviation Bands:** Calculate the mean and +/-2 standard deviations of funding rates over a lookback period (e.g., 30 days).  
+2. **RSI (14-period):** To identify divergence against price action.  
+3. **7-day SMA of Funding Rate:** For exit conditions.  
+
+**Unique Aspects:**  
+- Combines sentiment extremes (funding rates) with technical confirmation (RSI divergence).  
+- Focuses on mean reversion in funding rates rather than price, reducing reliance on traditional overbought/oversold indicators.  
+- Works best in trending markets where funding rate extremes align with exhaustion points.  
+
+**Note:** Backtest for optimal lookback periods (e.g., 30 days for funding rate stats) and validate divergence sensitivity (e.g., 14-period RSI).

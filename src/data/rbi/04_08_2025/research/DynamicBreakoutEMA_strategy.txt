@@ -1,0 +1,41 @@
+STRATEGY_NAME: DynamicBreakoutEMA
+
+STRATEGY_DETAILS:
+This strategy combines trend confirmation, momentum strength, and volatility-based exits for high-probability breakout trading.
+
+Key Components:
+1. Trend Confirmation: Uses the 50/200 EMA crossover as a golden cross signal
+2. Momentum Filter: Requires ADX > 25 to confirm strong trending conditions
+3. Volatility Management: Uses ATR for stop-loss and percentage-based trailing stop
+
+Entry Rules:
+1. Primary Condition: 50-period EMA must cross ABOVE 200-period EMA
+2. Confirmation Filter: ADX must be rising and above 25 level
+3. Entry Trigger: Price must break above the most recent swing high after conditions are met
+
+Exit Rules:
+1. Protective Stop: 2x ATR (Average True Range) from entry price
+2. Profit Protection: 5% trailing stop activates once price moves 5% in profit
+3. Optional Exit: Consider closing when ADX begins declining below 30
+
+Risk Management:
+1. Position Size: Risk no more than 1-2% of capital per trade
+2. Stop Placement: Initial stop at 2x ATR (adjust based on volatility)
+3. Trade Filter: Only take trades when ADX confirms strong trend (above 25)
+
+Required Indicators:
+1. 50-period Exponential Moving Average (EMA)
+2. 200-period Exponential Moving Average (EMA)
+3. Average Directional Index (ADX) - 14 period recommended
+4. Average True Range (ATR) - 14 period for stop calculation
+
+Additional Notes:
+- Best suited for daily or 4-hour timeframes in trending markets
+- Works well with liquid assets showing clear trends
+- Combine with price action confirmation for higher accuracy
+- Avoid trading during low ADX periods (below 25) as false breakouts are more likely
+
+Optimization Tips:
+- Test different ATR multiples (1.5x-3x) for stop placement
+- Experiment with ADX thresholds (20-30) for different assets
+- Consider adding volume confirmation for stronger signals

@@ -1,0 +1,67 @@
+STRATEGY_NAME: AdaptiveDivergence
+
+STRATEGY_DETAILS:
+
+### Overview
+AdaptiveDivergence is a momentum-driven trend-following strategy that leverages volatility adaptation through the Average True Range (ATR) while incorporating a proprietary momentum-score calculated as the product of the Relative Strength Index (RSI) and a normalized Bollinger Bands metric (specifically, the %B indicator, which measures price position relative to the bands). This creates a hybrid oscillator-band signal for identifying momentum shifts. The strategy focuses on divergence patterns in RSI to time entries, entering long positions on bullish RSI divergence (indicating potential upward trend reversal or continuation) and short positions on bearish RSI divergence (indicating potential downward trend). ATR is integrated for dynamic stop-loss placement, position sizing, and filtering low-volatility signals, ensuring the strategy adapts to market conditions without overtrading. It is suitable for trending markets like forex, stocks, or commodities on timeframes from 1-hour to daily charts.
+
+### Key Strategy Components
+1. **Proprietary Momentum-Score**: This is the core signal generator, computed as RSI(14) multiplied by %B from Bollinger Bands(20, 2). 
+   - RSI(14): Measures overbought/oversold conditions on a 0-100 scale.
+   - %B: Normalizes price position within Bollinger Bands (e.g., %B = (Close - Lower Band) / (Upper Band - Lower Band), ranging from 0 to 1 or beyond in extensions).
+   - Momentum-Score = RSI * %B. A score above 50-70 (threshold tunable) indicates building bullish momentum; below 30-50 indicates bearish. This product amplifies signals when RSI extremes align with price touching or breaking bands, filtering noise in sideways markets.
+   
+2. **Divergence Detection**: Uses RSI to spot divergences against price action.
+   - Bullish Divergence: Price forms lower lows, but RSI forms higher lows (over 2-3 swing points).
+   - Bearish Divergence: Price forms higher highs, but RSI forms lower highs.
+   - Confirmation requires the momentum-score to cross a threshold (e.g., >60 for bullish, <40 for bearish) to validate the divergence as a trend-following entry point.
+
+3. **ATR Integration for Adaptation**: ATR(14) measures volatility to scale the strategy dynamically.
+   - Used as a filter: Ignore signals if ATR < average ATR over 20 periods (avoids choppy, low-vol markets).
+   - Scales position sizes and stops to current volatility, promoting risk consistency.
+
+4. **Trend Filter**: To align with trend-following, incorporate a simple 200-period EMA. Only take long entries if price > EMA; shorts if price < EMA. This prevents counter-trend trades despite divergence signals.
+
+### Entry Rules
+- **Long Entry (Bullish)**:
+  1. Identify bullish RSI divergence: Scan for at least two price lows where the second low is lower than the first, but the corresponding RSI lows are higher (RSI > previous RSI low by at least 5 points).
+  2. Momentum-score must confirm: Current score > 60 and rising (e.g., score > previous bar's score).
+  3. Trend filter: Price closes above the 200 EMA.
+  4. Volatility filter: Current ATR > 20-period ATR average.
+  5. Enter long on the close of the bar confirming the divergence, or on a pullback to the middle Bollinger Band for better entry.
+
+- **Short Entry (Bearish)**:
+  1. Identify bearish RSI divergence: Scan for at least two price highs where the second high is higher than the first, but the corresponding RSI highs are lower (RSI < previous RSI high by at least 5 points).
+  2. Momentum-score must confirm: Current score < 40 and falling (e.g., score < previous bar's score).
+  3. Trend filter: Price closes below the 200 EMA.
+  4. Volatility filter: Current ATR > 20-period ATR average.
+  5. Enter short on the close of the bar confirming the divergence, or on a pullback to the middle Bollinger Band.
+
+- **General Entry Notes**: Limit to 1 open position at a time. Avoid entries near major news events. Use on liquid assets to ensure reliable band and RSI readings.
+
+### Exit Rules
+- **Profit Targets**:
+  - Initial target: 2x the ATR(14) distance from entry (e.g., for long, target = Entry + 2*ATR).
+  - Trailing exit: Once in profit by 1*ATR, trail the stop using a Chandelier Exit (High - 3*ATR for longs; Low + 3*ATR for shorts), updating on each bar close. This locks in trends while allowing momentum to run.
+
+- **Stop-Loss**:
+  - Initial stop: For longs, Entry - 1.5*ATR; for shorts, Entry + 1.5*ATR. This adapts to volatility, providing wider stops in high-vol environments.
+  - Alternative exit on signal reversal: Close long if bearish RSI divergence forms or momentum-score drops below 40; close short if bullish divergence forms or score rises above 60.
+
+- **Time-Based Exit**: If no exit triggered after 10-20 bars (depending on timeframe), close to avoid stagnation.
+
+### Risk Management
+- **Position Sizing**: Risk 1-2% of account equity per trade. Calculate size as: Position Size = (Account Equity * Risk %) / (Stop-Loss Distance in price units). For example, with a $10,000 account and 1% risk ($100), if stop is 50 pips away on EUR/USD, size = $100 / (50 * pip value).
+- **Maximum Drawdown Control**: Pause trading if account drawdown exceeds 10% from peak. Limit to 3 consecutive losses before reviewing parameters.
+- **Volatility Scaling**: In high ATR periods (>1.5x average), reduce position size by 50% to avoid overexposure.
+- **Diversification**: Apply to no more than 3-5 uncorrelated assets. Use a 1:2 risk-reward ratio minimum to ensure positive expectancy.
+- **Backtesting Notes**: Optimize thresholds (e.g., momentum-score levels) via walk-forward analysis. Expect win rate of 40-50% in trending markets, with average win > average loss due to trailing.
+
+### Required Indicators and Settings
+- **RSI (14)**: Standard overbought/oversold oscillator for divergence and score calculation.
+- **Bollinger Bands (20, 2)**: 20-period SMA with 2 standard deviations; use %B derived from bands for the momentum-score.
+- **ATR (14)**: For volatility measurement, stops, targets, and filters.
+- **EMA (200)**: Simple moving average for trend direction filter.
+- **Platform/Tools**: Implement in TradingView, MetaTrader, or Python (e.g., via TA-Lib for indicators). Scan for divergences manually or with custom scripts (e.g., using zigzag for swing points).
+
+This strategy excels in capturing trend accelerations via divergence but may underperform in ranging markets—pair with a market regime filter (e.g., ADX > 25 for trends) for robustness.

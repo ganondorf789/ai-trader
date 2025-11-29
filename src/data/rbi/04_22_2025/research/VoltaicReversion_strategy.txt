@@ -1,0 +1,39 @@
+STRATEGY_NAME: VoltaicReversion
+
+STRATEGY_DETAILS:
+This sophisticated mean reversion strategy combines volatility analysis with volume-weighted price action, creating high-probability entries at extreme deviations while using Bollinger Band dynamics for confirmation.
+
+Key Components:
+1. Volume-Weighted Moving Average (20-period)
+2. Standard Deviation Channels (2.5σ and 1σ)
+3. Bollinger Band Width indicator
+4. Mean reversion logic with volatility filters
+
+Entry Rules:
+1. Primary Trigger: Price must breach 2.5 standard deviations from the 20-period VWMA
+2. Confirmation: Bollinger Band width must be narrowing (decreasing) on the same timeframe
+3. Volume Context: Entry is stronger when accompanied by above-average volume
+
+Exit Rules:
+1. Profit Target: Exit when price returns to 1 standard deviation from VWMA
+2. Emergency Stop: 3σ level acts as ultimate stop-loss
+3. Time Exit: Close position if Bollinger Band width begins expanding before target hit
+
+Risk Management:
+1. Position sizing based on distance between entry and 3σ stop level
+2. Maximum risk per trade: 1-2% of capital
+3. No new entries if 3 consecutive losing trades occur
+4. Daily loss limit: 5% of account
+
+Required Indicators:
+1. Volume-Weighted Moving Average (20 periods)
+2. Standard Deviation Channels (1σ, 2.5σ, and 3σ levels)
+3. Bollinger Bands (20,2) with width calculation
+4. Volume indicator (for confirmation)
+
+Optimization Notes:
+1. Adjust standard deviation multipliers based on asset volatility (2.0-3.0σ range)
+2. Test different VWMA periods (15-30) for various instruments
+3. Consider adding RSI filter (e.g., only trade reversions when RSI is extreme)
+
+This "VoltaicReversion" strategy excels in ranging markets with strong mean-reverting tendencies, using volume-weighting to identify significant deviations and Bollinger dynamics to confirm the reversal potential. The combination of statistical extremes with volatility contraction creates high-probability setups while maintaining strict risk controls.

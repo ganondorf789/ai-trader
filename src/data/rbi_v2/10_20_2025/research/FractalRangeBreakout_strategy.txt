@@ -1,0 +1,62 @@
+STRATEGY_NAME: FractalRangeBreakout
+
+STRATEGY_DETAILS:
+
+### Overview
+The FractalRangeBreakout strategy is a momentum-based trading approach that identifies dynamic trading ranges using fractal patterns to define support and resistance levels. It capitalizes on breakouts from these ranges, where fractals (local price extremes) act as adaptive boundaries that evolve with market volatility. Unlike static range strategies, this uses Bill Williams' Fractal indicator to create "dynamic" ranges that adjust based on recent price action, filtering out noise and focusing on high-probability breakouts. The strategy is suitable for trending or ranging markets on timeframes like 1H, 4H, or daily charts, across assets such as forex pairs, stocks, or indices.
+
+### Key Strategy Components
+1. **Dynamic Range Identification**: The range is defined by the most recent upper fractal (resistance) and lower fractal (support). Fractals are calculated over a 5-bar period (standard Bill Williams setting), where an upper fractal forms on a bar with a high higher than the two bars on either side, and a lower fractal on a low lower than the surrounding bars. The "dynamic" aspect comes from updating the range with the latest valid fractals (ignoring incomplete ones), combined with an ATR (Average True Range, 14-period) multiplier to widen/narrow the range during high/low volatility (e.g., range width = fractal high - fractal low + 0.5 * ATR).
+   
+2. **Breakout Confirmation**: Breakouts are validated not just by price crossing the fractal levels but by volume or momentum filters to avoid false signals. For example, require the breakout candle to close beyond the level with above-average volume (if available) or a momentum oscillator like RSI (14-period) crossing 50 in the breakout direction.
+
+3. **Trend Filter**: To enhance reliability, incorporate a higher-timeframe trend filter using a 200-period EMA (Exponential Moving Average). Only take long breakouts if price is above the EMA, and shorts if below.
+
+4. **Fractal Validation**: Ignore fractals that are too close (e.g., less than 1 ATR apart) to prevent trading in choppy, low-volatility conditions.
+
+### Entry Rules
+- **Long Entry (Buy)**: 
+  - Price breaks above the upper fractal resistance level.
+  - The breakout candle closes at least 0.5 * ATR above the fractal high.
+  - RSI (14) > 50 and rising; optional: increasing volume.
+  - Higher-timeframe trend filter: Price > 200 EMA.
+  - Enter on the close of the breakout candle or a pullback to the broken level (now support).
+
+- **Short Entry (Sell)**: 
+  - Price breaks below the lower fractal support level.
+  - The breakout candle closes at least 0.5 * ATR below the fractal low.
+  - RSI (14) < 50 and falling; optional: increasing volume.
+  - Higher-timeframe trend filter: Price < 200 EMA.
+  - Enter on the close of the breakout candle or a pullback to the broken level (now resistance).
+
+- **Position Sizing**: Risk no more than 1-2% of account per trade, based on stop-loss distance.
+
+Avoid entries during major news events or if the range has been in place for less than 10 bars (to ensure range maturity).
+
+### Exit Rules
+- **Profit Targets**:
+  - Primary: Take partial profits (50% of position) at 1:1 risk-reward ratio (e.g., if stop is 20 pips, target 20 pips).
+  - Trailing: Move stop to breakeven after 1:1 is hit, then trail using the next fractal level or a 2*ATR trailing stop.
+  - Secondary: Exit full position if price reaches the opposite fractal level (e.g., for a long, exit at lower fractal) or if RSI hits overbought/oversold extremes (70/30).
+
+- **Stop-Loss**:
+  - Initial: Place below the lower fractal for longs (or 1 ATR below entry) and above the upper fractal for shorts (or 1 ATR above entry).
+  - Adjust dynamically if a new fractal forms in the trade direction.
+
+- **Time-Based Exit**: Close any open trade if no new fractal forms within 20 bars, to avoid stagnation.
+
+### Risk Management
+- **Maximum Risk per Trade**: 1-2% of total account equity, calculated as (stop-loss distance * position size) / account balance.
+- **Daily/Weekly Limits**: No more than 3 trades per day; pause trading if 3 consecutive losses occur or if daily drawdown exceeds 3%.
+- **Position Limits**: Only one open trade per asset at a time; diversify across 3-5 uncorrelated assets.
+- **Volatility Adjustment**: In high ATR environments (>1.5x average), reduce position size by 50% and widen stops/targets proportionally.
+- **Backtesting Note**: Test with at least 5 years of data, aiming for a win rate >50%, profit factor >1.5, and max drawdown <15%. Use walk-forward optimization for fractal periods (e.g., 5-9 bars).
+
+### Required Indicators
+- **Fractal Indicator** (Bill Williams Fractals, default 5-period): Core for S/R levels.
+- **ATR (14-period)**: For dynamic range adjustment and stop/target sizing.
+- **RSI (14-period)**: Momentum confirmation on breakouts.
+- **EMA (200-period)**: Trend filter (can be on higher timeframe).
+- **Optional: Volume Oscillator or On-Balance Volume (OBV)**: For breakout validation in volume-supported markets.
+
+This strategy excels in volatile markets but may underperform in strong trends without the fractal updates; always combine with fundamental analysis for best results.

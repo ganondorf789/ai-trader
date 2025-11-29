@@ -1,0 +1,49 @@
+STRATEGY_NAME: LiquidationReversion
+
+STRATEGY_DETAILS:
+This strategy specializes in identifying and capitalizing on counter-trend opportunities following extreme liquidation events in the market. The approach combines price action analysis with technical indicators to detect overextended moves and profit from their reversals.
+
+Key Components:
+1. Liquidation Cascade Detection:
+   - Look for extreme wicks (at least 3x average candle body size) on 4H candles
+   - Must be accompanied by volume spikes (minimum 2x 20-period average volume)
+
+2. Confirmation Tools:
+   - RSI Divergence (14-period): Price makes new extreme but RSI fails to confirm
+   - Bollinger Bands (20,2): Price touching outer bands indicates potential overextension
+
+Entry Rules:
+1. Wait for a 4H candle closing with:
+   - Extreme wick (long upper/lower shadow)
+   - High volume (minimum 2x average)
+2. Confirm with RSI divergence:
+   - Bullish: Lower price low with higher RSI low
+   - Bearish: Higher price high with lower RSI high
+3. Enter on next candle open in counter-trend direction
+
+Exit Rules:
+1. Primary Target:
+   - Middle Bollinger Band (20-period SMA)
+2. Secondary Exit:
+   - RSI crossing 50 level (for bullish) or 50 level (for bearish)
+3. Emergency Exit:
+   - New extreme beyond liquidation candle
+
+Risk Management:
+1. Position Sizing:
+   - Maximum 2% risk per trade
+2. Stop Placement:
+   - Below/above the extreme wick (bullish/bearish)
+3. Time Filter:
+   - Only trade during high liquidity hours (London/NY overlap)
+
+Required Indicators:
+1. Volume (with 20-period MA)
+2. RSI (14-period)
+3. Bollinger Bands (20,2)
+
+Additional Notes:
+- Best suited for liquid assets (major forex pairs, BTC, ETH)
+- Requires patience (only 1-2 setups per week typically)
+- Works best in trending markets (not range-bound conditions)
+- Combine with higher timeframe trend analysis for better results

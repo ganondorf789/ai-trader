@@ -1,0 +1,47 @@
+STRATEGY_NAME: ExtremeFundingReversal
+
+STRATEGY_DETAILS:
+This strategy capitalizes on extreme funding rate deviations combined with volume confirmation to identify high-probability reversal opportunities in perpetual futures markets.
+
+Key Components:
+1. Funding Rate Analysis: Uses 30-day mean and standard deviation to identify extreme funding conditions (>2σ)
+2. Volume Confirmation: Requires a spike in trading volume to validate the signal
+3. ATR-Based Exit: Uses 1.5x the event's Average True Range for profit-taking/stop-loss
+
+Entry Rules:
+1. Trigger Condition: 
+   - Perpetual funding rate exceeds 2 standard deviations from 30-day mean
+   - Concurrent volume spike (suggested: >20% above 14-day average)
+2. Entry Direction:
+   - Short when funding is extremely positive (traders over-leveraged long)
+   - Long when funding is extremely negative (traders over-leveraged short)
+
+Exit Rules:
+1. Primary Exit: Funding rate returns within 1 standard deviation of 30-day mean
+2. Secondary Exit: Price moves 1.5x the ATR (calculated at time of entry) against position
+3. Time-based Exit (optional): Consider closing after 3-5 days if neither condition met
+
+Risk Management:
+1. Position Sizing: 
+   - Risk no more than 1-2% of capital per trade
+   - Adjust position size based on 1.5x ATR stop level
+2. Stop Placement: 
+   - Initial stop at 1.5x ATR from entry
+   - Trailing stop possible after favorable move
+3. Maximum Exposure: 
+   - Limit to 3-5 concurrent positions
+   - Avoid correlated assets
+
+Required Indicators:
+1. Perpetual Funding Rate (real-time)
+2. 30-day Funding Rate Mean and Standard Deviation
+3. Volume Indicator (14-day average recommended)
+4. Average True Range (14-period recommended)
+
+Additional Notes:
+- Works best in trending markets where funding extremes are meaningful
+- Most effective on major perpetual contracts (BTC, ETH, etc.)
+- Consider filtering for liquid assets (>$50M daily volume)
+- Backtest suggested for optimal ATR multiplier (1.5x may vary by asset)
+
+This strategy exploits the mean-reverting nature of funding rates while using volume and volatility filters to improve signal quality and manage risk.

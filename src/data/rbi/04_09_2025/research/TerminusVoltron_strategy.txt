@@ -1,0 +1,40 @@
+STRATEGY_NAME: TerminusVoltron
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- VIX Term Structure Analysis: Monitors the relationship between front-month and second-month VIX futures to identify backwardation (front month > second month) vs. contango (front month < second month)
+- ADX Trend Strength: Uses Average Directional Index (ADX) to measure overall trend strength, with special attention to rising ADX values
+- Volatility Positioning: Specifically targets long volatility exposure during favorable conditions
+
+2. Entry Rules:
+- Primary Condition: VIX term structure must be in backwardation (front-month VIX future > second-month VIX future)
+- Confirmation: ADX(14) must be rising and above 25, indicating strengthening trend momentum
+- Execution: Enter long volatility position (via VIX futures, VIX-related ETFs, or volatility derivatives) when both conditions are met
+
+3. Exit Rules:
+- Primary Exit: VIX term structure flips to contango (front-month VIX future < second-month VIX future)
+- Secondary Exit: ADX(14) begins declining significantly (e.g., drops >5 points from peak)
+- Emergency Exit: If VIX spikes >30% against position without term structure confirmation
+
+4. Risk Management:
+- Position Sizing: Limit volatility positions to 5-10% of total portfolio due to high-risk nature
+- Stop Loss: Implement 15-20% trailing stop on volatility positions
+- Correlation Check: Avoid overlapping volatility positions with other portfolio holdings
+
+5. Required Indicators:
+- VIX Futures Term Structure (front-month vs. second-month prices)
+- ADX(14) with +DI/-DI components
+- Optional: Volume confirmation for VIX-related instruments
+
+6. Special Considerations:
+- Best applied during periods of market stress or uncertainty
+- Requires daily monitoring of VIX futures term structure
+- Most effective when combined with broader market trend analysis
+- Performance tends to be cyclical - works best during volatility regime shifts
+
+7. Optimization Notes:
+- ADX period can be adjusted between 10-20 days based on backtesting
+- May add filter requiring backwardation to persist for 2-3 days before entry
+- Can incorporate VIX spot vs. futures premium as additional confirmation
+
+This strategy capitalizes on the predictive power of VIX term structure combined with trend confirmation, creating a systematic approach to volatility trading that avoids emotional decision-making during market turbulence.

@@ -1,0 +1,43 @@
+STRATEGY_NAME: LiquidationDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Spike Analysis:** The strategy identifies significant liquidation events (spikes) within a 24-hour window, suggesting potential market exhaustion.  
+2. **RSI Divergence:** A bullish RSI divergence (higher lows in RSI while price makes lower lows) confirms weakening bearish momentum.  
+3. **On-Balance Volume (OBV):** Rising OBV indicates accumulation and buying pressure, supporting the bullish case.  
+4. **Bollinger Bands:** Used for exit targeting, with the upper band acting as a dynamic resistance level.  
+
+**Entry Rules:**  
+- **Trigger:** A 24-hour liquidation spike occurs (indicating forced selling).  
+- **Confirmation:**  
+  - Bullish RSI divergence forms (RSI shows higher lows while price shows lower lows).  
+  - OBV is in an uptrend (higher highs and higher lows).  
+- **Entry Point:** Enter long on the next candle close after all conditions are met.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit at 1.5x the upper Bollinger Band (calculated as: Upper Band + 0.5 * Band Width).  
+- **Stop-Loss:** Place below the recent swing low or a key support level (adjust based on volatility).  
+
+**Risk Management:**  
+- Position sizing should account for liquidation volatility (e.g., smaller size if spike was extreme).  
+- Stop-loss should be tight enough to limit losses but avoid premature exits due to noise.  
+- Avoid trading during low-liquidity periods where liquidation spikes may be less reliable.  
+
+**Required Indicators:**  
+1. **Liquidation Data Feed** (e.g., from exchanges or APIs like Coinalyze).  
+2. **RSI (14-period recommended)** for divergence detection.  
+3. **On-Balance Volume (OBV)** to confirm buying pressure.  
+4. **Bollinger Bands (20,2)** for exit targeting.  
+
+**Unique Aspects:**  
+- Combines liquidation events (a sentiment extreme) with technical confirmations (RSI divergence + OBV).  
+- Uses Bollinger Band expansion for dynamic profit-taking rather than fixed targets.  
+- Focuses on "smart money" accumulation signals (OBV) after forced liquidations.  
+
+**Optimization Tips:**  
+- Test different RSI periods (e.g., 10 vs. 14) for divergence sensitivity.  
+- Adjust the Bollinger Band multiplier (1.3x–1.7x) based on asset volatility.  
+- Filter for high-liquidity assets where liquidation spikes are more meaningful.  
+
+This strategy excels in crypto markets where liquidations heavily impact price action. The name "LiquidationDivergence" reflects its core mechanism: trading reversals after liquidation spikes confirmed by divergence.

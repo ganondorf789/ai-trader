@@ -1,0 +1,44 @@
+STRATEGY_NAME: VoltaicContraction
+
+STRATEGY_DETAILS:
+This strategy specializes in trading volatility contractions by combining Bollinger Band compression with futures basis spread divergence, confirmed by high-volume breakouts.
+
+Key Components:
+1. Bollinger Band Width (BBW) - Measures volatility contraction when below threshold
+2. Futures Basis Spread - Tracks divergence between spot and futures prices
+3. Volume Surge - Requires breakout confirmation via 90th percentile volume spike
+4. Breakout Direction - Trade in direction of the breakout confirmed by volume
+
+Entry Rules:
+1. BBW must be below 0.5 (indicating volatility contraction)
+2. Futures basis spread must show divergence from price action
+3. Price must break out of contraction range
+4. Volume must surge above 90th percentile of recent volume (20-period lookback)
+5. All conditions must align within same candle
+
+Exit Rules:
+1. Take-profit at 2:1 reward-risk ratio from entry
+2. Stop-loss placed at opposite side of contraction range
+3. Time-based exit after 5 candles if target not hit
+4. Early exit if BBW expands beyond 1.5 (volatility expansion)
+
+Risk Management:
+1. Position size limited to 2% of capital per trade
+2. Maximum daily loss limit of 5%
+3. No pyramiding positions
+4. Stop-loss must be placed immediately after entry
+5. Avoid trading during major economic news events
+
+Required Indicators:
+1. Bollinger Bands (20,2) for BBW calculation
+2. Volume indicator with percentile calculation
+3. Futures basis spread indicator
+4. Price chart with clear contraction range identification
+
+Optimization Notes:
+1. Adjust BBW threshold based on asset volatility (0.3-0.7 range)
+2. Test different volume percentile thresholds (85th-95th)
+3. Verify basis spread divergence patterns historically
+4. Backtest contraction ranges across different timeframes
+
+This strategy capitalizes on the explosive potential of volatility contractions when combined with futures market divergence and high-conviction volume confirmations, creating a high-probability trading approach.

@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 AdaptiveDivergence initialized! \ud83d\ude80 Initial cash: 1,000,000 \u2728\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_final/AdaptiveDivergence_BTFinal_v2.py\", line 299, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_final/AdaptiveDivergence_BTFinal_v2.py\", line 94, in next\n    self.update_swings()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_final/AdaptiveDivergence_BTFinal_v2.py\", line 247, in update_swings\n    if k != potential and self.data.Low.iloc[k] < self.data.Low.iloc[potential]:\nAttributeError: '_Array' object has no attribute 'iloc'\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_final/AdaptiveDivergence_BTFinal_v2.py` failed. (See above for error)\n",
+  "execution_time": 1.08993,
+  "timestamp": "2025-10-20T10:26:35.714994"
+}

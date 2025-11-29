@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolatilityFilteredEMA
+
+STRATEGY_DETAILS:
+This strategy combines trend-following with volatility filtering to identify high-probability trades during favorable market conditions. The key components are:
+
+1. Key Components:
+- 50-period EMA (Exponential Moving Average)
+- 200-period EMA
+- VIX (Volatility Index) as a market sentiment filter
+- Golden Cross/Death Cross pattern detection
+
+2. Entry Rules:
+- Primary Condition: 50-EMA must cross ABOVE 200-EMA (Golden Cross)
+- Secondary Filter: VIX must be below 15 (low volatility regime)
+- Both conditions must be met simultaneously for long entry
+
+3. Exit Rules:
+- Primary Exit: VIX rises above 20 (indicating increasing volatility)
+- Secondary Exit: 50-EMA crosses BELOW 200-EMA (Death Cross)
+- Either condition triggers position closure
+
+4. Risk Management:
+- Recommended stop-loss at 2-3% below entry price
+- Position sizing should account for volatility (smaller positions during higher VIX)
+- Avoid trading during earnings season or major news events
+
+5. Required Indicators:
+- 50-period EMA (fast moving average)
+- 200-period EMA (slow moving average)
+- VIX index or equivalent volatility measure
+- Price chart for visual confirmation
+
+6. Additional Notes:
+- Works best on daily or 4-hour timeframes
+- More effective in trending markets than ranging markets
+- Combine with volume analysis for additional confirmation
+- Backtest suggests better performance in index ETFs than individual stocks
+
+This strategy aims to capture sustained trends while avoiding high-volatility periods that often lead to whipsaws. The VIX filter helps stay out of trades during potentially dangerous market conditions.

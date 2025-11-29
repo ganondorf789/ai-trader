@@ -1,0 +1,53 @@
+STRATEGY_NAME: VoltaSqueeze  
+
+STRATEGY_DETAILS:  
+The **VoltaSqueeze** strategy combines Bollinger Band width analysis with On-Balance Volume (OBV) divergence to identify high-probability breakout opportunities during volatility contractions. This approach capitalizes on periods of low volatility followed by explosive moves, using volume confirmation to filter false breakouts.  
+
+### **Key Components:**  
+1. **Bollinger Band Width Percentile (BBWP):**  
+   - Measures the relative width of Bollinger Bands (BB) compared to historical values.  
+   - A low percentile (e.g., below 20%) indicates a volatility squeeze, suggesting an impending breakout.  
+
+2. **On-Balance Volume (OBV) Divergence:**  
+   - Confirms breakout strength by analyzing volume trends.  
+   - Bullish divergence (price makes lower lows, OBV makes higher lows) supports long entries.  
+   - Bearish divergence (price makes higher highs, OBV makes lower highs) supports short entries.  
+
+### **Entry Rules:**  
+- **Long Entry:**  
+  1. BBWP < 20% (volatility squeeze present).  
+  2. Price breaks **above** the upper Bollinger Band.  
+  3. OBV shows bullish divergence (rising OBV while price consolidates or declines).  
+
+- **Short Entry:**  
+  1. BBWP < 20% (volatility squeeze present).  
+  2. Price breaks **below** the lower Bollinger Band.  
+  3. OBV shows bearish divergence (falling OBV while price rallies).  
+
+### **Exit Rules:**  
+- **Take Profit:**  
+  - Trailing stop based on Bollinger Band reversion (exit when price closes back inside the bands).  
+  - Alternatively, fixed risk-reward (e.g., 2:1).  
+
+- **Stop Loss:**  
+  - Initial stop placed at the **opposite band** (for long: lower band; for short: upper band).  
+  - Exit if OBV reverses trend (e.g., OBV starts declining after a long entry).  
+
+### **Risk Management:**  
+- Position size based on volatility (e.g., 1-2% risk per trade).  
+- Avoid trading during major news events unless confirmed by volume.  
+
+### **Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 standard deviations).  
+2. **Bollinger Band Width Percentile** (calculates % rank of current BB width vs. past 100 periods).  
+3. **On-Balance Volume (OBV)** (confirms volume trends).  
+
+### **Unique Advantages:**  
+- **High-Probability Breakouts:** Filters noise by requiring both a volatility squeeze and volume confirmation.  
+- **Trend Continuation Focus:** OBV divergence helps avoid fakeouts.  
+- **Adaptive to Market Conditions:** Works best in ranging markets transitioning to trends.  
+
+**Best Timeframes:** 1H, 4H, Daily (avoids excessive whipsaws).  
+**Asset Classes:** Forex, Stocks, Crypto (works best in liquid markets).  
+
+**Note:** Backtest for optimal BBWP threshold (may vary by asset).

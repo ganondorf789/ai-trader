@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilityReversal  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **EMA Crossover:** The strategy uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as the primary trend reversal signal.  
+2. **ADX Filter:** The ADX (Average Directional Index) is used to confirm low-volatility conditions (ADX < 20) before entering a trade, ensuring the strategy capitalizes on emerging trends.  
+3. **Exit Condition:** Positions are closed when the ADX rises above 30, indicating strong trend momentum and potential overextension.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - The 50-period EMA crosses above the 200-period EMA.  
+  - The ADX is below 20, confirming low volatility and a potential reversal.  
+
+**Exit Rules:**  
+- **Exit Signal:** Close the long position when the ADX rises above 30, signaling strong trend momentum and increased volatility.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Consider placing a stop-loss below the recent swing low or using a fixed percentage (e.g., 2-3%) to limit downside risk.  
+2. **Position Sizing:** Adjust position size based on volatility (e.g., using ATR) to ensure consistent risk per trade.  
+3. **Avoid Over-Trading:** Only take signals when both EMA crossover and ADX conditions are met to filter out false breakouts.  
+
+**Required Indicators:**  
+1. **50-period Exponential Moving Average (EMA)**  
+2. **200-period Exponential Moving Average (EMA)**  
+3. **Average Directional Index (ADX) with a threshold of 20 for entry and 30 for exit**  
+
+**Additional Notes:**  
+- This strategy works best in ranging or low-volatility markets where trend reversals are more likely.  
+- Avoid using it during strong trending markets (ADX > 30) to prevent false signals.  
+- Backtest across multiple timeframes to optimize performance.  
+
+The name "VolatilityReversal" reflects the strategy's focus on low-volatility conditions (ADX < 20) and trend reversal signals (EMA crossover). It is distinct from generic names and captures the unique combination of volatility filtering and reversal trading.

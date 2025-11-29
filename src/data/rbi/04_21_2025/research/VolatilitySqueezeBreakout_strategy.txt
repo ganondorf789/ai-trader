@@ -1,0 +1,47 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction, volume analysis, and institutional confirmation to trade high-probability breakouts from consolidation zones.
+
+Key Components:
+1. Keltner Channel Contraction: Uses narrowing Keltner Channels (20-period EMA with 2.5x ATR bands) to identify volatility squeeze conditions
+2. Volume Decline: Requires declining volume during the consolidation period
+3. Range Breakout: Entry triggered by price closing outside the 20-period price range
+4. Open Interest Confirmation: Requires surge in futures open interest (>15% increase) to confirm institutional participation
+
+Entry Rules:
+LONG ENTRY:
+1. Keltner Channel width must be in bottom 30% of 50-period range (volatility squeeze)
+2. Volume must show declining trend over past 5 periods
+3. Price closes above highest high of past 20 periods
+4. Futures open interest shows significant increase (minimum 15% rise)
+
+SHORT ENTRY:
+1. Keltner Channel width must be in bottom 30% of 50-period range
+2. Volume must show declining trend over past 5 periods
+3. Price closes below lowest low of past 20 periods
+4. Futures open interest shows significant increase (minimum 15% rise)
+
+Exit Rules:
+- Take Profit: 2x ATR (20-period) from entry price
+- Stop Loss: 1x ATR (20-period) from entry price
+- Time Exit: Close position if not profitable after 5 periods
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5%
+3. No trading during major economic news events
+4. Stop loss must be placed immediately after entry
+
+Required Indicators:
+1. Keltner Channels (20-period EMA, 2.5x ATR bands)
+2. Volume indicator (preferably volume MA)
+3. 20-period price range high/low
+4. Futures open interest data
+5. ATR (20-period) for risk calculation
+
+Additional Notes:
+- Works best on 1-hour or 4-hour timeframes
+- Most effective in trending market conditions
+- Requires access to reliable futures open interest data
+- Backtesting suggested for specific instruments as performance varies by market liquidity

@@ -1,0 +1,37 @@
+STRATEGY_NAME: LiquidationCluster  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Clusters:** Focuses on identifying areas in the order book where large clusters of stop-loss orders or liquidations are likely to occur.  
+2. **Order Book Imbalance:** Uses order book depth analysis to detect significant buy/sell pressure imbalances that may trigger liquidations.  
+3. **Volatility Contraction:** Measures volatility contraction via Bollinger Band width, signaling potential breakout conditions.  
+4. **Liquidation Cascade:** Aims to enter trades just before a liquidation cascade and exit once volatility expands post-cascade.  
+
+**Entry Rules:**  
+1. **Order Book Imbalance:** Confirm a strong imbalance in the order book (e.g., large bid/ask stack asymmetry).  
+2. **Volatility Contraction:** Bollinger Band width must be at a low point (indicating compressed volatility).  
+3. **Liquidation Trigger:** Wait for initial price movement toward the liquidation cluster (e.g., stop hunts or aggressive market orders).  
+4. **Entry Execution:** Enter in the direction of the expected liquidation cascade (long if shorts are being liquidated, short if longs are being liquidated).  
+
+**Exit Rules:**  
+1. **Volatility Expansion:** Exit when Bollinger Band width expands significantly, indicating the liquidation cascade has played out.  
+2. **Price Rejection:** If price sharply reverses after the initial move, exit to avoid being caught in a fakeout.  
+3. **Time-Based Exit:** If volatility does not expand within a set period (e.g., 3-5 candles), exit the trade to avoid stagnation.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place stop-loss beyond the liquidation cluster to avoid being stopped out prematurely.  
+2. **Position Sizing:** Use conservative sizing due to the high volatility nature of liquidation events.  
+3. **Avoid Overleveraging:** Given the explosive nature of liquidations, excessive leverage can lead to rapid losses.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (Width Measurement)** – To detect volatility contraction/expansion.  
+2. **Order Book Depth (L2 Data)** – To identify liquidation clusters and imbalances.  
+3. **Volume Profile or Time & Sales** – To confirm aggressive order flow during liquidations.  
+
+**Additional Notes:**  
+- Works best in high-liquidity markets with frequent liquidation events (e.g., crypto, forex, or futures).  
+- Requires real-time order book data for best execution.  
+- Backtest on historical liquidation events to refine entry/exit timing.  
+
+This strategy capitalizes on the explosive moves caused by forced liquidations while managing risk through volatility-based exits.

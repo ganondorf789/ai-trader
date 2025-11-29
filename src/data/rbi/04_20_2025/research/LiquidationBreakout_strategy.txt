@@ -1,0 +1,29 @@
+STRATEGY_NAME: LiquidationBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Clusters Focus:** The strategy targets high liquidation clusters in futures order books, which often act as significant support/resistance zones due to the concentration of stop-loss orders.  
+2. **Keltner Channel Confirmation:** Uses Keltner Channel contraction (low volatility phase) to identify potential breakout setups before price moves toward liquidation clusters.  
+3. **Breakout Execution:** Entries are triggered when price breaches the Keltner Channel in the direction of the liquidation cluster, confirming momentum.  
+
+**Entry Rules:**  
+1. **Identify Liquidation Cluster:** Locate high liquidation zones (e.g., using order book heatmaps or liquidation data tools).  
+2. **Keltner Channel Contraction:** Wait for the Keltner Channel (default settings: 20-period EMA, 2x ATR) to narrow, indicating low volatility and potential breakout.  
+3. **Breakout Confirmation:** Enter long if price breaches the upper Keltner Channel while approaching a high liquidation cluster (short for lower channel breaches toward a cluster).  
+
+**Exit Rules:**  
+1. **Take-Profit:** Target previous swing highs/lows or liquidity pools beyond the cluster.  
+2. **Stop-Loss:** Place stops below/above the Keltner Channel opposite the breakout direction or beyond the nearest swing point.  
+
+**Risk Management:**  
+- Position sizing based on stop distance (e.g., 1-2% risk per trade).  
+- Avoid trading during low-liquidity periods to prevent false breakouts.  
+- Exit if the Keltner Channel re-expands without follow-through.  
+
+**Required Indicators:**  
+1. **Keltner Channel** (20 EMA + 2x ATR bands).  
+2. **Liquidation Cluster Data** (order book analysis tools like Heatmaps or liquidation level trackers).  
+3. **Volume/Volatility Confirmation** (optional but recommended to filter false signals).  
+
+**Unique Edge:** Combines order book liquidity dynamics with volatility contraction, focusing on high-probability breakout zones where stop runs are likely. Avoids random breakouts by requiring cluster alignment.

@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolatilityBreakout
+
+STRATEGY_DETAILS:
+The VolatilityBreakout strategy is designed to capitalize on strong momentum moves during periods of elevated volatility. It combines Bollinger Bands, MACD, and volatility analysis to identify high-probability breakout opportunities.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. MACD (12, 26, 9 settings)
+3. Volatility filter (ATR or standard deviation)
+
+Entry Rules:
+1. Price must cross above the upper Bollinger Band
+2. MACD histogram must be above its signal line (positive momentum)
+3. Volatility must be elevated (ATR above its 20-period SMA or standard deviation above a defined threshold)
+
+Exit Rules:
+1. Close position when price crosses back below the upper Bollinger Band
+2. Close position if MACD histogram crosses below its signal line
+3. Close position if volatility drops below the defined threshold
+
+Risk Management:
+1. Set stop-loss below the most recent swing low or a fixed percentage (e.g., 1-2%)
+2. Use position sizing based on account risk tolerance
+3. Consider trailing stops to lock in profits during strong trends
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. MACD (12,26,9)
+3. ATR (14) or Standard Deviation (20) for volatility filter
+
+Additional Notes:
+- This strategy works best in trending markets
+- Avoid using during low volatility periods
+- Consider higher timeframes (1H or above) for better reliability
+- Backtest thoroughly to determine optimal volatility thresholds
+
+The VolatilityBreakout strategy combines momentum confirmation with volatility analysis to identify high-probability breakout trades while managing risk through clear exit criteria.

@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilityCompression
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- This strategy capitalizes on periods of low volatility (compression) that often precede significant price movements
+- Combines ATR-based volatility measurement with trend confirmation using the 200-day SMA
+- Uses a dual exit system with both fixed and dynamic stop mechanisms
+
+2. Entry Rules:
+- Primary Condition: 10-day ATR must be below its 20-day moving average (volatility compression signal)
+- Trend Filter: Price must be above the 200-day SMA (bullish trend confirmation)
+- Entry Trigger: When both conditions are met simultaneously, enter long position on next candle open
+
+3. Exit Rules:
+- Hard Stop: 2x current ATR value from entry price (volatility-based risk control)
+- Trailing Stop: 5% below the highest price reached since entry (profit protection)
+- Exit when either stop condition is triggered (whichever comes first)
+
+4. Risk Management:
+- Position sizing should account for the 2x ATR stop distance
+- Typical risk per trade should be 1-2% of capital
+- No trades when price is below 200-day SMA (avoids counter-trend positions)
+
+5. Required Indicators:
+- 10-day ATR (Average True Range)
+- 20-day SMA of ATR (smoothed volatility baseline)
+- 200-day SMA (long-term trend filter)
+- Current price relative to these indicators
+
+6. Additional Notes:
+- Works best in trending markets with periodic volatility contractions
+- May generate fewer signals in highly volatile or range-bound markets
+- Requires daily timeframe or higher for reliable signals
+- Backtesting recommended across different market conditions
+
+This "VolatilityCompression" strategy systematically identifies low-volatility setups within established uptrends, using measured exits to capture potential breakouts while strictly controlling risk. The combination of volatility measurement and trend filtering creates a disciplined approach to capturing momentum shifts.

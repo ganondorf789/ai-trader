@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolatilityGapFiller
+
+STRATEGY_DETAILS:
+This strategy combines dynamic volatility analysis with volume profile gaps to identify high-probability breakout trades with defined risk parameters.
+
+Key Components:
+1. Volatility Threshold: Uses Bollinger Band width percentile (20-period lookback) to determine when volatility expansion reaches significant levels (typically >70th percentile)
+2. Volume Profile Analysis: Identifies liquidity gaps in the volume profile (areas with minimal trading activity)
+3. Fractal-based Trailing: Uses recent fractal highs/lows (5-period fractal) for dynamic stop placement
+
+Entry Rules:
+1. Primary Trigger: Price closes outside Bollinger Bands while BB width is above 70th percentile
+2. Confirmation: Volume profile shows clear liquidity gap in direction of breakout
+3. Execution: Enter on retest of breakout level or next candle open
+
+Exit Rules:
+1. Profit Target: Initial target at 50% gap fill level, final target at full gap fill
+2. Trailing Stop: Activates after hitting 1.5x initial risk:
+   - Longs: Trail below most recent fractal low
+   - Shorts: Trail above most recent fractal high
+3. Emergency Exit: Close position if BB width drops below 30th percentile
+
+Risk Management:
+1. Position Sizing: 1-2% risk per trade
+2. Initial Stop: 
+   - Longs: Below most recent swing low or fractal low
+   - Shorts: Above most recent swing high or fractal high
+3. Maximum Drawdown: 5% daily, 15% weekly circuit breaker
+
+Required Indicators:
+1. Bollinger Bands (20,2) with width percentile calculation
+2. Volume Profile (200-period lookback)
+3. Fractal Indicator (5-period)
+4. ATR (14) for volatility context
+
+Optimization Notes:
+- Adjust BB width percentile thresholds based on asset class (70-80% for stocks, 60-70% for forex)
+- Gap fill targets work best on 1H-4H timeframes
+- Combine with higher timeframe trend alignment for improved win rate
+
+This strategy excels in trending markets with clear volume profile structures, using volatility expansion as the catalyst for breakout trades with well-defined risk parameters.

@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Breakout:** Uses a 2.5 standard deviation threshold to identify extreme price movements.  
+2. **Volume Confirmation:** Requires a spike in trading volume exceeding the 20-day average by at least 50% to validate the breakout.  
+3. **Directional Bias:** Goes long on upper band breaks and short on lower band breaks, aligning with volatility expansion.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when price closes **above** the upper Bollinger Band (2.5σ) AND volume is **50% higher** than the 20-day average volume.  
+- **Short Entry:** Triggered when price closes **below** the lower Bollinger Band (2.5σ) AND volume is **50% higher** than the 20-day average volume.  
+
+**Exit Rules:**  
+- **Long Exit:** Close position when price crosses back **inside** the Bollinger Bands (returns to within 2.5σ) OR after a fixed holding period (e.g., 5 bars).  
+- **Short Exit:** Close position when price crosses back **inside** the Bollinger Bands OR after a fixed holding period (e.g., 5 bars).  
+
+**Risk Management:**  
+- **Stop-Loss:** Place a stop at the **midline of the Bollinger Bands** (20-period SMA) to limit losses if the breakout fails.  
+- **Position Sizing:** Allocate no more than 2% of capital per trade to manage volatility risk.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2.5 standard deviations).  
+2. **Volume** (20-day average + 50% threshold filter).  
+
+**Unique Aspects:**  
+- Combines **volatility extremes** (Bollinger Bands) with **volume confirmation** to filter false breakouts.  
+- High standard deviation (2.5σ) ensures only significant breakouts are traded.  
+- Volume spike acts as a secondary confirmation, reducing whipsaw risks.  
+
+**Note:** Works best in **high-volatility markets** (e.g., crypto, commodities) and may underperform in ranging conditions.

@@ -1,0 +1,33 @@
+STRATEGY_NAME: MomentumBandwidth  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chande Momentum Oscillator (CMO):** A momentum indicator that measures the strength of price movements. Crosses above +50 indicate strong bullish momentum, while crosses below -50 indicate strong bearish momentum.  
+2. **Bollinger Bandwidth (10-day):** Measures the width of Bollinger Bands (standard deviation expansion/contraction). A low bandwidth suggests low volatility and potential breakout conditions.  
+3. **Volatility Expansion Filter (20-day average):** Used to exit trades when volatility expands beyond its recent average, signaling potential trend exhaustion or reversal.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when the CMO crosses **above +50** AND the 10-day Bollinger Bandwidth is at a **recent low** (e.g., below its 5-day moving average).  
+- **Short Entry:** Trigger when the CMO crosses **below -50** AND the 10-day Bollinger Bandwidth is at a **recent low**.  
+
+**Exit Rules:**  
+- **Long Exit:** Close the trade when the Bollinger Bandwidth **expands above its 20-day average**, indicating increased volatility and potential trend weakening.  
+- **Short Exit:** Same as long exit—exit when Bandwidth exceeds its 20-day average.  
+
+**Risk Management:**  
+- **Stop-Loss:** Use a trailing stop (e.g., ATR-based or percentage-based) to protect profits and limit downside.  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Confirmation:** Avoid entering if price is near key support/resistance levels conflicting with the signal.  
+
+**Required Indicators:**  
+1. **Chande Momentum Oscillator (CMO, default 14-period).**  
+2. **Bollinger Bands (20,2) → Bandwidth = (Upper Band - Lower Band) / Middle Band.**  
+3. **20-day Simple Moving Average (SMA) of Bandwidth for exit filter.**  
+
+**Notes:**  
+- Works best in **ranging markets transitioning to trends** (low Bandwidth + momentum shift).  
+- Avoid during **high-volatility regimes** (e.g., news events) where false breakouts are likely.  
+- Backtest optimal lookback periods for Bandwidth lows (e.g., 5-day vs. 10-day).  
+
+This strategy combines **momentum confirmation** (CMO) with **volatility contraction/expansion cycles** (Bandwidth) for high-probability reversals or breakouts.

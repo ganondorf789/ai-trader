@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquiditySqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies periods of low volatility (contraction) where price is consolidating, often preceding a breakout.  
+2. **Liquidation Heatmap Clusters:** Highlights high liquidity zones where large orders are likely clustered, increasing the probability of strong price movements.  
+3. **Keltner Channels:** Used to confirm volatility expansion, signaling potential exits when price breaks out of the contraction phase.  
+
+**Entry Rules:**  
+- Wait for a Bollinger Band squeeze (bands narrowing significantly, indicating low volatility).  
+- Confirm that the price is near a high liquidity zone on the liquidation heatmap (cluster of liquidations suggests potential for a strong move).  
+- Enter long if price breaks above the upper Bollinger Band in a high liquidity zone.  
+- Enter short if price breaks below the lower Bollinger Band in a high liquidity zone.  
+
+**Exit Rules:**  
+- Monitor Keltner Channels for volatility expansion (price breaking above/below the Keltner Channel).  
+- Exit long trades when price closes below the lower Keltner Channel.  
+- Exit short trades when price closes above the upper Keltner Channel.  
+- Alternatively, use a trailing stop based on recent swing highs/lows to lock in profits.  
+
+**Risk Management:**  
+- Set stop-loss orders just beyond the opposite Bollinger Band to limit downside if the breakout fails.  
+- Risk no more than 1-2% of capital per trade.  
+- Avoid trading during low-liquidity periods (e.g., outside major market hours).  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 standard deviations).  
+2. **Liquidation Heatmap** (shows clustered liquidation levels).  
+3. **Keltner Channels** (20-period EMA, 1.5 ATR multiplier).  
+
+**Additional Notes:**  
+- Works best on higher timeframes (1H, 4H, Daily) where liquidity zones are more reliable.  
+- Avoid trading during major news events that can cause false breakouts.  
+- Combine with volume analysis to confirm liquidity zone validity.  
+
+This strategy capitalizes on the alignment of volatility contraction (Bollinger Squeeze) and high liquidity zones, increasing the probability of successful breakouts while using Keltner Channels to confirm exits.

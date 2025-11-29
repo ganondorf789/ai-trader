@@ -1,0 +1,40 @@
+STRATEGY_NAME: VoltaicBand  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Measurement:** Uses Average True Range (ATR) to gauge market volatility.  
+2. **Price Anchor:** 20-period Volume-Weighted Average Price (VWAP) serves as the baseline.  
+3. **Breakout Bands:** Entry triggers occur when price breaches ±2x ATR bands from VWAP.  
+4. **Exit Logic:** Positions close on a 50% retracement of the initial breakout move.  
+
+**Entry Rules:**  
+- **Long Entry:** Price crosses *above* VWAP + (2 × ATR).  
+- **Short Entry:** Price crosses *below* VWAP − (2 × ATR).  
+
+**Exit Rules:**  
+- **Long Exit:** Price retraces 50% of the distance from entry high to VWAP.  
+- **Short Exit:** Price retraces 50% of the distance from entry low to VWAP.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Initial stop placed at VWAP (neutral level) for both long/short trades.  
+2. **Position Sizing:** Adjust based on ATR (e.g., risk 1% of capital per trade).  
+3. **Time Exit:** Optional time-based exit (e.g., end-of-day) to avoid overnight risk.  
+
+**Required Indicators:**  
+1. **VWAP (20-period):** Dynamic support/resistance.  
+2. **ATR (Default 14-period):** Volatility bands.  
+3. **Price High/Low Tracking:** For retracement calculation.  
+
+**Unique Aspects:**  
+- Combines *volume-weighted anchoring* (VWAP) with *volatility expansion* (ATR bands).  
+- Retracement-based exits lock in profits while allowing room for trends.  
+- Avoids generic moving averages, focusing on volume-adjusted price.  
+
+**Optimization Notes:**  
+- Test ATR multiplier (e.g., 1.5x–3x) for different instruments.  
+- Adjust VWAP period for shorter/longer-term trends.  
+- Add filter (e.g., RSI >30/<70) to avoid false breakouts.  
+
+**Name Justification:**  
+"Voltaic" reflects the *energy* of volatility breakouts, while "Band" emphasizes the ATR-derived thresholds. Distinct from generic "VolatilityBreakout" by highlighting the VWAP-ATR synergy.

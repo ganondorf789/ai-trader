@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolumetricSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines volume-weighted price action with volatility contraction/expansion signals for high-probability entries and exits.
+
+Key Components:
+1. Volume-Weighted Moving Average (50-period VWMA) - Filters trades based on price relative to volume-weighted trend
+2. Keltner Channel (14-period) - Measures volatility conditions through channel width
+3. Percentile Bands (20th/80th) - Identifies extreme volatility conditions
+
+Entry Rules:
+1. Price must cross ABOVE the 50-period VWMA (confirms bullish momentum with volume confirmation)
+2. Simultaneously, the Keltner Channel width must be in contraction (below 20th percentile width)
+3. Both conditions must occur on the same candle for valid entry
+
+Exit Rules:
+1. Primary Exit: When Keltner Channel width expands above 80th percentile (volatility expansion signal)
+2. Optional Stop Loss: Recent swing low below VWMA or fixed percentage risk
+
+Risk Management:
+1. Position sizing based on volatility (ATR-based or fixed percentage)
+2. Stop loss placement below recent swing low or VWMA
+3. No new entries when channel width > 50th percentile
+
+Required Indicators:
+1. Volume-Weighted Moving Average (50 period)
+2. Keltner Channels (14 period with 1.5 ATR multiplier recommended)
+3. Channel Width Percentile Calculator (requires lookback period for percentile calculation)
+
+Unique Aspects:
+- Combines volume confirmation with volatility regime detection
+- Uses dynamic percentile-based thresholds rather than fixed values
+- Requires simultaneous confirmation from both indicators
+- Exits based on volatility expansion rather than price targets
+
+Optimization Notes:
+- Test different VWMA periods (40-60 range)
+- Adjust Keltner Channel period and multiplier
+- Verify percentile thresholds with historical volatility analysis
+- Consider adding volume confirmation on breakout candles

@@ -1,0 +1,45 @@
+STRATEGY_NAME: VolatilityCompressionForce
+
+STRATEGY_DETAILS:
+This strategy combines Elder Force Index momentum signals with Bollinger Band volatility compression for high-probability entries, using band touches as dynamic exits.
+
+Key Components:
+1. Elder Force Index (13-period) - Primary momentum indicator
+2. Bollinger Bands (20,2) - Volatility measurement and exit trigger
+3. Bollinger Band Width - Volatility compression filter (1-year 20th percentile)
+4. 48-hour timeout - Secondary exit mechanism
+
+Entry Rules:
+1. Long Entry:
+   - Bollinger Band Width must be below its 1-year 20th percentile (compressed volatility)
+   - Elder Force Index (13-period) crosses above zero line
+   - Both conditions must occur simultaneously
+
+Exit Rules:
+1. Primary Exit:
+   - Price touches the upper Bollinger Band (take profit)
+   - Price touches the lower Bollinger Band (stop loss)
+2. Secondary Exit:
+   - 48-hour timeout from entry (whichever comes first)
+
+Risk Management:
+1. Position sizing based on volatility:
+   - Use ATR (14) to determine position size
+   - Risk no more than 1-2% of capital per trade
+2. Natural stop at lower band provides volatility-adjusted protection
+3. Time-based exit prevents excessive capital tie-up
+
+Required Indicators:
+1. Elder Force Index (13-period default)
+2. Bollinger Bands (20,2 standard settings)
+3. Bollinger Band Width (20-period)
+4. Historical percentile calculation for Band Width
+5. Optional: ATR (14) for position sizing
+
+Optimization Notes:
+1. Test different percentile thresholds (15-25) for volatility compression
+2. Experiment with Force Index periods (10-15)
+3. Consider adjusting timeout period based on asset volatility
+4. Backtest band touch sensitivity (closing price vs. intraday touch)
+
+This strategy excels in ranging markets after volatility contractions, using the Force Index to confirm emerging momentum while the volatility filter reduces false breakouts. The opposing band touch exit creates a favorable risk-reward ratio by allowing winners to run while quickly cutting losers.

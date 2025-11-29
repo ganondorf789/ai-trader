@@ -1,0 +1,40 @@
+STRATEGY_NAME: VortexDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Used to identify trend direction and potential reversals via crossovers of its two lines (VI+ and VI-).  
+2. **Chaikin Money Flow (CMF):** Measures money flow volume to detect bullish/bearish divergence relative to price action.  
+3. **Volume Spike Analysis:** Exits are triggered by abnormal volume spikes signaling exhaustion.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - VI+ crosses above VI- (bullish trend initiation).  
+  - CMF shows bullish divergence (price makes lower low, CMF makes higher low).  
+  - Confirm with rising volume.  
+
+- **Short Entry:**  
+  - VI- crosses above VI+ (bearish trend initiation).  
+  - CMF shows bearish divergence (price makes higher high, CMF makes lower high).  
+  - Confirm with rising volume.  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  - VI- crosses above VI+ (trend reversal signal).  
+  - OR volume spike (e.g., 2x average volume) suggests exhaustion.  
+
+- **Short Exit:**  
+  - VI+ crosses above VI- (trend reversal signal).  
+  - OR volume spike (e.g., 2x average volume) suggests exhaustion.  
+
+**Risk Management:**  
+- **Stop-Loss:** Place below the recent swing low (long) or above the swing high (short).  
+- **Position Sizing:** Risk ≤2% of capital per trade.  
+- **Timeframe Suitability:** Best on 1H/4H charts for balance between noise and signal clarity.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI) (default period: 14).  
+2. Chaikin Money Flow (CMF) (default period: 20).  
+3. Volume MA (e.g., 20-period SMA) to identify spikes.  
+
+**Unique Edge:** Combines trend confirmation (VI) with money flow divergence (CMF) for high-probability reversals, filtered by volume dynamics. Avoids choppy markets by requiring dual confirmation.

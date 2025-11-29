@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityFilterEMA  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **EMA Crossover System:** Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as the primary trend-following signal.  
+2. **ATR Volatility Filter:** Incorporates the Average True Range (ATR) to identify low-volatility conditions for entries (ATR below its 20-day average) and high-volatility conditions for exits (ATR above its 20-day average).  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - The 50-period EMA crosses **above** the 200-period EMA (bullish trend confirmation).  
+  - The current ATR value is **below** its 20-day moving average (low-volatility environment).  
+
+**Exit Rules:**  
+- **Long Exit:** Triggered when:  
+  - The ATR value rises **above** its 20-day moving average (signaling increased volatility and potential trend instability).  
+
+**Risk Management:**  
+1. **Stop-Loss:** Optional but recommended—set below a recent swing low or using a fixed percentage (e.g., 1-2% of capital).  
+2. **Position Sizing:** Adjust based on ATR values to account for volatility (e.g., smaller positions during higher baseline ATR).  
+3. **Timeframe Suitability:** Best applied on daily or 4-hour charts for reliable EMA/ATR signals.  
+
+**Required Indicators:**  
+1. **50-period Exponential Moving Average (EMA).**  
+2. **200-period Exponential Moving Average (EMA).**  
+3. **Average True Range (ATR, 14-period default) + 20-day moving average of ATR.**  
+
+**Unique Edge:**  
+- Combines trend-following (EMA crossover) with volatility-based timing (ATR filter) to avoid entering during choppy or high-risk market phases.  
+- Exits proactively before volatility spikes, which often precede reversals or pullbacks.  
+
+**Optimization Tips:**  
+- Test different ATR periods (e.g., 10-day vs. 20-day) for the moving average to fine-tune sensitivity.  
+- Add a trailing stop (e.g., ATR-based) to capture extended trends while managing risk.  
+
+**Note:** This strategy performs best in trending markets but may underperform in prolonged sideways/low-volatility conditions.

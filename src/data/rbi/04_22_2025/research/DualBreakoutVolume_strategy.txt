@@ -1,0 +1,29 @@
+STRATEGY_NAME: DualBreakoutVolume  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Moving Averages:** Utilizes both a 20-day and 50-day moving average (MA) to confirm trend alignment.  
+2. **Volume Confirmation:** Requires trading volume to exceed its 10-day average, ensuring strong participation in the breakout.  
+3. **Risk-Reward Management:** Exits trades at a 2:1 reward-to-risk ratio, prioritizing disciplined profit-taking.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when price closes **above both the 20-day and 50-day MA** *and* volume is **higher than the 10-day average volume**.  
+- **Short Entry:** Triggered when price closes **below both the 20-day and 50-day MA** *and* volume is **higher than the 10-day average volume**.  
+
+**Exit Rules:**  
+- **Profit Target:** Set at **2x the initial risk** (e.g., if stop loss is 50 pips, take profit is 100 pips).  
+- **Stop Loss:** Placed at the **recent swing low (for long)** or **recent swing high (for short)** beyond the breakout candle.  
+
+**Risk Management:**  
+- Position size is calculated to risk **1-2% of capital per trade**.  
+- Trades are invalidated if volume fails to sustain above the 10-day average post-entry.  
+
+**Required Indicators:**  
+1. 20-day Simple Moving Average (SMA)  
+2. 50-day Simple Moving Average (SMA)  
+3. 10-day Average Volume (rolling calculation)  
+
+**Unique Edge:** The dual MA filter reduces false breakouts, while volume confirmation adds conviction. The fixed risk-reward ratio ensures consistency.  
+
+**Note:** Works best in trending markets; avoid ranging conditions (use ADX >25 to filter).

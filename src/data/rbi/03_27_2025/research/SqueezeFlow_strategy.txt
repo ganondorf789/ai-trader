@@ -1,0 +1,41 @@
+STRATEGY_NAME: SqueezeFlow  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection:**  
+   - Uses a 20-day Bollinger Band bandwidth (Upper Band - Lower Band)  
+   - Identifies a squeeze when the current bandwidth is below 50% of its 100-day median  
+   - Indicates low volatility and potential breakout conditions  
+
+2. **Chaikin Money Flow (CMF) Confirmation:**  
+   - 20-day CMF is used to confirm money flow strength  
+   - Long entry triggered when CMF crosses above zero during a squeeze  
+   - Exit on CMF reversal below zero or price breaching 1.5x the upper Bollinger Band  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Band (20,2) bandwidth is < 50% of its 100-day median (squeeze confirmed)  
+- **Condition 2:** 20-day CMF crosses above zero (bullish money flow)  
+- **Action:** Enter long at market price  
+
+**Exit Rules:**  
+- **Exit Condition 1:** 20-day CMF crosses below zero (bearish money flow reversal)  
+- **Exit Condition 2:** Price breaches 1.5x the upper Bollinger Band (profit-taking or volatility expansion)  
+- **Action:** Close position at market price  
+
+**Risk Management:**  
+- Stop-loss: Optional trailing stop based on recent swing low or fixed % risk per trade  
+- Position sizing: Adjust based on volatility (e.g., ATR-based sizing)  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) – for squeeze detection and volatility bands  
+2. Chaikin Money Flow (20) – for money flow confirmation  
+3. Bandwidth calculation: (Upper Band - Lower Band) / Middle Band  
+4. 100-day median of bandwidth for squeeze threshold  
+
+**Notes:**  
+- Works best in ranging or consolidating markets  
+- Avoid trading during strong trending phases (use ADX filter if needed)  
+- Backtest optimal CMF period (20-day default) for specific instruments  
+
+This strategy combines volatility contraction (squeeze) with money flow confirmation for high-probability breakout trades. The 1.5x upper band exit locks in profits during strong expansions.

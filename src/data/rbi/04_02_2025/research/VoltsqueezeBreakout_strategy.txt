@@ -1,0 +1,60 @@
+STRATEGY_NAME: VoltsqueezeBreakout
+
+STRATEGY_DETAILS:
+This intraday strategy combines multiple volatility and breakout concepts to identify high-probability trading opportunities during market compression periods. The approach focuses on catching explosive moves following periods of low volatility, with multiple confirmation layers for entries and dynamic exits.
+
+Key Components:
+1. Volatility Measurement:
+   - Bollinger Band Width Percentile (20-period) to identify compressed volatility conditions
+   - Threshold: Enter when width falls below 20th percentile of recent readings
+
+2. Breakout Confirmation:
+   - Keltner Channel (20-period, 2.5 ATR multiplier) breakout
+   - Must close outside channel with expanding volume
+
+3. Volume Surge:
+   - Volume must be 150% of 20-period average
+   - Volume spike should accompany breakout candle
+
+Entry Rules:
+Long Entry:
+1. BB Width Percentile < 20%
+2. Price closes above upper Keltner Channel
+3. Volume > 1.5x 20-period average
+4. Entry on next candle's open
+
+Short Entry:
+1. BB Width Percentile < 20%
+2. Price closes below lower Keltner Channel
+3. Volume > 1.5x 20-period average
+4. Entry on next candle's open
+
+Exit Rules:
+1. Chandelier Stop (22-period, 3 ATR multiplier):
+   - Longs: Trail below highest high since entry
+   - Shorts: Trail above lowest low since entry
+
+2. Profit Targets:
+   - Primary: 1.5x recent ATR (10-period)
+   - Secondary: 3x recent ATR
+   - Scale out 50% at each target
+
+Risk Management:
+1. Initial stop placed at opposite Keltner Channel band
+2. Position size limited to 1% risk per trade
+3. Maximum 3 concurrent positions
+4. No trades during first/last 30 minutes of session
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Keltner Channels (20,2.5ATR)
+3. Volume Average (20-period)
+4. ATR (10-period for targets, 22-period for stops)
+5. Bollinger Band Width Percentile study
+
+Optimization Notes:
+- Adjust ATR multipliers based on instrument volatility
+- Test different percentile thresholds (15-25%) for BB width
+- Verify volume surge ratio across different market caps
+
+This strategy works best in trending market conditions and may produce false breakouts during choppy periods. The multiple confirmation layers help filter low-quality setups while the dynamic exits lock in profits during strong moves.

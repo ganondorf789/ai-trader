@@ -1,0 +1,41 @@
+STRATEGY_NAME: FlowVolatility Squeeze
+
+STRATEGY_DETAILS:
+This strategy combines exchange netflow analysis with Bollinger Band volatility measurements to identify high-probability shorting opportunities during periods of extreme market stress and capital outflow.
+
+Key Components:
+1. Bollinger Band Width (2 standard deviation threshold)
+2. Exchange Netflow (spike detection)
+3. Volatility contraction signal (1 standard deviation)
+4. Netflow reversal confirmation
+
+Entry Rules:
+1. Primary Trigger: Bollinger Band width exceeds 2 standard deviations
+2. Confirmation: Simultaneous spike in exchange netflow (outflow)
+3. Execution: Enter short position when both conditions align
+
+Exit Rules:
+1. Volatility Exit: Bollinger Band width contracts below 1 standard deviation
+2. Flow Exit: Exchange netflow shows reversal (inflow) pattern
+3. Conservative Exit: Close position when either condition triggers
+4. Aggressive Exit: Wait for both conditions (recommended for higher timeframe trades)
+
+Risk Management:
+1. Position sizing: 1-2% of capital per trade
+2. Stop-loss: 1.5x the Bollinger Band width at entry
+3. Time-based exit: Close position if no exit triggers within 72 hours
+4. Volatility filter: Only trade when average true range > 2% of price
+
+Required Indicators:
+1. Bollinger Bands (20-period, 2 std dev)
+2. Exchange Netflow metric (custom or platform-specific)
+3. Standard Deviation calculation (for width measurement)
+4. Optional: ATR (14-period) for volatility filter
+
+Special Considerations:
+- Works best on 4h or daily timeframes
+- Most effective on high-cap altcoins with liquid markets
+- Requires reliable exchange flow data source
+- Backtest recommended for specific asset volatility profiles
+
+The "FlowVolatility Squeeze" strategy capitalizes on the combination of technical volatility extremes and fundamental capital movement, creating a high-probability mean-reversion setup during market stress periods.

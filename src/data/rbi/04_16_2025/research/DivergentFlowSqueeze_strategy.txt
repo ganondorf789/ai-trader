@@ -1,0 +1,43 @@
+STRATEGY_NAME: DivergentFlowSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines divergence signals with volatility contraction for high-probability entries, using multiple confirmation layers for trade execution.
+
+Key Components:
+1. Primary Signal: 3-day divergence between Chaikin Money Flow (CMF) and Price-Volume Trend (PVT)
+2. Confirmation: Narrowing Keltner Channels indicating volatility contraction
+3. Exit Mechanism: Bollinger Band extremes adjusted by recent Average True Range (ATR)
+
+Entry Rules:
+1. Identify when CMF (21-period) shows opposite direction to PVT for 3 consecutive days
+   - Bullish entry: Price making lower lows while CMF makes higher lows
+   - Bearish entry: Price making higher highs while CMF makes lower highs
+2. Confirm with Keltner Channel (20-period, 1.5x ATR) width decreasing for 2+ days
+3. Enter on break of the most recent swing high/low with volume > 20-day average
+
+Exit Rules:
+1. Profit-taking:
+   - Longs: When price touches upper Bollinger Band (20,2) + (0.5 x 14-period ATR)
+   - Shorts: When price touches lower Bollinger Band (20,2) - (0.5 x 14-period ATR)
+2. Stop-loss:
+   - Initial: Opposite Keltner Channel line
+   - Trailing: Adjust to breakeven when price reaches 1x ATR in profit
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5% across all positions
+3. No new entries if 3 consecutive losing trades occur (requires strategy review)
+
+Required Indicators:
+1. Chaikin Money Flow (21-period)
+2. Price-Volume Trend (unmodified)
+3. Keltner Channels (20-period EMA, 1.5x ATR bandwidth)
+4. Bollinger Bands (20-period, 2 std dev)
+5. Average True Range (14-period)
+
+Optimization Notes:
+- Test CMF period between 14-25 days for different instruments
+- Adjust Keltner Channel multiplier between 1.3-2.0x ATR based on volatility
+- Consider time-based exits (e.g., 5-10 bars) for sideways markets
+
+This strategy excels in trending markets after periods of consolidation, using the divergence to detect early momentum shifts and volatility contraction to filter false signals. The ATR-adjusted Bollinger exits help capture extended moves while accounting for current market volatility.

@@ -1,0 +1,46 @@
+STRATEGY_NAME: VolumetricTrendRider
+
+STRATEGY_DETAILS:
+This is a sophisticated trend-following strategy that combines three powerful technical indicators to identify and ride strong trends with volume confirmation and dynamic risk management.
+
+Key Components:
+1. Trend Identification: ADX (Average Directional Index) > 25 confirms strong trend conditions
+2. Volume Validation: OBV (On-Balance Volume) crossing its 20-period MA confirms volume participation
+3. Dynamic Exit: Chandelier Exit using 3x ATR (Average True Range) for trailing stop protection
+
+Entry Rules:
+1. Long Entry:
+   - ADX > 25 (strong trend present)
+   - OBV crosses above its 20-period MA (volume confirms upward momentum)
+   - Price must be above 200-period MA (additional trend filter)
+
+2. Short Entry:
+   - ADX > 25 (strong trend present)
+   - OBV crosses below its 20-period MA (volume confirms downward momentum)
+   - Price must be below 200-period MA (additional trend filter)
+
+Exit Rules:
+1. Chandelier Exit (for both long and short positions):
+   - Long positions: Trail stop at Highest High - (3 x ATR)
+   - Short positions: Trail stop at Lowest Low + (3 x ATR)
+2. Emergency Exit: Immediate exit if ADX drops below 20 (trend weakening)
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Initial stop placed at 1.5x ATR from entry point
+3. Trailing stop adjusts daily using Chandelier method
+4. No new entries if ADX < 20 (sideways market filter)
+
+Required Indicators:
+1. ADX (14-period standard setting)
+2. OBV with 20-period moving average
+3. ATR (14-period for volatility measurement)
+4. 200-period moving average (optional but recommended)
+
+Optimization Notes:
+- ADX threshold can be adjusted between 20-30 based on market volatility
+- OBV period can be tested between 15-25 periods
+- ATR multiplier can range from 2.5-3.5 depending on risk tolerance
+- Consider adding a time filter (e.g., only trade first 3 hours of session)
+
+This "VolumetricTrendRider" strategy excels in strongly trending markets with volume participation, while the Chandelier Exit protects profits during trend reversals. The combination of trend strength, volume confirmation, and dynamic exits creates a robust system for capturing extended moves while limiting downside risk.

@@ -1,0 +1,45 @@
+STRATEGY_NAME: LiquidationPulse
+
+STRATEGY_DETAILS:
+The LiquidationPulse strategy capitalizes on market conditions where negative funding rates coincide with rising open interest, signaling potential short squeeze opportunities. This approach specifically targets short liquidations while implementing prudent risk management.
+
+Key Components:
+1. Negative Funding Rates: Indicates traders are paying to hold short positions, creating potential squeeze conditions
+2. Increasing Open Interest: Shows new money entering the market, amplifying potential moves
+3. Low-of-Day Clusters: Identifies significant support levels for stop placement
+
+Entry Rules:
+- Go long when:
+  1. Funding rate turns negative (below 0)
+  2. Open interest shows consecutive increases (minimum 2 periods)
+  3. Price is above the most recent low-of-day cluster (3+ touches within current session)
+
+Exit Rules:
+- Take profit when:
+  1. Funding rate returns to positive territory
+  2. Open interest begins declining
+  3. Price reaches nearest significant resistance level (previous high-of-day cluster)
+  
+- Stop loss placed:
+  1. Below the most recent low-of-day cluster (minimum 3 touches)
+  2. Adjust stop to break-even when price moves 1.5x the initial risk
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Initial stop defines maximum risk (typically 0.5-1.5% of account)
+3. Trailing stop activated after 1.5R move
+4. Avoid trading during major news events that may distort funding signals
+
+Required Indicators:
+1. Funding rate indicator (real-time)
+2. Open interest tracker (with change detection)
+3. Price action analyzer for identifying low/high clusters
+4. Volume profile (optional for confirming cluster significance)
+
+Optimal Conditions:
+- Works best in trending markets
+- Most effective on liquid perpetual contracts
+- Avoid ranging markets where funding may oscillate frequently
+- Ideal timeframes: 15min to 4hr charts
+
+Note: This strategy requires careful monitoring as funding conditions can change rapidly. The combination of negative funding and rising OI creates the "pulse" effect that drives the liquidation cascade we aim to capture.

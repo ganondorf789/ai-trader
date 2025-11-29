@@ -1,0 +1,60 @@
+STRATEGY_NAME: FlowReversal
+
+STRATEGY_DETAILS:
+The FlowReversal strategy is designed to identify momentum reversal events by combining MACD zero-line crossovers with order flow indicators. This approach leverages the convergence of technical momentum signals and market microstructure data to pinpoint high-probability reversal opportunities.
+
+### Key Strategy Components:
+1. **MACD Zero-Line Crossovers**: 
+   - MACD (Moving Average Convergence Divergence) is used to identify momentum shifts. A bullish crossover occurs when the MACD line crosses above the zero line, signaling potential upward momentum. A bearish crossover occurs when the MACD line crosses below the zero line, signaling potential downward momentum.
+
+2. **Order Flow Indicators**:
+   - Order flow indicators (e.g., volume delta, cumulative delta, or footprint charts) are used to confirm the strength of the momentum reversal. These indicators provide insights into the buying and selling pressure behind price movements, helping to validate the MACD signals.
+
+### Entry Rules:
+1. **Bullish Reversal Entry**:
+   - Wait for the MACD line to cross above the zero line, indicating a potential shift to bullish momentum.
+   - Confirm the reversal with order flow indicators showing strong buying pressure (e.g., positive volume delta or increasing cumulative delta).
+   - Enter a long position when both conditions are met.
+
+2. **Bearish Reversal Entry**:
+   - Wait for the MACD line to cross below the zero line, indicating a potential shift to bearish momentum.
+   - Confirm the reversal with order flow indicators showing strong selling pressure (e.g., negative volume delta or decreasing cumulative delta).
+   - Enter a short position when both conditions are met.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set a take-profit level based on key support/resistance levels or a predefined risk-reward ratio (e.g., 2:1).
+   - Alternatively, exit the trade when the MACD line crosses back below the zero line (for long positions) or above the zero line (for short positions).
+
+2. **Stop Loss**:
+   - Place a stop-loss order below the recent swing low (for long positions) or above the recent swing high (for short positions).
+   - Adjust the stop-loss level based on volatility (e.g., using ATR) to avoid being stopped out prematurely.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital on any single trade.
+   - Adjust position size based on the distance to the stop-loss level to maintain consistent risk exposure.
+
+2. **Diversification**:
+   - Avoid overconcentration in a single asset or market. Spread risk across multiple instruments or timeframes.
+
+### Required Indicators:
+1. **MACD**:
+   - Parameters: Default settings (12, 26, 9) or customized based on the trading timeframe.
+   - Used to identify momentum shifts and zero-line crossovers.
+
+2. **Order Flow Indicators**:
+   - Volume Delta: Measures the difference between buying and selling volume.
+   - Cumulative Delta: Tracks the net volume flow over time.
+   - Footprint Charts: Provides detailed order flow data at the price level.
+
+3. **Optional Indicators**:
+   - ATR (Average True Range): Helps set stop-loss levels based on market volatility.
+   - Support/Resistance Levels: Used to identify potential take-profit zones.
+
+### Additional Notes:
+- **Timeframe**: This strategy works best on intraday to swing trading timeframes (e.g., 15-minute to 4-hour charts).
+- **Market Conditions**: Ideal for trending or range-bound markets with clear momentum shifts. Avoid using during low-volume or choppy market conditions.
+- **Backtesting**: Always backtest the strategy on historical data to validate its effectiveness before live trading.
+
+By combining MACD zero-line crossovers with order flow confirmation, the FlowReversal strategy aims to capture high-probability momentum reversals while minimizing false signals.

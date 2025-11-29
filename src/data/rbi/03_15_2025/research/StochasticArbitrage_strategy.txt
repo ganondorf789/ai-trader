@@ -1,0 +1,53 @@
+STRATEGY_NAME: StochasticArbitrage
+
+STRATEGY_DETAILS:
+The StochasticArbitrage strategy combines the principles of statistical arbitrage with the precision of Stochastic Oscillators to identify high-probability mean-reversion opportunities in correlated assets. This strategy is particularly effective in range-bound markets and pairs trading scenarios.
+
+Key Strategy Components:
+1. Stochastic Oscillator (14,3,3) - Primary momentum indicator
+2. Correlation Analysis - Identifies statistically correlated asset pairs
+3. Z-Score Calculation - Measures deviation from mean price relationship
+4. Bollinger Bands (20,2) - Secondary confirmation tool
+
+Entry Rules:
+1. Identify correlated asset pairs with >0.8 correlation coefficient over 90 days
+2. Wait for Stochastic Oscillator to enter overbought (>80) or oversold (<20) zones
+3. Confirm with Z-Score exceeding ±2 standard deviations from mean
+4. Bollinger Bands should show price touching or exceeding outer bands
+5. Enter short when:
+   - Asset A is overbought (Stochastic >80)
+   - Asset B is oversold (Stochastic <20)
+   - Z-Score > +2
+6. Enter long when:
+   - Asset A is oversold (Stochastic <20)
+   - Asset B is overbought (Stochastic >80)
+   - Z-Score < -2
+
+Exit Rules:
+1. Close position when:
+   - Stochastic Oscillator crosses back through 50 level
+   - Z-Score returns to mean (0)
+   - Price returns to Bollinger Band midline
+2. Use trailing stop at 1.5x ATR (14) from entry point
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Maximum portfolio exposure of 5% to any single pair
+3. Stop loss at 2x ATR (14) from entry point
+4. Daily correlation check to ensure pair relationship remains valid
+5. Avoid trading during major news events or earnings announcements
+
+Required Indicators:
+1. Stochastic Oscillator (14,3,3)
+2. Correlation Coefficient (90-day)
+3. Z-Score Calculation
+4. Bollinger Bands (20,2)
+5. ATR (14)
+
+Optimization Tips:
+1. Adjust Stochastic parameters based on asset volatility
+2. Test different correlation periods (60-120 days)
+3. Experiment with Z-Score thresholds (±1.5 to ±2.5)
+4. Consider adding volume confirmation for additional validation
+
+This strategy works best in sideways or slightly trending markets and requires continuous monitoring of the correlation relationship between the paired assets. The combination of momentum indicators and statistical analysis provides a robust framework for identifying and executing mean-reversion trades.

@@ -1,0 +1,39 @@
+STRATEGY_NAME: VoltaicPulse
+
+STRATEGY_DETAILS:
+The VoltaicPulse strategy is a volatility-based trading approach that combines short-term ATR signals with VIX market sentiment to identify high-probability long entries in low-volatility environments. The strategy capitalizes on emerging volatility while maintaining tight risk control through an adaptive trailing stop mechanism.
+
+Key Components:
+1. Volatility Measurement: Uses 5-minute ATR (14-period) to gauge short-term price volatility
+2. Trend Filter: 20-period moving average of ATR identifies increasing volatility trends
+3. Market Sentiment: VIX position relative to 10-day low confirms low-volatility environment
+4. Dynamic Exit: 2x ATR trailing stop locks in profits while allowing room for volatility expansion
+
+Entry Rules:
+1. Primary Condition: 5-minute ATR (14) crosses ABOVE its 20-period moving average
+2. Confirmation: Current VIX value must be BELOW its 10-day low
+3. Execution: Enter long position at market when both conditions are met
+
+Exit Rules:
+1. Trailing Stop: Maintain a stop loss at 2x the current ATR value below the highest high since entry
+2. Stop Adjustment: Update the trailing stop continuously as price moves higher
+3. No time-based exit - position remains open until stopped out
+
+Risk Management:
+1. Position Sizing: Risk no more than 1-2% of capital per trade based on entry price to stop distance
+2. Volatility Filter: Only trade when VIX confirms low-volatility environment (below 10-day low)
+3. Stop Discipline: Never widen the 2x ATR trailing stop once set
+
+Required Indicators:
+1. ATR (14-period) on 5-minute chart
+2. 20-period SMA of ATR (for crossover signal)
+3. VIX index with 10-day low reference
+4. Trailing stop calculation (2x current ATR)
+
+Optimal Market Conditions:
+- Works best in transitioning markets from low to moderate volatility
+- Effective during early stages of trend development
+- Avoid high VIX environments (above 10-day average)
+- Particularly suited for liquid instruments with consistent volatility patterns
+
+Note: This strategy requires continuous monitoring of the 5-minute timeframe and regular VIX updates. The 2x ATR stop provides balance between giving trades room to breathe while protecting against excessive drawdowns during volatility spikes.

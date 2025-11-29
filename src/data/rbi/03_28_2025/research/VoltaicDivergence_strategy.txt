@@ -1,0 +1,45 @@
+STRATEGY_NAME: VoltaicDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Strength Confirmation**: Uses ADX (Average Directional Index) > 30 to ensure strong trending conditions.  
+2. **Volume-Price Divergence**: Relies on On-Balance Volume (OBV) diverging from price action to signal potential reversals or continuations.  
+3. **Volatility-Based Exits**: Employs Keltner Channel bands to exit trades when price crosses the bands, particularly during high volatility regimes.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  - ADX > 30 (confirming strong trend).  
+  - Price making lower lows while OBV makes higher lows (bullish divergence).  
+  - Enter on the next candle closing above the prior high (confirmation).  
+- **Short Entry**:  
+  - ADX > 30 (confirming strong trend).  
+  - Price making higher highs while OBV makes lower highs (bearish divergence).  
+  - Enter on the next candle closing below the prior low (confirmation).  
+
+**Exit Rules:**  
+- **Long Exit**: Price closes above the upper Keltner Channel band (volatility expansion suggests potential exhaustion).  
+- **Short Exit**: Price closes below the lower Keltner Channel band (volatility expansion suggests potential exhaustion).  
+- **Optional Stop-Loss**:  
+  - For longs: Recent swing low or below the lower Keltner Channel band.  
+  - For shorts: Recent swing high or above the upper Keltner Channel band.  
+
+**Risk Management:**  
+- Position sizing based on a fixed percentage of capital (e.g., 1-2% per trade).  
+- Stop-loss placement as described above to limit downside.  
+- Avoid trading during low ADX (<25) to sidestep choppy markets.  
+
+**Required Indicators:**  
+1. **ADX (14-period default)** – To gauge trend strength.  
+2. **OBV (On-Balance Volume)** – To detect divergence against price.  
+3. **Keltner Channel (20-period EMA, 2x ATR multiplier)** – For volatility-based exits.  
+
+**Unique Aspects:**  
+- Combines trend strength (ADX), volume confirmation (OBV divergence), and volatility (Keltner) for high-probability setups.  
+- Focuses on "smart exits" during high volatility to capture momentum before reversals.  
+- Avoids false signals by requiring multiple confirmations (trend + divergence + breakout).  
+
+**Optimization Tips:**  
+- Test different ADX thresholds (e.g., 25-35) for varying asset volatility.  
+- Adjust Keltner Channel ATR multiplier (1.5-2.5) based on market conditions.  
+- Filter trades with a higher timeframe trend alignment for added confidence.

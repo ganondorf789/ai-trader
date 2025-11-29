@@ -1,0 +1,35 @@
+STRATEGY_NAME: ChaikinBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Breakout Trigger:** The strategy identifies breakouts when price crosses either the 20-day high (for long entries) or the 20-day low (for short entries).  
+2. **Confirmation Indicator:** The Chaikin Money Flow (CMF) is used to validate the breakout, ensuring the move is supported by strong money flow in the same direction.  
+3. **Risk-Reward Management:** Positions are exited based on a fixed 2:1 risk-reward ratio, locking in profits while minimizing losses.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Price crosses above the 20-day high.  
+  - CMF is above zero (confirming bullish money flow).  
+- **Short Entry:**  
+  - Price crosses below the 20-day low.  
+  - CMF is below zero (confirming bearish money flow).  
+
+**Exit Rules:**  
+- **Profit Target:** Exit at a price level that provides a 2:1 reward relative to the initial risk (stop-loss distance).  
+- **Stop-Loss:**  
+  - For long positions: Place stop-loss below the recent swing low or a fixed percentage below entry.  
+  - For short positions: Place stop-loss above the recent swing high or a fixed percentage above entry.  
+
+**Risk Management:**  
+- Position sizing should be adjusted so that the stop-loss distance aligns with a predefined risk percentage (e.g., 1-2% of capital per trade).  
+- Avoid trading during low-volume periods or when CMF is near zero (indicating weak confirmation).  
+
+**Required Indicators:**  
+1. **20-Day High/Low:** Tracked using a rolling window to identify breakout levels.  
+2. **Chaikin Money Flow (CMF):** A volume-weighted indicator to confirm trend strength.  
+
+**Additional Notes:**  
+- Works best in trending markets; avoid ranging conditions.  
+- Combine with additional filters (e.g., moving average trend alignment) for higher accuracy.  
+- Ideal for daily or 4H timeframes to reduce noise.

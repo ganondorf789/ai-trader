@@ -1,0 +1,34 @@
+STRATEGY_NAME: BandwidthImpulse  
+
+STRATEGY_DETAILS:  
+This strategy combines Bollinger Band contraction patterns with trend strength confirmation via ADX to identify high-probability breakout opportunities.  
+
+**Key Components:**  
+1. **Bollinger Band Width Contraction:** Measures volatility compression by tracking the difference between upper/lower bands (width = (upper_band - lower_band)/middle_band). A 6-month low signals extreme compression.  
+2. **ADX Trend Confirmation:** Requires ADX > 25 to ensure the breakout occurs within an established trend, avoiding false signals in choppy markets.  
+
+**Entry Rules:**  
+- **Long Entry:** When both conditions are met:  
+  (1) Bollinger Band Width reaches its lowest level in 6 months  
+  (2) ADX crosses above 25  
+  Enter at the closing price after confirmation.  
+- **Short Entry:** Same conditions as long, but for downward breakouts.  
+
+**Exit Rules:**  
+- **Profit Target:** 1.5x the Bollinger Band Width value at entry (e.g., if width was 2% at entry, target 3% price move).  
+- **Stop Loss:** Exit when price touches the opposite Bollinger Band (e.g., exit long if lower band is hit).  
+
+**Risk Management:**  
+- Position sizing should account for the distance between entry and opposite band to maintain consistent risk per trade (e.g., 1-2% account risk).  
+- Avoid trading during major economic events that may distort volatility readings.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 standard deviations)  
+2. ADX (14-period default recommended)  
+
+**Unique Edge:**  
+The strategy capitalizes on "volatility springs" – periods of extreme contraction followed by directional impulses, filtered by ADX to avoid whipsaws. The 1.5x target leverages mean-reversion tendencies post-breakout.  
+
+**Optimization Notes:**  
+- Test different ADX thresholds (e.g., 20-30) for varying asset classes.  
+- For intraday use, adjust the 6-month lookback to a proportional timeframe (e.g., 30-day low for daily charts).

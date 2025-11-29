@@ -1,0 +1,39 @@
+STRATEGY_NAME: RsiBreakoutMomentum
+
+STRATEGY_DETAILS:
+This strategy combines RSI oversold conditions with breakout momentum and ATR-based risk management for a mean-reversion approach with momentum continuation characteristics.
+
+Key Components:
+1. RSI (50-period) - Identifies oversold conditions
+2. Price Breakout - Confirms momentum shift
+3. 20-period Moving Average - Acts as dynamic exit level
+4. ATR (20-period) - Determines stop loss placement
+
+Entry Rules:
+1. Wait for RSI(50) to drop below 30 (oversold condition)
+2. Enter long when price breaks above the high of the candle that first triggered the RSI < 30 condition
+3. Only trade in the direction of the broader trend (use higher timeframe confirmation)
+
+Exit Rules:
+1. Take profit when price pulls back to touch the 20-period moving average
+2. Alternative exit if RSI(50) reaches overbought territory (>70)
+3. Trail stop to breakeven after price moves 2x ATR in profit
+
+Risk Management:
+1. Initial stop loss placed at 20% of 20-period ATR above entry price
+2. Position size calculated to risk no more than 1-2% of capital per trade
+3. Maximum of 3 concurrent positions to avoid overconcentration
+
+Required Indicators:
+1. RSI (50-period)
+2. Simple Moving Average (20-period)
+3. ATR (20-period)
+4. Optional: Higher timeframe trend filter (e.g., 200MA on daily chart)
+
+Optimization Notes:
+- Test different RSI periods (40-60) for the oversold threshold
+- Experiment with ATR multiplier (15-25%) for stop placement
+- Consider adding volume confirmation for breakout validity
+- Adjust moving average period (15-25) for exit sensitivity
+
+This strategy works best in ranging or moderately trending markets, potentially struggling during strong, sustained trends where pullbacks to the 20MA may not occur. The combination of oversold RSI with breakout confirmation aims to capture the early stages of momentum shifts while maintaining disciplined risk parameters.

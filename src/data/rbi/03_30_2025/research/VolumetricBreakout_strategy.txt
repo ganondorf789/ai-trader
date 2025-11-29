@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+This strategy combines trend strength analysis (ADX) with volume divergence (OBV) to identify false breakouts, then uses Bollinger Bands for exit signals.  
+
+**Key Components:**  
+1. **ADX (Average Directional Index)** - Measures trend strength (threshold: >25 for valid trend)  
+2. **OBV (On-Balance Volume)** - Detects volume divergence vs. price movement  
+3. **Bollinger Bands** - Identifies volatility contraction for exits  
+
+**Entry Rules (Long Example):**  
+1. Price makes a new high (potential breakout)  
+2. ADX > 25 (confirms strong trend)  
+3. OBV fails to confirm (shows lower high while price makes higher high - bearish divergence)  
+4. Enter short on next candle open  
+
+**Exit Rules:**  
+1. When Bollinger Band width contracts to X-period low (volatility collapse)  
+2. Alternative exit: When ADX drops below 20 (trend weakening)  
+
+**Risk Management:**  
+1. Stop-loss placed at recent swing high/low beyond entry candle  
+2. Position size limited to 1-2% risk per trade  
+3. Only trade during high-volume market hours  
+
+**Required Indicators:**  
+1. ADX (14-period standard)  
+2. OBV  
+3. Bollinger Bands (20,2 standard settings)  
+
+**Special Notes:**  
+- Works best in ranging markets with fake breakouts  
+- Requires confirmation from both volume AND trend strength  
+- Avoid during strong trending periods without divergence

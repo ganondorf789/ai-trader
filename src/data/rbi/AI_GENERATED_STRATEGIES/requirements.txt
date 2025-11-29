@@ -1,0 +1,5 @@
+backtesting
+TA-Lib
+pandas
+numpy
+matplotlib

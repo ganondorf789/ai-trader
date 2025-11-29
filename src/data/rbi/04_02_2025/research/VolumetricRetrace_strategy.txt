@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolumetricRetrace  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Identification:** Uses the Choppiness Index (CHOP) to confirm trending markets (low CHOP values indicate strong trends).  
+2. **Pullback Entries:** Waits for retracements (pullbacks) within the established trend before entering trades.  
+3. **Volume Confirmation:** Requires increased volume on the retracement to validate the pullback as a potential entry point.  
+4. **Volatility-Based Exits:** Exits trades when volatility compresses below historical averages, signaling potential trend exhaustion.  
+
+**Entry Rules:**  
+1. **Trend Confirmation:** CHOP must be below a predefined threshold (e.g., < 38) to confirm a trending market.  
+2. **Pullback Identification:** Price must retrace against the trend (e.g., a 50% Fibonacci retracement or a pullback to a moving average).  
+3. **Volume Spike:** Volume during the retracement must be higher than the average volume of the last 10-20 candles, confirming participation.  
+4. **Entry Trigger:** Enter long (in an uptrend) or short (in a downtrend) when price resumes in the direction of the trend after the volume-confirmed pullback.  
+
+**Exit Rules:**  
+1. **Volatility Compression:** Exit when volatility (measured by ATR or Bollinger Band width) falls below its 20-period moving average, indicating weakening momentum.  
+2. **Trailing Stop:** Use a dynamic trailing stop (e.g., 2x ATR) to protect profits during strong trends.  
+3. **Opposite Signal:** Close the trade if CHOP rises above the threshold (e.g., > 62), signaling a choppy or reversing market.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop Loss:** Place initial stop loss below the recent swing low (for longs) or above the swing high (for shorts).  
+3. **Take Profit:** Set a profit target at a 2:1 or 3:1 risk-reward ratio, or trail stops to lock in gains.  
+
+**Required Indicators:**  
+1. **Choppiness Index (CHOP):** To identify trending vs. choppy conditions.  
+2. **Volume Indicator (e.g., OBV or Volume MA):** To confirm pullback validity.  
+3. **Volatility Measure (e.g., ATR or Bollinger Band Width):** To gauge exit conditions.  
+4. **Moving Averages/Fibonacci Retracement:** To identify pullback levels.  
+
+**Unique Aspects:**  
+- Combines trend-filtering (CHOP), volume confirmation, and volatility-based exits for high-probability pullback trades.  
+- Avoids choppy markets and focuses only on high-momentum trends with validated retracements.  
+- Dynamic exits adapt to changing market conditions, preserving gains during trend exhaustion.

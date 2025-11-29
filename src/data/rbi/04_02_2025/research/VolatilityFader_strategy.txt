@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilityFader
+
+STRATEGY_DETAILS:
+This strategy combines volatility channel breakouts with volume-weighted divergence signals to identify potential mean-reversion opportunities. Here are the key components:
+
+1. KEY COMPONENTS:
+- Keltner Channel (volatility-adjusted): Uses ATR for channel width to identify overextended price moves
+- VWAP Divergence: Measures the difference between price and volume-weighted average price
+- Volume-Weighted RSI: Traditional RSI weighted by trading volume for mean-reversion signals
+
+2. ENTRY RULES:
+- Short Entry: When price closes above upper Keltner Channel AND VWAP divergence exceeds threshold (e.g., 2%)
+- Long Entry: When price closes below lower Keltner Channel AND VWAP divergence exceeds threshold (e.g., -2%)
+
+3. EXIT RULES:
+- For short positions: When volume-weighted RSI crosses below oversold threshold (e.g., 30)
+- For long positions: When volume-weighted RSI crosses above overbought threshold (e.g., 70)
+- Alternative exit: When price returns inside Keltner Channel
+
+4. RISK MANAGEMENT:
+- Position sizing based on ATR (e.g., risk 1% of capital per trade)
+- Stop-loss placed at opposite Keltner Channel band
+- Maximum holding period (e.g., 5 bars) to prevent excessive drawdown
+
+5. REQUIRED INDICATORS:
+- Keltner Channel (20-period EMA, 2xATR(20) width)
+- VWAP (standard calculation)
+- Volume-weighted RSI (14-period)
+- ATR (20-period for position sizing)
+
+6. OPTIMIZATION TIPS:
+- Adjust Keltner Channel multiplier (1.5-3x ATR)
+- Test different VWAP divergence thresholds (1-3%)
+- Experiment with RSI periods (10-20) and thresholds (30/70 or 20/80)
+
+This strategy works best in ranging markets with periodic volatility expansions and is particularly effective on liquid instruments with consistent volume patterns.

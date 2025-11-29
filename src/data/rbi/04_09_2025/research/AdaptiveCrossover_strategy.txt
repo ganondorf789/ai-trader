@@ -1,0 +1,32 @@
+STRATEGY_NAME: AdaptiveCrossover  
+
+STRATEGY_DETAILS:  
+This strategy combines moving average crossovers with ADX-based trend strength filtering to identify potential trend reversals while avoiding overextended markets.  
+
+**Key Components:**  
+1. **50-period EMA & 200-period EMA Crossover** - The primary signal generator for trend direction.  
+2. **ADX (Average Directional Index)** - Used to filter trades based on trend strength.  
+
+**Entry Rules (Long Positions):**  
+- Enter when the **50-period EMA crosses above the 200-period EMA** (Golden Cross).  
+- **ADX must be below 20**, indicating a weak or consolidating market (potential early trend formation).  
+
+**Exit Rules:**  
+- Exit when **ADX rises above 40**, signaling a strong trend that may be nearing exhaustion.  
+- Alternatively, exit if the **50-period EMA crosses back below the 200-period EMA** (Death Cross).  
+
+**Risk Management:**  
+- Use a **stop-loss below the recent swing low** (for long positions) to limit downside risk.  
+- Position sizing should be adjusted based on volatility (e.g., ATR-based sizing).  
+
+**Required Indicators:**  
+1. **50-period Exponential Moving Average (EMA)**  
+2. **200-period Exponential Moving Average (EMA)**  
+3. **ADX (14-period default setting, threshold levels at 20 & 40)**  
+
+**Additional Notes:**  
+- Works best in **ranging or early-trending markets** (not strong trends).  
+- Avoid trading during **high ADX (>30) conditions** to prevent false signals.  
+- Can be adapted for short positions by flipping the crossover logic (50EMA below 200EMA).  
+
+This strategy aims to **capture early trend shifts** while avoiding overbought/oversold conditions, making it a **dynamic trend-following approach with adaptive filtering**.

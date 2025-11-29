@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolClusterBreakout
+
+STRATEGY_DETAILS:
+This strategy combines technical volatility compression patterns with on-chain liquidity analysis to identify high-probability breakout opportunities. The core approach focuses on detecting periods of extreme volatility contraction followed by expansion, while confirming with liquidation cluster alignment for additional confluence.
+
+Key Components:
+1. Bollinger Band Width Percentile: Measures volatility compression by calculating the bandwidth (upper band - lower band) as a percentage of the middle band, then ranking it against historical values
+2. Liquidation Heatmaps: On-chain data showing concentration of potential liquidation levels
+3. Liquidity Pools: Key areas where stop orders and take-profit orders cluster
+
+Entry Rules:
+1. Primary Trigger: Bollinger Band width falls below 10th percentile (extreme compression)
+2. Confirmation: Price closes outside the Bollinger Bands (breakout signal)
+3. Confluence: Breakout direction aligns with nearby liquidation clusters (within 2% of current price)
+4. Execution: Enter on retest of breakout level or next candle open
+
+Exit Rules:
+1. Profit Target: Nearest opposing liquidity pool (identified via heatmap)
+2. Stop Loss: Opposite side of the breakout candle or beyond recent swing point
+3. Time Exit: Close position if no follow-through within 3 candles
+
+Risk Management:
+1. Position Size: 1-2% risk per trade
+2. Stop Placement: Minimum 1.5x average true range from entry
+3. Filter: Only trade when volatility percentile <15 and >5 (avoid extreme ranging markets)
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. BB Width Percentile (100-period lookback)
+3. On-chain liquidation heatmap (preferably with cluster density indicators)
+4. Average True Range (14-period)
+
+Additional Notes:
+- Best suited for 4H or daily timeframes on liquid assets
+- Requires real-time on-chain data feeds
+- Works particularly well during transitional market phases
+- Avoid news events and low liquidity periods
+- Combine with volume confirmation for higher accuracy
+
+The unique combination of technical volatility measurement with on-chain liquidity analysis creates a robust framework for trading compression breakouts with defined risk parameters.

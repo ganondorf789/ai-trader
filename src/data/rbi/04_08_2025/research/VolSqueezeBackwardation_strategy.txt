@@ -1,0 +1,61 @@
+STRATEGY_NAME: VolSqueezeBackwardation
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band squeeze breakouts with volume delta confirmation, filtered by VIX term structure conditions for high-probability trades. The unique combination of volatility compression, order flow imbalance, and market fear structure creates a powerful confluence setup.
+
+Key Components:
+1. Bollinger Band Squeeze (20,2)
+2. Volume Delta (buying/selling pressure)
+3. VIX Term Structure (backwardation confirmation)
+4. Breakout Direction (price closing outside bands)
+
+Entry Rules:
+1. Primary Trigger: 
+   - Bollinger Band width reaches lowest 20% of 100-period range (squeeze condition)
+   - Price closes outside the Bollinger Bands (breakout)
+
+2. Confirmation Filters:
+   - Volume Delta shows strong imbalance (>2:1 ratio) in breakout direction
+   - VIX term structure in backwardation (front month > second month)
+
+3. Directional Bias:
+   - Long entries only when breakout occurs above upper band
+   - Short entries only when breakout occurs below lower band
+
+Exit Rules:
+1. Profit Taking:
+   - 1.5x average true range (ATR) target from entry
+   - OR when price re-enters Bollinger Band envelope
+
+2. Stop Loss:
+   - Fixed at 0.75x ATR from entry
+   - OR when opposite Volume Delta extreme occurs
+
+Risk Management:
+1. Position Sizing:
+   - Maximum 2% risk per trade
+   - Adjust position size based on ATR stop distance
+
+2. Trade Filtering:
+   - Only trade during regular market hours (9:30-16:00 ET)
+   - Avoid earnings announcement periods
+   - Minimum $5 stock price requirement
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Volume Delta (cumulative or bar-by-bar)
+3. VIX Futures Term Structure
+4. Average True Range (14-period)
+5. Bollinger Band Width indicator
+
+Special Notes:
+- Backwardation in VIX suggests heightened near-term fear, increasing breakout validity
+- Volume Delta confirms institutional participation in the breakout direction
+- The squeeze identifies periods of maximum volatility compression before expansion
+- Works best on liquid stocks with average daily volume >1M shares
+
+Optimization Tips:
+- Test different squeeze thresholds (15-25% bandwidth)
+- Experiment with volume delta ratios (1.5:1 to 3:1)
+- Consider adding RSI(2) filter for extreme conditions
+- Best timeframes: 15min-4hr charts for swing trades

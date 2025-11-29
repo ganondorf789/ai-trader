@@ -1,0 +1,26 @@
+STRATEGY_NAME: VortexFade  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Uses two lines (VI+ and VI-) to identify trend direction. A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI+ crosses below VI-.  
+2. **Volume Confirmation:** Requires declining volume to confirm weakening momentum in the current trend, increasing the likelihood of a reversal.  
+3. **ADX (Average Directional Index):** Measures trend strength. Exits are triggered when ADX drops below 25, indicating fading momentum.  
+
+**Entry Rules:**  
+- **Long Entry:** VI+ crosses above VI- **AND** volume is declining compared to recent average.  
+- **Short Entry:** VI+ crosses below VI- **AND** volume is declining compared to recent average.  
+
+**Exit Rules:**  
+- **Long Exit:** ADX drops below 25, signaling weakening bullish momentum.  
+- **Short Exit:** ADX drops below 25, signaling weakening bearish momentum.  
+
+**Risk Management:**  
+- Use a stop-loss based on recent swing highs/lows or a fixed percentage (e.g., 1-2% of account equity).  
+- Avoid trading during high ADX (>30) to prevent false reversals in strong trends.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)**  
+2. **Volume (for confirmation)**  
+3. **ADX (14-period default setting)**  
+
+This strategy is designed to capitalize on fading momentum by combining Vortex crossovers with volume divergence, making it ideal for counter-trend traders looking for reversals in weakening trends.

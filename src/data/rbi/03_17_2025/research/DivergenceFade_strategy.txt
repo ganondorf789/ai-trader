@@ -1,0 +1,38 @@
+STRATEGY_NAME: DivergenceFade
+
+STRATEGY_DETAILS:
+The DivergenceFade strategy is a trend-following approach that capitalizes on weakening MACD divergence combined with RSI confirmation to identify potential trend reversals. The strategy uses Fibonacci retracement levels for precise exit targeting.
+
+Key Components:
+1. MACD (Moving Average Convergence Divergence) - Primary indicator for divergence analysis
+2. RSI (Relative Strength Index) - Confirmation tool for weakening momentum
+3. Fibonacci Retracement Levels - Exit targets based on price retracements
+
+Entry Rules:
+1. Wait for MACD to show weakening divergence (histogram bars decreasing in size)
+2. Confirm with RSI showing lower readings (below 50 level preferred)
+3. Enter long position when both conditions align with price action confirmation
+
+Exit Rules:
+1. Primary target at 38.2% Fibonacci retracement level
+2. Secondary target at 50% Fibonacci retracement level
+3. Stop loss placed below recent swing low or based on ATR (Average True Range)
+
+Risk Management:
+1. Risk no more than 1-2% of capital per trade
+2. Use proper position sizing based on stop loss distance
+3. Implement trailing stops after reaching first target
+
+Required Indicators:
+1. MACD (12,26,9 standard settings)
+2. RSI (14 period)
+3. Fibonacci Retracement Tool
+4. Optional: ATR (14 period) for stop loss placement
+
+Additional Notes:
+- Best used on 1-hour or 4-hour charts for reliable signals
+- Works well in trending markets with clear price swings
+- Combine with volume analysis for additional confirmation
+- Avoid trading during major news events or low liquidity periods
+
+This strategy combines the power of momentum analysis with precise Fibonacci-based exit planning, creating a systematic approach to trend-following trades with clear risk management parameters.

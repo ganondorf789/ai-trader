@@ -1,0 +1,35 @@
+STRATEGY_NAME: LiquidityFracture  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Liquidation Cluster Detection:** Identifies high-probability reversal zones by spotting order book imbalance spikes (large liquidity gaps) where stop-loss clusters likely exist.  
+2. **Bollinger Band Contraction:** Uses narrowing Bollinger Bands (e.g., 20-period, 2 STD) to confirm low volatility before a potential breakout.  
+3. **Volatility Expansion Entry:** Triggers trades when price breaks Bollinger Band boundaries with increased volume, signaling the start of a new trend.  
+4. **Fibonacci Retracement Exits:** Measures the retracement from the liquidity gap’s extreme (e.g., 0% level at the spike high/low) and exits at key Fib levels (38.2%, 50%, or 61.8%).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Order book shows a sharp downside liquidity spike (imbalance).  
+  2. Bollinger Bands contract to a narrow width (percentile rank < 20%).  
+  3. Price breaks above the upper Bollinger Band with rising volume.  
+- **Short Entry:**  
+  1. Order book shows a sharp upside liquidity spike.  
+  2. Bollinger Bands contract.  
+  3. Price breaks below the lower Bollinger Band with rising volume.  
+
+**Exit Rules:**  
+- **Profit-Taking:** Close position at predetermined Fibonacci retracement levels (e.g., 61.8% of the initial liquidity gap).  
+- **Stop-Loss:** Place stop beyond the opposite Bollinger Band or the extreme of the liquidity spike (whichever is tighter).  
+
+**Risk Management:**  
+- Position size capped at 1–2% of capital per trade.  
+- Stop-loss distance determines trade size (e.g., 1% risk = stop distance × position size).  
+- Avoid trading during scheduled high-impact news events to prevent false liquidity spikes.  
+
+**Required Indicators:**  
+1. **Order Book Imbalance Metric** (e.g., cumulative delta, bid/ask volume ratio).  
+2. **Bollinger Bands** (20-period, 2 STD).  
+3. **Volume Indicator** (e.g., VWAP or OBV).  
+4. **Fibonacci Retracement Tool** (applied from liquidity spike extreme to breakout point).  
+
+**Unique Edge:** Combines liquidity hunting behavior with volatility cycles, targeting institutional stop-loss cascades while using Bollinger Bands to filter false breakouts. The Fibonacci exit ensures profit capture before mean reversion.

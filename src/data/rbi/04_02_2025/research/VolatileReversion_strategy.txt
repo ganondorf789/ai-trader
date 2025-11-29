@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatileReversion  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **ATR-Based Reversal Zones**: Price must breach 2x ATR (Average True Range) from the weekly high/low to identify extreme volatility zones.  
+2. **RSI Divergence**: Look for bullish/bearish RSI divergence (price makes new high/low but RSI does not) to confirm weakening momentum.  
+3. **Volume Filter**: Volume must drop below the 10-day average to signal fading participation in the current trend.  
+4. **VWAP Target**: Aim for price to revert to the 20-period Volume-Weighted Average Price (VWAP) as the profit target.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  - Price breaches *2x ATR below weekly low*.  
+  - Bullish RSI divergence (higher RSI low vs. lower price low).  
+  - Volume drops below 10-day average.  
+- **Short Entry**:  
+  - Price breaches *2x ATR above weekly high*.  
+  - Bearish RSI divergence (lower RSI high vs. higher price high).  
+  - Volume drops below 10-day average.  
+
+**Exit Rules:**  
+- **Take Profit**: Close position when price reaches the 20-period VWAP.  
+- **Stop Loss**: Place stop at 1.5x ATR beyond the entry breach level (e.g., for a long, stop = entry price - 1.5x ATR).  
+
+**Risk Management:**  
+- Position size based on stop distance (e.g., risk ≤ 1-2% of capital per trade).  
+- Avoid trading during major news events to prevent false breakouts.  
+- Weekly high/low and ATR reset at market close each Friday.  
+
+**Required Indicators:**  
+1. **ATR (14-period)** – To define volatility thresholds.  
+2. **RSI (14-period)** – For divergence confirmation.  
+3. **10-day Simple Moving Average of Volume** – To filter low-volume reversals.  
+4. **20-period VWAP** – Profit target anchor.  
+
+**Unique Edge:** Combines volatility extremes, momentum decay, and volume contraction to pinpoint high-probability mean-reversion trades. The 2x ATR filter reduces whipsaws, while VWAP ensures alignment with institutional flow.

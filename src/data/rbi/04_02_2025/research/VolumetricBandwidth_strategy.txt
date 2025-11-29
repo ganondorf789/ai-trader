@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolumetricBandwidth
+
+STRATEGY_DETAILS:
+Key Components:
+1. Volatility Breakout System combining VWAP and Bollinger Bands
+2. Volume confirmation for breakout validity
+3. Dynamic threshold-based entries using historical band expansion
+4. Contraction-based exit mechanism
+
+Entry Rules:
+1. Primary Trigger: Price must cross VWAP (either direction)
+2. Volume Confirmation: Surge above 20-period average volume (minimum 1.5x)
+3. Band Expansion: Bollinger Band width must exceed 90th percentile of 50-period historical width
+4. Direction: Long if crossing above VWAP, Short if crossing below
+
+Exit Rules:
+1. Primary Exit: When Bollinger Band width contracts below 70th percentile of recent expansion
+2. Secondary Exit: Trailing stop at opposite band (longs exit at lower band, shorts at upper)
+3. Time Exit: Close position after 3 bars if no contraction occurs
+
+Risk Management:
+1. Position Sizing: 1-2% risk per trade
+2. Initial Stop: Opposite band at entry (adjusts with bands)
+3. Volatility Filter: Skip trades if average true range > 3x 20-period ATR
+4. Session Timing: Only trade first 2 hours of session for most active volatility
+
+Required Indicators:
+1. VWAP (Volume Weighted Average Price)
+2. Bollinger Bands (20,2 standard deviations)
+3. Volume (20-period average)
+4. Bollinger Band Width (historical percentile)
+5. Average True Range (20-period)
+
+Optimization Notes:
+1. Test different historical lookback periods (30-100) for width percentiles
+2. Experiment with volume surge multipliers (1.3x-2x)
+3. Adjust band standard deviations (1.5-2.5) based on asset volatility
+4. Consider adding RSI filter (e.g., no longs above 70, no shorts below 30)
+
+This VolumetricBandwidth strategy combines volume-confirmed volatility expansion with mean-reversion tendencies around VWAP, creating high-probability breakout trades with built-in volatility-based exits.

@@ -1,0 +1,48 @@
+STRATEGY_NAME: SqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze (20-day, 2σ):** Identifies periods of low volatility, signaling potential breakout opportunities.  
+2. **Volume Surge (200% above 30-day average):** Confirms breakout validity with a significant increase in trading activity.  
+3. **VWAP Crossover:** Ensures price momentum aligns with the breakout direction (price crossing above/below VWAP).  
+4. **Stochastic RSI (Overbought/Oversold):** Provides exit signals when momentum extremes are reached.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Bands are in a squeeze (width at multi-day lows).  
+  2. Price breaks above the upper Bollinger Band.  
+  3. Volume surges to at least 200% of the 30-day average.  
+  4. Price crosses above VWAP.  
+
+- **Short Entry:**  
+  1. Bollinger Bands are in a squeeze (width at multi-day lows).  
+  2. Price breaks below the lower Bollinger Band.  
+  3. Volume surges to at least 200% of the 30-day average.  
+  4. Price crosses below VWAP.  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  - Stochastic RSI (14,3,3) crosses below 80 (overbought).  
+  - Or if price closes back inside the Bollinger Bands.  
+
+- **Short Exit:**  
+  - Stochastic RSI (14,3,3) crosses above 20 (oversold).  
+  - Or if price closes back inside the Bollinger Bands.  
+
+**Risk Management:**  
+- **Stop-Loss:**  
+  - Place stop-loss at the midpoint of the Bollinger Bands (20-day SMA) for long trades.  
+  - Place stop-loss at the midpoint of the Bollinger Bands (20-day SMA) for short trades.  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-day, 2σ).  
+2. Volume (30-day average comparison).  
+3. VWAP (Volume-Weighted Average Price).  
+4. Stochastic RSI (14,3,3).  
+
+**Notes:**  
+- This strategy works best in trending markets after consolidation.  
+- Avoid trading during low-liquidity periods to ensure volume surge validity.  
+- Backtest for optimal Stochastic RSI thresholds based on asset volatility.

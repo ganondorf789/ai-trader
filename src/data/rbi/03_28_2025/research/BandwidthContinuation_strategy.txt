@@ -1,0 +1,37 @@
+STRATEGY_NAME: BandwidthContinuation  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Strength Confirmation:** Uses ADX (Average Directional Index) above 30 to confirm strong trend conditions.  
+2. **Volatility Contraction:** Identifies narrowing Bollinger Band width, signaling potential breakout setups.  
+3. **Breakout Retest Entry:** Enters trades on pullbacks/retests of the breakout level for higher probability setups.  
+4. **Volatility Expansion Exit:** Exits when Bollinger Band width expands beyond 2 standard deviations, indicating trend exhaustion.  
+
+**Entry Rules:**  
+1. **ADX Filter:** ADX must be above 30 and rising to confirm a strong trend.  
+2. **Bollinger Band Contraction:** Bandwidth (upper band - lower band) must be narrowing, preferably at recent lows.  
+3. **Breakout Retest:** Wait for price to break above (uptrend) or below (downtrend) the Bollinger Bands, then retest the breakout level.  
+4. **Directional Confirmation:** For long entries, price should retest the upper band from above; for short entries, retest the lower band from below.  
+
+**Exit Rules:**  
+1. **Volatility Expansion:** Exit when Bollinger Band width expands beyond 2 standard deviations from its recent average.  
+2. **ADX Reversal:** Exit if ADX starts declining significantly (e.g., drops below 25).  
+3. **Stop-Loss:** Place stop-loss below the recent swing low (long) or above the recent swing high (short).  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss Placement:** Dynamic stop based on recent price structure (swing points).  
+3. **Take-Profit:** Consider partial profits at 1:1 risk-reward, trailing stop for remaining position.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 standard deviations).  
+2. **ADX** (14-period, threshold at 30).  
+3. **Bandwidth Calculation** (Upper Band - Lower Band).  
+
+**Unique Aspects:**  
+- Combines trend strength (ADX) with volatility contraction/expansion (Bollinger Bands).  
+- Focuses on high-probability retest entries rather than chasing breakouts.  
+- Uses bandwidth expansion as a mechanical exit signal.  
+
+**Note:** Works best in trending markets; avoid ranging conditions (ADX < 20).

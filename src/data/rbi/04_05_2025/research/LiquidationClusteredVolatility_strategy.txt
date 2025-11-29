@@ -1,0 +1,47 @@
+STRATEGY_NAME: LiquidationClusteredVolatility
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Focuses on shorting volatility during high liquidation events
+- Uses order book imbalance and funding rate extremes as primary triggers
+- Combines Bollinger Band width contraction with volume-weighted average price (VWAP) for timing
+- Specifically targets periods of market stress where liquidations cluster
+
+2. Entry Rules:
+- Wait for confluence of:
+  a) Extreme funding rate (top/bottom 5% of historical range)
+  b) Order book imbalance showing excessive one-sided liquidity
+  c) Bollinger Band width contraction after a volatility spike
+- Enter short volatility position when all three conditions align
+- Prefer entries when VWAP is extended from mean
+
+3. Exit Rules:
+- Primary exit at VWAP reversion to mean
+- Secondary exit if Bollinger Band width expands beyond threshold
+- Emergency exit if funding rate reverses direction sharply
+- Trail stop based on recent volatility (ATR-based)
+
+4. Risk Management:
+- Position size based on volatility (use inverse volatility weighting)
+- Hard stop at 1.5x average true range (ATR)
+- Maximum portfolio allocation of 3% per trade
+- Avoid trading during scheduled macroeconomic news events
+
+5. Required Indicators:
+- Bollinger Bands (20 period, 2 std dev)
+- Volume-weighted average price (VWAP)
+- Order book depth analyzer (bid/ask imbalance)
+- Funding rate monitor (with historical percentiles)
+- Average true range (ATR) for risk sizing
+
+6. Unique Aspects:
+- Specifically designed for crypto markets with perpetual contracts
+- Exploits the "liquidation cascade" market phenomenon
+- Combines order flow analysis with technical indicators
+- Focuses on the transition from high to low volatility regimes
+
+7. Optimization Tips:
+- Backtest across multiple crypto assets with high perpetual volume
+- Adjust Bollinger Band parameters based on asset volatility
+- Calibrate funding rate thresholds per asset (some have higher natural ranges)
+- Test different VWAP lookback periods (14-21 days often works well)

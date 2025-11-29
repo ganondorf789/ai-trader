@@ -1,0 +1,32 @@
+STRATEGY_NAME: MomentumDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Stochastic Oscillator (14,3,3):** Identifies overbought (>80) and oversold (<20) conditions.  
+2. **On-Balance Volume (OBV):** Confirms momentum with volume divergence—price makes higher highs while OBV makes lower highs (bearish divergence) or price makes lower lows while OBV makes higher lows (bullish divergence).  
+3. **OBV Trendline:** Acts as the exit trigger when broken.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Stochastic crosses above 20 from oversold territory.  
+  - Bullish OBV divergence (price lower low, OBV higher low).  
+- **Short Entry:**  
+  - Stochastic crosses below 80 from overbought territory.  
+  - Bearish OBV divergence (price higher high, OBV lower high).  
+
+**Exit Rules:**  
+- **Long Exit:** OBV trendline (drawn from recent swing lows) breaks downward.  
+- **Short Exit:** OBV trendline (drawn from recent swing highs) breaks upward.  
+
+**Risk Management:**  
+- Stop-loss placed at the recent swing low (long) or swing high (short).  
+- Position size capped at 1-2% of capital per trade.  
+- Avoid trading during low-volume periods or major news events.  
+
+**Required Indicators:**  
+1. Stochastic Oscillator (14,3,3).  
+2. On-Balance Volume (OBV).  
+3. Trendline tool for OBV (manual drawing).  
+
+**Unique Edge:** Combines price momentum (Stochastic) with volume confirmation (OBV divergence) for higher-probability reversals, while trendline breaks prevent premature exits.

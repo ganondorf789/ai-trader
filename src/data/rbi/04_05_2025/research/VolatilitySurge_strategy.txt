@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Breakout System**: The strategy capitalizes on significant price movements by using ATR-based bands around an EMA.  
+2. **Entry Trigger**: Trades are initiated when price crosses a 2x ATR band derived from a 20-period EMA.  
+3. **Exit Mechanism**: Positions are closed when price retraces 50% of the initial breakout move.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when price closes above the upper band (20 EMA + 2x ATR).  
+- **Short Entry**: Triggered when price closes below the lower band (20 EMA - 2x ATR).  
+
+**Exit Rules:**  
+- **Long Exit**: Close the position when price retraces 50% from the highest point reached after the breakout.  
+- **Short Exit**: Close the position when price retraces 50% from the lowest point reached after the breakout.  
+
+**Risk Management:**  
+1. **Stop-Loss**: Initial stop-loss can be set at the opposite ATR band (e.g., for a long trade, the stop would be at the lower band).  
+2. **Position Sizing**: Use ATR-based position sizing to adjust for volatility (e.g., risk a fixed % of capital per trade based on ATR distance).  
+3. **Trailing Stop**: Optionally, use a dynamic trailing stop based on a fraction of ATR to lock in profits.  
+
+**Required Indicators:**  
+1. **20-period Exponential Moving Average (EMA)** – Acts as the baseline for the ATR bands.  
+2. **Average True Range (ATR, 20-period)** – Used to calculate the volatility bands (2x multiplier).  
+
+**Unique Aspects:**  
+- Combines trend-following (EMA) with volatility breakout (ATR bands).  
+- Exits are based on retracement rather than static profit targets, allowing for extended moves.  
+- Adapts to changing market conditions via dynamic ATR-based bands.  
+
+**Optimization Notes:**  
+- Test different ATR multipliers (e.g., 1.5x or 2.5x) for varying volatility regimes.  
+- Adjust the EMA period (e.g., 15 or 25) for faster/slower trend sensitivity.  
+- Consider adding a filter (e.g., RSI or ADX) to avoid false breakouts in ranging markets.  
+
+This strategy excels in trending, volatile markets but may underperform in choppy conditions. Backtesting across multiple asset classes is recommended.

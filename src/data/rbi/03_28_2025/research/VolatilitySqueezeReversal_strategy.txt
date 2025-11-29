@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolatilitySqueezeReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Breakout Focus:** The strategy targets breakouts when volatility is compressed (Bollinger Band width contraction), indicating potential explosive moves.  
+2. **Funding Rate Extremes:** Uses 24-hour funding rate extremes to confirm sentiment extremes, adding confluence to the breakout signal.  
+3. **Mean Reversion Exit:** Exits trades when price reverts to the mean (Bollinger Band midline), capturing the bulk of the breakout move.  
+
+**Entry Rules:**  
+1. **Bollinger Band Contraction:** Wait for Bollinger Band width to contract below a defined threshold (e.g., lower 20% of its 14-period range), signaling low volatility.  
+2. **Funding Rate Extreme:** Confirm with a 24-hour funding rate in the top/bottom 10% of its historical range (bullish extreme for long entries, bearish extreme for short entries).  
+3. **Breakout Trigger:** Enter long on a close above the upper Bollinger Band or short on a close below the lower Bollinger Band.  
+
+**Exit Rules:**  
+1. **Mean Reversion:** Exit the trade when price closes back at the Bollinger Band midline (20-period SMA).  
+2. **Stop-Loss:** Place a stop-loss just beyond the opposite Bollinger Band (e.g., short stop above upper band, long stop below lower band).  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss:** Mandatory stop-loss to limit downside.  
+3. **Avoid Overlap:** Do not enter new trades if an existing position is open to prevent overexposure.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** For volatility contraction and breakout signals.  
+2. **Funding Rate Data:** To detect sentiment extremes.  
+3. **Bollinger Band Width:** To quantify volatility contraction (e.g., 14-period range analysis).  
+
+**Notes:**  
+- Works best in ranging or consolidating markets before breakouts.  
+- Avoid trading during high-impact news events that may distort volatility readings.  
+- Backtest to optimize Bollinger Band width thresholds and funding rate extremes for specific assets.  
+
+This strategy combines volatility compression, sentiment extremes, and mean reversion for high-probability breakout trades.

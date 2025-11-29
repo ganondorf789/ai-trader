@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolSurgeReversion
+
+STRATEGY_DETAILS:
+This strategy capitalizes on volatility dislocations in the S&P 500 by identifying specific conditions where the VIX futures become overpriced relative to realized volatility, combined with unusual trading volume activity.
+
+Key Components:
+1. Volatility Spread Analysis: Tracks the relationship between 20-day realized volatility and the VIX index
+2. Volume Surge Detection: Identifies when trading volume exceeds normal levels by 50%
+3. Mean Reversion Framework: Targets reversion to 1-year historical mean spreads
+
+Entry Rules:
+1. Primary Condition: 20-day realized volatility crosses BELOW the current VIX level
+2. Confirmation Signal: Trading volume surges 50% above its 20-day average
+3. Execution: Short VIX futures when both conditions are met simultaneously
+
+Exit Rules:
+1. Target: Close position when the VIX-realized volatility spread reverts to its 1-year historical mean
+2. Alternative Exit: Implement a trailing stop-loss at 1.5x the average true range (ATR) of VIX futures
+
+Risk Management:
+1. Position Sizing: Limit to 2-5% of portfolio per trade
+2. Maximum Drawdown: Implement circuit breaker at 8% loss per position
+3. Volatility Filter: Avoid trading when VIX is below 12 (low volatility regime)
+
+Required Indicators:
+1. 20-day realized volatility (calculated from SPX daily returns)
+2. VIX index (current level)
+3. 20-day average volume for VIX futures
+4. 1-year historical mean of VIX-realized volatility spread
+5. Average True Range (ATR) for stop-loss calculation
+
+Additional Notes:
+- Best performed during normal volatility regimes (VIX 12-25)
+- Requires monitoring of macroeconomic events that might disrupt normal volatility patterns
+- Backtesting should account for roll costs in VIX futures contracts
+- Consider implementing as part of a broader volatility trading portfolio for diversification

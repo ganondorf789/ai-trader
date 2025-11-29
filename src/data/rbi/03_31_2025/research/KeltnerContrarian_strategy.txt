@@ -1,0 +1,29 @@
+STRATEGY_NAME: KeltnerContrarian  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Keltner Channel Breakout:** Uses a 4-hour close above the upper Keltner Channel as a volatility-based entry signal.  
+2. **Contrarian Funding Signal:** Requires negative funding rates (-0.1% annualized) on perpetual swaps to confirm a potential reversal or short squeeze scenario.  
+3. **Fixed Risk-Reward:** Targets a 1:1 risk-reward ratio, suggesting tight stop-loss placement relative to the entry.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - The 4-hour candle closes above the upper Keltner Channel.  
+  - Funding rates on perpetual swaps are at or below -0.1% (annualized), indicating excessive short positioning.  
+
+**Exit Rules:**  
+- **Take-Profit:** Set at a 1:1 reward ratio (e.g., if risking 1%, take profit at +1% from entry).  
+- **Stop-Loss:** Likely placed just below the recent swing low or the Keltner Channel midline to maintain the 1:1 risk-reward structure.  
+
+**Risk Management:**  
+- Position sizing should align with the 1:1 risk-reward (e.g., 1% account risk per trade).  
+- Avoid entries if funding rates are neutral/positive, as the contrarian edge is lost.  
+
+**Required Indicators:**  
+1. **Keltner Channel** (20-period EMA, 2x ATR width typical).  
+2. **Perpetual Swap Funding Rate** data (must be negative and at least -0.1% annualized).  
+
+**Unique Edge:** Combines volatility expansion (Keltner breakout) with a contrarian sentiment filter (funding rates), targeting short squeezes or reversals in overly bearish markets.  
+
+**Note:** Works best in high-liquidity crypto markets (e.g., BTC, ETH) where funding rates are reliable sentiment indicators.

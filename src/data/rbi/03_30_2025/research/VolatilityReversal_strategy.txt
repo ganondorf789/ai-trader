@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilityReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Rate of Change (ROC) Filter:** Uses a 3-day ROC to identify strong momentum shifts.  
+2. **Volatility Comparison:** The 3-day ROC must exceed twice the 20-day volatility (standard deviation or ATR).  
+3. **Ease of Movement (EMV) Confirmation:** Requires the EMV indicator to be declining, signaling weakening price momentum.  
+4. **Volume-Confirmed Reversal Candles:** Entry is triggered by reversal patterns (e.g., hammers, engulfing) with above-average volume.  
+5. **Fibonacci Extensions:** Exit targets are set at key Fibonacci levels (e.g., 1.618, 2.0).  
+
+**Entry Rules:**  
+1. **Condition 1:** 3-day ROC > 2x 20-day volatility (ATR or standard deviation).  
+2. **Condition 2:** EMV indicator is in a downtrend (slope negative).  
+3. **Condition 3:** A bullish/bearish reversal candle forms (depending on direction) with volume exceeding the 20-day average.  
+4. **Entry Trigger:** Enter long/short at the close of the reversal candle.  
+
+**Exit Rules:**  
+1. **Profit Target:** Exit at the nearest Fibonacci extension level (e.g., 1.618 or 2.0 of the recent swing).  
+2. **Stop-Loss:** Place below the recent swing low (for longs) or above the swing high (for shorts).  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss Adjustment:** Trailing stops can be used to lock in profits if the trade moves favorably.  
+
+**Required Indicators:**  
+1. **3-Day ROC** (Rate of Change)  
+2. **20-Day Volatility** (ATR or standard deviation)  
+3. **Ease of Movement (EMV)**  
+4. **Volume (20-day average)**  
+5. **Fibonacci Extension Tool**  
+
+**Notes:**  
+- Works best in trending markets with high volatility.  
+- Avoid ranging conditions where false signals may occur.  
+- Backtest to optimize Fibonacci extension levels for your asset class.

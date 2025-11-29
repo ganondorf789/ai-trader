@@ -1,0 +1,34 @@
+STRATEGY_NAME: FibroBandSync
+
+STRATEGY_DETAILS:
+The FibroBandSync strategy combines Fibonacci retracement levels with Bollinger Bands to identify high-probability long entries during uptrends, while using Bollinger Band width as a volatility-based exit signal. This strategy is designed to capitalize on pullbacks within established trends while managing risk through volatility-based exits.
+
+Key Components:
+1. **Trend Identification**: The strategy operates in uptrends only, ensuring trades align with the dominant market direction.
+2. **Fibonacci Retracement Levels**: Uses key Fibonacci levels (e.g., 38.2%, 50%, 61.8%) as potential support zones for pullbacks.
+3. **Bollinger Bands**: Utilizes a 20-period Bollinger Band with 2 standard deviations to confirm price proximity to the mean and assess volatility.
+4. **Volatility Exit**: Monitors Bollinger Band width to identify decreasing volatility, signaling potential trend exhaustion.
+
+Entry Rules:
+1. Confirm an uptrend using price action (higher highs and higher lows) or a trend indicator (e.g., 50-period EMA sloping upward).
+2. Wait for price to pull back and touch a key Fibonacci retracement level (38.2%, 50%, or 61.8%).
+3. Ensure the price is within 2 Bollinger Bands from the 20-period middle line at the time of the Fibonacci touch.
+4. Enter a long position when all conditions are met.
+
+Exit Rules:
+1. Monitor Bollinger Band width (BB Width = Upper Band - Lower Band).
+2. Exit the trade when BB Width decreases significantly, indicating reduced volatility and potential trend weakness.
+3. Alternatively, use a trailing stop or fixed risk-reward ratio (e.g., 2:1) to lock in profits.
+
+Risk Management:
+1. Set a stop-loss below the Fibonacci retracement level or the recent swing low, ensuring a favorable risk-reward ratio.
+2. Limit position size to 1-2% of account equity per trade.
+3. Avoid trading during major news events or low-liquidity periods to prevent erratic price movements.
+
+Required Indicators:
+1. **Fibonacci Retracement Tool**: To identify key pullback levels.
+2. **Bollinger Bands (20-period, 2 standard deviations)**: To confirm price proximity to the mean and measure volatility.
+3. **Bollinger Band Width Indicator**: To monitor volatility changes for exit signals.
+4. **Optional Trend Confirmation Tool**: Such as a 50-period EMA or ADX (14) to confirm the uptrend.
+
+This strategy is ideal for traders who prefer trend-following approaches with clear entry and exit rules, leveraging the synergy between Fibonacci levels and Bollinger Bands for precise trade execution.

@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolatilitySurgeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility expansion signals with Bollinger Band breakouts to capture strong momentum moves, using a multi-timeframe ATR comparison for high-probability entries.
+
+Key Components:
+1. Volatility Filter: Uses 5-minute vs daily ATR comparison (50% threshold)
+2. Breakout Signal: Requires close above upper Bollinger Band
+3. Profit Mechanism: Fixed 2:1 risk-reward ratio exits
+
+Indicators Required:
+- ATR (14-period) on both 5-minute and daily charts
+- Bollinger Bands (20,2) on 5-minute chart
+
+Entry Rules:
+1. Wait for 5-minute ATR to exceed daily ATR by 50%
+2. Confirm price closes above upper Bollinger Band on same 5-minute candle
+3. Enter long at market on next candle open
+
+Exit Rules:
+1. Initial stop loss placed at lower Bollinger Band
+2. Take profit set at 2x the distance between entry and stop
+3. Optional: Trailing stop can be implemented after price moves 1.5x initial risk
+
+Risk Management:
+1. Position size calculated based on stop distance
+2. Maximum risk per trade typically 1-2% of capital
+3. No new entries if daily ATR is below certain threshold (filter choppy markets)
+
+Special Considerations:
+- Works best in trending market conditions
+- Requires monitoring of both timeframes simultaneously
+- Most effective on liquid instruments with strong volatility characteristics
+
+Optimization Tips:
+- Adjust ATR percentage threshold (test 40-60% range)
+- Experiment with Bollinger Band periods (18-22)
+- Test different reward ratios (1.8:1 to 2.5:1)

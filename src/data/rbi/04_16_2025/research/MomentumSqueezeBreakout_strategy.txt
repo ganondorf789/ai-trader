@@ -1,0 +1,50 @@
+STRATEGY_NAME: MomentumSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines momentum confirmation with volatility contraction to identify high-probability breakout opportunities. The key components are:
+
+1. INDICATORS REQUIRED:
+- Chande Momentum Oscillator (CMO) - 20 period recommended
+- Keltner Channel - 20 period ATR, 1.5 multiplier recommended
+- Keltner Channel Width 20-day moving average
+
+2. ENTRY RULES:
+Long Entry:
+- CMO crosses above 50 level (bullish momentum confirmation)
+- Current Keltner Channel width is below its 20-day average (volatility contraction)
+- Price breaks above upper Keltner Channel band
+
+Short Entry:
+- CMO crosses below -50 level (bearish momentum confirmation)
+- Current Keltner Channel width is below its 20-day average (volatility contraction)
+- Price breaks below lower Keltner Channel band
+
+3. EXIT RULES:
+- Close position when Keltner Channel width expands above its 20-day average
+- Secondary exit: Trailing stop at opposite Keltner band
+- Time-based exit after 5 bars if no expansion occurs
+
+4. RISK MANAGEMENT:
+- Position size based on 1-2% risk per trade
+- Initial stop at opposite Keltner band
+- Maximum trade duration: 5 bars
+- Avoid trading during major economic news events
+
+5. FILTERS:
+- Only trade in direction of higher timeframe trend (optional)
+- Minimum ATR requirement (optional)
+- Volume confirmation (optional)
+
+6. UNIQUE ASPECTS:
+- Combines momentum confirmation with volatility contraction
+- Uses channel width as both entry filter and exit signal
+- Self-adjusting stop levels via Keltner bands
+- Works best in ranging markets transitioning to trends
+
+7. OPTIMIZATION TIPS:
+- Adjust CMO period (14-30) for sensitivity
+- Test different ATR multipliers (1.5-2.5)
+- Experiment with channel width MA period (10-30)
+- Consider adding volume or trend filters
+
+This strategy excels in capturing breakouts from low volatility periods with confirmed momentum, while using the channel expansion as a natural exit mechanism for both profits and losses.

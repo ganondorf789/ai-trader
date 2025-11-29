@@ -1,0 +1,30 @@
+STRATEGY_NAME: VolcanicBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Donchian Channel Breakout:** Uses a 20-period Donchian Channel (high/low range) to identify potential breakout levels.  
+2. **Volume Confirmation:** Requires the 50-period volume moving average (VMA) to spike above its 90th percentile, validating the breakout with strong participation.  
+3. **Bollinger Band Squeeze Exit:** Monitors Bollinger Band width contraction (squeeze) to signal potential trend exhaustion and exit positions.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when price closes **above** the upper 20-period Donchian Channel **AND** the 50-period VMA is above its 90th percentile (calculated over a lookback of 200 periods).  
+- **Short Entry:** Triggered when price closes **below** the lower 20-period Donchian Channel **AND** the 50-period VMA is above its 90th percentile.  
+
+**Exit Rules:**  
+- **Long Exit:** When Bollinger Band (20-period, 2 StdDev) width contracts to its lowest 20% of readings (squeeze) or price closes below the Donchian midline.  
+- **Short Exit:** When Bollinger Band width contracts to its lowest 20% of readings or price closes above the Donchian midline.  
+
+**Risk Management:**  
+- **Stop-Loss:** Initial stop placed at the opposite Donchian boundary (e.g., long stop at lower channel line).  
+- **Position Sizing:** Dynamic sizing based on volatility (e.g., ATR-adjusted risk per trade).  
+
+**Required Indicators:**  
+1. **Donchian Channel (20-period)** – Defines breakout thresholds.  
+2. **50-Period Volume Moving Average (VMA)** – Filters breakouts with volume confirmation.  
+3. **Bollinger Bands (20,2)** – Identifies squeeze conditions for exits.  
+4. **Percentile Calculation (90th for VMA, 20th for BB width)** – Statistical thresholds for triggers.  
+
+**Unique Edge:** Combines volatility breakout (Donchian) with volume-fueled momentum and smart trend-exhaustion detection (Bollinger squeeze), reducing false breakouts.  
+
+**Note:** Backtest optimal percentile thresholds and Donchian/Bollinger parameters for specific assets.

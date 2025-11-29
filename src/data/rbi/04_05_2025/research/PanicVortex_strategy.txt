@@ -1,0 +1,36 @@
+STRATEGY_NAME: PanicVortex  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **VIX Spike Detection:** Uses Bollinger Bands on the VIX to identify extreme fear/panic levels (spike above upper band).  
+2. **Vortex Indicator Confirmation:** Requires a bullish crossover (VI+ crossing above VI-) to validate potential reversal momentum.  
+3. **Mean Reversion Exit:** Exits positions when VIX reverts below its 20-day SMA, signaling reduced market fear.  
+
+**Entry Rules:**  
+- **Trigger Condition:** VIX closes above its upper Bollinger Band (20-period, 2 Std Dev).  
+- **Confirmation Condition:** Vortex Indicator shows bullish crossover (VI+ > VI-) on the same day or next candle.  
+- **Asset Focus:** Primarily applied to broad market indices (e.g., SPY, QQQ) or oversold sectors.  
+
+**Exit Rules:**  
+- **Primary Exit:** VIX closes below its 20-day SMA.  
+- **Optional Filter:** Trailing stop (e.g., 5% below recent high) to capture extended reversals.  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate 1-2% of capital per trade due to high volatility.  
+- **Stop-Loss:** Initial stop at 3-5% below entry or below the recent swing low.  
+- **Time Limit:** Exit after 5 trading days if VIX remains elevated but no follow-through occurs.  
+
+**Required Indicators:**  
+1. **VIX Bollinger Bands:** 20-period SMA with 2 standard deviations.  
+2. **Vortex Indicator (VI):** Default 14-period settings (VI+/VI-).  
+3. **VIX 20-day SMA:** Simple moving average for exit signal.  
+
+**Unique Aspects:**  
+- Exploits panic-driven sell-offs by combining volatility extremes (VIX) with trend-strength confirmation (Vortex).  
+- Avoids premature entries by requiring both Bollinger Band breakout *and* momentum shift.  
+- Ideal for counter-trend traders capitalizing on fear-driven market overreactions.  
+
+**Backtest Considerations:**  
+- Test across multiple market crises (e.g., 2020 COVID crash, 2018 Volmageddon).  
+- Adjust Bollinger Band deviations (1.5-2.5 Std Dev) to balance signal frequency/accuracy.

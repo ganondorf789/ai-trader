@@ -1,0 +1,45 @@
+STRATEGY_NAME: VoltaicSqueeze
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of low volatility followed by explosive price movements, combining Bollinger Band contraction with historical volatility thresholds and ATR-based exits.
+
+Key Components:
+1. Volatility Measurement:
+   - 20-period Bollinger Bands (2 standard deviations)
+   - 20-period Historical Volatility (standard deviation of logarithmic returns)
+   - Threshold set when Bollinger Band width < Historical Volatility
+
+2. Breakout Trigger:
+   - Long entry when price closes above upper Bollinger Band after squeeze condition
+   - Short entry when price closes below lower Bollinger Band after squeeze condition
+
+3. Exit Mechanism:
+   - Trailing stop based on 1.5x the 14-period ATR
+   - Alternative exit when opposite Bollinger Band is touched
+
+Entry Rules:
+1. Wait for Bollinger Band width to contract below 20-period Historical Volatility
+2. Enter long on first close above upper band after squeeze confirmation
+3. Enter short on first close below lower band after squeeze confirmation
+
+Exit Rules:
+1. Initial stop placed at 1.5x ATR from entry price
+2. Trail stop daily maintaining 1.5x ATR distance
+3. Close position if price touches opposite Bollinger Band
+
+Risk Management:
+1. Position size calculated using 1% risk of capital
+2. Maximum stop distance of 2x ATR for position sizing
+3. No new entries if 3 consecutive losing trades occur
+
+Required Indicators:
+1. Bollinger Bands (20 period, 2 std dev)
+2. Historical Volatility (20 period)
+3. Average True Range (14 period)
+
+Optimization Notes:
+- Adjust ATR multiplier (1.3-2.0) based on asset volatility
+- Test different lookback periods (14-30) for volatility comparison
+- Consider adding volume confirmation for breakout validity
+
+This strategy works best in ranging markets transitioning to trends, avoiding false signals during prolonged low-volatility periods. The VoltaicSqueeze name reflects the electrical charge-like potential energy release when volatility expands after compression.

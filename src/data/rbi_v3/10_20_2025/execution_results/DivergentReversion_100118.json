@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 Moon Dev: Data loaded and cleaned. Shape: (31066, 6)\nColumns: ['datetime', 'Open', 'High', 'Low', 'Close', 'Volume']\n\ud83c\udf19 Moon Dev: Running backtest... \ud83d\ude80\n\ud83c\udf19 Moon Dev: Added Bollinger Bands for enhanced mean reversion filtering; indicators tuned for quality signals to boost returns while reducing false entries \u2728\n\ud83c\udf19 Moon Dev: Short Entry at 16706.23, Size: 50.0000, SL: 16751.11, TP: 16481.85 \u2728\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v30.py\", line 135, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v30.py\", line 76, in next\n    entry_price = self.position.entry_price\nAttributeError: 'Position' object has no attribute 'entry_price'\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v30.py` failed. (See above for error)\n",
+  "execution_time": 1.054862,
+  "timestamp": "2025-10-20T10:01:18.020233"
+}

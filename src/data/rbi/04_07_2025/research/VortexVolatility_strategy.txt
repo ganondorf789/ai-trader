@@ -1,0 +1,37 @@
+STRATEGY_NAME: VortexVolatility  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **VIX Spike Detection:** The strategy identifies shorting opportunities when the VIX (Volatility Index) spikes above its 20-day Simple Moving Average (SMA).  
+2. **Vortex Indicator Confirmation:** A downtrend crossover in the Vortex Indicator (VI) further confirms the short volatility signal.  
+3. **Exit Conditions:** Positions are closed when the VIX closes back below its 20-day SMA and the Vortex Indicator signals an uptrend reversal.  
+
+**Entry Rules:**  
+1. **VIX Condition:** Wait for the VIX to close above its 20-day SMA.  
+2. **Vortex Indicator Confirmation:** Ensure the Vortex Indicator shows a downtrend crossover (VI+ crosses below VI-).  
+3. **Short Volatility:** Enter a short position on volatility (e.g., via VIX futures, options, or inverse volatility ETFs) once both conditions are met.  
+
+**Exit Rules:**  
+1. **VIX Reversal:** Monitor for the VIX closing below its 20-day SMA.  
+2. **Vortex Uptrend Signal:** Confirm the Vortex Indicator shows an uptrend reversal (VI+ crosses above VI-).  
+3. **Close Position:** Exit the short volatility trade when both exit conditions are satisfied.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%) to limit exposure.  
+2. **Stop-Loss:** Implement a stop-loss if the VIX continues to rise beyond a predefined threshold (e.g., 10% above entry).  
+3. **Time-Based Exit:** Consider exiting after a set holding period (e.g., 5-10 days) if exit signals are not triggered.  
+
+**Required Indicators:**  
+1. **VIX (Volatility Index):** Primary volatility measure.  
+2. **20-day SMA of VIX:** Determines overbought/oversold conditions.  
+3. **Vortex Indicator (VI):** Comprises VI+ (positive trend) and VI- (negative trend) lines for trend confirmation.  
+
+**Additional Notes:**  
+- This strategy capitalizes on mean-reverting tendencies in volatility spikes.  
+- Works best in high-volatility regimes where VIX tends to revert to its mean.  
+- Backtest for optimal SMA period (20-day default) and Vortex settings.  
+
+**Unique Aspects:**  
+- Combines VIX mean-reversion with Vortex trend confirmation for higher-probability trades.  
+- Focuses exclusively on volatility instruments rather than traditional assets.

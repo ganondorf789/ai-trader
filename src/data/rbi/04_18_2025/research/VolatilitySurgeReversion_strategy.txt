@@ -1,0 +1,43 @@
+STRATEGY_NAME: VolatilitySurgeReversion
+
+STRATEGY_DETAILS:
+Key Components:
+1. Counter-trend trading approach capitalizing on extreme volatility events
+2. Uses Bollinger Bands (3 standard deviations) to identify overextended price moves
+3. Volume surge filter (200% above 20-day average) confirms unusual market activity
+4. 20-period SMA serves as mean reversion target
+5. ATR-based trailing stop (1.5x) for dynamic risk management
+
+Entry Rules:
+1. Trigger: Price must close outside the 3-standard deviation Bollinger Band
+2. Confirmation: Volume must be at least 200% of the 20-day average volume
+3. Entry Type: Market order at next available price after both conditions are met
+
+Exit Rules:
+1. Primary Target: 20-period SMA (price crossing back inside the band is not required)
+2. Dynamic Protection: Trailing stop at 1.5x the current 14-period ATR value
+3. Exit Priority: Whichever condition (SMA or trailing stop) is hit first
+
+Risk Management:
+1. Position sizing based on 1.5x ATR stop distance
+2. Maximum risk per trade typically 1-2% of capital
+3. No new entries allowed until current position is closed
+4. Recommended maximum of 3 concurrent positions
+
+Required Indicators:
+1. Bollinger Bands (20-period, 3 standard deviations)
+2. Volume indicator with 20-day average
+3. 20-period Simple Moving Average
+4. 14-period Average True Range (ATR)
+
+Additional Notes:
+- Best suited for liquid assets with consistent volatility patterns
+- Works across multiple timeframes (15min to daily recommended)
+- Requires monitoring for potential trend continuation despite extreme readings
+- Volume filter helps avoid false signals during low-liquidity periods
+
+Optimization Considerations:
+- Adjust standard deviation parameter (2.5-3.5 range)
+- Test different volume thresholds (150-250%)
+- Experiment with SMA periods (10-30)
+- Vary ATR multiplier (1.25-2.0) based on volatility tolerance

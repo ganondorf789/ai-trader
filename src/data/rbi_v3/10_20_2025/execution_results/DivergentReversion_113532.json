@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 DivergentReversion Strategy Initialized \u2728\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_package/DivergentReversion_PKG.py\", line 136, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_package/DivergentReversion_PKG.py\", line 89, in next\n    prev_lows_slice = self.data.Low.iloc[start_idx:-1]\nAttributeError: '_Array' object has no attribute 'iloc'\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_package/DivergentReversion_PKG.py` failed. (See above for error)\n",
+  "execution_time": 1.125481,
+  "timestamp": "2025-10-20T11:35:32.359047"
+}

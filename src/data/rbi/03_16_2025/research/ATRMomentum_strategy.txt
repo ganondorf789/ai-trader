@@ -1,0 +1,36 @@
+STRATEGY_NAME: ATRMomentum
+
+STRATEGY_DETAILS:
+The ATRMomentum strategy is a momentum-based approach designed to identify underbought stocks by leveraging the inverse relationship between short-term price movement and volatility. The strategy uses the 5-day Relative Strength Index (RSI) and Average True Range (ATR) to pinpoint potential entry points when stocks show signs of oversold conditions combined with decreasing volatility.
+
+### Key Strategy Components:
+1. **5-Day RSI**: Measures short-term momentum to identify oversold conditions (typically below 30).
+2. **Average True Range (ATR)**: Tracks volatility and helps identify when volatility is contracting relative to historical highs.
+3. **Historical ATR Highs**: Used as a benchmark to determine when the current ATR has dropped significantly (1% below historical highs).
+
+### Entry Rules:
+1. **Condition 1**: The 5-day RSI must be below 30, indicating the stock is oversold.
+2. **Condition 2**: The current ATR must drop by at least 1% relative to its historical high (calculated over a predefined lookback period, e.g., 20 days).
+3. **Entry Signal**: When both conditions are met, enter a long position.
+
+### Exit Rules:
+1. **Take Profit**: Set a profit target based on a percentage gain (e.g., 5% or 10%) or use a trailing stop to capture momentum.
+2. **Stop Loss**: Place a stop loss at a predefined level below the entry price (e.g., 2% or 3%) to manage downside risk.
+3. **RSI Exit**: Exit the position if the 5-day RSI rises above 70, indicating overbought conditions.
+
+### Risk Management:
+1. **Position Sizing**: Allocate a fixed percentage of the portfolio to each trade (e.g., 1-2%) to limit exposure.
+2. **Diversification**: Trade multiple stocks across different sectors to reduce concentration risk.
+3. **Volatility Filter**: Avoid trading during periods of extreme market volatility by monitoring broader market ATR or VIX levels.
+
+### Required Indicators:
+1. **5-Day RSI**: To identify oversold conditions.
+2. **ATR (14-period)**: To measure volatility and identify contraction.
+3. **Historical ATR Highs**: To determine the 1% drop threshold.
+
+### Additional Notes:
+- The strategy works best in trending or mildly volatile markets.
+- Backtest the strategy on historical data to optimize parameters (e.g., RSI threshold, ATR lookback period, and profit/stop levels).
+- Combine with fundamental analysis to ensure the selected stocks have strong underlying fundamentals.
+
+By focusing on the interplay between momentum and volatility, the ATRMomentum strategy aims to capture opportunities in underbought stocks while managing risk through disciplined entry and exit rules.

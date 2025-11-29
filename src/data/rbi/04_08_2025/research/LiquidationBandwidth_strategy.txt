@@ -1,0 +1,38 @@
+STRATEGY_NAME: LiquidationBandwidth  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of extreme low volatility when the Bollinger Band Width falls below its 1-year low, signaling potential breakout conditions.  
+2. **Liquidation Cluster Maps:** Monitors sudden spikes in liquidations derived from funding rate anomalies, indicating potential market imbalances.  
+3. **Dominant Liquidation Cascade:** Determines the direction of the breakout by analyzing the dominant liquidation pressure (long or short squeezes).  
+4. **Volatility-Adjusted Pivot Ranges:** Uses dynamic stop-loss levels based on recent volatility to manage risk effectively.  
+
+**Entry Rules:**  
+- **Trigger Condition:** Bollinger Band Width contracts below its 1-year low.  
+- **Confirmation Signal:** A sudden spike in liquidation cluster maps (long or short liquidations) occurs alongside funding rate anomalies.  
+- **Trade Direction:** Enter in the direction of the dominant liquidation cascade (e.g., long if short liquidations dominate, short if long liquidations dominate).  
+- **Entry Execution:** Enter on the breakout of the Bollinger Band in the direction of the liquidation pressure.  
+
+**Exit Rules:**  
+- **Take-Profit:** Use a trailing stop based on volatility-adjusted pivot ranges (e.g., 2x ATR from entry).  
+- **Stop-Loss:** Place a dynamic stop at the opposite Bollinger Band or a recent pivot low/high, adjusted for volatility (e.g., 1.5x ATR).  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., risk 1-2% of capital per trade).  
+- Avoid trading during low-liquidity periods or when funding rates are excessively skewed.  
+- Exit trades if liquidation pressure reverses abruptly.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 Std Dev) + Band Width calculation.  
+2. Liquidation cluster maps (real-time data from exchanges or APIs).  
+3. Funding rate anomaly detection (deviation from historical mean).  
+4. ATR (14-period) for volatility adjustments.  
+5. Pivot points (daily/weekly) for dynamic stop placement.  
+
+**Unique Aspects:**  
+- Combines volatility contraction with liquidation-driven momentum.  
+- Uses real-time liquidation data for directional bias.  
+- Adapts stops based on volatility and pivot ranges for dynamic risk management.  
+
+This strategy is best suited for high-volatility assets (e.g., crypto) where liquidations play a significant role in price movements.

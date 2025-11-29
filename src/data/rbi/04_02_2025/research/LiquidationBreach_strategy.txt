@@ -1,0 +1,30 @@
+STRATEGY_NAME: LiquidationBreach  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Contrarian Approach**: The strategy capitalizes on clustered stop-loss levels identified via liquidation heatmaps, betting against the crowd when price breaches these levels.  
+2. **Support/Resistance Zones**: Key levels are identified where stop-loss orders are densely clustered, acting as potential reversal points.  
+3. **Volatility-Adjusted Exit**: Exits are determined by spikes in 30-minute Relative Volume (RVOL), ensuring trades are closed during high volatility to maximize gains or minimize losses.  
+
+**Entry Rules:**  
+1. **Identify Clustered Stop-Loss Levels**: Use liquidation heatmaps to locate dense stop-loss clusters near significant support/resistance zones.  
+2. **5% Breach Trigger**: Enter a contrarian trade (long if below support, short if above resistance) once the price breaches the zone by 5%.  
+3. **Confirmation**: Ensure the breach is accompanied by increased trading volume to validate the move.  
+
+**Exit Rules:**  
+1. **RVOL Spike Exit**: Monitor 30-minute Relative Volume (RVOL). Exit the trade when RVOL spikes above a predefined threshold (e.g., 2x the average RVOL).  
+2. **Time-Based Exit**: If no RVOL spike occurs, exit the trade after a set period (e.g., 4 hours) to avoid prolonged exposure.  
+
+**Risk Management:**  
+1. **Stop-Loss Placement**: Set stop-loss orders just beyond the next key support/resistance level to limit downside.  
+2. **Position Sizing**: Adjust position size based on the volatility of the asset, ensuring risk per trade does not exceed 1-2% of capital.  
+3. **Trailing Stop**: For profitable trades, consider a trailing stop to lock in gains while allowing for further upside.  
+
+**Required Indicators:**  
+1. **Liquidation Heatmap**: To identify clustered stop-loss levels.  
+2. **Relative Volume (RVOL)**: For volatility-adjusted exits.  
+3. **Support/Resistance Levels**: Derived from price action or order book data.  
+4. **Volume Indicator**: To confirm the validity of the breach.  
+
+This strategy is designed for traders who can act swiftly on contrarian signals and manage risk effectively in volatile markets.

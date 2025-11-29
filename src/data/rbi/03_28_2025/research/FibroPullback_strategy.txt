@@ -1,0 +1,43 @@
+STRATEGY_NAME: FibroPullback  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Fibonacci Retracement (61.8% Level):** The strategy focuses on the 61.8% Fibonacci retracement level, a key level often associated with potential reversals or continuations in trending markets.  
+2. **Pullback Confirmation:** Entries are triggered when price retraces to the 61.8% level, indicating a potential pullback within a broader trend.  
+3. **Trend Context:** The strategy is designed to work best in trending markets (either uptrend or downtrend), where pullbacks to key Fibonacci levels offer high-probability entry points.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Identify an established uptrend (higher highs and higher lows).  
+  2. Wait for price to retrace to the 61.8% Fibonacci level drawn from the recent swing low to swing high.  
+  3. Enter a long position when price touches or approaches the 61.8% level, preferably with a bullish candlestick pattern (e.g., hammer, engulfing) or a bounce off the level.  
+
+- **Short Entry (if applicable):**  
+  1. Identify an established downtrend (lower highs and lower lows).  
+  2. Wait for price to retrace to the 61.8% Fibonacci level drawn from the recent swing high to swing low.  
+  3. Enter a short position when price touches or approaches the 61.8% level, preferably with a bearish candlestick pattern (e.g., shooting star, bearish engulfing) or a rejection from the level.  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Set take-profit levels at key Fibonacci extension levels (e.g., 161.8%, 261.8%) or previous swing highs/lows.  
+  - Alternatively, use a trailing stop to capture extended moves.  
+- **Stop Loss:**  
+  - Place a stop-loss just below the 61.8% level (for longs) or above it (for shorts), typically beyond the 78.6% retracement level to avoid premature exits.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of the trading capital per trade.  
+2. **Stop-Loss Discipline:** Always use a stop-loss to limit downside risk.  
+3. **Trend Filter:** Avoid trading in choppy or sideways markets; focus only on clear trends confirmed by higher highs/lows or lower highs/lows.  
+
+**Required Indicators:**  
+1. **Fibonacci Retracement Tool:** To identify the 61.8% retracement level.  
+2. **Price Action/Candlestick Patterns:** For confirmation of reversals at the Fibonacci level.  
+3. **Optional:** Moving Averages (e.g., 50EMA, 200EMA) or ADX to confirm trend strength.  
+
+**Notes:**  
+- This strategy works best on higher timeframes (e.g., 1H, 4H, Daily) where Fibonacci levels carry more significance.  
+- Combine with volume analysis or momentum oscillators (e.g., RSI, MACD) for additional confirmation.  
+- Avoid over-trading; wait for high-quality setups where price respects the 61.8% level.  
+
+The name "FibroPullback" reflects the strategy's core focus on Fibonacci retracements (Fibro) and pullback entries (Pullback), making it distinct from generic Fibonacci-based strategies.

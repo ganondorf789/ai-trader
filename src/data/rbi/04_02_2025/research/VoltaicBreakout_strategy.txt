@@ -1,0 +1,56 @@
+STRATEGY_NAME: VoltaicBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility measurement with volume analysis to identify high-probability breakout opportunities. The core concept revolves around capturing strong directional moves after periods of consolidation, using ATR-based bands as dynamic support/resistance levels.
+
+Key Components:
+1. Volatility Measurement: 
+   - 20-period Moving Average (baseline)
+   - 2x ATR (20-period) upper/lower bands (entry triggers)
+   - 1x ATR (20-period) bands (exit levels)
+
+2. Volume Filter:
+   - Declining volume during consolidation period
+   - Volume spike confirmation preferred but not required
+
+Entry Rules:
+1. Long Entry:
+   - Price closes above 20MA + (2x ATR)
+   - Preceded by declining volume pattern
+   - Consolidation period visible (at least 5 bars)
+
+2. Short Entry:
+   - Price closes below 20MA - (2x ATR)
+   - Same volume/consolidation requirements as long
+
+Exit Rules:
+1. Profit-taking:
+   - Price returns to 1x ATR band (20MA ± ATR)
+   - Trailing stop can be implemented at 1x ATR from extreme
+
+2. Stop Loss:
+   - Initial stop at 3x ATR from entry
+   - Can be tightened to 2x ATR after favorable move
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Volatility-adjusted stops (3x ATR)
+3. Avoid trading during news events (increased false breakouts)
+4. Minimum 1:1 risk-reward ratio
+
+Required Indicators:
+1. 20-period Moving Average (any type)
+2. 20-period Average True Range (ATR)
+3. Volume indicator (preferably OBV or simple volume)
+
+Optimal Conditions:
+- Works best in ranging markets with clear consolidation
+- Higher timeframe breakouts (4H/Daily) more reliable
+- Avoid during low volatility periods (compressed ATR)
+
+Enhancement Suggestions:
+1. Add RSI filter (e.g., only trade if RSI <70 for longs >30 for shorts)
+2. Combine with ADX >25 for stronger trend confirmation
+3. Use multiple timeframe confirmation (e.g., 4H breakout on Daily trend)
+
+This "VoltaicBreakout" strategy excels in capturing explosive moves after periods of compression, with the volume filter helping avoid false breakouts. The ATR-based exits allow for dynamic profit-taking that adapts to changing volatility conditions.

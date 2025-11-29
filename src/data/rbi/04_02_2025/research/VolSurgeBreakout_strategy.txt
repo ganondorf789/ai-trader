@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolSurgeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Adjusted Breakout:** Uses a 20-period Donchian Channel to identify breakout levels adjusted for market volatility.  
+2. **Volume Surge Filter:** Requires a 3-day volume surge exceeding 200% of the 30-day median volume to confirm breakout validity.  
+3. **Keltner Channel Exit:** Exits trades based on 4-hour candle closes breaching the 10-period Keltner Channel, ensuring dynamic trailing stops.  
+
+**Entry Rules:**  
+- **Long Entry:** Price closes above the upper band of the 20-period Donchian Channel **AND** 3-day volume is >200% of the 30-day median volume.  
+- **Short Entry:** Price closes below the lower band of the 20-period Donchian Channel **AND** 3-day volume is >200% of the 30-day median volume.  
+
+**Exit Rules:**  
+- **Long Exit:** 4-hour candle closes below the lower band of the 10-period Keltner Channel.  
+- **Short Exit:** 4-hour candle closes above the upper band of the 10-period Keltner Channel.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-based stop).  
+- Stop-loss can be placed at the opposite Donchian Channel band (for initial risk control).  
+- Avoid trading during low-volume periods or major economic events to reduce false breakouts.  
+
+**Required Indicators:**  
+1. **Donchian Channel (20-period)** – Defines breakout levels.  
+2. **Volume (30-day median & 3-day surge)** – Filters high-probability breakouts.  
+3. **Keltner Channel (10-period)** – Dynamic exit mechanism.  
+
+**Unique Aspects:**  
+- Combines volatility expansion (Donchian) with volume confirmation for high-conviction breakouts.  
+- Uses Keltner Channel for adaptive exits, reducing whipsaw risk compared to fixed stops.  
+- Volume surge requirement minimizes false signals in choppy markets.

@@ -1,0 +1,42 @@
+STRATEGY_NAME: SqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies periods of low volatility where the bands contract, signaling a potential breakout.  
+2. **Volume Surge:** Requires a 150% increase in volume compared to the average volume, confirming strong participation in the breakout.  
+3. **200-Day Moving Average (MA):** Ensures trades are only taken when the squeeze occurs below this long-term trend indicator, focusing on potential reversals or continuations in a downtrend.  
+4. **3xATR Trailing Stop:** Uses a dynamic stop-loss set at 3 times the Average True Range (ATR) to manage risk and lock in profits as the trade moves favorably.  
+
+**Entry Rules:**  
+1. **Bollinger Band Squeeze Condition:** The Bollinger Bands (standard settings: 20-period SMA, 2 standard deviations) must be in a contracted state (squeeze), indicating low volatility.  
+2. **Volume Surge:** Volume must spike to at least 150% of the average volume over the past 20 periods.  
+3. **Price Position Relative to 200-Day MA:** The squeeze must occur while the price is below the 200-day MA.  
+4. **Breakout Direction:** Enter long if the price breaks above the upper Bollinger Band, or short if it breaks below the lower Bollinger Band.  
+
+**Exit Rules:**  
+1. **Trailing Stop:** Use a trailing stop set at 3x the current ATR (14-period). Adjust the stop as the price moves in your favor.  
+2. **Manual Exit:** Consider exiting if the price crosses back inside the Bollinger Bands or if volume drops significantly, indicating weakening momentum.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate no more than 1-2% of capital per trade to limit risk.  
+2. **Stop-Loss:** The initial stop-loss is set at 3xATR from the entry price. This ensures the trade has room to breathe while capping potential losses.  
+3. **Avoid Overtrading:** Only take trades that meet all criteria (squeeze, volume surge, and 200-day MA condition).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2)**  
+2. **Volume Indicator (20-period average)**  
+3. **200-Day Simple Moving Average (SMA)**  
+4. **Average True Range (ATR, 14-period)**  
+
+**Additional Notes:**  
+- This strategy excels in trending markets but may produce false signals in choppy or sideways conditions.  
+- Backtest to optimize the ATR multiplier (e.g., 2x or 3x) based on the asset’s volatility.  
+- Combine with higher timeframe analysis (e.g., daily/weekly charts) to align with broader trends.  
+
+**Example Trade Setup:**  
+1. Price is below the 200-day MA, and Bollinger Bands are squeezed.  
+2. Volume surges 150% above average as price breaks the upper band.  
+3. Enter long with a 3xATR trailing stop. Exit when the stop is hit or momentum fades.  
+
+This strategy leverages the confluence of volatility contraction, volume confirmation, and long-term trend positioning to capture high-probability breakouts.

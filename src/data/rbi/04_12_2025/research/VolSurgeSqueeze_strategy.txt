@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolSurgeSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volume Surge Filter**: Identifies high-interest stocks with a 3-day volume exceeding 150% of the 20-day average, signaling potential accumulation/distribution.  
+2. **Bollinger Bandwidth Contraction**: Detects low volatility periods (Bandwidth < 10%) preceding potential breakouts.  
+3. **MACD Crossover Confirmation**: Validates breakout direction (bullish/bearish) using MACD line crossing signal line.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  - 3-day volume > 1.5x 20-day average volume  
+  - Bollinger Bandwidth < 10%  
+  - Price breaks **above** upper Bollinger Band  
+  - MACD line crosses **above** signal line (bullish confirmation)  
+
+- **Short Entry**:  
+  - 3-day volume > 1.5x 20-day average volume  
+  - Bollinger Bandwidth < 10%  
+  - Price breaks **below** lower Bollinger Band  
+  - MACD line crosses **below** signal line (bearish confirmation)  
+
+**Exit Rules:**  
+- **Take Profit**:  
+  - 2x ATR (14-period) from entry price  
+  - OR Bollinger Bandwidth expands to > 20% (volatility spike)  
+- **Stop Loss**:  
+  - 1x ATR (14-period) from entry price  
+  - OR opposite Bollinger Band break (invalidates thesis)  
+
+**Risk Management:**  
+- Position size capped at 2% of capital per trade.  
+- No new entries if 3 consecutive losing trades occur (cool-off period).  
+
+**Required Indicators:**  
+1. Volume (20-day average + 3-day surge filter)  
+2. Bollinger Bands (20,2) + Bandwidth calculation:  
+   - `(Upper Band - Lower Band) / Middle Band * 100`  
+3. MACD (12,26,9)  
+4. ATR (14) for stop/target sizing  
+
+**Unique Edge:** Combines **unusual volume activity** (institutional interest) with **volatility squeeze** (compressed energy) and **momentum confirmation** (MACD), reducing false breakouts.

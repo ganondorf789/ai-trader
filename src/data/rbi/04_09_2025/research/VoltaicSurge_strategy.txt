@@ -1,0 +1,37 @@
+STRATEGY_NAME: VoltaicSurge
+
+STRATEGY_DETAILS:
+This volatility-based strategy combines trend confirmation with volatility expansion signals for precise entries and dynamic exits. The system uses the Average True Range (ATR) as its core volatility metric, enhanced by trend filtering through the 200-period EMA.
+
+Key Components:
+1. Trend Filter: 200-period Exponential Moving Average (EMA)
+2. Volatility Trigger: 5-minute 20-period moving average of ATR (ATR_MA)
+3. Exit Mechanism: 2x ATR trailing stop
+
+Entry Rules:
+1. Primary Condition: Price must be trading above the 200-period EMA (bullish trend confirmation)
+2. Signal Trigger: Current 5-minute ATR value crosses above its 20-period moving average (ATR_MA)
+3. Entry Execution: Long position initiated when both conditions are met simultaneously
+
+Exit Rules:
+1. Trailing Stop: Maintain a dynamic exit at 2x the current ATR value below the highest high since entry
+2. Stop Adjustment: Continuously update the stop level as price moves higher
+3. Emergency Exit: Immediate exit if price closes below 200-period EMA (trend failure)
+
+Risk Management:
+1. Position Sizing: Calculate based on 1-2% risk of capital using the initial ATR value
+2. Volatility Adjustment: Reduce position size during periods of elevated ATR values
+3. Maximum Exposure: Limit to 5% of capital in any single trade
+
+Required Indicators:
+1. Average True Range (ATR) - 5-minute chart (default 14-period recommended)
+2. Moving Average of ATR (20-period simple MA)
+3. Exponential Moving Average (200-period)
+
+Optimization Notes:
+1. ATR Period: Can be tested between 10-20 periods
+2. ATR_MA Length: 15-25 periods may offer better smoothing
+3. EMA Period: 100-200 periods for trend filtering
+4. Stop Multiplier: 1.5x-2.5x ATR for trailing stop
+
+This strategy excels in trending markets with expanding volatility, capturing strong moves while protecting profits through its adaptive trailing stop mechanism. The combination of trend confirmation and volatility breakout creates high-probability entries with controlled risk.

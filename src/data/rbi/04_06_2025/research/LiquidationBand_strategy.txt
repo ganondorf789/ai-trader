@@ -1,0 +1,35 @@
+STRATEGY_NAME: LiquidationBand  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection:** Uses Bollinger Band width thresholds to identify periods of low volatility (contraction) which often precede high volatility breakouts.  
+2. **Liquidation Risk Assessment:** Monitors order book imbalance and liquidation clustering estimates to gauge potential market moves driven by forced liquidations.  
+3. **Breakout Confirmation:** Enters trades only when the breakout direction aligns with the estimated liquidation clustering, increasing the probability of a strong directional move.  
+
+**Entry Rules:**  
+1. **Bollinger Band Width Threshold:** Wait for the Bollinger Band width to contract below a predefined threshold (e.g., 20% of its 20-period average), signaling low volatility.  
+2. **Order Book Imbalance:** Confirm a significant order book imbalance (e.g., bid-ask ratio exceeding 2:1) in the direction of the potential breakout.  
+3. **Liquidation Clustering:** Use liquidation clustering estimates (e.g., from platforms like Coinalyze or Glassnode) to validate that the breakout direction aligns with high liquidation risk for the opposing side (e.g., long liquidations for a short breakout).  
+4. **Breakout Trigger:** Enter the trade when price breaks above (for long) or below (for short) the Bollinger Band, confirmed by the above conditions.  
+
+**Exit Rules:**  
+1. **Take Profit:** Set a take-profit level at a multiple of the Bollinger Band width (e.g., 1.5x the width at entry) or a fixed risk-reward ratio (e.g., 2:1).  
+2. **Stop Loss:** Place a stop-loss just outside the opposite Bollinger Band or at a level where the order book imbalance reverses significantly.  
+3. **Time Exit:** Exit the trade if the Bollinger Band width expands beyond a certain threshold (e.g., 50% above the contraction level), indicating volatility has normalized.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade, adjusting for the volatility of the asset (e.g., wider stops for more volatile assets).  
+2. **Max Drawdown:** Limit daily drawdown to 5% and weekly drawdown to 10% by reducing position size or pausing trading if limits are approached.  
+3. **Correlation Check:** Avoid overlapping trades in highly correlated assets to prevent overexposure to a single market move.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** To measure volatility contraction and breakout levels.  
+2. **Order Book Imbalance Metric:** Custom or platform-provided (e.g., bid-ask volume ratio).  
+3. **Liquidation Clustering Data:** From sources like Coinalyze, Glassnode, or exchange APIs.  
+4. **Volume Indicator:** To confirm breakout validity (e.g., volume spike on breakout).  
+
+**Unique Aspects:**  
+- Combines volatility contraction (Bollinger Bands) with liquidation-driven momentum (order book imbalance + clustering).  
+- Focuses on high-probability breakouts where liquidations amplify the move, reducing false signals.  
+- Adaptive to market regimes by adjusting to changing liquidation risks and volatility conditions.

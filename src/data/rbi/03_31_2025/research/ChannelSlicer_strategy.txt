@@ -1,0 +1,33 @@
+STRATEGY_NAME: ChannelSlicer  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Donchian Channel Breakout:** Uses the 20-day Donchian Channel (high/low range) to identify potential breakout points.  
+2. **Choppiness Index Filter:** Confirms low-range consolidation when the Choppiness Index (CI) drops below 35, indicating a trending environment.  
+3. **Renko Box Trailing Stop:** Manages exits using Renko box reversals to lock in profits while allowing for trend continuation.  
+
+**Entry Rules:**  
+- **Long Entry:** Price closes above the upper 20-day Donchian Channel, AND the Choppiness Index is below 35.  
+- **Short Entry:** Price closes below the lower 20-day Donchian Channel, AND the Choppiness Index is below 35.  
+
+**Exit Rules:**  
+- **Trailing Stop:** Exit when a Renko box reversal occurs (e.g., a new Renko box forms in the opposite direction).  
+- **Emergency Stop:** Fixed stop-loss at 2x the average Renko box size if the trailing stop is too wide.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., 1-2% risk per trade).  
+- Avoid trading if the Choppiness Index is above 35 (indicating choppy, non-trending markets).  
+- Only trade breakouts with volume confirmation for higher reliability.  
+
+**Required Indicators:**  
+1. **20-Day Donchian Channel** (Upper & Lower Bands).  
+2. **Choppiness Index (CI)** (14-period default).  
+3. **Renko Chart Setup** (for trailing stop execution).  
+
+**Additional Notes:**  
+- Works best in trending markets; avoid sideways conditions.  
+- Renko box size should be optimized per asset (e.g., ATR-based).  
+- Combine with higher timeframe trend alignment for stronger signals.  
+
+This strategy combines breakout momentum with volatility contraction, using Renko for clean trend-following exits.

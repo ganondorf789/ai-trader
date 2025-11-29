@@ -1,0 +1,36 @@
+STRATEGY_NAME: ClusterVolatility  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Price Clusters Near High Liquidation Levels:** The strategy identifies short-term price clusters (congestion zones) near significant long liquidation levels, suggesting potential exhaustion of bullish momentum.  
+2. **Volatility Trigger:** Uses Keltner Channel breakouts to confirm entry signals when price exits the channel, indicating increased volatility and potential trend continuation.  
+3. **Liquidation Heatmaps:** Aggregated liquidation data is used to pinpoint high-probability reversal zones where forced liquidations may trigger price reversals.  
+4. **Mean Reversion Exit:** Exits trades when price reverts above the 20-period Volume-Weighted Average Price (VWAP), signaling a potential shift in market structure.  
+
+**Entry Rules:**  
+1. **Setup Condition:** Price forms a cluster (tight consolidation) near a high long liquidation level, as identified by liquidation heatmaps.  
+2. **Trigger:** Price breaks below the lower Keltner Channel band (default settings: 20-period EMA, 2x ATR multiplier), confirming increased downside volatility.  
+3. **Confirmation:** Aggregated liquidation heatmap shows elevated long liquidation activity in the cluster zone.  
+
+**Exit Rules:**  
+1. **Primary Exit:** Close the short position when price closes above the 20-period VWAP, indicating mean reversion or bullish pressure.  
+2. **Secondary Exit:** Use a trailing stop based on the Keltner Channel upper band (e.g., exit if price crosses above the upper band).  
+
+**Risk Management:**  
+1. **Stop-Loss:** Initial stop placed above the recent swing high or the upper Keltner Channel band, whichever is tighter.  
+2. **Position Sizing:** Risk per trade limited to 1-2% of capital, adjusted for volatility (e.g., wider stops require smaller position sizes).  
+3. **Filter:** Avoid trading during low-volume periods or major news events to reduce false breakouts.  
+
+**Required Indicators:**  
+1. **Keltner Channel (20-period EMA, 2x ATR multiplier)** – Identifies volatility-based breakout zones.  
+2. **20-period VWAP** – Acts as the mean reversion exit threshold.  
+3. **Liquidation Heatmap (aggregated)** – Highlights high-probability reversal zones.  
+4. **Volume Analysis** – Confirms breakout validity (e.g., higher volume on breakdowns).  
+
+**Unique Aspects:**  
+- Combines liquidation-driven sentiment analysis with volatility breakout mechanics.  
+- Uses VWAP as a dynamic exit benchmark instead of fixed profit targets.  
+- Focuses on short-term clusters, making it suitable for scalping or intraday trading.  
+
+**Note:** Backtest parameters (e.g., Keltner Channel settings, VWAP period) should be optimized for the specific asset and timeframe.

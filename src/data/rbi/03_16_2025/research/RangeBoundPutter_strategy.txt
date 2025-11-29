@@ -1,0 +1,33 @@
+STRATEGY_NAME: RangeBoundPutter
+
+STRATEGY_DETAILS:
+The RangeBoundPutter strategy is a unique options trading approach that capitalizes on low volatility environments by selling put options. The strategy is designed to profit from stable or slightly bullish market conditions, particularly when the daily price range is narrow relative to the closing price.
+
+### Key Strategy Components:
+1. **Volatility Assessment**: The strategy identifies low-volatility conditions by analyzing the daily high-low range relative to the closing price.
+2. **Options Expiry Selection**: Focuses on selling put options that expire at the start of the next month, aligning with the strategy's short-term outlook.
+3. **Market Stability**: Targets markets or assets that exhibit stable price behavior, reducing the risk of large adverse moves.
+
+### Entry Rules:
+1. **Daily High-Low Range Check**: Calculate the daily high-low range as a percentage of the closing price. If this range is less than 10%, it signals a low-volatility environment suitable for the strategy.
+   - Formula: `(High - Low) / Close * 100 < 10%`
+2. **Put Option Selection**: Sell out-of-the-money (OTM) put options with an expiration date at the start of the next month. The strike price should be below the current market price, providing a buffer against potential downside moves.
+3. **Timing**: Execute the trade on the same day the low-volatility condition is identified, ensuring the strategy captures the current market stability.
+
+### Exit Rules:
+1. **Option Expiry**: Hold the sold put options until expiration. If the underlying asset's price remains above the strike price, the options will expire worthless, allowing you to keep the premium received.
+2. **Early Exit**: Consider closing the position early if the underlying asset's price approaches the strike price, especially if volatility increases significantly. This helps mitigate potential losses.
+3. **Stop-Loss**: Implement a stop-loss mechanism based on a predefined percentage of the premium received or a specific price level of the underlying asset.
+
+### Risk Management:
+1. **Position Sizing**: Limit the size of each trade to a small percentage of your total portfolio, typically 1-2%, to manage risk effectively.
+2. **Diversification**: Avoid concentrating all positions in a single asset or sector. Spread your trades across different assets to reduce exposure to any single market move.
+3. **Volatility Monitoring**: Continuously monitor the market for any signs of increasing volatility, which could indicate a higher risk of adverse price movements.
+
+### Required Indicators:
+1. **Daily Price Data**: Access to daily high, low, and closing prices of the underlying asset.
+2. **Options Chain**: A reliable source for current options prices, strike prices, and expiration dates.
+3. **Volatility Metrics**: Tools or indicators to assess implied and historical volatility, such as the Average True Range (ATR) or Bollinger Bands.
+
+### Summary:
+The RangeBoundPutter strategy is a sophisticated approach to options trading that leverages low-volatility conditions to generate consistent income through the sale of put options. By carefully selecting the right market conditions and managing risk through position sizing and diversification, traders can effectively implement this strategy to capitalize on stable or slightly bullish market environments.

@@ -1,0 +1,40 @@
+STRATEGY_NAME: VoltaicConvergence
+
+STRATEGY_DETAILS:
+The VoltaicConvergence strategy is a sophisticated approach that combines volatility analysis with oscillator convergence to identify high-probability trading opportunities. It focuses on detecting moments when price approaches recent highs while volatility contracts, signaling potential breakouts or continuations.
+
+Key Strategy Components:
+1. ATR (Average True Range) - Measures market volatility
+2. KST (Know Sure Thing) Oscillator - Momentum indicator
+3. Recent Highs - Price levels for reference
+4. Volatility Multiples - ATR-based thresholds for exits
+
+Entry Rules:
+1. Identify when price is within 1% of a recent high (last 20 candles)
+2. Confirm that ATR (14-period) is below the corresponding KST value
+3. Enter long position when both conditions are met
+
+Exit Rules:
+1. Set initial stop-loss at 1.5x ATR below entry price
+2. Take profit when ATR reaches 2x its value at entry
+3. Exit if price closes below the 20-period EMA
+
+Risk Management:
+1. Risk no more than 1% of capital per trade
+2. Use position sizing based on ATR at entry
+3. Maintain a 2:1 reward-to-risk ratio minimum
+
+Required Indicators:
+1. ATR (14-period)
+2. KST Oscillator (default settings)
+3. 20-period EMA
+4. Recent Highs (20-period)
+
+Additional Notes:
+- Best suited for 1-hour or 4-hour timeframes
+- Works well in trending markets
+- Combine with fundamental analysis for better context
+- Avoid trading during major news events
+- Backtest thoroughly before live implementation
+
+This strategy capitalizes on the convergence of price momentum and volatility contraction, providing a systematic approach to trading breakouts while managing risk effectively through volatility-based position sizing and exits.

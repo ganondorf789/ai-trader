@@ -1,0 +1,49 @@
+STRATEGY_NAME: VoltaicSqueeze
+
+STRATEGY_DETAILS:
+This strategy specializes in identifying and capitalizing on volatility compression breakouts using a multi-indicator approach combining Bollinger Bands and Keltner Channels with volume confirmation.
+
+Key Components:
+1. Bollinger Band Width Percentile: Measures the relative tightness of Bollinger Bands compared to historical levels
+2. Keltner Channel Squeeze: Identifies periods of extreme volatility contraction
+3. Volume Confirmation: Requires breakout volume above 20-day average for validity
+4. Breakout Expansion: Looks for confirmed expansion after compression periods
+
+Entry Rules:
+1. Wait for Bollinger Band width to fall below 20th percentile (indicating compression)
+2. Confirm Keltner Channel is in squeeze state (upper and lower bands within Bollinger Bands)
+3. Enter long when:
+   - Price breaks above upper Keltner Channel
+   - Volume exceeds 20-day average volume
+   - Bollinger Band width expands from compressed state
+4. Enter short when:
+   - Price breaks below lower Keltner Channel
+   - Volume exceeds 20-day average volume
+   - Bollinger Band width expands from compressed state
+
+Exit Rules:
+1. Take Profit:
+   - 2x ATR (Average True Range) from entry point
+   - OR when Bollinger Band width reaches 80th percentile
+2. Stop Loss:
+   - 1x ATR from entry point
+   - OR when price re-enters Keltner Channel
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5%
+3. Avoid trading during major economic news events
+4. Requires minimum 1:2 risk-reward ratio
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Keltner Channels (20,2 ATR multiplier)
+3. Volume (20-day average)
+4. ATR (14-period for stop/target calculations)
+5. Bollinger Band Width Percentile (100-period lookback)
+
+Optimization Notes:
+1. Best suited for 15min-4hr timeframes
+2. Works well with liquid instruments (forex majors, large-cap stocks)
+3. Requires at least 3 months of historical data for percentile calculations
+4. Most effective in ranging markets transitioning to trends

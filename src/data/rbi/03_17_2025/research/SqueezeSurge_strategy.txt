@@ -1,0 +1,52 @@
+STRATEGY_NAME: SqueezeSurge
+
+STRATEGY_DETAILS:
+The SqueezeSurge strategy combines multiple technical indicators to identify high-probability breakout opportunities during periods of low volatility and high momentum. Here's a detailed breakdown of the strategy:
+
+### Key Components:
+1. **Bollinger Band Squeeze**: Identifies periods of low volatility when the Bollinger Band width is at a 10-day low (width < 10-day low).
+2. **Moving Average Crossover**: Uses the 5-day SMA crossing above the 20-day SMA to confirm a bullish trend.
+3. **Volume Surge**: Requires a significant increase in trading volume (20% above the average volume) to confirm strong participation in the breakout.
+4. **ATR-Based Exit**: Uses the Average True Range (ATR) to set a dynamic exit point at 2x ATR from the entry price.
+
+---
+
+### Entry Rules:
+1. **Bollinger Band Squeeze Condition**: The Bollinger Band width must be at a 10-day low, indicating a period of consolidation.
+2. **Moving Average Crossover**: The 5-day SMA must cross above the 20-day SMA, signaling a potential bullish trend.
+3. **Volume Surge**: The current volume must be at least 20% above the average volume, confirming strong buying interest.
+4. **Entry Trigger**: All three conditions must be met simultaneously to enter a long position.
+
+---
+
+### Exit Rules:
+1. **Profit Target**: Exit the trade when the price reaches 2x ATR from the entry price. This provides a dynamic profit target based on market volatility.
+2. **Stop Loss**: Use a trailing stop or a fixed stop loss based on your risk tolerance. A common approach is to set a stop loss at 1x ATR below the entry price.
+
+---
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of your capital (e.g., 1-2%) per trade to manage risk.
+2. **Volatility Filter**: Avoid trading during periods of extreme volatility or news events that could distort the Bollinger Band squeeze.
+3. **Diversification**: Apply this strategy across multiple assets or timeframes to reduce concentration risk.
+
+---
+
+### Required Indicators:
+1. **Bollinger Bands**: Set to a 20-period moving average with 2 standard deviations.
+2. **Simple Moving Averages (SMA)**: 5-day and 20-day SMAs.
+3. **Volume Indicator**: To measure the average volume and detect volume surges.
+4. **Average True Range (ATR)**: Set to a 14-period ATR for calculating the exit target.
+
+---
+
+### Example Setup:
+- **Bollinger Band Width**: 0.5 (10-day low)
+- **5-day SMA**: 50.00
+- **20-day SMA**: 49.80 (5-day SMA crosses above)
+- **Volume**: 1,200,000 (20% above the 1,000,000 average)
+- **ATR**: 1.00 (Exit target = Entry Price + 2.00)
+
+---
+
+This strategy is designed to capitalize on breakouts during low-volatility periods, with strong confirmation from volume and moving averages. The use of ATR ensures that the exit is adaptive to current market conditions, making it suitable for trending markets.

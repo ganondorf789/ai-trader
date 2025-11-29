@@ -1,0 +1,35 @@
+STRATEGY_NAME: SqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies low volatility periods when the 20-period Bollinger Band width contracts below a historical percentile (e.g., 20th percentile).  
+2. **Volume Surge Confirmation:** Requires volume to spike above its 10-day Simple Moving Average (SMA) to validate breakout potential.  
+3. **Breakout Execution:** Enters trades when price breaks out of the squeeze, confirming momentum.  
+4. **Profit Target:** Aims for 1.5x the initial breakout range (distance between upper and lower Bollinger Bands at the time of the squeeze).  
+
+**Entry Rules:**  
+- **Condition 1:** The 20-period Bollinger Band width (Upper Band - Lower Band) falls below a predefined historical percentile (e.g., 20th percentile based on past 100 periods).  
+- **Condition 2:** Volume exceeds its 10-day SMA by a significant margin (e.g., 20-50% above average).  
+- **Entry Signal:** Buy on a breakout above the upper Bollinger Band (for long) or sell on a breakdown below the lower Bollinger Band (for short).  
+
+**Exit Rules:**  
+- **Take Profit:** Close the trade when price reaches 1.5x the initial Bollinger Band width (measured at entry).  
+- **Stop Loss:** Place below the recent swing low (for long) or above the recent swing high (for short), or use a volatility-based stop (e.g., 1x the initial range).  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Stop Loss:** Dynamic, adjusted based on recent price structure or volatility.  
+- **Avoid Overcrowded Breakouts:** Filter out low-volume breakouts to reduce false signals.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 standard deviations)** – To identify squeeze conditions.  
+2. **Volume 10-day SMA** – To confirm volume surge.  
+3. **Historical Percentile Calculator** – To quantify Bollinger Band width contraction.  
+
+**Notes:**  
+- Best suited for 15-minute to 4-hour timeframes in trending or ranging markets transitioning to trends.  
+- Avoid trading during major news events that may distort volatility readings.  
+- Backtest to optimize percentile threshold (e.g., 15th vs. 25th) and volume surge multiplier.  
+
+This strategy combines volatility contraction with volume expansion for high-probability breakout trades. The name "SqueezeSurge" reflects its dual focus on Bollinger Band squeezes and volume surges.

@@ -1,0 +1,38 @@
+STRATEGY_NAME: VortexFlowTrail
+
+STRATEGY_DETAILS:
+This strategy combines momentum confirmation with money flow analysis and dynamic risk management. The key components are:
+
+1. INDICATORS REQUIRED:
+- Vortex Indicator (VI+ and VI- lines, default 14-period)
+- Chaikin Money Flow (CMF, default 20-period)
+- Average True Range (ATR, 14-period)
+
+2. ENTRY RULES:
+- Primary Condition: VI+ crosses above VI- (bullish momentum signal)
+- Secondary Confirmation: CMF crosses above zero (positive money flow)
+- Both conditions must occur simultaneously for valid entry
+
+3. EXIT MECHANISM:
+- Uses a trailing stop based on volatility
+- Stop level = Current price - (2 × 14-period ATR)
+- Stop trails upward as price moves favorably
+- No profit target - lets winners run until stopped out
+
+4. RISK MANAGEMENT:
+- Initial stop distance (2×ATR) provides natural position sizing
+- Volatility-adjusted stop adapts to market conditions
+- No additional entries while in position (single trade approach)
+
+5. KEY CHARACTERISTICS:
+- Dual confirmation reduces false signals
+- Volatility-based exit captures trends while protecting gains
+- Particularly effective in trending markets with strong volume participation
+- Works best on daily or 4-hour timeframes for swing trading
+
+6. OPTIMIZATION CONSIDERATIONS:
+- Can test different ATR multiples (1.5-3×) for stop sensitivity
+- May adjust CMF period (14-30) for smoother money flow signals
+- VI period can be optimized (10-20) for different instruments
+
+This strategy excels when momentum and money flow align, while the ATR-based trailing stop provides disciplined risk management. The combination makes it particularly effective for capturing sustained trends while minimizing emotional decision-making.

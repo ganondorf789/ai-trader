@@ -1,0 +1,37 @@
+STRATEGY_NAME: SqueezeSurge
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band compression with explosive volume signals to capture high-probability breakout opportunities. The unique combination of bandwidth measurement and volume spike creates a powerful confluence for identifying meaningful breakouts.
+
+Key Components:
+1. Bollinger Band Squeeze Detection: Uses the narrowest 5-day bandwidth to identify periods of extreme compression
+2. Volume Surge Filter: Requires 200% increase over 20-day average volume to confirm breakout validity
+3. Time-Based Exit: Implements 48-hour maximum holding period to prevent overexposure
+
+Entry Rules:
+- Trigger: Price must close outside either Bollinger Band (upper or lower)
+- Confirmation: Volume must be at least 200% of 20-day average volume
+- Timing: Both conditions must occur simultaneously on the same candle
+
+Exit Rules:
+1. Primary Exit: When price touches the opposite Bollinger Band
+2. Secondary Exit: After 48 hours (2880 minutes) if opposite band isn't touched
+3. Emergency Exit: Immediate exit if price re-enters the bands before touching opposite side
+
+Risk Management:
+- Position sizing should account for the volatility expansion (recommend 1-2% risk per trade)
+- No new entries allowed until current position is closed
+- Avoid trading during major economic news events that may distort volume patterns
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviation standard settings)
+2. Volume indicator with 20-day average calculation
+3. Bandwidth measurement tool (high-low range of bands over 5 days)
+4. Time-based exit alarm (48-hour countdown)
+
+Optimization Notes:
+- Test different bandwidth periods (3-7 days) for squeeze detection
+- Experiment with volume thresholds (150-250% of average)
+- Consider adding RSI filter (e.g., >70/<30) for overbought/oversold confirmation
+
+This strategy excels in ranging markets transitioning to trends, using the volume surge as confirmation of genuine breakout rather than false breakout. The time-based exit prevents excessive drawdown during failed breakouts.

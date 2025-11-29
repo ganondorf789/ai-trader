@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolumetricSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines volume confirmation with volatility contraction to identify high-probability breakout opportunities. The core premise relies on the convergence of three key elements: OBV divergence, Keltner Channel squeeze, and price breakout confirmation.
+
+Key Components:
+1. On-Balance Volume (OBV) - Must reach a 20-day high
+2. Keltner Channel - Must show contraction/squeeze pattern
+3. Price Action - Must break channel boundaries after conditions are met
+
+Indicator Requirements:
+- Keltner Channel (20-period EMA, 2.0 ATR multiplier)
+- On-Balance Volume (standard calculation)
+- 20-day high/low reference points
+
+Entry Rules:
+1. Wait for OBV to reach a 20-day high (bullish confirmation)
+2. Identify when Keltner Channel width contracts to below average levels (squeeze)
+3. Enter long when price breaks above upper Keltner Channel
+4. Enter short when price breaks below lower Keltner Channel
+
+Exit Rules:
+1. For long positions: Exit when price closes below Keltner midline
+2. For short positions: Exit when price closes above Keltner midline
+3. Alternative exit: When OBV shows opposite 20-day extreme
+
+Risk Management:
+1. Position sizing based on channel width at entry (wider channels = smaller position)
+2. Initial stop placed at opposite channel boundary
+3. Trailing stop option: Move to breakeven when price reaches 1.5x channel width
+4. Maximum risk per trade: 1-2% of capital
+
+Optimization Notes:
+- Test different ATR multipliers (1.5-2.5 range) for channel sensitivity
+- Experiment with OBV lookback periods (15-25 days)
+- Consider adding volume filter (e.g., breakout must occur on above-average volume)
+
+This strategy works best in markets transitioning from low to high volatility, using OBV peaks to confirm genuine accumulation/distribution before the volatility expansion signaled by the channel breakout. The combination of volume confirmation with volatility contraction provides a robust filter against false breakouts.

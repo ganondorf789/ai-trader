@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolDivergenceExit  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Historical Volatility (HV) Analysis:** Uses 10-day HV crossing below its 30-day average to signal potential trend weakness.  
+2. **Price Volume Trend (PVT) Divergence:** Requires negative divergence (price making higher highs while PVT makes lower highs) to confirm bearish momentum.  
+3. **Exit Conditions:**  
+   - **50-day SMA Confluence:** Acts as a dynamic support level for profit-taking or stop-loss adjustment.  
+   - **Volatility Spike Reversal:** Monitors sudden increases in volatility (e.g., HV surge) to exit trades early.  
+
+**Entry Rules:**  
+- **Short Signal:** Triggered when:  
+  1. **10-day HV crosses below 30-day HV average** (indicating declining volatility).  
+  2. **Negative PVT divergence** is present (price rising, PVT falling).  
+- **Confirmation:** Optional candle close below a recent swing low for added conviction.  
+
+**Exit Rules:**  
+1. **Profit Target/Stop-Loss:**  
+   - **50-day SMA:** Exit if price retraces to touch or approach the 50-day SMA.  
+   - **Volatility Reversal:** Exit if 10-day HV spikes above 30-day HV average abruptly.  
+2. **Time-Based Exit:** Consider closing after 5-7 days if neither exit condition is met.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk ≤1-2% of capital per trade.  
+- **Stop-Loss (Optional):** Place above the recent swing high or a volatility-derived ATR multiple (e.g., 2x ATR).  
+- **Filter:** Avoid trading during major economic events to reduce false signals.  
+
+**Required Indicators:**  
+1. **Historical Volatility (10-day and 30-day averages).**  
+2. **Price Volume Trend (PVT) for divergence detection.**  
+3. **50-day Simple Moving Average (SMA) for exit confluence.**  
+
+**Unique Edge:** Combines volatility decay with volume-based divergence, targeting exhaustion points in bearish trends. The 50-day SMA acts as a "smart" exit zone, while volatility spikes protect against sudden reversals.  
+
+**Note:** Backtest to optimize HV lookback periods and PVT settings for specific assets (e.g., equities vs. forex).

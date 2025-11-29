@@ -1,0 +1,41 @@
+STRATEGY_NAME: ContangoDivergence
+
+STRATEGY_DETAILS:
+This strategy capitalizes on the divergence between VIX futures term structure and S&P 500 put/call ratio to identify short-selling opportunities in equity markets. The approach combines volatility market structure analysis with options market sentiment.
+
+Key Components:
+1. VIX Futures Term Structure: Monitors the relationship between near-term and longer-dated VIX futures
+2. S&P 500 Put/Call Ratio: Tracks the ratio of put options to call options traded on the S&P 500
+3. Contango/Backwardation Conditions: Identifies specific term structure formations
+
+Entry Rules:
+- SHORT ENTRY when both conditions are met:
+  1. VIX futures in contango (front month cheaper than later months)
+  2. S&P 500 put/call ratio shows decreasing trend (declining fear)
+
+Exit Rules:
+- COVER SHORT when:
+  1. VIX term structure inverts to backwardation (front month more expensive)
+  2. (Optional) Put/call ratio begins increasing significantly
+
+Risk Management:
+1. Position sizing based on volatility (consider VIX level)
+2. Stop-loss if term structure steepens further into contango while market rises
+3. Time-based exit if position doesn't work within expected timeframe
+
+Required Indicators:
+1. VIX futures prices (at least two contract months)
+2. S&P 500 put/call ratio (preferably 5-10 day moving average)
+3. Term structure visualization tool
+
+Additional Notes:
+- Works best during low-volatility regimes
+- May underperform during sudden volatility spikes
+- Requires monitoring of macroeconomic events that could impact volatility
+- Consider combining with technical indicators for confirmation
+- Most effective on S&P 500 or related ETFs rather than individual stocks
+
+This strategy exploits the tendency for markets to decline when:
+1. Volatility expectations are rising (contango)
+2. Traders are becoming complacent (declining put/call ratio)
+The exit condition captures when fear becomes more immediate (backwardation), often signaling market bottoms.

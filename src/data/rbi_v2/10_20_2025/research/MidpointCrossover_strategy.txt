@@ -1,0 +1,35 @@
+STRATEGY_NAME: MidpointCrossover
+
+STRATEGY_DETAILS:
+
+### Key Strategy Components
+This strategy is a trend-following approach for long-only positions, leveraging the interaction between a Bollinger Band's midpoint (which is inherently a simple moving average) and another simple moving average (SMA) to identify momentum shifts. The core idea revolves around the 50-period Bollinger Band Midpoint (BBMP), which serves as a dynamic trend filter. The BBMP is the middle band of a standard Bollinger Band setup, calculated as a 50-period SMA of closing prices, with bands typically set at ±2 standard deviations (though only the midpoint is used for the primary signal here). 
+
+The strategy compares the BBMP to a secondary SMA (period not specified in the description; for implementation, a longer period like 200 is recommended to act as a slower trend baseline, ensuring the BBMP acts as the "faster" line). Entry and exit are triggered by crossovers, indicating potential shifts in market momentum. A trailing stop based on Bollinger Band volatility provides dynamic risk control, adjusting to price movements while incorporating the strategy's volatility measure (standard deviation over the 50-period window). 
+
+This setup is best suited for trending markets with moderate volatility (e.g., forex majors, equities, or indices on daily or 4-hour timeframes). It assumes standard Bollinger Band parameters (20-period default is overridden here to 50 periods for the BBMP and std dev calculation). No short positions are defined, making it directional and bullish-biased.
+
+### Entry/Exit Rules
+- **Entry (Long Position)**: Enter a long position when the 50-period BBMP crosses above the secondary SMA. This signals bullish momentum, as the shorter-term average (BBMP) surpasses the longer-term trend line, suggesting upward price drift. 
+  - Confirmation: The crossover should be on a closed bar to avoid false signals from intrabar noise.
+  - Position sizing: Not specified; recommend 1-2% of account equity per trade to align with risk management.
+  - No additional filters (e.g., volume or RSI) are mentioned, but adding a volume surge or ADX > 25 could enhance reliability in backtesting.
+
+- **Exit Rules**:
+  - **Primary Exit (Signal-Based)**: Exit the long position when the 50-period BBMP crosses below the secondary SMA. This indicates a loss of bullish momentum and potential trend reversal.
+  - **Trailing Stop Exit**: Implement a trailing stop loss set at 2 standard deviations below the current BBMP (effectively the lower Bollinger Band for the 50-period setup). The stop trails upward as the BBMP rises during the trade, locking in profits while adapting to volatility. 
+    - Calculation: Trailing Stop Level = Current BBMP - (2 × 50-period standard deviation of closing prices).
+    - Update: Recalculate and adjust the stop on each bar close if the new level is higher than the previous one (for longs). Exit if price closes below this level.
+  - No fixed take-profit is defined; exits rely on the crossover or trailing stop, allowing trends to run while protecting gains.
+
+### Risk Management
+- **Stop Loss**: The trailing stop at 2 standard deviations from the BBMP provides volatility-adjusted protection, typically placing the initial stop 4-6% below entry (depending on asset volatility). This prevents large drawdowns in choppy markets by widening during high volatility and tightening in low-volatility uptrends.
+- **Position Sizing**: Use a risk-based approach, e.g., risk no more than 1% of total capital per trade based on the distance from entry to the initial trailing stop level. Formula: Position Size = (Account Risk Amount) / (Entry Price - Initial Stop Price).
+- **Maximum Drawdown Controls**: Limit concurrent positions to one (long-only). Avoid trading during high-impact news events to reduce slippage. If drawdown exceeds 10-15% on the strategy portfolio, pause trading for review.
+- **Other Considerations**: No explicit leverage rules; cap at 1:10 for conservative accounts. Backtest for win rate (aim for >50% with 1.5:1 reward:risk) and maximum adverse excursion to refine the secondary SMA period.
+
+### Required Indicators
+- **50-Period Bollinger Band Midpoint (BBMP)**: Core indicator; calculate as SMA(Close, 50). Use for crossover signals and trailing stop base. (Full Bollinger Bands not strictly needed beyond the midpoint and std dev for the stop.)
+- **Simple Moving Average (SMA)**: Secondary trend filter; period unspecified (suggest 200 for longer-term context). Calculate as SMA(Close, [period]).
+- **Standard Deviation (StdDev)**: 50-period standard deviation of closing prices, used solely for the trailing stop calculation (StdDev(Close, 50)).
+- **Platform/Tools**: Implement in TradingView, MT4/5, or Python (e.g., via TA-Lib for BB and SMA functions). No custom indicators required; standard libraries suffice. Ensure data is clean (e.g., adjusted closes for stocks) and test on historical data spanning multiple market cycles.

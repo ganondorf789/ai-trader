@@ -1,0 +1,55 @@
+STRATEGY_NAME: VoltaicReversion
+
+STRATEGY_DETAILS:
+The VoltaicReversion strategy is designed to capitalize on long-term volatility reversals using stochastic oscillators. This approach combines mean reversion principles with volatility analysis to identify overbought or oversold conditions in trending markets. The strategy is particularly effective in markets with cyclical price movements and extended trends.
+
+Key Components:
+1. Stochastic Oscillator (14,3,3) - Primary indicator for identifying overbought/oversold conditions
+2. 200-period Simple Moving Average (SMA) - Long-term trend filter
+3. Average True Range (ATR) - Volatility measurement and position sizing
+4. Bollinger Bands (20,2) - Secondary confirmation of volatility extremes
+
+Entry Rules:
+1. Long Entry:
+   - Price must be above 200 SMA (bullish trend)
+   - Stochastic %K crosses above %D from below 20 (oversold condition)
+   - Current price touches or crosses lower Bollinger Band
+   - ATR shows decreasing volatility (potential reversal)
+
+2. Short Entry:
+   - Price must be below 200 SMA (bearish trend)
+   - Stochastic %K crosses below %D from above 80 (overbought condition)
+   - Current price touches or crosses upper Bollinger Band
+   - ATR shows decreasing volatility (potential reversal)
+
+Exit Rules:
+1. Take Profit:
+   - 2:1 risk-reward ratio based on ATR stop distance
+   - Stochastic reaches opposite extreme (80 for long, 20 for short)
+
+2. Stop Loss:
+   - 1 ATR below entry for long positions
+   - 1 ATR above entry for short positions
+
+3. Time-based Exit:
+   - Close position if target not hit within 5 days
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Maximum daily risk limit of 3%
+3. Weekly drawdown limit of 7%
+4. Use trailing stop of 0.5 ATR after price moves 1 ATR in favorable direction
+
+Required Indicators:
+1. Stochastic Oscillator (14,3,3)
+2. 200-period Simple Moving Average
+3. Average True Range (14)
+4. Bollinger Bands (20,2)
+
+Optimization Tips:
+1. Adjust stochastic parameters based on market volatility
+2. Use higher timeframes (daily or 4-hour) for better signal reliability
+3. Combine with volume indicators for additional confirmation
+4. Test different ATR multiples for stop loss and take profit levels
+
+This strategy works best in markets with clear trends and cyclical volatility patterns. It requires patience as trades may take several days to develop, but offers strong risk-reward potential when properly executed.

@@ -1,0 +1,41 @@
+STRATEGY_NAME: DeltaClusterBreakout
+
+STRATEGY_DETAILS:
+This strategy combines order book analysis with momentum confirmation to trade breakouts from high-probability liquidity zones. The approach focuses on clustered liquidation levels identified through delta imbalances, then confirms entries with momentum signals while using dynamic pivot-based trailing stops.
+
+Key Components:
+1. Liquidity Clustering Detection - Identifies dense order book levels where stop-loss clusters likely exist through delta imbalance analysis
+2. Momentum Confirmation - Uses Chande Momentum Oscillator (CMO) to validate breakout strength
+3. Dynamic Range Management - Adjusts stop placement based on pivot point volatility ranges
+
+Entry Rules:
+1. Identify a clustered liquidation level through order book delta analysis (minimum 3:1 delta imbalance ratio)
+2. Wait for price to test and break through the identified level
+3. Confirm with Chande Momentum Oscillator (14-period) crossing above +50 for long or below -50 for short
+4. Enter on retest of broken level or first pullback after breakout
+
+Exit Rules:
+1. Initial stop placed at opposite side of the pivot range that contained the breakout
+2. Trail stop using dynamic pivot points (daily/weekly) adjusted for volatility
+3. Take partial profits at 1.5x initial risk, moving stop to breakeven
+4. Full exit when price closes beyond trailing stop or CMO reverses direction (crosses back through zero)
+
+Risk Management:
+1. Position size limited to 1-2% risk per trade
+2. Maximum daily loss limit of 5%
+3. No new entries if 3 consecutive losing trades occur
+4. Stop distance must be at least 1.5x the average true range (ATR)
+
+Required Indicators:
+1. Order Book Delta Imbalance Scanner
+2. Chande Momentum Oscillator (14-period)
+3. Dynamic Pivot Points (with volatility adjustment)
+4. Average True Range (14-period) for stop sizing
+
+Special Considerations:
+- Works best in high-liquidity markets during active trading hours
+- Requires real-time order book data feed
+- Most effective on 15m-4h timeframes
+- Filter for higher probability setups during London/NY session overlap
+
+This strategy capitalizes on institutional order flow patterns while using momentum to filter false breakouts, with dynamic stops that adapt to changing volatility conditions.

@@ -1,0 +1,33 @@
+STRATEGY_NAME: MomentumBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Donchian Channel Breakout:** The strategy uses a 20-day Donchian Channel (high and low range) to identify potential breakout levels.  
+2. **MACD Histogram Confirmation:** The breakout must be accompanied by an increasing MACD histogram, indicating strengthening momentum.  
+3. **Trailing ATR Stop:** Exits are managed using a trailing stop based on 2x the Average True Range (ATR) to lock in profits and limit downside risk.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when the price closes above the upper band of the 20-day Donchian Channel AND the MACD histogram is increasing (current bar > previous bar).  
+- **Short Entry:** Triggered when the price closes below the lower band of the 20-day Donchian Channel AND the MACD histogram is decreasing (current bar < previous bar).  
+
+**Exit Rules:**  
+- **Trailing Stop Exit:** The position is exited if the price moves against the trade by 2x the current ATR value from the highest (for long) or lowest (for short) point reached since entry.  
+- **Optional Time-Based Exit:** Consider adding a time-based exit (e.g., after 10 bars) if the trade does not progress as expected.  
+
+**Risk Management:**  
+- **Position Sizing:** Use a fixed percentage of capital (e.g., 1-2%) per trade to manage risk.  
+- **Stop-Loss:** The trailing ATR stop dynamically adjusts to volatility, ensuring tighter stops in low volatility and wider stops in high volatility.  
+- **Avoid Overcrowded Breakouts:** Filter out breakouts that occur near major support/resistance levels or during low-volume periods to reduce false signals.  
+
+**Required Indicators:**  
+1. **Donchian Channel (20-day):** Calculates the highest high and lowest low over the last 20 days.  
+2. **MACD Histogram:** Confirms momentum alignment with the breakout direction.  
+3. **Average True Range (ATR):** Used for setting the trailing stop distance (2x ATR).  
+
+**Additional Notes:**  
+- **Optimization:** Test different Donchian Channel lengths (e.g., 10, 30 days) and ATR multiples (e.g., 1.5x, 3x) for varying market conditions.  
+- **Trend Filter:** Consider adding a trend filter (e.g., 50-day moving average slope) to avoid counter-trend breakouts.  
+- **Backtesting:** Validate the strategy across multiple asset classes and timeframes to ensure robustness.  
+
+This strategy combines breakout mechanics with momentum confirmation and adaptive risk management, making it suitable for trending markets.

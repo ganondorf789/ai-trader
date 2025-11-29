@@ -1,0 +1,34 @@
+STRATEGY_NAME: LiquidationPulse  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cascade Focus:** Targets market conditions where forced liquidations trigger rapid price movements.  
+2. **Funding Rate & Open Interest (OI) Divergence:** High perpetual funding rates indicate excessive leverage, while declining OI signals unwinding positions—a precursor to cascades.  
+3. **Volatility-Based Exit:** Uses Average True Range (ATR) to confirm reduced volatility post-cascade, signaling exit.  
+
+**Entry Rules:**  
+- **Trigger:** Short when:  
+  - Funding rate is in the top 20% of its 30-day range (extreme bullish leverage).  
+  - Open Interest drops ≥15% within 4 hours (rapid deleveraging).  
+- **Confirmation:** Price must break below the 15-minute Ichimoku Cloud to validate bearish momentum.  
+
+**Exit Rules:**  
+- **Primary Exit:** Close position when 1-hour ATR falls below its 8-period moving average (volatility contraction).  
+- **Emergency Exit:** Immediate stop-loss if price rallies above the 4-hour high preceding the entry candle.  
+
+**Risk Management:**  
+- Position size capped at 2% of equity per trade.  
+- Stop-loss set at 1.5x the 4-hour ATR above entry price.  
+- No trades during major macroeconomic events (e.g., FOMC) to avoid false signals.  
+
+**Required Indicators:**  
+1. **Perpetual Funding Rate** (exchange-specific).  
+2. **Open Interest** (derivatives data platform).  
+3. **ATR (14-period)** for volatility thresholds.  
+4. **Ichimoku Cloud** (9/26/52 settings) for trend confirmation.  
+
+**Unique Edge:** Combines on-chain leverage metrics (funding/OI) with price-action confirmation, focusing exclusively on post-leverage unwind scenarios. Avoids generic "overbought" signals by targeting structural market fragility.  
+
+---  
+*Note: Backtest during historical liquidation events (e.g., BTC March 2020, LUNA collapse) to validate parameters.*

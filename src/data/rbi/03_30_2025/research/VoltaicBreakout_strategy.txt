@@ -1,0 +1,31 @@
+STRATEGY_NAME: VoltaicBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Dual Bollinger Band System**: Utilizes two sets of Bollinger Bands (inner and outer) with adaptive widths to detect volatility compression and expansion phases.  
+2. **Volume Surge Confirmation**: Requires a significant increase in trading volume to validate breakout signals, reducing false breakouts.  
+3. **Volatility-Based Entries/Exits**: Focuses on breakouts from compressed volatility (outer band exit) and retracements into stable zones (inner band re-entry).  
+
+**Entry Rules:**  
+- **Signal Trigger**: Price must close outside the outer Bollinger Band (indicating a volatility expansion).  
+- **Volume Confirmation**: Volume must surge above its 20-period moving average (or a user-defined threshold) on the breakout candle.  
+- **Directional Bias**: Long if breakout is above the outer band; short if breakout is below the outer band.  
+
+**Exit Rules:**  
+- **Retracement Exit**: Close the trade when price retraces back inside the inner Bollinger Band.  
+- **Optional Time Exit**: Exit after a fixed number of bars (e.g., 5-10) if no retracement occurs, to lock in profits.  
+
+**Risk Management:**  
+- **Stop Loss**: Place stop-loss just beyond the opposite outer band (for longs: below lower outer band; for shorts: above upper outer band).  
+- **Position Sizing**: Risk ≤1-2% of capital per trade, adjusting stop distance accordingly.  
+- **Volatility Filter**: Avoid trading if the distance between outer bands is too narrow (e.g., <2 ATR), indicating unreliable compression.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (Dual)**:  
+   - Inner Bands: 20-period SMA, 1.5 standard deviations.  
+   - Outer Bands: 20-period SMA, 2.5 standard deviations.  
+2. **Volume MA**: 20-period moving average of volume.  
+3. **ATR (Optional)**: 14-period ATR to assess volatility thresholds.  
+
+**Unique Edge:** Combines adaptive volatility bands with volume confirmation to filter high-probability breakouts, minimizing whipsaws common in traditional Bollinger strategies.

@@ -1,0 +1,30 @@
+STRATEGY_NAME: VolumetricCross  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **EMA Crossover:** Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as the primary trend confirmation.  
+2. **Volume Spike:** Requires a significant increase in trading volume to validate the strength of the trend reversal.  
+3. **RSI Overbought Exit:** Monitors the RSI for overbought conditions (crossing below 70) to signal potential trend exhaustion.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - The 50-period EMA crosses above the 200-period EMA (bullish trend confirmation).  
+  - Volume exceeds a predefined threshold (e.g., 1.5x the 20-period average volume) to confirm participation.  
+
+**Exit Rules:**  
+- **Profit-Taking/Exit:** When the RSI (14-period) crosses below 70, indicating the asset is leaving overbought territory and momentum may be waning.  
+- **Stop-Loss:** Optional trailing stop or fixed percentage below the entry price (e.g., 2-3% for intraday, 5-7% for swing trades).  
+
+**Risk Management:**  
+- Position sizing based on account risk (e.g., 1-2% per trade).  
+- Avoid entries during low-volume periods or when the RSI is already above 70 (preemptive overbought).  
+- Conflicting signals (e.g., EMA crossover without volume spike) are ignored.  
+
+**Required Indicators:**  
+1. **Exponential Moving Averages (EMAs):** 50-period and 200-period.  
+2. **Relative Strength Index (RSI):** 14-period default.  
+3. **Volume:** Raw volume + 20-period moving average for spike detection.  
+
+**Unique Edge:** Combines trend-following (EMA crossover) with volume confirmation and momentum-based exits, reducing false signals in choppy markets.  
+
+**Note:** Backtest to optimize volume spike thresholds and RSI parameters for specific assets.

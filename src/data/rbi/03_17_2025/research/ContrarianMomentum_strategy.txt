@@ -1,0 +1,31 @@
+STRATEGY_NAME: ContrarianMomentum
+
+STRATEGY_DETAILS:
+The ContrarianMomentum strategy combines momentum and contrarian principles to identify potential long entry opportunities during specific market conditions. The strategy leverages Bollinger Bands and the Relative Strength Index (RSI) to pinpoint oversold conditions within a broader uptrend, while using a 3-day average rate of return for exit signals.
+
+Key Strategy Components:
+1. Bollinger Bands: Used to identify price breakouts above the upper band, indicating potential momentum continuation.
+2. RSI (Relative Strength Index): Used to identify oversold conditions (typically below 30), suggesting a potential reversal or pullback.
+3. 3-Day Average Rate of Return: Calculated as the average percentage change in price over the last three days, used to determine exit points.
+
+Entry Rules:
+1. A long position is initiated when the following conditions are met:
+   - Price breaches the upper Bollinger Band, indicating strong upward momentum.
+   - RSI is in oversold territory (typically below 30), suggesting a potential reversal or pullback within the broader uptrend.
+
+Exit Rules:
+1. The position is exited based on the 3-day average rate of return:
+   - Calculate the average percentage change in price over the last three days.
+   - Exit the position if the current day's return falls below this average, indicating a potential loss of momentum.
+
+Risk Management:
+1. Position Sizing: Determine position size based on account risk tolerance, typically risking no more than 1-2% of the account per trade.
+2. Stop-Loss: Set a stop-loss order below a recent support level or a fixed percentage below the entry price to limit potential losses.
+3. Take-Profit: Consider setting a take-profit level based on a multiple of the initial risk (e.g., 2:1 or 3:1 risk-reward ratio) to lock in gains.
+
+Required Indicators:
+1. Bollinger Bands: Typically set with a 20-period moving average and 2 standard deviations.
+2. RSI: Set with a 14-period lookback, with oversold conditions identified below 30.
+3. 3-Day Average Rate of Return: Calculated as the average percentage change in price over the last three days.
+
+This strategy aims to capitalize on the momentum of a breakout while considering the contrarian signal provided by the oversold RSI, offering a balanced approach to identifying potential long opportunities in trending markets.

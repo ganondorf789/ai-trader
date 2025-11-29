@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityRebound  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Negative Funding Rates:** Indicates potential market overselling or excessive short positioning, creating conditions for a possible reversal.  
+2. **Volume Spike (90th Percentile):** Confirms strong market participation, suggesting a high-probability entry point.  
+3. **Lower Bollinger Band Touch:** Identifies a potential oversold condition, aligning with mean-reversion principles.  
+4. **Volatility Contraction Exit:** Uses reduced volatility as a signal to lock in profits or avoid prolonged consolidation.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when all three conditions are met:  
+  1. Funding rate is negative (indicating bearish sentiment).  
+  2. Trading volume exceeds the 90th percentile of recent historical volume (e.g., last 30 days).  
+  3. Price touches or crosses the lower Bollinger Band (20-period SMA, 2 Std Dev).  
+
+**Exit Rules:**  
+- **Exit Condition:** Close the position when volatility (measured by Bollinger Band width or ATR) contracts below a rolling 12-hour average threshold.  
+- Alternative Exit: Consider a trailing stop or fixed take-profit (e.g., 2-3x risk) if volatility remains elevated.  
+
+**Risk Management:**  
+- Position sizing should account for the high volatility of the setup (e.g., 1-2% risk per trade).  
+- Stop-loss placed below the recent swing low or a fixed percentage (e.g., 1.5x the Bollinger Band width).  
+- Avoid trading during major news events or illiquid periods to prevent false signals.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 Std Dev).  
+2. **Volume Percentile** (90th percentile threshold based on 30-day lookback).  
+3. **Funding Rate** (real-time data from exchange API).  
+4. **Volatility Measure** (e.g., Bollinger Band width or 14-period ATR for exit logic).  
+
+**Notes:**  
+- Backtest across multiple assets to confirm robustness.  
+- Works best in crypto markets due to funding rate dynamics.  
+- Combine with additional filters (e.g., RSI divergence) to reduce false signals.

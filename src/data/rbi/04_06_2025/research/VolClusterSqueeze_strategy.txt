@@ -1,0 +1,30 @@
+STRATEGY_NAME: VolClusterSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies periods of low volatility (contraction) where Bollinger Bands narrow significantly, often preceding high-probability breakouts.  
+2. **VWAP Liquidity Clusters:** Uses Volume-Weighted Average Price (VWAP) to detect areas of high liquidity, indicating potential support/resistance zones.  
+3. **Volume Confirmation:** Requires above-average volume to validate breakout signals, ensuring momentum behind the move.  
+4. **Volatility Percentile Thresholds:** Exits are based on opposing volatility extremes (e.g., upper/lower Bollinger Band percentiles), locking in profits before mean reversion.  
+
+**Entry Rules:**  
+1. Wait for a confirmed Bollinger Band squeeze (bands within top 10% of their narrowest historical range).  
+2. Identify a VWAP liquidity cluster (price consolidating near VWAP with high traded volume).  
+3. Enter long on a breakout above the upper Bollinger Band with volume > 20-day average. Enter short on a breakdown below the lower band with the same volume confirmation.  
+
+**Exit Rules:**  
+1. **Take Profit:** Close long positions when price reaches the lower Bollinger Band's 90th percentile volatility threshold (or upper band for shorts).  
+2. **Stop Loss:** Exit if price reverses into the opposing VWAP liquidity cluster or breaches the mid-Bollinger Band (20-period SMA).  
+
+**Risk Management:**  
+1. Position sizing based on 1-2% risk per trade, with stops placed at the mid-Bollinger Band or VWAP cluster boundary.  
+2. Avoid trading during macroeconomic events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 standard deviations).  
+2. VWAP (daily/weekly, depending on timeframe).  
+3. Volume oscillator (to confirm breakout strength).  
+4. Historical volatility percentile tool (e.g., Keltner Channels or ATR bands for context).  
+
+**Unique Edge:** Combines volatility contraction (Bollinger Squeeze) with liquidity-based confirmation (VWAP clusters), filtering out low-probability breakouts. The dual exit mechanism (volatility percentiles + VWAP) optimizes reward-to-risk.

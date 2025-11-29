@@ -1,0 +1,46 @@
+STRATEGY_NAME: LiquidityMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chande Momentum Oscillator (CMO):** A momentum indicator that measures the strength of price movement, ranging from -100 to +100.  
+2. **Standard Deviation Envelope (50-period):** Creates dynamic upper and lower bands around the CMO to identify extreme momentum conditions.  
+3. **On-Chain Liquidity Clusters:** Identifies areas of high liquidity concentration from blockchain data, acting as support/resistance zones.  
+4. **Fibonacci Levels:** Key retracement levels (e.g., 38.2%, 50%, 61.8%) used to confirm high-probability entry zones.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  1. CMO crosses **above** its upper 50-period standard deviation envelope (overbought breakout).  
+  2. Price is near a **Fibonacci support level** (e.g., 38.2% or 61.8% retracement).  
+  3. On-chain data shows a **liquidity cluster** acting as support.  
+- **Short Entry:** Triggered when:  
+  1. CMO crosses **below** its lower 50-period standard deviation envelope (oversold breakdown).  
+  2. Price is near a **Fibonacci resistance level**.  
+  3. On-chain data confirms a **liquidity cluster** acting as resistance.  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Close position when CMO reverses back inside the standard deviation envelope.  
+  - Alternatively, exit at the next major Fibonacci level (e.g., 161.8% extension for trend continuation).  
+- **Stop Loss:**  
+  - Place stop below the nearest liquidity cluster (for longs) or above it (for shorts).  
+  - Alternatively, use a trailing stop based on ATR (e.g., 2x ATR).  
+
+**Risk Management:**  
+- Risk per trade: **1-2% of capital**.  
+- Position sizing adjusted based on distance to stop-loss level.  
+- Avoid trading during low-liquidity periods (e.g., weekends, holidays).  
+
+**Required Indicators:**  
+1. Chande Momentum Oscillator (CMO)  
+2. Standard Deviation Envelope (50-period, applied to CMO)  
+3. On-chain liquidity heatmap (e.g., Glassnode, IntoTheBlock)  
+4. Fibonacci retracement tool  
+5. Optional: ATR for dynamic stop placement  
+
+**Unique Aspects:**  
+- Combines **momentum extremes** (CMO + Std Dev) with **on-chain liquidity** for high-probability entries.  
+- Uses **Fibonacci confluence** to filter trades, reducing false signals.  
+- Adapts to market regimes by focusing on liquidity zones rather than static levels.  
+
+**Note:** Backtest to optimize the standard deviation multiplier (e.g., 1.5x vs. 2x) for the CMO envelope.

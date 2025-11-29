@@ -1,0 +1,57 @@
+STRATEGY_NAME: VolumetricVwapBreakout
+
+STRATEGY_DETAILS:
+This strategy combines dynamic volatility-adjusted VWAP bands with volume confirmation to identify high-probability breakout opportunities. The core innovation lies in using volatility-based standard deviation adjustments to the VWAP envelope rather than fixed percentages, making it responsive to changing market conditions.
+
+Key Components:
+1. Dynamic VWAP Envelope:
+   - Base VWAP calculation (standard volume-weighted average price)
+   - Upper band: VWAP + (2 * rolling standard deviation of volatility)
+   - Lower band: VWAP - (2 * rolling standard deviation of volatility)
+   - Recommended lookback period for volatility calculation: 14-20 periods
+
+2. Volume Filter:
+   - Current volume must exceed 20-day median volume
+   - Volume spike confirmation increases breakout validity
+
+Entry Rules:
+1. Long Entry:
+   - Price closes above upper VWAP volatility band
+   - Volume exceeds 20-day median
+   - Enter on next candle's open
+
+2. Short Entry:
+   - Price closes below lower VWAP volatility band
+   - Volume exceeds 20-day median
+   - Enter on next candle's open
+
+Exit Rules:
+1. Profit Taking:
+   - 2:1 reward-to-risk ratio minimum
+   - Alternative: Close when price re-enters VWAP envelope
+
+2. Stop Loss:
+   - Fixed percentage (1-2%) below entry for longs/above entry for shorts
+   - OR volatility-adjusted stop (e.g., 1 ATR from entry)
+
+Risk Management:
+1. Position sizing:
+   - Risk 1-2% of capital per trade
+   - Adjust position size based on stop distance
+
+2. Trade Filter:
+   - Only trade in direction of higher timeframe trend (optional filter)
+   - Avoid trading during low liquidity periods
+
+Required Indicators:
+1. VWAP (Volume Weighted Average Price)
+2. Rolling standard deviation of volatility (20-period recommended)
+3. Volume indicator with 20-day median calculation
+4. Optional: ATR for stop loss calculation
+
+Optimization Notes:
+- Test different standard deviation multiples (1.5-2.5 range)
+- Experiment with volume thresholds (1.2x-2x median)
+- Adjust lookback periods for volatility calculation
+
+This strategy excels in trending markets with clear volatility expansions, using volume as confirmation to filter false breakouts. The dynamic VWAP bands adapt to market conditions, making it more responsive than fixed-percentage envelopes.

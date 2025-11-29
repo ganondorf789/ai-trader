@@ -1,0 +1,48 @@
+STRATEGY_NAME: VortexFlow Extension
+
+STRATEGY_DETAILS:
+This strategy combines the Vortex Indicator (VI) with Chaikin Money Flow (CMF) to identify low-volatility trading opportunities, using Fibonacci extensions for profit targets. The approach capitalizes on trend confirmation during periods of compressed volatility, offering favorable risk-reward ratios.
+
+Key Components:
+1. Vortex Indicator (VI) - Measures trend direction and strength using positive (VI+) and negative (VI-) trendlines
+2. Chaikin Money Flow (CMF) - 21-period volume-weighted money flow oscillator
+3. Average True Range (ATR) - 14-period volatility filter
+4. Fibonacci Extension Tool - For profit targets (127% and 161.8% levels)
+
+Entry Rules (Long):
+1. ATR(14) must be below its 20-period SMA (low volatility condition)
+2. VI+ crosses above VI- (bullish trend initiation)
+3. CMF > 0 (confirming buying pressure)
+4. Enter at next candle's open
+
+Entry Rules (Short):
+1. ATR(14) must be below its 20-period SMA (low volatility condition)
+2. VI- crosses above VI+ (bearish trend initiation)
+3. CMF < 0 (confirming selling pressure)
+4. Enter at next candle's open
+
+Exit Rules:
+1. Primary Target: 127% Fibonacci extension of recent swing
+2. Secondary Target: 161.8% Fibonacci extension
+3. Stop Loss: Opposite side of recent swing low/high
+4. Emergency Exit: VI crossover reverses direction
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop loss must be placed immediately after entry
+3. No trades during major economic news events
+4. Maximum 5 concurrent open positions
+
+Indicator Settings:
+- Vortex Indicator: 14-period (standard)
+- Chaikin Money Flow: 21-period
+- ATR: 14-period with 20-period SMA filter
+- Fibonacci: Measured from most recent significant swing high/low
+
+Optimization Notes:
+1. Test different ATR filter periods (10-20)
+2. Experiment with CMF thresholds (±0.05 to ±0.15)
+3. Consider adding volume confirmation (above 20-period average)
+4. Backtest different Fibonacci levels (100%, 138.2%)
+
+This strategy works best in ranging markets transitioning to trends, avoiding high volatility periods where false signals increase. The combination of trend confirmation (VI) with money flow (CMF) during low volatility creates high-probability setups with defined risk parameters.

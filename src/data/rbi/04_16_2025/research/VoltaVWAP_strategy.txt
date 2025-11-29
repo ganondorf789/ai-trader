@@ -1,0 +1,33 @@
+STRATEGY_NAME: VoltaVWAP  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Breakout System**: Uses ATR-based bands to identify significant price movements beyond normal volatility.  
+2. **VWAP Anchor**: 20-period Volume-Weighted Average Price (VWAP) serves as the baseline for breakout calculations.  
+3. **RSI Exit Filter**: Relative Strength Index (RSI) determines trend exhaustion for exits.  
+
+**Entry Rules:**  
+- **Long Entry**: Price crosses *above* the 20-period VWAP + (2 × ATR).  
+- **Short Entry**: Price crosses *below* the 20-period VWAP − (2 × ATR).  
+
+**Exit Rules:**  
+- **Long Exit**: RSI crosses *below* 60 (profit-taking) or *below* 40 (stop-loss).  
+- **Short Exit**: RSI crosses *above* 40 (profit-taking) or *above* 60 (stop-loss).  
+
+**Risk Management:**  
+1. **ATR-Based Stops**: Initial stop-loss at 1× ATR from entry.  
+2. **Position Sizing**: Adjust trade size based on ATR to normalize risk per trade.  
+3. **Time Exit**: Close trades if no RSI signal occurs within 5 bars.  
+
+**Required Indicators:**  
+1. **VWAP (20-period)** – Baseline for breakouts.  
+2. **ATR (14-period)** – Measures volatility for band width.  
+3. **RSI (14-period)** – Exit trigger (40/60 thresholds).  
+
+**Unique Aspects:**  
+- Combines *volume-weighted price* (VWAP) with *volatility bands* for higher-probability breakouts.  
+- Uses RSI *asymmetrically* (60 for long exits, 40 for shorts) to align with trend momentum.  
+
+**Optimization Tips:**  
+- Test ATR multipliers (1.5×–3×) for different asset volatilities.  
+- Adjust RSI thresholds (e.g., 30/70) for more aggressive exits.

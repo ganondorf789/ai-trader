@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with volume surge confirmation to identify high-probability breakout opportunities. The unique combination of volatility compression and volume expansion creates a powerful setup for explosive price movements.
+
+Key Components:
+1. Bollinger Band Width Contraction: Measures the 20-period BB width reaching a 6-month low, indicating extreme volatility compression
+2. Volume Surge Filter: Requires volume exceeding 1.5x the 30-day average for confirmation
+3. Trailing Exit: Uses a dynamic 2x ATR stop to capture trends while protecting profits
+
+Entry Rules:
+1. Wait for the 20-period Bollinger Band width to reach its lowest point in the past 6 months (126 trading days)
+2. Confirm with volume exceeding 150% of the 30-day average volume
+3. Enter on the first candle that closes outside either Bollinger Band (upper or lower) with the volume confirmation
+
+Exit Rules:
+1. Initial Stop: Set at 2x ATR(14) from entry price in the opposite direction of the trade
+2. Trailing Stop: Adjust stop daily to maintain 2x ATR(14) distance from the most extreme favorable price
+3. Optional Profit Target: Consider taking partial profits at 3x ATR(14) if desired
+
+Risk Management:
+1. Position size should be calculated to risk no more than 1-2% of capital per trade
+2. Avoid trading during major economic news events that may cause false breakouts
+3. Wait for full candle closes outside Bollinger Bands to confirm the breakout
+
+Required Indicators:
+1. Bollinger Bands (20 periods, 2 standard deviations)
+2. Bollinger Band Width indicator
+3. Volume indicator with 30-day average
+4. ATR(14) for stop calculation
+
+Additional Notes:
+- Works best on liquid assets with consistent volume patterns
+- More reliable on daily timeframe but can be adapted to 4H with adjustments
+- Combine with sector/overall market direction for higher probability trades
+- Backtest suggests best results when trading with the prevailing higher timeframe trend

@@ -1,0 +1,36 @@
+STRATEGY_NAME: CloudSqueezeMomentum
+
+STRATEGY_DETAILS:
+This strategy combines the trend-confirming power of Ichimoku Cloud analysis with momentum confirmation from the TTM Squeeze indicator, using Heikin-Ashi candles for smoother trend visualization.
+
+Key Components:
+1. Heikin-Ashi Candles (4H timeframe) - Provides cleaner trend visualization by filtering market noise
+2. Ichimoku Cloud - Determines overall trend direction and support/resistance levels
+3. TTM Squeeze - Identifies momentum shifts and volatility contractions
+
+Entry Rules (Long Only):
+1. Primary Condition: 4H Heikin-Ashi candle must close ABOVE the Ichimoku Cloud
+2. Confirmation: TTM Squeeze histogram must turn positive (transition from negative/zero to positive)
+3. Volume confirmation (recommended): Increasing volume on breakout candle strengthens signal
+
+Exit Rules:
+1. Primary Exit: When price closes back INSIDE or BELOW the Ichimoku Cloud
+2. Secondary Exit: When TTM Squeeze histogram contracts (loses momentum) after being positive
+3. Emergency Exit: If price makes a lower low while above cloud (potential false breakout)
+
+Risk Management:
+1. Position Size: Risk no more than 1-2% of capital per trade
+2. Stop Placement: Initial stop below most recent swing low OR below Cloud base
+3. Trailing Stop: Consider moving stop to breakeven when price reaches 1.5x risk
+4. Maximum Drawdown: Cease trading if account loses 5% in a week
+
+Required Indicators:
+1. Heikin-Ashi Candles (replace standard candles)
+2. Ichimoku Cloud (standard settings: 9/26/52)
+3. TTM Squeeze (default settings typically work well)
+
+Additional Notes:
+- Works best in trending markets, may produce false signals during ranging periods
+- Combine with higher timeframe (daily) Cloud analysis for stronger confirmation
+- Avoid trading during major news events that may cause volatility spikes
+- Ideal for forex and commodity markets with strong trending characteristics

@@ -1,0 +1,33 @@
+STRATEGY_NAME: SqueezeCluster  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies periods of low volatility where price is consolidating, often preceding significant breakouts.  
+2. **Liquidation Heatmap Clusters:** Pinpoints areas where high liquidity (and potential stop-loss orders) are clustered, indicating zones where price may accelerate upon breakout.  
+3. **Volatility Expansion Exit:** Uses a percentile-based threshold to exit trades when volatility spikes, capturing the momentum phase before potential reversals.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when:  
+  - Bollinger Band width (BBW) is below its 20-period average (indicating a squeeze).  
+  - Price is near a liquidation cluster (heatmap shows dense liquidity zone below current price).  
+- **Short Entry:** Trigger when:  
+  - BBW is below its 20-period average.  
+  - Price is near a liquidation cluster (heatmap shows dense liquidity zone above current price).  
+
+**Exit Rules:**  
+- **Volatility Expansion Exit:** Close position when:  
+  - BBW expands above the 90th percentile of its 30-day range (indicating high volatility).  
+- **Optional Stop-Loss:** Set at the opposite side of the liquidation cluster (e.g., below cluster for longs, above for shorts).  
+
+**Risk Management:**  
+- Position sizing based on distance to liquidation cluster (wider clusters allow larger positions).  
+- Hard stop-loss at 1.5x the average true range (ATR) of the past 14 periods.  
+- Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) + BBW (Bollinger Band Width).  
+2. Liquidation Heatmap (external data source or footprint chart analysis).  
+3. Volatility Percentile (30-day BBW range calculation).  
+
+**Unique Edge:** Combines volatility contraction (squeeze) with liquidity-driven momentum, targeting high-probability breakouts while avoiding false signals with percentile-based exits.

@@ -1,0 +1,51 @@
+STRATEGY_NAME: VoltaicSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with RSI momentum and ATR-based exits to capitalize on volatility compression breakouts.
+
+Key Components:
+1. Bollinger Bands (20,2) - Measures volatility contraction
+2. RSI (14) - Confirms momentum direction
+3. ATR (14) - Determines dynamic exit points
+4. 30-day lookback period - Identifies significant squeeze conditions
+
+Entry Rules:
+1. Primary Condition: Bollinger Band width (Upper-Lower) must be at its narrowest point in the last 30 trading days
+2. Confirmation: RSI must be above 50 (indicating bullish momentum)
+3. Entry: Long position triggered when both conditions are met on closing price
+
+Exit Rules:
+1. Profit Target: 2x ATR (14-period) from entry price (measured from close to close)
+2. Stop Loss: None explicitly defined (exit purely based on ATR target)
+3. Alternative Exit: Consider closing if Bollinger Bands expand beyond 30-day average width
+
+Risk Management:
+1. Position sizing should account for the 2x ATR move as potential profit target
+2. No stop loss means potential for larger drawdowns - consider adding:
+   - Trailing stop based on ATR
+   - Time-based exit if target not hit within X days
+3. Volatility filter: Consider only trading when overall market VIX is below certain threshold
+
+Indicator Settings:
+- Bollinger Bands: 20-period SMA, 2 standard deviations
+- RSI: 14-period
+- ATR: 14-period
+- Bollinger Band width calculation: (Upper Band - Lower Band)/Middle Band
+
+Optimization Considerations:
+1. Test different RSI thresholds (e.g., 45-55 range)
+2. Experiment with ATR multiples (1.5x-3x)
+3. Evaluate different lookback periods for squeeze identification (20-50 days)
+4. Consider adding volume confirmation for breakouts
+
+Unique Advantages:
+1. Captures explosive moves after periods of low volatility
+2. Uses multiple confirmation factors (volatility + momentum)
+3. Dynamic exit adapts to current market conditions
+4. Works well in trending markets after consolidation periods
+
+Potential Weaknesses:
+1. May experience whipsaws in ranging markets
+2. No stop loss could lead to larger losses
+3. Requires sufficient volatility contraction to trigger entries
+4. Performance depends on proper ATR multiple selection

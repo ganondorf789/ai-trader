@@ -1,0 +1,50 @@
+STRATEGY_NAME: VolumetricBandwidth
+
+STRATEGY_DETAILS:
+This strategy combines volume-weighted price action with Bollinger Band dynamics to identify high-probability trend entries with built-in exit signals. The unique combination of VWAP confirmation, band expansion/contraction metrics, and volume filters creates a robust trading framework.
+
+Key Components:
+1. VWAP (Volume Weighted Average Price) - Primary trend confirmation
+2. Bollinger Bands (20,2 standard deviations) - Volatility measurement
+3. Bollinger Band Width (20-period SMA) - Expansion/contraction filter
+4. Volume - Confirmation for short entries
+
+Entry Rules:
+LONG:
+1. Price must cross above VWAP
+2. Bollinger Band width must be expanding (current width > 20-period SMA of width)
+3. Entry occurs at market price after both conditions are met
+
+SHORT:
+1. Price must cross below VWAP
+2. Bollinger Band width must be expanding (current width > 20-period SMA of width)
+3. Volume must be above its 20-period average
+4. Entry occurs at market price after all conditions are met
+
+Exit Rules:
+LONG EXIT:
+1. Price closes below the lower Bollinger Band
+2. Immediate market exit triggered
+
+SHORT EXIT:
+1. Price closes above the upper Bollinger Band
+2. Immediate market exit triggered
+
+Risk Management:
+1. Recommended stop-loss at 1.5x the Bollinger Band width at entry
+2. Position sizing based on 1-2% risk per trade
+3. Time-based exit if bands don't contract within 5 periods
+
+Required Indicators:
+1. VWAP (standard calculation)
+2. Bollinger Bands (20,2)
+3. Bollinger Band Width indicator
+4. 20-period SMA of Band Width
+5. Volume indicator with 20-period average
+
+Optimization Notes:
+1. Band period (20) can be adjusted between 15-25
+2. Standard deviation (2) can range from 1.8-2.2
+3. Volume filter period can be tested between 15-25
+
+This strategy works best in trending markets and may produce false signals during ranging conditions. The volume confirmation for shorts adds asymmetry to account for typical market behavior where downtrends often require stronger confirmation than uptrends.

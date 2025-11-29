@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquidationSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Counter-Trend Approach**: The strategy focuses on identifying potential reversals when price reaches extreme liquidation levels.  
+2. **Bollinger Band Squeeze**: Uses Bollinger Bands to detect periods of low volatility (squeeze) which often precede significant price movements.  
+3. **Liquidation Clusters**: Identifies key price levels where clustered liquidations (stop-losses or take-profits) are likely to trigger reversals.  
+4. **Volatility Contraction Extremes**: Entries are timed when volatility is at its lowest, signaling an impending breakout.  
+
+**Entry Rules:**  
+1. **Bollinger Band Squeeze Confirmation**: Wait for the Bollinger Bands (standard settings: 20-period SMA, 2 standard deviations) to contract significantly, indicating low volatility.  
+2. **Liquidation Cluster Alignment**: Identify price levels where liquidation clusters (e.g., high volume nodes, order book imbalances, or historical support/resistance) coincide with the Bollinger Band squeeze.  
+3. **Counter-Trend Entry**: Enter a long position near the lower Bollinger Band if price is at a liquidation cluster support level, or a short position near the upper Bollinger Band if price is at a liquidation cluster resistance level.  
+
+**Exit Rules:**  
+1. **Breakout Exit**: Exit the trade when price breaks out of the Bollinger Band squeeze, either above the upper band (for shorts) or below the lower band (for longs).  
+2. **Liquidation Cluster Break**: If price breaks through the liquidation cluster level (invalidating the reversal thesis), exit immediately.  
+3. **Time-Based Exit**: Consider exiting if the squeeze does not resolve within a predefined period (e.g., 5-10 candles) to avoid stagnation.  
+
+**Risk Management:**  
+1. **Stop-Loss Placement**: Set stop-loss orders just beyond the liquidation cluster levels (e.g., 1-2% beyond the cluster for tighter risk control).  
+2. **Position Sizing**: Use conservative position sizing (e.g., 1-2% of capital per trade) due to the counter-trend nature of the strategy.  
+3. **Volatility Filter**: Avoid trading during high-volatility events (e.g., news releases) unless the squeeze and liquidation clusters align perfectly.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2)**: To identify volatility contractions and potential breakout zones.  
+2. **Volume Profile or Order Book Data**: To detect liquidation clusters (e.g., high volume nodes, significant order flow imbalances).  
+3. **Optional: RSI (14)**: Can be used to confirm oversold/overbought conditions when entering counter-trend positions.  
+
+**Additional Notes:**  
+- This strategy works best in ranging or mildly trending markets where liquidation clusters are respected.  
+- Avoid using it in strongly trending markets where breakouts may continue beyond liquidation levels.  
+- Backtest thoroughly to validate the effectiveness of liquidation cluster identification in your chosen market.  
+
+This strategy combines mean-reversion (counter-trend) principles with breakout dynamics, making it unique in its approach to exploiting liquidity-driven reversals.

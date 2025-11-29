@@ -1,0 +1,34 @@
+STRATEGY_NAME: LiquidityBandwidth  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Analysis**: Identifies high-liquidity zones where stop orders are likely clustered (e.g., above recent highs for longs or below recent lows for shorts).  
+2. **Bollinger Bandwidth Contraction**: Uses narrowing Bollinger Bands (e.g., 20-period, 2 StdDev) to detect low-volatility conditions preceding potential breakouts.  
+3. **Volatility Expansion Exit**: Monitors for Bollinger Bandwidth expansion or sudden price spikes indicating a liquidity grab.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  1. Price approaches a high-liquidation zone (e.g., within 0.5–1.5% of a recent swing high).  
+  2. Bollinger Bandwidth is below a threshold (e.g., 0.5 times its 50-period average).  
+  3. Confirmation from a momentum oscillator (e.g., RSI > 50 but not overbought).  
+- **Short Entry**: Mirror logic for lows, with RSI < 50.  
+
+**Exit Rules:**  
+- **Take Profit**: Partial exit at 1:1 risk-reward ratio; trail remainder using a volatility-based stop (e.g., close beyond opposite Bollinger Band).  
+- **Stop Loss**: Placed just beyond the liquidation zone (e.g., 0.3% past the cluster high/low).  
+- **Emergency Exit**: Immediate exit if Bandwidth expands abruptly (e.g., 2x average within 5 candles).  
+
+**Risk Management:**  
+- Position size capped at 1–2% of capital per trade.  
+- No entries if Bandwidth is expanding or liquidity zones are ambiguous.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2 StdDev) + Bandwidth calculation.  
+2. RSI (14-period) for momentum filtering.  
+3. Liquidation heatmap or order-book analysis (if available).  
+
+**Unique Edge:** Combines liquidity hunting behavior with volatility cycles, targeting low-risk entries before institutional stop-runs.  
+
+---  
+*Note: Backtest for asset-specific liquidity zone distances and Bandwidth thresholds.*

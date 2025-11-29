@@ -1,0 +1,40 @@
+STRATEGY_NAME: VortexContraction
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines three technical indicators for high-probability trend entries
+- Uses Vortex Indicator (VI) for primary trend confirmation
+- Bollinger Band width contraction identifies low volatility periods
+- ADX measures trend strength development
+- Looks for alignment between volatility contraction and emerging trend strength
+
+2. Entry Rules:
+- Primary Condition: VI+ (positive trend) must be above VI- (negative trend) for long entries
+- Secondary Condition: Bollinger Band width must be below its 20-period average (contraction)
+- Tertiary Condition: ADX must be rising and above 25 (developing trend strength)
+- Entry Trigger: Price closes above the middle Bollinger Band (20MA) for long positions
+
+3. Exit Rules:
+- Primary Exit: Price touches upper Bollinger Band (take partial profits)
+- Secondary Exit: VI+ crosses below VI- (trend reversal signal)
+- Stop Loss: Recent swing low (for longs) or swing high (for shorts)
+- Emergency Exit: ADX begins declining sharply (trend losing momentum)
+
+4. Risk Management:
+- Position sizing based on 1-2% risk per trade
+- Initial stop placed at swing point beyond Bollinger Band
+- Trailing stop activated after price moves 1.5x ATR in profit
+- Maximum portfolio exposure limited to 5 open positions
+
+5. Required Indicators:
+- Vortex Indicator (VI) with standard 14-period setting
+- Bollinger Bands (20,2) with width calculation
+- ADX (14-period) with +DI/-DI lines
+- Optional: ATR (14) for volatility measurement and stop placement
+
+6. Additional Notes:
+- Works best on 1H-4H timeframes for swing trading
+- Avoid trading during major news events
+- Most effective in trending markets, less during choppy conditions
+- Requires confirmation from at least 2 of 3 indicators for entries
+- Backtest suggested for optimal parameter tuning per instrument

@@ -1,0 +1,33 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Compression Detection:** Uses Keltner Channel squeeze percentile to identify periods of low volatility (compression) likely to precede explosive breakouts.  
+2. **Volume Confirmation:** Incorporates short-term volume acceleration to validate breakout strength, filtering false moves.  
+3. **Trend Continuation Signal:** Breakouts are traded in the direction of the prevailing trend, confirmed by the composite indicator.  
+4. **Exit Mechanism:** Relies on Parabolic SAR reversals to capture profits before potential trend exhaustion.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when price breaks above the upper Keltner Channel *and* volume acceleration exceeds its 5-period moving average, while the squeeze percentile is below 20% (indicating extreme compression).  
+- **Short Entry:** Triggered when price breaks below the lower Keltner Channel *and* volume acceleration exceeds its 5-period moving average, with squeeze percentile < 20%.  
+
+**Exit Rules:**  
+- **Long Exit:** Parabolic SAR flips below price (downtrend signal).  
+- **Short Exit:** Parabolic SAR flips above price (uptrend signal).  
+- **Emergency Exit:** Immediate exit if price reverses beyond the opposite Keltner Channel boundary (failed breakout).  
+
+**Risk Management:**  
+- **Stop-Loss:** Placed at the midpoint of the Keltner Channel (neutral zone) or 1.5x the average true range (ATR) from entry, whichever is tighter.  
+- **Position Sizing:** Allocates 1-2% of capital per trade, adjusted for volatility (e.g., wider channels reduce position size).  
+- **Time Filter:** Avoids entries during the first/last 30 minutes of the session to reduce noise.  
+
+**Required Indicators:**  
+1. **Keltner Channels (20-period, 2x ATR width)** – Defines volatility boundaries.  
+2. **Squeeze Percentile (0-100%)** – Measures compression intensity.  
+3. **Volume Acceleration (5-period ROC of volume vs. 5-period MA)** – Confirms breakout momentum.  
+4. **Parabolic SAR (0.02 step, 0.2 max)** – Tracks trend reversals for exits.  
+
+**Unique Edge:** Combines volatility thresholds with volume dynamics, avoiding pure price-based breakouts. The squeeze percentile acts as a "coiled spring" gauge, while volume acceleration ensures institutional participation. Exits via SAR lock in gains without overstaying.  
+
+**Optimization Tip:** Backtest squeeze percentile thresholds (e.g., 15% vs. 20%) and SAR step values for different asset classes. Cryptocurrencies may require wider channels due to higher volatility.

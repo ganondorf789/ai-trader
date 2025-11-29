@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection:** The strategy identifies periods of low volatility when Bollinger Bands contract below a 20-day historical volatility threshold, signaling a potential breakout.  
+2. **Breakout Confirmation:** Entries are triggered when price breaks out of the Bollinger Bands, indicating the start of a new trend.  
+3. **Trailing Stop Exit:** Positions are managed using a trailing stop based on the Average True Range (ATR) to lock in profits and minimize losses.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when price closes above the upper Bollinger Band after a volatility squeeze (Bollinger Band width below the 20-day historical volatility threshold).  
+- **Short Entry:** Triggered when price closes below the lower Bollinger Band after a volatility squeeze.  
+
+**Exit Rules:**  
+- **Trailing Stop Exit:** The stop-loss is set at a multiple of the ATR (e.g., 2x ATR) from the highest high (for long positions) or lowest low (for short positions) since entry.  
+- **Time-Based Exit (Optional):** Exit the trade if no significant movement occurs within a predefined period (e.g., 5-10 bars).  
+
+**Risk Management:**  
+- **Position Sizing:** Use a fixed percentage of capital per trade (e.g., 1-2%) to manage risk.  
+- **Stop-Loss:** Initial stop-loss can be set at a multiple of ATR (e.g., 1.5x ATR) from the entry price if not using a trailing stop immediately.  
+- **Volatility Filter:** Avoid trading during excessively high volatility (e.g., when ATR is above a certain threshold).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 standard deviations)** – To identify volatility squeeze and breakout levels.  
+2. **Historical Volatility (20-day)** – To measure volatility contraction.  
+3. **Average True Range (ATR, 14-period)** – For trailing stop placement and risk assessment.  
+
+**Additional Notes:**  
+- Works best in trending markets after consolidation phases.  
+- May generate false signals in choppy or range-bound conditions—consider adding a trend filter (e.g., 50/200 MA crossover) to improve accuracy.  
+- Optimize ATR multiplier and Bollinger Band settings based on asset volatility.  
+
+This strategy capitalizes on breakout momentum following low-volatility periods while using ATR to dynamically manage risk.

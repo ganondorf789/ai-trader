@@ -1,0 +1,34 @@
+STRATEGY_NAME: LiquidationReversal
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Focuses on identifying potential reversal points near liquidation cluster zones (areas with high concentration of stop orders)
+- Uses Heikin-Ashi candles on 4-hour timeframe to confirm exhaustion patterns
+- Combines order flow analysis (liquidation data) with price action confirmation
+
+2. Entry Rules:
+- Identify liquidation cluster zones using aggregated futures liquidations data
+- Wait for price to approach the identified liquidation zone
+- Confirm with 4-hour Heikin-Ashi candles showing exhaustion patterns (small bodies after strong moves, doji patterns, or candle color changes)
+- Enter reversal trade when both conditions align
+
+3. Exit Rules:
+- Take profit at predetermined risk-reward ratio (suggested 1:2 or better)
+- Exit if Heikin-Ashi candles resume trend direction (opposite of reversal expectation)
+- Consider partial profits at key support/resistance levels
+
+4. Risk Management:
+- Stop-loss placed beyond the extreme of the liquidation cluster zone
+- Position size calculated based on stop distance and risk per trade (typically 1-2% of capital)
+- Avoid trading during high-impact news events that may cause abnormal liquidity conditions
+
+5. Required Indicators:
+- Heikin-Ashi candles (4-hour timeframe)
+- Liquidation cluster data (from futures market analysis tools)
+- Basic support/resistance levels for profit targets
+
+6. Additional Notes:
+- Works best in trending markets that are showing signs of exhaustion
+- More effective when liquidation cluster aligns with key Fibonacci levels or psychological price levels
+- Requires patience to wait for proper confirmation
+- May produce false signals in strongly trending markets without proper exhaustion

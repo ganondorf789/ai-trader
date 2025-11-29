@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolSpikeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Breakout:** Uses the upper Bollinger Band (typically set to 2 standard deviations from a 20-period SMA) to identify potential breakout conditions.  
+2. **Volume Confirmation:** Requires a significant spike in trading volume (at least 2x the 20-day average volume) to validate the breakout, reducing false signals.  
+3. **Mean Reversion Exit:** Exits positions when price retraces to the 20-day simple moving average (SMA), capturing momentum while avoiding overextension.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - Price closes **above** the upper Bollinger Band.  
+  - Volume on the breakout candle is **at least double** the 20-day average volume.  
+- **Confirmation:** Wait for the closing price to confirm the breakout (avoid intraday spikes).  
+
+**Exit Rules:**  
+- **Profit-Taking/Exit:** Close the position when price touches or crosses the 20-day SMA from above.  
+- **Optional Stop-Loss:** Set a stop-loss below the breakout candle’s low or a fixed percentage (e.g., 2-3%) to limit downside risk.  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%).  
+- **Stop-Loss:** Essential to mitigate whipsaws; adjust based on volatility (e.g., ATR-based stops).  
+- **Avoid Overcrowded Breakouts:** Filter for volume spikes significantly higher than average to ensure institutional participation.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** Default settings for breakout detection.  
+2. **20-Day Simple Moving Average (SMA):** Acts as the exit benchmark.  
+3. **20-Day Average Volume:** Used to quantify the volume spike threshold.  
+
+**Unique Edge:**  
+- Combines volatility expansion (Bollinger Band) with volume confirmation, reducing false breakouts common in low-volume environments.  
+- Exits at mean reversion level (20 SMA), balancing trend capture and avoiding late-cycle reversals.  
+
+**Optimization Tips:**  
+- Test different multiples for volume spikes (e.g., 1.5x–3x) to adapt to asset liquidity.  
+- Adjust Bollinger Band deviations (e.g., 1.5–2.5) based on asset volatility.  
+- Avoid using during low-volatility regimes (e.g., when Bollinger Bands contract significantly).  
+
+**Best Suited For:**  
+- High-liquidity stocks or ETFs with strong trending tendencies.  
+- Intraday or swing trading (timeframe-agnostic but ideal on 1H/daily charts).

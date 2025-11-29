@@ -1,0 +1,83 @@
+STRATEGY_NAME: ClusterReversal
+
+STRATEGY_DETAILS:
+The ClusterReversal strategy is a sophisticated counter-trend trading approach that leverages high-density liquidation clusters from order book data, combined with Heikin-Ashi candlestick patterns and volatility analysis. Here's a detailed breakdown of the strategy:
+
+---
+
+### **Key Strategy Components**
+1. **High-Density Liquidation Clusters**: 
+   - Identify areas in the order book where a high concentration of stop-loss orders or liquidation levels are clustered.
+   - These clusters often act as reversal zones as price approaches them, triggering a cascade of stop-loss orders that can reverse the trend.
+
+2. **Heikin-Ashi Candlestick Patterns**:
+   - Use the 4-hour Heikin-Ashi chart to smooth out price action and identify trend reversals.
+   - Look for a "flip" in the Heikin-Ashi candlestick pattern, where the color changes (e.g., from green to red or red to green), signaling a potential reversal.
+
+3. **Volatility Filter**:
+   - Only take trades when volatility is below average, as this indicates a potential buildup of energy for a reversal.
+   - Use a volatility indicator like ATR (Average True Range) to confirm below-average volatility conditions.
+
+4. **Swing Extremes for Stop-Loss**:
+   - Set stop-losses at recent swing highs or lows, depending on the direction of the trade.
+   - This ensures risk is managed effectively while allowing room for the trade to develop.
+
+---
+
+### **Entry Rules**
+1. **Identify Liquidation Clusters**:
+   - Use order book data to locate high-density liquidation zones.
+   - These zones should align with key support or resistance levels.
+
+2. **Confirm Heikin-Ashi Flip**:
+   - Wait for the 4-hour Heikin-Ashi candlestick to flip color (e.g., from bullish to bearish or vice versa) near the liquidation cluster.
+
+3. **Check Volatility**:
+   - Ensure that volatility is below average using an ATR indicator or similar tool.
+
+4. **Enter the Trade**:
+   - Enter a counter-trend position (e.g., short near a resistance liquidation cluster or long near a support liquidation cluster) when all conditions align.
+
+---
+
+### **Exit Rules**
+1. **Take Profit**:
+   - Set take-profit levels at the next significant support or resistance level, or use a risk-reward ratio (e.g., 2:1 or 3:1).
+
+2. **Stop-Loss**:
+   - Place stop-losses at recent swing extremes (e.g., above the recent swing high for a short trade or below the recent swing low for a long trade).
+
+3. **Trailing Stop**:
+   - Optionally, use a trailing stop to lock in profits as the trade moves in your favor.
+
+---
+
+### **Risk Management**
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital on any single trade.
+   - Adjust position size based on the distance to your stop-loss level.
+
+2. **Volatility Filter**:
+   - Avoid trading during high volatility periods to reduce the risk of false signals.
+
+3. **Stop-Loss Discipline**:
+   - Always adhere to your stop-loss levels to protect your capital.
+
+---
+
+### **Required Indicators**
+1. **Order Book Data**:
+   - Access to real-time order book data to identify liquidation clusters.
+
+2. **Heikin-Ashi Candlesticks**:
+   - Use a 4-hour Heikin-Ashi chart to identify trend reversals.
+
+3. **Volatility Indicator**:
+   - Use ATR or another volatility indicator to confirm below-average volatility conditions.
+
+4. **Swing High/Low Tool**:
+   - Identify recent swing extremes for stop-loss placement.
+
+---
+
+The ClusterReversal strategy is designed for traders who can access order book data and are comfortable trading counter-trend setups. It combines advanced order flow analysis with technical indicators to identify high-probability reversal opportunities during low-volatility conditions.

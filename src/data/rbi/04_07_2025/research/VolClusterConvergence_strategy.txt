@@ -1,0 +1,51 @@
+STRATEGY_NAME: VolClusterConvergence
+
+STRATEGY_DETAILS:
+This strategy capitalizes on volatility clustering phenomena by combining liquidation heatmap analysis with implied volatility rank (IVR) metrics for precise timing in high-volatility environments.
+
+Key Components:
+1. Liquidation Heatmap - Identifies price levels with concentrated liquidation potential
+2. Implied Volatility Rank (IVR) - Measures current IV relative to its historical range (0-100)
+3. Volatility Clusters - Periods where high volatility tends to persist
+
+Entry Rules:
+1. Primary Trigger: 
+   - IVR > 70 (indicating top 30% of historical implied volatility)
+   - Price approaches key liquidation zone on heatmap
+   - Convergence occurs when liquidation zone aligns with high IVR
+
+2. Confirmation:
+   - Increasing trading volume in the direction of anticipated move
+   - Price rejection from liquidation zone (wick formation)
+
+Exit Rules:
+1. Profit Taking:
+   - When price reaches next liquidation zone in profit direction
+   - IVR drops below 40 (volatility normalization)
+
+2. Stop Loss:
+   - Close position if price moves beyond initial liquidation zone against position
+   - IVR spikes above 90 (indicating potential volatility exhaustion)
+
+Risk Management:
+1. Position Sizing:
+   - 1-2% risk per trade based on distance to stop level
+   - Reduced size during extreme IVR (>85) conditions
+
+2. Volatility Adjustments:
+   - Wider stops during high IVR periods
+   - Tighter profit targets when IVR begins declining
+
+Required Indicators:
+1. Liquidation Heatmap (cluster analysis)
+2. Implied Volatility Rank (IVR)
+3. Volume Profile
+4. Price Action Patterns (for confirmation)
+
+Special Considerations:
+- Works best in crypto and high-beta assets
+- Requires monitoring of macro volatility triggers
+- Most effective during regime shifts or event-driven markets
+- Avoid ranging markets with low IVR (<30)
+
+The VolClusterConvergence strategy provides a systematic approach to trading volatility clusters by combining order flow analysis (liquidation zones) with volatility regime assessment (IVR), creating high-probability entries during periods of market stress or expansion.

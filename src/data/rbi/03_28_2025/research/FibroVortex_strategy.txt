@@ -1,0 +1,35 @@
+STRATEGY_NAME: FibroVortex  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Fibonacci Retracement Clusters:** Identify key retracement levels (38.2%, 50%, 61.8%) where price consolidates, indicating potential reversal zones.  
+2. **Vortex Indicator (VI):** Uses VI+ (positive trend) and VI- (negative trend) to confirm trend direction and volatility. Declining VI volatility suggests consolidation.  
+3. **Price Consolidation:** Entry is triggered when price hovers near a Fibonacci level with reduced VI volatility, signaling a potential breakout.  
+4. **Breakout Confirmation:** Exit occurs when price breaks beyond Fibonacci extremes (0% or 100%), confirming trend continuation.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Price consolidates near a Fibonacci support level (e.g., 61.8%).  
+  - VI+ crosses above VI- (bullish trend confirmation).  
+  - VI volatility declines (narrowing spread between VI+ and VI-).  
+- **Short Entry:**  
+  - Price consolidates near a Fibonacci resistance level (e.g., 38.2%).  
+  - VI- crosses above VI+ (bearish trend confirmation).  
+  - VI volatility declines.  
+
+**Exit Rules:**  
+- **Take Profit:** Close position when price breaches the 0% (for shorts) or 100% (for longs) Fibonacci extension level.  
+- **Stop Loss:** Place stop beyond the opposite Fibonacci extreme (e.g., below 78.6% for longs, above 23.6% for shorts).  
+
+**Risk Management:**  
+- Risk per trade: 1-2% of capital.  
+- Adjust stop levels based on volatility (e.g., ATR multiple).  
+- Avoid trading during high-impact news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Fibonacci Retracement Tool** (38.2%, 50%, 61.8% levels).  
+2. **Vortex Indicator (VI)** (14-period default).  
+3. **Optional:** ATR (14-period) for dynamic stop placement.  
+
+**Unique Edge:** Combines Fibonacci’s precision with VI’s trend-filtering capability, targeting low-volatility consolidation breakouts for high-probability trades.

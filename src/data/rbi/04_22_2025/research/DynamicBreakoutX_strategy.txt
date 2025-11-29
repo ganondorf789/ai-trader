@@ -1,0 +1,34 @@
+STRATEGY_NAME: DynamicBreakoutX  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Donchian Channel Breakout:** Uses a 20-day Donchian channel (high/low range) to identify potential breakout levels.  
+2. **ADX Confirmation:** Requires the ADX (Average Directional Index) to rise above 25 to confirm strong trend momentum.  
+3. **Trailing ATR Stop:** Exits trades using a trailing stop set at 3x the Average True Range (ATR) to lock in profits and limit losses.  
+
+**Entry Rules:**  
+- **Long Entry:** Price closes above the upper 20-day Donchian channel (20-day high) **AND** ADX > 25 (rising).  
+- **Short Entry:** Price closes below the lower 20-day Donchian channel (20-day low) **AND** ADX > 25 (rising).  
+
+**Exit Rules:**  
+- **Trailing Stop:** A dynamic stop-loss set at 3x ATR from the highest high (for long) or lowest low (for short) since entry.  
+- **Optional Time Exit:** Consider closing trades after a fixed period (e.g., 10-15 bars) if the trailing stop hasn’t triggered.  
+
+**Risk Management:**  
+- Position sizing should account for the 3x ATR stop distance to ensure risk per trade aligns with account size (e.g., 1-2% risk per trade).  
+- Avoid trading during low ADX (<25) to filter out weak trends.  
+
+**Required Indicators:**  
+1. **Donchian Channel (20-day high/low)** – Defines breakout levels.  
+2. **ADX (14-period default)** – Confirms trend strength.  
+3. **ATR (14-period default)** – Sets trailing stop distance.  
+
+**Unique Aspects:**  
+- Combines breakout mechanics with ADX trend confirmation for higher-probability entries.  
+- Uses a volatility-adjusted trailing stop (3x ATR) for adaptive risk management.  
+- Avoids false breakouts by requiring ADX > 25, ensuring trades align with strong trends.  
+
+**Optimization Notes:**  
+- Test different Donchian periods (e.g., 15-30 days) for varying market conditions.  
+- Adjust ATR multiplier (e.g., 2.5x-4x) based on asset volatility.  
+- Pair with volume filters for additional confirmation.

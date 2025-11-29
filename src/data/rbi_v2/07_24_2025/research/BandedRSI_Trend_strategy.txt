@@ -1,0 +1,37 @@
+STRATEGY_NAME: BandedRSI_Trend  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Identification:**  
+   - Use a moving average (e.g., 50-period SMA or 200-period EMA) to confirm the overall trend direction.  
+   - Long trades are only taken in an uptrend (price above MA), and short trades only in a downtrend (price below MA).  
+
+2. **Bollinger Bands on RSI:**  
+   - Apply Bollinger Bands (typically 20-period, 2 standard deviations) to the RSI (14-period).  
+   - The RSI Bollinger Bands act as dynamic overbought/oversold levels instead of fixed thresholds (e.g., 30/70).  
+
+3. **Entry Signals:**  
+   - **Long Entry:** RSI crosses **above** the lower Bollinger Band during an uptrend.  
+   - **Short Entry:** RSI crosses **below** the upper Bollinger Band during a downtrend.  
+
+4. **Exit Signals:**  
+   - **Long Exit:** RSI crosses back **below** the lower Bollinger Band or price closes below the trend-confirming MA.  
+   - **Short Exit:** RSI crosses back **above** the upper Bollinger Band or price closes above the trend-confirming MA.  
+
+**Risk Management:**  
+- **Stop Loss:** Place stops below the recent swing low (for longs) or above the recent swing high (for shorts).  
+- **Take Profit:** Use a trailing stop or a fixed risk-reward ratio (e.g., 1:2).  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+
+**Required Indicators:**  
+1. **RSI (14-period)**  
+2. **Bollinger Bands (20-period, 2 StdDev) applied to RSI**  
+3. **Trend-confirming Moving Average (50 SMA or 200 EMA)**  
+
+**Additional Notes:**  
+- Works best in strongly trending markets; avoid ranging conditions.  
+- Combine with volume analysis for confirmation (e.g., rising volume on entry).  
+- Adjust Bollinger Band settings (period/StdDev) for different asset volatility.  
+
+This strategy leverages dynamic RSI thresholds via Bollinger Bands to filter high-probability trend-following entries while minimizing false signals.

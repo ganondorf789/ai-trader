@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolatilityStrike
+
+STRATEGY_DETAILS:
+The VolatilityStrike strategy is a focused options trading approach that capitalizes on high implied volatility and precise strike price alignment. Here's a detailed breakdown of the strategy:
+
+1. Key Strategy Components:
+- Focus on put options with highest implied volatility
+- Minimum 1 week until expiration
+- Strike price matches underlying asset's closing price
+- Designed to benefit from potential price drops or volatility expansion
+
+2. Entry Rules:
+- Identify put options with highest implied volatility
+- Ensure expiration is at least 7 days from current date
+- Select strike price exactly matching current closing price of underlying asset
+- Enter position when all conditions are met
+
+3. Exit Rules:
+- Close position if option value doubles (100% profit)
+- Exit if implied volatility drops significantly (e.g., 25% reduction)
+- Close position 1 day before expiration to avoid gamma risk
+- Implement stop-loss at 50% of premium paid
+
+4. Risk Management:
+- Limit position size to 2-5% of total portfolio
+- Use defined risk strategies (no naked options)
+- Monitor implied volatility daily
+- Avoid earnings announcements and major news events
+
+5. Required Indicators:
+- Implied Volatility (IV) data
+- Underlying asset's closing price
+- Options chain with strike prices
+- Time to expiration information
+
+6. Additional Considerations:
+- Best suited for high-volatility markets
+- Requires active monitoring of positions
+- Works well with liquid underlying assets
+- Consider using options analysis software for efficient screening
+
+This strategy is particularly effective in volatile market conditions where large price movements are expected, and when the trader believes the underlying asset may experience downward pressure. The alignment of strike price with current price provides a balanced risk/reward profile, while the focus on high implied volatility increases the potential for significant returns if the market moves in the anticipated direction.

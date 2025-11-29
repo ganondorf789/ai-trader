@@ -1,0 +1,33 @@
+STRATEGY_NAME: SqueezeSurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** The strategy identifies periods of extreme low volatility when the Bollinger Band Width (BBW) contracts below its 6-month low, signaling a potential breakout setup.  
+2. **Volume Surge Confirmation:** A breakout is only valid if accompanied by a surge in trading volume exceeding the 20-day average, ensuring strong participation in the move.  
+3. **Average True Range (ATR) Stop:** Risk is managed using a dynamic stop-loss set at 1.5x the ATR of the squeeze period, adjusting for recent volatility.  
+
+**Entry Rules:**  
+- Enter a long position when:  
+  1. BBW contracts below its 6-month low (indicating a squeeze).  
+  2. Price breaks above the upper Bollinger Band.  
+  3. Volume exceeds the 20-day average volume by a significant margin (e.g., 20-50% higher).  
+
+**Exit Rules:**  
+- **Take Profit:** Trail the stop or use a fixed risk-reward ratio (e.g., 2:1 or 3:1) based on the initial ATR stop distance.  
+- **Stop Loss:** Place the stop at 1.5x the ATR of the squeeze period (typically 10-20 days).  
+
+**Risk Management:**  
+- Position sizing should be based on the ATR stop distance to ensure risk per trade is limited (e.g., 1-2% of capital).  
+- Avoid trading during major news events or low-liquidity periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations) + BBW (Bollinger Band Width).  
+2. 20-day moving average of volume.  
+3. Average True Range (ATR, typically 14-period) for stop calculation.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (squeeze) with volume confirmation (surge) for high-probability breakouts.  
+- Uses ATR for adaptive stop placement, aligning risk with recent market conditions.  
+- Focuses on rare but high-conviction setups (6-month BBW lows).  
+
+**Note:** Backtest to optimize BBW lookback period (6 months) and volume surge threshold for specific instruments.

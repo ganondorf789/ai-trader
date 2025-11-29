@@ -1,0 +1,47 @@
+STRATEGY_NAME: LiquidityBandwidth
+
+STRATEGY_DETAILS:
+The LiquidityBandwidth strategy combines Bollinger Band contraction analysis with funding rate extremes to identify high-probability breakout opportunities targeting liquidity voids. This approach capitalizes on periods of market compression followed by potential explosive moves.
+
+Key Components:
+1. Bollinger Bandwidth Threshold: Measures the percentage difference between upper and lower Bollinger Bands (typically 20-period, 2 std dev)
+2. Funding Rate Extremes: Monitors negative funding rate spikes indicating excessive short positioning
+3. Volume Node Analysis: Identifies high-volume price levels that may act as liquidity targets
+
+Entry Rules:
+1. Primary Trigger: 
+   - Bollinger Bandwidth reaches lowest 5% of its 200-day historical range (extreme contraction)
+   - Negative funding rate spikes to 2 standard deviations above its 30-day average
+2. Confirmation:
+   - Price breaks above upper Bollinger Band (for long) or below lower band (for short)
+   - Volume on breakout exceeds 20-period average by 50%
+
+Exit Rules:
+1. Profit Targets:
+   - Primary: Nearest significant volume node beyond recent swing high/low (1.5x average true range)
+   - Secondary: Next major liquidity zone (3x average true range)
+2. Stop Loss:
+   - Opposite side of breakout candle (for aggressive)
+   - Middle Bollinger Band (for conservative)
+
+Risk Management:
+1. Position sizing limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5%
+3. No new entries if 3 consecutive losing trades occur
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Bandwidth (BB width %)
+3. Funding Rate oscillator (30-day z-score)
+4. Volume profile (identifying nodes)
+5. Average True Range (14)
+
+Optimization Notes:
+- Adjust bandwidth threshold based on asset volatility (lower for high-vol assets)
+- Fine-tune funding rate z-score based on market regime
+- Volume node significance should use at least 2 weeks of data
+
+This strategy works best in:
+- Crypto perpetual futures markets
+- High-liquidity assets with clear funding rate patterns
+- Periods following extended consolidation

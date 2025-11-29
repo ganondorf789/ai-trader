@@ -1,0 +1,31 @@
+STRATEGY_NAME: VoltaicContraction  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Setup:** The strategy focuses on periods of reduced volatility, identified when Bollinger Bands (BB) narrow inside Keltner Channels (KC). This signals a potential breakout or breakdown.  
+2. **Volume Confirmation:** A volume spike is required to validate the contraction, indicating increased interest and potential momentum shift.  
+3. **Momentum Flip Confirmation:** The Elder Impulse System (EIS) is used to confirm the direction of the breakout, ensuring alignment with momentum.  
+
+**Entry Rules:**  
+1. **Contraction Signal:** Wait for Bollinger Bands to narrow and remain inside Keltner Channels for at least 3-5 candles.  
+2. **Volume Spike:** Confirm with a volume spike (e.g., volume > 20-period moving average of volume).  
+3. **Breakout Direction:** Enter long if price breaks above the upper Keltner Channel with a bullish Elder Impulse (green bar). Enter short if price breaks below the lower Keltner Channel with a bearish Elder Impulse (red bar).  
+
+**Exit Rules:**  
+1. **Channel Breakout Exit:** Close the trade if price exits the opposite Keltner Channel (e.g., exit long if price drops below the lower KC).  
+2. **Momentum Flip Exit:** Exit if Elder Impulse flips against the trade direction (e.g., long exit if EIS turns red).  
+3. **Trailing Stop:** Use a trailing stop (e.g., ATR-based) to lock in profits during strong trends.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place initial stop-loss just outside the opposite Keltner Channel or at a recent swing low/high.  
+2. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+3. **Avoid Overlap:** Do not trade if multiple conflicting signals appear (e.g., BB narrowing but no volume spike).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (BB):** Default settings (20,2) to measure volatility contraction.  
+2. **Keltner Channels (KC):** Default settings (20,2) to define breakout boundaries.  
+3. **Volume Indicator:** Volume moving average (e.g., 20-period) to confirm spikes.  
+4. **Elder Impulse System (EIS):** Combines EMA(13) and MACD to confirm momentum direction.  
+
+This strategy capitalizes on low-volatility setups with high-probability breakouts, using multi-indicator confirmation for precision.

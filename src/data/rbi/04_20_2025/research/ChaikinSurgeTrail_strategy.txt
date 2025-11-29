@@ -1,0 +1,27 @@
+STRATEGY_NAME: ChaikinSurgeTrail  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Chaikin Money Flow (CMF)**: Used to identify money flow direction, with crossovers above/below zero signaling potential breakouts.  
+2. **Volume Surge Confirmation**: Requires a significant increase in volume to validate the CMF signal, ensuring stronger momentum.  
+3. **Chandelier Exit**: A trailing stop mechanism based on recent highs/lows to lock in profits during extended trends while allowing room for price fluctuations.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when CMF crosses above zero AND volume is at least 1.5x the 20-day average volume.  
+- **Short Entry**: Triggered when CMF crosses below zero AND volume is at least 1.5x the 20-day average volume.  
+
+**Exit Rules:**  
+- **Trailing Stop**: Uses the Chandelier Exit (e.g., 3x ATR from the highest close since entry for longs, or lowest close for shorts).  
+- **Early Exit**: If CMF reverses direction (crosses back below zero for longs or above zero for shorts) before the trailing stop is hit.  
+
+**Risk Management:**  
+1. **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+2. **Stop Placement**: Initial stop-loss set at 2x ATR from entry price if Chandelier Exit is not yet active.  
+3. **Volatility Filter**: Avoid trading if ATR is above a threshold (e.g., 3% of price), indicating excessive risk.  
+
+**Required Indicators:**  
+1. Chaikin Money Flow (21-period recommended).  
+2. Volume (20-day average for surge comparison).  
+3. Average True Range (ATR, 14-period for Chandelier Exit and stops).  
+
+**Unique Edge:** Combines money flow confirmation with volume surges for high-probability breakouts, while the Chandelier Exit optimizes trend capture. Avoids whipsaws by requiring dual confirmation (CMF + volume).

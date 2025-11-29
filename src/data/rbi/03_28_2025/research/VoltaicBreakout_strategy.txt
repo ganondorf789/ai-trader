@@ -1,0 +1,33 @@
+STRATEGY_NAME: VoltaicBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility-Based Entry:** Uses Bollinger Bands to identify volatility expansion for potential breakouts.  
+2. **Trend Strength Filter:** ADX > 30 ensures the breakout occurs in a strong trending market.  
+3. **Overbought Exit:** RSI crossing below 70 signals weakening momentum for exit.  
+
+**Entry Rules:**  
+- Go **LONG** when:  
+  - Price closes **above the upper Bollinger Band** (default 20-period, 2 StdDev).  
+  - ADX (14-period) is **above 30**, confirming strong trend momentum.  
+
+**Exit Rules:**  
+- Exit the trade when:  
+  - RSI (14-period) crosses **below 70**, indicating overbought conditions and potential reversal.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Optional trailing stop (e.g., below recent swing low or lower Bollinger Band).  
+2. **Position Sizing:** Risk ≤ 1-2% per trade.  
+3. **Timeframe Suitability:** Best on 1H/4H/Daily charts for reduced noise.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20, 2).  
+2. **ADX** (14-period) +DI/-DI lines optional but recommended.  
+3. **RSI** (14-period).  
+
+**Unique Edge:** Combines volatility breakout (Bollinger Bands) with trend confirmation (ADX) and momentum exit (RSI), reducing false breakouts in choppy markets. Avoids short-side trades to focus on high-probability bullish setups.  
+
+**Optimization Tips:**  
+- Test ADX thresholds (e.g., 25-35) for different assets.  
+- Adjust RSI exit level (e.g., 60 for aggressive traders).  
+- Pair with volume confirmation for higher accuracy.

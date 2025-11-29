@@ -1,0 +1,53 @@
+STRATEGY_NAME: AnchoredBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bands Anchored to VWAP:** This strategy uses Bollinger Bands calculated from the Volume-Weighted Average Price (VWAP) instead of a simple moving average. This provides a more dynamic and volume-adjusted measure of volatility.  
+2. **ADX Filter:** The strategy only trades during high ADX (Average Directional Index) regimes (typically ADX > 25), indicating strong trending conditions.  
+3. **Volume Surge Confirmation:** A breakout is only valid if accompanied by a surge in trading volume exceeding the 90th percentile of recent volume history, ensuring strong participation in the move.  
+
+**Entry Rules:**  
+1. **Long Entry:**  
+   - Price closes above the upper Bollinger Band anchored to VWAP.  
+   - ADX is above 25 (confirming a strong trend).  
+   - Volume on the breakout candle exceeds the 90th percentile of volume over the past 20-50 periods.  
+
+2. **Short Entry:**  
+   - Price closes below the lower Bollinger Band anchored to VWAP.  
+   - ADX is above 25.  
+   - Volume on the breakout candle exceeds the 90th percentile of volume over the past 20-50 periods.  
+
+**Exit Rules:**  
+1. **Take Profit:**  
+   - Use a trailing stop based on the opposite Bollinger Band (e.g., for a long trade, exit when price closes back inside the upper band).  
+   - Alternatively, target a fixed risk-reward ratio (e.g., 2:1 or 3:1).  
+
+2. **Stop Loss:**  
+   - Place a stop loss just below the breakout candle's low (for long trades) or above its high (for short trades).  
+   - Alternatively, use the middle line of the Bollinger Bands (VWAP) as a dynamic stop level.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Volatility Adjustment:** Wider Bollinger Bands (higher volatility) may require smaller position sizes to maintain consistent risk.  
+3. **Avoid Low ADX:** Do not trade if ADX is below 25, as breakouts are less reliable in non-trending markets.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (Anchored to VWAP):**  
+   - Period: Typically 20-50 periods.  
+   - Standard Deviation: Usually 2.  
+2. **VWAP:** Volume-Weighted Average Price for anchoring the Bollinger Bands.  
+3. **ADX (Average Directional Index):** 14-period ADX with a threshold of 25 for trend strength.  
+4. **Volume Surge Filter:** 90th percentile of volume over a lookback period (e.g., 20-50 bars).  
+
+**Unique Aspects:**  
+- Combines volatility (Bollinger Bands), volume (VWAP and surge), and trend strength (ADX) for high-probability breakouts.  
+- Anchoring Bollinger Bands to VWAP makes the bands more responsive to volume-based price action.  
+- Volume surge requirement filters out false breakouts.  
+
+**Optimization Tips:**  
+- Test different Bollinger Band periods (e.g., 20 vs. 50) and standard deviations (e.g., 1.5 vs. 2).  
+- Adjust the ADX threshold (e.g., 20 for less strict trends or 30 for stronger trends).  
+- Fine-tune the volume percentile (e.g., 85th or 95th) based on the asset's liquidity.  
+
+This strategy is best suited for trending markets and liquid assets where volume surges are meaningful. Avoid using it in choppy or range-bound conditions.

@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolatilitySqueezeTrigger
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of low volatility followed by potential breakout moves, combining Bollinger Bands contraction with historical volatility thresholds and ATR-based risk management.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. 20-day Historical Volatility (HV) calculation
+3. Average True Range (14-period ATR) for stop placement
+4. Volatility contraction threshold (user-defined HV level)
+
+Entry Rules:
+1. Primary Condition: Bollinger Band width must contract below the 20-day HV threshold (suggested default: 20% of average HV)
+2. Confirmation: Price must be trading between the Bollinger Bands (not touching either band)
+3. Entry Trigger: Long position initiated when price closes above the upper Bollinger Band
+
+Exit Rules:
+1. Profit-taking: No fixed take-profit - ride the trend until exit conditions met
+2. Stop-loss: 2x ATR below entry price (trailing)
+3. Emergency Exit: Close position if Bollinger Band width expands beyond 2x the entry width
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade (stop distance x position size)
+2. Trailing stop adjusts daily using the 2x ATR formula
+3. Volatility filter: Only trade when 20-day HV is above long-term average (avoids extremely low volatility periods)
+
+Indicator Settings:
+1. Bollinger Bands: 20-period SMA, 2 standard deviations
+2. ATR: 14-period
+3. Historical Volatility: 20-day standard deviation of logarithmic returns
+4. Volatility Threshold: Adjustable parameter (default 20% of 100-day average HV)
+
+Optimization Notes:
+1. Test different HV threshold percentages (15-25% range)
+2. Experiment with ATR multiples (1.5x-2.5x) for stop placement
+3. Consider adding volume confirmation for breakouts
+4. May add time-based exit (e.g., 10 bars) if price doesn't follow through
+
+This strategy works best in ranging markets transitioning to trending phases, with the volatility squeeze identifying the consolidation period before potential breakouts. The ATR-based stop ensures dynamic risk management adjusted for current market conditions.

@@ -1,0 +1,37 @@
+STRATEGY_NAME: DynamicVWAPTrend  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **ADX (Average Directional Index)** – Used to measure the strength of a trend. A reading above 25 typically indicates a strong trend.  
+2. **VWAP (Volume-Weighted Average Price)** – Acts as a dynamic support/resistance level. Price above VWAP suggests bullish bias, while price below suggests bearish bias.  
+3. **Trend Confirmation** – The strategy requires both ADX strength and price alignment relative to VWAP for high-probability entries.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - ADX > 25 (strong trend)  
+  - Price is above VWAP (bullish alignment)  
+  - Enter on a pullback to VWAP (if price retests VWAP as support) or on a breakout above recent highs.  
+- **Short Entry:**  
+  - ADX > 25 (strong trend)  
+  - Price is below VWAP (bearish alignment)  
+  - Enter on a retest of VWAP as resistance or on a breakdown below recent lows.  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Trailing stop based on VWAP (exit long when price closes below VWAP, exit short when price closes above VWAP).  
+  - Alternatively, use a fixed risk-reward ratio (e.g., 1:2 or 1:3).  
+- **Stop Loss:**  
+  - For longs: Place below the recent swing low or below VWAP (whichever is tighter).  
+  - For shorts: Place above the recent swing high or above VWAP (whichever is tighter).  
+
+**Risk Management:**  
+- Risk no more than 1-2% of capital per trade.  
+- Avoid trading if ADX is below 20 (weak/no trend).  
+- Adjust position sizing based on volatility (e.g., wider stops require smaller positions).  
+
+**Required Indicators:**  
+1. **ADX (14-period default)** – To confirm trend strength.  
+2. **VWAP (daily reset)** – To identify dynamic support/resistance.  
+
+This strategy works best in trending markets and avoids choppy conditions by relying on ADX filtering. The combination of VWAP alignment and trend strength provides high-confidence setups.

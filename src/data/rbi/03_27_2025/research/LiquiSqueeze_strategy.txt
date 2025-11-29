@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquiSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Liquidation Level Clustering:** Identifies zones where high liquidity (stop-losses or take-profits) is clustered, increasing the likelihood of strong breakouts when these levels are breached.  
+2. **Volatility Contraction:** Uses Bollinger Band Width (BBW) to confirm periods of low volatility (squeeze setups) before potential explosive moves.  
+3. **Dynamic Position Sizing:** Adjusts trade size based on proximity to liquidation levels—larger positions when price is closer to key liquidity zones.  
+
+**Entry Rules:**  
+1. **Setup Confirmation:**  
+   - Price must be near a clustered liquidation level (e.g., high volume node, order block, or historical swing point).  
+   - Bollinger Band Width (BBW) must be below a predefined threshold (e.g., 0.5), indicating a volatility squeeze.  
+2. **Trigger:**  
+   - Enter long on a breakout above the upper Bollinger Band (or resistance liquidation level) with increased volume.  
+   - Enter short on a breakout below the lower Bollinger Band (or support liquidation level) with increased volume.  
+
+**Exit Rules:**  
+1. **Take-Profit:**  
+   - Target the next significant liquidity zone or Fibonacci extension level (e.g., 1.5x the squeeze range).  
+   - Partial profits at intermediate levels (e.g., 50% at 1x the squeeze range).  
+2. **Stop-Loss:**  
+   - Place stops just beyond the opposite Bollinger Band or the nearest liquidity cluster.  
+   - Trailing stops can be used to lock in profits as volatility expands.  
+
+**Risk Management:**  
+1. **Position Sizing:**  
+   - Larger positions when price is within 1-2% of a major liquidation level.  
+   - Smaller positions if the squeeze is less pronounced or liquidity is less dense.  
+2. **Max Risk per Trade:** 1-2% of capital, adjusted for volatility (e.g., wider stops in high-volatility environments).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To identify squeeze conditions via BBW.  
+2. **Volume Profile or Order Flow Tools** – To detect clustered liquidation levels.  
+3. **ATR (14)** – Optional for dynamic stop placement.  
+
+**Unique Edge:** Combines liquidity hunting with volatility contraction, exploiting institutional order flow and retail stop-runs for high-probability breakouts.

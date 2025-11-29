@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolSpikeReversion
+
+STRATEGY_DETAILS:
+This strategy capitalizes on extreme volatility events by combining VIX term structure analysis with VVIX Bollinger Band breakouts, targeting mean reversion opportunities with volume confirmation.
+
+Key Components:
+1. VIX Term Structure Inversion: Requires front-month VIX futures to trade at a premium to second-month (contango to backwardation shift)
+2. VVIX Spike: VVIX (VIX of VIX) must break above its upper 20-day Bollinger Band (typically set at 2 standard deviations)
+3. Volume Confirmation: Requires above-average volume on the exit signal
+
+Entry Rules:
+- SHORT volatility when:
+  1. VIX term structure inverts (front-month > second-month)
+  2. VVIX closes above its upper 20-day Bollinger Band
+  3. Confirm with elevated VIX futures volume (at least 20% above 20-day average)
+
+Exit Rules:
+- COVER short position when:
+  1. VVIX reverts below its 20-day moving average
+  2. VIX term structure returns to contango (front-month < second-month)
+  3. Accompanied by volume at least 10% above 20-day average
+
+Risk Management:
+1. Position sizing: Allocate no more than 2-5% of capital per trade
+2. Stop-loss: Exit if VVIX makes new 5-day high after entry
+3. Time stop: Close position after 5 trading days if no exit signal occurs
+4. Correlation check: Avoid entering if SPX is making new 20-day lows
+
+Required Indicators:
+1. VIX futures term structure (front-month vs second-month)
+2. VVIX (VIX of VIX) with:
+   - 20-day simple moving average
+   - 20-day Bollinger Bands (2 standard deviations)
+3. Volume indicators for:
+   - VIX futures
+   - SPX options (for confirmation)
+
+Additional Notes:
+- Best executed during periods of market stress when volatility spikes are likely to mean-revert
+- Most effective when combined with overbought technical conditions in SPX
+- Requires monitoring of macroeconomic catalysts that could prolong volatility spikes
+- Consider using VIX futures or short-dated SPX options for implementation

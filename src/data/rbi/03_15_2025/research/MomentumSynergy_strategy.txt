@@ -1,0 +1,45 @@
+STRATEGY_NAME: MomentumSynergy
+
+STRATEGY_DETAILS:
+The MomentumSynergy strategy is a momentum-based approach that combines MACD and RSI indicators to confirm strong trending conditions. It uses the correlation between these two indicators as a key signal for entering and exiting trades, with a dynamic position sizing mechanism to capitalize on winning streaks.
+
+Key Components:
+1. MACD (Moving Average Convergence Divergence)
+2. RSI (Relative Strength Index)
+3. Correlation analysis between MACD and RSI
+4. Dynamic position sizing based on trade success
+
+Entry Rules:
+- Calculate the correlation coefficient between MACD and RSI over a specified period (e.g., 14 periods)
+- Enter a long position when the correlation crosses above 0.7
+- The correlation threshold indicates strong alignment between momentum indicators
+
+Exit Rules:
+- Exit the position when the correlation between MACD and RSI crosses below 0.7
+- This indicates weakening momentum alignment
+
+Position Sizing:
+- Start with a base position size (e.g., 1% of account equity)
+- Increase position size by 20% after each successful trade
+- Reset to base position size after a losing trade
+- Example progression: 1% → 1.2% → 1.44% → 1.728%
+
+Risk Management:
+- Set a maximum position size cap (e.g., 5% of account equity)
+- Use a stop-loss based on ATR or percentage of account equity
+- Implement a maximum drawdown limit for the strategy
+- Consider a maximum number of consecutive position size increases
+
+Required Indicators:
+1. MACD (12, 26, 9 standard settings)
+2. RSI (14 period standard setting)
+3. Correlation calculation between MACD and RSI
+4. Optional: ATR for stop-loss placement
+
+Additional Considerations:
+- Backtest the strategy with different correlation thresholds
+- Test various timeframes to find optimal performance
+- Consider adding a volatility filter to avoid trading in choppy markets
+- Monitor the correlation window length for optimal results
+
+This strategy aims to capitalize on strong momentum trends while using the correlation between two popular indicators as a confirmation tool. The dynamic position sizing adds a compounding effect to winning streaks while maintaining risk control through the reset mechanism after losses.

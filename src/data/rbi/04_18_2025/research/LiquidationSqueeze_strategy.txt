@@ -1,0 +1,29 @@
+STRATEGY_NAME: LiquidationSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection:** The strategy identifies periods of low volatility when Bollinger Bands contract (squeeze), indicating potential upcoming volatility expansion.  
+2. **Liquidation Cluster Analysis:** Uses futures order book data to pinpoint clustered liquidation levels, which act as significant support/resistance zones.  
+3. **Volatility Expansion Confirmation:** Requires a breakout from the Bollinger Band squeeze with increased volume or price momentum to confirm the trade.  
+
+**Entry Rules:**  
+1. Wait for a Bollinger Band squeeze (bands narrowing significantly).  
+2. Identify nearby liquidation clusters on the order book (high concentration of stop orders).  
+3. Enter long/short when price breaks out of the squeeze with strong momentum (e.g., closing outside the bands) and the breakout aligns with a liquidity cluster.  
+
+**Exit Rules:**  
+1. Take profit at the next major liquidation cluster (predefined level from order book analysis).  
+2. Stop-loss placed just beyond the opposite Bollinger Band or the nearest opposing liquidation level.  
+
+**Risk Management:**  
+1. Position sizing based on the distance to the stop-loss to maintain a fixed risk percentage (e.g., 1-2% per trade).  
+2. Avoid trading during low-liquidity periods to prevent slippage.  
+3. Trailing stops can be used if volatility remains high post-breakout.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations).  
+2. Futures order book liquidity heatmap (to spot liquidation clusters).  
+3. Volume indicator (to confirm breakout strength).  
+
+This strategy combines technical (Bollinger Bands) and order flow (liquidation clusters) analysis for high-probability breakout trades. The name "LiquidationSqueeze" reflects its unique focus on exploiting squeezes that align with liquidity-driven price movements.

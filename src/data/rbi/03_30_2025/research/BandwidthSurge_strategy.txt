@@ -1,0 +1,40 @@
+STRATEGY_NAME: BandwidthSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility when the Bollinger Band width reaches a 20-day low, signaling potential breakout conditions.  
+2. **Klinger Volume Oscillator Divergence:** Confirms breakout strength by detecting a surge in volume divergence, indicating strong buying or selling pressure.  
+3. **Parabolic SAR Reversals:** Used for exit signals when the price reverses direction, confirmed by two consecutive SAR dots switching sides.  
+
+**Entry Rules:**  
+- Enter a **long** trade when:  
+  - Bollinger Band width contracts to a 20-day low (indicating compression).  
+  - Klinger Volume Oscillator shows bullish divergence (rising while price is flat or declining).  
+  - Price breaks above the upper Bollinger Band.  
+- Enter a **short** trade when:  
+  - Bollinger Band width contracts to a 20-day low.  
+  - Klinger Volume Oscillator shows bearish divergence (falling while price is flat or rising).  
+  - Price breaks below the lower Bollinger Band.  
+
+**Exit Rules:**  
+- Exit the trade when:  
+  - Two consecutive Parabolic SAR dots appear on the opposite side of the price (e.g., two dots above price for a long trade).  
+  - Alternatively, use a trailing stop or fixed risk-reward ratio (e.g., 2:1) if SAR signals are delayed.  
+
+**Risk Management:**  
+- Set stop-loss just outside the opposite Bollinger Band (for long trades, below the lower band; for short trades, above the upper band).  
+- Position sizing should align with volatility (e.g., ATR-based stops to adjust for market conditions).  
+- Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 standard deviations) – To measure volatility contraction.  
+2. **Klinger Volume Oscillator** – To confirm volume divergence.  
+3. **Parabolic SAR** (default settings) – For exit signals.  
+
+**Additional Notes:**  
+- Best suited for **15-minute to 4-hour timeframes** in trending markets.  
+- Works well in **forex, commodities, and indices** with sufficient liquidity.  
+- Avoid ranging markets where false breakouts are frequent.  
+
+This strategy combines volatility compression, volume confirmation, and a mechanical exit system for disciplined trading.

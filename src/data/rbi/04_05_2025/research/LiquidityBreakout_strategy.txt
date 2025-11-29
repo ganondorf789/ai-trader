@@ -1,0 +1,32 @@
+STRATEGY_NAME: LiquidityBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility where the market is consolidating, signaling potential breakout opportunities.  
+2. **Order Book Liquidity Clusters:** Focuses on areas in the order book where significant buy/sell orders are clustered, indicating strong support/resistance zones.  
+3. **Volume Surge Confirmation:** Ensures the breakout is validated by a sudden increase in trading volume, reducing false signals.  
+4. **Predefined Liquidation Levels:** Uses fixed exit points to lock in profits or cut losses systematically.  
+
+**Entry Rules:**  
+1. Wait for Bollinger Band Width to contract below a predefined threshold (e.g., 20-period moving average of the width).  
+2. Identify a liquidity cluster in the order book near the current price, acting as a potential breakout level.  
+3. Enter a long position if price breaks above the cluster with a surge in volume (e.g., volume > 1.5x the 20-period average).  
+4. Enter a short position if price breaks below the cluster with a surge in volume.  
+
+**Exit Rules:**  
+1. **Take Profit:** Set a predefined profit target (e.g., 1.5x the average true range (ATR) of the last 14 periods).  
+2. **Stop Loss:** Place a stop loss at the opposite side of the liquidity cluster (e.g., below the cluster for long trades, above for short trades).  
+
+**Risk Management:**  
+1. Limit position size to 1-2% of total capital per trade.  
+2. Avoid trading during low-liquidity periods (e.g., overnight or weekends).  
+3. Monitor order book dynamics in real-time to adjust exits if liquidity shifts unexpectedly.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations) + Band Width calculation.  
+2. Volume indicator (e.g., 20-period moving average of volume).  
+3. Order book depth data (to identify liquidity clusters).  
+4. Average True Range (ATR) for setting profit targets.  
+
+This strategy combines volatility contraction, order book analysis, and volume confirmation for high-probability breakout trades with disciplined risk management.

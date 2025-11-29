@@ -1,0 +1,33 @@
+STRATEGY_NAME: VortexSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Measures trend direction and strength. Convergence of VI+ and VI- suggests potential trend reversal or breakout.  
+2. **Bollinger Bands:** Narrowing bands (squeeze) indicate low volatility, often preceding a breakout.  
+3. **Volume Spike:** Confirms breakout validity when exceeding the 20-day average volume.  
+4. **Parabolic SAR:** Used for exit signals when the price reverses direction.  
+
+**Entry Rules:**  
+1. **Setup:** Wait for Bollinger Bands to narrow (squeeze), indicating low volatility.  
+2. **Confirmation:** VI+ and VI- lines must converge, signaling potential trend change.  
+3. **Trigger:** Enter long if price breaks above the upper Bollinger Band with volume exceeding the 20-day average. Enter short if price breaks below the lower Bollinger Band with the same volume confirmation.  
+
+**Exit Rules:**  
+1. **Parabolic SAR Reversal:** Exit the trade when the Parabolic SAR dots flip to the opposite side of the price (e.g., long exit when dots appear above price).  
+2. **Optional Stop-Loss:** Set a stop-loss at the opposite Bollinger Band (e.g., for long trades, stop-loss at the lower band).  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss:** Use Bollinger Bands or a fixed ATR-based stop for tighter control.  
+3. **Avoid Overcrowded Breakouts:** Ensure volume spike is significant (e.g., 1.5x 20-day average) to filter false breakouts.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)**  
+2. **Bollinger Bands (Default: 20,2)**  
+3. **Volume (20-day moving average)**  
+4. **Parabolic SAR (Default: 0.02, 0.2)**  
+
+**Unique Edge:** Combines volatility contraction (Bollinger Squeeze) with trend confirmation (Vortex Indicator) and volume validation, reducing false breakouts. Exits are mechanical via Parabolic SAR, removing emotional bias.  
+
+**Best Suited For:** Intraday to swing trading in trending markets with clear volatility cycles. Works well on forex, commodities, and liquid stocks.

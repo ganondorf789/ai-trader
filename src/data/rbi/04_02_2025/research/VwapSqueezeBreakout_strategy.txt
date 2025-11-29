@@ -1,0 +1,33 @@
+STRATEGY_NAME: VwapSqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **VWAP (Volume Weighted Average Price):** Acts as the baseline for price confirmation. A cross above VWAP signals bullish momentum.  
+2. **Bollinger Band Width:** Measures market volatility. A 10-day low in bandwidth indicates a "squeeze," suggesting an impending breakout.  
+3. **Volume Filter:** Requires volume to exceed 1.5x the 20-day average, confirming strong participation in the breakout.  
+4. **Bollinger Band Expansion Exit:** Tracks volatility expansion beyond 2 standard deviations, signaling potential exhaustion of the trend.  
+
+**Entry Rules:**  
+- **Condition 1:** Price crosses *above* VWAP (closing price > VWAP).  
+- **Condition 2:** Bollinger Band Width (BBW) reaches a *10-day low* (current BBW ≤ lowest BBW of past 10 days).  
+- **Condition 3:** Volume > 1.5x 20-day average volume.  
+- **Execution:** Enter long immediately when all three conditions are met.  
+
+**Exit Rules:**  
+- **Primary Exit:** Close the position when Bollinger Band Width expands beyond 2 standard deviations from its 10-day low (current BBW > 2 × StdDev of past 10 days' BBW).  
+- **Optional Stop-Loss:** Consider a trailing stop (e.g., 2x ATR) to protect profits if the Bollinger Band exit is too late.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk ≤ 1-2% of capital per trade.  
+2. **Stop-Loss (Optional):** Set below the recent swing low or VWAP, adjusted for volatility (e.g., 1.5x ATR).  
+3. **Time Exit:** Exit after 5-10 bars if no volatility expansion occurs to avoid dead capital.  
+
+**Required Indicators:**  
+1. **VWAP** (20-period or session-based).  
+2. **Bollinger Bands** (20,2 for standard settings + BBW calculation).  
+3. **Volume** (20-day moving average + current volume).  
+
+**Unique Edge:** Combines volatility contraction (squeeze), volume confirmation, and VWAP trend alignment to filter high-probability breakouts. Exits on volatility spikes, capturing the bulk of the move while avoiding reversals.  
+
+**Note:** Backtest to optimize BBW lookback (10 days) and volume multiplier (1.5x) for specific instruments. Works best on liquid stocks/ETFs with mean-reverting tendencies.

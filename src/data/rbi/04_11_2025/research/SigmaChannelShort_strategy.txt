@@ -1,0 +1,29 @@
+STRATEGY_NAME: SigmaChannelShort  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Funding Rate Extremes:** Identifies overleveraged long positions by detecting when 24h funding rates exceed 3 standard deviations above their 30-day average.  
+2. **Keltner Channel Break:** Confirms bearish momentum when price breaches the lower Keltner Channel (a volatility-based envelope).  
+3. **Time-Based Exit:** Automatically closes trades after 48 hours to limit exposure to prolonged adverse conditions.  
+
+**Entry Rules:**  
+- **Condition 1:** 24h funding rate > 30-day average + (3 × standard deviation of funding rates).  
+- **Condition 2:** Price closes below the lower Keltner Channel (typical settings: 20-period EMA, 2x ATR width).  
+- **Execution:** Enter a short position on the perpetual futures contract once both conditions are met.  
+
+**Exit Rules:**  
+- **Profit/Target:** Close the trade if price retraces to the middle Keltner Channel (20-period EMA).  
+- **Time Limit:** Exit automatically after 48 hours if not stopped out earlier.  
+- **Stop-Loss (Optional):** Consider adding a stop above recent swing high or upper Keltner band for additional risk control.  
+
+**Risk Management:**  
+- Position sizing should account for high volatility during funding rate extremes.  
+- Avoid overlapping trades on correlated assets to prevent overexposure.  
+- Monitor funding rate mean-reversion speed—extreme deviations may correct abruptly.  
+
+**Required Indicators:**  
+1. **Funding Rate Data:** 24h funding rate history + 30-day rolling average and standard deviation.  
+2. **Keltner Channels:** 20-period EMA with bands set at 2x ATR (14-period).  
+
+**Unique Edge:** Combines quantitative crowding (funding rate extremes) with technical breakdowns (Keltner breach), targeting overextended longs while using volatility bands for exit timing.

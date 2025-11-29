@@ -1,0 +1,34 @@
+STRATEGY_NAME: LiquidationReversion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Clusters Identification:** The strategy focuses on detecting liquidation events in the market, often signaled by extreme funding rate anomalies. These clusters indicate potential over-leveraged positions that may lead to sharp price reversals.  
+2. **Volatility Contraction Post-Spike:** After a liquidation-induced volatility spike, the strategy waits for volatility to contract, signaling a potential stabilization and reversal opportunity.  
+3. **Counter-Trend Reversal Entries:** The strategy enters trades against the prevailing trend when the above conditions are met, anticipating a mean reversion move.  
+4. **Volatility Expansion Exits:** Positions are closed when volatility expands again, indicating either a continuation of the original trend or a new liquidation event.  
+
+**Entry Rules:**  
+1. **Funding Rate Anomaly:** Identify extreme funding rate deviations (either highly positive or negative) that suggest excessive leverage in one direction.  
+2. **Volatility Spike:** Confirm a sharp increase in volatility (e.g., using ATR or Bollinger Band width expansion) following the funding rate anomaly.  
+3. **Volatility Contraction:** Wait for volatility to contract (e.g., ATR declining, Bollinger Bands narrowing) as a sign of potential reversal.  
+4. **Entry Trigger:** Enter a counter-trend position (long if funding was negative/short if funding was positive) once volatility contracts and price shows signs of reversal (e.g., candlestick patterns, RSI divergence).  
+
+**Exit Rules:**  
+1. **Volatility Expansion:** Exit the trade when volatility expands again (e.g., ATR rising, Bollinger Bands widening), signaling potential trend continuation or new liquidation.  
+2. **Profit Target:** Set a predefined profit target based on recent price swings or support/resistance levels.  
+3. **Stop-Loss:** Place a stop-loss beyond the recent swing high/low to limit downside risk.  
+
+**Risk Management:**  
+1. **Position Sizing:** Use conservative position sizing (e.g., 1-2% of capital per trade) due to the high-risk nature of counter-trend trading.  
+2. **Stop-Loss:** Always use a stop-loss to protect against adverse moves. Adjust the stop based on volatility (e.g., 1.5x ATR).  
+3. **Avoid Overcrowded Conditions:** Be cautious during periods of extreme market sentiment or overlapping liquidation events.  
+
+**Required Indicators:**  
+1. **Funding Rate Data:** To detect anomalies and liquidation clusters.  
+2. **ATR (Average True Range):** To measure volatility spikes and contractions.  
+3. **Bollinger Bands:** To identify volatility expansion/contraction and potential reversal zones.  
+4. **RSI (Relative Strength Index):** For divergence confirmation and overbought/oversold conditions.  
+5. **Volume Analysis:** To validate liquidation events (e.g., spike in volume during volatility expansion).  
+
+This strategy capitalizes on market inefficiencies created by liquidations, combining funding rate analysis with volatility dynamics for high-probability counter-trend reversals.

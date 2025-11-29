@@ -1,0 +1,30 @@
+STRATEGY_NAME: LiquidationSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Liquidation Cluster Detection:** Uses order book delta analysis to identify high-liquidity zones where stop losses (liquidations) are likely clustered.  
+2. **Bollinger Band Squeeze:** Confirms low volatility conditions via Bollinger Band contraction (bands narrowing significantly).  
+3. **Volatility Expansion Target:** Aims to capitalize on breakout momentum post-squeeze, targeting expansion beyond the cluster zone.  
+
+**Entry Rules:**  
+- Enter long/short when:  
+  - Price approaches a liquidation cluster level (order book delta shows dense stop orders).  
+  - Bollinger Band width is below a threshold (e.g., 20-period BB width < 50% of its 50-period average).  
+  - Price breaches the cluster level with increasing volume.  
+
+**Exit Rules:**  
+- **Take Profit:** Set at 1.5–2x the average true range (ATR) beyond the cluster boundary.  
+- **Stop Loss:** Placed at the midpoint of the liquidation cluster (calculated as the mean price between the cluster's high and low bounds).  
+
+**Risk Management:**  
+- Position size capped at 1–2% of capital per trade.  
+- Stop loss dynamically adjusts if the cluster midpoint shifts due to order book changes.  
+- Avoid trading during low-liquidity periods (e.g., weekends/holidays).  
+
+**Required Indicators:**  
+1. **Order Book Delta Analyzer** (to detect liquidation clusters).  
+2. **Bollinger Bands** (20-period, 2 standard deviations).  
+3. **Average True Range (ATR)** (14-period for volatility measurement).  
+4. **Volume Indicator** (to confirm breakout validity).  
+
+**Unique Edge:** Combines order flow dynamics (liquidation hunting) with technical confirmation (Bollinger Squeeze), targeting high-probability breakouts.

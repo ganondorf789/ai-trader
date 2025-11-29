@@ -1,0 +1,32 @@
+STRATEGY_NAME: LiquidationSpikeReversion  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on extreme market conditions where a sudden spike in negative funding rates coincides with elevated liquidation heatmap levels, indicating potential short-term overextension and a high probability of mean reversion.  
+
+**Key Components:**  
+1. **Negative Funding Rate Spike:** Identifies when funding rates drop sharply into negative territory, suggesting excessive short positioning.  
+2. **Liquidation Heatmap Surge:** Confirms market stress by detecting clusters of liquidations, often preceding short squeezes.  
+3. **4H VWAP (Volume-Weighted Average Price):** Serves as the mean-reversion target for profit-taking.  
+
+**Entry Rules:**  
+- Go **LONG** when:  
+  - Funding rate drops sharply (e.g., >2 standard deviations below its 7-day average).  
+  - Liquidation heatmap shows concentrated short liquidations (e.g., top 5% of 30-day levels).  
+  - Price is below the 4H VWAP (confirming undervaluation).  
+
+**Exit Rules:**  
+- Close position when price retraces to the 4H VWAP.  
+- Emergency exit if funding rate flips positive or liquidation heatmap dissipates abruptly.  
+
+**Risk Management:**  
+- Position size: 1-2% of capital per trade.  
+- Stop-loss: 1.5x the distance between entry and 4H VWAP.  
+- Time exit: Auto-close after 6 candles if target not hit.  
+
+**Required Indicators:**  
+1. Real-time funding rate data (exchange API).  
+2. Liquidation heatmap (e.g., Coinalyze, Hyblock).  
+3. 4H VWAP with lookback period matching the funding rate spike’s timeframe.  
+
+**Unique Edge:**  
+Combines sentiment (funding rate) with liquidity dynamics (heatmap) to pinpoint exhaustion points, while VWAP provides an objective mean-reversion anchor. Avoids chasing pumps/dumps by waiting for confluence.

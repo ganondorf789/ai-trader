@@ -1,0 +1,44 @@
+STRATEGY_NAME: VoltaicSqueeze
+
+STRATEGY_DETAILS:
+The VoltaicSqueeze strategy is a volatility-based breakout system that capitalizes on periods of low volatility followed by explosive price movements. It uses Bollinger Bands and ATR (Average True Range) to identify high-probability trading opportunities.
+
+Key Components:
+1. Bollinger Bands (20,2) - To identify volatility contraction
+2. ATR (14) - For trailing stop placement
+3. 30-day lookback period - To confirm the narrowest Bollinger Band width
+
+Entry Rules:
+1. Monitor Bollinger Band width daily
+2. Confirm the current Bollinger Band width is the narrowest in the last 30 days
+3. Wait for price to close above the upper Bollinger Band
+4. Enter long position on the next candle's open
+
+Exit Rules:
+1. Set initial stop loss at 2x ATR below entry price
+2. Trail stop loss upward using 2x ATR
+3. Exit position when price hits trailing stop
+
+Risk Management:
+1. Position size based on 1% risk per trade
+2. Stop loss distance determines position size
+3. Maximum portfolio risk limited to 5% at any time
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. ATR (14)
+3. Custom script to identify 30-day narrowest band width
+
+Additional Notes:
+- Works best on liquid assets with strong trending characteristics
+- Ideal timeframe: Daily charts
+- Recommended markets: Forex majors, large-cap stocks, and major indices
+- Backtest across multiple market conditions before live trading
+- Combine with fundamental analysis for better context
+
+Optimization Tips:
+- Adjust ATR multiplier (1.5x to 3x) based on market volatility
+- Consider adding volume confirmation for stronger signals
+- Test different lookback periods (20-50 days) for band width comparison
+
+This strategy aims to capture the explosive moves that often follow periods of low volatility, while using ATR-based stops to lock in profits during strong trends.

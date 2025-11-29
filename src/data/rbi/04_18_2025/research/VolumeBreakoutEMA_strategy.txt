@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolumeBreakoutEMA
+
+STRATEGY_DETAILS:
+This strategy combines EMA crossovers with volume analysis and volatility-based stops to capture breakout moves during low-volume consolidation periods.
+
+Key Components:
+1. EMA Crossover: Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as primary trend confirmation
+2. Volume Filter: Requires declining volume during the consolidation period preceding the breakout
+3. Volatility Stops: Implements both fixed (2x ATR) and dynamic (5% trailing) stop mechanisms
+
+Entry Rules:
+1. Wait for the 50-EMA to cross above the 200-EMA (Golden Cross formation)
+2. Confirm volume is in a declining trend (at least 3 consecutive lower volume bars)
+3. Enter on the first candle that closes above the recent consolidation high after the EMA crossover
+
+Exit Rules:
+1. Protective Stop: Place initial stop at 2x the current ATR(14) below entry price
+2. Trailing Stop: Once price moves 5% in favor, activate a 5% trailing stop from the highest point reached
+3. Optional: Consider exiting if 50-EMA crosses back below 200-EMA (Death Cross)
+
+Risk Management:
+1. Position size should be calculated based on the 2x ATR stop distance
+2. Risk no more than 1-2% of capital per trade
+3. Avoid trading during major news events that may cause erratic volume spikes
+
+Required Indicators:
+1. 50-period Exponential Moving Average (EMA)
+2. 200-period Exponential Moving Average (EMA)
+3. Volume indicator (preferably with 5-period MA for trend analysis)
+4. Average True Range (ATR) 14-period for stop calculation
+
+Optimization Notes:
+1. Test different EMA periods (e.g., 20/50 instead of 50/200) for different timeframes
+2. Experiment with volume decline requirements (3-5 bars)
+3. Adjust ATR multiplier (1.5x-3x) based on market volatility
+4. Consider adding RSI filter (e.g., >30) to avoid overextended entries
+
+This strategy works best in trending markets after consolidation periods, using volume decline as a contraction signal before expansion. The dual stop mechanism provides both initial protection and room for profits to run.

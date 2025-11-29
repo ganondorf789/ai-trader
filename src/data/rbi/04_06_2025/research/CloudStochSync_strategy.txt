@@ -1,0 +1,40 @@
+STRATEGY_NAME: CloudStochSync
+
+STRATEGY_DETAILS:
+This multi-timeframe strategy combines Heikin-Ashi trend confirmation with Ichimoku Cloud support and stochastic RSI momentum, creating a synchronized entry system with divergence-based exits.
+
+Key Components:
+1. Heikin-Ashi (4H): Filters for clean trend direction
+2. Ichimoku Cloud (4H): Identifies key support/resistance
+3. Stochastic RSI (1H): Measures momentum extremes
+4. MACD Histogram (15M): Detects exit divergence patterns
+
+Entry Rules:
+1. Primary Condition: 4-hour Heikin-Ashi candle must close ABOVE the Ichimoku Cloud
+2. Confirmation: 1-hour Stochastic RSI (14,3,3) must cross above 20 level
+3. Volume: Preferably above 20-period average (recommended but not required)
+
+Exit Rules:
+1. Primary Exit: Price closes back INSIDE the Ichimoku Cloud on 4H
+2. Early Exit: Bearish MACD histogram divergence appears on 15M chart
+   - When price makes higher high but MACD histogram shows lower high
+3. Emergency Exit: Heikin-Ashi candle color change to red (optional filter)
+
+Risk Management:
+1. Stop Placement: Below most recent swing low (for longs)
+2. Position Sizing: Risk no more than 1-2% per trade
+3. Time Filter: Avoid trading during major news events
+4. Correlation: Don't take same-direction trades in correlated pairs
+
+Required Indicators:
+1. Heikin-Ashi candles (4H)
+2. Ichimoku Cloud (4H - standard 9/26/52 settings)
+3. Stochastic RSI (1H - 14,3,3 settings)
+4. MACD histogram (15M - standard 12/26/9 settings)
+
+Optimization Notes:
+- Test different Stochastic RSI levels (15-25) for cross threshold
+- Experiment with Cloud penetration requirements (full candle vs wick)
+- Consider adding ADX >25 filter for stronger trends
+
+This strategy works best in trending markets and may produce whipsaws during ranging conditions. The multi-timeframe approach provides high-probability entries while the divergence exit helps capture maximum trend movement.

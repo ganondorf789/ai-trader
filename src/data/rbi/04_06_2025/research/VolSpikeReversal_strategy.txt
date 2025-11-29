@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolSpikeReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Funding Rate Spike:** The strategy identifies extreme bullish sentiment by monitoring when funding rates exceed their historical 95th percentile, signaling potential overleveraging.  
+2. **Descending SMA Confirmation:** A descending 20-period SMA acts as a trend filter, ensuring the price is in a downtrend before entry.  
+3. **Volume-Weighted Volatility Exit:** The exit condition is triggered by a 3x surge in volume-weighted volatility within a 4-hour window, indicating heightened market turbulence and potential reversal risk.  
+
+**Entry Rules:**  
+- **Short Entry:** Trigger a short position when:  
+  - Funding rates spike above the 95th percentile of their historical range (calculated over a sufficiently long lookback period, e.g., 30-90 days).  
+  - Price breaches and closes below a descending 20-period SMA.  
+
+**Exit Rules:**  
+- **Volatility-Based Exit:** Close the short position if:  
+  - Volume-weighted volatility (e.g., standard deviation of returns weighted by volume) surges to 3x its 4-hour rolling average within the same 4-hour window.  
+
+**Risk Management:**  
+1. **Position Sizing:** Use fixed fractional or volatility-adjusted sizing to limit risk per trade (e.g., 1-2% of capital).  
+2. **Stop-Loss:** Optional but recommended—set a stop-loss at a recent swing high or a fixed percentage (e.g., 5%) to cap losses if volatility spikes prematurely.  
+3. **Time Exit:** Force-exit after 24 hours if the volatility condition isn’t met, avoiding prolonged exposure.  
+
+**Required Indicators:**  
+1. **Funding Rate Data:** Historical percentiles (95th) updated in real-time.  
+2. **20-Period SMA:** Simple Moving Average, descending slope confirmed by lower highs/lows.  
+3. **Volume-Weighted Volatility:** Rolling 4-hour volatility (standard deviation) multiplied by normalized volume, with a 3x threshold for exits.  
+
+**Unique Edge:** Combines sentiment extremes (funding rates) with trend confirmation (SMA) and dynamic exit logic (volatility + volume), targeting overleveraged shorts in downtrends while avoiding false exits.  
+
+**Note:** Backtest sensitivity to funding rate lookback periods and volatility thresholds is critical for optimization.

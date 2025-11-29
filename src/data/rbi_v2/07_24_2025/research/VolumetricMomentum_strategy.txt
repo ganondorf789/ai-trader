@@ -1,0 +1,58 @@
+STRATEGY_NAME: VolumetricMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **BILDI (Bidirectional Liquidity Detection Indicator):**  
+   - Identifies potential liquidity zones where price may reverse or accelerate.  
+   - Combines order flow analysis with volume profile to detect institutional activity.  
+
+2. **ADX (Average Directional Index):**  
+   - Measures trend strength (values above 25 indicate a strong trend).  
+   - Used to confirm whether the market is trending or ranging.  
+
+3. **VWAP (Volume-Weighted Average Price):**  
+   - Acts as a dynamic support/resistance level.  
+   - Price above VWAP suggests bullish bias, below suggests bearish bias.  
+
+**Entry Rules:**  
+1. **Long Entry:**  
+   - BILDI shows liquidity accumulation below current price (bullish signal).  
+   - ADX > 25 (confirming trend strength).  
+   - Price crosses above VWAP with volume confirmation.  
+
+2. **Short Entry:**  
+   - BILDI shows liquidity exhaustion above current price (bearish signal).  
+   - ADX > 25 (confirming trend strength).  
+   - Price crosses below VWAP with volume confirmation.  
+
+**Exit Rules:**  
+1. **Take Profit:**  
+   - Close position when price reaches the next significant liquidity zone identified by BILDI.  
+   - Alternatively, exit when ADX drops below 20 (trend weakening).  
+
+2. **Stop Loss:**  
+   - For long positions: Below the recent swing low or VWAP (whichever is closer).  
+   - For short positions: Above the recent swing high or VWAP (whichever is closer).  
+
+**Risk Management:**  
+1. **Position Sizing:**  
+   - Risk no more than 1-2% of capital per trade.  
+   - Adjust stop-loss distance to maintain consistent risk per trade.  
+
+2. **Trade Filtering:**  
+   - Only trade when ADX confirms a strong trend (ADX > 25).  
+   - Avoid trading during low-volume periods or near major economic events.  
+
+**Required Indicators:**  
+1. BILDI (custom liquidity detection tool).  
+2. ADX (14-period default setting).  
+3. VWAP (standard calculation with session-based reset).  
+4. Volume indicator (to confirm breakout/breakdown).  
+
+**Additional Notes:**  
+- Works best on 15-minute to 4-hour timeframes.  
+- Combines institutional liquidity analysis (BILDI) with retail trader tools (ADX/VWAP).  
+- Avoid using in choppy markets (ADX < 20).  
+
+This strategy leverages institutional order flow detection (BILDI) alongside classic retail indicators (ADX/VWAP) for high-probability trend-following entries. The name "VolumetricMomentum" reflects its dual focus on volume-based liquidity and trend momentum confirmation.

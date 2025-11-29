@@ -1,0 +1,35 @@
+STRATEGY_NAME: BandedMACD
+
+STRATEGY_DETAILS:
+The BandedMACD strategy is a unique combination of MACD and Bollinger Bands, designed to identify overbought conditions and exit long positions at optimal points. This strategy focuses on capturing the end of bullish momentum by leveraging the convergence of MACD signals and Bollinger Band price action.
+
+Key Strategy Components:
+1. MACD (Moving Average Convergence Divergence) - Used to identify bullish momentum
+2. Bollinger Bands - Used to identify overbought conditions and potential price reversals
+3. Price action analysis - Confirms exit signals through pullback patterns
+
+Entry Rules:
+- This strategy focuses on exit signals only, assuming long positions are already established through another entry strategy
+
+Exit Rules:
+1. Wait for MACD bullish signal (MACD line crossing above the signal line)
+2. Simultaneously, price must touch or exceed the upper Bollinger Band
+3. Exit the long position on the first significant pullback after these conditions are met
+4. A pullback is defined as a price movement below the most recent swing high
+
+Risk Management:
+1. Use a trailing stop loss below recent swing lows to protect profits
+2. Consider position sizing based on volatility (Bollinger Band width)
+3. Avoid re-entering long positions until MACD shows a new bullish crossover below the signal line
+
+Required Indicators:
+1. MACD (12, 26, 9 standard settings)
+2. Bollinger Bands (20-period, 2 standard deviations)
+
+Additional Considerations:
+- This strategy works best in trending markets
+- Combine with volume indicators for additional confirmation
+- Backtest on multiple timeframes to find optimal settings for your trading style
+- Consider using this strategy in conjunction with a complementary entry strategy for complete trade management
+
+The BandedMACD strategy is particularly effective for traders looking to maximize profits by exiting long positions at optimal points, combining momentum indicators with volatility-based price levels for precise timing.

@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolatilitySpread
+
+STRATEGY_DETAILS:
+The VolatilitySpread strategy is a momentum-based approach that capitalizes on the interplay between price momentum, average true range (ATR), and implied volatility in futures contracts. The strategy focuses on identifying overbought and oversold conditions while considering the direction of implied volatility to time entries and exits.
+
+### Key Strategy Components:
+1. **Momentum Analysis**: Uses price momentum to identify overbought (above 80% of ATR) and oversold (below 20% of ATR) conditions.
+2. **Implied Volatility**: Monitors the direction of implied volatility to confirm entry and exit signals.
+3. **Average True Range (ATR)**: Measures market volatility to define overbought and oversold thresholds.
+
+### Entry Rules:
+1. **Long Entry**:
+   - Identify futures contracts trading above 80% of their ATR (overbought condition).
+   - Confirm that implied volatility is decreasing.
+   - Enter a long position when both conditions are met.
+
+2. **Short Exit**:
+   - Identify futures contracts trading below 20% of their ATR (oversold condition).
+   - Confirm that implied volatility is increasing.
+   - Exit any existing short positions when both conditions are met.
+
+### Exit Rules:
+1. **Long Exit**:
+   - Exit long positions when the price falls below a predefined threshold (e.g., 50% of ATR) or when implied volatility starts increasing.
+
+2. **Short Entry**:
+   - Enter short positions when the price is below 20% of ATR and implied volatility is increasing.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of capital per trade (e.g., 1-2%) to manage risk.
+2. **Stop-Loss**: Set stop-loss orders at a level below the entry price for long positions (e.g., 1.5x ATR) or above the entry price for short positions.
+3. **Take-Profit**: Use a trailing stop or a fixed profit target (e.g., 2x ATR) to lock in gains.
+
+### Required Indicators:
+1. **Average True Range (ATR)**: To define overbought and oversold levels.
+2. **Implied Volatility (IV)**: To confirm the direction of volatility.
+3. **Price Momentum**: To identify overbought and oversold conditions.
+
+### Additional Notes:
+- This strategy works best in trending markets with clear momentum and volatility patterns.
+- Regularly backtest and optimize the ATR thresholds and implied volatility parameters to adapt to changing market conditions.
+- Consider using a volatility filter to avoid trading during periods of extreme market uncertainty.
+
+By combining momentum, ATR, and implied volatility, the VolatilitySpread strategy aims to capture high-probability trades while managing risk effectively.

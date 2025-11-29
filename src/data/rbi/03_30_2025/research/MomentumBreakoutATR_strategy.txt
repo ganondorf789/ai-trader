@@ -1,0 +1,47 @@
+STRATEGY_NAME: MomentumBreakoutATR
+
+STRATEGY_DETAILS:
+This strategy combines trend confirmation, momentum strength, and volatility-based exits for high-probability breakout trading. Here are the key components:
+
+1. TREND CONFIRMATION:
+- Uses the golden cross (50 EMA crossing above 200 EMA) as primary trend filter
+- EMA crossover must be confirmed by price trading above both EMAs
+
+2. MOMENTUM FILTER:
+- ADX must be rising and above 25 threshold
+- This confirms strong directional movement supporting the breakout
+
+3. ENTRY RULES:
+- Enter long when:
+  a) 50 EMA crosses above 200 EMA
+  b) Price is trading above both EMAs
+  c) ADX > 25 and rising
+  d) Price breaks recent high (confirms breakout)
+
+4. EXIT MECHANISM:
+- Uses 2x ATR trailing stop
+- Stop moves up with price but never down
+- Calculated as: Highest High since entry - (2 x current ATR)
+
+5. RISK MANAGEMENT:
+- Initial stop placed at entry price - (2 x ATR)
+- Position size calculated based on stop distance
+- Never risk more than 1-2% of capital per trade
+
+6. REQUIRED INDICATORS:
+- 50-period Exponential Moving Average (EMA)
+- 200-period EMA
+- Average Directional Index (ADX) - 14 period recommended
+- Average True Range (ATR) - 14 period recommended
+
+7. OPTIMIZATION TIPS:
+- Test different ADX thresholds (20-30)
+- Experiment with ATR multiples (1.5-3x)
+- Consider adding volume confirmation for stronger signals
+
+8. BEST MARKET CONDITIONS:
+- Works best in trending markets
+- Avoid ranging periods (when ADX < 20)
+- Most effective on daily or 4H timeframes
+
+This strategy combines the reliability of EMA crossovers with momentum confirmation and smart volatility-based exits, creating a robust trend-following system. The 2x ATR trailing stop helps capture extended moves while protecting profits.

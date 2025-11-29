@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volume Analysis**: The strategy relies heavily on trading volume to confirm breakout validity.  
+2. **Price Breakout**: Identifies key support/resistance levels where price breaks out with significant volume.  
+3. **Confirmation Indicators**: Uses moving averages (MA) and relative strength index (RSI) to filter false breakouts.  
+
+**Entry Rules:**  
+1. **Volume Spike**: Look for a sudden spike in trading volume (at least 1.5x the 20-day average volume).  
+2. **Price Breakout**: Price must close above a resistance level (for long) or below support (for short).  
+3. **RSI Confirmation**: RSI should not be in overbought (>70) or oversold (<30) territory to avoid reversals.  
+4. **MA Alignment**: Price should be above the 50-day MA (for long) or below it (for short).  
+
+**Exit Rules:**  
+1. **Profit Target**: Set a 2:1 reward-to-risk ratio (e.g., if stop loss is 2%, take profit at 4%).  
+2. **Trailing Stop**: Use a trailing stop of 1.5x the average true range (ATR) to lock in profits.  
+3. **Volume Decline**: Exit if volume drops below the 20-day average, signaling weakening momentum.  
+
+**Risk Management:**  
+1. **Stop Loss**: Place stop loss just below the breakout level (for long) or above it (for short).  
+2. **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+3. **Avoid Choppy Markets**: Only trade when volatility (measured by ATR) is above its 14-day average.  
+
+**Required Indicators:**  
+1. **Volume (20-day average & spike detection)**  
+2. **50-day Moving Average (MA)**  
+3. **Relative Strength Index (RSI, 14-period)**  
+4. **Average True Range (ATR, 14-period for trailing stop)**  
+
+This strategy capitalizes on high-volume breakouts while filtering noise with trend and momentum confirmations.

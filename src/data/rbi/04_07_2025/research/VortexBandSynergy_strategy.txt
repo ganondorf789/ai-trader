@@ -1,0 +1,45 @@
+STRATEGY_NAME: VortexBand Synergy
+
+STRATEGY_DETAILS:
+This strategy combines the directional confirmation of the Vortex Indicator (VI) with Bollinger Band volatility dynamics to identify high-probability trend-following opportunities. The system focuses on alignment between trend direction and volatility expansion phases.
+
+Key Components:
+1. Vortex Indicator (VI) - Uses VI+ and VI- lines to determine trend direction
+2. Bollinger Bands - Measures volatility contraction/expansion through band width
+3. Price Action - Confirms breakouts from Bollinger Band boundaries
+
+Entry Rules (Long):
+1. VI+ must cross above VI- (bullish confirmation)
+2. Bollinger Band width must be expanding from prior contraction
+3. Price must close above upper Bollinger Band
+4. All conditions must occur simultaneously
+
+Entry Rules (Short):
+1. VI- must cross above VI+ (bearish confirmation)
+2. Bollinger Band width must be expanding from prior contraction
+3. Price must close below lower Bollinger Band
+4. All conditions must occur simultaneously
+
+Exit Rules:
+1. For long positions: VI- crosses above VI+ OR Bollinger Band width contracts significantly
+2. For short positions: VI+ crosses above VI- OR Bollinger Band width contracts significantly
+3. Optional trailing stop can be set at opposite Bollinger Band
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Initial stop placed at middle Bollinger Band (20-period SMA)
+3. Stop moved to breakeven when price moves 1.5x ATR in profit
+4. Maximum trade duration of 5 days to avoid whipsaws
+
+Required Indicators:
+1. Vortex Indicator (standard 14-period)
+2. Bollinger Bands (20-period, 2 standard deviations)
+3. Optional: ATR (14-period) for stop placement
+
+Optimization Notes:
+1. Best suited for 1-hour to daily timeframes
+2. Works well in trending markets, less effective in ranging conditions
+3. VI period can be adjusted between 10-20 periods based on asset volatility
+4. Bollinger Band parameters can be optimized between 1.5-2.5 standard deviations
+
+This strategy capitalizes on the synergy between confirmed trend direction and volatility expansion, providing a robust framework for capturing sustained price movements while filtering out false breakouts.

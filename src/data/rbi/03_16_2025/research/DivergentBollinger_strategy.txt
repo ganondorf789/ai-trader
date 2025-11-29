@@ -1,0 +1,38 @@
+STRATEGY_NAME: DivergentBollinger
+
+STRATEGY_DETAILS:
+The DivergentBollinger strategy is a trend-following approach that focuses on identifying bearish divergence signals combined with Bollinger Band and volume analysis. The strategy is designed to capture short-term downward trends while incorporating confirmation signals from RSI and ATR for exit conditions.
+
+Key Strategy Components:
+1. MACD Bearish Divergence: The strategy looks for bearish divergence between the MACD line and price action, indicating weakening momentum.
+2. Bollinger Band Positioning: Requires price to be below the lower Bollinger Band, suggesting oversold conditions.
+3. Volume Analysis: Decreasing volume during the bearish divergence confirms weakening buying pressure.
+4. RSI Confirmation: Used as an exit signal when it confirms the divergence.
+5. ATR Breakeven: Acts as a secondary exit condition based on volatility.
+
+Entry Rules:
+1. Wait for MACD to show bearish divergence (price making higher highs while MACD makes lower highs).
+2. Confirm price is below the lower Bollinger Band.
+3. Verify that volume is decreasing during the divergence period.
+4. Enter a short position when all three conditions are met.
+
+Exit Rules:
+1. Primary Exit: Close the position when RSI confirms the divergence (typically when RSI shows oversold conditions or begins to reverse).
+2. Secondary Exit: Use ATR to set a breakeven stop-loss. If the price moves against the position by more than the ATR value, exit the trade.
+
+Risk Management:
+1. Position sizing should be based on account risk tolerance (typically 1-2% of total capital per trade).
+2. Use ATR to determine stop-loss levels, placing it at 1.5x ATR above the entry price.
+3. Avoid trading during high-impact news events or low liquidity periods.
+
+Required Indicators:
+1. MACD (12,26,9) - For identifying bearish divergence.
+2. Bollinger Bands (20,2) - For identifying oversold conditions.
+3. Volume Indicator - For confirming decreasing volume.
+4. RSI (14) - For divergence confirmation and exit signals.
+5. ATR (14) - For setting breakeven stop-loss levels.
+
+Additional Notes:
+- This strategy works best in trending markets and may produce false signals in ranging conditions.
+- Backtest the strategy on your specific market and timeframe before live trading.
+- Consider combining with fundamental analysis for better context in longer timeframes.

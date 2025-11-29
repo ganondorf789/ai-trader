@@ -1,0 +1,55 @@
+STRATEGY_NAME: VoltaDivergence
+
+STRATEGY_DETAILS:
+The VoltaDivergence strategy is a volatility-based trading system that combines RSI overbought/oversold signals, moving average crossovers, and divergence patterns to identify high-probability entry and exit points. This strategy is designed to capitalize on both trending and mean-reverting market conditions.
+
+Key Components:
+1. Relative Strength Index (RSI) - 14 period
+2. Exponential Moving Averages (EMA) - 50 and 200 periods
+3. Price action divergence patterns
+
+Entry Rules:
+1. Long Entry:
+   - RSI crosses above 70 (overbought condition)
+   - 50 EMA crosses above 200 EMA (golden cross)
+   - Bullish divergence pattern present (price makes lower low while RSI makes higher low)
+
+2. Short Entry:
+   - RSI crosses below 30 (oversold condition)
+   - 50 EMA crosses below 200 EMA (death cross)
+   - Bearish divergence pattern present (price makes higher high while RSI makes lower high)
+
+Exit Rules:
+1. Long Exit:
+   - RSI crosses below 50
+   - Price closes below 50 EMA
+   - Bearish divergence pattern forms
+
+2. Short Exit:
+   - RSI crosses above 50
+   - Price closes above 50 EMA
+   - Bullish divergence pattern forms
+
+Risk Management:
+1. Position sizing: Risk no more than 1-2% of account per trade
+2. Stop-loss placement:
+   - Long trades: Below recent swing low or 1 ATR below entry
+   - Short trades: Above recent swing high or 1 ATR above entry
+3. Take-profit levels:
+   - Primary target: 1:1 risk-reward ratio
+   - Secondary target: 2:1 risk-reward ratio (trailing stop can be used)
+
+Required Indicators:
+1. RSI (14 period)
+2. EMA (50 and 200 periods)
+3. ATR (14 period) for stop-loss calculation
+4. Price action tools for divergence identification
+
+Additional Notes:
+- This strategy works best in volatile markets with clear trends
+- Timeframe: 1-hour charts or higher for better reliability
+- Confirm entries with volume spikes for increased probability
+- Avoid trading during major news events or low liquidity periods
+- Backtest thoroughly before live trading to optimize parameters for specific instruments
+
+The VoltaDivergence strategy combines multiple technical analysis tools to create a robust trading system that adapts to changing market conditions while maintaining strict risk management protocols.

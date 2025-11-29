@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolConverge Breakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Composite Indicator Convergence**: Combines Bollinger Band width, Keltner Channel squeeze, and on-balance volume (OBV) divergence to identify high-probability breakout setups.  
+2. **Volatility Filter**: Uses a volatility percentile threshold to ensure trades are taken only during optimal market conditions.  
+3. **Breakout Confirmation**: Requires price action to confirm the breakout beyond a defined threshold, reducing false signals.  
+
+**Entry Rules:**  
+1. **Composite Indicator Alignment**:  
+   - Bollinger Band width must be below its 20-period average (indicating compression).  
+   - Keltner Channel must show a squeeze (upper and lower bands within a tight range).  
+   - OBV must show bullish divergence (price makes lower low, OBV makes higher low) for long entries or bearish divergence for short entries.  
+2. **Volatility Filter**: The current volatility (e.g., ATR) must be in the lower 30th percentile of its recent 50-period range, ensuring breakout potential.  
+3. **Price Confirmation**: Enter long when price breaks above the upper Bollinger Band or Keltner Channel, or short when price breaks below the lower band.  
+
+**Exit Rules:**  
+1. **Profit Target**: Use a trailing stop based on a multiple of the ATR (e.g., 2x ATR) or a fixed risk-reward ratio (e.g., 2:1).  
+2. **Stop Loss**: Place initial stop below the recent swing low (long) or above the swing high (short), or use a volatility-based stop (e.g., 1.5x ATR).  
+3. **Indicator Reversal**: Exit if the composite indicator reverses (e.g., OBV divergence disappears or Bollinger Band width expands significantly).  
+
+**Risk Management:**  
+1. **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+2. **Volatility Adjustment**: Reduce position size during higher volatility periods (above 70th percentile).  
+3. **Correlation Check**: Avoid overlapping trades in correlated assets.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 StdDev).  
+2. Keltner Channel (20-period, 1.5 ATR multiplier).  
+3. On-Balance Volume (OBV).  
+4. Average True Range (ATR) for volatility measurement.  
+5. Volatility percentile calculator (e.g., rolling ATR percentile).  
+
+**Unique Edge:** The strategy combines multiple confirmation signals (price, volume, and volatility) to filter high-probability breakouts while avoiding choppy or overextended markets. The volatility percentile threshold ensures trades are taken only during periods of favorable breakout conditions.

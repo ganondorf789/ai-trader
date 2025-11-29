@@ -1,0 +1,36 @@
+STRATEGY_NAME: BandwidthBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** The strategy identifies periods of low volatility when the Bollinger Band width (difference between upper and lower bands) contracts below a historical percentile (e.g., 20th percentile).  
+2. **Keltner Channel Expansion:** Simultaneously, the Keltner Channel must show expansion, indicating potential volatility breakout conditions.  
+3. **Breakout Confirmation:** Entry occurs on a close outside both Bollinger Bands and Keltner Channels, confirming a strong breakout signal.  
+
+**Entry Rules:**  
+- Enter long if price closes above both the upper Bollinger Band and upper Keltner Channel.  
+- Enter short if price closes below both the lower Bollinger Band and lower Keltner Channel.  
+
+**Exit Rules:**  
+- **Take-Profit:** Use a trailing stop or a fixed risk-reward ratio (e.g., 2:1).  
+- **Stop-Loss:** Place stop-loss at the most recent swing low (for long) or swing high (for short).  
+
+**Risk Management:**  
+- Position sizing should be based on the distance between entry and stop-loss to limit risk per trade (e.g., 1-2% of capital).  
+- Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 standard deviations) – To measure volatility contraction.  
+2. **Keltner Channels** (20-period, 1.5 ATR multiplier) – To confirm expansion.  
+3. **Historical Percentile Calculation** (e.g., 20-period lookback for Bollinger Band width).  
+
+**Unique Aspects:**  
+- Combines Bollinger Band contraction (low volatility) with Keltner Channel expansion (volatility breakout).  
+- Requires confirmation from both bands to filter false breakouts.  
+- Uses historical percentile to adapt to changing market conditions.  
+
+**Optimization Tips:**  
+- Test different percentile thresholds (e.g., 15th-25th) for Bollinger Band width.  
+- Adjust ATR multiplier for Keltner Channels based on asset volatility.  
+- Backtest across multiple timeframes (e.g., 1H, 4H) for robustness.  
+
+This strategy is ideal for trending markets but may underperform in prolonged ranging conditions. Always validate with backtesting before live deployment.

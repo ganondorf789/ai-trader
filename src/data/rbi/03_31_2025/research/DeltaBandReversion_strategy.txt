@@ -1,0 +1,31 @@
+STRATEGY_NAME: DeltaBand Reversion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Mean-Reversion Framework**: Focuses on price returning to its mean after extreme movements.  
+2. **Bollinger Band Width Contraction**: Identifies low volatility periods when the Bollinger Band width falls below a historical percentile (e.g., 20th percentile).  
+3. **Negative Delta Options Flow**: Confirms bearish sentiment when there's a surge in negative delta options flow (unusual put buying activity).  
+4. **Volatility-Adjusted Fibonacci Retracement**: Uses Fibonacci levels (e.g., 38.2%, 50%, 61.8%) adjusted by recent volatility for exit targets.  
+
+**Entry Rules:**  
+1. **Bollinger Band Contraction Trigger**: Wait for the Bollinger Band width (BB width = (Upper Band - Lower Band) / Middle Band) to drop below its 20th percentile over a 50-day lookback period.  
+2. **Options Flow Confirmation**: Verify a spike in negative delta options flow (e.g., 1.5x the 10-day average put volume).  
+3. **Entry Signal**: Enter a long position when both conditions align, anticipating a reversion toward the mean (Bollinger Middle Band).  
+
+**Exit Rules:**  
+1. **Profit-Taking**: Exit at the nearest volatility-adjusted Fibonacci retracement level (e.g., 38.2% of the recent swing high/low, scaled by ATR).  
+2. **Stop-Loss**: Place a stop below the recent swing low (or use a fixed ATR-based stop, e.g., 1.5x ATR).  
+
+**Risk Management:**  
+1. **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+2. **Volatility Filter**: Avoid trading if the ATR is above its 20-day average (prevents false signals in high volatility).  
+3. **Time Decay Consideration**: Exit trades before major options expiration dates if using short-dated flow data.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 Std Dev) + Width calculation.  
+2. Historical percentile rank for BB width (50-day lookback).  
+3. Real-time options flow data (negative delta emphasis).  
+4. Fibonacci retracement tool + ATR (14-period) for volatility adjustment.  
+
+**Unique Edge:** Combines technical contraction (Bollinger Bands) with smart money sentiment (options flow) for high-probability reversion trades, while volatility-adjusted exits lock in gains before reversals lose steam.

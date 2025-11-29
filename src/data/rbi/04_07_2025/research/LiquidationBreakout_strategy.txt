@@ -1,0 +1,59 @@
+STRATEGY_NAME: LiquidationBreakout
+
+STRATEGY_DETAILS:
+This strategy combines on-chain liquidation data with technical volatility expansion to identify high-probability breakout opportunities. The approach focuses on areas where clustered liquidations create potential price acceleration zones, confirmed by abnormal volatility expansion.
+
+Key Components:
+1. Liquidation Cluster Detection (On-Chain):
+   - Identify price levels with high concentration of liquidations (long/short)
+   - Use platforms like Glassnode or Coinalyze to find liquidation heatmaps
+   - Focus on zones within 2-3% of current price
+
+2. Volatility Confirmation (Technical):
+   - Keltner Channel (20-period, 2x ATR multiplier)
+   - Monitor channel width expansion beyond 2x 20-day average
+   - Use 1-hour or 4-hour timeframes for optimal signals
+
+Entry Rules:
+1. Primary Entry:
+   - Price approaches identified liquidation cluster zone (±1.5%)
+   - Keltner Channel width expands to >2x 20-day average
+   - Enter on breakout of local high/low (for long/short respectively)
+   - Use 15-minute closing confirmation
+
+2. Secondary Entry:
+   - Retest of breakout level after initial move
+   - Channel width remains above 1.5x average
+   - Reduced position size
+
+Exit Rules:
+1. Profit Taking:
+   - 1:1.5 risk-reward ratio minimum
+   - Partial profits at 1:1 (50% position)
+   - Trail remainder using 1.5x ATR from extreme
+
+2. Stop Loss:
+   - Fixed: Opposite side of liquidation cluster
+   - Dynamic: 1x ATR from entry for tighter risk
+   - Whichever is closer to entry price
+
+Risk Management:
+- Maximum 2% capital per trade
+- Daily loss limit of 5%
+- Weekly loss limit of 10%
+- Avoid trading during scheduled news events
+- Reduce size by 50% during low liquidity periods
+
+Required Indicators:
+1. Keltner Channel (20,2)
+2. ATR (14-period)
+3. On-chain liquidation heatmap
+4. Volume profile (for confirmation)
+
+Optimization Notes:
+- Best results on BTC, ETH and high-cap alts
+- Higher timeframe (4h+) reduces false signals
+- Combine with RSI(14) >60/<40 for additional confirmation
+- Most effective during US/London overlap hours
+
+This strategy capitalizes on the market mechanics where liquidity grabs often lead to sustained moves, with the volatility expansion confirming the breakout's potential strength. The combination of on-chain and technical factors creates a robust filter against false breakouts.

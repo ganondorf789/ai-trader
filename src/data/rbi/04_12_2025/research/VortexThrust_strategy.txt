@@ -1,0 +1,47 @@
+STRATEGY_NAME: VortexThrust
+
+STRATEGY_DETAILS:
+The VortexThrust strategy combines three powerful technical indicators to identify high-probability trend continuation opportunities with built-in risk management. This approach uses the Vortex Indicator (VI) for trend direction confirmation, ADX for trend strength filtering, and volume profile levels for strategic entry points, with Parabolic SAR providing dynamic exit signals.
+
+Key Components:
+1. Vortex Indicator (VI) - Uses +VI and -VI lines to determine bullish/bearish momentum
+2. ADX (14-period) - Filters for strong trends (ADX > 25)
+3. Volume Profile - Identifies significant support/resistance levels
+4. Parabolic SAR - Provides trailing stop mechanism
+
+Entry Rules (Long):
+1. +VI crosses above -VI (bullish crossover)
+2. ADX > 25 (confirming strong trend)
+3. Price is above volume profile support level
+4. Volume is above 20-period average
+
+Entry Rules (Short):
+1. -VI crosses above +VI (bearish crossover)
+2. ADX > 25 (confirming strong trend)
+3. Price is below volume profile resistance level
+4. Volume is above 20-period average
+
+Exit Rules:
+1. Opposite VI crossover occurs (+VI/-VI cross in opposite direction)
+2. Parabolic SAR reversal point is hit
+3. ADX falls below 20 (trend weakening)
+
+Risk Management:
+1. Initial stop placed at nearest volume profile level opposite trade direction
+2. Position size calculated to risk no more than 1-2% of capital per trade
+3. Trailing stop follows Parabolic SAR once price moves 1.5x initial risk
+4. Maximum trade duration of 5 days (prevents overexposure)
+
+Indicator Settings:
+- Vortex Indicator: 14-period
+- ADX: 14-period (threshold at 25 for entries)
+- Volume Profile: 20-day lookback period
+- Parabolic SAR: Step 0.02, Maximum 0.2
+
+Optimization Notes:
+1. Adjust ADX threshold based on market volatility (higher for trending markets)
+2. Fine-tune Parabolic SAR settings for different asset classes
+3. Combine with higher timeframe analysis for additional confirmation
+4. Works best on 1H-4H timeframes for swing trading
+
+This strategy excels in strongly trending markets while avoiding false signals through multiple confirmation layers. The volume profile integration ensures entries occur at technically significant levels, increasing the probability of successful trades.

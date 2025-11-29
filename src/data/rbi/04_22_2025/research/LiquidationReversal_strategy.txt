@@ -1,0 +1,37 @@
+STRATEGY_NAME: LiquidationReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Heatmap Clusters:** Identifies high-density liquidation zones where significant stop orders are clustered, indicating potential reversal points when breached.  
+2. **Volatility Contraction Signal:** Uses Bollinger Band width to detect periods of low volatility, signaling potential breakout/reversal opportunities.  
+3. **7-Day Rolling Percentile:** Filters for statistically significant volatility contractions by comparing current Bollinger Band width to a 7-day historical percentile.  
+
+**Entry Rules:**  
+1. **Liquidation Zone Breach:** Price must break through a high-density liquidation zone (either above resistance or below support).  
+2. **Volatility Confirmation:** Bollinger Band width (1-hour timeframe) must drop below the 7-day rolling percentile (e.g., below the 20th percentile).  
+3. **Directional Bias:**  
+   - **Long Entry:** If price breaches a *support* liquidation zone to the downside but then reclaims it, and volatility is contracted.  
+   - **Short Entry:** If price breaches a *resistance* liquidation zone to the upside but then rejects back below, and volatility is contracted.  
+
+**Exit Rules:**  
+1. **Take-Profit:**  
+   - Target the next significant liquidation cluster in the opposite direction.  
+   - Alternatively, use a fixed risk-reward ratio (e.g., 1:2 or 1:3).  
+2. **Stop-Loss:**  
+   - Place stops just beyond the breached liquidation zone (e.g., for a long entry, stop below the recent swing low within the zone).  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Volatility Filter:** Avoid trading if Bollinger Band width is above the 50th percentile (no clear contraction).  
+3. **Timeframe Alignment:** Confirm reversals on higher timeframes (4H or daily) for stronger confluence.  
+
+**Required Indicators:**  
+1. **Liquidation Heatmap** (e.g., from platforms like Coinalyze or Hyblock).  
+2. **Bollinger Bands** (20-period, 2 StdDev) with width calculation.  
+3. **Rolling Percentile Calculator** (for Bollinger Band width).  
+
+**Notes:**  
+- Works best in ranging or mean-reverting markets.  
+- Avoid during strong trending conditions unless there’s a clear liquidity grab.  
+- Combine with RSI/Stochastic for overbought/oversold confirmation.

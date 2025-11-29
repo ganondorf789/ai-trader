@@ -1,0 +1,50 @@
+STRATEGY_NAME: DivergencePulse
+
+STRATEGY_DETAILS:
+The DivergencePulse strategy is designed to capitalize on momentum shifts signaled by EMA divergence and confirmed by volume spikes. This strategy combines technical analysis of moving averages with volume confirmation to identify high-probability trade setups.
+
+Key Components:
+1. EMA Divergence: Uses 5-period and 20-period EMAs to identify potential momentum shifts
+2. Volume Confirmation: Requires significant volume increase to validate the trade setup
+3. Trailing Stop: Implements dynamic risk management to lock in profits
+
+Required Indicators:
+- 5-period Exponential Moving Average (EMA)
+- 20-period Exponential Moving Average (EMA)
+- Volume indicator (standard volume bars)
+- Trailing stop mechanism
+
+Entry Rules:
+1. Identify divergence between 5-period and 20-period EMAs:
+   - Bullish Setup: 5-period EMA crosses above 20-period EMA
+   - Bearish Setup: 5-period EMA crosses below 20-period EMA
+2. Wait for significant volume increase (at least 50% above average volume) after the initial move
+3. Enter trade in the direction of the EMA crossover:
+   - Long position for bullish divergence
+   - Short position for bearish divergence
+
+Exit Rules:
+1. Use a trailing stop based on recent price action:
+   - For long positions: Set stop below recent swing low
+   - For short positions: Set stop above recent swing high
+2. Adjust trailing stop as price moves in your favor
+3. Exit trade when trailing stop is hit
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Initial stop loss set at 1.5 times the average true range (ATR)
+3. Never risk more than 5% of total capital in a single trading session
+
+Additional Considerations:
+- Best suited for 15-minute to 1-hour timeframes
+- Works well in trending markets, less effective in choppy conditions
+- Combine with fundamental analysis for higher probability setups
+- Avoid trading during major news events that may cause erratic price movements
+
+Optimization Tips:
+- Test different EMA periods for specific markets
+- Adjust volume threshold based on market liquidity
+- Experiment with different trailing stop percentages
+- Backtest on multiple instruments to ensure robustness
+
+This strategy combines the reliability of EMA crossovers with the confirmation power of volume analysis, creating a systematic approach to capture momentum moves while managing risk effectively through trailing stops.

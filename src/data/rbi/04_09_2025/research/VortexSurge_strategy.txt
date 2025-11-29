@@ -1,0 +1,46 @@
+STRATEGY_NAME: VortexSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI) Crossover**: Uses the VI+ (positive trend) and VI- (negative trend) lines to identify trend direction. A bullish signal occurs when VI+ crosses above VI-, and a bearish signal occurs when VI- crosses above VI+.  
+2. **Volume Surge**: Requires a 3x increase in trading volume compared to the average volume over a defined lookback period (e.g., 20 periods). This confirms strong participation in the breakout.  
+3. **Bollinger Band Width Contraction**: Measures volatility compression. The strategy enters when Bollinger Band width (BB Width) is below a threshold (e.g., lower 20% of its recent range), signaling a potential breakout.  
+4. **Exit Signals**:  
+   - **VI Reversal**: Exit when the VI lines cross in the opposite direction of the trade (e.g., VI- crosses above VI+ for a long trade).  
+   - **Volatility Expansion**: Exit when Bollinger Band width expands significantly (e.g., above the median of its recent range), indicating the breakout may be losing momentum.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  1. VI+ crosses above VI-.  
+  2. Volume surges to 3x the average (e.g., 20-period SMA of volume).  
+  3. Bollinger Band width is in contraction (e.g., below the 20th percentile of its 50-period range).  
+- **Short Entry**:  
+  1. VI- crosses above VI+.  
+  2. Volume surges to 3x the average.  
+  3. Bollinger Band width is in contraction.  
+
+**Exit Rules:**  
+- **Long Exit**:  
+  1. VI- crosses above VI+ (VI reversal).  
+  2. Bollinger Band width expands above its 50-period median.  
+- **Short Exit**:  
+  1. VI+ crosses above VI- (VI reversal).  
+  2. Bollinger Band width expands above its 50-period median.  
+
+**Risk Management:**  
+- **Stop-Loss**: Place below the recent swing low (long) or above the recent swing high (short). Alternatively, use a fixed percentage (e.g., 1-2%).  
+- **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+- **Take-Profit**: Optional trailing stop based on volatility (e.g., 2x ATR) or a fixed risk-reward ratio (e.g., 2:1).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI) with default settings (typically 14 periods).  
+2. Bollinger Bands (20-period SMA, 2 standard deviations) + BB Width.  
+3. Volume (20-period SMA for average reference).  
+
+**Unique Aspects:**  
+- Combines trend confirmation (VI), volume validation, and volatility contraction for high-probability breakouts.  
+- Exits on both trend reversal and volatility expansion to capture gains before pullbacks.  
+- Filters false breakouts using volume and Bollinger Band conditions.  
+
+**Note**: Backtest to optimize lookback periods for volume/BB Width thresholds and adjust for asset-specific volatility.

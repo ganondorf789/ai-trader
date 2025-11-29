@@ -1,0 +1,46 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Compression Detection:**  
+   - Narrowing Bollinger Bands® width (20-period, 2 standard deviations) indicates decreasing volatility.  
+   - Declining Chaikin Volatility (10-period) confirms the compression phase.  
+
+2. **Breakout Confirmation:**  
+   - Volume spike exceeding 2x the 20-day average volume signals strong participation in the breakout.  
+
+**Entry Rules:**  
+1. **Long Entry:**  
+   - Bollinger Bands width must be in the lowest 20% of its 50-day range (extreme compression).  
+   - Chaikin Volatility must show a downtrend (lower highs/lows over 5+ periods).  
+   - Price breaks above the upper Bollinger Band *and* volume surges ≥2x 20-day average.  
+
+2. **Short Entry:**  
+   - Same compression criteria as above.  
+   - Price breaks below the lower Bollinger Band with ≥2x volume spike.  
+
+**Exit Rules:**  
+1. **Profit-Taking:**  
+   - Close 50% at 1.5x the Bollinger Band width at entry.  
+   - Trail remaining position with a 3-period ATR (14) stop.  
+
+2. **Stop-Loss:**  
+   - Fixed: 1x the Bollinger Band width at entry (volatility-adjusted).  
+   - Emergency: Close if Chaikin Volatility spikes upward (reversal signal).  
+
+**Risk Management:**  
+- Max 2% capital per trade.  
+- No new entries if 3 consecutive losing trades occur (cool-off period).  
+
+**Required Indicators:**  
+1. Bollinger Bands® (20, 2) + Width.  
+2. Chaikin Volatility (10).  
+3. Volume (20-day MA + spike detector).  
+4. ATR (14) for trailing stop.  
+
+**Unique Edge:**  
+- Combines *price* (Bollinger), *momentum* (Chaikin), and *volume* filters to avoid false breakouts.  
+- Targets "coiled spring" setups where volatility contraction precedes explosive moves.  
+
+**Note:** Works best on 1H-4H timeframes for swing trades in FX/commodities. Backtest optimal Bollinger % thresholds per asset.

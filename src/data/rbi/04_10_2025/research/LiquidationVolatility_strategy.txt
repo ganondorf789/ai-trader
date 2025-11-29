@@ -1,0 +1,35 @@
+STRATEGY_NAME: LiquidationVolatility  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Clustered Liquidation Events:** The strategy focuses on periods of high liquidation activity, often indicating extreme market stress and potential for volatility expansion.  
+2. **Funding Rate Extremes:** Uses funding rates (common in crypto perpetual markets) to identify overleveraged conditions—extreme positive or negative funding suggests a crowded trade ripe for reversal.  
+3. **Bollinger Band Width Contraction:** Looks for periods of low volatility (compression in Bollinger Band width) as a precursor to explosive moves.  
+4. **ATR Expansion Thresholds:** Uses Average True Range (ATR) to define exit points when volatility expands beyond a predefined level, locking in profits.  
+
+**Entry Rules:**  
+- **Condition 1:** Identify a clustered liquidation event (e.g., large long/short liquidations on derivatives exchanges).  
+- **Condition 2:** Funding rate reaches an extreme (e.g., > +0.1% or < -0.1% in a short timeframe).  
+- **Condition 3:** Bollinger Band width (BBW) contracts to a multi-day low, signaling low volatility before a breakout.  
+- **Entry Trigger:** A breakout above/below the Bollinger Band (depending on the direction of the anticipated move) confirms the entry.  
+
+**Exit Rules:**  
+- **Profit-Taking:** Exit when the ATR expands beyond a threshold (e.g., 2x the ATR at entry).  
+- **Stop-Loss:** Place a stop at the opposite Bollinger Band or a fixed percentage (e.g., 1.5x the ATR at entry).  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., risk 1-2% of capital per trade).  
+- Avoid entering during low-liquidity periods to prevent slippage.  
+- Adjust ATR thresholds based on the asset’s historical volatility.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 StdDev) + Band Width  
+2. Funding Rate data (exchange-specific)  
+3. Average True Range (ATR, 14-period)  
+4. Liquidation heatmaps or derivatives data (e.g., Coinglass, Bybit liquidation charts)  
+
+**Unique Edge:**  
+This strategy capitalizes on the "calm before the storm" effect—low volatility post-liquidations often precedes high-momentum moves. Combining funding rates with BB width filters out false breakouts, while ATR-based exits ensure adaptive profit-taking.  
+
+**Note:** Best suited for crypto perpetual futures but can be adapted to other high-leverage markets with liquidation data.

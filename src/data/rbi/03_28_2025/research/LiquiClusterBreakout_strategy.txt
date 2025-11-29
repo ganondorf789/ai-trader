@@ -1,0 +1,38 @@
+STRATEGY_NAME: LiquiCluster Breakout
+
+STRATEGY_DETAILS:
+This strategy combines on-chain liquidation data with technical volatility analysis to identify high-probability breakout opportunities during compressed market conditions.
+
+Key Components:
+1. Liquidation Cluster Analysis: Uses on-chain data to identify price levels with high concentrations of liquidation orders
+2. Volatility Regime Filter: Bollinger Band Width indicator to detect low volatility conditions
+3. Breakout Execution: Enters trades when price breaks through identified liquidation clusters
+4. Dual Exit Mechanism: Uses both volatility expansion and next liquidation zone proximity for exits
+
+Entry Rules:
+1. Confirm Bollinger Band Width is below threshold (suggested 0.5 for daily charts)
+2. Identify nearest high liquidation cluster level from on-chain data
+3. Enter long when price breaks above cluster high (for short positions, below cluster low)
+4. Require breakout candle to close beyond cluster level for confirmation
+
+Exit Rules:
+1. Primary Exit: When Bollinger Band Width expands beyond entry threshold (volatility expansion)
+2. Secondary Exit: When price approaches next significant liquidation cluster level
+3. Emergency Exit: Immediate exit if price returns inside original cluster zone
+
+Risk Management:
+1. Position sizing based on distance to next liquidation cluster (risk per trade 1-2%)
+2. Stop loss placed just below breakout candle low (longs) or above high (shorts)
+3. Volatility-adjusted position sizing (smaller positions in lower volatility)
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviation) for width calculation
+2. On-chain liquidation heatmap/cluster data
+3. Volume indicator for breakout confirmation
+
+Optimization Notes:
+1. Adjust BB Width threshold based on asset volatility (crypto vs. forex)
+2. Cluster significance threshold may need backtesting (minimum liquidation value)
+3. Timeframe selection affects cluster importance (daily recommended)
+
+This strategy capitalizes on the market's tendency for explosive moves when breaking through levels where many stops are clustered, while using volatility regimes to filter high-probability setups.

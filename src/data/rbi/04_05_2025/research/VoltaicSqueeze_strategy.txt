@@ -1,0 +1,36 @@
+STRATEGY_NAME: VoltaicSqueeze
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Focuses on volatility contraction/expansion patterns
+- Combines Bollinger Bands (standard 20,2 settings) with ATR (14 period)
+- Targets explosive breakout moves after periods of low volatility
+- Uses 30-day lookback period to identify significant squeeze conditions
+
+2. Entry Rules:
+- Primary Condition: Bollinger Band width (upper-lower) must be at its narrowest point in the last 30 trading days
+- Confirmation: Price must close above the upper Bollinger Band
+- Entry: Next candle open after confirmation close
+
+3. Exit Rules:
+- Profit Target: 2x the current 14-period ATR value from entry price
+- Stop Loss: No fixed stop - exit only occurs at target
+- Alternative Exit: If price closes back inside Bollinger Bands before target hit
+
+4. Risk Management:
+- Position sizing should account for the 2x ATR target distance
+- Recommended risk per trade: 1-2% of capital
+- No pyramiding allowed - single position only
+- Daily timeframe recommended for reduced noise
+
+5. Required Indicators:
+- Bollinger Bands (20,2)
+- ATR (14)
+- Custom indicator measuring BB width (upper-lower)
+
+6. Additional Notes:
+- Works best in trending market conditions
+- May produce false breakouts in ranging markets
+- Requires patience as squeeze conditions may be infrequent
+- Best paired with sector/market trend analysis for confirmation
+- Volume confirmation can enhance signal reliability

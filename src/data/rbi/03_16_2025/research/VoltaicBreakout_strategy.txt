@@ -1,0 +1,57 @@
+STRATEGY_NAME: VoltaicBreakout
+
+STRATEGY_DETAILS:
+The VoltaicBreakout strategy is a volatility-based approach that combines multiple moving averages across different timeframes with candlestick patterns to identify high-probability breakout opportunities and re-entry points. This strategy is designed to capitalize on periods of increased market volatility while maintaining a structured framework for risk management.
+
+### Key Strategy Components:
+1. **Multiple Moving Averages (MMAs):**
+   - Use three moving averages: Short-term (e.g., 9-period), Medium-term (e.g., 21-period), and Long-term (e.g., 50-period).
+   - These MMAs help identify the trend direction and potential support/resistance levels.
+
+2. **Volatility Filter:**
+   - Use the Average True Range (ATR) to measure market volatility.
+   - A higher ATR indicates increased volatility, signaling potential breakout opportunities.
+
+3. **Candlestick Patterns:**
+   - Focus on bullish/bearish engulfing patterns, pin bars, and inside bars to confirm breakout signals.
+
+4. **Timeframe Analysis:**
+   - Analyze price action across multiple timeframes (e.g., 1-hour, 4-hour, and daily) to confirm the strength of the breakout.
+
+### Entry Rules:
+1. **Breakout Confirmation:**
+   - Wait for the price to break above/below a key moving average (e.g., 21-period) with a strong candlestick pattern (e.g., bullish engulfing for a long entry).
+   - Ensure the ATR is above a predefined threshold (e.g., 1.5x the average ATR) to confirm volatility.
+
+2. **Re-Entry Points:**
+   - After an initial breakout, look for pullbacks to the medium-term moving average (e.g., 21-period) with a bullish/bearish candlestick pattern for re-entry.
+
+### Exit Rules:
+1. **Take Profit:**
+   - Set a take-profit level at 1.5x to 2x the ATR value from the entry point.
+   - Alternatively, exit when the price closes below/above the short-term moving average (e.g., 9-period).
+
+2. **Stop Loss:**
+   - Place a stop loss below/above the nearest swing low/high or at 1x the ATR value from the entry point.
+
+### Risk Management:
+1. **Position Sizing:**
+   - Risk no more than 1-2% of the trading capital per trade.
+   - Adjust position size based on the ATR to account for volatility.
+
+2. **Volatility Adjustments:**
+   - Avoid trading during low volatility periods (ATR below average).
+   - Reduce position size during extremely high volatility to manage risk.
+
+### Required Indicators:
+1. **Moving Averages:**
+   - 9-period, 21-period, and 50-period Exponential Moving Averages (EMAs).
+
+2. **Average True Range (ATR):**
+   - 14-period ATR to measure volatility.
+
+3. **Candlestick Patterns:**
+   - Bullish/Bearish Engulfing, Pin Bars, and Inside Bars.
+
+### Summary:
+The VoltaicBreakout strategy is a robust approach for identifying and capitalizing on volatility-driven breakouts. By combining multiple moving averages, ATR-based volatility filters, and candlestick patterns, this strategy provides clear entry and exit rules while maintaining disciplined risk management. It is particularly effective in trending markets with high volatility.

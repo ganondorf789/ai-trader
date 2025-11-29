@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolatilityLiquidation  
+
+STRATEGY_DETAILS:  
+This strategy combines extreme funding rate deviations with volatility-based technical triggers and order book analysis to identify high-probability short opportunities in perpetual futures markets.  
+
+**Key Components:**  
+1. **Funding Rate Extremes** - Triggers when funding rates exceed 3 standard deviations above the 7-day average, indicating excessive long leverage.  
+2. **Volatility-Adjusted Bollinger Bands** - Uses modified Bollinger Bands (likely with dynamic deviation multipliers) to confirm overextended price action.  
+3. **Liquidation Targeting** - Order book heatmaps identify dense liquidation clusters (price levels with high concentration of stop-loss orders).  
+
+**Entry Rules:**  
+- SHORT when:  
+  1) Current funding rate > 3σ of 7-day average funding rate  
+  2) Price breaches upper volatility-adjusted Bollinger Band  
+  3) Order book heatmap shows dense liquidation clusters above current price  
+
+**Exit Rules:**  
+- Take Profit: Near identified liquidation clusters (scaled exits as price approaches key levels)  
+- Stop Loss: Breach of lower volatility-adjusted Bollinger Band or funding rate normalization (<1σ from mean)  
+
+**Risk Management:**  
+- Position sizing based on distance to liquidation clusters (wider clusters allow larger size)  
+- Volatility filters (avoid entries during low historical volatility periods)  
+- Time-based exit if no liquidation occurs within 24 hours  
+
+**Required Indicators:**  
+1. Funding rate standard deviation calculator (7-day lookback)  
+2. Modified Bollinger Bands with dynamic width adjustment  
+3. Order book liquidity heatmap (aggregates resting orders + estimated stop levels)  
+4. Volatility percentile rank (50-day window)  
+
+**Unique Aspects:**  
+- Combines CEX-specific metrics (funding) with exchange-agnostic technicals  
+- Targets mechanical rather than discretionary exits via liquidation engineering  
+- Volatility adjustments prevent false signals during high-vol regimes  
+
+Note: Requires real-time funding rate data feed and order book depth analysis capabilities. Works best on high-liquidity perpetual contracts (BTC, ETH majors).

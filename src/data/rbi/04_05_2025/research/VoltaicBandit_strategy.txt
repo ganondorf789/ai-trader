@@ -1,0 +1,48 @@
+STRATEGY_NAME: VoltaicBandit
+
+STRATEGY_DETAILS:
+This is a volatility-based mean-reversion strategy that combines VWAP anchoring with ATR volatility bands and RSI confirmation. The strategy capitalizes on overextended price movements relative to the volume-weighted average price, with built-in momentum filters.
+
+Key Components:
+1. VWAP (20-period) - Serves as the dynamic mean anchor
+2. ATR (default 14-period) - Measures volatility for band calculation
+3. RSI (default 14-period) - Provides momentum confirmation
+4. Volume - Used to confirm exit signals
+
+Entry Rules:
+LONG ENTRY:
+- Price crosses ABOVE VWAP + (2 × ATR)
+- RSI must be below 70 (avoid overbought conditions)
+
+SHORT ENTRY:
+- Price crosses BELOW VWAP - (2 × ATR)
+- RSI must be above 30 (avoid oversold conditions)
+
+Exit Rules:
+LONG EXIT:
+- RSI crosses below 50 (momentum weakening)
+- AND Volume is decreasing for 2 consecutive bars
+
+SHORT EXIT:
+- RSI crosses above 50 (momentum weakening)
+- AND Volume is decreasing for 2 consecutive bars
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Stop loss placed at 1.5×ATR from entry point
+3. Time-based exit if no signal occurs within 5 bars
+4. Maximum 3 concurrent positions
+
+Indicator Settings:
+- VWAP: 20 period
+- ATR: 14 period (used for both bands and stops)
+- RSI: 14 period
+- Volume: 20-period MA for trend comparison
+
+Optimization Notes:
+1. Adjust ATR multiplier (1.5-3x) based on asset volatility
+2. VWAP period can be tuned (10-30 periods)
+3. Consider adding a minimum volume filter for entries
+4. Test different RSI thresholds for exits (45-55)
+
+This strategy works best in ranging markets with clear mean-reversion tendencies. Performance may degrade during strong trending periods, suggesting the need for a trend filter or time-based position limits.

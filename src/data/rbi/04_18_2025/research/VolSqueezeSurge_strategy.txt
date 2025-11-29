@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolSqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction:** Uses Bollinger Band width to identify periods of extreme volatility compression (squeeze) when the width falls below a historically low threshold (e.g., 20-period lower percentile).  
+2. **Volume Confirmation:** Requires a surge in trading volume (e.g., 1.5x the 20-period average) to validate the breakout potential.  
+3. **Direction-Agnostic Entries:** Can be applied to both long and short setups, depending on the breakout direction from the squeeze.  
+4. **Systematic Exits:** Uses either a fixed percentage profit target (e.g., 2x the Bollinger Band width at entry) or a time-based stop (e.g., close after 5 bars if no breakout occurs).  
+
+**Entry Rules:**  
+- **Trigger:** Bollinger Band (20,2) width contracts below its 20th percentile historical level (measured over 100 periods).  
+- **Confirmation:** Volume exceeds 1.5x the 20-period moving average of volume.  
+- **Execution:** Enter on the next candle’s open if price breaks above (long) or below (short) the Bollinger Band.  
+
+**Exit Rules:**  
+1. **Profit Target:** Close position when price reaches a 2x multiple of the Bollinger Band width at entry (e.g., if width was 1% at entry, take profit at +2% for longs or -2% for shorts).  
+2. **Time Stop:** Exit after 5 bars if profit target isn’t hit.  
+3. **Emergency Stop:** 1.5x the Bollinger Band width as a stop-loss (e.g., 1.5% adverse move).  
+
+**Risk Management:**  
+- Position sizing: Risk ≤1% of capital per trade based on the emergency stop distance.  
+- Avoid trading during major news events to prevent false breakouts.  
+- Filter out low-liquidity assets (e.g., average daily volume < $10M).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20 periods, 2 std dev) + width calculation.  
+2. Volume MA (20 periods).  
+3. Historical percentile calculator for Bollinger Band width (100-period lookback).  
+
+**Unique Edge:** Combines volatility compression (mean-reversion signal) with volume surge (momentum confirmation) for high-probability breakouts, while rigid exit rules lock in asymmetric risk/reward.

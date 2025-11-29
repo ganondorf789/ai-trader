@@ -1,0 +1,32 @@
+STRATEGY_NAME: MomentumReversal
+
+STRATEGY_DETAILS:
+The MomentumReversal strategy is designed to capitalize on momentum shifts by combining Fisher Transform extremes with volume acceleration divergence. It focuses on entering trades during confirmed reversals when the ADX indicates low trend strength, ensuring trades are taken during periods of potential trend formation rather than strong trending markets. Exits are executed at opposing Fisher signals, providing a clear and systematic approach to managing trades.
+
+### Key Strategy Components:
+1. **Fisher Transform**: Used to identify extreme price levels and potential reversal points.
+2. **Volume Acceleration Divergence**: Measures the rate of change in volume to confirm momentum shifts.
+3. **ADX (Average Directional Index)**: Indicates the strength of the trend, with low values signaling potential reversals.
+4. **Confirmed Reversals**: Entry signals are validated by a combination of Fisher Transform extremes and volume divergence.
+
+### Entry Rules:
+1. **Fisher Transform Extreme**: Wait for the Fisher Transform to reach an extreme level (typically above 2 or below -2), indicating overbought or oversold conditions.
+2. **Volume Acceleration Divergence**: Confirm the reversal with a divergence between price and volume acceleration. For example, if price is making a new high but volume acceleration is decreasing, it signals a potential reversal.
+3. **ADX Confirmation**: Ensure the ADX is below a specific threshold (e.g., 25), indicating low trend strength and a higher probability of a reversal.
+4. **Entry Signal**: Enter a long position when the Fisher Transform reverses from an extreme low with confirming volume divergence and low ADX. Enter a short position when the Fisher Transform reverses from an extreme high with confirming volume divergence and low ADX.
+
+### Exit Rules:
+1. **Opposing Fisher Signal**: Exit the trade when the Fisher Transform reaches the opposite extreme level. For example, exit a long position when the Fisher Transform reaches an extreme high, and exit a short position when it reaches an extreme low.
+2. **Stop Loss**: Place a stop loss below the recent swing low for long positions or above the recent swing high for short positions to manage risk.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of the account balance (e.g., 1-2%) per trade to manage risk.
+2. **Stop Loss**: Set a stop loss based on the recent swing low/high or a fixed percentage (e.g., 1-2%) from the entry price.
+3. **Take Profit**: Use the opposing Fisher signal as the primary exit, but consider trailing stops or partial profit-taking if the trade moves significantly in your favor.
+
+### Required Indicators:
+1. **Fisher Transform**: To identify extreme price levels and potential reversals.
+2. **Volume Acceleration Indicator**: To measure the rate of change in volume and confirm momentum shifts.
+3. **ADX (Average Directional Index)**: To assess trend strength and filter out trades during strong trending markets.
+
+This strategy is ideal for traders looking to capitalize on momentum reversals in low-trending markets, providing a systematic approach to identifying high-probability setups with clear entry and exit rules.

@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolatileBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Breakout Focus:** The strategy capitalizes on high-momentum breakouts, entering trades when volatility and volume confirm strong directional movement.  
+2. **Volatility Filter:** Uses the 20-period ATR (Average True Range) exceeding its 90-day high to identify periods of heightened volatility, ensuring trades are taken only during significant price expansion.  
+3. **Volume Confirmation:** Requires volume to spike above its 30-day average, adding a liquidity filter to avoid false breakouts.  
+4. **Exit Mechanism:** Exits are based on a 50% retracement of the initial breakout move, locking in profits while allowing room for continuation.  
+
+**Entry Rules:**  
+- **Trigger:** Price breaks out of a defined range or key level (support/resistance).  
+- **Confirmation:**  
+  - 20-period ATR must exceed its 90-day high (indicating exceptional volatility).  
+  - Volume must surpass its 30-day average (confirming participation).  
+- **Entry Point:** Enter on the close of the breakout candle or the next candle's open.  
+
+**Exit Rules:**  
+- **Profit Target:** None—trails the move dynamically.  
+- **Stop Loss:** Initial stop placed at the breakout level or a recent swing low/high.  
+- **Exit Signal:** Close the trade if price retraces 50% of the breakout move (measured from entry to the highest/lowest point post-breakout).  
+
+**Risk Management:**  
+- Position sizing should account for the high volatility (e.g., smaller sizes during ATR extremes).  
+- Avoid trading during low-volume sessions or ahead of major news events to reduce false signals.  
+- Maximum risk per trade: 1-2% of capital.  
+
+**Required Indicators:**  
+1. **ATR (20-period):** To measure volatility and filter trades.  
+2. **Volume (30-day average):** To confirm breakout validity.  
+3. **Price Levels (Support/Resistance):** For defining breakout zones.  
+
+**Unique Edge:** Combines volatility expansion with volume confirmation, targeting explosive moves while mitigating risk via retracement-based exits. Suitable for trending markets but may underperform in choppy conditions.  
+
+**Optimization Tips:**  
+- Adjust ATR lookback (e.g., 14 vs. 20 periods) for sensitivity.  
+- Test alternative volume thresholds (e.g., 20-day vs. 30-day average).  
+- Consider adding a time-based exit (e.g., close after 5 bars if no follow-through).  
+
+**Note:** Backtest across multiple asset classes to validate robustness.

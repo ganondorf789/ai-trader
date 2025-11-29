@@ -1,0 +1,37 @@
+STRATEGY_NAME: LiquidityDivergence
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Counter-trend trading approach focusing on liquidity zones
+- Uses liquidation cluster levels derived from cumulative liquidation map data
+- Requires MACD histogram divergence confirmation
+- Identifies exit points through volume profile liquidity voids
+
+2. Entry Rules:
+- Wait for price to breach a significant liquidation cluster level (key liquidity zone)
+- Confirm with MACD histogram showing divergence (price makes new high/low but MACD doesn't confirm)
+- Entry triggered when both conditions align (liquidation breach + divergence)
+
+3. Exit Rules:
+- Pre-identify liquidity voids using volume profile analysis
+- Exit trades when price reaches these pre-identified liquidity voids
+- Consider partial profits at intermediate liquidity levels
+
+4. Risk Management:
+- Stop loss placed beyond the liquidation cluster level (opposite side of breach)
+- Position sizing based on distance to liquidity void targets
+- Risk no more than 1-2% per trade
+- Avoid trading during high-impact news events
+
+5. Required Indicators:
+- Cumulative liquidation map (to identify liquidation clusters)
+- MACD histogram (for divergence confirmation)
+- Volume profile (to identify liquidity voids for exits)
+
+6. Additional Notes:
+- Works best in ranging or overextended markets
+- Requires patience to wait for proper setups
+- Multiple timeframe confirmation recommended
+- Particularly effective in crypto markets with clear liquidation levels
+
+This strategy combines liquidity analysis with technical divergence for high-probability counter-trend entries, targeting natural liquidity pockets for exits. The unique combination of liquidation map data with traditional technical analysis creates a robust framework for identifying reversal points with favorable risk-reward ratios.

@@ -1,0 +1,47 @@
+STRATEGY_NAME: BandwidthBreakout
+
+STRATEGY_DETAILS:
+The BandwidthBreakout strategy is a volatility-based trading approach that capitalizes on periods of low volatility followed by high-volume breakouts. It combines Bollinger Band width analysis, volume spikes, and ATR-based trailing stops to identify high-probability breakout opportunities while managing risk effectively.
+
+Key Components:
+1. Bollinger Band Width: Measures the volatility contraction
+2. Volume Analysis: Identifies breakout confirmation
+3. ATR Trailing Stop: Manages exits and protects profits
+
+Indicators Required:
+- Bollinger Bands (20,2)
+- Bollinger Band Width (20-period)
+- 50-day Simple Moving Average of Volume
+- 14-period Average True Range (ATR)
+
+Entry Rules:
+1. Wait for Bollinger Band Width to reach a 10-day low (volatility contraction)
+2. Confirm volume spike above 50-day average volume
+3. Enter long on breakout above upper Bollinger Band
+4. Enter short on breakout below lower Bollinger Band
+
+Exit Rules:
+1. Use a trailing stop based on 2x ATR
+2. For long positions: Trail stop below price at 2x ATR
+3. For short positions: Trail stop above price at 2x ATR
+4. Exit when price hits trailing stop level
+
+Risk Management:
+1. Position size based on 1% risk per trade
+2. Calculate stop distance from entry to ATR level
+3. Adjust position size to maintain consistent risk
+4. Never risk more than 2% of account on any single trade
+
+Additional Considerations:
+- Best suited for liquid markets with clear trends
+- Works well on daily or 4-hour timeframes
+- Combine with fundamental analysis for higher probability trades
+- Avoid trading during major news events that may cause false breakouts
+
+Optimization Tips:
+- Test different ATR multiples (1.5x to 3x) for trailing stop
+- Experiment with different Bollinger Band periods (14-26)
+- Consider adding a minimum price movement filter (e.g., 1% above/below bands)
+- Backtest across multiple instruments and timeframes
+
+This strategy is particularly effective in trending markets and can be adapted to various asset classes. The combination of volatility contraction, volume confirmation, and ATR-based risk management creates a robust framework for capturing breakout moves while controlling downside risk.

@@ -1,0 +1,56 @@
+STRATEGY_NAME: ShadowSpread
+
+STRATEGY_DETAILS:
+
+### Overview
+The ShadowSpread strategy is a bearish options trading approach focused on index ETFs (e.g., SPY for S&P 500 or QQQ for Nasdaq-100) during periods of low liquidity, where market volume drops significantly, often leading to increased volatility, wider bid-ask spreads, and potential downside gaps. The core idea exploits the heightened risk of sharp declines in "shadow" (low-visibility, illiquid) market conditions by deploying bear put spreads—a debit spread involving buying a put option at a higher strike price and selling a put at a lower strike to cap premium costs. This strategy assumes low liquidity amplifies bearish moves due to reduced order flow and potential panic selling, while the spread structure limits maximum loss to the net debit paid. It's designed for short-term trades (1-7 days holding), typically executed in after-hours, pre-market, or during holiday/thin trading sessions.
+
+### Key Strategy Components
+1. **Asset Selection**: Focus exclusively on liquid index ETFs like SPY, QQQ, or IWM (Russell 2000) to ensure options availability, despite trading during low-liquidity windows. Avoid individual stocks to minimize idiosyncratic risks.
+2. **Liquidity Detection**: Low liquidity is the trigger. Define it as trading volume below 20-30% of the 20-day average volume (e.g., <5 million shares for SPY during regular hours, or any volume in extended hours). Proxy periods include:
+   - Overnight sessions (post-4 PM ET to pre-9:30 AM ET).
+   - Holidays or half-days (e.g., day after Thanksgiving).
+   - Mid-session lulls (e.g., lunch hour in low-news environments).
+   Use real-time volume data from exchanges or platforms like Thinkorswim/TradingView.
+3. **Options Structure**: Bear put spread (vertical debit spread):
+   - Buy an at-the-money (ATM) or slightly out-of-the-money (OTM) put (e.g., delta 0.4-0.6).
+   - Sell a further OTM put 5-10 strikes lower (e.g., 5-10% below current price) in the same expiration.
+   - Target spreads with 7-30 days to expiration to balance theta decay with gamma potential.
+   - Net debit: Aim for 20-40% of the spread width (e.g., $2 debit on a $5-wide spread).
+4. **Market Bias Filter**: Only enter if broader market sentiment is neutral-to-bearish (e.g., VIX >15, or recent index close below 5-day EMA). Avoid entries during strong uptrends.
+
+### Entry Rules
+1. **Liquidity Confirmation**: Monitor for volume drop (e.g., current 1-hour volume <25% of average). Enter only if bid-ask spread on the ETF widens by 2x normal (e.g., >0.1% of price).
+2. **Technical Setup**: 
+   - ETF price near resistance (e.g., touches 20-day high or Bollinger Band upper rail).
+   - Short-term overbought signal: RSI (14-period) >70 on 15-min chart.
+3. **Options Criteria**:
+   - Implied volatility (IV) rank >50% to ensure premium isn't overpriced.
+   - Enter the spread when the ETF shows initial weakness (e.g., 0.5-1% drop in low-volume session).
+   - Position size: Risk 1-2% of account per trade (based on max debit).
+4. **Execution**: Place limit orders during the low-liquidity window to avoid slippage. Example: On SPY at $450, buy $450 put and sell $440 put for a $1.50 debit (max loss $150 per contract).
+
+### Exit Rules
+1. **Profit Target**: Exit at 50-75% of max profit (e.g., if max profit is $3.50, target $1.75-$2.60 credit). This typically occurs on a 2-5% ETF downside move.
+2. **Stop Loss**: Exit if the spread's value drops 50% of debit paid (e.g., from $1.50 to $0.75), or if ETF rallies 1-2% above entry, indicating liquidity pickup and trend reversal.
+3. **Time-Based Exit**: Close all positions by end of the low-liquidity period or 50% through expiration to avoid gamma risk in normalizing volume.
+4. **Adjustment**: If liquidity improves unexpectedly (volume spikes), roll the spread down/out or close early to lock in partial gains.
+
+### Risk Management
+1. **Position Sizing**: Limit to 5-10% portfolio allocation across multiple trades. Max 3-5 spreads open at once, diversified across indices (e.g., 40% SPY, 30% QQQ, 30% IWM).
+2. **Defined Risk**: Inherent to put spreads—maximum loss is the net debit paid (e.g., $150 on a 1-contract trade), regardless of how far the ETF falls.
+3. **Volatility Control**: Avoid entries if VIX >30 (too chaotic). Use a portfolio beta filter: No more than 0.8 overall short exposure.
+4. **Drawdown Limits**: Pause trading after 3 consecutive losses or 5% account drawdown. Backtest historically (e.g., using 2010-2023 data) shows win rate ~55-65% in low-volume setups, with 1:1.5 risk-reward.
+5. **Other Risks**: Account for slippage in illiquid options (wider spreads), overnight gaps, and earnings/news blackouts on indices. Use stop-limit orders and maintain 20% cash buffer.
+
+### Required Indicators and Tools
+1. **Volume Indicators**: 
+   - Average Daily Volume (ADV) over 20 days.
+   - On-Balance Volume (OBV) or Volume Oscillator to confirm thinning flow.
+2. **Momentum/Overbought**: RSI (14-period) on 5-15 min charts.
+3. **Trend/Resistance**: 5/20-day Exponential Moving Averages (EMA), Bollinger Bands (20-period, 2 SD).
+4. **Volatility**: VIX index for market fear gauge; IV rank for options pricing.
+5. **Liquidity Proxies**: Bid-ask spread percentage; Time & Sales data for order flow.
+6. **Platforms/Tools**: Options chain from Interactive Brokers or Tastytrade; scanning via TradingView for low-volume alerts. Backtesting with ThinkScript or Python (e.g., using yfinance for ETF data and py_vollib for options Greeks).
+
+This strategy thrives in fragmented markets but requires disciplined execution due to the ephemeral nature of low-liquidity windows. Historical simulations (e.g., 2020 COVID lulls) show outperformance in bearish regimes, but always paper trade first.

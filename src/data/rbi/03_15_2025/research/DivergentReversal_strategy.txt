@@ -1,0 +1,82 @@
+STRATEGY_NAME: DivergentReversal
+
+STRATEGY_DETAILS:
+The DivergentReversal strategy is a contrarian approach that capitalizes on divergences between MACD momentum and RSI to anticipate trend reversals. The strategy focuses on identifying widening divergences between these two indicators, signaling potential shifts in trend strength. Here's a detailed breakdown of the strategy:
+
+---
+
+### **Key Strategy Components**
+1. **MACD (Moving Average Convergence Divergence):**
+   - Used to measure momentum and identify potential trend reversals.
+   - Focus on the MACD line and signal line crossovers, as well as histogram divergence.
+
+2. **RSI (Relative Strength Index):**
+   - Used to identify overbought/oversold conditions and divergence from price action.
+   - Look for RSI divergence (price making higher highs while RSI makes lower highs, or vice versa).
+
+3. **Divergence Analysis:**
+   - The core of the strategy is identifying when MACD and RSI diverge from each other and from price action.
+   - A widening divergence signals weakening momentum and potential trend reversal.
+
+---
+
+### **Entry Rules**
+1. **Bearish Reversal Setup:**
+   - Price makes higher highs, but RSI makes lower highs (bearish divergence).
+   - MACD histogram shows decreasing momentum (lower highs or negative divergence).
+   - Enter a short position when the divergence widens and MACD crosses below the signal line.
+
+2. **Bullish Reversal Setup:**
+   - Price makes lower lows, but RSI makes higher lows (bullish divergence).
+   - MACD histogram shows increasing momentum (higher lows or positive divergence).
+   - Enter a long position when the divergence widens and MACD crosses above the signal line.
+
+---
+
+### **Exit Rules**
+1. **Take Profit:**
+   - Exit when MACD and RSI realign with price action (divergence closes).
+   - Alternatively, use a fixed risk-reward ratio (e.g., 2:1) based on the initial stop-loss.
+
+2. **Stop Loss:**
+   - Place stop-loss above/below the recent swing high/low for short/long positions.
+   - Adjust stop-loss based on volatility (e.g., ATR or recent price range).
+
+---
+
+### **Risk Management**
+1. **Position Sizing:**
+   - Risk no more than 1-2% of the trading account per trade.
+   - Use volatility-based position sizing (e.g., ATR) to adjust for market conditions.
+
+2. **Diversification:**
+   - Avoid overconcentration in a single asset or market.
+   - Spread trades across multiple timeframes or instruments.
+
+3. **Avoid Overtrading:**
+   - Only take trades with clear divergence signals.
+   - Wait for confirmation (e.g., MACD crossover) before entering.
+
+---
+
+### **Required Indicators**
+1. **MACD:**
+   - Default settings (12, 26, 9) or adjusted for the specific timeframe.
+   - Focus on histogram divergence and crossovers.
+
+2. **RSI:**
+   - Default setting (14 periods) or adjusted for the specific timeframe.
+   - Look for divergence between RSI and price action.
+
+3. **Optional:**
+   - ATR (Average True Range) for volatility-based stop-loss and position sizing.
+   - Moving Averages (e.g., 50 EMA) for additional trend confirmation.
+
+---
+
+### **Key Considerations**
+- **Timeframe:** Works best on higher timeframes (1H, 4H, Daily) for more reliable signals.
+- **Market Conditions:** Ideal in trending or ranging markets with clear momentum shifts.
+- **Confirmation:** Always wait for MACD crossover confirmation to avoid false signals.
+
+By focusing on the interplay between MACD and RSI divergences, the DivergentReversal strategy provides a systematic way to identify and trade potential trend reversals with controlled risk.

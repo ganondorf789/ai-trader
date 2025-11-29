@@ -1,0 +1,46 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection**: The strategy identifies periods of extremely low volatility when Bollinger Bands contract to their narrowest point in the last 30 days.  
+2. **Volume Confirmation**: A breakout is only considered valid if accompanied by a significant spike in volume (50% above the 20-day average).  
+3. **Breakout Direction**: The trade direction is determined by whether price breaks above (long) or below (short) the Bollinger Bands.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  1. Bollinger Bands (20-period, 2 standard deviations) contract to their narrowest width in 30 days.  
+  2. Price breaks above the upper Bollinger Band.  
+  3. Volume exceeds the 20-day average by at least 50%.  
+- **Short Entry**: Triggered when:  
+  1. Same Bollinger Band contraction condition.  
+  2. Price breaks below the lower Bollinger Band.  
+  3. Volume spike confirmation (50% above 20-day average).  
+
+**Exit Rules:**  
+- **Long Exit**: Close the position when:  
+  1. Price closes back inside the Bollinger Bands.  
+  2. Or if a trailing stop (e.g., 2x ATR) is hit.  
+- **Short Exit**: Close the position when:  
+  1. Price closes back inside the Bollinger Bands.  
+  2. Or if a trailing stop (e.g., 2x ATR) is triggered.  
+
+**Risk Management:**  
+1. **Stop-Loss**: Use a fixed percentage (e.g., 1-2% of capital) or a volatility-based stop (e.g., 1.5x ATR).  
+2. **Position Sizing**: Adjust trade size based on account risk tolerance (e.g., risking no more than 1% per trade).  
+3. **Trailing Stop**: For open positions, trail stops to lock in profits (e.g., 2x ATR or a percentage-based trailing stop).  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 standard deviations) – To identify volatility contraction and breakout levels.  
+2. **Volume** (20-day average) – To confirm breakout validity.  
+3. **ATR (Average True Range, 14-period)** – Optional for dynamic stop-loss and trailing stop calculations.  
+
+**Additional Notes:**  
+- This strategy excels in ranging markets transitioning to trends but may underperform in highly volatile or choppy conditions.  
+- Backtest to optimize parameters like Bollinger Band settings, volume spike threshold, and stop-loss rules.  
+- Combine with a trend filter (e.g., 200-day SMA) to avoid counter-trend breakouts in strong directional markets.  
+
+**Why "VoltaicSqueeze"?**  
+- "Voltaic" reflects the explosive energy (like a voltaic arc) released after a volatility squeeze.  
+- "Squeeze" directly ties to the Bollinger Band contraction setup.  
+- The name is unique and avoids generic terms while capturing the strategy’s core mechanic.

@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolatilityReversion
+
+STRATEGY_DETAILS:
+This strategy combines volatility term structure analysis with statistical mean-reversion principles for trading SPX. The approach specifically waits for VIX backwardation (a rare volatility market condition) to signal potential mean-reversion opportunities when price deviates significantly from its short-term average.
+
+Key Components:
+1. VIX Term Structure: Monitors the relationship between front-month and later-month VIX futures
+2. Statistical Deviation: Uses 2 standard deviations from 20-day SMA as threshold
+3. Dual Exit Mechanism: Incorporates both price reversion and volatility contraction signals
+
+Entry Rules:
+1. Primary Condition: VIX term structure must be in backwardation (front-month > later-month)
+2. Secondary Condition: SPX price must be >2 standard deviations away from 20-day SMA
+3. Entry Direction: Short if price is above SMA, long if below SMA
+
+Exit Rules:
+1. Primary Exit: When price returns to within 0.5 standard deviations of 20-day SMA
+2. Secondary Exit: When VIX term structure returns to contango (front-month < later-month)
+3. Whichever condition occurs first triggers exit
+
+Risk Management:
+1. Position Sizing: Risk no more than 1-2% of capital per trade
+2. Stop Loss: 3 standard deviations from entry point
+3. Time Exit: Close position after 5 trading days if neither exit condition triggers
+
+Required Indicators:
+1. 20-day Simple Moving Average (SMA) of SPX
+2. 20-day Standard Deviation of SPX
+3. VIX futures term structure (front-month vs next-month)
+4. Bollinger Bands (for visualization of deviation)
+
+Special Considerations:
+- This strategy works best during periods of market stress when volatility spikes
+- Requires monitoring of VIX futures roll dates
+- May have extended periods without signals during stable markets
+- Combines both volatility regime analysis and statistical mean-reversion
+
+Optimization Notes:
+- Can test different SMA periods (15-25 days)
+- May adjust deviation threshold (1.8-2.2σ)
+- Could incorporate volume confirmation for entries

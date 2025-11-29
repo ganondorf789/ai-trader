@@ -1,0 +1,38 @@
+STRATEGY_NAME: VortexMomentumFilter  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Identifies trend direction and potential reversals via crossover signals.  
+2. **Chande Momentum Oscillator (CMO):** Confirms momentum strength (thresholds: +50 for bullish, -50 for bearish).  
+3. **Volume Contraction Filter:** Requires volume to be below its 20-period moving average during consolidation.  
+
+**Entry Rules (Long):**  
+- VI+ crosses above VI- (bullish vortex signal).  
+- CMO > +50 (confirming strong bullish momentum).  
+- Volume must be below its 20-period MA (signaling consolidation before breakout).  
+
+**Entry Rules (Short):**  
+- VI- crosses above VI+ (bearish vortex signal).  
+- CMO < -50 (confirming strong bearish momentum).  
+- Volume must be below its 20-period MA (consolidation filter).  
+
+**Exit Rules:**  
+- **Profit-Taking:** Close position when CMO reverses past ±30 (momentum weakening).  
+- **Stop-Loss:**  
+  - Long: Below the recent swing low.  
+  - Short: Above the recent swing high.  
+
+**Risk Management:**  
+- Position size: 1-2% of capital per trade.  
+- Stop-loss must be placed immediately after entry.  
+- Avoid trading during low-volume periods (holidays, overnight gaps).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-; default 14-period).  
+2. Chande Momentum Oscillator (CMO; 20-period).  
+3. Volume 20-period moving average.  
+
+**Unique Edge:** Combines trend-following (Vortex) with momentum confirmation (CMO) while filtering false breakouts via volume contraction—ideal for ranging-to-trending transitions.  
+
+**Note:** Backtest optimal parameters for VI/CMO lengths based on asset volatility.

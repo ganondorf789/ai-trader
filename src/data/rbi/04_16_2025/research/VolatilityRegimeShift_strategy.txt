@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityRegimeShift  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** Measures volatility compression, signaling potential breakout opportunities when the bandwidth crosses below its 50-period SMA.  
+2. **1-Hour TWAP Deviation:** Confirms the trade setup when the Time-Weighted Average Price (TWAP) deviates more than 1.5 standard deviations (σ), indicating strong directional momentum.  
+3. **Volatility Regime Shift Focus:** The strategy specifically targets transitions from low to high volatility, capitalizing on breakout momentum.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - Bollinger Bandwidth crosses below its 50-period SMA (volatility contraction).  
+  - 1-hour TWAP moves above +1.5σ from its mean (bullish momentum confirmation).  
+- **Short Entry:** Triggered when:  
+  - Bollinger Bandwidth crosses below its 50-period SMA (volatility contraction).  
+  - 1-hour TWAP moves below -1.5σ from its mean (bearish momentum confirmation).  
+
+**Exit Rules:**  
+- **Take Profit:** Exit when Bollinger Bandwidth expands significantly (e.g., crosses back above its 50-period SMA), indicating volatility expansion and potential trend exhaustion.  
+- **Stop Loss:** Set at a fixed risk percentage (e.g., 1-2% of account equity) or a volatility-based stop (e.g., 2x ATR).  
+- **Opposing Signal Exit:** Close the trade if the opposite entry condition appears (e.g., long exit if TWAP drops below -1.5σ).  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-adjusted).  
+- Maximum risk per trade: 1-2% of capital.  
+- Avoid trading during major news events unless confirmed by the strategy’s signals.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To calculate bandwidth contraction.  
+2. **50-period SMA of Bollinger Bandwidth** – For volatility regime confirmation.  
+3. **1-hour TWAP** – For momentum deviation confirmation.  
+4. **Standard Deviation (σ) of TWAP** – To measure significant price deviations.  
+5. **Optional: ATR (14)** – For dynamic stop-loss placement.  
+
+This strategy excels in trending markets after periods of low volatility, making it ideal for breakout traders who want to avoid false signals with additional TWAP confirmation.

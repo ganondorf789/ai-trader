@@ -1,0 +1,34 @@
+STRATEGY_NAME: FractalMomentumArb
+
+STRATEGY_DETAILS:
+The FractalMomentumArb strategy combines volume-momentum analysis with fractal patterns to identify high-probability arbitrage opportunities in the market. This strategy is designed to capitalize on short-term price inefficiencies by leveraging the interplay between volume spikes, momentum shifts, and fractal-based support/resistance levels.
+
+Key Components:
+1. Volume Analysis: Uses volume spikes to confirm momentum shifts and validate potential arbitrage opportunities.
+2. Momentum Indicators: Employs a combination of RSI (Relative Strength Index) and MACD (Moving Average Convergence Divergence) to gauge the strength and direction of price movements.
+3. Fractal Patterns: Utilizes fractal indicators to identify key support and resistance levels, which serve as potential entry and exit points.
+
+Entry Rules:
+1. Look for a volume spike that coincides with a momentum shift (RSI crossing above/below 50 and MACD crossover).
+2. Confirm the presence of a fractal pattern (either bullish or bearish) at a key support or resistance level.
+3. Enter a long position if the above conditions are met and price breaks above a fractal resistance level.
+4. Enter a short position if the above conditions are met and price breaks below a fractal support level.
+
+Exit Rules:
+1. Set a take-profit level at the next significant fractal resistance (for long positions) or support (for short positions).
+2. Use a trailing stop-loss based on the Average True Range (ATR) to lock in profits and minimize risk.
+3. Exit the trade if the momentum indicators reverse (RSI crosses back below/above 50 or MACD shows a bearish/bullish crossover).
+
+Risk Management:
+1. Position sizing should be based on a fixed percentage of the trading capital (e.g., 1-2% per trade).
+2. Set a stop-loss order just below the fractal support level (for long positions) or above the fractal resistance level (for short positions).
+3. Use a risk-reward ratio of at least 1:2 to ensure profitable trades outweigh losing ones.
+
+Required Indicators:
+1. Volume Indicator (e.g., On-Balance Volume or Volume Weighted Average Price)
+2. RSI (Relative Strength Index)
+3. MACD (Moving Average Convergence Divergence)
+4. Fractal Indicator (e.g., Bill Williams Fractals)
+5. ATR (Average True Range) for trailing stop-loss
+
+This strategy is best suited for short-term trading in liquid markets where volume and momentum play a significant role in price movements. It requires careful monitoring of the indicators and quick execution to capitalize on the identified arbitrage opportunities.

@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationVolt  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility-Adjusted Bollinger Bands (BB):** Uses standard BB (20-period SMA, 2σ) but dynamically adjusts the threshold based on recent volatility spikes.  
+2. **Funding Rate Spike:** Monitors perpetual swap funding rates and triggers entries when rates exceed the 90th percentile of their 30-day historical range.  
+3. **Volume-Weighted RSI (VW-RSI):** A 14-period RSI weighted by trading volume to confirm exits when divergence occurs (price makes lower lows while VW-RSI makes higher lows).  
+
+**Entry Rules:**  
+- **Short Entry:** Triggered when:  
+  - Price closes below the lower Bollinger Band (adjusted for recent volatility surges).  
+  - Funding rate simultaneously spikes above its 90th percentile (30-day lookback).  
+  - Confirmation: High-volume bearish candle (volume > 20-day average).  
+
+**Exit Rules:**  
+- **Profit-Taking:** Partial exit at 1.5x the average true range (ATR) from entry.  
+- **Full Exit:** When VW-RSI shows bullish divergence (price lower low, RSI higher low) OR price reclaims the BB midline (20 SMA).  
+- **Stop-Loss:** Hard stop at 2x ATR above entry or recent swing high (whichever is closer).  
+
+**Risk Management:**  
+- Position sizing: 1-2% of capital per trade.  
+- No overlapping trades in correlated assets (e.g., only 1 short position active per sector).  
+- Time-based exit: Close trade if funding rate normalizes (falls below 75th percentile) without hitting profit targets.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2σ) with volatility adjustment (e.g., multiply σ by 1.5 during high ATR regimes).  
+2. 30-day rolling percentile rank of funding rates (90th percentile threshold).  
+3. Volume-Weighted RSI (14-period).  
+4. 14-period ATR for stop/profit calibration.  
+
+**Unique Edge:** Combines liquidity-driven signals (funding spikes) with volatility breaks and volume-confirmed reversals, targeting overleveraged short squeezes.

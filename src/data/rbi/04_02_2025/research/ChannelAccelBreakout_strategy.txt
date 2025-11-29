@@ -1,0 +1,41 @@
+STRATEGY_NAME: ChannelAccelBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Donchian Channel breakout dynamics with momentum confirmation through Rate of Change (ROC) and volume analysis for high-probability entries.
+
+Key Components:
+1. Donchian Channel (20-period upper band)
+2. Rate of Change (14-period recommended)
+3. Volume (20-day average as filter)
+4. Channel midpoint as dynamic exit level
+
+Entry Rules:
+1. Primary Condition: Price must close above the Donchian Channel upper band (20-period)
+2. Momentum Confirmation: Rate of Change must be accelerating (current ROC > previous ROC)
+3. Volume Filter: Current volume must exceed 20-day average volume
+4. All three conditions must be met simultaneously for entry
+
+Exit Rules:
+1. Primary Exit: Close position when price closes below the Donchian Channel midpoint
+2. Optional Stop-Loss: Consider adding a fixed percentage stop (e.g., 2-3%) below entry price
+3. Time-based Exit: Consider exiting after X days if target not reached (optional)
+
+Risk Management:
+1. Position sizing based on account risk parameters (1-2% per trade recommended)
+2. Avoid entering when volatility is extreme (check ATR or Bollinger Band width)
+3. Consider correlation with broader market trends for additional confirmation
+4. Best suited for trending markets - avoid ranging conditions
+
+Required Indicators:
+1. Donchian Channel (20-period)
+2. Rate of Change (14-period standard setting)
+3. Volume (with 20-day moving average)
+4. Optional: ATR for volatility assessment
+
+Optimization Notes:
+1. Test different Donchian periods (20-50) for various instruments
+2. Adjust ROC period based on trading timeframe
+3. Volume average period can be tuned (10-30 days)
+4. Works best on daily/weekly timeframes for swing trading
+
+This ChannelAccelBreakout strategy provides a systematic approach to trading breakouts with built-in momentum and volume confirmation, while using the channel structure for clear exit signals. The combination of these elements helps filter false breakouts and improves trade quality.

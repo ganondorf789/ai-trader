@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolumetricSuperTrend
+
+STRATEGY_DETAILS:
+This strategy combines trend-following with momentum confirmation and volume validation for high-probability entries. The core components are:
+
+1. KEY COMPONENTS:
+- SuperTrend indicator (primary trend filter)
+- Stochastic RSI (momentum confirmation)
+- Volume analysis (entry validation)
+- Trend-following exit system
+
+2. ENTRY RULES (Long Only):
+- SuperTrend must flip from bearish to bullish (color change)
+- Stochastic RSI must cross above 20 (exiting oversold)
+- Stochastic RSI must be rising (positive momentum)
+- Current volume must be higher than 20-period average
+- All conditions must occur on same candle
+
+3. EXIT RULES:
+- Primary exit: When SuperTrend flips back to bearish
+- Optional emergency exit: If price closes below recent swing low
+
+4. RISK MANAGEMENT:
+- Position size: 1-2% of capital per trade
+- Stop loss: Below recent swing low or 1.5x ATR
+- Take profit: None (let SuperTrend ride the trend)
+- Maximum portfolio exposure: 5-10% at any time
+
+5. REQUIRED INDICATORS:
+- SuperTrend (default 10,3 settings)
+- Stochastic RSI (14,3,3,20/80 levels)
+- Volume (20-period moving average)
+- Optional: ATR (14) for stop calculation
+
+6. SPECIAL NOTES:
+- Works best in trending markets (avoid ranging conditions)
+- Higher timeframes (4H/Daily) reduce false signals
+- Volume confirmation reduces whipsaw entries
+- Combine with fundamental/macro trend alignment for best results
+
+This strategy capitalizes on confirmed trend reversals with built-in momentum and volume filters to avoid false breakouts while riding trends until the SuperTrend indicates reversal.

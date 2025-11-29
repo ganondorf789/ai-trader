@@ -1,0 +1,39 @@
+STRATEGY_NAME: VoltaicCompression
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band width contraction with ADX trend strength to identify high-probability trading opportunities during periods of volatility compression and weakening trend momentum.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 standard deviations) - Measures volatility contraction
+2. ADX (14-period) - Identifies trend strength
+3. Price action confirmation - Validates breakout signals
+
+Entry Rules:
+1. Wait for Bollinger Band width to contract below 0.5 (indicating volatility compression)
+2. Simultaneously, ADX must be below 25 (showing weakening trend momentum)
+3. Enter long when price breaks above upper Bollinger Band with confirmation candle close
+4. Enter short when price breaks below lower Bollinger Band with confirmation candle close
+
+Exit Rules:
+1. For long positions: Exit when price closes below middle Bollinger Band (20-period SMA)
+2. For short positions: Exit when price closes above middle Bollinger Band (20-period SMA)
+3. Alternative exit: Trail stop at opposite Bollinger Band level
+
+Risk Management:
+1. Position size: Risk no more than 1-2% of capital per trade
+2. Stop loss: Place initial stop beyond opposite Bollinger Band
+3. Profit target: 2:1 risk-reward ratio minimum
+4. Avoid trading during major news events that may cause false breakouts
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. ADX (14)
+3. Bollinger Band Width indicator (for measuring contraction)
+
+Additional Notes:
+- Best suited for 1-hour or 4-hour timeframes in trending markets
+- Works well with liquid currency pairs and major indices
+- Combine with volume confirmation for higher probability signals
+- Avoid using during extremely low volatility periods (ADX < 15)
+
+This strategy capitalizes on the tendency for periods of low volatility (Bollinger contraction) to precede significant moves, while the ADX filter helps avoid false breakouts in strong trending markets.

@@ -1,0 +1,41 @@
+STRATEGY_NAME: VortexBandTrail
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Bands, Vortex Indicator, volume analysis, and ATR-based trailing stops for a systematic mean-reversion approach with momentum confirmation.
+
+Key Components:
+1. Bollinger Bands (20,2) - Identifies potential oversold conditions at lower band
+2. Vortex Indicator (VI+, VI-) - Confirms positive momentum shift
+3. Volume Filter - Ensures above-average participation
+4. 4-hour ATR (14) - Sets dynamic trailing stop levels
+
+Entry Rules:
+1. Price must touch or penetrate the lower Bollinger Band
+2. VI+ must cross above VI- simultaneously
+3. Current volume must exceed 20-period volume SMA
+4. All conditions must occur within the same candle
+
+Exit Rules:
+1. Primary exit: Trailing stop-loss at 2x 4-hour ATR (14-period)
+2. Optional exit: When VI+ crosses back below VI- (early warning)
+3. Emergency exit: If price touches upper Bollinger Band (contrarian signal)
+
+Risk Management:
+1. Initial stop placed at 2x 4-hour ATR below entry
+2. Position size calculated as 1% risk per trade
+3. No new entries if 3 consecutive losing trades occur
+4. Maximum 5 open positions simultaneously
+
+Required Indicators:
+1. Bollinger Bands (20 periods, 2 std dev)
+2. Vortex Indicator (default 14 periods)
+3. Volume SMA (20 periods)
+4. ATR (14 periods on 4h timeframe)
+
+Optimization Notes:
+1. Test different Bollinger Band periods (14-26)
+2. Experiment with ATR multipliers (1.5x-3x)
+3. Adjust volume filter sensitivity (15-25 period SMA)
+4. Consider adding RSI filter (e.g., RSI < 40) for additional confirmation
+
+This strategy works best in ranging markets and requires strict discipline to avoid trading during strong trends where Bollinger Band touches may indicate continuation rather than reversal.

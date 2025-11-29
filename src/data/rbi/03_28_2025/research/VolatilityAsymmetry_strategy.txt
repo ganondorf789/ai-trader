@@ -1,0 +1,45 @@
+STRATEGY_NAME: VolatilityAsymmetry
+
+STRATEGY_DETAILS:
+This is a sophisticated volatility trading strategy that capitalizes on the asymmetry between VIX and VVIX behavior during extreme market conditions. The strategy combines mean-reversion principles with volatility regime analysis.
+
+Key Components:
+1. VIX (CBOE Volatility Index) - Primary indicator for market fear
+2. VVIX (VIX of VIX) - Measures volatility of volatility
+3. 95th percentile threshold - Extreme volatility threshold
+4. Median VVIX - Baseline for volatility stability
+5. 20-day rolling mean - Mean-reversion target
+
+Entry Rules:
+1. Trigger: When VIX closes above its 95th percentile (calculated using 1-year lookback period)
+2. Confirmation: VVIX must simultaneously be below its median value (1-year lookback)
+3. Execution: Enter long VIX futures position at next open
+
+Exit Rules:
+1. Primary Exit: When VIX reverts to or below its 20-day simple moving average
+2. Secondary Exit: If VVIX rises above its 75th percentile (volatility becoming unstable)
+3. Time-based Exit: Maximum 10 trading day hold period
+
+Risk Management:
+1. Position Sizing: 2-5% of portfolio per trade
+2. Stop Loss: 10% of position value if VIX continues rising beyond entry
+3. Maximum Drawdown: 15% portfolio-wide stop
+4. Trade Frequency: Limited to 1-2 trades per month to avoid overexposure
+
+Required Indicators:
+1. VIX Index (real-time)
+2. VVIX Index (real-time)
+3. 1-year historical VIX data for percentile calculation
+4. 1-year historical VVIX data for median calculation
+5. 20-day simple moving average of VIX
+
+Unique Aspects:
+- Exploits the divergence between actual volatility (VIX) and volatility expectations (VVIX)
+- Combines extreme value analysis with mean-reversion
+- Uses VVIX as a stability filter to avoid entering during truly unstable markets
+- Particularly effective during "volatility shocks" that don't reflect structural instability
+
+Backtesting Considerations:
+- Optimal during periods of market stress (2008, 2020)
+- May underperform during prolonged low-volatility regimes
+- Requires careful execution due to VIX futures term structure effects

@@ -1,0 +1,43 @@
+STRATEGY_NAME: SqueezeDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection:** Identifies periods of low volatility when the bands contract significantly, signaling potential breakout opportunities.  
+2. **On-Balance Volume (OBV) Divergence:** Confirms breakout strength by ensuring volume supports the price movement (bullish divergence for long entries, bearish for short).  
+3. **ATR-Based Trailing Stop:** Manages risk dynamically by adjusting stops based on market volatility.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Bands show a squeeze (bandwidth at recent lows).  
+  2. Price breaks above the upper Bollinger Band.  
+  3. OBV shows a bullish divergence (rising OBV while price was consolidating or declining).  
+- **Short Entry:**  
+  1. Bollinger Bands show a squeeze.  
+  2. Price breaks below the lower Bollinger Band.  
+  3. OBV shows a bearish divergence (falling OBV while price was consolidating or rising).  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Trailing stop based on 1.5x ATR (14-period) from the peak/trough after entry.  
+- **Stop Loss:**  
+  - Initial stop: Opposite Bollinger Band touch (upper band for shorts, lower band for longs).  
+  - Exit if OBV reverses direction against the trade (e.g., OBV starts declining after a long entry).  
+
+**Risk Management:**  
+- Position sizing: Risk no more than 1-2% of capital per trade.  
+- Avoid entries during major economic news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 standard deviations).  
+2. On-Balance Volume (OBV).  
+3. Average True Range (ATR, 14-period).  
+
+**Unique Aspects:**  
+- Combines volatility contraction (squeeze) with volume confirmation (OBV divergence) for higher-probability breakouts.  
+- Uses ATR for adaptive trailing stops, aligning risk with market conditions.  
+
+**Optimization Tips:**  
+- Test different ATR multipliers (e.g., 1.2x–2x) for trailing stops.  
+- Adjust Bollinger Band settings (e.g., 18–22 periods) for specific assets.  
+- Filter trades with a 50-period SMA trend alignment (e.g., only long if price > SMA50).

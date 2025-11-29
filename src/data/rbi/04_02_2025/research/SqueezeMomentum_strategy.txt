@@ -1,0 +1,29 @@
+STRATEGY_NAME: SqueezeMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection:** Identifies periods of low volatility when the Bollinger Bands contract significantly, indicating a potential breakout.  
+2. **True Strength Index (TSI) Slope Confirmation:** Uses the slope of the TSI to confirm momentum before entering a trade, ensuring the breakout has strong follow-through.  
+3. **ADX-Based Position Sizing:** Dynamically adjusts position size based on the strength of the trend as measured by the Average Directional Index (ADX).  
+4. **Anchored Stop-Loss:** Sets the stop-loss at the low of the Bollinger Band squeeze to protect against false breakouts.  
+
+**Entry Rules:**  
+1. **Bollinger Band Squeeze Condition:** Wait for the Bollinger Bands to contract to a predefined threshold (e.g., bandwidth below a certain value).  
+2. **TSI Slope Confirmation:** The TSI must show an increasing slope (positive momentum) on the breakout candle or the next candle.  
+3. **Breakout Direction:** Enter long if price breaks above the upper Bollinger Band, or short if it breaks below the lower band.  
+
+**Exit Rules:**  
+1. **Take-Profit:** Use a trailing stop or a fixed risk-reward ratio (e.g., 2:1) based on the squeeze’s width.  
+2. **Stop-Loss:** Place the stop-loss at the low (for long) or high (for short) of the Bollinger Band squeeze period.  
+
+**Risk Management:**  
+1. **Dynamic Position Sizing:** Allocate more capital when ADX is above a threshold (e.g., 25), indicating a strong trend. Reduce position size if ADX is weak.  
+2. **Volatility Adjustment:** Avoid trading during excessively high or low volatility periods where the squeeze may be less reliable.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To identify squeeze conditions.  
+2. **True Strength Index (TSI)** – For momentum confirmation.  
+3. **Average Directional Index (ADX, 14)** – To gauge trend strength and adjust position size.  
+
+This strategy combines volatility contraction, momentum confirmation, and adaptive risk management for high-probability breakout trades.

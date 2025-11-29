@@ -1,0 +1,41 @@
+STRATEGY_NAME: ChaikinSqueezeFlow
+
+STRATEGY_DETAILS:
+This strategy combines money flow dynamics with volatility contraction to identify high-probability long entries, using a multi-indicator confirmation system.
+
+Key Components:
+1. Chaikin Money Flow (CMF) - Measures buying/selling pressure
+2. Bollinger Bandwidth - Tracks volatility contraction
+3. VWAP (Volume Weighted Average Price) - Acts as dynamic exit threshold
+
+Entry Rules:
+1. Primary Condition: 5-day SMA of CMF must cross above zero (bullish money flow)
+2. Confirmation Condition: Bollinger Bandwidth must be at a 3-month low (volatility squeeze)
+3. Both conditions must occur simultaneously for valid entry
+
+Exit Rules:
+1. Close position after two consecutive daily closes below 20-period VWAP
+2. Optional: Consider partial profit-taking at 2:1 risk-reward ratio
+
+Risk Management:
+1. Position sizing: Risk no more than 1-2% of capital per trade
+2. Stop-loss: Initial stop below recent swing low or 2ATR below entry
+3. Volatility filter: Avoid trading if average true range (ATR) is below 30-day average
+
+Required Indicators:
+1. Chaikin Money Flow (21-day period, 5-day SMA)
+2. Bollinger Bands (20,2 standard deviation)
+3. Bollinger Bandwidth (calculated as (Upper Band - Lower Band)/Middle Band)
+4. VWAP (20-period)
+5. Optional: ATR (14-period) for volatility assessment
+
+Unique Aspects:
+- Combines money flow confirmation with volatility squeeze pattern
+- Uses VWAP instead of traditional moving averages for exits
+- Requires simultaneous indicator alignment for higher-probability entries
+- Particularly effective in transitioning from low to moderate volatility regimes
+
+Optimization Notes:
+- Test different SMA periods for CMF (3-7 days)
+- Experiment with VWAP periods (10-30) for exits
+- Consider adding volume confirmation (e.g., above 50-day average)

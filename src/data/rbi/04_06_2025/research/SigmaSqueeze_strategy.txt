@@ -1,0 +1,31 @@
+STRATEGY_NAME: SigmaSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility-Based Entry:** Identifies extreme price drops (3-sigma deviation) combined with a surge in trading volume (200% spike), signaling potential oversold conditions.  
+2. **Bollinger Band Confirmation:** Requires narrowing Bollinger Band width, indicating reduced volatility and a potential price consolidation before a reversal.  
+3. **Exit Triggers:** Uses VWAP crossing above the 20-period SMA (momentum shift) or RSI exceeding 65 (overbought threshold) to secure profits.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - Price drops by 3 standard deviations (3-sigma) from its mean.  
+  - Volume spikes to 200% of its recent average (e.g., 20-period moving average).  
+  - Bollinger Band width narrows significantly (e.g., below a 10-period low).  
+
+**Exit Rules:**  
+- **Profit-Taking/Stop-Loss:** Exit the trade when either:  
+  - VWAP crosses above the 20-period SMA (suggesting bullish momentum fading).  
+  - RSI exceeds 65 (indicating overbought conditions).  
+
+**Risk Management:**  
+- Position sizing should account for the high volatility of the entry signal (e.g., 1-2% risk per trade).  
+- A trailing stop or fixed stop-loss (e.g., 2x the recent ATR) can be added to protect against false reversals.  
+
+**Required Indicators:**  
+1. **Standard Deviation (Sigma):** To measure the 3-sigma price drop.  
+2. **Volume Spike Detection:** Compare current volume to its moving average (e.g., 20-period).  
+3. **Bollinger Bands:** Monitor band width contraction.  
+4. **VWAP & 20-period SMA:** For exit confirmation.  
+5. **RSI (14-period):** To identify overbought conditions.  
+
+**Unique Edge:** Combines statistical extremes (sigma), volume confirmation, and Bollinger Band dynamics to pinpoint high-probability reversal opportunities, while exits are managed using trend (VWAP/SMA) and momentum (RSI) filters.

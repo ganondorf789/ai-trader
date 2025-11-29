@@ -1,0 +1,38 @@
+STRATEGY_NAME: VoltaicSurge  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on volatility contractions followed by high-volume breakouts, using a multi-indicator confirmation system for precise entries and mechanical exits.  
+
+**Key Components:**  
+1. **Bollinger Bandwidth Filter**: Identifies periods of extreme volatility contraction when the 30-day bandwidth reaches its lowest point  
+2. **Volume Surge Trigger**: Requires trading volume exceeding 200% of the 20-day average volume  
+3. **Keltner Channel Confirmation**: Breakout must occur outside the Keltner Channel boundaries for directional bias confirmation  
+
+**Entry Rules (Long Example):**  
+1. Bollinger Bandwidth (20,2) reaches 30-day minimum  
+2. Volume exceeds 2x 20-day moving average volume  
+3. Price closes above upper Keltner Channel (20,1.5)  
+4. All three conditions must occur simultaneously  
+
+**Exit Rules:**  
+1. **Profit Taking**: When price touches opposite Keltner Channel boundary (lower channel for long positions)  
+2. **Stop Loss**: Initial stop placed at recent swing low (for longs) or swing high (for shorts)  
+
+**Risk Management:**  
+1. Position sizing based on 1-2% risk per trade  
+2. Trailing stop may be implemented after 2x risk reward achieved  
+3. Avoid trading during major economic news events due to volatility distortion  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) - for bandwidth calculation  
+2. Volume 20-day moving average  
+3. Keltner Channels (20,1.5)  
+4. 30-day minimum bandwidth scanner  
+
+**Special Considerations:**  
+- Works best on 1H-4H timeframes for swing trades  
+- Requires liquid assets with consistent volume patterns  
+- Combines mean reversion (bandwidth) and momentum (breakout) principles  
+- Backtest suggested for optimal bandwidth lookback period (30 days may vary by asset)  
+
+The "VoltaicSurge" name reflects the strategy's core dynamics: "Voltaic" captures the explosive energy release from compressed volatility, while "Surge" emphasizes the critical volume expansion requirement. This differs from basic breakout systems by requiring three simultaneous confirmations across different indicator classes (volatility, volume, and trend channels).

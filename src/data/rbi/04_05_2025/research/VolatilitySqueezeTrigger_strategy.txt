@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolatilitySqueezeTrigger
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of extreme volatility contraction by combining Bollinger Band compression with volume confirmation, then riding the subsequent expansion with ATR-based exits.
+
+Key Components:
+1. Bollinger Band Width (20,2) measuring volatility contraction
+2. Klinger Volume Oscillator (34,55,13) for volume confirmation
+3. 20-period SMA of Klinger Oscillator as confirmation filter
+4. 2x ATR (14) for dynamic profit-taking/stop-loss
+
+Entry Rules:
+1. Primary Condition: Bollinger Band width reaches its lowest point in 6 months (126 trading days)
+2. Confirmation: Klinger Volume Oscillator crosses above its 20-period SMA
+3. Entry: Next candle open after both conditions are met
+
+Exit Rules:
+1. Profit Target: 2x ATR (14) above entry price (long) or below entry price (short)
+2. Stop Loss: 2x ATR (14) in opposite direction
+3. Alternative Exit: New 6-month low in BB width while in trade
+
+Risk Management:
+1. Position sizing based on 1% risk of capital at 2x ATR stop distance
+2. Maximum 3 concurrent positions across different instruments
+3. Daily time frame recommended for reduced noise
+4. Avoid trading during major economic events that may distort volatility
+
+Required Indicators:
+1. Bollinger Bands (20,2) with width calculation
+2. Klinger Volume Oscillator (34,55,13)
+3. 20-period SMA of Klinger Oscillator
+4. ATR (14)
+5. 6-month historical comparison for BB width
+
+Optimization Notes:
+1. Test different ATR multiples (1.5x-3x) for exits
+2. Experiment with BB period (14-26) and width threshold
+3. Consider adding RSI filter (e.g., >30 for longs, <70 for shorts)
+4. Backtest across different asset classes as volatility characteristics vary
+
+This strategy works best in ranging markets transitioning to trends, with reduced effectiveness during sustained high-volatility periods. The unique combination of volatility measurement with volume confirmation provides higher-probability entries into emerging trends.

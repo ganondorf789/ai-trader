@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolSqueezeReversal  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on periods of compressed volatility and negative sentiment to enter long volatility positions, exiting when volatility expands beyond a statistically significant threshold.  
+
+**Key Components:**  
+1. **Bollinger Band Width Contraction:** Measures volatility compression by tracking the difference between upper and lower Bollinger Bands (typically 20-period, 2 StdDev). A 3-month low signals extreme compression.  
+2. **Negative Funding Rates:** Indicates bearish sentiment in perpetual futures markets, often preceding short squeezes.  
+3. **ATR Spike Exit:** Uses the 90th percentile of historical Average True Range (14-period) to identify excessive volatility expansion for exit timing.  
+
+**Entry Rules:**  
+- Trigger when both conditions are met:  
+  - Bollinger Band Width (BBW) reaches its lowest value in 3 months (63 trading days).  
+  - Funding rates are negative (confirming bearish positioning).  
+- Enter long volatility via:  
+  - Buying ATM options (delta-neutral)  
+  - Long futures with tight stop (if directional bias exists)  
+
+**Exit Rules:**  
+- Close position when:  
+  - Current ATR(14) > 90th percentile of its 3-month historical values (pre-calculated threshold).  
+  - Optional: Trail stop at 2x the entry-period BBW to capture extended moves.  
+
+**Risk Management:**  
+- Position sizing: Allocate ≤2% of capital per trade given the high-risk nature of volatility plays.  
+- Stop-loss (if used): 1.5x the entry-period BBW to avoid whipsaw exits during initial expansion.  
+- Time decay hedge: For options positions, consider offsetting with short-dated OTM options if holding >3 days.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) → Calculate BBW = (Upper Band - Lower Band)/Middle Band  
+2. Funding Rates (exchange-specific perpetual swap data)  
+3. Average True Range (14-period) + historical percentile calculation  
+4. Optional: VWAP to confirm entry/exit timing  
+
+**Unique Edge:**  
+- Combines volatility cycles (BBW) with crowd behavior (funding rates) for high-probability mean-reversion.  
+- Statistically defined exit removes emotion from profit-taking.  
+- Works best in crypto/leveraged markets where funding rate extremes amplify volatility reversals.

@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Confirmation:** The strategy uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) to confirm a bullish trend.  
+2. **Volume Filter:** Only trades during high-volume sessions, ensuring stronger momentum behind the breakout.  
+3. **Breakout Entry:** Enters trades when price breaks out above a recent high or resistance level, validated by the EMA crossover and high volume.  
+4. **ATR-Based Exits:** Uses a 2x ATR stop-loss for initial risk management and a 1.5x ATR trailing stop to lock in profits as the trade moves favorably.  
+
+**Entry Rules:**  
+1. Wait for the 50-period EMA to cross above the 200-period EMA (Golden Cross).  
+2. Confirm that the breakout occurs during a high-volume session (volume significantly above the average).  
+3. Enter long on a breakout above a recent high or resistance level.  
+
+**Exit Rules:**  
+1. **Initial Stop-Loss:** Place a stop-loss at 2x ATR below the entry price.  
+2. **Trailing Stop:** Adjust the stop-loss to 1.5x ATR below the highest price reached since entry (trailing mechanism).  
+3. Exit the trade if the trailing stop is triggered or if the 50-period EMA crosses back below the 200-period EMA (trend reversal signal).  
+
+**Risk Management:**  
+1. Position sizing should be calculated based on the 2x ATR stop-loss to ensure risk per trade aligns with your risk tolerance (e.g., 1-2% of capital).  
+2. Avoid trading during low-volume periods to reduce false breakouts.  
+3. Only trade in the direction of the confirmed trend (EMA crossover).  
+
+**Required Indicators:**  
+1. 50-period Exponential Moving Average (EMA).  
+2. 200-period Exponential Moving Average (EMA).  
+3. Average True Range (ATR) for stop-loss and trailing stop calculations.  
+4. Volume indicator to confirm high-volume sessions.  
+
+**Additional Notes:**  
+- This strategy works best in trending markets and may underperform in choppy or sideways conditions.  
+- Backtest the strategy with different ATR multiples (e.g., 1.5x stop-loss, 1x trailing) to optimize for your preferred risk-reward ratio.  
+- Combine with additional confirmation (e.g., candlestick patterns, RSI divergence) for higher-probability setups.

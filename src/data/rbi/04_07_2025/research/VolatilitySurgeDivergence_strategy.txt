@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolatilitySurgeDivergence
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction, momentum divergence, and volume confirmation to identify high-probability long entries during potential trend reversals or accelerations.
+
+Key Components:
+1. Bollinger Band Width (BBW) - Measures volatility contraction when hitting 10-day lows
+2. RSI Divergence - Identifies bullish momentum shifts against price action
+3. Volume Surge - Confirms participation when exceeding 20-day average
+4. ATR Trailing Stop - Provides dynamic exit mechanism based on volatility
+
+Entry Rules (Long Only):
+1. Primary Trigger: Bollinger Band Width (20,2) reaches 10-day low
+2. Confirmation 1: Bullish RSI divergence (price makes lower low while RSI makes higher low)
+3. Confirmation 2: Current volume > 20-day volume average
+4. All three conditions must align simultaneously
+
+Exit Rules:
+1. Trailing Stop: 2x the 14-period ATR from entry price
+2. Stop adjusts daily to lock in profits while allowing room for volatility
+3. No fixed take-profit - lets winners run until stopped out
+
+Risk Management:
+1. Position sizing based on 1-2% risk of capital
+2. Stop distance determines position size (entry price - initial stop)
+3. No pyramiding - single entry per setup
+4. Time filter: Avoid entering last 30 minutes of session
+
+Required Indicators:
+1. Bollinger Bands (20,2) - for width calculation
+2. RSI (14 period) - for divergence detection
+3. Volume + 20-day SMA of volume
+4. ATR (14 period) - for stop calculation
+
+Optimization Notes:
+1. Can test different BBW lookback periods (7-14 days)
+2. RSI period could be adjusted (9-21)
+3. ATR multiplier range (1.5-3) for stop sensitivity
+4. Volume average period (10-30 days)
+
+This strategy excels in transitioning markets where volatility compression precedes directional moves, with volume confirming institutional participation and RSI signaling hidden strength. The ATR-based exit adapts to changing market conditions while protecting gains.

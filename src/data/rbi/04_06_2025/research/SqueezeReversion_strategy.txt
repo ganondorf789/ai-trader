@@ -1,0 +1,47 @@
+STRATEGY_NAME: SqueezeReversion
+
+STRATEGY_DETAILS:
+This strategy capitalizes on potential short squeeze opportunities in perpetual futures markets by identifying extreme negative funding rates combined with declining open interest. The approach combines mean-reversion principles with crowd psychology dynamics in derivatives markets.
+
+Key Components:
+1. Funding Rate Extremes: Focuses on periods when funding rates reach statistically significant negative levels (typically below -0.1% per 8h period)
+2. Open Interest Dynamics: Requires concurrent sharp decline in open interest (minimum 15-20% drop from recent highs)
+3. Price Action Confirmation: Looks for stabilization or bullish reversal patterns after recent downward movement
+
+Entry Rules:
+- Trigger when 8h funding rate ≤ -0.1% (adjustable parameter)
+- Concurrent open interest must show ≥15% decline from 7-day high
+- Price should show signs of stabilization (e.g., bullish engulfing pattern or break above recent resistance)
+- Optional confirmation: RSI(14) < 30 (oversold condition)
+
+Exit Rules:
+1. Profit-taking:
+- Primary: 5-8% fixed gain threshold (adjustable based on volatility)
+- Secondary: When funding rate crosses above -0.05% (normalization)
+2. Stop-loss:
+- 3-5% below entry price (tighter than profit target)
+- Or break below recent swing low
+
+Risk Management:
+- Position sizing: 1-2% of capital per trade
+- Maximum portfolio exposure: 5% across all concurrent positions
+- Avoid entering during major macroeconomic events
+- Time-based exit if position doesn't move favorably within 48h
+
+Required Indicators:
+1. Perpetual futures funding rate (8h periods)
+2. Open interest (OI) data
+3. Optional: RSI(14) for confirmation
+4. Price chart patterns (candlestick analysis)
+
+Optimization Notes:
+- Adjust funding rate threshold based on asset volatility
+- Consider adding volume confirmation for stronger signals
+- May implement tiered profit-taking (e.g., 50% at 5%, 50% at 8%)
+- Backtest optimal OI decline percentage for specific assets
+
+This strategy works best in:
+- High-liquidity perpetual contracts
+- Assets with historically volatile funding rates
+- During periods of excessive bearish sentiment
+- When combined with broader market structure analysis

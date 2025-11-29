@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolatilitySqueezeRSI
+
+STRATEGY_DETAILS:
+Key Components:
+1. This strategy combines mean-reversion principles with volatility analysis
+2. Focuses on identifying extreme oversold conditions during low volatility periods
+3. Capitalizes on the expansion following volatility contractions
+
+Entry Rules:
+1. Primary Condition: 3-day RSI must be below 20 (indicating extreme oversold)
+2. Secondary Condition: 50-day historical volatility must be below its 10th percentile (showing compressed volatility)
+3. Both conditions must be met simultaneously for entry
+
+Exit Rules:
+1. Take profit when price moves 1 standard deviation (based on 50-day volatility) from entry point
+2. Consider adding a time-based exit (e.g., 5 days) if price doesn't reach target
+3. Optional: Exit if 3-day RSI crosses above 50 (momentum shift)
+
+Risk Management:
+1. Position sizing should account for the expected volatility expansion
+2. Recommended stop-loss at 0.5 standard deviation below entry
+3. Maximum risk per trade should not exceed 1-2% of capital
+4. Avoid trading during major news events that may distort volatility
+
+Required Indicators:
+1. 3-day RSI (Relative Strength Index)
+2. 50-day historical volatility (standard deviation of price changes)
+3. 10th percentile volatility threshold (requires historical calculation)
+4. Standard deviation bands for exit targets
+
+Additional Notes:
+1. Works best in range-bound markets with periodic volatility expansions
+2. Most effective on liquid assets with consistent volatility patterns
+3. Requires regular recalibration of volatility percentiles
+4. Consider filtering for assets with mean-reverting tendencies
+5. Backtest suggested for optimal parameter tuning
+
+Implementation Tips:
+1. Calculate the 10th percentile volatility using rolling 50-day lookback
+2. Standard deviation move should be based on recent volatility
+3. Consider using closing prices for consistency
+4. May work better on daily timeframe than intraday

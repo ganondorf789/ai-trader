@@ -1,0 +1,55 @@
+STRATEGY_NAME: FractalConvergence
+
+STRATEGY_DETAILS:
+The FractalConvergence strategy is a unique approach that combines price fractal analysis with the convergence of both bullish and bearish Williams %D (W.D.) indicators. This strategy aims to identify high-probability entry points by aligning fractal patterns with momentum confirmation from the Williams %D oscillator.
+
+### Key Strategy Components:
+1. **Price Fractals**: 
+   - Fractals are used to identify potential reversal points in the market. A bullish fractal is a pattern of five consecutive bars where the middle bar has the highest high, while a bearish fractal has the middle bar with the lowest low.
+   
+2. **Williams %D (W.D.)**:
+   - Williams %D is a momentum oscillator that measures overbought and oversold conditions. It is derived from Williams %R and smoothed to provide clearer signals.
+   - Bullish W.D. convergence occurs when the price is in a downtrend, but W.D. starts to rise, indicating potential upward momentum.
+   - Bearish W.D. convergence occurs when the price is in an uptrend, but W.D. starts to fall, indicating potential downward momentum.
+
+### Entry Rules:
+1. **Long Entry**:
+   - A bullish fractal forms (five-bar pattern with the middle bar having the highest high).
+   - Williams %D shows bullish convergence (price is in a downtrend, but W.D. starts rising).
+   - Enter a long position when both conditions are met.
+
+2. **Short Entry**:
+   - A bearish fractal forms (five-bar pattern with the middle bar having the lowest low).
+   - Williams %D shows bearish convergence (price is in an uptrend, but W.D. starts falling).
+   - Enter a short position when both conditions are met.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Use a fixed risk-reward ratio (e.g., 1:2 or 1:3) based on the stop-loss distance.
+   - Alternatively, exit when a new opposing fractal forms (e.g., a bearish fractal for a long position).
+
+2. **Stop Loss**:
+   - Place the stop-loss below the recent swing low for long positions or above the recent swing high for short positions.
+   - Alternatively, use a percentage-based stop-loss (e.g., 1-2% of the entry price).
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of the trading capital on any single trade.
+   - Adjust position size based on the distance to the stop-loss level.
+
+2. **Diversification**:
+   - Avoid over-concentration in a single asset or market. Spread trades across multiple instruments to reduce risk.
+
+### Required Indicators:
+1. **Fractal Indicator**:
+   - Used to identify bullish and bearish fractal patterns.
+
+2. **Williams %D (W.D.)**:
+   - Used to confirm momentum convergence with price fractals.
+
+### Additional Notes:
+- This strategy works best in trending or ranging markets with clear fractal patterns.
+- Avoid trading during high-impact news events or low-liquidity periods to reduce false signals.
+- Backtest the strategy on historical data to optimize parameters and confirm its effectiveness in your chosen market.
+
+By combining fractal patterns with Williams %D convergence, the FractalConvergence strategy provides a robust framework for identifying high-probability trade setups while managing risk effectively.

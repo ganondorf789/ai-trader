@@ -1,0 +1,33 @@
+Start                                     0.0
+End                                   31065.0
+Duration                              31065.0
+Exposure Time [%]                         0.0
+Equity Final [$]                    1000000.0
+Equity Peak [$]                     1000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]                127.7687
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     NaN
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                  0.0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                          BandedMACD
+_equity_curve                       Equity...
+_trades                   Empty DataFrame
+...
+dtype: object
+

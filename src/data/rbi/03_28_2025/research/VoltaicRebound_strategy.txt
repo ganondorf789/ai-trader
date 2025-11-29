@@ -1,0 +1,28 @@
+STRATEGY_NAME: VoltaicRebound  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Rebound:** Identifies potential long entries when price bounces off the lower Bollinger Band, signaling oversold conditions.  
+2. **Chaikin Money Flow (CMF) Confirmation:** Requires CMF to spike above its 10-day SMA, indicating strong buying pressure.  
+3. **Donchian Channel Volatility Filter:** Uses the midline of the Donchian channel to detect volatility contraction, acting as an exit signal.  
+
+**Entry Rules:**  
+- Go **long** when:  
+  1. Price touches or rebounds from the **lower Bollinger Band**.  
+  2. **CMF** crosses above its **10-day SMA** (confirming bullish momentum).  
+
+**Exit Rules:**  
+- **Take Profit:** Exit at the **upper Bollinger Band** (mean reversion target).  
+- **Stop Loss or Early Exit:** Exit if price breaks the **Donchian channel midline**, signaling reduced volatility or trend weakness.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%).  
+2. **Stop Loss:** Optional trailing stop below the recent swing low or lower Bollinger Band.  
+3. **Volatility Filter:** Avoid trades if the Donchian channel width is too narrow (e.g., bottom 20% of recent range).  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 Std Dev).  
+2. **Chaikin Money Flow** (20-period, with 10-day SMA overlay).  
+3. **Donchian Channel** (20-period midline).  
+
+**Unique Edge:** Combines mean reversion (Bollinger) with momentum (CMF) and volatility contraction (Donchian) for high-probability reversals. The name "VoltaicRebound" reflects the explosive (voltaic) nature of the rebound setup.

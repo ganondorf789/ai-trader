@@ -1,0 +1,44 @@
+STRATEGY_NAME: SqueezeReversal
+
+STRATEGY_DETAILS:
+This strategy capitalizes on potential short squeeze scenarios by combining extreme negative funding rates with open interest surges, creating a mean-reversion setup with built-in volatility protection.
+
+Key Components:
+1. Funding Rate Extremes: Monitors perpetual swap funding rates for significant negative values (typically < -0.1% per 8h)
+2. Open Interest Surge: Requires >15% increase in open interest within 24h to confirm positioning pressure
+3. Volatility Anchor: Uses ATR (14-period) to set dynamic stop-loss levels
+
+Entry Rules:
+1. Primary Trigger: 
+   - 8h funding rate crosses below -0.1% 
+   - Simultaneous OI increase >15% from 24h low
+2. Confirmation: 
+   - Price must be below 20-period SMA (shows oversold condition)
+   - RSI(14) < 40 (additional mean-reversion confirmation)
+
+Exit Rules:
+1. Profit Taking:
+   - First target at 1.5x recent ATR
+   - Second target when funding normalizes (> -0.02%)
+2. Stop-Loss:
+   - Initial stop at 2x ATR below entry
+   - Trailing stop activates at 1x ATR profit, trails at 0.5x ATR
+
+Risk Management:
+1. Position sizing based on 1% risk per trade (stop distance determines quantity)
+2. Maximum 3 concurrent positions
+3. Daily time filter - avoids entering within 4h of major economic events
+
+Required Indicators:
+1. Perpetual swap funding rate data
+2. Open interest tracking
+3. ATR(14) for volatility measurement
+4. SMA(20) for trend context
+5. RSI(14) for momentum confirmation
+
+Optimization Notes:
+- Funding rate thresholds should be asset-specific (more volatile assets may need wider parameters)
+- OI surge percentage may require adjustment based on market liquidity
+- ATR multiplier for stops can be tuned to trader risk preference
+
+This strategy works best in altcoin markets with high short interest and liquid perpetual contracts, particularly during periods of excessive bearish sentiment. The combination of funding rate extremes with OI surges creates a high-probability short squeeze setup, while the volatility-based exits protect gains during rapid reversals.

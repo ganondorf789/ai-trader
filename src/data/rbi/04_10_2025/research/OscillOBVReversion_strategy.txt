@@ -1,0 +1,49 @@
+STRATEGY_NAME: OscillOBV Reversion
+
+STRATEGY_DETAILS:
+This mean-reversion strategy combines Bollinger Bands %B indicator with On-Balance Volume (OBV) divergence to identify high-probability reversal opportunities, using volume-weighted moving averages for precise exits.
+
+Key Components:
+1. Bollinger Bands %B (0.8-1.0 for upper band, 0-0.2 for lower band)
+2. On-Balance Volume (OBV) for divergence detection
+3. Short-term (5-8 period) and long-term (20-25 period) volume-weighted moving averages (VWMA)
+
+Entry Rules:
+1. For long entries:
+   - Price touches or exceeds lower Bollinger Band (%B ≤ 0.2)
+   - OBV shows bullish divergence (price making lower lows while OBV makes higher lows)
+   - Confirm with positive volume trend (rising VWMA)
+
+2. For short entries:
+   - Price touches or exceeds upper Bollinger Band (%B ≥ 0.8)
+   - OBV shows bearish divergence (price making higher highs while OBV makes lower highs)
+   - Confirm with negative volume trend (falling VWMA)
+
+Exit Rules:
+1. For long positions:
+   - When short-term VWMA crosses below long-term VWMA
+   - Or when price reaches middle Bollinger Band (20-period SMA)
+
+2. For short positions:
+   - When short-term VWMA crosses above long-term VWMA
+   - Or when price falls to middle Bollinger Band (20-period SMA)
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Stop-loss placement:
+   - For longs: 1 ATR below recent swing low
+   - For shorts: 1 ATR above recent swing high
+3. Profit target: 1.5-2x risk (trailing stop recommended)
+
+Required Indicators:
+1. Bollinger Bands (20,2) with %B calculation
+2. On-Balance Volume (OBV)
+3. Volume-Weighted Moving Averages (5/8 period and 20/25 period)
+4. Average True Range (ATR) for stop placement
+
+Optimization Notes:
+- Test different VWMA periods (5/20 vs 8/25) for exit sensitivity
+- Adjust %B thresholds (0.15-0.25 for lower, 0.75-0.85 for upper) based on asset volatility
+- Consider adding RSI filter (30/70 levels) for additional confirmation
+
+This strategy excels in ranging markets but should be avoided during strong trending periods confirmed by volume. The unique combination of price oscillation signals with volume divergence creates high-probability mean-reversion opportunities.

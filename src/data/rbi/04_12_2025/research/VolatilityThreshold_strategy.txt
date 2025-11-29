@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityThreshold  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Filter:** Uses the 20-day Average True Range (ATR) to identify low-volatility conditions when it drops below its 10th percentile (historically derived).  
+2. **Trend Confirmation:** Requires price to cross above the 50-day Simple Moving Average (SMA) to confirm a bullish trend.  
+3. **Exit Mechanism:** Combines a dynamic stop-loss (2x ATR) and a fixed holding period (5 days) to lock in profits or limit losses.  
+
+**Entry Rules:**  
+- **Condition 1:** The 20-day ATR must be below its 10th percentile (calculated over a lookback period, e.g., 6–12 months).  
+- **Condition 2:** Price must close above the 50-day SMA.  
+- **Action:** Enter a long position on the next candle’s open if both conditions are met.  
+
+**Exit Rules:**  
+1. **Stop-Loss:** Exit if price drops below the entry price minus 2x the current 20-day ATR.  
+2. **Time-Based Exit:** Close the position after 5 trading days, regardless of profit/loss.  
+
+**Risk Management:**  
+- Position sizing should account for the 2x ATR stop to limit risk per trade (e.g., 1–2% of capital).  
+- Avoid trading during earnings announcements or major news events to prevent volatility spikes.  
+
+**Required Indicators:**  
+1. **20-day ATR** (for volatility percentile calculation).  
+2. **50-day SMA** (for trend confirmation).  
+3. **Historical ATR Percentiles** (requires backtesting to define the 10th percentile threshold).  
+
+**Unique Aspects:**  
+- Combines mean-reversion (low ATR) and trend-following (SMA crossover) elements.  
+- Uses a dual exit approach to balance short-term gains and volatility protection.  
+- Adapts to changing market conditions by focusing on relative volatility extremes.  
+
+**Optimization Tips:**  
+- Test different ATR percentiles (e.g., 5th–15th) to fine-trade sensitivity.  
+- Experiment with SMA periods (e.g., 30-day or 100-day) for trend alignment.  
+- Adjust the holding period (3–7 days) based on asset volatility.

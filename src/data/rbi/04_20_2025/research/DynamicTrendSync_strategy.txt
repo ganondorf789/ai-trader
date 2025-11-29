@@ -1,0 +1,53 @@
+STRATEGY_NAME: DynamicTrendSync
+
+STRATEGY_DETAILS:
+The DynamicTrendSync strategy combines trend confirmation with momentum strength analysis to identify high-probability trading opportunities. This systematic approach uses three key technical indicators to filter trades and manage risk.
+
+Key Components:
+1. Trend Identification (EMA Crossover):
+   - 50-period EMA (short-term trend)
+   - 200-period EMA (long-term trend)
+   - Bullish signal when 50EMA crosses above 200EMA
+
+2. Trend Strength Confirmation (ADX):
+   - ADX threshold set at 25
+   - Rising ADX above 25 confirms strong trending conditions
+
+3. Momentum Exhaustion Signals (RSI):
+   - Overbought threshold at 70
+   - Oversold threshold at 30
+   - Used for exit signals only
+
+Entry Rules:
+1. Primary Condition: 50EMA must cross above 200EMA (golden cross)
+2. Confirmation: ADX must be rising and above 25 level
+3. Entry Execution: Enter long position on next candle open after both conditions are met
+
+Exit Rules:
+1. Profit Taking/Stop Loss: Exit position when RSI either:
+   - Rises above 70 (overbought condition)
+   - Falls below 30 (unexpected weakness)
+2. Alternative Exit: Consider exiting if 50EMA crosses back below 200EMA (death cross)
+
+Risk Management:
+1. Position Sizing: Risk no more than 1-2% of capital per trade
+2. Stop Loss: Initial stop can be placed below recent swing low
+3. Trailing Stop: Consider moving stop to breakeven once trade moves favorably
+4. Time Stop: Exit if trade doesn't develop within 5-10 periods
+
+Required Indicators:
+1. Exponential Moving Averages:
+   - 50-period EMA (fast)
+   - 200-period EMA (slow)
+2. Average Directional Index (ADX):
+   - 14-period standard setting
+3. Relative Strength Index (RSI):
+   - 14-period standard setting
+
+Optimization Notes:
+- Test different ADX thresholds (20-30 range)
+- Experiment with RSI periods (10-14)
+- Consider adding volume confirmation for stronger signals
+- Backtest across different timeframes (best suited for daily/4hr charts)
+
+This strategy works best in strongly trending markets and may produce false signals during ranging conditions. The ADX filter helps avoid weak trends while the RSI exit provides dynamic profit-taking levels.

@@ -1,0 +1,44 @@
+STRATEGY_NAME: QuantumBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Order Book Imbalance (OBI) Filter:** The strategy uses a statistical measure of order book imbalance, triggering trades only when the current imbalance exceeds two standard deviations of its 20-period average. This ensures trades are taken during periods of significant liquidity shifts.  
+2. **Bollinger Band Width Contraction:** A secondary filter requires the Bollinger Band width to contract below 0.5%, indicating low volatility and potential for an explosive breakout.  
+3. **Breakout Confirmation:** Trades are executed only when both conditions align—high order book imbalance and tight Bollinger Band width—signaling a high-probability breakout scenario.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Order book imbalance > 2 standard deviations above its 20-period average.  
+  2. Bollinger Band width < 0.5%.  
+  3. Price breaks above the upper Bollinger Band.  
+- **Short Entry:**  
+  1. Order book imbalance < 2 standard deviations below its 20-period average.  
+  2. Bollinger Band width < 0.5%.  
+  3. Price breaks below the lower Bollinger Band.  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Close the trade when price reaches a predefined risk-reward ratio (e.g., 2:1) or when Bollinger Band width expands beyond a threshold (e.g., 2%).  
+- **Stop Loss:**  
+  - Exit if price retraces into the Bollinger Band or if the order book imbalance reverts to its mean (20-period average).  
+
+**Risk Management:**  
+1. Position sizing based on a fixed percentage of capital (e.g., 1-2% per trade).  
+2. Stop loss placed at the opposite Bollinger Band or a recent swing low/high.  
+3. Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Order book imbalance (calculated as bid-ask volume difference).  
+2. Bollinger Bands (20-period SMA with 2 standard deviations, width = (Upper Band - Lower Band) / Middle Band).  
+3. Standard deviation of order book imbalance (20-period rolling window).  
+
+**Unique Aspects:**  
+- Combines liquidity dynamics (order book) with volatility contraction (Bollinger Bands) for high-probability breakouts.  
+- Statistical thresholds (2 standard deviations) reduce false signals.  
+- Suitable for both crypto and traditional markets with liquid order books.  
+
+**Optimization Tips:**  
+- Adjust the Bollinger Band width threshold (0.3%-0.7%) based on asset volatility.  
+- Test different lookback periods for order book imbalance (e.g., 10-30 periods).  
+- Add a time filter (e.g., only trade during high-volume hours).

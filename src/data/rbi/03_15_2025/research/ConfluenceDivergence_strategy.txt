@@ -1,0 +1,31 @@
+STRATEGY_NAME: ConfluenceDivergence
+
+STRATEGY_DETAILS:
+The ConfluenceDivergence strategy is a sophisticated momentum-based pair trading approach that leverages the Confluence Index (CI) to identify high-probability trading opportunities. The CI measures the likelihood of price action either conforming to established trends (harmonies) or deviating from them (divergences). This strategy focuses on entering trades during divergence phases and exiting during harmony phases, capitalizing on the cyclical nature of market trends.
+
+### Key Strategy Components:
+1. **Confluence Index (CI):** The core indicator that quantifies the probability of price action conforming to or deviating from established trends. It is calculated using a combination of moving averages, volatility measures, and price momentum.
+2. **Divergence Detection:** Identifies when price action is deviating from the established trend, signaling potential reversals or momentum shifts.
+3. **Harmony Detection:** Identifies when price action is conforming to the established trend, signaling the continuation of the current trend.
+
+### Entry Rules:
+1. **Long Entry:** Enter a long position when the CI indicates a divergence in an uptrend (price is deviating below the trend but the CI suggests a high probability of reversion to the mean).
+2. **Short Entry:** Enter a short position when the CI indicates a divergence in a downtrend (price is deviating above the trend but the CI suggests a high probability of reversion to the mean).
+
+### Exit Rules:
+1. **Long Exit:** Exit the long position when the CI indicates harmony in the uptrend (price is conforming to the trend, suggesting the momentum is likely to continue).
+2. **Short Exit:** Exit the short position when the CI indicates harmony in the downtrend (price is conforming to the trend, suggesting the momentum is likely to continue).
+
+### Risk Management:
+1. **Position Sizing:** Use a fixed percentage of the portfolio for each trade (e.g., 1-2%) to manage risk.
+2. **Stop-Loss:** Set a stop-loss at a predefined percentage below the entry price for long positions and above the entry price for short positions (e.g., 2-3%).
+3. **Take-Profit:** Set a take-profit level based on historical volatility and the expected duration of the divergence phase (e.g., 5-10%).
+
+### Required Indicators:
+1. **Confluence Index (CI):** The primary indicator used to measure the probability of price action conforming to or deviating from established trends.
+2. **Moving Averages:** Used to identify the established trend (e.g., 50-day and 200-day moving averages).
+3. **Volatility Measures:** Used to adjust the CI calculation based on market conditions (e.g., ATR or Bollinger Bands).
+4. **Momentum Indicators:** Used to confirm the strength of the divergence or harmony (e.g., RSI or MACD).
+
+### Summary:
+The ConfluenceDivergence strategy is designed to capitalize on the cyclical nature of market trends by entering trades during divergence phases and exiting during harmony phases. By leveraging the Confluence Index and a robust risk management framework, this strategy aims to achieve consistent returns while minimizing drawdowns.

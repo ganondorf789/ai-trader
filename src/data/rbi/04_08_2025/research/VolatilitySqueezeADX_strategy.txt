@@ -1,0 +1,30 @@
+STRATEGY_NAME: VolatilitySqueezeADX  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility when the Bollinger Band width is below the 1-year percentile, signaling a potential breakout.  
+2. **ADX Filter:** Uses the Average Directional Index (ADX) above 25 to confirm a strong trend, ensuring entries are made only during trending markets.  
+3. **Exit Conditions:** Exits are triggered when ADX reverses below 20 (loss of trend strength) or volatility expands beyond the entry threshold (indicating the end of the squeeze).  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Band width (BBW) must be below its 1-year percentile (e.g., 20th percentile), indicating a volatility squeeze.  
+- **Condition 2:** ADX must be rising and above 25, confirming a strong trend.  
+- **Entry Signal:** Enter long/short in the direction of the prevailing trend (confirmed by ADX) when both conditions are met.  
+
+**Exit Rules:**  
+- **Exit Signal 1:** ADX drops below 20, indicating weakening trend momentum.  
+- **Exit Signal 2:** Bollinger Band width expands beyond the threshold observed at entry, signaling volatility breakout.  
+- **Stop-Loss:** Optional trailing stop or fixed percentage stop to manage risk.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-based sizing).  
+- Avoid trading during major news events that may cause erratic volatility.  
+- Diversify across uncorrelated assets to reduce portfolio risk.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To calculate Bollinger Band width (BBW).  
+2. **Average Directional Index (ADX, 14-period)** – To confirm trend strength.  
+3. **Percentile Calculation (1-year lookback)** – To determine low volatility thresholds.  
+
+This strategy capitalizes on low-volatility setups with high-probability trend continuations, using ADX as a trend filter for higher accuracy.

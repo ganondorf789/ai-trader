@@ -1,0 +1,46 @@
+STRATEGY_NAME: VolatilityPulse
+
+STRATEGY_DETAILS:
+This strategy combines volatility indicators with market sentiment to identify high-probability breakout opportunities during low-volatility conditions.
+
+Key Components:
+1. ATR (Average True Range) - Measures market volatility
+2. ATR Moving Average (20-period) - Identifies volatility trends
+3. VIX (Volatility Index) - Measures market fear/volatility expectations
+4. 20-day VIX low - Identifies low-volatility market conditions
+5. 2x ATR trailing stop - Dynamic exit mechanism
+
+Entry Rules:
+1. Long entry triggered when:
+   - 5-minute ATR crosses ABOVE its 20-period moving average (volatility expansion signal)
+   - Current VIX is BELOW its 20-day low (confirming low-volatility regime)
+2. All conditions must be met simultaneously
+
+Exit Rules:
+1. Trailing stop set at 2x the current ATR value
+   - Stop moves up with favorable price movement
+   - Locking in profits during strong trends
+   - Provides room for normal volatility during trades
+
+Risk Management:
+1. Position sizing based on ATR:
+   - Risk per trade typically 1-2% of capital
+   - Stop distance determines position size
+2. No trades during high VIX periods (above 20-day average)
+3. Time-based exit if no volatility expansion occurs
+
+Required Indicators:
+1. 5-minute ATR (14-period recommended)
+2. 20-period moving average of ATR
+3. Daily VIX with 20-day low calculation
+4. Price chart with trailing stop functionality
+
+Optimal Market Conditions:
+- Works best in ranging or low-volatility markets
+- Effective during early stages of volatility expansion
+- Less effective during sustained high-volatility periods
+
+Additional Notes:
+- Consider combining with volume confirmation for stronger signals
+- Backtest different ATR periods (14 vs 20) for optimization
+- May benefit from filtering with trend confirmation on higher timeframe

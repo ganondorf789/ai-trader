@@ -1,0 +1,34 @@
+STRATEGY_NAME: LiquiSqueezeReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze (1-hour timeframe):** Identifies periods of low volatility where price is consolidating, often preceding a breakout or reversal.  
+2. **Liquidation Heatmap Density Surge:** Tracks clusters of liquidations (stop hunts) to pinpoint high-probability reversal zones.  
+3. **Price Rejection Candles:** Pin bars, engulfing patterns, or wicks at key liquidation levels confirm entry signals.  
+
+**Entry Rules:**  
+1. Wait for a Bollinger Band squeeze (bands narrowing significantly) on the 1-hour chart.  
+2. Monitor liquidation heatmap for a sudden spike in density near the squeeze zone.  
+3. Enter short/long on a rejection candle (e.g., long wick, bearish/bullish engulfing) at the heatmap’s liquidation cluster:  
+   - **Short:** Rejection candle forms near a high-density liquidation level above price.  
+   - **Long:** Rejection candle forms near a high-density liquidation level below price.  
+
+**Exit Rules:**  
+1. **Take Profit:** Target the opposite Bollinger Band or a 1:2 risk-reward ratio.  
+2. **Stop Loss:** Place beyond the rejection candle’s extreme (e.g., above the wick for shorts, below for longs).  
+
+**Risk Management:**  
+- Risk ≤1-2% per trade.  
+- Avoid trading during major news events to prevent false squeezes.  
+- Confirm heatmap alignment with higher-timeframe support/resistance.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2 default settings).  
+2. Liquidation heatmap tool (e.g., Coinalyze, Hyblock).  
+3. Candlestick patterns for rejection confirmation.  
+
+**Notes:**  
+- Works best in ranging or mildly trending markets.  
+- Combine with RSI (oversold/overbought) for additional confluence.  
+- Backtest heatmap thresholds (e.g., "surge" = top 10% of recent density).

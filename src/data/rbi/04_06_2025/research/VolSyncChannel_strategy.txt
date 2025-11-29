@@ -1,0 +1,51 @@
+STRATEGY_NAME: VolSync Channel
+
+STRATEGY_DETAILS:
+The VolSync Channel strategy is a volatility-based approach that combines Keltner Channel breakouts with VWAP deviation analysis for high-probability entries and exits. This strategy capitalizes on periods of low volatility compression followed by expansion, while using VWAP as a dynamic mean-reversion anchor.
+
+Key Components:
+1. Keltner Channels (20-period, 2.5x ATR multiplier)
+2. VWAP (Volume Weighted Average Price)
+3. VWAP Deviation Bands (±1 standard deviation)
+4. Volatility Filter (Low VWAP deviation condition)
+
+Entry Rules:
+1. Primary Long Entry:
+   - Price closes above upper Keltner Channel
+   - Current VWAP deviation is below 0.5 standard deviations
+   - Volume is above 20-period average
+
+2. Primary Short Entry:
+   - Price closes below lower Keltner Channel
+   - Current VWAP deviation is above -0.5 standard deviations
+   - Volume is above 20-period average
+
+Exit Rules:
+1. Profit Target:
+   - 1.5x the ATR at time of entry
+   - OR when price returns to VWAP centerline
+
+2. Stop Loss:
+   - Fixed at 1x ATR from entry price
+   - OR when opposite Keltner Channel is breached
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Maximum daily trades limited to 3
+3. No trading during first/last 30 minutes of session
+4. Trade only when VWAP bands are tightening (deviation <0.5 std)
+
+Required Indicators:
+1. Keltner Channels (20,2.5)
+2. VWAP with standard deviation bands (1 std)
+3. ATR (14-period)
+4. Volume average (20-period)
+
+Special Conditions:
+- Avoid trading during earnings announcements
+- Higher confidence when breakout occurs with:
+  - Consecutive closes outside channel
+  - Increasing volume on breakout
+  - VWAP flat or sloping in direction of breakout
+
+This strategy works best in trending markets and avoids choppy conditions by requiring both the Keltner breakout and low VWAP deviation simultaneously, creating a volatility synchronization effect that filters out false breakouts.

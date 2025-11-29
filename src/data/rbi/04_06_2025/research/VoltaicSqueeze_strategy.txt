@@ -1,0 +1,35 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection:** The strategy identifies periods of extremely low volatility when Bollinger Bands contract to their narrowest point in the last 30 days, signaling a potential breakout.  
+2. **Volume Confirmation:** A breakout is only considered valid if accompanied by a significant spike in volume, exceeding the 20-day average by at least 50%.  
+3. **Breakout Execution:** Trades are entered when price closes outside the Bollinger Bands, confirming the breakout.  
+
+**Entry Rules:**  
+1. **Bollinger Band Squeeze:** Wait for the Bollinger Bands (default settings: 20-period SMA with 2 standard deviations) to reach their narrowest width in the last 30 days.  
+2. **Volume Spike:** Confirm the breakout with a volume spike exceeding the 20-day average volume by 50%.  
+3. **Price Close Outside Bands:** Enter a long position if price closes above the upper Bollinger Band or a short position if price closes below the lower Bollinger Band.  
+
+**Exit Rules:**  
+1. **Trailing Stop:** Use a trailing stop-loss (e.g., 2x the average true range (ATR) of the last 14 periods) to lock in profits.  
+2. **Opposite Band Close:** Exit the trade if price closes back inside the Bollinger Bands.  
+3. **Time-Based Exit:** Close the trade after a set number of days (e.g., 5 days) if no clear trend develops.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss:** Set an initial stop-loss at the opposite Bollinger Band or a recent swing low/high.  
+3. **Volume Filter:** Avoid trades without the required volume spike to reduce false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 standard deviations)  
+2. **Volume** (20-day average)  
+3. **Average True Range (ATR)** (14-period for trailing stop)  
+
+**Additional Notes:**  
+- This strategy works best in trending markets and may produce false signals in choppy or sideways conditions.  
+- Backtest across multiple timeframes (e.g., 1H, 4H, daily) to optimize parameters.  
+- Combine with other trend-confirmation tools (e.g., RSI or MACD) for higher accuracy.  
+
+The name "VoltaicSqueeze" reflects the explosive (voltaic) nature of breakouts from volatility squeezes, emphasizing the strategy's focus on high-energy price movements.

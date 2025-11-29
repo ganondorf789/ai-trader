@@ -1,0 +1,33 @@
+STRATEGY_NAME: MomentumRipple
+
+STRATEGY_DETAILS:
+The MomentumRipple strategy is a precision-based momentum trading approach that focuses on stocks exhibiting specific Relative Momentum Index (RMI) behavior over a 52-week period. The strategy combines long-term momentum filtering with short-term RMI-based entry and exit signals, creating a unique ripple effect in momentum trading.
+
+Key Components:
+1. **52-Week Momentum Filter**: Only stocks that have increased in price over the past 52 weeks are considered.
+2. **RMI Precision Entry**: Stocks must show an exact R1 reading on the Relative Momentum Index (RMI) to qualify for entry.
+3. **Position Sizing**: 70% of available capital is allocated to long positions in qualifying stocks.
+4. **Stop-Loss Protection**: A fixed -20% stop-loss from the entry price is applied to all positions.
+5. **Exit Signal**: Positions are closed when cumulative 5-day RMI gains exceed 3x the initial RMI reading.
+
+Entry Rules:
+1. Scan for stocks that have shown a positive price increase over the past 52 weeks.
+2. Confirm the stock's RMI reading is exactly R1.
+3. Enter a long position with 70% of available capital at the next available price after the R1 confirmation.
+
+Exit Rules:
+1. Monitor the cumulative 5-day RMI gains.
+2. Close the position when the cumulative RMI gain exceeds 3x the initial R1 reading.
+3. If the stop-loss at -20% is hit before the exit condition is met, exit the position immediately.
+
+Risk Management:
+1. Position sizing is capped at 70% of available capital to maintain portfolio diversification.
+2. The -20% stop-loss ensures controlled risk exposure per trade.
+3. The 3x RMI gain exit rule locks in profits while allowing for momentum continuation.
+
+Required Indicators:
+1. **Relative Momentum Index (RMI)**: Primary indicator for entry and exit signals.
+2. **52-Week Price Change**: Filter for long-term momentum stocks.
+3. **Cumulative RMI Calculation**: Custom calculation to track 5-day RMI gains.
+
+This strategy is designed for traders who want to capitalize on precise momentum signals while maintaining strict risk control. The combination of long-term momentum filtering and short-term RMI precision creates a unique trading edge in trending markets.

@@ -1,0 +1,30 @@
+STRATEGY_NAME: SkewInversion  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Skew Focus:** The strategy capitalizes on anomalies in the VIX futures term structure and SPX options skew.  
+2. **Term Structure Inversion:** Enters trades when the VIX futures curve inverts (front-month contracts higher than back-month), signaling heightened short-term fear.  
+3. **Skew Steepening:** Requires the SPX options skew (difference in implied volatility between out-of-the-money puts and calls) to exceed two historical standard deviations, indicating extreme bearish sentiment.  
+4. **Mean Reversion Exit:** Exits positions when either the VIX term structure normalizes or the SPX skew reverts to its historical mean.  
+
+**Entry Rules:**  
+- **VIX Inversion:** Confirm the VIX futures term structure is inverted (e.g., VIX front-month > VIX back-month).  
+- **Skew Deviation:** Verify the SPX options skew has steepened beyond two standard deviations of its historical average (e.g., using a 30-day rolling window).  
+- **Confluence:** Both conditions must occur simultaneously to trigger an entry.  
+
+**Exit Rules:**  
+- **Partial Exit:** Scale out of 50% of the position when either the VIX term structure flattens or the SPX skew reverts to one standard deviation from the mean.  
+- **Full Exit:** Close the remaining position when both metrics fully revert to their historical means.  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate no more than 2-5% of capital per trade due to the high volatility of VIX and SPX derivatives.  
+- **Stop-Loss:** Implement a hard stop-loss if the VIX term structure steepens further (back-month contracts rise >5% above front-month) or SPX skew widens beyond three standard deviations.  
+- **Time Decay Hedge:** Use calendar spreads or ratio spreads to mitigate theta decay in long options positions.  
+
+**Required Indicators:**  
+1. **VIX Futures Term Structure:** Monitor contango/backwardation via front-month and back-month VIX futures prices.  
+2. **SPX Options Skew:** Track the difference in implied volatility between 10% out-of-the-money (OTM) puts and calls.  
+3. **Standard Deviation Bands:** Calculate rolling 30-day mean and standard deviation of the SPX skew for deviation thresholds.  
+4. **Mean Reversion Signals:** Simple moving averages (e.g., 10-day) of the VIX term structure slope and SPX skew to identify reversion points.  
+
+**Unique Edge:** Combines term structure inversion (a macro volatility signal) with skew extremes (a sentiment signal) for high-probability mean reversion trades. Avoids generic volatility strategies by focusing on the *interplay* between these two metrics.

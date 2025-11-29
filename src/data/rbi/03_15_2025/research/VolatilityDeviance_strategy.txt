@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilityDeviance
+
+STRATEGY_DETAILS:
+The VolatilityDeviance strategy is a contrarian approach that leverages the relationship between price, volatility, and momentum to identify high-probability trading opportunities in futures markets. The strategy focuses on short-term (3-6 months) trades and uses a combination of the Deviance Index (DI) and RSI to time entries and exits.
+
+### Key Strategy Components:
+1. **Deviance Index (DI):** Measures the alignment between price trends and volatility. A "contrarian" signal occurs when price and volatility diverge in a way that suggests a potential reversal or continuation of the current trend.
+2. **RSI (Relative Strength Index):** Used to identify overbought or oversold conditions. Low RSI values during expansion periods indicate potential buying opportunities.
+3. **Futures Contracts:** The strategy trades 2x leveraged futures contracts to amplify returns during identified opportunities.
+
+### Entry Rules:
+1. **Contrarian Signal:** Wait for the Deviance Index (DI) to indicate a contrarian trend alignment between the futures contract's price and its volatility.
+2. **Low RSI Confirmation:** Ensure the RSI is in a low range (typically below 30) during an expansion period, signaling potential oversold conditions.
+3. **Position Size:** Enter a position with 2x leveraged futures contracts to maximize potential gains.
+
+### Exit Rules:
+1. **RSI Overbought:** Exit the position when the RSI reaches overbought levels (typically above 70), indicating the market may be due for a pullback.
+2. **Deviance Index Reversal:** Exit if the Deviance Index (DI) shows a reversal in the contrarian trend alignment, suggesting the trade setup is no longer valid.
+3. **Time-Based Exit:** Close the position after 3-6 months if neither the RSI nor DI signals an exit, to align with the short-term focus.
+
+### Risk Management:
+1. **Stop-Loss:** Set a stop-loss at 5-10% below the entry price to limit downside risk.
+2. **Position Sizing:** Use 2x leverage cautiously, ensuring the total exposure aligns with your risk tolerance.
+3. **Diversification:** Avoid concentrating all capital in a single futures contract. Spread risk across multiple instruments or sectors.
+
+### Required Indicators:
+1. **Deviance Index (DI):** Custom indicator to measure the alignment between price and volatility trends.
+2. **RSI (Relative Strength Index):** Standard 14-period RSI to identify overbought/oversold conditions.
+3. **Price and Volatility Data:** Historical price and volatility data for the futures contract being traded.
+
+### Additional Notes:
+- The strategy works best in markets with clear trends and volatility patterns.
+- Backtest the strategy on historical data to validate its effectiveness for specific futures contracts.
+- Monitor macroeconomic factors that could impact the futures market, as these may override technical signals.
+
+By combining contrarian signals from the Deviance Index with momentum confirmation from the RSI, the VolatilityDeviance strategy aims to capitalize on short-term mispricings in futures markets while managing risk through disciplined exits and position sizing.

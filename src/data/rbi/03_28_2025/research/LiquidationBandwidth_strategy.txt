@@ -1,0 +1,32 @@
+STRATEGY_NAME: LiquidationBandwidth  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Level:** Identifies key price zones where liquidations are likely concentrated over a 30-day period, acting as potential support/resistance.  
+2. **Bollinger Bandwidth Contraction:** Measures volatility compression, signaling potential breakout opportunities when bandwidth reaches a 10-day low.  
+3. **Keltner Channel Breakout:** Used as an exit signal, indicating volatility expansion and potential trend continuation.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when:  
+  - Price approaches the 30-day liquidation cluster level (acting as support).  
+  - Bollinger Bandwidth contracts to a 10-day low (indicating low volatility and potential breakout).  
+
+**Exit Rules:**  
+- **Volatility Expansion Exit:** Close the long position when:  
+  - Price breaks out of the Keltner Channel (upper band for long exits), signaling increased volatility and potential trend exhaustion.  
+
+**Risk Management:**  
+- **Stop-Loss:** Place below the recent swing low or a fixed percentage (e.g., 1-2%) below the liquidation cluster level.  
+- **Position Sizing:** Adjust based on volatility (e.g., using ATR to normalize risk per trade).  
+
+**Required Indicators:**  
+1. **30-Day Liquidation Cluster Level** (custom or on-chain data for liquidation zones).  
+2. **Bollinger Bands** (20-period SMA, 2 standard deviations) + Bandwidth calculation.  
+3. **Keltner Channel** (20-period EMA, 1.5x ATR for bands).  
+
+**Unique Aspects:**  
+- Combines liquidation-based support with volatility contraction/expansion signals.  
+- Uses Bollinger Bandwidth for entry timing and Keltner Channel for exits, creating a clear volatility cycle framework.  
+
+**Note:** Backtest to validate liquidation cluster reliability and adjust bandwidth/Keltner parameters for different assets.

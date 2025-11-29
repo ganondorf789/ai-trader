@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolatilityBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **EMA Crossover Signal:** The strategy uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as a primary bullish breakout signal.  
+2. **Low Volatility Filter:** Only trades are taken when the Average True Range (ATR) is below its 20-day average, indicating a period of consolidation before a potential breakout.  
+3. **ATR-Based Risk Management:** Exits are determined using a 2x ATR stop-loss (risk control) and a 1.5x ATR take-profit (reward capture).  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when the 50-period EMA crosses above the 200-period EMA (bullish signal).  
+- **Volatility Confirmation:** The current ATR must be below its 20-day average to confirm a low-volatility environment.  
+
+**Exit Rules:**  
+- **Stop-Loss:** Placed at 2x the current ATR value below the entry price (adjusts dynamically with volatility).  
+- **Take-Profit:** Set at 1.5x the current ATR value above the entry price (scalps profit during breakout momentum).  
+
+**Risk Management:**  
+- Position sizing should account for the 2x ATR stop-loss to ensure controlled risk per trade.  
+- Avoid trading during high ATR periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **50-period Exponential Moving Average (EMA)**  
+2. **200-period Exponential Moving Average (EMA)**  
+3. **Average True Range (ATR, 14-period default)**  
+4. **20-day Simple Moving Average of ATR (for volatility filter)**  
+
+**Additional Notes:**  
+- Works best in trending markets after consolidation phases.  
+- Avoid using during high-impact news events that may cause erratic volatility.  
+- Backtest on multiple assets to confirm robustness across different market conditions.  
+
+This strategy combines breakout momentum with volatility filtering for higher-probability trades while maintaining disciplined risk/reward ratios.

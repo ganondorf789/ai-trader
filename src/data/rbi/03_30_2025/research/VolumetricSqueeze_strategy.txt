@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolumetricSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines volume analysis with volatility contraction to identify potential breakout opportunities, using the following key components:
+
+1. INDICATORS REQUIRED:
+- Klinger Volume Oscillator (with signal line)
+- Bollinger Bands (with Band Width calculation)
+- Parabolic SAR (for exit signals)
+
+2. ENTRY CONDITIONS (ALL must be met):
+- Klinger Volume Oscillator must cross ABOVE its signal line (bullish volume confirmation)
+- Bollinger Band Width must be in the bottom 30% of its 100-period range (volatility squeeze)
+- Price must be trading above the middle Bollinger Band (20-period SMA)
+
+3. EXIT CONDITIONS:
+- Primary exit: When Parabolic SAR dots flip to below price (trend reversal signal)
+- Secondary exit: If Bollinger Band Width expands beyond 70% of its 100-period range without significant price movement
+
+4. RISK MANAGEMENT:
+- Initial stop loss placed below the recent swing low or lower Bollinger Band
+- Position sizing should account for the volatility contraction (typically smaller positions during squeezes)
+- Risk no more than 1-2% of capital per trade
+- Consider taking partial profits when Band Width expands beyond 50% of its range
+
+5. SPECIAL CONSIDERATIONS:
+- Works best in ranging markets transitioning to trends
+- Less effective during strong trending markets without contraction periods
+- Requires confirmation from both volume and volatility indicators
+- Timeframe agnostic but requires consistent parameter adjustment across timeframes
+
+6. INDICATOR SETTINGS (default):
+- Klinger Oscillator (34,55,13)
+- Bollinger Bands (20,2)
+- Parabolic SAR (0.02, 0.2)
+
+This strategy capitalizes on the combination of increasing volume momentum (Klinger) during periods of low volatility (Bollinger Width), with the parabolic SAR providing mechanical exit signals to capture moves during volatility expansion phases.

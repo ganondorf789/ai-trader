@@ -1,0 +1,47 @@
+STRATEGY_NAME: FractalDivergence
+
+STRATEGY_DETAILS:
+This strategy combines trend reversal signals from Heikin-Ashi candles with money flow divergence and fractal-based risk management, creating a multi-timeframe approach to counter-trend trading.
+
+Key Components:
+1. Heikin-Ashi Trend Analysis (4H): Identifies prevailing trend direction
+2. Chaikin Money Flow Divergence (1H): Confirms weakening momentum
+3. Fractal Swing Points: Provides precise stop-loss levels
+4. Renko Brick Reversals: Determines profit targets
+
+Entry Rules:
+LONG:
+- 4H Heikin-Ashi candle closes bullish (green) after bearish trend
+- 1H Chaikin Money Flow shows bullish divergence (higher lows while price makes lower lows)
+- Entry at open of next candle after confirmation
+
+SHORT:
+- 4H Heikin-Ashi candle closes bearish (red) after bullish trend
+- 1H Chaikin Money Flow shows bearish divergence (lower highs while price makes higher highs)
+- Entry at open of next candle after confirmation
+
+Exit Rules:
+- Stop-loss: Placed at most recent fractal swing low (long) or high (short)
+- Profit Target: Exit when Renko bricks reverse direction (2-3 brick reversal recommended)
+- Optional: Trail stop to new fractal points as trade progresses
+
+Risk Management:
+- Position sizing based on 1-2% risk per trade
+- Minimum 1:2 risk-reward ratio required
+- Avoid trading during major news events
+- Maximum 3 concurrent positions
+
+Required Indicators:
+1. Heikin-Ashi candles (4H timeframe)
+2. Chaikin Money Flow (1H timeframe)
+3. Fractal indicator (all timeframes)
+4. Renko charts (for target confirmation)
+
+Additional Notes:
+- Best suited for liquid forex pairs and indices
+- Requires confirmation across all components
+- Works best in ranging or slowing trend markets
+- May produce false signals in strong trending markets
+- Recommended to combine with volume analysis for confirmation
+
+This strategy excels at catching early trend reversals while maintaining tight risk control through fractal-based stops and objective profit targets via Renko bricks.

@@ -1,0 +1,1617 @@
+
+
+Get support
+About Meta Advertising Standards
+
+Ads targeting people in Russia will be paused, and advertisers within Russia will no longer be able to create or run ads anywhere in the world.
+Advertisers are required to follow our Advertising Standards, which are designed to help protect people from poor experiences and support meaningful connections between people and businesses across our technologies. For example, we don't want ads that use profanity, show excessive nudity or include misinformation.
+
+Our policies apply to paid advertising through our ad platform, including Facebook, Messenger, Instagram and the Meta Audience Network. For a full list of our advertising policies, you can visit our Advertising Standards.
+
+IBelow is more information on some of our advertising policies, however, we encourage all advertisers to refer to the Meta Transparency Center for comprehensive policy guidance.
+
+Personal attributes: Meta’s advertising policy prohibiting ads that contain personal attributes, including information on avoiding assumptions about someone’s personal attributes in your ads.
+Sensational content: our advertising policy prohibiting sensational content, including information on avoiding shocking, sensational, inflammatory or excessively violent content in your ads.
+Cryptocurrency products and services: our advertising policy for cryptocurrency products and services, including information about eligibility to run ads about cryptocurrency.
+Dating: our advertising policy for ads about dating services.
+Drug and alcohol addiction treatment: our advertising policy for drug and alcohol addiction treatment, including information about how to apply to run these types of ads.
+Online gaming and gambling: our advertising policy for online gambling and gaming, including information about how to apply to run these types of ads..
+Personal health and appearance: our advertising policy prohibiting ads that generate a negative self perception or imply unrealistic or unexpected results.
+Alcohol: our advertising policy on the promotion of alcohol.
+Social issues, elections or politics: our advertising policy for ads about social issues, elections or politics.
+Additional policies that may apply to your ad
+When advertisers use different products across our family of apps and services, additional policies may also apply, including:
+
+Facebook and Instagram: Ads that run on Facebook and Instagram must follow our Community Standards which apply to all content on Facebook and Instagram.
+Commerce: Advertisers may run certain types of ads, such as ads with product tags or boosted Marketplace listings, or use catalogs to upload products for use in Commerce surfaces, which are subject to our Commerce Policies.
+Pages and Events: Advertisers may promote Pages or Events, which are subject to the applicable Pages, Groups and Events policies.
+Branded content: Ads may include branded content, which are subject to our Branded Content Policies.
+To help improve the health and performance of your accounts, you can review the following articles:
+
+How Page feedback and purchase experiences impact your ads
+About Meta’s advertising policy on unacceptable business practices
+Best practices to improve ad quality and performance
+Learn more
+About the enforcement of Meta Advertising Standards
+Troubleshoot a rejected ad
+About advertising restrictions
+
+
+
+Get support
+About the enforcement of Meta Advertising Standards
+Advertisers must follow both our Community Standards, which apply to all types of content, and the Meta Advertising Standards, which apply to paid advertising. While our Community Standards explain what is and isn’t allowed on Facebook, our Advertising Standards outline additional requirements that are specific to running ads.
+
+Remember that when advertisers use different products across our apps and services, additional policies may also apply.
+
+You can learn more about how we enforce our advertising policies below:
+
+Ad review process
+Our ad review system is designed to review all ads before they go live. This system relies primarily on automated technology to apply our advertising policies to the millions of ads that run across our apps. While our review is largely automated, we rely on our teams to build and train these systems, and in some cases, to manually review ads.
+
+Learn more about ads in review.
+
+Rejected ads
+If a policy violation is found at any point in the review process, the ad will be rejected.
+
+Our enforcement isn’t perfect, and both machines and people make mistakes. When we launch a new policy, it can take time for the various parts of our enforcement system, both automated technology and trained global teams, to learn how to correctly and consistently enforce the new standard, but as we gather new data and feedback, our machine learning models get better and our automated enforcement improves.
+
+Learn what you can do if your ad was rejected.
+
+Account restrictions
+Beyond reviewing individual ads, we may also review and investigate advertiser behavior. We may restrict advertisers that don't follow our Advertising Standards, Community Standards or other policies and terms. There are different types of advertising restrictions for Facebook accounts, Pages and Business Accounts. Learn about what you can do if your account or Page has advertising restrictions.
+
+If your account has been disabled, learn how to troubleshoot a disabled ad account.
+
+Special ad categories
+For certain categories of ads, like ads about housing, employment, financial products and services or social issues, elections or politics, we have additional requirements designed to help protect people and provide greater transparency. If your ad is about one of these special ad categories, choosing the correct category for your advertising campaign during its creation is an important part of following our Advertising Standards.
+
+Learn more about creating ads with special ad categories.
+
+Learn more
+We offer additional guidance in the Meta Business Help Center on some of our advertising policies.
+If you’re just getting started, you can refer to our Advertising policy basics checklist.
+If you want to advertise products in your catalog, learn how our Advertising Standards and Commerce Policies apply to you.
+You can request reviews of rejected ads and restricted accounts in the Meta Business Support Home tool.
+
+About ads in review
+
+Refer to the Meta Transparency Center for comprehensive policy guidance.
+Before your ads run on Facebook or Instagram, we review them against Meta Advertising Standards. The review process starts automatically after you create or edit an ad. You can see the status of your ad in the Delivery column of Meta Ads Manager.
+
+How ad reviews work
+Our ad review system relies primarily on automated technology to apply our Advertising Standards to the millions of ads that are run across Meta technologies. However, we do use human reviewers to improve and train our automated systems, and in some cases, to manually review ads.
+
+The ad review system reviews ads for violations of our Advertising Standards. An ad may not be reviewed against all policies before delivering impressions, although all ads are subject to re-review at any time. We continue to improve our existing enforcement system by testing and implementing new approaches to ensure a fair and effective ad review process. For example, we may consider an advertiser’s historical compliance with our Advertising Standards when deciding whether a given ad warrants further review for a specific policy.
+
+What the review process may include
+This review process may include the review of specific components of an ad, such as:
+
+Images, video, or text
+Targeting information
+Ad destination (where an ad directs people, such as a Facebook page or website)
+Special ad categories
+Advertiser permissions
+Other critical components and information
+Based on the results of the review, an ad is either rejected or allowed to run.
+
+
+How long ad reviews take
+Most ads are reviewed within 24 hours, although in some cases it may take longer. Remember, ads may be reviewed again, including after they are live.
+
+Note: If you want an ad to start running on a specific date or time in the future, you can schedule your ad. Once the ad is submitted it will go through ad review but won’t begin delivering until your start date.
+
+Limitations of review
+Reviewing ads from millions of advertisers globally against the Advertising Standards is essential, but it is not without challenges. Our enforcement isn’t perfect, and both machines and people make mistakes.
+
+When we launch a new policy, it can take time for the various parts of our enforcement system, both automated technology and trained global teams, to learn how to correctly and consistently enforce the new standard, but as we gather new data and feedback, our machine learning models get better and our automated enforcement improves.
+
+We improve our existing enforcement system by testing and implementing new approaches to ensure a fair and effective ad review process. For example, we may consider an advertiser’s historical compliance with our Advertising Standards or customer feedback when evaluating their ads before delivering impressions.
+
+What happens when you edit a previously scheduled or running ad
+If you make edits to a previously scheduled or running ad or ad set, a new review process will be initiated.
+
+The following changes to previously scheduled or running ads or ad sets will trigger a new review process:
+
+Targeting
+Creative (for example, images, text, links or videos)
+Optimization
+Billing event
+Changes to your ad's bid amount, budget or ad set schedule will not trigger review.
+
+When to request another review
+If you believe your ad, ad set, campaign or item was incorrectly rejected, you can request another review in Meta Business Support Home. Learn more about what to do if your ad is rejected.
+
+If you believe an ad on Facebook, Instagram or other Meta platforms violates the Advertising Standards, you can report it. Learn more about how to report an ad.
+
+Learn more
+
+How to troubleshoot a rejected ad
+
+Refer to the Meta Transparency Center for comprehensive guidance on Meta Advertising Standards. You can go to Meta Business Support Home to resolve issues you might encounter around compliance with our policies and standards.
+At Meta, we have policies and standards that we ask our advertisers to follow in order to advertise on our platforms. When these policies and standards are violated, we may reject ads and limit the ability to advertise.
+
+Why an ad may be rejected
+We may reject an ad in the following scenarios:
+
+The ad does not comply with the laws in the advertisers jurisdiction.
+The ad is discriminatory towards a certain group or demographic.
+The ad attempts to promote products, services, schemes or offers using deceptive or misleading practices meant to scam people out of money or personal information.
+An advertiser doesn’t follow the Community Standards, Advertising Standards, Commerce Policies or other policies and terms.
+What to do when an ad is rejected
+When an ad is rejected, you'll receive an email notification and a link to Meta Business Support Home where you can find the reason for the rejection. Make sure you turn on notifications on the notifications page in Meta Ads Manager.
+
+After you review the reason, you can decide whether to:
+
+Edit your ad to comply with our advertising standards and policies. Your ad will automatically be submitted for another review once it’s edited.
+Create a new ad to comply with our policies. If you delete the ad, you may lose your ability to request another review if you believe your ad was incorrectly rejected.
+Request another review of your ad if you believe it was incorrectly rejected. If your ad rejection is successfully overturned, this will not count as an ad violation.
+Note: You can be restricted from advertising for severe or repeated ad violations.
+
+How to edit a rejected ad
+If your ad was rejected because it doesn't comply with the Meta Advertising Standards, you can edit it to try to fix the issue. We recommend that you review the policy-violating components, like the image, video, text, targeting or landing page and update them to comply with the Advertising Standards. Learn how to edit your ad in Meta Ads Manager.
+
+Once you edit and publish your ad, it'll be reviewed again by our ad review system.
+
+When to create a new ad
+Not all ad types may be edited. If you're unable to edit an ad or choose not to, you can create a new ad. You may delete the rejected ad, however, please note that you may lose your ability to request another review if the ad is deleted as we may no longer be able to access the information required to review.
+
+Editing or deleting an ad that was rejected for violating Advertising Standards will not remove the violation from your account and you can be restricted from advertising for severe or repeat ad violations.
+
+Remember that to protect the integrity of our enforcement efforts, we may not share some details about how our review systems work.
+
+When to request another review of your ad
+If you believe that your ad was incorrectly rejected, you can request another review in Business Support Home. We aim to review and provide a decision within 48 hours.
+
+To request a review:
+
+Go to Business Support Home.
+Click to select your account or catalog with the rejected ads.
+Select the ad, ad sets or campaigns that you believe were incorrectly rejected.
+Click Request review and select Submit.
+How to track the status of a requested review
+You can track the status of any requested review at any time in Business Support Home.
+
+If we change our decision, your ad will be in the same status as your campaign. If the initial decision is reversed and your campaign is active, your ad will automatically start delivering. If it's rejected again, it will stay rejected and you won’t be able to submit another review request for the same ad.
+
+Unlike the initial ad review, we rely more heavily on teams of human reviewers to process re-review requests. The purpose of this process is to help get things right when we make mistakes. We can’t promise that we’ll get things right on every occasion, even on re-review, but we're consistently working to make our enforcement processes more effective.
+
+Requesting another review of an ad will not hurt your standing with Meta in any way.
+
+Impact of repeated or severe ad violations
+We want to maintain a safe environment for people who use our technologies. If we find that advertisers are running ads that severely or repeatedly violate our policies, we can go beyond rejecting ads and restrict your Business account, Ad account, Page and/or user account from advertising. We recommend that you request a review if you believe your account was restricted incorrectly.
+
+
+About the enforcement of Meta Advertising Standards
+Advertisers must follow both our Community Standards, which apply to all types of content, and the Meta Advertising Standards, which apply to paid advertising. While our Community Standards explain what is and isn’t allowed on Facebook, our Advertising Standards outline additional requirements that are specific to running ads.
+
+Remember that when advertisers use different products across our apps and services, additional policies may also apply.
+
+You can learn more about how we enforce our advertising policies below:
+
+Ad review process
+Our ad review system is designed to review all ads before they go live. This system relies primarily on automated technology to apply our advertising policies to the millions of ads that run across our apps. While our review is largely automated, we rely on our teams to build and train these systems, and in some cases, to manually review ads.
+
+Learn more about ads in review.
+
+Rejected ads
+If a policy violation is found at any point in the review process, the ad will be rejected.
+
+Our enforcement isn’t perfect, and both machines and people make mistakes. When we launch a new policy, it can take time for the various parts of our enforcement system, both automated technology and trained global teams, to learn how to correctly and consistently enforce the new standard, but as we gather new data and feedback, our machine learning models get better and our automated enforcement improves.
+
+Learn what you can do if your ad was rejected.
+
+Account restrictions
+Beyond reviewing individual ads, we may also review and investigate advertiser behavior. We may restrict advertisers that don't follow our Advertising Standards, Community Standards or other policies and terms. There are different types of advertising restrictions for Facebook accounts, Pages and Business Accounts. Learn about what you can do if your account or Page has advertising restrictions.
+
+If your account has been disabled, learn how to troubleshoot a disabled ad account.
+
+Special ad categories
+For certain categories of ads, like ads about housing, employment, financial products and services or social issues, elections or politics, we have additional requirements designed to help protect people and provide greater transparency. If your ad is about one of these special ad categories, choosing the correct category for your advertising campaign during its creation is an important part of following our Advertising Standards.
+
+Learn more about creating ads with special ad categories.
+
+Learn more
+We offer additional guidance in the Meta Business Help Center on some of our advertising policies.
+If you’re just getting started, you can refer to our Advertising policy basics checklist.
+If you want to advertise products in your catalog, learn how our Advertising Standards and Commerce Policies apply to you.
+You can request reviews of rejected ads and restricted accounts in the Meta Business Support Home tool.
+
+How to troubleshoot a rejected ad
+
+Refer to the Meta Transparency Center for comprehensive guidance on Meta Advertising Standards. You can go to Meta Business Support Home to resolve issues you might encounter around compliance with our policies and standards.
+At Meta, we have policies and standards that we ask our advertisers to follow in order to advertise on our platforms. When these policies and standards are violated, we may reject ads and limit the ability to advertise.
+
+Why an ad may be rejected
+We may reject an ad in the following scenarios:
+
+The ad does not comply with the laws in the advertisers jurisdiction.
+The ad is discriminatory towards a certain group or demographic.
+The ad attempts to promote products, services, schemes or offers using deceptive or misleading practices meant to scam people out of money or personal information.
+An advertiser doesn’t follow the Community Standards, Advertising Standards, Commerce Policies or other policies and terms.
+What to do when an ad is rejected
+When an ad is rejected, you'll receive an email notification and a link to Meta Business Support Home where you can find the reason for the rejection. Make sure you turn on notifications on the notifications page in Meta Ads Manager.
+
+After you review the reason, you can decide whether to:
+
+Edit your ad to comply with our advertising standards and policies. Your ad will automatically be submitted for another review once it’s edited.
+Create a new ad to comply with our policies. If you delete the ad, you may lose your ability to request another review if you believe your ad was incorrectly rejected.
+Request another review of your ad if you believe it was incorrectly rejected. If your ad rejection is successfully overturned, this will not count as an ad violation.
+Note: You can be restricted from advertising for severe or repeated ad violations.
+
+How to edit a rejected ad
+If your ad was rejected because it doesn't comply with the Meta Advertising Standards, you can edit it to try to fix the issue. We recommend that you review the policy-violating components, like the image, video, text, targeting or landing page and update them to comply with the Advertising Standards. Learn how to edit your ad in Meta Ads Manager.
+
+Once you edit and publish your ad, it'll be reviewed again by our ad review system.
+
+When to create a new ad
+Not all ad types may be edited. If you're unable to edit an ad or choose not to, you can create a new ad. You may delete the rejected ad, however, please note that you may lose your ability to request another review if the ad is deleted as we may no longer be able to access the information required to review.
+
+Editing or deleting an ad that was rejected for violating Advertising Standards will not remove the violation from your account and you can be restricted from advertising for severe or repeat ad violations.
+
+Remember that to protect the integrity of our enforcement efforts, we may not share some details about how our review systems work.
+
+When to request another review of your ad
+If you believe that your ad was incorrectly rejected, you can request another review in Business Support Home. We aim to review and provide a decision within 48 hours.
+
+To request a review:
+
+Go to Business Support Home.
+Click to select your account or catalog with the rejected ads.
+Select the ad, ad sets or campaigns that you believe were incorrectly rejected.
+Click Request review and select Submit.
+How to track the status of a requested review
+You can track the status of any requested review at any time in Business Support Home.
+
+If we change our decision, your ad will be in the same status as your campaign. If the initial decision is reversed and your campaign is active, your ad will automatically start delivering. If it's rejected again, it will stay rejected and you won’t be able to submit another review request for the same ad.
+
+Unlike the initial ad review, we rely more heavily on teams of human reviewers to process re-review requests. The purpose of this process is to help get things right when we make mistakes. We can’t promise that we’ll get things right on every occasion, even on re-review, but we're consistently working to make our enforcement processes more effective.
+
+Requesting another review of an ad will not hurt your standing with Meta in any way.
+
+Impact of repeated or severe ad violations
+We want to maintain a safe environment for people who use our technologies. If we find that advertisers are running ads that severely or repeatedly violate our policies, we can go beyond rejecting ads and restrict your Business account, Ad account, Page and/or user account from advertising. We recommend that you request a review if you believe your account was restricted incorrectly.
+
+
+About advertising restrictions
+
+Refer to the Meta Transparency Center for comprehensive policy guidance.
+At Meta, we have policies and standards that we ask our advertisers to follow in order to advertise on our platforms. When advertisers go against these policies and standards, we may place restrictions on businesses by limiting their ability to advertise.
+
+Advertising restrictions may include:
+
+Limits on the amount an advertiser can spend per day
+Loss of access to some advertising features
+Loss of the ability to advertise on Meta platforms
+We may apply advertising restrictions in the following scenarios:
+
+An advertiser doesn’t follow our Community Standards, Meta Advertising Standards, Commerce Policies or other policies and terms.
+We suspect an advertiser’s business portfolio or business assets have been compromised or hacked. Learn more about how to secure a hacked account.
+An advertiser doesn’t meet our two-factor authentication requirements for account security.
+An advertiser is new, in which case we may temporarily apply limits on how much they can spend each day or which features they can access until we can be sure they’re consistently following our policies.
+An advertiser has unsettled account balances or fails to make payments to run their ads.
+You can go to Meta Business Support Home to resolve issues you might encounter around compliance with our policies and standards.
+
+Watch the video below to learn more:
+
+Advertising restrictions for policy violations
+If we find that an advertiser doesn’t follow the Advertising Standards or other policies and terms, they may face advertising restrictions. Advertising restrictions may be applied on the following:
+
+Business portfolio: A central location for your business assets, such as Facebook, Instagram accounts, ad accounts and product catalogs that you can manage together as a unified online business. If restricted, your business portfolio isn't allowed to advertise.
+Ad account: An account used for managing ads across Meta platforms, which allows advertisers to create ads and campaigns, pay for ads, and see insights and analytics. If restricted, your ad account, its ads and some of its advertising assets are disabled.
+Page: A product that lets people and businesses create a presence on Facebook and connect with the Facebook community. Every advertiser will need to have a Facebook Page created before they can advertise. If restricted, your Page isn’t allowed to advertise.
+User account: A Facebook or Instagram account is the account of the specific person who is advertising using an ad account. Enforcements on a user account affect whether the person can use business assets. If restricted, you are not allowed to use Meta Products to advertise.
+Note: If a user account is restricted from advertising using a business portfolio or ad account, other members of those accounts may still be able to advertise.
+
+Advertising restrictions for unusual activity
+When we notice unusual activity in your business portfolio, ad account, Page or user account, we may temporarily restrict certain features while we investigate the issue. These restrictions can include:
+
+limited advertising spending
+loss of the ability to add admins, partners or users
+loss of the ability to create new ad accounts
+Review actions for you to take to try to resolve any restrictions in Meta Business Support Home.
+
+Note: Learn more about how to secure a hacked account if you suspect your business asset has been hacked.
+
+About Meta's Privacy Violations and Personal Attributes advertising policy
+We don’t allow advertisers to run ads that share or ask for private information about users or assert or imply the personal attributes of the viewer of an ad, such as their race or age. Instead, we recommend that you focus your ad on the benefits of your products or services whenever possible.
+
+We’ve found that when an ad asserts or implies personal information, confidential information or personal attributes, it can lead to negative experiences and lower ad engagement (for example, fewer clicks, views and conversions).
+
+What are privacy violations?
+The list of prohibited violations includes the following:
+
+Personally identifiable information (PII)
+Personal Contact Information
+Residential information
+Financial information
+Medical information
+Information obtained from hacked sources
+What are personal attributes?
+The list of prohibited personal attributes includes the following:
+
+
+Prohibited personal attributes
+Note: We also don't allow ads that assert or imply personal attributes in alternative ways. For example, we don’t allow ads that ask questions about personal attributes. Note that you can use the words “you” or “your” as long as your ad doesn’t mention any prohibited personal attributes and complies with our Meta Advertising Standards.
+
+Examples of violating ads
+Religion
+
+Example ad text: “Meet other Jewish singles!”
+
+
+
+Violating content: This ad implies that the individual’s religion is Jewish.
+
+Alternative ideas: Take this as an opportunity to highlight what someone who joins this group can expect as a member.
+
+Note: Learn more about our advertising policies on dating.
+
+Age
+
+Example ad text: “Find out how our financial services can help people like you who just turned 62. Learn about how we can help you receive retirement benefits.”
+
+
+
+Violating content: This ad implies knowledge of the exact age of the person who sees the ad.
+
+Alternative ideas: Explain how your financial services are positioned to help potential customers, including seniors.
+
+Sexual orientation or practices
+
+Example ad text: “Meet other LGBTQ singles on our app.”
+
+
+Violating content: This ad implies that the audience is LGBTQ.
+
+Alternative ideas: Take this as an opportunity to distinguish the unique accomplishments of your group and communicate future plans so interested individuals can become involved.
+
+Gender identity
+
+Example ad text: “Network with other trans professionals.”
+
+
+
+Violating content: This ad implies that the audience is trans.
+
+Alternative ideas: Take this as an opportunity to distinguish yourself in the networking space by highlighting what makes your product or service unique.
+
+Disability
+
+Example ad text: “Are you disabled? We can help!”
+
+
+
+Violating content: This ad implies that the audience has a disability, and uses the word "you".
+
+Alternative ideas: Use this as an opportunity to demonstrate your expertise in the field, or the variety of specialty disability services you can provide.
+
+Physical health
+
+Example ad text: “Have you been diagnosed with cancer? Come to our clinic for treatment.”
+
+
+
+Violating content: This ad contains a statement that assumes the audience has cancer, and uses the word “you”.
+
+Alternative ideas: Try providing information about the benefits of cancer treatments.
+
+Mental health
+
+Example ad text: “If you are tired of dealing with depression, call us for free therapy sessions.”
+
+
+
+Violating content: This ad contains statements that assume the audience suffers from depression, and uses the word “you”.
+
+Alternative ideas: Provide information on your product or service and the unique benefits it provides.
+
+Vulnerable financial status
+
+Example ad text: “Are you bankrupt? Our firm has solutions.”
+
+
+
+Violating content: This ad implies knowledge of an individual's financial status, and uses the word “you”.
+
+Alternative ideas: Explain how your firm can help someone going through bankruptcy.
+
+Voting status
+
+Example ad text: “Your Vote Has Not Been Counted Yet! Support Our Candidate!”
+
+
+
+Violating content: This ad implies knowledge of the voting activity of the audience, and uses the word “your”.
+
+Alternative ideas: Speak about your candidate’s positions on the issues.
+
+Criminal record
+
+Example ad text: “Criminal record holding you back? We can help you find a job.”
+
+
+
+Violating content: This ad implies that the audience has a criminal record, and uses the word “you”.
+
+Alternative ideas: Speak about your company’s expertise in this field. Demonstrate the benefits of your service for potential customers
+
+1. Overview
+
+Understanding our Advertising Standards
+Our Advertising Standards provide policy detail and guidance on the types of ad content we allow, and the types of ad content we prohibit. When advertisers place an order, each ad is reviewed against our policies. Our Advertising Standards also provide guidance on advertiser behavior that may result in advertising restrictions being placed on a Business Account or its assets (an ad account, Page or user account).
+
+If you think your ad was mistakenly rejected, or if you think your Business Account or its assets were mistakenly restricted, you can request a review of either decision in Account Quality.
+
+Common points of confusion
+To help you build a compliant and user-friendly ads experience, we've highlighted some common areas of confusion. Click the links below to learn more about:
+
+About Meta's Sensational Content advertising policy
+Our Advertising Standards are designed to help protect people from poor experiences on our technologies. We don’t allow shocking, sensational or excessively violent content in ads, including the use of shocking or scary tactics to grab people's attention.
+
+Under this policy, advertisers can’t run ads that:
+
+
+Shock, scare or disgust
+This includes but is not limited to imagery that shows:
+
+Mutilation
+Fetuses that show dismemberment
+Human body waste
+Graphic details of hygiene or grooming, such as pimple popping
+Non-medical foreign objects, such as metal objects, knives, nails, involuntarily inserted or stuck into people causing grievous injury
+Animal innards or dismemberment, except in generic food processing
+Rotting or decomposition
+Graphic crime scenes or accidents
+
+Focus on graphic violence or torture
+This includes but is not limited to imagery that shows:
+
+Acts of torture committed against self or others
+Abuse of animals
+
+Highlight suffering
+This includes but is not limited to imagery that shows:
+
+Violent death or life-threatening event
+Visible distress from an accident or medical procedure or law enforcement
+Suffering of animals in hunting context
+
+Depict the brandishing of firearms
+This includes but is not limited to content that:
+
+Shows a firearm being pointed at the viewer
+Implies the use of a firearm, such as cocking a firearm
+| Read our full Sensational Content advertising policy.
+
+Learn more
+Troubleshoot a rejected ad
+About advertising restrictions
+About ads "in review"
+
+
+Businesses must fill out the cryptocurrency onboarding form for each individual ad account.
+
+If your past application was approved and your business is eligible to run ads to promote cryptocurrency, please note this in the form.
+
+We ask businesses to submit an application for each ad account that plans to run ads so that we can confirm they meet the eligibility criteria and that they’re in good standing.
+
+How we review cryptocurrency ads
+The review process for ads related to cryptocurrency involves 2 parts:
+
+Ad review: Our ad review system identifies whether the ads are within the scope of the cryptocurrency ads policy.
+Ad account review: When we identify that an ad is within scope, we check to see if the associated ad account has been approved to advertise cryptocurrency products and services.
+Your ad violates our policy if it’s within the scope of the policy and your associated ad account hasn’t been approved for cryptocurrency. Note that your ads must also not promote prohibited financial products.
+
+Read our full Cryptocurrency Products and Services advertising policy.
+
+About Meta's advertising policy on dating
+Our Advertising Standards are designed to help protect people from poor experiences on our platforms. Due to the sensitive nature of dating ads, we require that you fill out this form and receive permission from Meta before you can run them. You’ll also need to make sure that your ads only target people 18 years or older and that they comply with the rest of our Advertising Standards.
+
+You’re running a dating ad if you’re promoting a service for:
+
+Online or offline dating.
+Matchmaking.
+Dating facilitation (for example, dating profile management).
+You’re not running a dating ad if you're promoting:
+
+Literature or entertainment around relationships (for example, documentaries, TV shows or games on dating and relationships).
+Social apps without matchmaking elements (for example, meetup apps).
+Eligibility requirements
+To run dating ads, you’ll first need to receive prior written permission from Meta. You can request permission by filling out this form.
+
+We don’t allow some types of dating services to advertise on Meta, including those that promote:
+
+Dating sites with an emphasis on sexual encounters.
+Dating with casual sexual themes or monetary or other financial transactions, such as mail-order brides or “sugar babies.”
+Services offering to facilitate affairs, infidelity or non-monogamous connections.
+Connections with fictitious groups or individuals.
+After you request permission to run dating ads, our policy team will aim to contact you directly with a decision within 30 days.
+
+Targeting requirements
+Dating ads may only be targeted to people over the age of 18. In Ads Manager, you can verify this in the Audience section of your ad set, under Age.
+
+Remember that your ads will need to comply with the rest of our advertising policies, including our policies on Privacy Violations and Personal Attributes and Adult Nudity and Sexual Activity. For more tips on how to comply, see best practices for dating ads.
+
+Read our full Dating advertising policy.
+
+
+About Meta's Drug and Alcohol Addiction Treatment advertising policy
+Our Drug and Alcohol Addiction Treatment advertising policy aims to help protect people from scams or predatory behavior when they're seeking support for addiction across our technologies.
+
+To run drug and alcohol addiction treatment ads in the US, you’ll need to be certified with LegitScript and receive prior written permission from Meta. You can apply to receive permission from Meta through within the Verification and Authorizations tab in Business Settings. Learn more about how to apply.
+
+What is drug and alcohol addiction treatment?
+Under this policy, drug and alcohol addiction treatment ads include, but are not limited to:
+
+Clinical addiction treatment services or websites providing information about in-person treatment.
+Online and in-person support groups.
+Crisis hotlines for those in recovery or who are seeking information about addiction treatment.
+Read our full Drug and Alcohol Addiction Treatment advertising policy.
+
+
+
+Meta defines online gambling and games as any product or service where anything of monetary value is included as part of a method of entry and prize. Monetary value includes but is not limited to cash or digital currencies like Bitcoin.
+
+Online gambling or games activities include:
+
+All forms of online gambling. Some common types of gambling include betting, lotteries, raffles, casino games, fantasy sports, bingo, poker, skill game tournaments and sweepstakes.
+Games where anything of monetary value is included as part of a method of entry and anything of monetary value is included as part of the prize. This includes games that require purchases to continue gameplay or provide an advantage in winning prizes (in cases where the prize is of monetary value).
+
+Ads with destination (landing) pages that contain promotions for online gambling or games, even if there is no opportunity to gamble or game directly on that page, such as aggregator or affiliate sites.
+Games offering a limited trial period and requiring payment thereafter.
+The following are not considered online gambling or games activities, and they do not require permission:
+
+Physical, real-money gambling activity or establishments. Examples include “brick and mortar casinos” in Las Vegas, entertainment events at casinos, or streaming of offline poker tournaments, provided the ad or destination (landing) page does not promote or facilitate online gambling.
+Prize promotions that involve purchasing a product at the usual retail price as long as online gambling isn’t the primary business model of the advertiser or any featured brand.
+State or government lotteries as long as the advertiser is directly or exclusively responsible for running the lottery.
+Entirely free-to-play games that do not simulate gambling games or offer any opportunity to win anything with monetary value.
+Social Casino Games, Free to play Games
+Advertisers can run ads for social casino games and free to play games with no prior written permission from Meta as long as they:
+
+Don’t offer the opportunity to win money, coins, gifts, or anything of monetary value.
+Don’t target people under the age of 18. Learn more about ads targeting.
+
+About Meta's Health and Wellness advertising policy
+Weight Loss and Cosmetic Products and Procedures
+We don’t allow advertisers to run ads that imply or attempt to generate negative self-perception or declare there is a perfect body type or appearance one should aspire to in order to promote diet, weight loss, cosmetic procedures or any other health-related products.
+
+
+Weight Loss Products or Services
+Advertisers can’t run ads that:
+Promote weight loss products or services, depicting:
+Side-by-side comparison after the use of a product for transformation for weight loss with the exception of fitness classes impact (i.e., Pilates, or weight lifting)
+Close up on specific body area such as pinching fat
+Distasteful messaging that could make people feel negatively about the way they look
+Exploit insecurities to conform to certain beauty standards
+Reinforce negative or unhealthy body images
+Feature body-shaming
+When targeting people 18 years or older, advertisers can run ads that promote:
+
+Dietary weight loss products and services such as weight loss pills, or supplements. The ad can illustrate (without employing negative self-perception tactics) people:
+Using the product or the service, the impact of using it, or clearly indicate the time taken to achieve noticeable results.
+
+Cosmetic Products, Procedures, and Surgeries
+Advertisers can’t run ads that:
+
+Side-by-side comparison after the use of a product or transformation for wrinkles treatment such as Botox, dermal fillers or any other anti-aging treatment.
+Promote skin whitening or bleaching products that cause permanent skin color change.
+Contain distasteful messaging that could make people feel negatively about the way they look.
+Exploit insecurities to conform to certain beauty standards.
+Reinforce negative or unhealthy body images.
+When targeting people 18 years or older, advertisers can run ads that promote:
+
+Cosmetic products, procedures, or surgeries such as:
+Breast augmentation, breast reduction, abdominoplasty, blepharoplasty, rhinoplasty, rhytidectomy, labiaplasty, hair restoration surgery, dermal fillers, skin rejuvenation treatments, injectable treatments, chemical peels, micro-needling, non-ablative laser treatments, laser or light treatments, or micropigmentation.
+General cosmetic products, procedures, surgeries depicting before and after transformation, without employing negative self-perception tactics.
+Skin anti-aging products or services including treatments for wrinkles such as Botox injectables, may display zoomed-in or close-up images or highlight specific areas of the skin to demonstrate the promoted results. These depictions must reflect realistic outcomes over time and should not include side-by-side comparisons.
+Gender reassignment services and procedures.
+
+Examples:
+NOT ALLOWED:
+
+
+
+Weight loss ads can’t use content that may negatively affect people, such as using a tape measure around a person's body. This is a non-compliant image.
+
+Non-compliant image of person on scale
+
+This image of a person on a scale would be non-compliant if used to promote weight loss products or services.
+
+Non-compliant before and after weight loss image
+
+This image of a person depicting before and after weight loss would be non-compliant if used to promote weight loss products or services.
+
+
+
+This image shows zoomed in or close up on wrinkles and is non-compliant.
+
+Non-compliant extreme close-up on wrinkles
+
+This image shows an extreme close up on wrinkles using circles and is non-compliant.
+
+Non-compliant before and after skin whitening image
+
+This image showing before and after skin whitening/ bleaching treatment is non-compliant
+
+ALLOWED:
+
+Compliant image focusing on physical fitness
+
+This image focuses on physical fitness and is compliant.
+
+Adult Products and Reproductive Health
+We don’t allow advertisers to run ads that promote the sale or use of adult sexual arousal products or services. Ads promoting sexual and reproductive health or wellness products or services, like contraception and family planning, must be targeted to people 18 years or older and must not focus on sexual pleasure.
+
+Advertisers can’t run ads that promote:
+
+Sexual arousal products that focus on sexual pleasure or enhancement (e.g. sex toys, erotic products)
+The sale or use of adult sexual services (e.g strip clubs, cabarets, adult movie theaters, hotels for sexual fantasies, tantric services, orgasmic therapy, tantric retreats for orgasmic therapy)
+Promote genital procedures or surgeries focused on sexual pleasure, (e.g. G-spot augmentation or male genitalia enlargement)
+When targeting people 18 years or older, advertisers can run ads that promote:
+
+Sexual and reproductive health and wellness products or services (as long as the focus is on health and the medical efficacy of the product or the service and not on the sexual pleasure or enhancement)
+
+Examples:
+Read our full Health and Wellness advertising policy.
+
+Learn more about how to troubleshoot a rejected ad. If you believe your ad was rejected incorrectly, you can request a review in Business Support Home.
+
+
+
+Cameroon: 21 years or older
+Canada: 19 years or older
+Iceland: 20 years or older
+India: Various
+25 years or older in Chandigarh, Delhi, Haryana, Maharashtra, or Punjab.
+21 years or older in Andhra Pradesh, Arunachal Pradesh, Assam, Chhattisgarh, Dadra and Nagar Haveli, Dama and Diu, Goa, Jammu and Kashmir, Jharkhand, Kerala, Madhya Pradesh, Meghalaya, Odisha, Tamil Nadu, Telangana, Tripura, Uttar Pradesh, Uttarakhand, or West Bengal.
+18 years or older in Andaman and Nicobar Islands, Himachal Pradesh, Karnataka, Mizoram, Puducherry, Rajasthan and Sikkim.
+Japan: 20 years or older
+Korea: 19 years or older
+Micronesia: 21 years or older
+Nicaragua: 19 years or older
+Palau: 21 years or older
+Paraguay: 20 years or older
+Solomon Islands: 21 years or older
+Sri Lanka: 21 years or older
+Sweden: 25 years or older
+United States: 21 years or older
+Note: Advertisers that promote or reference alcohol content in any countries that are not listed in the permitted list of countries are allowed to promote alcohol products as long as they are abiding with their local laws and targeting people who are at least 18 years old.
+Read our full Alcohol advertising policy.
+
+
+About ads about social issues, elections or politics
+We're constantly working to increase ad transparency and election integrity on Facebook and Instagram. Therefore, we've established measures to promote authenticity and legitimacy for anyone wishing to run ads about social issues, elections or politics.
+
+How Meta defines ads about social issues, elections or politics
+We categorize ads as ads about social issues, elections, or politics when an ad is:
+
+Made by, on behalf of, or about a candidate for public office, a political figure, a political party, a political action committee or advocates for the outcome of an election to public office; or
+About any election, referendum, or ballot initiative, including "go out and vote" or election campaigns; or
+About social issues in any place where the ad is being placed; or
+Regulated as political advertising.
+How to get authorized to run ads about social issues, elections, or politics
+Advertisers interested in placing these ads should complete the ad authorization process. The process is available for advertisers that reside and are located in the targeted country at the time they run ads. Documents for authorization must be issued by an advertiser’s local country or state and can’t be expired. In selected countries, a notarized form is also accepted.
+
+These ads must have a disclaimer with the name and entity that paid for the ads. If an ad runs without a disclaimer, it’ll be paused, disapproved and added to the Ad Library, until the advertiser completes the authorization process. Requirements vary by country.
+
+All ads will be added to the Ad Library, even if the advertiser who created them hasn’t completed the ad authorization process.
+
+Select advertisers and intergovernmental organizations
+Select advertisers and intergovernmental organizations (defined as having a membership of three or more sovereign states bound together by a treaty) qualify to run ads about social issues targeting multiple countries unless otherwise prohibited to do so. Qualifying charitable and humanitarian organizations can run specific social issue ads across the European Union, United Kingdom and United States. Ads will continue to require disclaimers and must not include electoral, political or legislative content. Advertisers are required to follow all other stated terms and conditions. European Union institutions, registered European political parties and official political groups qualify to run ads about social issues, elections, and politics in Member States unless otherwise prohibited.
+
+Messenger, WhatsApp, Right Hand Column, Marketplace, Search, Suggested Videos, Video feed, Audience Network, In-Stream reserve and In-Stream Video on desktop (In-Stream Video is only supported on iOS and Android) aren't supported placements at this time. The only unsupported formats are Dynamic Product Ads (DPA) and Boosted Ambient Live Video. All other ad formats are supported (including DCO).
+
+Note: Our policy for ads about Social Issues, Elections or Politics is focused on the content of the ad and as such, certain ads will or won't require authorizations and disclaimers. Make sure to review how we define social issues and review text examples. Ads where the primary purpose of the ad is the sale of a product or promotion of a service may not be considered social issue ads, which wouldn't require authorizations and a disclaimer. This doesn't apply to products or services about politicians, political parties or legislation, which continue to require transparency. Learn more about this policy.
+Community Standards
+The Community Standards outline what is and isn't allowed on Facebook, Instagram, Messenger and Threads.
+
+Introduction
+Every day, people use Facebook, Instagram, Messenger and Threads to share their experiences, connect with friends and family, and build communities. Our services enable billions of people to freely express themselves across countries and cultures and in dozens of languages.
+
+Meta recognizes how important it is for Facebook, Instagram, Messenger and Threads to be places where people feel empowered to communicate, and we take our role seriously in keeping abuse off the service. That’s why we developed standards for what is and isn’t allowed on these services.
+
+These standards are based on feedback from people and the advice of experts in fields like technology, public safety and human rights. To ensure everyone’s voice is valued, we take great care to create standards that include different views and beliefs, especially from people and communities that might otherwise be overlooked or marginalized.
+
+
+Please note that the US English version of the Community Standards reflects the most up to date set of the policies and should be used as the primary document.
+
+
+
+Our commitment to voice
+The goal of our Community Standards is to create a place for expression and give people a voice. Meta wants people to be able to talk openly about the issues that matter to them, whether through written comments, photos, music, or other artistic mediums, even if some may disagree or find them objectionable. In some cases, we allow content—which would otherwise go against our standards—if it’s newsworthy and in the public interest. We do this only after weighing the public interest value against the risk of harm, and we look to international human rights standards to make these judgments. In other cases, we may remove content that uses ambiguous or implicit language when additional context allows us to reasonably understand that the content goes against our standards.
+
+Our commitment to expression is paramount, but we recognize the internet creates new and increased opportunities for abuse. For these reasons, when we limit expression, we do it in service of one or more of the following values:
+
+
+AUTHENTICITY
+We want to make sure the content people see is authentic. We believe that authenticity creates a better environment for sharing, and that’s why we don’t want people using our services to misrepresent who they are or what they’re doing.
+
+
+SAFETY
+We’re committed to making Facebook, Instagram, Messenger and Threads safe places. We remove content that could contribute to a risk of harm to the physical security of persons. Content that threatens people has the potential to intimidate, exclude or silence others and isn’t allowed on our services.
+
+
+PRIVACY
+We’re committed to protecting personal privacy and information. Privacy gives people the freedom to be themselves, choose how and when to share on our services and connect more easily.
+
+
+DIGNITY
+We believe that all people are equal in dignity and rights. We expect that people will respect the dignity of others and not harass or degrade others.
+
+Community Standards
+Our Community Standards apply to everyone, all around the world, and to all types of content, including AI-generated content.
+
+Each section of our Community Standards starts with a “Policy Rationale” that sets out the aims of the policy followed by specific policy lines that outline:
+
+ Content that's not allowed; and
+
+ Content that requires additional information or context to enforce on, content that is allowed with a warning screen or content that is allowed but can only be viewed by adults aged 18 and older.
+
+Overview
+Commerce content refers to any attempt to buy, sell, or trade products - even for free - on Facebook, Instagram, WhatsApp, or Messenger services designed for commerce – including, but not limited to, Facebook Marketplace, Shops on Facebook and Instagram, and WhatsApp Business Catalog. Products sold or offered for sale, or traded or offered for trade, on these services or features must comply with our Commerce Policies. Additionally, commerce content on Facebook and Messenger, and commerce content on Instagram must comply respectively with Facebook's Community Standards and Instagram's Community Guidelines. Commerce content on WhatsApp must comply with the Policy for WhatsApp Commerce Features. Buyers, sellers, and traders are also responsible for complying with other terms and policies that apply to the use of our products, and all applicable laws and regulations. Failure to comply with our policies or the law may result in a variety of consequences, including, but not limited to, rejection or removal of listings and other content, rejection or removal of product tags, or suspension or termination of access to any or all Facebook, Instagram, WhatsApp, or Messenger commerce services or features. If you repeatedly post commerce content that violates our policies, we may take additional action on your account.
+
+Steps to Take if Disapproved
+Appeal the Decision
+If your commerce content has been rejected or removed for violating our Commerce Policies and you feel it was a mistake, you can request a review by following these steps for Marketplace, or these steps for products in your Catalog (availabe on Instagram, Facebook, Messenger and WhatsApp Business), and we'll take another look.
+
+Prohibited Content
+Community Standards
+Commerce content must not violate our Community Standards.
+
+Adult Content and Sexually Positioned Products 
+Commerce content may not promote the buying, selling, or trading of adult products and may not position products in a sexually suggestive manner.
+
+Alcohol
+Commerce content may not promote the buying, selling, or trading of alcohol.
+
+Body Parts and Fluids
+Commerce content may not promote the buying, selling, or trading of human body parts or fluids.
+
+Digital Media and Electronic Devices
+Commerce content may not promote the buying, selling, or trading of devices that facilitate or encourage streaming digital content in an unauthorized manner or interfering with the functionality of electronic devices.
+
+Discrimination
+Commerce content and commerce Messenger threads must not wrongfully discriminate or suggest a preference for or against people because of a personal characteristic, included but not limited to, race, ethnicity, color, national origin, citizenship, religion, age, sex, sexual orientation, gender identity, family status, marital status, disability, or medical or genetic condition. Commerce content must comply with all applicable laws prohibiting discrimination. This includes but is not limited to discrimination for housing listings.
+
+Documents, Currency, and Financial Instruments
+Commerce content may not promote the buying, selling, or trading of real or fake documents, currency, financial instruments or virtual currency.
+
+Gambling
+Commerce content may not promote the buying, selling or facilitation of gambling for money or anything else of value, including digital currencies. Gambling includes gaming, betting, lotteries, raffles, casinos, fantasy sports, bingo, poker and sweepstakes.
+
+Hazardous Goods and Materials
+Commerce content may not promote the buying, selling, or trading of hazardous materials and substances.
+
+Human Exploitation and Sexual Services
+Commerce content may not promote any form of human trafficking, prostitution, escort or sexual services.
+
+Jobs
+Commerce content may not promote job opportunities.
+
+Land, Animals, and Animal Products
+Commerce content may not promote the buying, selling, or trading of animals or animal parts, or land in ecological conservation areas.
+
+Medical and Healthcare Products 
+Commerce content may not promote the buying, selling, or trading of medical and healthcare products and services, including medical devices or ingestible supplements.
+
+Misleading, Violent, or Hateful
+Commerce content may not contain misleading, violent or hateful products and offers.
+
+No Item for Sale
+Commerce content may not promote news, humor or other content that does not offer any product for sale.
+
+Prescription Products, Drugs, and Drug Paraphernalia
+Commerce content may not promote the buying, selling, or trading of drugs, drug paraphernalia or prescription products.
+
+Recalled Products
+Commerce content may not promote the buying, selling, or trading of recalled or banned products.
+
+Stolen Goods
+Commerce content may not promote the buying, selling, or trading of items that have been stolen or otherwise acquired unlawfully or without authorization.
+
+Subscriptions and Digital Products
+Commerce content may not promote the buying, selling, or trading of downloadable digital content, digital subscriptions or digital accounts.
+
+Third-Party Infringement
+Commerce content may not infringe upon or violate the intellectual property rights of any third party, including any copyright or trademark. This includes, but is not limited to, the promotion or sale of, or any services or devices that facilitate the distribution of, unauthorized copies of, software, music, movies, TV shows, broadcasts, books, images and other media, or the promotion or sale of counterfeits, such as goods that copy the trademark (name or logo) and/or distinctive features of another company's products so as to imitate the genuine product.
+
+Tobacco Products and Related
+Paraphernalia
+Commerce content may not promote the buying, or selling, or trading of tobacco products or tobacco paraphernalia.
+
+Used Cosmetics
+Commerce content may not promote the buying, selling, or trading of cosmetics that have been used, or that are not sold in their original packaging.
+
+Vehicle Parts and Accessories
+Commerce content may not promote the buying, selling, or trading of certain vehicle parts and accessories.
+
+Weapons, Ammunition, and Explosives
+Commerce content may not promote the buying, selling, or trading of weapons, ammunition and explosives.
+
+Restricted Content
+Event Tickets 
+Commerce content may not promote the buying, selling, or trading of event tickets, except by approved sellers.
+
+Gift Cards and Vouchers
+Commerce content may not promote the buying, selling, or trading of gift cards or vouchers, except by approved sellers.
+
+Pet Adoption Matching Services
+Commerce content may not promote the buying, selling, or trading of pet adoption matching services, except by approved sellers.
+
+Services
+Commerce content may not promote the buying, selling, or trading of services, except on the WhatsApp Business app or through Appointments in Facebook or Instagram.
+
+Introduction
+The following terms, as well as our Privacy Policy, Community Standards, and Terms of Service, apply to the creators and admins of Pages, groups, and Events. Note that other terms and policies, including our Developer Policies, may also apply depending on how you use our services.
+
+
+Pages, groups, and Events help build communities with common interests. Admins act as the leaders, representatives, and caretakers of these communities. Admins are expected to represent themselves authentically and to promote the safety and well-being of their communities.
+
+
+When admins create content that violates our policies (or when group admins or moderators approve violating content created by others) we may take action against the Page, group, or Event in which the content appeared.
+
+Policies for Pages, Groups, and Events
+Creation and Use
+Do not create Pages, groups, or Events for purposes that violate our Community Standards. You should ensure that content you create, or permit to be created, complies with these standards. We may take action against Pages, groups, and Events when they appear to have been created for purposes that violate our policies or when they are used to repeatedly or severely violate our policies. When we remove a Page, group, or Event for violating our policies, its admin(s) will not be permitted to create new Pages, groups, or Events with the same or similar subject matter in the future.
+
+Names
+Do not provide your Page, group, or Event with a name or username that contains profanity or violates our Community Standards. Do not change the name of your Page, group, or Event in a manner that significantly alters its existing purpose. Do not merge two Pages when their purposes are dissimilar. Note that there are additional restrictions on the names of Pages and Events.
+
+Verification
+Do not place a verified checkmark in the profile picture or cover photo on your Page, group, or Event, or in any other way falsely represent that Facebook has verified or authenticated your Page, group, or Event.
+
+Gambling
+Do not use a Page, group, or Event to promote online gambling without our prior, written permission. This prohibition also applies to games where anything of monetary value is required to play and anything of monetary value forms part of the prize. Common types of gambling or gaming activities include betting, lotteries, raffles, casinos, fantasy sports, bingo, and poker.
+
+Drug and Alcohol Addiction Treatment
+Do not use a Page, group, or Event to promote drug and alcohol addiction treatment centers without our prior, written permission. We require that drug and alcohol addiction treatment centers be appropriately licensed before they are eligible to be promoted on Facebook.
+
+Online Pharmacies
+Do not use a Page, group, or Event to promote the sale of prescription pharmaceuticals via an online pharmacy without our prior, written permission. We require that online pharmacies be appropriately licensed before they are eligible to be promoted on Facebook.
+
+Promotions
+If you use your Page, group, or Event to announce or administer a promotion (a contest, giveaway, or sweepstakes) you must ensure that your promotion complies with applicable legal and regulatory requirements (ex: providing entrants a copy of the promotion’s official rules, disclosing offer terms and eligibility requirements, and registering your promotion with the relevant authorities). You must also require participants to (a) fully release and hold Meta harmless from liability, and (b) acknowledge that the promotion is in no way sponsored, endorsed, administered by, or associated with Meta. Your promotion must not require or incentivize participants to share, repost, tag others, or in any other way publicize your promotion. Note that Meta will not assist you in administering a promotion. Should you use our services to administer your promotion, you do so at your own risk.
+
+Data Collection
+Should you wish to collect content or information from people who interact with your Page, group, or Event (ex: information obtained from a call-to-action button) you must first provide them with notice. People from whom you collect content or information must explicitly consent to your use of their data. You must clearly explain that you (and not Meta) are collecting this data.
+
+Page Insights
+The processing of data for Page Insights in the European Economic Area or the United Kingdom may be subject to the Page Insights Controller Addendum, which is incorporated within these policies by reference.
+
+Branded Content
+If you have been given anything of value to promote someone else’s products or services within your Page, group, or Event, you must follow our Branded Content Policies to disclose the commercial nature of your content.
+
+Event Costs and Invitations
+You must clearly and prominently disclose any actions or expenses required to attend or participate in an Event, including any fees or incidental charges ancillary to the stated cost of admission. Event invitations must not be generated by automated means.
+
+Legal Compliance
+Pages, groups, and Events must not promote illegal activities, products, or services. You are responsible for ensuring that your Page, group, or Event complies with all applicable laws, statutes, and regulations, including those related to the promotion of age-restricted activities and substances. You are solely responsible for including all necessary disclosures within your Page, group, or Event, including those disclosures required to indicate the commercial nature of content you may post.
+
+Branded Content Policies
+
+The branded content tool is only available to certain Pages in certain regions at this time.
+We define branded content as a creator or publisher's content that features or is influenced by a business partner for an exchange of value, such as monetary payment or free gifts.
+
+Branded content may only be posted with the use of the branded content tool, and creators must use the branded content tool to tag the featured third party product, brand, or business partner with their prior permission. Branded content may only be posted by Facebook Pages, Groups, and profiles and Instagram accounts with access to the branded content tool.
+
+Creators cannot accept anything of value to post content that does not feature themselves or that they were not involved in creating.
+
+Learn more about common branded content scenarios:
+
+On Facebook
+On Instagram
+You must also comply with all applicable laws and regulations, including by ensuring that you provide all necessary disclosures to people using Facebook or Instagram, such as any disclosures needed to indicate the commercial nature of content posted by you.
+
+Prohibited content
+Certain goods, services, or brands may not be promoted with branded content. We prohibit promotion of the following:
+
+Violations of our Community Standards
+Illegal products or services
+Tobacco products, vaporizers, electronic cigarettes, or any other products that simulate smoking
+Drugs and drug-related products, including illegal or recreational drugs
+Unsafe products and supplements.
+Unsafe supplements include but are not limited to anabolic steroids, chitosan, comfrey, dehydroepiandrosterone, ephedra, and human growth hormones.
+Weapons, ammunition or explosives.
+Branded content must not promote firearms (including firearms parts, ammunition, paintball guns and bb guns), firearm silencers or suppressors, weapons (including pepper spray, non-culinary knives/blades/spears, tasers, nunchucks, batons, or weapons intended for self-defense), or fireworks or explosives.
+Adult products or services, except for family planning and contraception.
+Branded content must not promote the sale or use of adult products or services, except for posts for family planning and contraception.
+Payday loans, paycheck advances and bail bonds
+Multilevel marketing
+Initial coin offerings, binary options or contract for difference trading
+Controversial political or social issues or crises in an exploitative manner for commercial purposes
+State lotteries
+Content that would violate our prohibited ads policy related to social issues, elections, or politics
+Restricted content
+Some sensitive content can only be promoted with restrictions, such as restricting who can see the post based on age or geographical location. Please click on any of the categories below to learn more about required restrictions:
+How Page feedback and purchase experiences impact your ads
+Meta's ad and commerce technologies are designed to maximize value for people and businesses. That’s why we collect feedback from people who make purchases across our technologies, including Facebook, Instagram and Meta Audience Network.
+
+If an advertiser receives a significant amount of negative feedback, we may consider all ads from this advertiser as lower quality and they may reach fewer people for the same budget.
+
+Learn more about how an ad’s quality impacts its performance.
+
+Best practices for setting customer expectations
+Here are some best practices for setting customer expectations:
+
+Be clear about what you're selling or offering
+
+Pictures, videos and all other ad creative should accurately represent what you sell. Ensure dimensions, sizes, materials and all other aspects of your product are accurately shown and stated.
+If you sell apparels, ensure the size charts you use work for other countries that you sell to (for example, United States sizing may be different than sizing in China).
+If you source goods from suppliers, ensure you maintain quality control and that the goods are shipped on time and as stated on your website and ad.
+State warnings clearly to inform customers about potential hazards such as possible allergens by listing the ingredients in your products.
+Set clear expectations for shipping
+
+Make your Terms and Conditions, including your delivery, shipping and return policies, accessible and understandable.
+Door-to-door shipping time should be accurately conveyed. The shipping information you provide should be inclusive of handling and processing times, item availability, shipping costs and any other factors that may impact the amount of time an item takes to ship.
+If possible, provide tracking information about the shipments so that the customers can track their packages.
+Set clear expectations for customer service
+
+Honor any return and exchange policies advertised on your website.
+If you operate in a different time zone than your customers, be clear about how long it takes to reply back to customer inquiries.
+Update customers if there are any changes to their order such as delayed delivery, or temporarily out of stock products.
+Make sure you can meet customer demand
+
+Scale your advertising with your business's ability to deliver products. If your inventory is limited, you may want to consider running fewer ads, or make it clear to customers before they purchase when the products are expected to be in stock and shipped.
+Be proactive about telling customers when you can't fulfill what was promised (for example, you've run out of inventory, and it will now take longer than expected to replace an order).
+Learn more
+
+About advertising restrictions
+
+Refer to the Meta Transparency Center for comprehensive policy guidance.
+At Meta, we have policies and standards that we ask our advertisers to follow in order to advertise on our platforms. When advertisers go against these policies and standards, we may place restrictions on businesses by limiting their ability to advertise.
+
+Advertising restrictions may include:
+
+Limits on the amount an advertiser can spend per day
+Loss of access to some advertising features
+Loss of the ability to advertise on Meta platforms
+We may apply advertising restrictions in the following scenarios:
+
+An advertiser doesn’t follow our Community Standards, Meta Advertising Standards, Commerce Policies or other policies and terms.
+We suspect an advertiser’s business portfolio or business assets have been compromised or hacked. Learn more about how to secure a hacked account.
+An advertiser doesn’t meet our two-factor authentication requirements for account security.
+An advertiser is new, in which case we may temporarily apply limits on how much they can spend each day or which features they can access until we can be sure they’re consistently following our policies.
+An advertiser has unsettled account balances or fails to make payments to run their ads.
+You can go to Meta Business Support Home to resolve issues you might encounter around compliance with our policies and standards.
+
+Watch the video below to learn more:
+
+. Overview
+
+Understanding our Advertising Standards
+Our Advertising Standards provide policy detail and guidance on the types of ad content we allow, and the types of ad content we prohibit. When advertisers place an order, each ad is reviewed against our policies. Our Advertising Standards also provide guidance on advertiser behavior that may result in advertising restrictions being placed on a Business Account or its assets (an ad account, Page or user account).
+
+If you think your ad was mistakenly rejected, or if you think your Business Account or its assets were mistakenly restricted, you can request a review of either decision in Account Quality.
+
+Common points of confusion
+To help you build a compliant and user-friendly ads experience, we've highlighted some common areas of confusion. Click the links below to learn more about:
+
+Privacy Violations and Personal Attributes
+
+Sexually suggestive content
+
+Advertising restrictions on business assets
+
+
+
+
+
+2. Meta advertising policy principles
+Advertisers contribute to the Meta community in many ways, including highlighting new products and services or drawing attention to events and issues. To help keep both businesses and organizations who use our ad tools safe, and create a welcoming environment for everyone who uses our products and services, we have put in place our Advertising Standards to guide what is allowed across Meta technologies.
+
+Advertisers running ads across Meta technologies must follow our Community Standards and our Advertising Standards.
+
+
+Our advertising policy principles
+Our policies are guided by our company’s core values and the following principles:
+
+
+PROTECTING PEOPLE FROM UNSAFE AND DISCRIMINATORY PRACTICES
+Our policies require all advertisers to comply with the laws in their jurisdiction, not engage in discriminatory practices, and not sell illegal or unsafe substances.
+
+
+PROTECTING PEOPLE FROM FRAUD OR SCAMS
+Our policies prohibit ads promoting products, services, schemes or offers using deceptive or misleading practices, including those meant to scam people out of money or personal information.
+
+
+PROMOTING POSITIVE USER EXPERIENCES
+Because ads may be delivered to people in their Feed from Pages or accounts they don’t follow, we want to help ensure that the ads don’t detract from the overall experience across our technologies. For that reason, we prohibit ads containing shocking, sensational, or excessively violent content, certain adult content and profanity. We also prohibit other objectionable material, such as content implying or attempting to generate negative self-perception in order to promote diet, weight loss or other health related products.
+
+
+PROMOTING TRANSPARENCY
+We strive to make advertising more transparent and to give people more information about the ads they see. Our Ad Library offers a view of all ads currently running across our apps and services. It also offers additional information on ads about social issues, elections or politics, including range of spend, who saw the ad and the entities responsible for those ads. Ads about these topics are visible whether they're active or inactive and are stored in the Ad Library for 7 years. We also have an Info and Ads section on all Facebook Pages where people are able to click to see active ads a Page is running to help keep advertisers accountable.
+
+Enforcement of our policies
+We use automated and, in some instances, manual review to enforce our policies. Beyond reviewing individual ads, we also monitor and investigate advertiser behavior, and may restrict advertiser accounts that don't follow our Advertising Standards, Community Standards or other Meta policies and terms. Our review process may not detect all policy violations, and ads remain subject to review and re-review and may be rejected for violating our policies at any time. It is an advertiser’s responsibility to understand and comply with our policies outlined in Meta’s Advertising Standards, our Terms of Service and any other applicable terms and guidelines, in addition to all local laws, regulations and, where applicable, self-regulatory advertising codes. Advertisers whose ads are rejected will typically be provided an opportunity to edit their ads in order to bring them into compliance and can request another review if they believe their ad was incorrectly rejected.
+
+People can report ads if they believe they violate our policies. They can also see the details on why a certain ad appeared in their Feed, and they can control the ads they see in their Feed through our Ad Preferences tool.
+
+3. The ad review process
+Our ad review system relies primarily on automated tools to check ads and business assets against our policies. Our ad review process starts automatically before ads begin running, and is typically completed within 24 hours, although it may take longer in some cases. During this review, the status of the ad will be “In review.” Additionally, ads may be reviewed again, including after they are live. You can find more information in our Business Help Center.
+
+
+What is reviewed
+The ad review system reviews ads for violations of our policies. This review process may include the specific components of an ad, such as images, video, text and targeting information, as well as an ad’s associated landing page or other destinations, among other information.
+
+Business asset review
+We also review and take action on an advertiser’s Business Account or its assets (ad accounts, Pages and user accounts). As part of our review, we assess whether the account or its assets have violated our policies.
+
+
+
+
+Outcome of review
+If a violation is found at any point in the review process, the ad will be rejected, and the Business Account or its assets may be restricted. Lower quality ads which do not necessarily violate our policies may experience impacted performance. You can find more information about how quality may affect your ad in our Business Help Center.
+
+If a Business Account or its assets (ad account, Page or user account) is restricted, that account or asset can’t be used to advertise across our technologies. If a user account is restricted from advertising on a Business Account or ad account, other members of those accounts may still be able to advertise.
+
+Re-review of ads
+Ads remain subject to review and re-review at all times, and may be rejected or restricted for violation of our policies at any time. It is your responsibility to understand and comply with our policies.
+
+4. What to do if your ad is rejected or if your business asset is restricted
+
+Create a new ad or edit your ad
+You may create a new ad or edit your ad to comply with our policies. These ads will be treated as new ads and reviewed by our ad review system. Check this page for editing steps.
+
+
+Request another review
+If you believe the ad, ad account, user account, Page or Business Account was incorrectly rejected or restricted, you can request a review of the decision in Account Quality.
+
+
+
+
+
+
+
+
+
+
+
+
+Community Standards
+The Community Standards outline what is not allowed across Meta technologies.
+
+
+Community Standards
+
+Ads must not violate our Community Standards.
+
+Learn more
+
+
+
+
+
+Unacceptable content
+Content that is illegal or otherwise considered unacceptable to people who use our technologies.
+
+
+Child Sexual Exploitation, Abuse, and Nudity
+
+Ads must not contain content that sexually exploits or endangers children. When we become aware of apparent child exploitation, we report it to the National Center for Missing and Exploited Children (NCMEC), in compliance with applicable law.
+
+Learn more
+
+Coordinating Harm and Promoting Crime
+
+Ads must not facilitate, organize, promote or admit to certain criminal or harmful activities targeted at people, businesses, property or animals.
+
+Learn more
+
+Dangerous Organizations and Individuals
+
+Ads must not contain praise, support or representation of individuals or groups designated by Meta as Dangerous Organizations and Individuals.
+
+Learn more
+
+Discriminatory Practices
+
+Ads must not discriminate or encourage discrimination against people based on personal attributes such as race, ethnicity, color, national origin, religion, age, sex, sexual orientation, gender identity, family status, disability, medical or genetic condition.
+
+Meta prohibits advertisers from using our ads products to discriminate against people. This means that advertisers may not (1) use our audience selection tools to (a) wrongfully target specific groups of people for advertising (see advertising policy on Targeting), or (b) wrongfully exclude specific groups of people from seeing their ads; or (2) include discriminatory content in their ads. Advertisers are also required to comply with applicable laws that prohibit discrimination (see advertising policy on Illegal Products or Services). These include laws that prohibit discriminating against groups of people in connection with, for example, offers of housing, employment, and financial products and services.
+
+Any United States advertiser or advertiser targeting the United States, Canada or certain parts of Europe that is running financial products and services, housing or employment ads, must self identify as a Special Ad Category, as it becomes available, and run such ads with approved targeting options.
+
+Additional information and resources on United States non-discrimination laws:
+
+U.S. Department of Housing and Urban Development
+U.S. Equal Employment Opportunity Commission
+Consumer Financial Protection Bureau
+American Civil Liberties Union
+Leadership Conferences on Civil and Human Rights
+Department of Justice – Civil Rights Division
+National Fair Housing Alliance
+
+Disclaimer: This guide is not a substitute for legal advice. Consult a legal professional for specific advice about your situation.
+
+Learn more
+
+Hateful Conduct
+
+Ads must not attack people on the basis of what we call protected characteristics: race, ethnicity, national origin, disability, religious affiliation, caste, sexual orientation, sex, gender identity and serious disease.
+
+Learn more
+
+Human Exploitation
+
+Ads must not contain content that facilitates or coordinates the exploitation of humans, including human trafficking.
+
+Learn more
+
+Locally Illegal Content, Products or Services
+
+Ads that are reported by a government, a court order, non-governmental organizations or members of the public as violating local law may be removed.
+
+Learn more
+
+Misinformation
+
+Ads Must Comply with the Community Standard on Misinformation.
+
+Meta prohibits ads that include content debunked by third-party fact checkers. Advertisers that repeatedly post information deemed to be false may have restrictions placed on their ability to advertise across Meta technologies. Find out more about our fact-checking program.
+
+Meta also prohibits ads that include misinformation that violates our Community Standards.
+
+Learn more
+
+Vaccine Discouragement
+
+Ads must not discourage people from vaccination or advocate against vaccines.
+
+Learn more
+
+
+
+
+
+Fraud, Scams, and Deceptive Practices
+Content that may deceive or mislead people.
+
+
+Fraud, Scams and Deceptive Practices
+
+Ads Must Comply with the Community Standard on Fraud, Scams and Deceptive Practices.
+
+Learn more
+
+Unacceptable Business Practices
+
+Ads must not promote products, services, schemes or offers using identified deceptive or misleading practices, including those meant to scam people out of money or personal information.
+
+Learn more
+
+Circumventing Systems
+
+Ads must not use tactics that are intended to circumvent our ad review process. This includes techniques that attempt to disguise the ad's content or destination (landing) page. See more here for other advertiser behavior that we prohibit.
+
+Learn more
+
+
+
+
+
+
+Restricted goods and services
+Content that may negatively impact people's health and safety.
+
+
+Alcohol
+
+Ads that promote or reference alcohol must comply with all applicable local laws, required or established industry codes, guidelines, licenses and approvals, and include age and country targeting criteria consistent with Meta's targeting requirements and applicable local laws. Note that our policies prohibit ads promoting or referencing alcohol in some countries, based on local law.
+
+Advertisers must follow all applicable laws, including targeting their ads in accordance with legal requirements. At a minimum, ads may not be targeted to people under 18 years of age.
+
+Learn more
+
+Commercial Exploitation of Crises and Controversial Events
+
+Ads must not contain content that exploits crises or controversial events for commercial purposes.
+
+Learn more
+
+Dating Ads
+
+Ads for dating services are only allowed with prior written permission. These must adhere to the dating targeting requirements and our dating ad guidelines. Details on the requirements for permission can be found here. In order to seek permission, please fill out this form to begin your application process.
+
+Learn more
+
+Hazardous Goods and Materials
+
+Ads must not promote the sale of hazardous goods and materials. Advertisers must follow our Community Standards, in addition to our Advertising Standards.
+
+Learn more
+
+Health and Wellness
+
+This policy covers two categories of ads: Weight Loss and Cosmetic Products and Procedures, and Adult Products and Reproductive Health.
+
+Weight Loss and Cosmetic Products and Procedures
+
+Ads promoting or marketing dietary, health or weight loss products and services must be targeted to people at least 18 years or older.
+
+Ads promoting or marketing cosmetic products, procedures or surgeries, must be targeted to people at least 18 years or older.
+
+Ads must not imply or attempt to generate negative self-perception or declare there is a perfect body type or appearance one should aspire to in order to promote diet, weight loss, cosmetic procedures or any other health-related products.
+
+Learn more
+
+Historical Artifacts
+
+Ads must not promote the sale of historic artifacts. Advertisers must follow our Community Standards, in addition to our Advertising Standards.
+
+Learn more
+
+Sale of Human Body Parts and Bodily Fluids
+
+Ads must not promote the sale of human body parts or fluids. Advertisers must follow our Community Standards, in addition to our Advertising Standards.
+
+Learn more
+
+Sale of Non-Endangered Animals and Endangered Species
+
+Ads must not promote, donate, or gift products derived from threatened or extinct or endangered species. This includes both wildlife and plants.
+
+Ads must not promote peer-to-peer sales or trade of non-endangered animals, including ambiguous contexts where the nature of the sale or trade is unclear.
+
+Ads may offer non-endangered animals solely within the context of donations, rehoming, or adoptions.
+
+Advertisers must follow our Community Standards, in addition to our Advertising Standards.
+
+Learn more
+
+Tobacco and Related Products
+
+Ads must not promote the sale or use of tobacco or nicotine products and related paraphernalia. Ads must not promote Electronic Nicotine delivery devices, such as electronic cigarettes, vaporizers, or any other products that simulate smoking or are otherwise designed for use with tobacco or nicotine products. Ads may only promote cessation products approved by either the World Health Organization or the U.S. Food and Drug Administration, and must comply with all applicable local laws, required or established industry codes and guidelines.
+
+Learn more
+
+Weapons, Ammunition or Explosives
+
+Ads must not promote the sale or use of weapons, ammunition or explosives. This includes ads for weapon modification accessories.
+
+Learn more
+
+Drugs and Pharmaceuticals
+
+Advertisers can’t run ads that promote the sale or use of illicit or recreational drugs, or other unsafe substances, products or supplements, as determined by Meta at its sole discretion. Ads promoting prescription drugs, over-the-counter medicines, and cannabis derived products must follow specific requirements outlined in the policy below.
+
+
+Advertisers running ads across Meta technologies must follow our Community Standards, in addition to our Advertising Standards.
+
+Learn more
+
+Drug and Alcohol Addiction Treatment
+
+Meta requires advertisers who wish to run addiction treatment ads targeting people in the United States to be certified with LegitScript and apply to Meta for permission to advertise.
+
+Advertisers can apply for certification with LegitScript here.
+
+Learn more
+
+Financial and Insurance Products and Services
+
+Ads promoting credit cards, loans or insurance services must be targeted to people 18 years or older and must not directly request the input of any personally identifiable information or certain types of financial information .
+
+Advertisers promoting financial products and services must demonstrate they are authorized by the relevant regulatory authorities where this is a requirement; and any such authorization may be subject to review by Meta. Advertisers are also required to comply with disclosure requirements set by law.
+
+Learn more about the authorization process in our Business Help Center.
+
+Learn more
+
+Cryptocurrency Products and Services
+
+Ads may not promote cryptocurrency trading platforms, software and related services and products that enable monetisation, reselling, swapping or staking of cryptocurrencies without prior written permission. To apply, please click here. For more information, see our Business Help Center.
+
+Learn more
+
+Online Gambling and Games
+
+Meta defines online gambling and games as any product or service where anything of monetary value is included as part of a method of entry and prize. Ads that promote online gambling and gaming are only allowed with our prior written permission. Authorized advertisers must follow all applicable laws and include targeting criteria consistent with Meta’s targeting requirements. At a minimum, ads may not be targeted to people under 18 years of age. Learn more in our Business Help Center.
+
+Learn more
+
+
+
+
+
+Objectionable content
+Content that may lead to negative experiences.
+
+
+Adult Nudity and Sexual Activity
+
+Ads Must Comply with the Community Standards on Adult Nudity and Sexual Activity. Ads must not contain adult nudity and sexual activity. This includes nudity, depictions of people in explicit or sexually suggestive positions, or activities that are sexually suggestive.
+
+Learn more
+
+Adult Sexual Exploitation
+
+Ads Must Comply with the Community Standard on Adult Sexual Exploitation. Ads must not display, advocate for, or coordinate sexual acts with non-consenting parties to avoid facilitating non-consensual sexual acts.
+
+Learn more
+
+Adult Sexual Solicitation and Sexually Explicit Language
+
+Ads must not contain content that facilitates sexual encounters, commercial sexual services between adults, or content asking for or offering pornographic content. In addition, we also restrict the use of sexually explicit language.
+
+Learn more
+
+Bullying and Harassment
+
+Ads must not contain attacks that are meant to degrade or shame public and private individuals. We also provide heightened protections for anyone under the age 18, regardless of their user status.
+
+Learn more
+
+Profanity
+
+Ads must not contain profanity.
+
+Learn more
+
+Privacy Violations and Personal Attributes
+
+Ads Must Comply with the Community Standard on Privacy Violations. Ads must not contain content that shares or asks for private information about users. In addition, ads must not contain content that asserts or implies personal attributes. This includes direct or indirect assertions or implications about a person’s race, ethnicity, religion, beliefs, age, sexual orientation or practices, gender identity, disability, physical or mental health (including medical conditions), vulnerable financial status, voting status, membership in a trade union, criminal record, or name.
+
+Learn more
+
+Violent and Graphic Content
+
+Ads must not contain shocking, sensational or excessively violent content.
+
+Learn more
+
+Suicide, Self-Injury, and Eating Disorders
+
+Ads Must Comply with the Community Standard on Suicide, Self-Injury, and Eating Disorders. Ads must not encourage suicide, self-injury, or eating disorders, including fictional content such as memes or illustrations and any such content which is graphic, regardless of context. In addition, Ads must not mock victims or survivors of suicide, self-injury or eating disorders, as well as real time depictions of suicide, self-injury, or eating disorders.
+
+Learn more
+
+
+
+
+
+
+Intellectual property infringement
+Content that infringes upon or violates the intellectual property rights of a third party or Meta.
+
+
+Third-Party Intellectual Property Infringement
+
+Ads may not contain content that violates the intellectual property rights of any third party, including copyright, trademark or other legal rights. This includes, but is not limited to, the promotion or sale of counterfeit goods, such as products that copy the trademark (name or logo) and/or distinctive features of another company’s products to imitate a genuine product.
+
+Learn more
+
+Using Meta Intellectual Property Licenses
+
+Ads Must Comply with the Community Standard on Using Meta Intellectual Property and Licenses.
+
+Ads must not use Meta Intellectual Property and Licenses in a manner that violates the Community Standards and guidelines in the Brand Resource Center .
+
+Learn more
+
+
+
+
+
+
+Social issue, electoral or political advertising
+Content that promotes social issue, electoral or political views.
+
+
+Ads about Social Issues, Elections or Politics
+
+Advertisers can run ads about social issues, elections or politics, provided the advertiser complies with all applicable laws and the authorization process required by Meta. Meta may restrict issue, electoral or political ads. In addition, certain content related to elections may be prohibited by local law or removed in specific regions ahead of voting; click here for more.
+
+Learn more
+
+
+
+
+
+
+Product and format-specific policies
+Content associated with additional format-specific requirements.
+
+
+Video Ads
+
+Video ads and other dynamic ad types must comply with all of the rules listed in these Advertising Standards, including the Community Standards, as well as the policies below:
+
+
+Disruptive Content
+Videos and other similar ad types must not use overly disruptive tactics, such as flashing screens.
+
+Entertainment Related Restrictions
+Ads for movie trailers, TV shows, video game trailers and other similar content are only allowed with prior written permission from Meta and must target people who are 18 years or older. Excessive depictions of the following content within these ads are not allowed:
+
+Drugs and alcohol use
+
+Adult content
+
+Profanity
+
+Violence and gore
+
+
+
+
+
+Lead Ads
+
+Advertisers must not create lead ads questions to request the following types of information without our prior written permission.
+
+
+Learn more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Targeting
+
+Advertisers must not use targeting options to discriminate against, harass, provoke, or disparage people or to engage in predatory advertising practices.
+
+If advertisers target their ads to custom audiences, they must comply with the applicable terms when creating an audience.
+
+
+Relevance
+
+Ads must clearly represent the company, product, service, or brand that is being advertised.
+
+All ad components, including any text, images or other media, must be relevant to the product or service being offered.
+
+The products and services promoted in an ad must match those promoted on the landing page. Learn more about ad quality best practices that can improve ad performance.
+
+
+Branded Content
+
+Ads promoting branded content must tag the featured third party product, brand or business partner using the branded content tool. Branded content within ads is defined as a creator or publisher's content that features or is influenced by a business partner for an exchange of value. When promoting branded content integrations, advertisers must use the branded content tool (please learn more here on how to tag the featured third party product, brand or business partner).
+
+
+
+
+
+
+
+
+Beyond rejecting ads that violate our policies, we also review and take action, such as restricting the ability to advertise, on an advertiser’s Business Account or its assets, such as ad accounts, Pages and user accounts for violating the below policies. If you believe your ad account, user account, Page or Business Account was incorrectly restricted, you can request a review of the decision in Account Quality
+
+
+Account Integrity
+
+Business assets must comply with the Community Standard on Account Integrity.
+
+Learn more
+
+Cybersecurity
+
+Ads must comply with the Community Standard on Cybersecurity. Ads must not use phishing or social engineering techniques to capture others’ sensitive information, and must not promote or link to malicious code - such as malware or spyware.
+
+Learn more
+
+Spam
+
+Ads must comply with the Community Standard on Spam.
+
+Learn more
+
+User Requests
+
+Requests for Removal of Business Assets must comply with the Community Standard on User Requests.
+
+Learn more
+
+
+
+
+
+
+Data use restrictions
+
+Ensure any ad data collected, received or derived from your Facebook or Instagram ad (“Meta advertising data”) is only shared with someone acting on your behalf, such as your service provider. You are responsible for ensuring your service providers protect any Meta advertising data or any obtained from us, limit their use of all of that information, and keep it confidential and secure.
+
+Don’t use Meta advertising data for any purpose (including retargeting, commingling data across multiple advertisers’ campaigns, or allowing piggybacking or redirecting with tags), except on an aggregate and anonymous basis (unless authorized by Meta) and only to assess the performance and effectiveness of your Meta advertising campaigns.
+
+Don’t use Meta advertising data, including the targeting criteria for your ad, to build, append to, edit, influence, or augment user profiles, including profiles associated with any mobile device identifier or other unique identifier that identifies any particular user, browser, computer or device.
+
+Don't transfer any Meta advertising data (including anonymous, aggregate, or derived data) to any ad network, ad exchange, data broker or other advertising or monetization related service.
+
+
+
+
+
+
+Things you should know
+
+The Advertising Policies apply to (1) ads and commercial content served by or purchased through Meta, on or off the Meta services, including ads purchased under AAAA/IAB Standard Terms and Conditions, (2) ads appearing within apps on Meta, and (3) ads on Instagram. Your use of Meta’s advertising products and services is part of “Meta” under Meta’s Statement of Rights and Responsibilities (https://www.facebook.com/legal/terms , the “SRR”) and is subject to the SRR. You may be subject to additional terms or guidelines if you use Instagram or certain Meta advertising-related products or services.
+
+Advertisers are responsible for understanding and complying with all applicable laws and regulations. Failure to comply may result in a variety of consequences, including the cancellation of ads you have placed and termination of your account.
+
+We do not use sensitive personal data for ad targeting. Topics you choose for targeting your ad don't reflect the personal beliefs, characteristics or values of the people who use Facebook or Instagram.
+
+Once displayed, ads are public information. Ads may be re-shared and accessed outside of the targeted audience, including from the Facebook Page running the ads or within Meta Products. If users have interacted with your ad, your ad may remain on Meta products (for example, shared until the users delete it or visible to users through their account tools). If your ad is a political ad, it will be displayed in our Ad Library. This means that Meta may display (at no cost to you) and provide access to the ad content and creative, as well as information about the ad campaign (such as total spend and delivery data) for a period of seven (7) years from the completion of your order. Meta may disclose your advertising content, and all information associated with your advertising, to a governmental entity or body if Meta believes that disclosure would assist in a lawful investigation.
+
+If you are managing ads on behalf of other advertisers, each advertiser or client must be managed through separate ad accounts. You must not change the advertiser or client associated with an established ad account; set up a new account. You are responsible for ensuring that each advertiser complies with these Advertising Policies. In addition, if you are managing ads on behalf of other advertisers you must also comply with our Ads policies that apply to all ad buying solutions.
+
+As stated in our Community Standards, you must not sell, rent, buy or exchange site privileges, such as administrative access, for assets that belong to you or that you manage. Helping anyone evade or circumvent our enforcement of our policies or terms of service is also prohibited.
+
+We reserve the right to reject, approve or remove any ad for any reason, in our sole discretion, including ads that negatively affect our relationship with our users or that promote content, services, or activities, contrary to our competitive position, interests, or advertising philosophy.
+
+For policies that require prior written permission, Meta may grant these permissions.
+
+These policies are subject to change at any time without notice.
+
+
+Transparency requirements under the EU Digital Services Act
+
+Meta is required by EU law to ensure that its users located in the EU, and associated territories, are able to identify certain information about each ad that they see, including information about the natural or legal person on whose behalf the advertisement is presented and the natural or legal person who is paying for the ad (if different). In order for Meta to be able to meet its obligations, when creating an ad, you are required to provide the following information in the associated text fields:
+
+Beneficiary field: the full legal name of the person, company, business, charity or institution on whose behalf your ad is being presented.
+
+Payor field (if different from above): the full legal name of the person, company, business, charity or institution who paid for the ad.
+
+You are responsible for ensuring that this information is complete, accurate and up-to-date for each ad that you submit to Meta, and that it remains so for the entirety of the period during which the ad is running.
+
+Learn more.

@@ -1,0 +1,32 @@
+STRATEGY_NAME: HarmonicVolatility
+
+STRATEGY_DETAILS:
+The HarmonicVolatility strategy is designed to identify trading opportunities using Harmonic Volatility Bands, which are a unique combination of harmonic patterns and volatility-based bands. This strategy focuses on capturing price movements within defined volatility ranges while leveraging harmonic patterns for precise entry and exit points.
+
+### Key Strategy Components:
+1. **Harmonic Volatility Bands**: These bands are created by combining harmonic price patterns with volatility measurements. The bands adjust dynamically based on market volatility, providing a clear range for potential price movements.
+2. **Harmonic Patterns**: Specific price patterns (e.g., Gartley, Butterfly, Crab) are used to identify potential reversal zones within the volatility bands.
+3. **Volatility Measurement**: A volatility indicator (e.g., ATR or Bollinger Bands) is used to define the width of the bands, ensuring they adapt to changing market conditions.
+
+### Entry Rules:
+1. **Pattern Confirmation**: Wait for a harmonic pattern (e.g., Gartley or Butterfly) to form within the Harmonic Volatility Bands.
+2. **Price Rejection**: Look for price rejection (e.g., wicks or pin bars) at the completion point of the harmonic pattern within the bands.
+3. **Volatility Confirmation**: Ensure the volatility bands are not excessively wide, indicating stable market conditions.
+4. **Entry Signal**: Enter a trade when the price confirms the harmonic pattern and shows a reversal signal (e.g., bullish/bearish engulfing or divergence).
+
+### Exit Rules:
+1. **Target Levels**: Set profit targets at the next harmonic level or a predefined risk-reward ratio (e.g., 1:2 or 1:3).
+2. **Stop Loss**: Place a stop loss just outside the Harmonic Volatility Band or below/above the recent swing high/low.
+3. **Volatility Exit**: Exit the trade if the volatility bands expand significantly, indicating increased market uncertainty.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of your trading capital (e.g., 1-2%) per trade to manage risk.
+2. **Risk-Reward Ratio**: Aim for a minimum risk-reward ratio of 1:2 to ensure profitable trades outweigh losses.
+3. **Volatility Filter**: Avoid trading during periods of extreme volatility (e.g., news events) when the bands may become unreliable.
+
+### Required Indicators:
+1. **Harmonic Pattern Scanner**: A tool or indicator to identify harmonic patterns (e.g., Gartley, Butterfly, Crab).
+2. **Volatility Bands**: Custom bands based on ATR or Bollinger Bands to define the Harmonic Volatility Bands.
+3. **Price Action Tools**: Candlestick patterns (e.g., pin bars, engulfing) or divergence indicators for confirmation signals.
+
+The HarmonicVolatility strategy is ideal for traders who want to combine the precision of harmonic patterns with the adaptability of volatility-based bands, providing a structured approach to trading in dynamic market conditions.

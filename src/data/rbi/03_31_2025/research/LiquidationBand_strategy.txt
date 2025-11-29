@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationBand  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Liquidation Clusters:** Focuses on areas where high liquidations occur, typically near Bollinger Band extremes, indicating potential exhaustion points.  
+2. **Bollinger Band Extremes:** Uses standard deviation-based Bollinger Bands to identify overbought/oversold zones where price may reverse.  
+3. **Price Rejection:** Entries are triggered when price shows clear rejection (e.g., wicks, engulfing patterns) from these extreme zones.  
+4. **ADR-Based Exits:** Average Daily Range (ADR) is used to gauge volatility contraction, signaling when momentum fades and it’s time to exit.  
+
+**Entry Rules:**  
+- **Long Entry:** When price touches or breaches the lower Bollinger Band and forms a bullish rejection candle (e.g., hammer, bullish engulfing) amid high liquidation clusters.  
+- **Short Entry:** When price touches or breaches the upper Bollinger Band and forms a bearish rejection candle (e.g., shooting star, bearish engulfing) amid high liquidation clusters.  
+- **Confirmation:** Wait for the candle to close to confirm rejection.  
+
+**Exit Rules:**  
+- **Profit Target:** Partial exits at 1x ADR, full exit if volatility contracts (ADR drops significantly from entry levels).  
+- **Stop Loss:** Placed just beyond the Bollinger Band extreme (e.g., 1.5x the band width for buffer).  
+
+**Risk Management:**  
+- Position sizing based on 1-2% risk per trade.  
+- Avoid trading during major news events to prevent false liquidation spikes.  
+- Monitor liquidation heatmaps (if available) for additional confirmation.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 Std Dev).  
+2. ADR (14-period for volatility reference).  
+3. Liquidation data (from exchanges or third-party tools like Coinglass).  
+
+**Unique Edge:** Combines liquidation-driven sentiment with Bollinger Band mechanics, targeting exhaustion moves rather than pure momentum. Exits are volatility-adaptive, reducing risk in choppy markets.  
+
+**Note:** Works best in trending markets with clear liquidity pools. Avoid ranging conditions where Bollinger Bands may give false signals.

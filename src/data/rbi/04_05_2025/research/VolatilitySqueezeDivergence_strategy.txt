@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolatilitySqueezeDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction:** The strategy focuses on periods of low volatility (contraction) as identified by narrowing Bollinger Bands, which often precede significant price movements.  
+2. **Funding Rate Extremes:** Utilizes perpetual futures funding rates to identify overextended market sentiment. Extreme funding rates (either positive or negative) indicate potential reversals or continuations.  
+3. **Divergence Confirmation:** Looks for divergence between price action and funding rates to confirm trade entries. For example, if funding rates are extremely positive (indicating excessive long positioning) but price fails to make higher highs, it signals a potential short opportunity.  
+4. **Bollinger Band Breakout:** Entries are triggered when price breaks out of the Bollinger Bands, confirming the end of the volatility contraction phase.  
+
+**Entry Rules:**  
+1. **Identify Volatility Contraction:** Wait for Bollinger Bands to narrow significantly (contraction phase).  
+2. **Check Funding Rate Extremes:** Ensure the funding rate is at an extreme level (e.g., > 0.1% for longs or < -0.1% for shorts).  
+3. **Divergence Confirmation:** Look for divergence between price and funding rates (e.g., price making lower lows while funding rates are rising, indicating weakening downside momentum).  
+4. **Breakout Trigger:** Enter the trade when price breaks out of the Bollinger Bands in the direction opposite to the funding rate extreme (e.g., short if funding rates are extremely positive and price breaks below the lower band).  
+
+**Exit Rules:**  
+1. **Profit Target:** Use a multiple of the Bollinger Band width (e.g., 1.5x the band width at the time of entry) or a fixed risk-reward ratio (e.g., 2:1).  
+2. **Stop Loss:** Place a stop loss just outside the opposite Bollinger Band or at a recent swing high/low.  
+3. **Funding Rate Normalization:** Exit the trade if funding rates return to neutral levels, indicating reduced sentiment extremes.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop Loss:** Always use a stop loss to limit downside.  
+3. **Avoid Overlapping Trades:** Do not enter multiple trades in the same direction during the same volatility contraction phase.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 standard deviations):** To identify volatility contractions and breakout points.  
+2. **Funding Rate Indicator:** To monitor perpetual futures funding rates and identify extremes.  
+3. **Price Chart:** To spot divergences between price action and funding rates.  
+
+**Additional Notes:**  
+- This strategy works best in trending markets where volatility contractions are followed by strong directional moves.  
+- Avoid trading during low-liquidity periods or when funding rates are neutral, as the edge diminishes.  
+- Backtest the strategy across multiple assets and timeframes to validate its robustness.  
+
+Remember: The uniqueness of this strategy lies in combining volatility contractions with funding rate divergences, providing a high-probability edge in mean-reversion or breakout scenarios.

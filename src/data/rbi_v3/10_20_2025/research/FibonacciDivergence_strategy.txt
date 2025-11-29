@@ -1,0 +1,47 @@
+STRATEGY_NAME: FibonacciDivergence
+
+STRATEGY_DETAILS:
+
+### Overview
+This strategy, named FibonacciDivergence, leverages the confluence of technical indicators to identify high-probability reversal or continuation trades. It focuses on spotting divergences between the Relative Strength Index (RSI) and price action specifically when the price is retracing to a key Fibonacci level. Trades are entered in the direction of the detected divergence (bullish or bearish), emphasizing mean-reversion or momentum shifts at support/resistance zones defined by Fibonacci retracements. Exits are managed using volatility-based targets derived from Average True Range (ATR) multiples, promoting disciplined risk-reward ratios. The strategy is suitable for trending markets on timeframes like 1H, 4H, or daily charts, where Fibonacci levels act as dynamic filters to reduce false signals.
+
+### Key Strategy Components
+1. **RSI Divergence Detection**: The core signal generator. Divergence occurs when price makes a new high/low, but RSI fails to confirm it (e.g., price higher high with RSI lower high for bearish divergence, or vice versa for bullish). This indicates weakening momentum and potential reversal.
+2. **Fibonacci Retracement Filter**: Price must be at a significant Fibonacci retracement level (typically 38.2%, 50%, or 61.8%) of the prior swing high/low. This acts as a confluence zone, confirming the divergence's validity by aligning it with natural support/resistance.
+3. **ATR for Exits**: Volatility measure to set dynamic profit targets and stops, ensuring exits adapt to market conditions rather than fixed percentages.
+4. **Market Context**: Best applied in the direction of the overall trend (e.g., use bullish divergence in uptrends). Avoid choppy or ranging markets where divergences are less reliable.
+
+### Required Indicators
+- **RSI (Relative Strength Index)**: Period 14 (standard). Use on the same timeframe as price chart. Look for divergences visually or via oscillator plots.
+- **Fibonacci Retracement Tool**: Manually drawn from the most recent swing high to swing low (or vice versa) to identify retracement levels. Key levels: 38.2%, 50%, 61.8%. No specific oscillator needed; this is a drawing tool in most platforms like TradingView or MT4.
+- **ATR (Average True Range)**: Period 14. Used for calculating exit distances (e.g., 2x ATR for targets, 1x ATR for stops).
+- **Optional Confirmation**: A simple moving average (e.g., 200-period SMA) to confirm trend direction, ensuring trades align with the broader market bias.
+
+### Entry Rules
+1. **Identify the Trend and Swing**: Determine the primary trend (uptrend for long bias, downtrend for short). Identify the anchor swing: from recent swing low to high (uptrend) or high to low (downtrend).
+2. **Draw Fibonacci Levels**: Apply the Fibonacci retracement tool to the swing. Wait for price to pull back and touch or closely approach a key level (38.2%, 50%, or 61.8%) with a wick or body close.
+3. **Spot RSI Divergence**:
+   - **Bullish Divergence (Long Entry)**: Price makes a lower low at the Fib level, but RSI makes a higher low. Enter long if price closes above the Fib level or shows bullish confirmation (e.g., candlestick reversal like hammer).
+   - **Bearish Divergence (Short Entry)**: Price makes a higher high at the Fib level, but RSI makes a lower high. Enter short if price closes below the Fib level or shows bearish confirmation (e.g., shooting star).
+4. **Entry Trigger**: Enter on the close of the confirmation candle after divergence and Fib touch. Position size: Risk no more than 1-2% of account per trade.
+5. **Filters to Avoid Entries**:
+   - No entry if divergence is not clear (e.g., RSI within 20-80 neutral zone without extremes).
+   - Skip if price overshoots Fib levels significantly (>5% beyond).
+   - Require volume increase or candlestick confirmation for higher conviction.
+
+### Exit Rules
+1. **Profit Targets**: Use ATR multiples for dynamic scaling.
+   - Primary Target: 2x ATR from entry price (e.g., for long: entry + 2*ATR).
+   - Secondary Target (Partial Exit): Scale out 50% of position at 1.5x ATR, let the rest run to 3x ATR if momentum continues.
+   - Trail stops: After hitting 1x ATR profit, move stop to breakeven + 0.5x ATR.
+2. **Stop Loss**: Place initial stop at 1x ATR beyond the Fib level or recent swing extreme (whichever is tighter). For longs: below the Fib low; for shorts: above the Fib high. This caps risk at ~1-2% per trade.
+3. **Time-Based or Reversal Exit**: If no target hit within 5-10 bars (depending on timeframe), exit to avoid stagnation. Exit early if opposite divergence forms or price breaks the next Fib extension level (e.g., 127.2%).
+
+### Risk Management
+- **Position Sizing**: Calculate based on stop distance. Risk = (Account Balance * 1-2%) / (Entry - Stop Distance). Never risk more than 2% on a single trade; max 5% total open risk.
+- **Risk-Reward Ratio**: Aim for at least 1:2 (stop at 1x ATR, target at 2x ATR), ensuring positive expectancy over multiple trades.
+- **Trade Frequency and Drawdown Control**: Limit to 1-2 open trades at a time. Pause trading after 3 consecutive losses or if drawdown exceeds 5%. Backtest on historical data to validate (e.g., win rate ~40-60% with strong R:R).
+- **Market Conditions**: Avoid high-impact news events (e.g., NFP) as they can invalidate Fib levels. Use in liquid assets like forex majors (EUR/USD), indices (SPX), or stocks with clear trends.
+- **Psychological Notes**: Journal trades to track divergence quality at Fib levels. This strategy's edge comes from confluence, so patience is key—wait for all conditions to align to minimize whipsaws.
+
+This strategy emphasizes precision through multi-indicator confluence, making it more robust than standalone RSI divergence trading. Implement on a demo account first to fine-tune parameters like RSI period or ATR multiples based on the asset.

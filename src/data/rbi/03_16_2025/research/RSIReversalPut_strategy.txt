@@ -1,0 +1,32 @@
+STRATEGY_NAME: RSIReversalPut
+
+STRATEGY_DETAILS:
+The RSIReversalPut strategy is a mean-reversion approach that focuses on identifying oversold conditions in the market using the Relative Strength Index (RSI) and capitalizing on potential price reversals through put options. This strategy is designed for bearish scenarios where the market is expected to reverse from oversold conditions.
+
+### Key Strategy Components:
+1. **RSI Indicator**: The Relative Strength Index (RSI) is used to identify oversold conditions. A reading below 30 indicates that the asset is potentially oversold and may be due for a reversal.
+2. **Put Option**: A put option is purchased with a strike price set at 10% below the current market price. This provides downside protection and allows for profit if the price continues to fall.
+3. **Time Frame**: The strategy looks for RSI readings below 30 within the past week, ensuring that the oversold condition is recent and relevant.
+
+### Entry Rules:
+1. **Condition**: The RSI must fall below 30 within the past week.
+2. **Action**: Buy a put option with a strike price set at 10% below the current market price.
+
+### Exit Rules:
+1. **Target Profit**: The target profit is the difference between the strike price of the put option and the new low price reached after the entry.
+2. **Stop Loss**: Consider setting a stop loss if the price moves against the position, such as if the RSI moves back above 30 or if the price moves significantly above the strike price.
+
+### Risk Management:
+1. **Position Sizing**: Allocate only a small portion of the portfolio to each trade to manage risk.
+2. **Diversification**: Avoid concentrating all positions in a single asset or sector.
+3. **Stop Loss**: Implement a stop loss to limit potential losses if the market does not reverse as expected.
+
+### Required Indicators:
+1. **RSI (Relative Strength Index)**: Used to identify oversold conditions.
+2. **Price Chart**: To monitor the current price and set the strike price for the put option.
+
+### Additional Considerations:
+- **Volatility**: Consider the implied volatility of the options, as higher volatility can increase the cost of the put option.
+- **Expiration Date**: Choose an expiration date that provides enough time for the expected reversal to occur but not so far out that time decay significantly impacts the option's value.
+
+This strategy is best suited for traders who are comfortable with options trading and have a good understanding of technical indicators like RSI. It is particularly effective in markets that exhibit mean-reverting behavior.

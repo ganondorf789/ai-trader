@@ -1,0 +1,43 @@
+STRATEGY_NAME: SqueezeBreakoutEMA
+
+STRATEGY_DETAILS:
+This strategy combines multiple technical indicators to identify high-probability breakout opportunities during periods of consolidation, using EMA crossovers, Bollinger Band squeezes, and volume spikes as key confirmation signals.
+
+Key Components:
+1. EMA Crossover Foundation: Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as the primary trend confirmation
+2. Bollinger Band Squeeze: Identifies periods of low volatility preceding potential breakouts
+3. Volume Spike: Requires 2x the 20-day average volume for confirmation
+4. Breakout Entry: Triggers when price breaks out from the squeeze pattern
+
+Entry Rules:
+1. Wait for the 50-EMA to cross above the 200-EMA (Golden Cross formation)
+2. Confirm Bollinger Band squeeze (bands within 20% of their narrowest width in past 50 periods)
+3. Enter long when price breaks above upper Bollinger Band
+4. Volume must be at least 2x the 20-day average volume at breakout
+
+Exit Rules:
+1. Take Profit: 
+   - Primary: 2x the Bollinger Band width at time of breakout
+   - Secondary: When price closes below the 50-EMA
+2. Stop Loss: 
+   - Below the lower Bollinger Band at time of entry
+   - Or below the most recent swing low before breakout
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Risk-reward ratio minimum 1:2
+3. Avoid trading during major economic news events
+4. Filter out low-volume breakouts (must meet 2x volume requirement)
+
+Required Indicators:
+1. 50-period Exponential Moving Average (EMA)
+2. 200-period Exponential Moving Average (EMA)
+3. Bollinger Bands (20-period, 2 standard deviations)
+4. 20-day Volume Average
+
+Additional Notes:
+- Works best on daily or 4-hour timeframes
+- Most effective in trending markets following periods of consolidation
+- Requires patience as squeeze formations may take time to develop
+- Combine with fundamental analysis for higher probability trades
+- Backtest parameters for specific instruments as volatility characteristics vary

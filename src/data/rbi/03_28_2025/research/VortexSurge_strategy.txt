@@ -1,0 +1,38 @@
+STRATEGY_NAME: VortexSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):**  
+   - Tracks directional movement via VI+ (bullish) and VI- (bearish) lines.  
+   - Primary signal: VI+ crossing above VI- indicates bullish momentum.  
+2. **Volume Surge:**  
+   - Confirms strength behind the VI crossover when volume exceeds the 20-day average.  
+3. **ATR-Based Exit:**  
+   - Uses the 14-day Average True Range (ATR) to set a dynamic profit target (1.5x ATR).  
+   - Exit also triggered if VI+ crosses back below VI- (reversal signal).  
+
+**Entry Rules:**  
+- Enter long when:  
+  1. VI+ crosses above VI- (bullish crossover).  
+  2. Current volume > 20-day average volume (confirmation).  
+
+**Exit Rules:**  
+- Close position if:  
+  1. VI+ crosses back below VI- (momentum reversal).  
+  2. Price reaches 1.5x the 14-day ATR from entry (profit-taking).  
+
+**Risk Management:**  
+- Stop-loss: Not explicitly defined; rely on VI reversal or ATR target.  
+- Position sizing: Adjust based on ATR to account for volatility (e.g., risk 1-2% of capital per trade).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. 20-day moving average of volume.  
+3. 14-day Average True Range (ATR).  
+
+**Unique Edge:**  
+- Combines directional momentum (VI) with volume confirmation, reducing false breakouts.  
+- Dynamic exit via ATR adapts to market volatility, locking in gains during strong trends.  
+
+**Note:** Works best in trending markets; may underperform in choppy/range-bound conditions.

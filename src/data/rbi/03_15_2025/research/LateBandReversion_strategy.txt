@@ -1,0 +1,40 @@
+STRATEGY_NAME: LateBandReversion
+
+STRATEGY_DETAILS:
+The LateBandReversion strategy is a mean-reversion approach designed to capitalize on overextended price movements during late-day trading sessions. It uses Bollinger Bands as the primary indicator to identify potential reversal opportunities when prices breach the upper or lower bands.
+
+Key Strategy Components:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Late-day session timing (last 2 hours of trading)
+3. Mean-reversion logic
+4. Band-based exit signals
+
+Entry Rules:
+1. Identify the last 2 hours of the trading session
+2. Wait for price to breach the upper Bollinger Band
+3. Enter a short position when the breach occurs
+4. (Optional) For long positions, wait for price to breach the lower Bollinger Band
+
+Exit Rules:
+1. For short positions: Exit when price closes below the upper Bollinger Band
+2. For long positions: Exit when price closes above the lower Bollinger Band
+3. Implement a time-based exit at market close if no signal occurs
+
+Risk Management:
+1. Set a stop-loss at 1.5x the average true range (ATR) from entry point
+2. Use position sizing based on 1% risk per trade
+3. Avoid trading during high-impact news events
+4. Limit trades to 2 per session (1 long, 1 short)
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Average True Range (14) for stop-loss calculation
+3. Session timing indicator (to identify last 2 hours)
+
+Additional Considerations:
+- Backtest on multiple timeframes (15min, 30min, 1hr)
+- Focus on liquid assets with tight spreads
+- Monitor volume during late sessions for confirmation
+- Consider adding RSI (14) as a confirmation filter (overbought/oversold)
+
+This strategy is particularly effective in range-bound markets and during periods of low volatility expansion. The late-day focus helps capture institutional rebalancing and profit-taking moves that often create mean-reversion opportunities.

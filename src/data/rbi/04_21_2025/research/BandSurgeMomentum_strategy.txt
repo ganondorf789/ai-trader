@@ -1,0 +1,41 @@
+STRATEGY_NAME: BandSurge Momentum
+
+STRATEGY_DETAILS:
+This is a momentum-based breakout strategy that combines Bollinger Band volatility with ADX trend strength confirmation and RSI-based exit signals. The strategy capitalizes on strong trending moves while filtering out false breakouts.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 standard deviations) - Identifies volatility expansion
+2. ADX (14-period) - Confirms trend strength
+3. RSI (2-period) - Provides overbought exit signals
+
+Entry Rules:
+1. Primary Condition: Price must close above the upper Bollinger Band
+2. Confirmation: ADX must be rising and cross above 25 on the same bar
+3. Entry Execution: Enter long at market on next open after conditions are met
+
+Exit Rules:
+1. Profit Taking: Exit when 2-period RSI crosses below 70
+2. Stop Loss: Optional trailing stop can be set at the middle Bollinger Band (20-period SMA)
+
+Risk Management:
+1. Position sizing should be based on volatility (consider using ATR for sizing)
+2. Maximum risk per trade typically 1-2% of capital
+3. Avoid trading during low ADX periods (<25) to prevent false breakouts
+4. Consider implementing a time-based exit if RSI doesn't trigger (e.g., 5-10 bars)
+
+Indicator Settings:
+- Bollinger Bands: 20 periods, 2 standard deviations
+- ADX: 14 periods (standard setting)
+- RSI: 2 periods (ultra-short for exit signals)
+
+Additional Notes:
+1. Works best in trending markets with clear directional bias
+2. May generate false signals during ranging/choppy markets
+3. Best applied to liquid instruments with strong momentum characteristics
+4. Consider combining with volume confirmation for additional validation
+5. Timeframe applicability: 1-hour charts and above recommended for reliability
+
+Optimization Considerations:
+1. ADX threshold could be adjusted between 20-30 based on instrument volatility
+2. Bollinger Band period could be tested between 15-25 periods
+3. RSI exit level could be tested between 65-75 for sensitivity adjustment

@@ -1,0 +1,38 @@
+STRATEGY_NAME: DeltaBand Breakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction patterns with negative delta volume divergence to identify high-probability breakout opportunities. The unique aspect lies in requiring both technical contraction and volume-based confirmation before entering trades.
+
+Key Components:
+1. Bollinger Band Contraction: Measures periods of low volatility where bands tighten significantly
+2. Negative Delta Volume Divergence: Identifies when price moves opposite to volume flow
+3. Volatility Threshold: Defines exit conditions based on reduced momentum
+
+Entry Rules:
+1. Wait for Bollinger Band contraction (bands within X% of each other for Y periods)
+2. Confirm negative delta volume divergence (price rising while delta volume decreases)
+3. Enter long on breakout above upper band OR short below lower band
+4. Require minimum volume surge of Z% above average
+
+Exit Rules:
+1. Close position when volatility contracts below threshold (bands narrow to W% of breakout width)
+2. Secondary exit if price returns inside bands for N consecutive periods
+3. Emergency stop at X% below entry for longs or above entry for shorts
+
+Risk Management:
+1. Position size based on band width at entry (wider bands = smaller position)
+2. Maximum risk per trade limited to Y% of capital
+3. No new entries if last 3 trades were losers
+
+Required Indicators:
+1. Bollinger Bands (20 period, 2 std dev recommended)
+2. Delta Volume indicator (showing cumulative buying/selling pressure)
+3. Volatility contraction measurement tool
+4. Volume moving average (for surge detection)
+
+Optimization Notes:
+- Test different contraction thresholds (X%) for various instruments
+- Adjust volume surge requirements (Z%) based on market liquidity
+- Fine-tune volatility exit thresholds (W%) to balance profit capture vs premature exits
+
+This strategy excels in ranging markets transitioning to trends, using the unique combination of volume divergence and volatility patterns to filter false breakouts. The delta volume component adds a layer of confirmation missing from standard Bollinger Band strategies.

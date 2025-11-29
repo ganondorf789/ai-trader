@@ -1,0 +1,43 @@
+STRATEGY_NAME: MomentumBreakoutADX
+
+STRATEGY_DETAILS:
+This strategy combines trend confirmation, momentum strength, and volatility-based risk management to identify high-probability breakout opportunities. Here's the detailed breakdown:
+
+1. KEY COMPONENTS:
+- Trend Identification: Uses the 50/200 EMA crossover as the primary trend filter
+- Momentum Confirmation: Requires ADX > 25 to validate trend strength
+- Volatility Adjustment: Uses ATR for dynamic position sizing and stop placement
+- Reward Optimization: Targets 3:1 profit ratio while limiting downside
+
+2. ENTRY RULES:
+- Primary Condition: 50-period EMA must cross ABOVE 200-period EMA
+- Secondary Condition: ADX must be rising and > 25 (indicating strong trend)
+- Entry Trigger: Price breaks above nearest swing high (for long positions)
+- Confirmation: Volume should ideally increase on the breakout
+
+3. EXIT RULES:
+- Stop Loss: 2x ATR below entry price (adjusted daily)
+- Take Profit: 3x the risk amount (6x ATR above entry)
+- Emergency Exit: If ADX falls below 20 (trend weakening)
+- Time Exit: Close position if target not hit within 5 bars
+
+4. RISK MANAGEMENT:
+- Position Size: 1-2% of capital per trade
+- Maximum Drawdown: 5% of account per week
+- Trade Filter: Only trade when ATR > 1.5x 20-period average (volatility expansion)
+- Correlation Limit: No more than 3 similar positions open simultaneously
+
+5. REQUIRED INDICATORS:
+- 50-period Exponential Moving Average (EMA)
+- 200-period EMA
+- ADX (14-period) with +DI/-DI lines
+- ATR (14-period)
+- Volume indicator (optional but recommended)
+
+6. OPTIMIZATION TIPS:
+- Test different EMA periods (e.g., 30/100) for various timeframes
+- Adjust ADX threshold based on asset volatility (25-30 range)
+- Consider using closing prices vs. intraday highs for breakouts
+- Backtest different ATR multiples (1.5-2.5x) for stop placement
+
+This strategy works best in trending markets on daily or 4-hour timeframes, and requires patience to wait for all conditions to align properly. The combination of trend confirmation, momentum measurement, and volatility-adjusted stops creates a systematic approach to breakout trading.

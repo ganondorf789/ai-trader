@@ -1,0 +1,40 @@
+STRATEGY_NAME: BandwidthBreakout
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Focuses on identifying consolidation periods through Bollinger Band width contraction
+- Uses volume surge (above 20-period average) as confirmation signal
+- Trades breakouts when price closes outside Bollinger Bands
+- Employs dynamic 2x ATR trailing stops for exit management
+
+2. Entry Rules:
+- Wait for Bollinger Band width to narrow significantly (indicating consolidation)
+- Monitor for volume spike exceeding 20-period moving average
+- Enter long when price closes above upper Bollinger Band
+- Enter short when price closes below lower Bollinger Band
+- Both conditions (band breakout + volume confirmation) must be met
+
+3. Exit Rules:
+- Initial stop placed at 2x ATR from entry point
+- Trailing stop maintains 2x ATR distance as trade progresses
+- Exit when price touches the trailing stop level
+- No profit targets - let the trailing stop capture maximum trend potential
+
+4. Risk Management:
+- Position size should be calculated based on stop distance and account risk tolerance
+- Maximum risk per trade typically 1-2% of account
+- Avoid trading during major news events that may cause false breakouts
+- Consider implementing a maximum holding period if desired
+
+5. Required Indicators:
+- Bollinger Bands (standard 20-period, 2 standard deviation settings)
+- Bollinger Band Width indicator (to measure contraction)
+- Volume indicator with 20-period moving average
+- Average True Range (ATR, 14-period recommended) for stop calculation
+
+6. Additional Notes:
+- Works best on 1-hour or 4-hour timeframes for swing trading
+- More reliable in trending market conditions
+- Requires patience to wait for proper setups (narrow bands + volume confirmation)
+- Backtest suggested for parameter optimization on specific instruments
+- Consider filtering trades with overall market direction for improved performance

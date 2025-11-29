@@ -1,0 +1,43 @@
+STRATEGY_NAME: VortexMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Identifies trend direction and strength.  
+2. **Chaikin Money Flow (CMF):** Measures volume-backed momentum to confirm divergence.  
+3. **Divergence Detection:** Looks for discrepancies between price action and CMF to signal potential reversals or continuations.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - VI+ crosses above VI- (bullish trend confirmation).  
+  - CMF is above zero and showing bullish divergence (rising CMF while price is flat/declining).  
+- **Short Entry:**  
+  - VI- crosses above VI+ (bearish trend confirmation).  
+  - CMF is below zero and showing bearish divergence (falling CMF while price is flat/rising).  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  - VI- crosses above VI+ (trend reversal signal).  
+  - CMF drops below a predefined threshold (e.g., -0.1) indicating weakening momentum.  
+- **Short Exit:**  
+  - VI+ crosses above VI- (trend reversal signal).  
+  - CMF rises above a predefined threshold (e.g., +0.1) indicating weakening bearish momentum.  
+
+**Risk Management:**  
+- Set stop-loss orders based on recent swing highs/lows or ATR (Average True Range) multiples.  
+- Position sizing should align with account risk tolerance (e.g., 1-2% per trade).  
+- Avoid trading during low-volume periods to reduce false signals.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)** – For trend direction and strength.  
+2. **Chaikin Money Flow (CMF, 20-period default)** – For volume-backed momentum confirmation.  
+3. **Optional but Recommended:**  
+   - ATR for dynamic stop-loss placement.  
+   - Volume indicator to filter low-liquidity conditions.  
+
+**Additional Notes:**  
+- Works best on 1H or 4H timeframes for swing trading.  
+- Avoid ranging markets; use ADX (above 25) to confirm trending conditions if needed.  
+- Backtest optimal CMF thresholds (e.g., ±0.1 to ±0.2) for your asset class.  
+
+This strategy combines trend-following (Vortex) with volume-based momentum (CMF divergence) for high-probability entries and disciplined exits.

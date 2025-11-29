@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 Moon Dev: Initialized DifferentialCrossover Strategy \u2728\n\ud83c\udf19 Moon Dev: Potential entry signal at 16854.21 \ud83d\ude80\n\ud83c\udf19 Moon Dev: LONG Entry! Price: 16854.21, Size: 30, SL: 16525.59, TP: 17511.46, Risk: 328.62 \u2728\ud83d\ude80\n\ud83d\ude80 Moon Dev: Exit on momentum reversal at 16824.61 \ud83c\udf19\n\ud83c\udf19 Moon Dev: Potential entry signal at 16843.46 \ud83d\ude80\n\ud83c\udf19 Moon Dev: LONG Entry! Price: 16843.46, Size: 51, SL: 16649.19, TP: 17232.00, Risk: 194.27 \u2728\ud83d\ude80\n\ud83d\ude80 Moon Dev: Exit on momentum reversal at 16912.21 \ud83c\udf19\n\ud83c\udf19 Moon Dev: Potential entry signal at 20759.5 \ud83d\ude80\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_final/DifferentialCrossover_BTFinal_v6.py\", line 124, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_final/DifferentialCrossover_BTFinal_v6.py\", line 109, in next\n    size = int(round(size))\nTypeError: type _Array doesn't define __round__ method\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_final/DifferentialCrossover_BTFinal_v6.py` failed. (See above for error)\n",
+  "execution_time": 1.207539,
+  "timestamp": "2025-10-20T11:24:38.844847"
+}

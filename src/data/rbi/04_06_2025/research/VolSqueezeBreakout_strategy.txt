@@ -1,0 +1,43 @@
+STRATEGY_NAME: VolSqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection:** The strategy identifies periods of extremely low volatility when Bollinger Bands contract to their narrowest width in the last 30 days. This signals a potential breakout opportunity.  
+2. **Breakout Confirmation:** A breakout is confirmed when price closes above the upper Bollinger Band (for long entries) or below the lower Bollinger Band (for short entries), accompanied by a volume spike exceeding the 20-day average volume.  
+3. **Volume Filter:** The volume spike acts as a confirmation filter to ensure the breakout has strong momentum and reduces false signals.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Band width (Upper Band - Lower Band) reaches its narrowest point in the last 30 days.  
+  2. Price closes above the upper Bollinger Band.  
+  3. Volume on the breakout candle exceeds the 20-day average volume.  
+- **Short Entry:**  
+  1. Bollinger Band width reaches its narrowest point in the last 30 days.  
+  2. Price closes below the lower Bollinger Band.  
+  3. Volume on the breakout candle exceeds the 20-day average volume.  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  1. Price closes below the middle line (20-period SMA) of the Bollinger Bands.  
+  2. Or, a trailing stop-loss is triggered (e.g., 2x the average true range (ATR) of the last 14 periods).  
+- **Short Exit:**  
+  1. Price closes above the middle line (20-period SMA) of the Bollinger Bands.  
+  2. Or, a trailing stop-loss is triggered (e.g., 2x the average true range (ATR) of the last 14 periods).  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of the trading capital per trade.  
+2. **Stop-Loss:** Initial stop-loss can be placed at the opposite Bollinger Band (for long trades, stop below the lower band; for short trades, stop above the upper band).  
+3. **Trailing Stop:** Use a dynamic trailing stop based on ATR or a percentage of the recent high/low to lock in profits.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period SMA, 2 standard deviations)** – To identify the squeeze and breakout levels.  
+2. **Volume (20-day average)** – To confirm breakout strength.  
+3. **Average True Range (ATR, 14-period)** – Optional for dynamic stop-loss placement.  
+
+**Additional Notes:**  
+- This strategy works best in trending markets after consolidation phases.  
+- Avoid trading during low-liquidity periods or major news events to reduce false breakouts.  
+- Backtest the strategy on multiple timeframes (e.g., 1H, 4H, Daily) to optimize parameters for different instruments.  
+
+The **VolSqueezeBreakout** strategy capitalizes on high-probability breakout opportunities after periods of compressed volatility, with volume acting as a key confirmation filter.

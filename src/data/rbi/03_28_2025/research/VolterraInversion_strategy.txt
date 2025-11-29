@@ -1,0 +1,41 @@
+STRATEGY_NAME: Volterra Inversion
+
+STRATEGY_DETAILS:
+The Volterra Inversion strategy capitalizes on volatility regime shifts by combining VIX futures term structure analysis with realized volatility metrics and Bollinger Bandwidth contraction signals.
+
+Key Components:
+1. VIX Futures Term Structure: Monitors for inversion (backwardation) in VIX futures contracts
+2. Realized Volatility: Tracks 5-day vs 20-day realized volatility relationship
+3. Bollinger Bandwidth: Measures market contraction using bandwidth percentiles
+
+Entry Rules:
+1. Primary Condition: VIX futures term structure must be inverted (front month > back month)
+2. Confirmation: 5-day realized volatility crosses below its 20-day average
+3. Timing: Enter long volatility positions (or short equity positions) when both conditions align
+
+Exit Rules:
+1. Bollinger Bandwidth (20,2) contracts below its 25th percentile level
+2. Alternative Exit: VIX term structure returns to contango (front month < back month)
+
+Risk Management:
+1. Position sizing based on volatility-adjusted risk units
+2. Hard stop-loss at 1.5x the average true range (ATR) of the underlying
+3. Maximum portfolio allocation of 5% to any single volatility trade
+
+Required Indicators:
+1. VIX futures term structure (front month vs next month)
+2. 5-day and 20-day realized volatility calculations
+3. Bollinger Bands (20,2) with bandwidth calculation
+4. Historical bandwidth percentile rankings
+5. Average True Range (ATR) for stop placement
+
+Special Considerations:
+- Most effective during market regime transitions
+- Requires monitoring of both spot VIX and futures
+- Works best on daily or higher timeframes
+- Complementary to equity portfolio hedging strategies
+
+Optimization Notes:
+- Backtest different bandwidth percentile thresholds (20th-30th)
+- Experiment with various realized volatility lookback periods
+- Consider adding volume confirmation for entries

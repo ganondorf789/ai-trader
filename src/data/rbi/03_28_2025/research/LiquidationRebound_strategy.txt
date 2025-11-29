@@ -1,0 +1,40 @@
+STRATEGY_NAME: LiquidationRebound  
+
+STRATEGY_DETAILS:  
+This strategy combines liquidation data analysis with Ichimoku Cloud confirmation to identify high-probability long entries in Bitcoin. The approach focuses on extreme liquidation events followed by price confirmation above a key technical level.  
+
+**Key Components:**  
+1. **Liquidation Threshold:** Uses 24-hour liquidation levels exceeding the 90th percentile (extreme market flush)  
+2. **Ichimoku Cloud Confirmation:** Requires price to rebound AND close above the Cloud (Kumo)  
+3. **Order Flow Context:** Incorporates hourly orderbook imbalance zones for stop placement  
+
+**Entry Rules:**  
+- LONG when BOTH conditions are met:  
+  (1) 24h liquidation levels > 90th percentile (historical extreme)  
+  (2) Price closes above Ichimoku Cloud (Tenkan/Kijun confirmed)  
+
+**Exit Rules:**  
+- Take Profit: At nearest Ichimoku Cloud resistance level  
+- Stop Loss: Below the most recent hourly orderbook imbalance zone  
+
+**Risk Management:**  
+1. Position sizing based on distance to stop level (1-2% risk per trade)  
+2. Must wait for candle CLOSE above Cloud to confirm rebound  
+3. Avoid entries when Cloud is excessively flat (weak trend)  
+
+**Required Indicators:**  
+1. Liquidation heatmap (90th percentile threshold)  
+2. Ichimoku Cloud (standard 9/26/52 settings)  
+3. Orderbook imbalance detector (1h timeframe)  
+
+**Unique Aspects:**  
+- Combines derivative market extremes (liquidations) with classical technicals  
+- Uses orderbook structure for precision stop placement  
+- Requires both statistical extreme AND technical confirmation  
+
+**Optimization Notes:**  
+- Backtest different percentile thresholds (85th-95th)  
+- Test alternative confirmation (e.g., Cloud cross vs. price above)  
+- Adjust stop placement based on volatility (ATR multiple)  
+
+This strategy excels in high-volatility environments where liquidations create overextended conditions, with the Ichimoku Cloud providing trend-filtered entries. The orderbook-based stops help avoid false breakouts while respecting market structure.

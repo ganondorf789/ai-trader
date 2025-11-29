@@ -1,0 +1,28 @@
+STRATEGY_NAME: LiquidationBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Zones:** The strategy identifies high liquidation zones via order book delta imbalances, indicating potential areas where stop-loss orders are densely clustered.  
+2. **Volatility Contraction Confirmation:** Uses a 4-hour ATR (Average True Range) dropping below its 10-period moving average to confirm reduced volatility before a breakout.  
+3. **Breakout Execution:** Enters trades when price approaches these liquidation zones and volatility contraction is confirmed, anticipating a breakout.  
+
+**Entry Rules:**  
+1. **Identify Liquidation Zones:** Use order book delta analysis to locate high liquidation clusters (areas with significant stop-loss orders).  
+2. **Volatility Confirmation:** Wait for the 4-hour ATR to drop below its 10-period moving average, signaling reduced volatility and potential breakout conditions.  
+3. **Price Approach:** Enter a long trade if price approaches the upper liquidation zone or a short trade if approaching the lower liquidation zone.  
+
+**Exit Rules:**  
+1. **Take-Profit:** Set a take-profit level at the next significant liquidity zone or a predefined risk-reward ratio (e.g., 2:1 or 3:1).  
+2. **Stop-Loss:** Place a stop-loss just beyond the opposite side of the liquidation zone to avoid being caught in false breakouts.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss Discipline:** Strictly adhere to stop-loss levels to mitigate losses during failed breakouts.  
+3. **Volatility Filter:** Avoid trading if the 4-hour ATR is above its moving average, as high volatility increases breakout failure risk.  
+
+**Required Indicators:**  
+1. **Order Book Delta Imbalance Analysis** (to identify liquidation clusters).  
+2. **4-hour ATR (Average True Range)** with a 10-period moving average (for volatility contraction confirmation).  
+
+This strategy combines liquidity analysis with volatility contraction to time high-probability breakout trades, focusing on areas where forced liquidations may trigger strong price movements.

@@ -1,0 +1,29 @@
+STRATEGY_NAME: VolumetricSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volume-Weighted Rate of Change (ROC):** Measures price momentum adjusted for trading volume over a 3-day period.  
+2. **Bollinger Bands:** Uses the midline (20-period SMA) as a dynamic reference for trend direction.  
+3. **Keltner Channel Squeeze:** Identifies low volatility periods when the Keltner Channel narrows, often preceding breakouts.  
+4. **ATR Trailing Stop:** Manages exits using a 2x ATR (Average True Range) trailing stop to capture trends while protecting profits.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  1. The Keltner Channel shows narrowing volatility (squeeze condition).  
+  2. The 3-day volume-weighted ROC crosses **above** the Bollinger Band midline (20-period SMA).  
+
+**Exit Rules:**  
+- **Trailing Stop Exit:** Close the position when price retraces **2x ATR** from its peak post-entry.  
+
+**Risk Management:**  
+- Position sizing should align with the ATR to limit risk (e.g., 1% of capital per trade).  
+- Avoid entries during high volatility (wide Keltner Channel) to reduce false signals.  
+
+**Required Indicators:**  
+1. Volume-Weighted ROC (3-day period).  
+2. Bollinger Bands (20-period SMA, 2 standard deviations).  
+3. Keltner Channel (20-period EMA, 1.5x ATR width).  
+4. ATR (14-period for trailing stop).  
+
+**Unique Edge:** Combines volume-confirmed momentum (ROC) with volatility contraction (squeeze) for high-probability breakouts, while the ATR trailing stop adapts to market conditions.

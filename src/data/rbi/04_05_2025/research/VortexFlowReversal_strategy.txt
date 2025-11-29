@@ -1,0 +1,45 @@
+STRATEGY_NAME: VortexFlow Reversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI)**: Used to confirm the prevailing trend direction.  
+   - **VI+ (Positive Vortex)**: Indicates bullish trend strength.  
+   - **VI- (Negative Vortex)**: Indicates bearish trend strength.  
+2. **Exchange Inflow/Outflow Volumes**: Tracks sudden surges in volume movements to/from exchanges, signaling potential reversals.  
+3. **Average True Range (ATR) Bands**: Dynamically adjusts stop-loss levels based on market volatility.  
+
+**Entry Rules:**  
+1. **Bullish Reversal Entry**:  
+   - VI+ crosses above VI- (bullish confirmation).  
+   - Surge in exchange inflow volume (indicating accumulation).  
+   - Price closes above the lower ATR band (volatility support).  
+2. **Bearish Reversal Entry**:  
+   - VI- crosses above VI+ (bearish confirmation).  
+   - Surge in exchange outflow volume (indicating distribution).  
+   - Price closes below the upper ATR band (volatility resistance).  
+
+**Exit Rules:**  
+1. **Take-Profit**:  
+   - Fixed risk-reward ratio (e.g., 2:1 or 3:1).  
+   - Or exit when VI+ and VI- converge (trend weakening).  
+2. **Stop-Loss**:  
+   - Bullish trade: Exit if price closes below the lower ATR band.  
+   - Bearish trade: Exit if price closes above the upper ATR band.  
+
+**Risk Management:**  
+1. Position sizing based on ATR (e.g., 1-2% risk per trade).  
+2. Avoid trading during low-volume periods to prevent false signals.  
+3. Filter entries with a minimum exchange volume threshold (e.g., 20% above 30-day average).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI).  
+2. Exchange Inflow/Outflow Volume data (e.g., from Glassnode, CryptoQuant).  
+3. Average True Range (ATR) with upper/lower bands (e.g., ATR * 1.5).  
+
+**Unique Aspects:**  
+- Combines trend confirmation (VI) with on-chain volume surges for high-probability reversals.  
+- Uses dynamic ATR bands for adaptive stop-loss placement.  
+- Focuses on exchange flows to detect institutional or whale activity.  
+
+**Note:** This strategy works best in volatile markets with clear trends. Backtest with multiple assets to validate robustness.

@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolumePulse Breakout
+
+STRATEGY_DETAILS:
+This strategy combines volume analysis with oversold oscillator conditions to identify high-probability breakout opportunities. The key components are:
+
+1. INDICATORS REQUIRED:
+- 20-period Volume Weighted Moving Average (VWMA)
+- 14-period Relative Strength Index (RSI)
+- Bollinger Bands (20,2)
+- Volume bars (standard or better volume profile)
+
+2. ENTRY CONDITIONS (ALL must be met):
+- Price must be in the lower Bollinger Band (below 20-period SMA)
+- RSI below 30 (oversold condition)
+- Current candle's volume exceeds VWMA by 150%
+- Price closes above the lower Bollinger Band
+- Confirmation: Next candle opens higher than previous close
+
+3. EXIT RULES:
+- Take Profit 1: 1.5x ATR (14) from entry (partial exit)
+- Take Profit 2: Upper Bollinger Band (full exit)
+- Stop Loss: Lower low of entry candle or 2% below entry (whichever is closer)
+
+4. RISK MANAGEMENT:
+- Position size limited to 2% of capital per trade
+- No new entries if 3 consecutive losing trades occur
+- Trade only during high volume hours (first 2 hours of session)
+- Maximum 5 open positions at any time
+
+5. FILTERS:
+- Only applies to assets with average daily volume > 1M shares
+- Avoid earnings announcement periods
+- Preferred timeframes: 15min - 4hr charts
+
+6. SPECIAL NOTES:
+- Works best in ranging markets with clear support/resistance
+- Avoid using during strong trending markets
+- Volume spike must be significant (minimum 150% of VWMA)
+- Combine with sector/industry strength for better results
+
+This strategy capitalizes on the explosive moves that often follow oversold conditions when accompanied by unusually high volume, suggesting institutional accumulation before a breakout. The volume confirmation helps filter out false oversold signals.

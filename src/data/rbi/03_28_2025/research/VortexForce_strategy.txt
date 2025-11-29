@@ -1,0 +1,37 @@
+STRATEGY_NAME: VortexForce  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Identifies trend direction and strength.  
+   - VI+ > VI- suggests bullish trend.  
+   - VI- > VI+ suggests bearish trend.  
+2. **Elder Force Index (EFI):** Measures volume-backed price movement to confirm divergence.  
+   - Bullish divergence: Price makes lower lows, EFI makes higher lows.  
+   - Bearish divergence: Price makes higher highs, EFI makes lower highs.  
+3. **Chande Momentum Oscillator (CMO):** Signals overbought/oversold conditions for exits.  
+   - Thresholds: 70 (overbought), 30 (oversold).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. VI+ crosses above VI- (bullish trend confirmation).  
+  2. EFI shows bullish divergence (rising EFI while price declines).  
+- **Short Entry:**  
+  1. VI- crosses above VI+ (bearish trend confirmation).  
+  2. EFI shows bearish divergence (falling EFI while price rallies).  
+
+**Exit Rules:**  
+- **Long Exit:** CMO crosses below 70 (overbought reversal).  
+- **Short Exit:** CMO crosses above 30 (oversold reversal).  
+
+**Risk Management:**  
+- Stop-loss: Place below recent swing low (long) or above swing high (short).  
+- Position sizing: Risk ≤1-2% of capital per trade.  
+- Avoid trading during low-volume periods to reduce false signals.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. Elder Force Index (EFI, typically 13-period).  
+3. Chande Momentum Oscillator (CMO, 20-period).  
+
+**Unique Edge:** Combines trend (Vortex), volume (EFI), and momentum (CMO) for high-probability convergence signals, reducing whipsaws.

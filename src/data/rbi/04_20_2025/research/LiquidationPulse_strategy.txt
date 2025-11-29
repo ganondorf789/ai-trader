@@ -1,0 +1,40 @@
+STRATEGY_NAME: LiquidationPulse
+
+STRATEGY_DETAILS:
+The LiquidationPulse strategy is designed to capitalize on impending liquidation cascades in cryptocurrency markets by combining funding rate analysis with open interest dynamics and volatility breakouts. This sophisticated approach identifies high-probability short opportunities during market overheating conditions.
+
+Key Components:
+1. Funding Rate Divergence: Monitors when negative funding rates diverge from price action (market remains bullish despite negative funding)
+2. Open Interest Analysis: Tracks rising open interest during these conditions (indicating leveraged positions building)
+3. Volatility Z-Score: Uses rolling z-score of volatility to identify statistically significant breakout thresholds
+4. Historical Median Volatility: Establishes exit conditions based on volatility contraction
+
+Entry Rules:
+1. Primary Trigger: Negative funding rate divergence (funding turns negative while price remains elevated)
+2. Confirmation: Rising open interest during this period
+3. Execution: Enter short when volatility breaks above the 2.0 z-score threshold of rolling 30-day volatility
+
+Exit Rules:
+1. Profit Taking: When volatility contracts below its 30-day historical median
+2. Stop Loss: Dynamic stop based on 2x the average true range (ATR) of the entry period
+
+Risk Management:
+1. Position Sizing: 1-2% of capital per trade
+2. Maximum Drawdown: 5% daily loss limit
+3. Correlation Filter: Avoid trading when BTC dominance is above 45% (reduces systemic risk)
+
+Required Indicators:
+1. Funding Rate (exchange-specific)
+2. Open Interest (aggregate across major exchanges)
+3. Rolling 30-day volatility z-score
+4. 30-day historical median volatility
+5. Average True Range (ATR) for stop placement
+6. BTC Dominance Index
+
+Optimization Notes:
+- Best applied to perpetual futures contracts on major crypto assets
+- Most effective during periods of high leverage utilization in markets
+- Requires real-time data feeds for funding rates and open interest
+- Backtest across multiple liquidation events for parameter calibration
+
+This strategy combines multiple sophisticated elements to detect market fragility and time short entries with precision, while the volatility-based exit ensures capturing the most profitable portion of liquidation cascades.

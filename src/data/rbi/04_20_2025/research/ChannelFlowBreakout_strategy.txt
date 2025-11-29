@@ -1,0 +1,49 @@
+STRATEGY_NAME: ChannelFlowBreakout
+
+STRATEGY_DETAILS:
+This strategy combines price channel breakout dynamics with money flow confirmation for high-probability entries, using a disciplined risk-reward approach.
+
+Key Components:
+1. Donchian Channel (20-period) - Identifies breakout levels
+2. Chaikin Money Flow - Confirms breakout strength with volume
+3. Fixed 2:1 Risk-Reward Ratio - Ensures disciplined profit-taking
+
+Entry Rules:
+1. LONG Entry Trigger:
+   - Price closes ABOVE the upper Donchian Channel (20-period high)
+   - Chaikin Money Flow crosses ABOVE zero on same candle
+   - Entry at next candle's open
+
+2. SHORT Entry Trigger:
+   - Price closes BELOW the lower Donchian Channel (20-period low)
+   - Chaikin Money Flow crosses BELOW zero on same candle
+   - Entry at next candle's open
+
+Exit Rules:
+1. Profit Target:
+   - Set at 2x the initial risk (distance from entry to opposite channel boundary)
+   
+2. Stop Loss:
+   - Placed at opposite channel boundary from entry
+   - For longs: below lower channel
+   - For shorts: above upper channel
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. No pyramiding allowed (single position per signal)
+3. Stop loss is mandatory on every trade
+4. Trade only when both conditions align (price + CMF)
+
+Required Indicators:
+1. Donchian Channel (20 periods)
+   - Upper Band: 20-period high
+   - Lower Band: 20-period low
+2. Chaikin Money Flow (20-period standard settings)
+   - Must cross zero line in direction of trade
+
+Optimization Notes:
+1. Channel period can be tested between 15-30 periods
+2. CMF period can be matched to channel period
+3. Risk-reward can be adjusted between 1.5:1 to 3:1 based on volatility
+
+This strategy works best in trending markets and requires confirmation from both price and volume indicators to filter false breakouts. The 2:1 reward ratio ensures profitability even with moderate win rates.

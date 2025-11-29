@@ -1,0 +1,41 @@
+STRATEGY_NAME: LiquidationDivergence
+
+STRATEGY_DETAILS:
+Key Components:
+1. Liquidation Spike Analysis - Focuses on 24-hour long liquidation spikes as a contrarian signal
+2. RSI Divergence - Requires 4-hour RSI divergence below 30 for confirmation
+3. Fibonacci Retracement - Uses 50% level of liquidation-driven drop as profit target
+
+Entry Rules:
+1. Identify a significant spike in long liquidations (24-hour timeframe)
+2. Wait for price to show a corresponding drop following liquidation spike
+3. Confirm bullish RSI divergence (price makes lower low while RSI makes higher low) on 4-hour chart
+4. RSI must be below 30 during divergence formation
+5. Enter long position when all conditions align
+
+Exit Rules:
+1. Calculate Fibonacci retracement levels from:
+   - Swing high (pre-liquidation spike price)
+   - Swing low (post-liquidation spike price)
+2. Take profit at 50% retracement level
+3. Consider additional confirmation (e.g., candlestick pattern) at retracement level
+4. Stop loss placed below recent swing low
+
+Risk Management:
+1. Position sizing based on distance between entry and stop loss
+2. Recommended risk per trade: 1-2% of capital
+3. Avoid trading during high volatility events that might cause cascading liquidations
+4. Maximum daily loss limit: 5% of capital
+
+Required Indicators:
+1. Liquidation data feed (24-hour timeframe)
+2. RSI (14-period recommended) on 4-hour chart
+3. Fibonacci retracement tool
+4. Price chart with clear swing high/low identification
+
+Additional Notes:
+1. Works best in trending markets where liquidations create temporary oversold conditions
+2. More effective on liquid assets with significant leverage available
+3. Requires monitoring of funding rates and open interest for confirmation
+4. Ideal for crypto markets where liquidations are more frequent and impactful
+5. Backtest recommended for specific asset classes as behavior may vary

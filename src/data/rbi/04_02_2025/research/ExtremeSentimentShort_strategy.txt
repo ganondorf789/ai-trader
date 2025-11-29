@@ -1,0 +1,41 @@
+STRATEGY_NAME: ExtremeSentimentShort  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on extreme bullish sentiment in crypto perpetual futures markets by identifying statistically significant deviations in funding rates and long/short ratios, then executing short positions with defined exits.  
+
+**Key Components:**  
+1. **Sentiment Extremes Detection**  
+   - Funding Rate: Short when current funding rate exceeds +2 standard deviations from its 30-day moving average  
+   - Long/Short Ratio: Confirm with 90th percentile readings (extreme skew toward longs)  
+
+2. **Technical Exit Signal**  
+   - Lower Bollinger Band (20-period, 2SD) acts as profit-taking level  
+   - 24-hour time-based exit for risk control  
+
+**Entry Rules:**  
+1. Calculate 30-day moving average and standard deviation of funding rates  
+2. Trigger short entry when BOTH conditions are met:  
+   - Current funding rate > (30D MA + 2SD)  
+   - Long/short ratio ≥ 90th percentile of its historical distribution  
+
+**Exit Rules:**  
+1. Primary Exit: Close position when price touches lower Bollinger Band  
+2. Secondary Exit: Automatic close after 24 hours (prevents overnight risk)  
+
+**Risk Management:**  
+- Recommended 1-2% position sizing per trade  
+- Avoid trading during major macroeconomic events  
+- Stop-loss optional (strategy relies on mean reversion, but could implement 1.5x ATR stop if desired)  
+
+**Required Indicators:**  
+1. Funding rate data (exchange-specific)  
+2. Long/short ratio (exchange-provided or from aggregators like Coinalyze)  
+3. Bollinger Bands (20-period, 2 standard deviations)  
+4. Standard deviation calculator for funding rates  
+
+**Optimization Notes:**  
+- Test different lookback periods (30/60/90 days) for funding rate SD calculation  
+- Adjust percentile threshold (85th-95th) for long/short ratio based on asset volatility  
+- Consider adding volume confirmation to filter false signals  
+
+This strategy works best in trending bull markets where excessive leverage creates frequent mean reversion opportunities. Backtest across multiple assets to account for varying funding rate behaviors.

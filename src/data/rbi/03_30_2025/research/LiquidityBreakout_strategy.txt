@@ -1,0 +1,32 @@
+STRATEGY_NAME: LiquidityBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Level Clusters:** The strategy identifies price zones where clustered liquidation levels (stop-loss concentrations) are likely to trigger significant market moves.  
+2. **ADX Confirmation:** Uses the Average Directional Index (ADX) above 30 to confirm strong trending conditions before entering trades.  
+3. **Order Book Imbalance:** Monitors order book liquidity voids (areas with thin liquidity) to project breakout targets.  
+4. **Breakout Execution:** Enters trades when price breaches key liquidation zones with momentum, aiming for continuation into liquidity voids.  
+
+**Entry Rules:**  
+- **Signal Trigger:** Price approaches a dense liquidation level cluster (identified via historical stop-loss analysis or order book heatmaps).  
+- **ADX Filter:** ADX must be > 30 to ensure the breakout has high-probability momentum.  
+- **Breakout Confirmation:** Enter long/short on a close above/below the liquidation zone with elevated volume or order book imbalance.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit at the next liquidity void (e.g., where opposing stop orders cluster or order book depth thins significantly).  
+- **Stop-Loss:** Place stops beyond the opposite side of the liquidation zone or a recent swing low/high.  
+- **Trailing Stop:** Use a dynamic trailing stop (e.g., ATR-based) if the trend extends beyond initial targets.  
+
+**Risk Management:**  
+- Position size limited to 1-2% of capital per trade.  
+- Stop-loss must be placed before entry, respecting the volatility of the liquidation zone (e.g., 1.5x the average candle range).  
+- Avoid trading during low-liquidity periods (e.g., weekends or off-market hours).  
+
+**Required Indicators/Tools:**  
+1. **ADX (14-period)** – To gauge trend strength.  
+2. **Order Book Depth/Heatmap** – To identify liquidation clusters and liquidity voids.  
+3. **Volume Profile** – To confirm high-volume breakouts.  
+4. **ATR (14-period)** – For dynamic stop placement.  
+
+**Unique Edge:** Combines liquidation-driven price action with quantifiable order book imbalances, targeting high-probability breakouts in trending markets. Avoids false breakouts via ADX filtering and real-time liquidity analysis.

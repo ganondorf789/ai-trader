@@ -1,0 +1,32 @@
+STRATEGY_NAME: DeltaBandwidth  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** The strategy identifies periods of extreme low volatility when Bollinger Bandwidth reaches a 6-month low, signaling potential breakout conditions.  
+2. **Liquidity Cluster Breach:** Uses cumulative volume delta (CVD) to detect high-liquidity zones (support/resistance). A breach of these zones confirms a breakout.  
+3. **SMA Crossover Exit:** A simple 3-day SMA crossover (price crossing above/below the SMA) acts as the exit signal to lock in profits or cut losses.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Bandwidth (BBW) must hit a 6-month low (indicating extreme contraction).  
+- **Condition 2:** Price must break above/below a CVD-identified liquidity cluster (high-volume zone).  
+- **Trade Direction:**  
+  - Long if price breaks **above** the liquidity zone.  
+  - Short if price breaks **below** the liquidity zone.  
+
+**Exit Rules:**  
+- **Profit/Stop-Loss:** No fixed levels; exits are purely based on the 3-day SMA crossover:  
+  - Long exit: Price closes **below** the 3-day SMA.  
+  - Short exit: Price closes **above** the 3-day SMA.  
+
+**Risk Management:**  
+- Position sizing should account for the volatility expansion post-BBW contraction.  
+- Avoid trading during major news events to prevent false breakouts.  
+- Use a trailing stop (e.g., ATR-based) as an optional secondary exit if the SMA crossover is too late.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 StdDev) → Bandwidth = (Upper Band - Lower Band) / Middle Band.  
+2. Cumulative Volume Delta (CVD) to identify liquidity clusters.  
+3. 3-day Simple Moving Average (SMA) for exit signals.  
+
+**Unique Edge:** Combines volatility contraction (BBW) with liquidity-driven breakouts (CVD), filtered by a mechanical exit (SMA crossover) to avoid overstaying trades. Works best on 4H/daily charts for swing trading.

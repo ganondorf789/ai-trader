@@ -1,0 +1,42 @@
+STRATEGY_NAME: BandwidthBreakout
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Bollinger Band Width Contraction: Identifies periods of low volatility when the Bollinger Band width falls below a historical percentile threshold (typically 20th percentile)
+- Volume Confirmation: Requires trading volume to spike above its 20-day moving average to confirm breakout validity
+- Chande Kroll Stops: Implements dynamic trailing stops using Chande Kroll bands for exit management
+- Breakout Targeting: Aims for price movements that extend beyond the Bollinger Bands
+
+2. Entry Rules:
+- Wait for Bollinger Band width to contract below historical percentile threshold (20th percentile recommended)
+- Confirm volume spike exceeding 20-day average volume
+- Enter long on break above upper Bollinger Band
+- Enter short on break below lower Bollinger Band
+- Only trade in direction of prevailing trend (use 50-day MA for trend filter)
+
+3. Exit Rules:
+- Initial stop placed at opposite Bollinger Band
+- Trail stops using Chande Kroll bands (recommended settings: 10-period lookback, 3x ATR multiplier)
+- Take partial profits at 1x Bollinger Band width extension
+- Close remaining position when price crosses trailing stop
+
+4. Risk Management:
+- Position size based on 1-2% risk per trade
+- Maximum portfolio exposure of 5-10%
+- Avoid trading during major economic events
+- Daily time stop: close position if target not hit within 3 days
+
+5. Required Indicators:
+- Bollinger Bands (20,2 standard deviations recommended)
+- Bollinger Band Width indicator
+- Volume 20-day moving average
+- Chande Kroll Stop bands
+- 50-day moving average (trend filter)
+
+6. Optimization Notes:
+- Test different historical percentiles (15th-25th) for band width contraction
+- Experiment with volume spike multipliers (1.5x-2x average)
+- Adjust Chande Kroll parameters based on market volatility
+- Consider adding RSI filter for overbought/oversold conditions
+
+This strategy combines volatility contraction, volume confirmation, and dynamic stop management to capture explosive breakout moves while maintaining disciplined risk control. The unique combination of Bollinger Band width analysis with Chande Kroll stops creates a robust framework for trading volatility expansions.

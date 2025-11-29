@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of compressed volatility followed by high-volume breakouts, combining Bollinger Band contraction analysis with volume confirmation for high-probability entries.
+
+Key Components:
+1. Volatility Measurement: Uses Bollinger Band width to identify extreme contraction periods (below 10th percentile)
+2. Breakout Trigger: Requires price to close outside the Bollinger Bands
+3. Volume Confirmation: Needs 15%+ spike in relative volume vs 20-period average
+4. Timeframe: Operates on 4-hour charts for balanced signal quality
+
+Entry Rules:
+1. Wait for Bollinger Band width (BB width) to contract below its 10th percentile value
+2. Price must close outside the Bollinger Bands (upper for long, lower for short)
+3. Volume must spike ≥15% above its 20-period average
+4. All three conditions must occur on the same 4-hour candle
+
+Exit Rules:
+1. Take Profit: 
+   - Primary: 2x the Bollinger Band width at breakout
+   - Secondary: When price re-enters the bands
+2. Stop Loss: 
+   - Opposite band (for longs, stop below lower band; for shorts, stop above upper band)
+   - Or 1.5x the Bollinger Band width
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. No new entries if 3 consecutive losing trades occur
+3. Daily loss limit of 5% of capital
+4. Adjust band percentile threshold in highly volatile markets
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Bollinger Band width indicator
+3. Volume indicator with 20-period average
+4. Historical percentile calculator for BB width
+
+Optimization Notes:
+1. Backtest different percentile thresholds (5th-15th)
+2. Test various volume spike requirements (10-20%)
+3. Experiment with different take profit multiples (1.5-3x BB width)
+4. Consider adding RSI filter (e.g., >30 for longs, <70 for shorts)
+
+This strategy works best in markets transitioning from low to high volatility periods, particularly during earnings seasons or before major economic announcements. The volume confirmation helps filter out false breakouts while the percentile-based BB width ensures only statistically significant contractions are traded.

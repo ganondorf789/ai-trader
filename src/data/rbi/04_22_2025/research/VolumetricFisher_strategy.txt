@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolumetricFisher  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Fisher Transform Indicator**: Used to identify potential reversals by normalizing price data into a Gaussian distribution.  
+2. **Volume-Weighted MACD**: A modified MACD that incorporates trading volume to confirm momentum shifts.  
+3. **Standard Deviation Filter**: Ensures trades are only taken when indicators exceed two standard deviations from their 14-period rolling mean, reducing false signals.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  - Fisher Transform crosses above its signal line (typically a 9-period EMA of the Fisher Transform).  
+  - Volume-Weighted MACD (12,26,9) crosses above its signal line.  
+  - Both indicators must be > +2 standard deviations from their 14-period rolling mean.  
+
+- **Short Entry**:  
+  - Fisher Transform crosses below its signal line.  
+  - Volume-Weighted MACD crosses below its signal line.  
+  - Both indicators must be < -2 standard deviations from their 14-period rolling mean.  
+
+**Exit Rules:**  
+- **Long Exit**:  
+  - Fisher Transform crosses below its signal line OR Volume-Weighted MACD crosses below its signal line.  
+  - Trailing stop-loss can be set at the most recent swing low (for longs) or swing high (for shorts).  
+
+- **Short Exit**:  
+  - Fisher Transform crosses above its signal line OR Volume-Weighted MACD crosses above its signal line.  
+
+**Risk Management:**  
+- **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+- **Stop-Loss**: Initial stop-loss can be placed at the recent swing low/high or a fixed ATR-based distance (e.g., 1.5x ATR).  
+- **Take-Profit**: Consider a 2:1 or 3:1 reward-to-risk ratio, or exit when the Fisher Transform reverts to its mean (0 line).  
+
+**Required Indicators:**  
+1. **Fisher Transform** (standard settings: 10-period lookback).  
+2. **Volume-Weighted MACD** (12,26,9 with volume multiplier).  
+3. **Standard Deviation Bands** (14-period rolling mean ±2σ for both indicators).  
+
+**Additional Notes:**  
+- Works best in trending markets; avoid ranging conditions (use ADX > 25 to filter).  
+- Volume confirmation ensures higher probability setups.  
+- Backtest optimal standard deviation thresholds (e.g., ±1.5σ to ±2.5σ) for different assets.  
+
+This strategy combines statistical extremes with volume-confirmed momentum, making it unique to "VolumetricFisher."

@@ -1,0 +1,45 @@
+STRATEGY_NAME: LiquidityBandwidth
+
+STRATEGY_DETAILS:
+This strategy combines liquidity analysis with volatility contraction to identify high-probability breakout opportunities. Here are the key components:
+
+1. KEY COMPONENTS:
+- Liquidity Clusters: Identify price levels with significant orderbook activity (high volume nodes)
+- Bollinger Band Width: Measures volatility contraction (narrowing bands indicate potential breakout)
+- Orderbook Imbalance: Detects when buy/sell pressure becomes one-sided
+- VWAP Confirmation: Ensures price is breaking out with institutional participation
+- Volume Surge: Validates breakout with increased trading activity
+
+2. ENTRY RULES:
+- Wait for Bollinger Band width to contract to lowest 20% of recent range
+- Identify liquidity cluster zones (price areas with highest volume concentration)
+- Confirm orderbook imbalance (minimum 2:1 ratio favoring breakout direction)
+- Price must break above/below cluster with volume > 150% of 20-period average
+- Breakout must occur above recent VWAP (for long) or below (for short)
+
+3. EXIT RULES:
+- Initial target: 1.5x average true range from entry point
+- Secondary target: Next significant liquidity cluster level
+- Stop loss: Other side of the liquidity cluster or 0.75x ATR, whichever is closer
+
+4. RISK MANAGEMENT:
+- Never risk more than 1% of capital per trade
+- Position size based on distance to stop loss
+- Reduce size during high volatility periods (when BB width > 50th percentile)
+- Avoid trading during major news events
+
+5. REQUIRED INDICATORS:
+- Bollinger Bands (20,2) - for width measurement
+- Volume Profile - to identify liquidity clusters
+- Orderbook Depth - to measure imbalance
+- VWAP (20 period)
+- Volume (with 20-period average)
+- Average True Range (14 period)
+
+6. SPECIAL NOTES:
+- Best timeframes: 15min to 4hr charts
+- Most effective in trending markets after consolidation
+- Requires clean price action - avoid choppy conditions
+- Works best with liquid assets (forex majors, large cap stocks, BTC/ETH)
+
+This strategy combines institutional flow analysis (liquidity clusters) with technical confirmation (Bollinger contraction) for high-probability breakouts with favorable risk/reward ratios.

@@ -1,0 +1,35 @@
+STRATEGY_NAME: LiquiSqueeze Volatility  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Contraction Focus:** Targets periods of reduced volatility (Bollinger Band narrowing) near high-liquidation zones, anticipating explosive moves.  
+2. **Liquidation Cluster Analysis:** Identifies price levels with dense stop-loss orders (liquidation zones) where forced exits may trigger cascading price movements.  
+3. **Bollinger Band Dynamics:** Uses band width contraction as a precursor to volatility expansion, signaling potential breakout opportunities.  
+
+**Entry Rules:**  
+1. **Setup:**  
+   - Price approaches a pre-identified liquidation cluster (e.g., high-volume node, order block, or historical liquidity pool).  
+   - Bollinger Band width (BBW) narrows to a threshold (e.g., lowest 20% of recent readings), indicating compression.  
+2. **Trigger:**  
+   - Short entry when price tests the liquidation cluster *and* shows rejection (e.g., pin bar, bearish engulfing) against the zone.  
+   - Confirm with RSI (14-period) > 60 (overbought bias) to align with mean-reversion logic.  
+
+**Exit Rules:**  
+1. **Profit-Taking:**  
+   - Partial exit on Bollinger Band expansion (BBW increases by X% from entry).  
+   - Full exit if price sweeps liquidity below the cluster (e.g., wicks into prior lows) and shows reversal signs (e.g., bullish divergence).  
+2. **Stop-Loss:**  
+   - Place above the recent swing high or the upper Bollinger Band, whichever is tighter.  
+
+**Risk Management:**  
+- Position size capped at 1-2% of capital per trade.  
+- Require a minimum 1:2 risk-reward ratio.  
+- Avoid trading during major news events to prevent false volatility spikes.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To identify contraction/expansion phases.  
+2. **RSI (14)** – For overbought/oversold confirmation.  
+3. **Volume Profile/Liquidation Heatmap** – To pinpoint high-liquidation zones (external tools like Bookmap or TradingView scripts).  
+
+**Unique Edge:**  
+Combines liquidity hunting behavior with volatility cycles, exploiting the "squeeze" before liquidity-driven breakouts. The name "LiquiSqueeze Volatility" reflects this dual focus on liquidation zones and Bollinger Band compression.

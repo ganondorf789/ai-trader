@@ -1,0 +1,43 @@
+STRATEGY_NAME: VolumetricReversal
+
+STRATEGY_DETAILS:
+This strategy combines overbought conditions, volume analysis, and Bollinger Band breakouts to identify potential trend reversals. It focuses on capturing bullish reversals when price attempts to break above the upper Bollinger Band, supported by strong volume and a bullish candlestick pattern.
+
+### Key Components:
+1. **Stochastic Oscillator (SO)**: Identifies overbought conditions (typically above 80).
+2. **Bollinger Bands**: Upper band acts as a breakout level.
+3. **Volume Analysis**: Confirms strength of the reversal with a volume spike.
+4. **Bullish Candlestick**: Confirms buying pressure (e.g., bullish engulfing, hammer).
+5. **ATR (Average True Range)**: Used for setting stop-loss and take-profit levels.
+
+### Entry Rules:
+1. **Condition 1**: Stochastic Oscillator (SO) is in overbought territory (above 80).
+2. **Condition 2**: Price attempts to break above the upper Bollinger Band.
+3. **Condition 3**: A bullish candlestick pattern forms (e.g., bullish engulfing, hammer).
+4. **Condition 4**: Volume spikes significantly above the average volume.
+5. **Entry**: Enter a long position when all four conditions are met.
+
+### Exit Rules:
+1. **Resistance Exit**: Exit the trade if price reaches a predefined resistance level.
+2. **Divergence Exit**: Exit if bearish divergence forms (e.g., price makes a higher high while SO makes a lower high).
+3. **ATR-Based Exit**: Use ATR multiples to set a trailing stop-loss or take-profit. For example:
+   - Stop-loss: 1.5x ATR below the entry price.
+   - Take-profit: 2x ATR above the entry price.
+
+### Risk Management:
+1. **Position Sizing**: Risk no more than 1-2% of the trading capital per trade.
+2. **Stop-Loss**: Set a stop-loss at 1.5x ATR below the entry price to account for volatility.
+3. **Trailing Stop**: Use a trailing stop based on ATR to lock in profits as the trade moves in your favor.
+
+### Required Indicators:
+1. **Stochastic Oscillator (SO)**: Settings: 14, 3, 3 (default).
+2. **Bollinger Bands**: Settings: 20-period, 2 standard deviations (default).
+3. **Volume Indicator**: Use a volume histogram or moving average of volume.
+4. **ATR (Average True Range)**: Settings: 14-period (default).
+
+### Additional Notes:
+- This strategy works best in trending or range-bound markets. Avoid using it during low-volume or choppy market conditions.
+- Always backtest the strategy on historical data to ensure it aligns with your trading style and risk tolerance.
+- Combine this strategy with fundamental analysis or other technical tools for higher accuracy.
+
+By following these rules, the VolumetricReversal strategy aims to capture high-probability bullish reversals with strong risk management and clear exit criteria.

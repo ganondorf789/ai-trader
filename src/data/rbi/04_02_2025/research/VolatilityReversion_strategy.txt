@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilityReversion  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on extreme market conditions following liquidation events, using a combination of funding rate analysis, open interest dynamics, and volatility expansion signals.  
+
+**Key Components:**  
+1. **Funding Rate Extremes:** Identify periods of excessively negative funding rates, indicating extreme bearish sentiment and potential oversold conditions.  
+2. **Open Interest Collapse:** Monitor open interest for sharp declines, signaling capitulation and potential exhaustion of the prevailing trend.  
+3. **Bollinger Bandwidth Surge:** Use Bollinger Bandwidth to detect volatility expansions beyond the range of liquidation candles, confirming the contrarian entry opportunity.  
+
+**Entry Rules:**  
+- Trigger entry when:  
+  - Funding rates reach extreme negative values (e.g., below -0.1% or a user-defined threshold).  
+  - Open interest shows a significant drop (e.g., >10% decline from recent highs).  
+  - Bollinger Bandwidth expands beyond the range observed during the liquidation candle (e.g., bandwidth > 2x the average of the last 5 candles).  
+
+**Exit Rules:**  
+- Take profit when:  
+  - Funding rates normalize (return to near zero or slightly positive).  
+  - Open interest begins to rebuild, indicating trend resumption.  
+  - Price reaches a predefined resistance level or shows signs of reversal (e.g., bearish divergence on RSI).  
+- Stop loss placed below the recent swing low (for long entries) or above the swing high (for short entries).  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-based sizing to limit risk per trade to 1-2% of capital).  
+- Hard stop loss to protect against adverse moves.  
+- Avoid trading during high-impact news events that could distort funding rates or open interest.  
+
+**Required Indicators:**  
+1. **Funding Rate Data** (from exchange API or platform).  
+2. **Open Interest** (tracked in real-time).  
+3. **Bollinger Bands** (20-period, 2 standard deviations) with Bandwidth calculation.  
+4. **RSI** (14-period) for divergence confirmation.  
+5. **ATR** (14-period) for volatility-based position sizing.  
+
+This strategy is designed for mean reversion traders who specialize in identifying post-liquidation opportunities in high-volatility environments. The combination of sentiment (funding rates), liquidity (open interest), and volatility (Bollinger Bandwidth) creates a high-probability setup for contrarian trades.

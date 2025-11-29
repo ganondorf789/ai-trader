@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Contraction:** Identifies periods of low volatility when the Bollinger Band width is less than 50% of its 20-day average.  
+2. **Volume Spike Confirmation:** Requires a 150% increase in trading volume compared to recent averages to validate the breakout.  
+3. **Trailing Stop Loss:** Uses a dynamic exit mechanism based on 2x the 14-day Average True Range (ATR) to lock in profits while allowing for trend continuation.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  1. The Bollinger Band width contracts below 50% of its 20-day average (indicating a volatility squeeze).  
+  2. Price breaks out of this contraction zone (closes outside the Bollinger Bands).  
+  3. Volume spikes to at least 150% of the recent average volume (e.g., 20-day moving average of volume).  
+
+**Exit Rules:**  
+- **Trailing Stop Loss:** The position is exited if price retraces by 2x the 14-day ATR from the highest point reached after entry.  
+- **Optional Time-Based Exit:** Consider closing the trade if no significant follow-through occurs within 3-5 days to avoid stagnation.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate no more than 1-2% of capital per trade to limit downside risk.  
+2. **Stop Placement:** The initial stop can be set at 1x ATR below the entry price, which then trails upward as the trade progresses.  
+3. **Avoid Overcrowded Setups:** Filter for breakouts with high volume spikes to reduce false signals.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** To identify contraction (width <50% of 20-day average).  
+2. **Volume MA (20-day):** To measure the 150% spike relative to recent activity.  
+3. **ATR (14-day):** For dynamic stop-loss placement (2x multiplier).  
+
+**Additional Notes:**  
+- This strategy excels in trending markets but may underperform in choppy conditions.  
+- Backtest across multiple asset classes to confirm robustness.  
+- Combine with a broader trend filter (e.g., 200-day MA) to improve win rate.  
+
+**Why "VolatilitySurge"?**  
+The name reflects the core mechanics: capitalizing on a *surge* in volatility (Bollinger breakout) confirmed by a volume *surge*, while managing risk with ATR-based stops. It’s distinct from generic names and emphasizes the strategy’s unique trigger conditions.

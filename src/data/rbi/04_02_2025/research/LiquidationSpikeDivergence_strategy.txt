@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationSpikeDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Volume Spike (2σ Threshold):** The strategy identifies abnormal liquidation activity by detecting spikes in hourly liquidation volumes that exceed 2 standard deviations (σ) from the mean. This suggests extreme market conditions where forced liquidations may lead to reversals.  
+2. **Bullish RSI Divergence:** Confirms entry signals when price makes a lower low while the RSI (14-period) makes a higher low, indicating weakening downward momentum.  
+3. **Chande’s Kroll Volatility-Adjusted Exit:** Uses the Chande-Kroll Stop indicator to dynamically adjust profit targets based on market volatility, ensuring exits adapt to changing conditions.  
+
+**Entry Rules:**  
+- **Trigger:** A 2σ spike in hourly liquidation volume.  
+- **Confirmation:** Bullish RSI divergence (price lower low, RSI higher low) on the same hourly candle or the next.  
+- **Entry Point:** Enter long at the close of the candle confirming the RSI divergence.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit when price reaches the upper Chande-Kroll Stop band (volatility-adjusted).  
+- **Stop-Loss:** Place initial stop-loss below the most recent swing low or at a fixed risk percentage (e.g., 1-2% of capital).  
+
+**Risk Management:**  
+- Position sizing based on stop-loss distance (e.g., risking 1% per trade).  
+- Avoid trading during scheduled high-impact news events to prevent false spikes.  
+- Maximum daily drawdown limit (e.g., 5%).  
+
+**Required Indicators:**  
+1. Liquidation volume data (exchange-specific or aggregated from APIs like Coinglass).  
+2. RSI (14-period) for divergence detection.  
+3. Chande-Kroll Stop (default settings: 10-period ATR, 3x multiplier).  
+
+**Unique Edge:** Combines liquidation-driven mean reversion with momentum confirmation (RSI divergence) and adaptive exits, targeting overextended markets where forced selling creates reversal opportunities.  
+
+**Note:** Backtest for optimal σ threshold (2σ may vary by asset) and validate across multiple crypto assets with high liquidation sensitivity (e.g., BTC, ETH, SOL).

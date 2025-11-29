@@ -1,0 +1,47 @@
+STRATEGY_NAME: DivergentBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chaikin Money Flow (CMF) Divergence:** The strategy identifies divergences between price action and CMF during consolidation phases. A bullish divergence occurs when price makes lower lows while CMF makes higher lows. A bearish divergence occurs when price makes higher highs while CMF makes lower highs.  
+2. **Volume-Weighted Average Spread (VWAS) Spike:** Confirmation of a breakout is provided by a sudden spike in VWAS, indicating increased trading activity and potential momentum.  
+3. **Consolidation Phase:** The strategy focuses on periods where price is range-bound, characterized by lower volatility and tighter price action.  
+
+**Entry Rules:**  
+- **Bullish Breakout Entry:**  
+  1. Identify a bullish CMF divergence during consolidation.  
+  2. Wait for price to break above the consolidation range high.  
+  3. Confirm the breakout with a spike in VWAS.  
+  4. Enter long on the next candle after confirmation.  
+
+- **Bearish Breakout Entry:**  
+  1. Identify a bearish CMF divergence during consolidation.  
+  2. Wait for price to break below the consolidation range low.  
+  3. Confirm the breakout with a spike in VWAS.  
+  4. Enter short on the next candle after confirmation.  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Use a trailing stop or a predefined risk-reward ratio (e.g., 2:1).  
+  - Alternatively, exit when CMF shows signs of reversal (e.g., crossing the zero line in the opposite direction).  
+
+- **Stop Loss:**  
+  - Place stop loss below the recent swing low (for long trades) or above the recent swing high (for short trades).  
+  - Alternatively, use a volatility-based stop (e.g., ATR multiple).  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop Loss:** Always use a stop loss to limit downside.  
+3. **Avoid Overtrading:** Only take high-probability setups with clear divergence and volume confirmation.  
+
+**Required Indicators:**  
+1. **Chaikin Money Flow (CMF):** To identify divergences.  
+2. **Volume-Weighted Average Spread (VWAS):** To confirm breakout momentum.  
+3. **Price Action Tools:** To identify consolidation ranges and breakout levels.  
+
+**Additional Notes:**  
+- This strategy works best in markets with clear consolidation phases (e.g., equities, forex).  
+- Avoid trading during high-impact news events that can cause false breakouts.  
+- Backtest the strategy to optimize parameters like CMF period and VWAS spike threshold.  
+
+The **DivergentBreakout** strategy combines divergence analysis with volume confirmation to capitalize on high-probability breakout trades, minimizing false signals and maximizing reward potential.

@@ -1,0 +1,40 @@
+STRATEGY_NAME: BandWickSurge
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band analysis with volume spikes and candlestick patterns for high-probability mean-reversion trades. The unique combination of three confirming signals (band touch, volume spike, and candlestick pattern) creates a robust entry system.
+
+Key Components:
+1. Bollinger Bands (20,2 standard deviations)
+2. Volume percentile analysis (90th percentile threshold)
+3. Candlestick wick analysis (long lower wick requirement)
+4. Middle band crossover exit mechanism
+
+Entry Rules:
+1. Price must touch or penetrate the lower Bollinger Band
+2. Volume must spike to 90th percentile of recent volume (suggesting capitulation)
+3. Candlestick must show a long lower wick (minimum 2x body length)
+4. All three conditions must occur simultaneously on the same candle
+
+Exit Rules:
+1. Primary exit when price crosses above the middle Bollinger Band
+2. Optional early exit if price forms a new low below the entry candle
+3. Time-based exit if position hasn't closed within 3-5 periods
+
+Risk Management:
+1. Position sizing should be 1-2% of capital per trade
+2. Stop loss placed below the entry candle's low (or lower wick extreme)
+3. Maximum risk per trade should not exceed 2% of account
+4. Avoid trading during major news events or low liquidity periods
+
+Required Indicators:
+1. Bollinger Bands (20 period, 2 standard deviations)
+2. Volume indicator with percentile calculation (minimum 20-period lookback)
+3. Candlestick pattern recognition (for wick analysis)
+
+Optimization Notes:
+1. Test different volume percentile thresholds (85th-95th)
+2. Experiment with Bollinger Band periods (18-22) and deviations (1.8-2.2)
+3. Adjust wick length requirements based on asset volatility
+4. Consider adding RSI filter (e.g., only trade if RSI < 30)
+
+This strategy excels in ranging markets and during pullbacks in trends, but may underperform during strong directional moves. The triple confirmation system helps filter out false signals while the volume component adds conviction to the reversal setup.

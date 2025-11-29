@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volume analysis with Bollinger Band contraction and ADX trend confirmation to identify high-probability breakout opportunities.
+
+Key Components:
+1. Volume Surge: Requires trading volume to exceed its 20-day moving average
+2. Bollinger Band Contraction: Band width must be below its 10th percentile (extreme squeeze condition)
+3. ADX Confirmation: Uses ADX cross above 25 as trend strength validation
+
+Entry Rules:
+1. Wait for Bollinger Band width to contract below its 10th percentile historical value
+2. Monitor for volume spike exceeding 20-day average volume
+3. Enter long on price breaking above upper Bollinger Band
+4. Enter short on price breaking below lower Bollinger Band
+
+Exit Rules:
+1. Primary Exit: When ADX crosses above 25 (confirms strong trend)
+2. Secondary Exit: When price closes back inside Bollinger Bands
+3. Emergency Exit: If volume drops below 20-day average while in trade
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Initial stop placed at opposite Bollinger Band
+3. Trailing stop activated after ADX confirmation
+4. Maximum trade duration of 5 days if no exit signals occur
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Bollinger Band Width (calculated as (Upper Band - Lower Band)/Middle Band)
+3. 20-day Volume Moving Average
+4. ADX (14-period) with +DI/-DI lines
+
+Additional Notes:
+- Best suited for 15min-4hr timeframes
+- Works well in ranging markets preceding breakouts
+- Requires historical percentile calculation for Bollinger Band width
+- Volume spike should be at least 1.5x 20-day average for best results
+- Avoid trading during major news events due to potential false breakouts

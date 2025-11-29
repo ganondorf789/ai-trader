@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquidationBandwidth
+
+STRATEGY_DETAILS:
+
+Key Components:
+1. Liquidation Cluster Analysis - Uses orderbook delta data to identify high liquidation zones where price is likely to experience breakout momentum
+2. Bollinger Bandwidth Contraction - Requires compression of volatility as confirmation signal before entry
+3. Volatility Quantile Thresholds - Uses historical rolling volatility measurements to determine exit points
+
+Entry Rules:
+1. Identify high liquidation clusters in orderbook delta data (top 5% of historical liquidation density)
+2. Wait for price to approach within 1.5% of identified liquidation zone
+3. Confirm Bollinger Bandwidth (BBW) has contracted below its 20-period moving average
+4. Enter long on breakout above liquidation zone or short on breakdown below
+
+Exit Rules:
+1. Monitor 14-period historical volatility (HV)
+2. Close position when current HV exceeds 90th percentile of rolling 100-period HV distribution
+3. Alternative exit: 2:1 reward/risk ratio achieved
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Stop loss placed at opposite side of liquidation zone (for longs: below cluster low; for shorts: above cluster high)
+3. Maximum daily loss limit of 3% of capital
+
+Required Indicators:
+1. Orderbook delta liquidation heatmap
+2. Bollinger Bands (20,2) for bandwidth calculation
+3. 14-period historical volatility
+4. Rolling 100-period volatility quantile calculator
+
+Optimization Notes:
+- Best suited for 15min-4hr timeframes
+- Works particularly well during NY/London overlap sessions
+- Requires liquid markets with visible orderbook data
+- Backtest suggested parameters: 0.8-1.2% buffer around liquidation zones for optimal entries

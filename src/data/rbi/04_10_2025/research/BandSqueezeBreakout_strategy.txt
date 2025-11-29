@@ -1,0 +1,41 @@
+STRATEGY_NAME: BandSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Bands and Keltner Channels to identify high-probability breakout opportunities during periods of low volatility, confirmed by volume spikes, and uses Chande's Volatility Index for dynamic exit management.
+
+Key Components:
+1. Bollinger Bands (20,2) - Measures price volatility
+2. Keltner Channels (20,1.5) - Identifies trend direction
+3. Volume Delta - Confirms breakout strength
+4. Chande's Volatility Index (CVI) - Manages exits
+
+Entry Rules:
+1. Wait for Bollinger Bands to contract inside Keltner Channels (band squeeze condition)
+2. Look for price to break above upper Bollinger Band (bullish) or below lower Bollinger Band (bearish)
+3. Confirm breakout with volume delta spike (minimum 2x average volume)
+4. Enter long/short on next candle's open after confirmation
+
+Exit Rules:
+1. Initial stop-loss: Opposite side of breakout candle (long: below low, short: above high)
+2. Trail stop using Chande's Volatility Index (CVI):
+   - For longs: Exit when CVI crosses below 50
+   - For shorts: Exit when CVI crosses above 50
+3. Optional profit target: 2x initial risk (measured from entry to stop)
+
+Risk Management:
+1. Position size: 1-2% of capital per trade
+2. Maximum portfolio risk: 5% at any time
+3. Avoid trading during major news events
+4. Filter trades with overall market direction (only trade breakouts in direction of higher timeframe trend)
+
+Indicator Settings:
+- Bollinger Bands: 20 period, 2 standard deviations
+- Keltner Channels: 20 period, 1.5 ATR multiplier
+- Volume Delta: Compare to 20-period average
+- Chande's Volatility Index: 9-period lookback
+
+Special Notes:
+1. Most reliable on 1H-4H timeframes
+2. Works best in ranging markets transitioning to trends
+3. Requires at least 3 candles of band squeeze before breakout
+4. Combine with RSI(14) >50 for longs, <50 for shorts for additional confirmation

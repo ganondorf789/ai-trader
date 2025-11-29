@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cascade Detection:** Uses order book delta imbalances to identify potential liquidation events where forced selling or buying creates extreme price movements.  
+2. **Bollinger Band Squeeze:** Monitors Bollinger Band width contraction (squeeze) as a precursor to volatility expansion.  
+3. **Volatility Threshold Breach:** Enters trades when price breaks out of the squeeze with significant momentum, signaling the end of the liquidation cascade.  
+
+**Entry Rules:**  
+1. **Order Book Delta Imbalance:** A sharp, one-sided order flow (e.g., heavy selling pressure) indicates a liquidation cascade.  
+2. **Bollinger Band Squeeze Confirmation:** The Bollinger Band width must be at a historically low level (e.g., below a 20-period moving average of the width).  
+3. **Volatility Breakout:** Price must breach the upper or lower Bollinger Band with strong momentum (e.g., closing outside the band with high volume).  
+4. **Counter-Trend Entry:** After the breakout, enter a trade in the opposite direction of the initial cascade (e.g., buy after a sell-side liquidation).  
+
+**Exit Rules:**  
+1. **Take Profit:** Close the position when price reaches a predefined resistance/support level or when Bollinger Bands begin to widen significantly.  
+2. **Stop Loss:** Exit if price retraces beyond the recent swing high/low or if the order book delta reverses sharply.  
+
+**Risk Management:**  
+1. Position sizing based on volatility (e.g., ATR-based sizing).  
+2. Stop loss placed beyond the recent extreme of the liquidation move.  
+3. Avoid trading during low-liquidity periods to prevent false signals.  
+
+**Required Indicators:**  
+1. **Order Book Delta Imbalance** (real-time bid/ask flow analysis).  
+2. **Bollinger Bands** (20-period SMA, 2 standard deviations).  
+3. **Bollinger Band Width** (to measure squeeze conditions).  
+4. **Volume Indicator** (to confirm breakout validity).  
+
+This strategy capitalizes on overextended moves caused by liquidations, using the Bollinger Band squeeze as a timing mechanism for counter-trend reversals.

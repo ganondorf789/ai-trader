@@ -1,0 +1,46 @@
+STRATEGY_NAME: VolSurgeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Filter:** Uses Bollinger Band Width (BBW) percentile below 10% to identify periods of extremely low volatility, signaling potential breakout setups.  
+2. **Volume Surge Confirmation:** Requires a significant surge in trading volume (e.g., 1.5-2x the average volume) to validate the breakout.  
+3. **Breakout Entry:** Enters long/short when price breaks above/below the Bollinger Band after meeting the volatility and volume criteria.  
+4. **Opposite Band Exit:** Exits the trade when price touches the opposite Bollinger Band (e.g., exit long when touching the lower band).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. BBW percentile < 10% (indicating extreme contraction).  
+  2. Volume surges above a predefined threshold (e.g., 1.5x 20-period average volume).  
+  3. Price breaks above the upper Bollinger Band.  
+- **Short Entry:**  
+  1. BBW percentile < 10%.  
+  2. Volume surge occurs.  
+  3. Price breaks below the lower Bollinger Band.  
+
+**Exit Rules:**  
+- **Long Exit:** Price touches the lower Bollinger Band.  
+- **Short Exit:** Price touches the upper Bollinger Band.  
+- Optional: Trailing stop or time-based exit (e.g., close after 5 bars if target not hit).  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-based stop distance).  
+- Stop-loss placed at the midpoint of the Bollinger Bands or recent swing low/high.  
+- Risk per trade limited to 1-2% of capital.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 Std Dev).  
+2. Bollinger Band Width (BBW) and its percentile (e.g., 20-period lookback).  
+3. Volume (with moving average for surge detection).  
+
+**Unique Aspects:**  
+- Combines low volatility (BBW percentile) with volume confirmation for high-probability breakouts.  
+- Uses opposite band touch for dynamic exit, capturing trends while avoiding reversals.  
+- Avoids false breakouts by requiring volume surge.  
+
+**Optimization Tips:**  
+- Test different BBW percentile thresholds (5%-15%).  
+- Adjust volume surge multiplier based on asset liquidity.  
+- Experiment with exit variants (e.g., partial profit at mid-band).  
+
+This strategy excels in ranging markets transitioning to trends, with volume acting as a catalyst. The name "VolSurgeBreakout" reflects its dual focus on volatility contraction and volume-powered breakouts.

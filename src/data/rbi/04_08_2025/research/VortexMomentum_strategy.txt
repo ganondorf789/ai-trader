@@ -1,0 +1,45 @@
+STRATEGY_NAME: VortexMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Used to confirm the prevailing trend direction.  
+   - VI+ > VI- indicates bullish trend  
+   - VI- > VI+ indicates bearish trend  
+2. **Chande Momentum Oscillator (CMO):** Identifies overbought/oversold conditions.  
+   - CMO > +50 signals overbought (potential short entry)  
+   - CMO < -50 signals oversold (potential long entry)  
+3. **Volume Spikes:** Confirms reversal signals when volume exceeds a 20-period moving average by 1.5x.  
+4. **Dynamic ATR Trailing Stops:** Adjusts exit points based on volatility (3x ATR from recent extreme).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - VI+ crosses above VI- (bullish trend confirmation)  
+  - CMO < -50 (oversold condition)  
+  - Volume spike (1.5x above 20-period MA)  
+- **Short Entry:**  
+  - VI- crosses above VI+ (bearish trend confirmation)  
+  - CMO > +50 (overbought condition)  
+  - Volume spike (1.5x above 20-period MA)  
+
+**Exit Rules:**  
+- **Trailing Stop:** 3x ATR from the most recent swing high (for longs) or swing low (for shorts).  
+- **Early Exit:** If VI reverses (VI- crosses above VI+ for longs or vice versa for shorts).  
+
+**Risk Management:**  
+- Position size limited to 1-2% of capital per trade.  
+- Stop-loss initially set at 1.5x ATR from entry.  
+- No trades during low volatility (ATR < 0.5% of price).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-)  
+2. Chande Momentum Oscillator (CMO)  
+3. Volume Moving Average (20-period)  
+4. Average True Range (ATR, 14-period)  
+
+**Unique Aspects:**  
+- Combines trend confirmation (Vortex) with momentum extremes (CMO) and volume validation.  
+- Dynamic ATR trailing stops adapt to volatility for optimal exits.  
+- Filters out low-probability trades via volume spikes and trend alignment.  
+
+**Note:** Works best on 1H-4H timeframes for swing trading. Avoid ranging markets (use ADX > 25 to confirm trend strength).

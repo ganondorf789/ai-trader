@@ -1,0 +1,59 @@
+STRATEGY_NAME: VolSync Squeeze
+
+STRATEGY_DETAILS:
+This strategy combines volume confirmation with volatility contraction to identify high-probability breakout opportunities. The key innovation lies in synchronizing OBV divergence with Bollinger Bandwidth compression - a powerful confluence of momentum and volatility signals.
+
+Key Components:
+1. On-Balance Volume (OBV) Divergence:
+   - Bullish divergence occurs when price makes lower lows while OBV makes higher lows
+   - Confirms accumulation during price weakness
+
+2. Bollinger Bandwidth Contraction:
+   - Bandwidth = (Upper Band - Lower Band)/Middle Band
+   - 10-day low indicates extreme volatility compression
+   - Precedes potential explosive moves
+
+3. Bollinger Band Targets:
+   - Upper band serves as profit-taking level
+   - Middle band (20-period SMA) as dynamic support
+
+Entry Rules:
+1. Primary Conditions:
+   - OBV shows bullish divergence (price lower low, OBV higher low)
+   - Bollinger Bandwidth reaches 10-day low
+   - Price must be above middle band at entry
+
+2. Confirmation:
+   - Wait for first green candle after conditions met
+   - Entry at open of next candle
+
+Exit Rules:
+1. Profit Target:
+   - Close position when price touches upper Bollinger Band
+   - Alternative: Close 50% at upper band, trail stop for remainder
+
+2. Stop Loss:
+   - Below most recent swing low
+   - OR below middle band (whichever is higher)
+   - Typically 1.5-2% below entry
+
+Risk Management:
+1. Position Sizing:
+   - Risk no more than 1-2% of capital per trade
+   - Adjust position size based on stop distance
+
+2. Filter:
+   - Only trade during market hours (9:30-4pm ET for US markets)
+   - Avoid earnings announcement periods
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. On-Balance Volume
+3. Bollinger Bandwidth (custom calculation)
+
+Optimization Notes:
+- Test different bandwidth lookback periods (7-14 days)
+- Experiment with alternative profit targets (e.g., 1.5x bandwidth)
+- Consider adding RSI filter (>30) for additional confirmation
+
+This strategy works best in ranging markets transitioning to trends, capturing early momentum while volatility is still low. The OBV divergence provides the "why" behind the move, while the bandwidth contraction provides the "when".

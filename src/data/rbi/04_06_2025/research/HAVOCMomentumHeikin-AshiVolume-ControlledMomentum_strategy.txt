@@ -1,0 +1,59 @@
+STRATEGY_NAME: HAVOC Momentum (Heikin-Ashi Volume-Controlled Momentum)
+
+STRATEGY_DETAILS:
+This intraday momentum strategy combines three powerful technical elements to identify high-probability trades with controlled risk. The name "HAVOC" reflects its core components: Heikin-Ashi candles, Volume analysis, and Oscillator confirmation.
+
+Key Components:
+1. Heikin-Ashi Candle Direction - Smoothed price action filter
+2. True Strength Index (TSI) Divergence - Momentum confirmation
+3. Volume-Weighted VWAP Break - Institutional activity signal
+4. Parabolic SAR - Trend-exhaustion exit signal
+
+Entry Rules (Long):
+1. Heikin-Ashi candle turns green (bullish)
+2. TSI shows bullish divergence (price makes lower low while TSI makes higher low)
+3. Price breaks above VWAP with above-average volume
+4. All three conditions must align within the same 15-30 minute candle
+
+Entry Rules (Short):
+1. Heikin-Ashi candle turns red (bearish)
+2. TSI shows bearish divergence (price makes higher high while TSI makes lower high)
+3. Price breaks below VWAP with above-average volume
+4. All three conditions must align within the same 15-30 minute candle
+
+Exit Rules:
+1. Primary Exit: Parabolic SAR dot flips to opposite side of trade
+2. Secondary Exit: Fixed 1:2 risk/reward ratio (adjust stop to breakeven after 1R move)
+3. Emergency Exit: Heikin-Ashi candle color change opposite to trade direction
+
+Risk Management:
+1. Initial stop placed at recent swing low/high (for long/short respectively)
+2. Position size limited to 1-2% of account per trade
+3. Maximum daily loss limit of 5%
+4. No trading during first/last 30 minutes of session
+
+Required Indicators:
+1. Heikin-Ashi candles (smoothed price action)
+2. True Strength Index (14,25 settings recommended)
+3. Volume-Weighted VWAP (20-period)
+4. Parabolic SAR (0.02 step, 0.2 maximum)
+5. Volume indicator (for confirmation)
+
+Optimal Timeframe:
+15-30 minute charts for intraday trading, best applied to liquid instruments with strong trending characteristics (ES futures, major forex pairs, large-cap stocks).
+
+Strategy Advantages:
+- Triple confirmation reduces false signals
+- Heikin-Ashi filters out market noise
+- Volume confirmation adds institutional validity
+- Clear mechanical exit rules
+
+Strategy Limitations:
+- May underperform in choppy, range-bound markets
+- Requires careful monitoring of multiple indicators
+- Volume spikes can sometimes produce false breaks
+
+Recommended Filters:
+1. Only trade in direction of higher timeframe trend (use 1hr/4hr chart alignment)
+2. Avoid trading during major news events
+3. Focus on most liquid trading sessions (London/NY overlap for forex, US hours for equities)

@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolatilitySpike  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Breakout Trigger:** The strategy identifies breakout opportunities when the 5-minute Average True Range (ATR) exceeds the daily ATR by 150%. This indicates a significant increase in short-term volatility compared to the typical daily range.  
+2. **Volume Confirmation:** A volume spike above the 20-period moving average of volume is required to confirm the breakout, ensuring the move is supported by trading activity.  
+3. **Trailing Stop Exit:** Positions are managed with a dynamic trailing stop set at 2x the entry ATR, allowing profits to run while protecting against reversals.  
+
+**Entry Rules:**  
+- Go **LONG** when:  
+  - The 5-minute ATR > (Daily ATR * 1.5)  
+  - Current volume > 20-period moving average of volume  
+- Entry is executed at the next candle's open after conditions are met.  
+
+**Exit Rules:**  
+- **Trailing Stop:** Exit the position when price closes below (highest high since entry - 2x entry ATR).  
+- Optional: Add a time-based exit (e.g., end of trading session) if the strategy is intraday-only.  
+
+**Risk Management:**  
+- Position sizing should be based on the entry ATR (e.g., risk 1% of capital per trade, with stop distance = 2x ATR).  
+- Avoid trading during low-liquidity periods (e.g., overnight or major news events) to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Average True Range (ATR):**  
+   - 5-minute ATR (short-term volatility)  
+   - Daily ATR (baseline volatility)  
+2. **Volume:**  
+   - 20-period moving average of volume (confirmation filter)  
+
+**Unique Aspects:**  
+- Combines volatility expansion (ATR ratio) with volume confirmation for high-probability breakouts.  
+- Uses a dynamic trailing stop tied to entry volatility, adapting to market conditions.  
+- Avoids static profit targets, letting trends unfold while protecting gains.  
+
+**Optimization Notes:**  
+- Test different ATR multiples (e.g., 125%, 175%) to adjust sensitivity.  
+- Consider adding a minimum daily ATR threshold to filter low-volatility days.  
+- Volume spike threshold can be adjusted (e.g., 1.5x average) for stricter confirmation.

@@ -1,0 +1,52 @@
+STRATEGY_NAME: VolumetricBandSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines volume confirmation with volatility contraction patterns for high-probability breakout trades. The core premise identifies low-volatility conditions through Bollinger Band width contraction while using On-Balance Volume (OBV) divergence to confirm the underlying strength of the impending breakout.
+
+Key Components:
+1. Bollinger Band Width Contraction: Measures volatility compression preceding breakouts
+2. OBV Divergence: Confirms accumulation/distribution before price movement
+3. Band Breakout: Signals the actual trade entry point
+4. Opposite Band Touch: Provides clear exit mechanism
+
+Entry Rules (Long):
+1. Bollinger Band width must be below its 20-period average (contraction)
+2. Price must show higher lows while OBV shows higher highs (bullish divergence)
+3. Price must close above upper Bollinger Band
+4. OBV must be above its 21-period EMA (confirming uptrend)
+
+Entry Rules (Short):
+1. Bollinger Band width must be below its 20-period average (contraction)
+2. Price must show lower highs while OBV shows lower lows (bearish divergence)
+3. Price must close below lower Bollinger Band
+4. OBV must be below its 21-period EMA (confirming downtrend)
+
+Exit Rules:
+1. For long positions: Exit when price touches the lower Bollinger Band
+2. For short positions: Exit when price touches the upper Bollinger Band
+3. Emergency exit if OBV crosses its 21-period EMA against position direction
+
+Risk Management:
+1. Position size based on 1-2% risk per trade
+2. Initial stop placed at opposite band (for longs: lower band, for shorts: upper band)
+3. Trailing stop option: Move stop to breakeven when price reaches 1.5x initial risk
+4. Maximum daily loss limit of 5% of capital
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Bollinger Band Width indicator (20-period SMA of width)
+3. On-Balance Volume (OBV)
+4. 21-period EMA of OBV
+
+Optimal Conditions:
+- Works best in ranging markets transitioning to trends
+- Most effective on 1-hour to daily timeframes
+- Ideal for liquid assets with strong volume patterns
+- Avoid during high-impact news events
+
+Additional Filters:
+- Volume should be above 20-period average on breakout
+- For equities, confirm with sector/industry trend alignment
+- For forex, confirm with correlated asset volume patterns
+
+This strategy capitalizes on the explosive moves following volatility contractions while using volume analysis to filter false breakouts. The combination of technical patterns with volume confirmation creates a robust trading edge.

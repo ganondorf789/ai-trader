@@ -1,0 +1,38 @@
+STRATEGY_NAME: LiquidationReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Counter-Trend Approach:** The strategy capitalizes on extreme market conditions where clustered liquidations create potential reversal opportunities.  
+2. **Order Book Delta Imbalances:** Detects significant liquidity zones where stop-loss orders are likely clustered, indicating potential exhaustion of the current trend.  
+3. **RSI Confirmation:** Uses a 4-hour RSI reversal below 20 (oversold) or above 80 (overbought) to validate the counter-trend signal.  
+4. **Volume-Weighted Pivot Points:** Exits are based on retracements to key pivot levels weighted by volume, ensuring alignment with significant liquidity areas.  
+
+**Entry Rules:**  
+1. **Liquidation Zone Detection:** Identify order book delta imbalances where large clusters of stop orders are likely to trigger (e.g., high negative delta for long liquidations or high positive delta for short liquidations).  
+2. **RSI Reversal Confirmation:**  
+   - For long entries: Wait for RSI to cross back above 20 after being below it, signaling potential oversold reversal.  
+   - For short entries: Wait for RSI to cross back below 80 after being above it, signaling potential overbought reversal.  
+3. **Entry Execution:** Enter the trade once both the liquidation zone and RSI reversal criteria are met, with a limit order near the detected imbalance zone for better fill prices.  
+
+**Exit Rules:**  
+1. **Volume-Weighted Pivot Points:** Calculate pivot points (support/resistance) weighted by recent volume to identify high-probability exit zones.  
+2. **Profit-Taking:** Exit the trade when price retraces to the nearest volume-weighted pivot level in the opposite direction of the trend.  
+3. **Stop-Loss Placement:** Set a stop-loss just beyond the detected liquidation zone to account for potential continuation of the original trend.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade, adjusting position size based on the distance to the stop-loss level.  
+2. **Stop-Loss Discipline:** Strictly adhere to stop-loss levels to prevent large drawdowns during false reversals.  
+3. **Avoid Overleveraging:** Use moderate leverage (e.g., 2x-5x) to withstand volatility while maximizing returns.  
+
+**Required Indicators:**  
+1. **Order Book Delta:** To detect liquidation zones and imbalances (e.g., cumulative delta or depth-of-market analysis).  
+2. **4-Hour RSI (14-period):** For overbought/oversold reversal confirmation.  
+3. **Volume-Weighted Pivot Points:** Calculated using recent high, low, close, and volume data to identify exit levels.  
+
+**Unique Aspects:**  
+- Combines liquidation clustering (a high-probability mean-reversion signal) with RSI reversals for added confirmation.  
+- Uses volume-weighted pivots for exits, aligning with natural liquidity areas rather than arbitrary price targets.  
+- Focuses on extreme market conditions where forced liquidations often lead to sharp reversals.  
+
+This strategy is best suited for volatile assets (e.g., crypto, forex) where liquidations are frequent and order book data is reliable.

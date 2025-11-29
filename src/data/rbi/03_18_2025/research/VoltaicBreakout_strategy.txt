@@ -1,0 +1,36 @@
+STRATEGY_NAME: VoltaicBreakout
+
+STRATEGY_DETAILS:
+The VoltaicBreakout strategy is a volatility-based trading approach that capitalizes on periods of low volatility followed by potential explosive price movements. It combines Bollinger Bands and Average True Range (ATR) to identify high-probability breakout opportunities and manage risk effectively.
+
+### Key Strategy Components:
+1. **Bollinger Bands (20,2)**: Used to measure volatility and identify contraction periods.
+2. **Average True Range (ATR, 14)**: Used to set a dynamic trailing stop for risk management.
+3. **30-Day Volatility Filter**: Ensures the Bollinger Bands are at their narrowest point in the last 30 days, indicating a potential breakout setup.
+
+### Entry Rules:
+1. **Volatility Squeeze Condition**: Bollinger Bands must contract to their narrowest point in the last 30 days. This is confirmed when the distance between the upper and lower bands is the smallest compared to the previous 30 sessions.
+2. **Breakout Confirmation**: Price must close above the upper Bollinger Band to confirm the breakout.
+3. **Entry Trigger**: Enter a long position on the next candle's open after the breakout confirmation.
+
+### Exit Rules:
+1. **Trailing Stop**: Set a trailing stop at 2x the 14-period ATR from the entry price. The stop adjusts as the price moves in your favor.
+2. **Stop Adjustment**: Update the trailing stop daily based on the latest ATR value and the highest price reached since entry.
+3. **Exit Signal**: Exit the trade when the price closes below the trailing stop level.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of your account (e.g., 1-2%) per trade to manage risk.
+2. **Stop Loss**: The initial stop is set at 2x ATR from the entry price, ensuring a controlled risk per trade.
+3. **No Overtrading**: Only take trades that meet the strict volatility squeeze and breakout criteria to avoid low-probability setups.
+
+### Required Indicators:
+1. **Bollinger Bands (20,2)**: To identify volatility contraction and breakout levels.
+2. **Average True Range (ATR, 14)**: To calculate the trailing stop distance.
+3. **Price Chart**: Daily timeframe is recommended for this strategy.
+
+### Additional Notes:
+- This strategy works best in trending markets and may produce false signals in choppy or sideways conditions.
+- Backtest the strategy on your chosen asset to ensure it aligns with its volatility profile.
+- Consider combining this strategy with a broader market filter (e.g., 200-day moving average) to avoid trading against the primary trend.
+
+The VoltaicBreakout strategy is designed to capture explosive moves after periods of low volatility, making it ideal for traders who prefer high-reward setups with controlled risk.

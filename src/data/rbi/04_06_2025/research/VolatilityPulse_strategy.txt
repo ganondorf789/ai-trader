@@ -1,0 +1,59 @@
+STRATEGY_NAME: VolatilityPulse
+
+STRATEGY_DETAILS:
+The VolatilityPulse strategy is a specialized volatility-based trading approach that combines ATR dynamics with VIX sentiment analysis for precise entries and disciplined exits.
+
+Key Components:
+1. Volatility Measurement: Uses 5-minute ATR (14-period) to gauge short-term volatility
+2. Trend Filter: 20-period moving average of ATR identifies volatility expansion
+3. Sentiment Indicator: VIX 10-day average acts as market fear gauge
+4. Exit Mechanism: 2x ATR trailing stop locks in profits while allowing room for volatility
+
+Entry Rules:
+1. LONG Entry Trigger:
+   - 5-minute ATR (14-period) crosses ABOVE its 20-period moving average
+   - Current VIX value is BELOW its 10-day simple moving average
+   - Both conditions must be met simultaneously
+
+Exit Rules:
+1. Primary Exit:
+   - 2x ATR (14-period) trailing stop from the most recent peak
+   - Stop updates with each new price high
+2. Optional Time Exit (recommended):
+   - Close position after 4 hours if stop not hit
+   - Prevents overnight risk exposure
+
+Risk Management:
+1. Position Sizing:
+   - Risk no more than 1-2% of capital per trade
+   - Calculate position size based on 2x ATR stop distance
+2. Maximum Exposure:
+   - No more than 3 concurrent positions
+   - Avoid trading during major news events
+3. Time Filter:
+   - Only trade during active market hours (9:30am-3:30pm ET)
+
+Required Indicators:
+1. Primary Indicators:
+   - ATR (14-period) on 5-minute chart
+   - 20-period SMA of ATR
+2. Sentiment Filter:
+   - VIX index
+   - 10-day SMA of VIX
+3. Recommended Additional Tools:
+   - Volume profile to confirm interest at entry levels
+   - 200-period EMA as overall trend context
+
+Optimization Notes:
+1. Best performing in:
+   - SPY, QQQ, IWM ETFs
+   - Liquid large-cap stocks
+2. Ideal market conditions:
+   - Transitioning from low to moderate volatility
+   - Avoid high VIX environments (>25)
+3. Backtest Parameters:
+   - Test different ATR periods (10-20)
+   - Adjust VIX lookback (7-14 days)
+   - Experiment with 1.5x-3x ATR stops
+
+This strategy capitalizes on the early stages of volatility expansion while the broader market sentiment remains relatively calm, creating high-probability momentum opportunities with clearly defined risk parameters.

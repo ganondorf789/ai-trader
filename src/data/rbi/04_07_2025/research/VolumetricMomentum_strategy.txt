@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolumetricMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **ADX (Average Directional Index):** Measures trend strength (threshold >25 for valid trends).  
+2. **On-Balance Volume (OBV):** Identifies volume-driven divergence (price vs. OBV).  
+3. **Keltner Channels:** Volatility-adjusted dynamic exit bands (20-period EMA ± 2x ATR).  
+
+**Entry Rules (Long Example):**  
+- **Trend Confirmation:** ADX >25 *and* +DI > -DI (uptrend).  
+- **Volume Divergence:** Price makes lower low, but OBV makes higher low (bullish divergence).  
+- **Entry Trigger:** Price closes above prior swing high (confirms reversal).  
+
+**Exit Rules:**  
+- **Profit-Taking:** Close position when price touches upper Keltner band.  
+- **Stop-Loss:** Lower Keltner band (adjusted daily via ATR).  
+- **Emergency Exit:** ADX drops below 20 (trend weakness).  
+
+**Risk Management:**  
+- Position size: 1-2% of capital per trade.  
+- Stop-loss distance: 1.5x recent ATR from entry.  
+- No trades during major economic news (volatility spikes).  
+
+**Required Indicators:**  
+1. ADX (14-period)  
+2. OBV  
+3. Keltner Channels (20 EMA, 2x ATR multiplier)  
+
+**Unique Edge:** Combines *volume confirmation* (OBV) with *adaptive exits* (Keltner + ATR), reducing false signals in choppy markets. Backtest with 1-hour+ timeframes for reliability.  
+
+---  
+*Note: Renamed to "VolumetricMomentum" to emphasize the volume-momentum synergy, avoiding generic terms like "TrendVolume".*

@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolatilityReversal
+
+STRATEGY_DETAILS:
+The VolatilityReversal strategy is designed to capitalize on periods of low volatility followed by potential breakouts, using a combination of Bollinger Bands and RSI indicators. The strategy focuses on identifying contraction phases in the market and entering trades when conditions suggest a potential reversal or breakout.
+
+### Key Strategy Components:
+1. **Bollinger Bands**: Used to measure volatility and identify contraction phases. The strategy looks for the narrowest Bollinger Band width in the last 30 days.
+2. **Relative Strength Index (RSI)**: Used to identify oversold conditions and confirm potential reversals. The strategy requires RSI to be below 40 for entry and above 70 for exit.
+
+### Entry Rules:
+- **Condition 1**: Bollinger Bands must contract to their narrowest point in the last 30 days, indicating a period of low volatility.
+- **Condition 2**: RSI must be below 40, signaling that the asset is oversold and potentially due for a reversal.
+- **Action**: Enter a long position when both conditions are met.
+
+### Exit Rules:
+- **Exit Condition 1**: Price crosses the upper Bollinger Band, indicating a potential breakout or overbought condition.
+- **Exit Condition 2**: RSI exceeds 70, signaling that the asset is overbought and may reverse.
+- **Action**: Exit the long position when either condition is met.
+
+### Risk Management:
+- **Stop Loss**: Consider placing a stop loss below the lower Bollinger Band to protect against unexpected downside moves.
+- **Position Sizing**: Use a fixed percentage of your portfolio (e.g., 1-2%) per trade to manage risk.
+- **Time-Based Exit**: If the trade does not trigger an exit condition within a predefined period (e.g., 5-10 days), consider closing the position to avoid prolonged exposure.
+
+### Required Indicators:
+1. **Bollinger Bands** (20-period, 2 standard deviations)
+2. **Relative Strength Index (RSI)** (14-period)
+
+### Additional Notes:
+- This strategy works best in trending or range-bound markets where volatility cycles are predictable.
+- Avoid using this strategy during highly volatile or news-driven market conditions, as false signals may occur.
+- Backtest the strategy on historical data to ensure its effectiveness for your chosen asset and timeframe.
+
+By combining volatility contraction with oversold RSI conditions, the VolatilityReversal strategy aims to capture high-probability reversal or breakout opportunities while managing risk effectively.

@@ -1,0 +1,34 @@
+STRATEGY_NAME: BandSurgeADX  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Breakout:** The strategy focuses on price breaking out of the 20-day Bollinger Band, indicating potential volatility expansion.  
+2. **ADX Confirmation:** The Average Directional Index (ADX) must rise above 25 to confirm a strong trend, ensuring the breakout has momentum.  
+3. **Risk-Reward Management:** Exits are based on a fixed 2:1 reward-to-risk ratio, locking in profits while maintaining disciplined risk control.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when the closing price crosses **above** the upper Bollinger Band (20-day, 2 standard deviations) **AND** the ADX (14-period) is rising and above 25.  
+- **Short Entry:** Triggered when the closing price crosses **below** the lower Bollinger Band (20-day, 2 standard deviations) **AND** the ADX (14-period) is rising and above 25.  
+
+**Exit Rules:**  
+- **Profit Target:** Set at **2x** the initial risk (distance from entry to stop-loss).  
+- **Stop-Loss:** Placed at the middle Bollinger Band (20-day SMA) for mean-reversion protection.  
+- **Trailing Stop (Optional):** If the trade moves favorably, consider trailing the stop to the opposite Bollinger Band to capture extended trends.  
+
+**Risk Management:**  
+- Position sizing should ensure no more than **1-2%** of capital is risked per trade.  
+- Avoid entering if ADX is declining or below 25, as this suggests weak trend strength.  
+- Avoid trading during low-volume periods or major economic events that may cause false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2)** – Identifies volatility-based breakout levels.  
+2. **ADX (14-period)** – Confirms trend strength.  
+3. **Price Action (Close)** – Determines breakout validity.  
+
+**Additional Notes:**  
+- Works best in trending markets (e.g., commodities, forex).  
+- Filter with higher timeframes (e.g., daily) to avoid noise in lower timeframes.  
+- Combine with volume analysis for stronger confirmation.  
+
+This strategy combines volatility expansion (Bollinger Bands) with trend confirmation (ADX) for high-probability breakouts while enforcing strict risk discipline.

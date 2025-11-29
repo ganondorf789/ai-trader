@@ -1,0 +1,30 @@
+STRATEGY_NAME: YieldCurveReversal
+
+STRATEGY_DETAILS:
+The YieldCurveReversal strategy is a unique approach that combines macroeconomic indicators with technical analysis to identify potential market reversals. It focuses on the relationship between the VIX futures curve and the 3-month Treasury yield, using their divergence as a signal for long positions. The strategy incorporates a moving average crossover for exit signals, ensuring a systematic approach to risk management.
+
+### Key Strategy Components:
+1. **VIX Futures Curve (30 days)**: Measures market volatility expectations.
+2. **3-Month Treasury Yield**: Represents short-term interest rates and risk-free returns.
+3. **50-Period Moving Average (MA)**: Used as a trend-following tool for exit signals.
+
+### Entry Rules:
+- **Long Entry**: Enter a long position when the difference between the VIX futures curve (30 days) and the 3-month Treasury yield is negative. This indicates that market volatility expectations are lower than the risk-free rate, suggesting potential market complacency and a possible reversal opportunity.
+
+### Exit Rules:
+- **Exit Signal**: Close the long position when the price crosses below the 50-period Moving Average. This crossover indicates a potential shift in trend momentum, signaling a neutral or bearish outlook.
+
+### Risk Management:
+1. **Position Sizing**: Allocate a fixed percentage of capital per trade (e.g., 1-2%) to limit exposure.
+2. **Stop Loss**: Set a stop loss below a recent swing low or based on a percentage of the entry price (e.g., 2-3%).
+3. **Take Profit**: Consider a trailing stop or a fixed profit target (e.g., 5-10%) to lock in gains.
+
+### Required Indicators:
+1. **VIX Futures Curve (30 days)**: Available from financial data providers.
+2. **3-Month Treasury Yield**: Accessible through economic data platforms or central bank reports.
+3. **50-Period Moving Average**: Can be calculated using price data from any trading platform.
+
+### Additional Notes:
+- This strategy works best in environments where volatility expectations and interest rates are closely monitored, such as during periods of economic uncertainty or central bank policy shifts.
+- Backtesting is recommended to validate the strategy's performance across different market conditions.
+- Consider combining this strategy with other macroeconomic indicators (e.g., inflation data, GDP growth) for enhanced signal confirmation.

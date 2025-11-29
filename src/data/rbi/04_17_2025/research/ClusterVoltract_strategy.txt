@@ -1,0 +1,43 @@
+STRATEGY_NAME: ClusterVoltract
+
+STRATEGY_DETAILS:
+The ClusterVoltract strategy is a sophisticated approach that combines on-chain data analysis with price action patterns to capitalize on volatility contractions near key liquidation zones. Here's the detailed breakdown:
+
+1. KEY COMPONENTS:
+- On-chain funding rate extremes (identifying overleveraged market conditions)
+- Liquidation cluster identification (zones where many stop orders accumulate)
+- Volatility contraction patterns (compression before expansion)
+- Historical swing lows (key support reference points)
+
+2. ENTRY RULES:
+- Wait for funding rates to reach extreme levels (top/bottom 5% of historical range)
+- Identify liquidation clusters using order book analysis or liquidation heatmaps
+- Confirm volatility contraction (Bollinger Band width < X-period average)
+- Price must be approaching a historical swing low (within Y% distance)
+- Entry triggered when all conditions align in the same direction
+
+3. EXIT RULES:
+- Primary exit on volatility expansion (Bollinger Band width expansion > Z%)
+- Secondary exit if price breaches swing low by more than A% (failed setup)
+- Tertiary exit if funding rates normalize significantly (B% retracement from extreme)
+
+4. RISK MANAGEMENT:
+- Position size based on distance to liquidation cluster (smaller positions near denser clusters)
+- Stop loss placed beyond the swing low (accounting for potential false breaks)
+- Maximum risk per trade capped at C% of portfolio
+- Time-based exit if volatility doesn't expand within D periods
+
+5. REQUIRED INDICATORS:
+- Funding rate monitor (from exchange API or data provider)
+- Liquidation heatmap or cluster detector
+- Bollinger Bands (for volatility contraction/expansion)
+- Historical swing low detector
+- Volume profile (to confirm cluster validity)
+
+6. SPECIAL CONSIDERATIONS:
+- Works best in trending markets (not range-bound conditions)
+- Requires real-time data feeds for funding rates and liquidation data
+- Most effective on liquid assets with significant leverage markets
+- Timeframe agnostic but requires adjustment of parameters based on chosen timeframe
+
+This strategy capitalizes on the market's tendency to experience violent moves after periods of compression, especially when positioned near levels where many traders have their stops clustered. The combination of on-chain data with technical patterns provides a robust framework for identifying high-probability setups.

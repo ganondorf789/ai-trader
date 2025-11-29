@@ -1,0 +1,48 @@
+STRATEGY_NAME: BandSignalReversal
+
+STRATEGY_DETAILS:
+The BandSignalReversal strategy combines Bollinger Bands and MACD indicators to identify potential reversal opportunities in the market. The strategy focuses on price action relative to Bollinger Bands and MACD crossovers to generate entry and exit signals.
+
+Key Strategy Components:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. MACD (12, 26, 9 settings)
+3. Standard deviation levels for exit targets
+
+Entry Rules:
+1. Long Entry:
+   - Price crosses above the lower Bollinger Band
+   - MACD line is below the signal line (indicating potential oversold conditions)
+   
+2. Short Entry:
+   - Price crosses below the upper Bollinger Band
+   - MACD line is above the signal line (indicating potential overbought conditions)
+
+Exit Rules:
+1. Long Exit:
+   - Price reaches 1-2 standard deviations above the entry point
+   - OR if price crosses back below the lower Bollinger Band
+
+2. Short Exit:
+   - Price reaches 1-2 standard deviations below the entry point
+   - OR if price crosses back above the upper Bollinger Band
+
+Risk Management:
+1. Position sizing based on account risk tolerance (1-2% per trade recommended)
+2. Stop-loss placement:
+   - For long trades: below the recent swing low or lower Bollinger Band
+   - For short trades: above the recent swing high or upper Bollinger Band
+3. Trailing stops can be implemented using Bollinger Bands as dynamic levels
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. MACD (12,26,9)
+3. Standard deviation calculator for exit targets
+
+Additional Considerations:
+- This strategy works best in ranging or mildly trending markets
+- Avoid trading during high-impact news events
+- Consider using volume indicators to confirm signals
+- Backtest on multiple timeframes to find optimal settings
+- Combine with price action analysis for better confirmation
+
+The BandSignalReversal strategy is particularly effective in markets that exhibit mean-reverting behavior, as it combines volatility-based bands with momentum confirmation from the MACD indicator. The use of standard deviation-based exits helps capture profits while allowing for some price movement within the expected range.

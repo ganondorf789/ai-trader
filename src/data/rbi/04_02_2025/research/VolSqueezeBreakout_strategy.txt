@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction with volume confirmation to identify potential explosive breakout opportunities. The core concept revolves around detecting periods of compressed volatility followed by increasing activity, signaling an impending directional move.
+
+Key Components:
+1. Volatility Measurement: Bollinger Band Width (BBW) calculated as (Upper Band - Lower Band)/Middle Band
+2. Volume Surge: Current volume exceeding 50-day simple moving average of volume
+3. Breakout Confirmation: Price crossing outside Keltner Channel boundaries
+
+Entry Rules:
+1. Primary Trigger: BBW narrows below its 10th percentile (measured over 100-period lookback)
+2. Confirmation: Current volume exceeds 50-day volume average
+3. Execution: Enter long when price breaks above Keltner Channel upper band, or short when breaking below lower band
+
+Exit Rules:
+1. Profit Taking: 
+   - For long positions: When price closes below Keltner Channel middle line
+   - For short positions: When price closes above Keltner Channel middle line
+2. Stop Loss: 
+   - Initial stop placed at opposite Keltner Channel band
+   - Trailing stop can be implemented using a percentage of recent ATR
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Volatility-adjusted stops using ATR (e.g., 1.5x ATR from entry)
+3. Avoid trading during major economic news events due to potential false breakouts
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Bollinger Band Width calculation
+3. Keltner Channel (20,2 ATR multiplier)
+4. Volume 50-day SMA
+5. Historical percentile calculation for BBW (100-period lookback)
+
+Optimization Notes:
+1. Adjust percentile threshold (10th) based on asset volatility
+2. Test different lookback periods for BBW percentile calculation
+3. Consider adding RSI filter (e.g., only long when RSI > 30, short when RSI < 70)
+4. Backtest different Keltner Channel settings (ATR multiplier)
+
+This strategy works best in ranging markets transitioning to trending phases, and requires careful monitoring of false breakouts. The volume confirmation helps filter out low-probability setups.

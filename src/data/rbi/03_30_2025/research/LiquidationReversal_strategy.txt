@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquidationReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Clusters Identification:** Uses futures market heatmap data to pinpoint areas where high liquidation activity is clustered, indicating potential reversal zones.  
+2. **Order Book Depth Imbalance Confirmation:** Requires a sudden spike in order book depth imbalance (e.g., bid/ask ratio extremes) to validate the reversal signal.  
+3. **Volatility Bands for Exits:** Utilizes historical volatility bands (e.g., Bollinger Bands or ATR-based bands) to define exit points when price retraces beyond these levels.  
+
+**Entry Rules:**  
+- **Signal Trigger:** A clustered liquidation level is identified on the heatmap, suggesting a potential exhaustion point.  
+- **Confirmation:** A sharp order book depth imbalance (e.g., >70% bids or asks) must occur near the liquidation zone.  
+- **Entry Execution:** Enter a reversal trade (long or short) once both conditions align, preferably on a candlestick close confirming the reversal (e.g., pin bar, engulfing pattern).  
+
+**Exit Rules:**  
+- **Profit Target:** Partial exits at predefined risk-reward ratios (e.g., 1:2 or 1:3) based on the distance to the nearest liquidity pool or support/resistance level.  
+- **Stop Loss:** Placed beyond the volatility band (e.g., 2x ATR or outside Bollinger Band) or the recent swing high/low.  
+- **Trailing Stop:** Adjust stop to breakeven or tighten it using the volatility bands as price moves favorably.  
+
+**Risk Management:**  
+- Position sizing based on a fixed percentage of capital (e.g., 1-2% per trade).  
+- Avoid trading during low-liquidity periods or major news events to prevent false signals.  
+- Maximum daily loss limit (e.g., 5% of account) to prevent overexposure.  
+
+**Required Indicators/Tools:**  
+1. Futures liquidation heatmap (e.g., from Coinalyze, Bybit, or TradingView custom scripts).  
+2. Order book depth and imbalance tracker (e.g., DOM or L2 data tools).  
+3. Historical volatility bands (Bollinger Bands or ATR-based bands).  
+4. Candlestick patterns for additional confirmation.  
+
+**Unique Aspects:**  
+- Combines liquidation-driven sentiment analysis with real-time order flow dynamics.  
+- Exits are volatility-adaptive, reducing whipsaw losses.  
+- Avoids traditional indicators like RSI/MACD, focusing purely on market microstructure.  
+
+**Note:** Backtest heatmap reliability and order book responsiveness for the specific asset, as crypto and forex may behave differently.

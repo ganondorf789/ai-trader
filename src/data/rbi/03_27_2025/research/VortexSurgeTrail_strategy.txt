@@ -1,0 +1,37 @@
+STRATEGY_NAME: VortexSurgeTrail  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator Crossover**: Uses the VI+ (positive trend) and VI- (negative trend) lines to identify trend direction. A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI- crosses above VI+.  
+2. **Chande Momentum Oscillator (CMO)**: Confirms strong momentum when the CMO rises above 60 (bullish) or drops below -60 (bearish). This acts as a filter to ensure high-momentum breakouts.  
+3. **Keltner Channel Expansion**: Monitors the width of the Keltner Channel (middle line ± ATR-based bands). A widening channel signals increased volatility, triggering a trailing stop-loss mechanism.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  - VI+ crosses above VI- (bullish Vortex crossover).  
+  - CMO > 60 (confirming strong bullish momentum).  
+  - Price breaks above recent swing high (breakout confirmation).  
+- **Short Entry**:  
+  - VI- crosses above VI+ (bearish Vortex crossover).  
+  - CMO < -60 (confirming strong bearish momentum).  
+  - Price breaks below recent swing low (breakout confirmation).  
+
+**Exit Rules:**  
+- **Trailing Stop-Loss**:  
+  - Initial stop placed at the opposite Keltner band (lower band for long, upper band for short).  
+  - Adjusts dynamically as the Keltner Channel expands—tightening the stop if volatility decreases, widening if volatility increases.  
+- **Profit-Taking**:  
+  - Exit if CMO reverses below 40 (long) or above -40 (short), indicating momentum fade.  
+
+**Risk Management:**  
+- Position size limited to 1-2% of capital per trade.  
+- Stop-loss always active; no exceptions.  
+- Avoid trading during low volatility (Keltner Channel width below 1.5x its 20-period average).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. Chande Momentum Oscillator (CMO, 14-period recommended).  
+3. Keltner Channel (20-period EMA, 2x ATR bands).  
+
+**Unique Edge:** Combines trend confirmation (Vortex), momentum filtering (CMO), and adaptive risk control (Keltner trailing stop) for high-probability breakouts. Avoids false breakouts by requiring alignment of all three components.

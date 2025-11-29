@@ -1,0 +1,29 @@
+STRATEGY_NAME: ChaikinSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chaikin Money Flow (CMF):** Measures buying/selling pressure by combining price and volume. A CMF crossing above zero signals accumulation (bullish).  
+2. **Bollinger Band Squeeze:** Indicates low volatility when bands contract, often preceding a breakout.  
+3. **Upper Bollinger Band:** Acts as a profit-taking level.  
+
+**Entry Rules (Long Only):**  
+- Trigger 1: CMF (21-period) crosses **above zero**, confirming bullish momentum.  
+- Trigger 2: Bollinger Bands (20-period, 2 StdDev) are in a **squeeze** (bandwidth ≤ 50% of its 10-period average).  
+- Enter at the **next candle’s open** after both conditions align.  
+
+**Exit Rules:**  
+- **Take Profit:** Close position when price touches the **upper Bollinger Band**.  
+- **Stop Loss:** Exit if CMF crosses **below zero**, signaling weakening momentum.  
+
+**Risk Management:**  
+- Position size: 1–2% of capital per trade.  
+- Optional: Trail stops below recent swing lows after CMF remains above zero.  
+
+**Required Indicators:**  
+1. Chaikin Money Flow (21-period).  
+2. Bollinger Bands (20-period, 2 StdDev) + bandwidth filter.  
+
+**Unique Edge:** Combines volume-confirmed momentum (CMF) with volatility contraction (squeeze) for high-probability breakouts. Avoids false signals by requiring dual confirmation.  
+
+**Note:** Backtest optimal CMF/Bollinger periods for your asset. Works best on 4H/daily charts for swing trades.

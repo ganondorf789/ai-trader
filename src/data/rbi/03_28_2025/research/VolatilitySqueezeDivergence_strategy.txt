@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolatilitySqueezeDivergence
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction, volume analysis, and funding rate dynamics to identify high-probability breakout opportunities in cryptocurrency markets.
+
+Key Components:
+1. Keltner Channel Compression: Uses narrowing Keltner Channels (typically 20-period EMA with 2x ATR bands) to identify consolidation phases
+2. Volume Confirmation: Requires declining volume during the consolidation period
+3. Funding Rate Divergence: Looks for sudden positive spikes in funding rates as confirmation
+4. Breakout Trigger: Entry occurs when price breaks channel boundaries with supporting volume
+
+Entry Rules:
+1. Identify when Keltner Channels have narrowed to at least 50% of their 20-period average width
+2. Confirm volume has been declining during the consolidation (use 20-period volume MA)
+3. Wait for funding rate to show sudden positive divergence (minimum 0.01% increase from 4-period baseline)
+4. Enter long on breakout above upper Keltner band with volume exceeding 20-period average
+5. Enter short on breakdown below lower Keltner band with volume exceeding 20-period average
+
+Exit Rules:
+1. Take Profit: 
+   - 1.5x the Keltner Channel width at breakout point
+   - OR when opposite channel boundary is touched
+2. Stop Loss: 
+   - For longs: below the breakout candle low or lower Keltner band
+   - For shorts: above the breakout candle high or upper Keltner band
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5%
+3. Avoid trading during major news events
+4. Minimum 1:1.5 risk-reward ratio required
+
+Required Indicators:
+1. Keltner Channels (20-period EMA, 2x ATR multiplier)
+2. Volume (20-period MA)
+3. Funding Rate indicator (with 4-period baseline)
+4. ATR (14-period for volatility measurement)
+
+Optimization Notes:
+1. Test different Keltner Channel periods (14-30) and multipliers (1.5-2.5)
+2. Adjust volume confirmation thresholds based on asset liquidity
+3. Fine-tune funding rate divergence sensitivity based on market conditions
+
+This strategy excels in ranging markets transitioning to trending phases, particularly effective in altcoins with strong funding rate dynamics. The combination of technical compression and funding rate confirmation provides a robust filter against false breakouts.

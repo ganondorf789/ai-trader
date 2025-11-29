@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilitySurge
+
+STRATEGY_DETAILS:
+The VolatilitySurge strategy is designed to capitalize on low-volatility environments that are accompanied by a sudden surge in trading volume, signaling potential breakout opportunities. The strategy combines historical volatility analysis with volume momentum to identify high-probability entries.
+
+Key Components:
+1. Historical Volatility (HV): Measures the 10-day price volatility to identify low-volatility conditions.
+2. Volume Z-Score: Calculates the 5-day volume momentum relative to its historical average.
+3. Average True Range (ATR): Used for setting dynamic profit targets and stop-loss levels.
+
+Entry Rules:
+- Go long when:
+  1. 10-day Historical Volatility drops below 20% (indicating a low-volatility environment)
+  2. 5-day Volume Z-Score exceeds 2 (signaling a significant increase in trading activity)
+
+Exit Rules:
+- Take profit at 2x ATR from entry price
+- Stop loss at 1x ATR from entry price
+
+Risk Management:
+1. Position sizing should be based on the ATR value to ensure consistent risk per trade.
+2. Maximum risk per trade should not exceed 1-2% of total capital.
+3. Avoid trading during major news events or earnings announcements that could cause abnormal volatility.
+
+Required Indicators:
+1. 10-day Historical Volatility
+2. 5-day Volume Z-Score (calculated as: (Current Volume - 20-day Volume Mean) / 20-day Volume Std Dev)
+3. 14-day ATR
+
+Additional Considerations:
+- Backtest the strategy across different market conditions to ensure robustness.
+- Consider adding a time-based exit (e.g., 5 days) if price doesn't reach target or stop.
+- Monitor overall market volatility and adjust parameters accordingly.
+
+This strategy works best in trending markets and may underperform in choppy or range-bound conditions. It's particularly effective for stocks or instruments that tend to experience explosive moves after periods of low volatility.

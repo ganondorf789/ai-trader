@@ -1,0 +1,38 @@
+STRATEGY_NAME: MomentumSurgeBreakout  
+
+STRATEGY_DETAILS:  
+This strategy combines momentum confirmation with volume expansion to identify high-probability breakout opportunities, while using volatility contraction as an exit signal. The key components create a robust framework for capturing strong trending moves while managing risk.  
+
+**Key Components:**  
+1. **Chande Momentum Oscillator (CMO)**: Measures the strength of momentum, with +50 representing strong bullish momentum.  
+2. **Volume Surge Filter**: Requires volume to exceed twice the 20-day average, confirming institutional participation.  
+3. **Bollinger Band Width Threshold**: Used to identify volatility contraction for exits, signaling potential trend exhaustion.  
+
+**Entry Rules:**  
+- Enter long when:  
+  1. Chande Momentum Oscillator (CMO) crosses **above +50** (confirming strong bullish momentum).  
+  2. Current trading volume exceeds **2x the 20-day average volume** (validating breakout strength).  
+- Entry is triggered at the **next candle's open** after both conditions are met.  
+
+**Exit Rules:**  
+- Exit when:  
+  Bollinger Band Width (BB Width) falls below a predetermined threshold (e.g., lower 20% of its recent range), indicating volatility contraction and potential trend weakening.  
+- Alternatively, use a trailing stop (e.g., 2x ATR) to lock in profits during strong trends.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss:** Initial stop placed below the recent swing low or using a volatility-based stop (e.g., 1.5x ATR).  
+3. **Avoid Overexposure:** Do not take new trades if the market is in a low-volatility regime (BB Width too narrow).  
+
+**Required Indicators:**  
+1. Chande Momentum Oscillator (CMO, default 14-period).  
+2. Volume (20-day average as a baseline).  
+3. Bollinger Bands (20,2) – Specifically, the Band Width (BB Width) for exits.  
+4. Optional: ATR (14-period) for dynamic stop placement.  
+
+**Additional Notes:**  
+- Works best in trending markets; avoid ranging conditions.  
+- Higher timeframes (e.g., 1H or 4H) reduce false signals.  
+- Backtest optimal BB Width threshold for exits (e.g., 20th percentile of recent values).  
+
+This strategy capitalizes on strong momentum shifts with volume confirmation while exiting before volatility collapses, making it ideal for swing trading breakouts.

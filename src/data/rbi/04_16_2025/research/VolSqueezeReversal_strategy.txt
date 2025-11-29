@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolSqueezeReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** The strategy identifies periods of low volatility when the Bollinger Band width reaches a 3-month low, signaling a potential breakout or reversal.  
+2. **Volume Surge:** A 50% increase in trading volume relative to the 20-day average confirms strong interest in the asset, validating the setup.  
+3. **Price Reversal Exit:** Positions are closed upon a 2% reversal from the peak to lock in profits or minimize losses.  
+
+**Entry Rules:**  
+- Go **long** when:  
+  - The Bollinger Band width (difference between upper and lower bands) hits a **3-month low**, indicating extreme contraction.  
+  - Trading volume surges **50% above the 20-day average**, confirming participation.  
+
+**Exit Rules:**  
+- Exit the long position when the price drops **2% from its highest point** after entry (trailing stop logic).  
+
+**Risk Management:**  
+- **Stop-Loss:** None explicitly mentioned, but the 2% reversal exit acts as a dynamic stop.  
+- **Position Sizing:** Not specified—recommend using a fixed percentage of capital (e.g., 1-2% per trade).  
+- **Avoid Overcrowding:** Only trade assets with sufficient liquidity to handle volume spikes.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 standard deviations) to measure width contraction.  
+2. **Volume** (20-day average) to detect abnormal surges.  
+3. **Price High Tracker** to monitor the 2% reversal exit condition.  
+
+**Notes:**  
+- Works best in **range-bound or consolidating markets** where volatility compression precedes breakouts.  
+- Avoid during strong trending markets where false signals may occur.  
+- Backtest for optimal volume threshold adjustments (50% may vary by asset).  
+
+This strategy combines volatility compression, volume confirmation, and disciplined profit-taking—ideal for mean-reversion or breakout traders.

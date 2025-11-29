@@ -1,0 +1,40 @@
+STRATEGY_NAME: VoltaicFisher  
+
+STRATEGY_DETAILS:  
+The VoltaicFisher strategy combines momentum and volatility expansion signals with trend confirmation from the Fisher Transform for high-probability entries, using Parabolic SAR for disciplined exits.  
+
+**Key Components:**  
+1. **Fisher Transform (14-period):** Normalizes price to identify extreme moves and potential reversals. Bullish when Fisher crosses above signal line, bearish when below.  
+2. **Volatility Bands (20-period ATR, 2x multiplier):** Dynamic bands that expand during volatile conditions. Upper band = SMA + (ATR×2), lower band = SMA - (ATR×2).  
+3. **Parabolic SAR (0.02 step, 0.2 max):** Trailing stop for exit signals.  
+
+**Entry Rules (Long):**  
+- Price closes **above upper volatility band** AND  
+- Fisher Transform crosses **above its signal line** (confirming bullish momentum).  
+- Enter on next candle’s open.  
+
+**Entry Rules (Short):**  
+- Price closes **below lower volatility band** AND  
+- Fisher Transform crosses **below its signal line** (confirming bearish momentum).  
+- Enter on next candle’s open.  
+
+**Exit Rules:**  
+- **Parabolic SAR flips** to opposite side of position (e.g., SAR dots appear above price for long exit).  
+- Optional: Secondary exit if Fisher reverses direction (e.g., crosses signal line opposite to trade direction).  
+
+**Risk Management:**  
+- **Stop-loss:** Place at recent swing low (long) or swing high (short) outside volatility bands.  
+- **Position sizing:** Risk ≤1-2% per trade based on stop distance.  
+- **Filter:** Avoid trades during low ATR (volatility contraction).  
+
+**Required Indicators:**  
+1. Fisher Transform (14-period)  
+2. ATR (20-period) for volatility bands  
+3. SMA (20-period) as band baseline  
+4. Parabolic SAR (0.02, 0.2)  
+
+**Unique Edge:**  
+- Volatility bands adapt to market conditions, while Fisher filters false breakouts.  
+- SAR ensures profit retention during strong trends. Best suited for **15min-4H timeframes** in trending markets.  
+
+**Backtest Note:** Optimize ATR multiplier (1.5-3x) and Fisher period (10-20) for asset-specific volatility.

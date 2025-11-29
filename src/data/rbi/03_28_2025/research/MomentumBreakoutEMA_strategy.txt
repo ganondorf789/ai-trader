@@ -1,0 +1,48 @@
+STRATEGY_NAME: MomentumBreakoutEMA
+
+STRATEGY_DETAILS:
+This strategy combines trend confirmation with momentum breakout signals using EMA crossovers and ADX strength, coupled with a volatility-based exit mechanism.
+
+Key Components:
+1. Trend Identification - Uses the golden/death cross of 50/200 EMAs
+2. Momentum Confirmation - Requires ADX > 25 to confirm strong trend
+3. Volatility Management - Uses 2x ATR(14) for trailing stops
+
+Entry Rules:
+1. Long Entry:
+   - 50 EMA crosses above 200 EMA (golden cross)
+   - ADX rises above 25 (confirming strong trend)
+   - Enter on next candle's open after both conditions are met
+
+2. Short Entry:
+   - 50 EMA crosses below 200 EMA (death cross)
+   - ADX rises above 25 (confirming strong trend)
+   - Enter on next candle's open after both conditions are met
+
+Exit Rules:
+1. For long positions:
+   - Trail stop at highest high minus 2x ATR(14)
+   - Exit when price hits trailing stop level
+
+2. For short positions:
+   - Trail stop at lowest low plus 2x ATR(14)
+   - Exit when price hits trailing stop level
+
+Risk Management:
+1. Position sizing should be based on the ATR(14) value
+2. Initial stop can be set at 1x ATR(14) from entry
+3. Never risk more than 1-2% of capital per trade
+4. Consider scaling out of positions as profits accumulate
+
+Required Indicators:
+1. 50-period Exponential Moving Average (EMA)
+2. 200-period Exponential Moving Average (EMA)
+3. Average Directional Index (ADX) - 14 period recommended
+4. Average True Range (ATR) - 14 period
+
+Additional Notes:
+- Works best on daily or 4H timeframes for swing trading
+- More reliable in trending markets than ranging conditions
+- Consider adding volume confirmation for stronger signals
+- Backtest different ATR multiples (1.5x-3x) for optimal stop placement
+- Watch for EMA cross validity - the steeper the angle, the stronger the signal

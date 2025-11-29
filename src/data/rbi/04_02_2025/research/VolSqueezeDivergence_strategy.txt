@@ -1,0 +1,54 @@
+STRATEGY_NAME: VolSqueezeDivergence
+
+STRATEGY_DETAILS:
+This strategy combines On-Balance Volume (OBV) divergence with Bollinger Band squeeze patterns to identify high-probability trading opportunities during low volatility periods. The strategy capitalizes on the explosive moves that often follow volatility contractions.
+
+Key Components:
+1. Bollinger Band Squeeze Detection: 
+   - Uses standard 20-period Bollinger Bands (2 standard deviations)
+   - Squeeze occurs when bandwidth (upper band - lower band) reaches 6-month lows
+
+2. OBV Divergence Confirmation:
+   - Bullish divergence: Price makes lower low while OBV makes higher low
+   - Bearish divergence: Price makes higher high while OBV makes lower high
+   - Requires at least 3 consecutive diverging price/OBV points
+
+3. Volatility Band Exit:
+   - 20-period rolling volatility band (ATR-based)
+   - Calculated as close ± (2 * ATR(20))
+
+Entry Rules:
+1. Wait for confirmed Bollinger Band squeeze (narrowest bandwidth in 6 months)
+2. Identify OBV divergence pattern during squeeze period
+3. Enter at the close of the squeeze candle in direction of OBV divergence:
+   - Long if bullish divergence
+   - Short if bearish divergence
+
+Exit Rules:
+1. Profit-taking: 
+   - Close position when price breaches opposite volatility band
+   - Long exits when price crosses below (close - 2*ATR(20))
+   - Short exits when price crosses above (close + 2*ATR(20))
+
+2. Stop-loss:
+   - Initial stop placed at recent swing low/high
+   - Trailing stop activated after price moves 1.5*ATR in profit
+
+Risk Management:
+1. Position sizing: Risk no more than 1-2% of capital per trade
+2. Avoid trading during major news events
+3. Maximum of 3 concurrent positions
+4. Daily time frame recommended for best results
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. On-Balance Volume (OBV)
+3. Average True Range (ATR 20)
+4. Custom volatility bands (close ± 2*ATR)
+
+Optimization Notes:
+- Backtest different ATR multiples (1.5-3) for volatility bands
+- Experiment with squeeze duration requirements
+- Test various OBV lookback periods for divergence confirmation
+
+This strategy works best in ranging markets and requires patience to wait for high-quality setups. The combination of volume confirmation with volatility contraction provides a robust edge when properly executed.

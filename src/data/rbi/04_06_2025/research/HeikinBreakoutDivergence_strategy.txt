@@ -1,0 +1,46 @@
+STRATEGY_NAME: HeikinBreakoutDivergence
+
+STRATEGY_DETAILS:
+This strategy combines Heikin-Ashi candlestick patterns with Bollinger Band breakouts and TICK divergence confirmation for high-probability momentum trades. The unique combination of smoothed price action (Heikin-Ashi), volatility bands (Bollinger), and market breadth (TICK) creates a robust breakout system with built-in momentum confirmation.
+
+Key Components:
+1. Heikin-Ashi Candles (15-min timeframe)
+2. Bollinger Bands (2.5 standard deviations)
+3. TICK Index divergence analysis
+4. Fractal-based stop placement
+
+Entry Rules:
+1. Wait for Heikin-Ashi candle to CLOSE outside Bollinger Bands (2.5σ)
+2. Confirm with TICK divergence:
+   - For long entry: Higher price low with higher TICK low
+   - For short entry: Lower price high with lower TICK high
+3. Enter on next candle open
+
+Exit Rules:
+1. Profit-taking:
+   - Close position when price returns inside Bollinger Bands
+   - Or when opposite TICK divergence appears
+2. Stop-loss:
+   - Longs: Prior fractal low
+   - Shorts: Prior fractal high
+   - Maximum risk: 1-2% of account per trade
+
+Risk Management:
+1. Position size based on distance to fractal stop
+2. Never risk more than 2% of account on single trade
+3. Avoid trading during major news events
+4. Reduce size during low volatility periods
+
+Required Indicators:
+1. Heikin-Ashi candles (converted from regular price)
+2. Bollinger Bands (20-period, 2.5σ)
+3. TICK Index (NYSE or equivalent)
+4. Fractal indicator (for stop placement)
+
+Optimization Notes:
+1. Test different Bollinger Band deviations (2.0-3.0σ)
+2. Experiment with various timeframes (10-30 min)
+3. Consider adding volume filter for confirmation
+4. Backtest across different market conditions
+
+This strategy excels in trending markets but may produce false signals during choppy conditions. The combination of Heikin-Ashi smoothing and TICK divergence helps filter out many false breakouts while the fractal-based stops provide logical risk points.

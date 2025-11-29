@@ -1,0 +1,33 @@
+STRATEGY_NAME: BandMomentum
+
+STRATEGY_DETAILS:
+The BandMomentum strategy is a momentum-based trading approach that utilizes Bollinger Bands to identify potential long and short opportunities. The strategy focuses on the cumulative product of the 50-period Bollinger Bands' lower bands to determine market direction and momentum.
+
+Key Strategy Components:
+1. Bollinger Bands (50-period)
+2. Cumulative product calculation
+3. Standard deviation-based stop-loss
+
+Entry Rules:
+1. Long Entry: When the cumulative product of the 50-period Bollinger Bands' lower bands is positive, indicating upward momentum.
+2. Short Entry: When the cumulative product of the 50-period Bollinger Bands' lower bands is negative, indicating downward momentum.
+
+Exit Rules:
+1. Stop-Loss: Set at 2 standard deviations away from the mid-point of the Bollinger Bands.
+2. Take-Profit: Not explicitly defined in the strategy; consider using a trailing stop or a fixed risk-reward ratio.
+
+Risk Management:
+1. Position sizing should be based on account size and risk tolerance.
+2. Use the 2 standard deviation stop-loss to limit potential losses.
+3. Consider implementing a maximum daily loss limit to protect against adverse market conditions.
+
+Required Indicators:
+1. Bollinger Bands (50-period, 2 standard deviations)
+2. Cumulative product calculation of the lower bands
+
+Additional Considerations:
+1. Backtest the strategy on historical data to assess its performance.
+2. Consider adding a confirmation indicator (e.g., RSI or MACD) to filter out false signals.
+3. Monitor market conditions and adjust parameters as needed to adapt to changing volatility.
+
+This strategy is best suited for traders who are comfortable with momentum-based approaches and have a good understanding of Bollinger Bands and standard deviation concepts. As with any trading strategy, proper risk management and discipline are crucial for long-term success.

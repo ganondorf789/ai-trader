@@ -1,0 +1,49 @@
+STRATEGY_NAME: FractalVoltility  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Compression Detection:** Uses Bollinger Band width percentile to identify periods of low volatility (compression).  
+2. **Trend Confirmation:** Anchored VWAP slope provides directional bias for breakout trades.  
+3. **Dynamic Position Sizing:** Adjusts trade size based on recent fractal dimension, scaling into higher-probability setups.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Band width percentile < 20 (indicating compression)  
+  2. Anchored VWAP slope is positive (uptrend confirmation)  
+  3. Price breaks above upper Bollinger Band  
+- **Short Entry:**  
+  1. Bollinger Band width percentile < 20  
+  2. Anchored VWAP slope is negative (downtrend confirmation)  
+  3. Price breaks below lower Bollinger Band  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Close position when Bollinger Band width percentile > 80 (high volatility)  
+  - Or when price touches opposite Bollinger Band  
+- **Stop Loss:**  
+  - Fixed percentage (e.g., 1-2%) below breakout level for longs, above for shorts  
+  - Trailing stop based on fractal dimension volatility  
+
+**Risk Management:**  
+- Position size adjusted based on fractal dimension:  
+  - Higher fractal dimension (more chaotic markets) = smaller position  
+  - Lower fractal dimension (smoother trends) = larger position  
+- Maximum risk per trade capped at 1% of account  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 StdDev) with width percentile calculation  
+2. Anchored VWAP with slope measurement  
+3. Fractal dimension indicator (e.g., Hurst exponent or similar)  
+
+**Unique Aspects:**  
+- Combines volatility cycles (Bollinger) with smart volume profiling (VWAP)  
+- Uses fractal mathematics to adapt to market conditions  
+- Avoids false breakouts by requiring dual confirmation  
+
+**Optimization Notes:**  
+- Test different percentile thresholds (15-25 for compression)  
+- Adjust VWAP anchor points based on dominant market cycles  
+- Calibrate fractal dimension lookback period (typically 50-100 bars)  
+
+This strategy excels in ranging markets transitioning to trends, avoiding whipsaws through its multi-factor confirmation system.

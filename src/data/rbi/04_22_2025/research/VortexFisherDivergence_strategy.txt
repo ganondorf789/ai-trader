@@ -1,0 +1,39 @@
+STRATEGY_NAME: VortexFisherDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Fisher Transform (FT):** Identifies potential price reversals by normalizing prices into a Gaussian distribution.  
+2. **Vortex Indicator (VI):** Measures trend direction and strength using positive (VI+) and negative (VI-) trend movements.  
+3. **Volume Confirmation:** Uses above-average volume to validate divergence signals.  
+4. **ADX (Average Directional Index):** Confirms trend strength and helps determine exit conditions.  
+
+**Entry Rules:**  
+1. **Divergence Setup:**  
+   - **Bearish Entry:** Fisher Transform shows a reversal from positive to negative (crossing below zero) while VI+ is above VI- (indicating bullish trend).  
+   - **Bullish Entry:** Fisher Transform shows a reversal from negative to positive (crossing above zero) while VI- is above VI+ (indicating bearish trend).  
+2. **Volume Confirmation:** The divergence must occur on **above-average volume** (e.g., volume > 20-period SMA of volume).  
+
+**Exit Rules:**  
+1. **ADX-Based Exit:** Close the trade when the **ADX slope flattens or declines below 25**, indicating weakening trend momentum.  
+2. **Fisher Reversal Exit:** Exit if Fisher reverses direction again (e.g., bullish trade exits when FT crosses back below zero).  
+
+**Risk Management:**  
+1. **Stop-Loss Placement:**  
+   - For long trades: Set stop-loss below the recent swing low.  
+   - For short trades: Set stop-loss above the recent swing high.  
+2. **Position Sizing:** Risk no more than **1-2% of capital per trade**.  
+3. **Avoid Low ADX Conditions:** Do not enter trades if ADX is below **20** (weak trend environment).  
+
+**Required Indicators:**  
+1. **Fisher Transform** (default settings).  
+2. **Vortex Indicator** (VI+ and VI-, typically 14-period).  
+3. **Volume** (20-period SMA for confirmation).  
+4. **ADX** (14-period, threshold at 25 for exits).  
+
+**Additional Notes:**  
+- Works best in **moderately trending markets** (ADX between 25-40).  
+- Avoid using in **choppy or sideways markets** (ADX < 20).  
+- Combine with **higher timeframe analysis** for stronger confluence.  
+
+This strategy leverages **divergence between momentum (Fisher) and trend (Vortex)** while using volume as a confirming filter, making it a high-probability mean-reversion approach in trending conditions.

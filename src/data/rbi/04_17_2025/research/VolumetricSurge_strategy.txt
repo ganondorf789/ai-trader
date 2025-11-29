@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolumetricSurge  
+
+STRATEGY_DETAILS:  
+This strategy combines trend strength, volume acceleration, and volatility contraction to identify high-probability trade entries and exits. The core premise is to capitalize on strong trending moves confirmed by surging volume, while using Bollinger Band width as a volatility filter for exits.  
+
+**Key Components:**  
+1. **ADX (Average Directional Index)** - Measures trend strength (default period 14). Used to confirm if the market is in a strong trend (ADX > 25 ideal).  
+2. **Volume Acceleration Oscillator** - Custom calculation comparing current volume to a rolling average (e.g., 5-period vs. 20-period SMA of volume). Signals "acceleration" when current volume exceeds the short-term average by a threshold (e.g., 20%).  
+3. **Bollinger Band Width Threshold** - Calculated as (Upper Band - Lower Band) / Middle Band. Used to identify volatility contraction for exits (e.g., when width drops below a 20-period low).  
+
+**Entry Rules (Long Example):**  
+- **Trend Confirmation:** ADX > 25 and +DI > -DI (uptrend).  
+- **Volume Surge:** Volume Acceleration Oscillator triggers (e.g., 5-period volume > 20-period volume by 20%).  
+- **Price Action:** Price above 20-period SMA (optional additional filter).  
+
+**Exit Rules:**  
+- **Volatility Contraction:** Bollinger Band width drops below its 20-period low (signaling loss of momentum).  
+- **Trailing Stop:** Alternative exit if price closes below the 10-period SMA or a recent swing low.  
+
+**Risk Management:**  
+- Position sizing: Risk ≤ 1-2% per trade.  
+- Stop-loss: Place below recent swing low (for longs) or above swing high (for shorts).  
+- Avoid trading during major economic news events unless volume surge is exceptionally strong.  
+
+**Required Indicators:**  
+1. ADX (14-period default) with +DI/-DI lines.  
+2. Custom Volume Acceleration Oscillator (5 vs. 20-period volume comparison).  
+3. Bollinger Bands (20-period, 2 Std Dev) with width calculation.  
+4. Optional: 20-period SMA for trend alignment.  
+
+**Unique Edge:** The synergy between volume acceleration and ADX filters out false breakouts, while the Bollinger Width exit locks in profits before volatility collapses. Works best on 1H-4H timeframes for swing trades.  
+
+**Note:** Backtest optimal thresholds for volume acceleration (e.g., 15% vs. 20%) and ADX levels (e.g., 20 vs. 25) based on asset volatility.

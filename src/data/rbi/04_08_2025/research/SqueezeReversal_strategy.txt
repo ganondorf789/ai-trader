@@ -1,0 +1,34 @@
+STRATEGY_NAME: SqueezeReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Keltner Channel Squeeze:** The strategy identifies tightening price action within a Keltner Channel (set at 1.5x ATR), signaling consolidation and potential volatility expansion.  
+2. **Volume Confirmation:** Declining volume during the squeeze reinforces the lack of participation, increasing the likelihood of a breakout.  
+3. **RSI Reversal Confirmation:** A 3-period RSI reversal from overbought (>70) or oversold (<30) levels validates the exit signal, ensuring momentum alignment with the breakout.  
+
+**Entry Rules:**  
+- **Long Entry:** Enter when:  
+  - Price is consolidating within a tightening Keltner Channel (upper and lower bands converging).  
+  - Volume is declining, indicating weakening participation in the consolidation.  
+
+**Exit Rules:**  
+- **Long Exit:** Close the position when:  
+  - Price closes outside the Keltner Channel (breakout).  
+  - The 3-period RSI reverses direction from above 70 (for long exits) or below 30 (for short exits), confirming momentum exhaustion.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place a stop-loss just outside the opposite Keltner Channel band to limit losses if the breakout fails.  
+2. **Position Sizing:** Use a fixed percentage of capital (e.g., 1-2%) per trade to manage risk.  
+3. **Avoid Overcrowded Conditions:** Skip trades if volume spikes during the squeeze, as it may indicate false breakouts.  
+
+**Required Indicators:**  
+1. **Keltner Channel (1.5x ATR):** To identify consolidation and breakout levels.  
+2. **Volume Indicator:** To confirm declining participation during the squeeze.  
+3. **3-Period RSI:** To validate momentum reversals at extremes.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (Keltner squeeze), volume divergence, and ultra-short-term RSI reversals for high-probability breakout trades.  
+- Focuses on "quiet before the storm" setups, avoiding noisy price action.  
+
+**Note:** This strategy works best in trending markets with intermittent consolidations. Avoid ranging markets with no clear directional bias.

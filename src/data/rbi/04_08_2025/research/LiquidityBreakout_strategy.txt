@@ -1,0 +1,32 @@
+STRATEGY_NAME: LiquidityBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Zone Focus:** The strategy identifies clustered liquidation zones (areas where stop-loss orders are likely concentrated) as key levels for potential breakouts.  
+2. **Bollinger Band Width Filter:** Uses the 4H Bollinger Band width contraction (below its 30-day average) to signal low volatility conditions preceding potential expansion.  
+3. **Volatility Expansion Target:** Aims to capitalize on breakout momentum toward liquidity pools (high-volume zones where price is likely to accelerate).  
+4. **Trailing Stop Mechanism:** Implements Chande Kroll stops to dynamically protect profits while allowing for trend continuation.  
+
+**Entry Rules:**  
+1. **Setup Confirmation:**  
+   - Price approaches a clustered liquidation zone (identified via order flow analysis or historical liquidity maps).  
+   - 4H Bollinger Band width contracts below its 30-day average (volatility squeeze signal).  
+2. **Trigger:** Enter long/short on a confirmed breakout (close above/below the liquidation zone with increased volume).  
+
+**Exit Rules:**  
+1. **Profit Target:** First take-profit level at the nearest liquidity pool (e.g., prior swing high/low or volume node).  
+2. **Trailing Stop:** Use Chande Kroll stops (default settings: 10-period ATR, 3x multiplier) to trail price and lock in gains. Exit when the stop is hit.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place initial stop-loss beyond the opposite side of the liquidation zone (e.g., for a long breakout, stop below the zone’s low).  
+2. **Position Sizing:** Risk ≤1-2% of capital per trade based on stop distance.  
+3. **Volatility Adjustment:** Avoid entries if Bollinger Band width is expanding rapidly (indicates late-cycle breakout).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (4H):** Default 20-period, 2 StdDev, with width calculation.  
+2. **30-Day Bollinger Width MA:** Simple moving average of the 4H width.  
+3. **Chande Kroll Stops:** For trailing exits (typical settings: 10-period ATR, 3x multiplier).  
+4. **Liquidation Zone Tool:** Order flow analytics or historical liquidity data (e.g., volume profile, cumulative delta).  
+
+**Unique Edge:** Combines liquidity-based price action with volatility contraction/expansion dynamics, targeting high-probability breakouts while mitigating false moves via Chande Kroll’s adaptive stops.

@@ -1,0 +1,42 @@
+STRATEGY_NAME: SqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **ADX (Average Directional Index)** – Measures trend strength (values above 25 indicate a strong trend).  
+2. **Keltner Channel** – A volatility-based envelope that helps identify squeeze conditions (narrowing bands suggest low volatility before potential breakouts).  
+3. **Volume Surge** – Confirms breakout validity when volume exceeds the 50-day average.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - ADX > 25 (strong trend confirmation)  
+  - Price breaks **above** the upper Keltner Channel  
+  - Volume exceeds the 50-day average (confirms breakout strength)  
+- **Short Entry:**  
+  - ADX > 25 (strong trend confirmation)  
+  - Price breaks **below** the lower Keltner Channel  
+  - Volume exceeds the 50-day average (confirms breakdown strength)  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Close position when price touches the opposite Keltner Channel band (upper band for shorts, lower band for longs).  
+  - Alternatively, use a trailing stop based on recent volatility (e.g., ATR-based stop).  
+- **Stop Loss:**  
+  - Place stop-loss **inside** the Keltner Channel (e.g., mid-band or recent swing low/high).  
+
+**Risk Management:**  
+- Position sizing: Risk no more than 1-2% of capital per trade.  
+- Avoid trading during low ADX (<25) to prevent false breakouts.  
+- Wait for volume confirmation to reduce whipsaw risk.  
+
+**Required Indicators:**  
+1. **ADX (14-period default)** – Trend strength filter.  
+2. **Keltner Channel (20-period EMA, 2x ATR width)** – Volatility squeeze detection.  
+3. **Volume (50-day MA)** – Breakout confirmation.  
+
+**Optimization Tips:**  
+- Adjust Keltner Channel multiplier (e.g., 1.5x ATR for tighter squeezes).  
+- Test different ADX thresholds (e.g., 20 for more trades, 30 for higher conviction).  
+- Combine with momentum oscillators (e.g., RSI) to avoid overbought/oversold breakouts.  
+
+This strategy capitalizes on high-probability breakouts by combining trend strength, volatility contraction, and volume surge confirmation.

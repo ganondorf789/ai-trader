@@ -1,0 +1,37 @@
+STRATEGY_NAME: VortexChaikinCluster  
+
+STRATEGY_DETAILS:  
+This strategy combines three powerful technical indicators to identify high-probability entries and exits while accounting for volatility shifts. The core components are:  
+
+1. **Key Components**:  
+   - **Vortex Indicator (VI)**: Tracks directional movement via +VI (bullish) and -VI (bearish) lines. A bullish crossover (+VI crossing above -VI) signals potential uptrends, while a bearish crossover (+VI crossing below -VI) suggests downtrends.  
+   - **Chaikin Money Flow (CMF)**: Measures buying/selling pressure. A reversal from negative to positive territory (e.g., crossing above zero) confirms accumulation, while a drop below zero signals distribution.  
+   - **Keltner Channels (KC)**: Volatility-adjusted bands set at 2x ATR (14-period) around an EMA (20-period). Recent "volatility clusters" (dense price swings) trigger dynamic band adjustments (e.g., tightening ATR multiplier during low volatility).  
+
+2. **Entry Rules**:  
+   - **Long Entry**:  
+     1. +VI crosses above -VI (bullish momentum).  
+     2. CMF reverses from negative to positive (confirmed buying pressure).  
+     3. Price must be above the KC midline (EMA 20) for trend alignment.  
+   - **Short Entry**:  
+     1. +VI crosses below -VI (bearish momentum).  
+     2. CMF drops from positive to negative (confirmed selling pressure).  
+     3. Price must be below the KC midline.  
+
+3. **Exit Rules**:  
+   - **Long Exit**: Price closes below the lower Keltner band (volatility-adjusted).  
+   - **Short Exit**: Price closes above the upper Keltner band.  
+   - **Emergency Exit**: CMF sharply reverses against the position (e.g., long trades exit if CMF drops below -0.2).  
+
+4. **Risk Management**:  
+   - Position sizing: 1-2% risk per trade.  
+   - Stop-loss: Placed just beyond the opposite KC band (e.g., below the lower band for longs).  
+   - Volatility filter: Avoid trades if ATR (14) is below its 10-period SMA (low volatility).  
+
+5. **Required Indicators**:  
+   - Vortex Indicator (VI) (default 14-period).  
+   - Chaikin Money Flow (CMF) (20-period).  
+   - Keltner Channels (20-period EMA, 2x ATR 14, adjusted for clusters).  
+   - ATR (14-period) for volatility assessment.  
+
+**Unique Edge**: The combination of directional momentum (VI), volume confirmation (CMF), and dynamic volatility boundaries (KC) filters out false signals while adapting to market conditions. The "cluster" adjustment ensures bands remain relevant during erratic price action.

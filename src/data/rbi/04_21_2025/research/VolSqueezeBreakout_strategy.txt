@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolSqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** The strategy identifies periods of low volatility when the 20-period Bollinger Band width contracts to its lowest level in the last 3 months, signaling a potential breakout.  
+2. **Volume Surge Confirmation:** A breakout is only valid if accompanied by a surge in trading volume exceeding twice the 30-day average volume, confirming strong participation.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. The 20-period Bollinger Band width must reach its lowest level in the last 3 months (indicating a volatility squeeze).  
+  2. Price breaks above the upper Bollinger Band.  
+  3. Volume on the breakout candle must be at least 2x the 30-day average volume.  
+- **Short Entry:**  
+  1. The 20-period Bollinger Band width must reach its lowest level in the last 3 months.  
+  2. Price breaks below the lower Bollinger Band.  
+  3. Volume on the breakout candle must be at least 2x the 30-day average volume.  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Set a take-profit target at 1.5x the Bollinger Band width at the time of entry (measured from the breakout point).  
+- **Stop Loss:**  
+  - Place a stop-loss at the middle Bollinger Band (20-period SMA) for long trades.  
+  - For short trades, place the stop-loss at the middle Bollinger Band.  
+
+**Risk Management:**  
+- Risk no more than 1-2% of the trading capital per trade.  
+- Adjust position size based on the distance between entry and stop-loss levels to maintain consistent risk exposure.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 standard deviations)** – To identify volatility contraction and breakout levels.  
+2. **Volume Indicator** – To confirm breakout validity with a surge in trading activity.  
+3. **Average Volume (30-day)** – Used as a benchmark to measure volume surge.  
+
+**Additional Notes:**  
+- This strategy works best in trending markets after consolidation phases.  
+- Avoid trading during major news events unless the breakout is exceptionally strong.  
+- Backtest across multiple timeframes (e.g., 1H, 4H, Daily) to confirm robustness.  
+
+The **VolSqueezeBreakout** strategy capitalizes on low-volatility environments followed by high-momentum breakouts, ensuring high-probability trades with strong confirmation signals.

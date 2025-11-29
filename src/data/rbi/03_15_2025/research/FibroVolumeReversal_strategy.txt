@@ -1,0 +1,57 @@
+STRATEGY_NAME: FibroVolumeReversal
+
+STRATEGY_DETAILS:
+The FibroVolumeReversal strategy is a sophisticated trend-following approach that combines Fibonacci retracement levels with volume spikes to identify high-probability reversal points. This strategy is designed to capitalize on price movements after retracements within a prevailing trend, using volume as a confirmation signal for entry.
+
+### Key Strategy Components:
+1. **Fibonacci Retracement Levels**: 
+   - Identify the most recent significant swing high and swing low in the current trend.
+   - Draw Fibonacci retracement levels (23.6%, 38.2%, 50%, 61.8%, and 78.6%) between these points.
+   - Focus on the 38.2%, 50%, and 61.8% levels as key reversal zones.
+
+2. **Volume Spikes**:
+   - Use a volume indicator to detect spikes in trading volume.
+   - A volume spike is defined as a volume bar that is at least 2x the average volume of the last 20 bars.
+
+3. **Price Reversals**:
+   - Look for price reversals (e.g., bullish engulfing, pin bars, or divergence) at or near the key Fibonacci levels.
+   - The reversal should coincide with a volume spike for confirmation.
+
+### Entry Rules:
+- **Long Entry**:
+  - Price retraces to a key Fibonacci level (38.2%, 50%, or 61.8%) in an uptrend.
+  - A bullish reversal pattern forms at or near the Fibonacci level.
+  - A volume spike occurs simultaneously with the reversal pattern.
+  - Enter a long position at the close of the reversal candle.
+
+- **Short Entry**:
+  - Price retraces to a key Fibonacci level (38.2%, 50%, or 61.8%) in a downtrend.
+  - A bearish reversal pattern forms at or near the Fibonacci level.
+  - A volume spike occurs simultaneously with the reversal pattern.
+  - Enter a short position at the close of the reversal candle.
+
+### Exit Rules:
+- **Take Profit**:
+  - Set the take profit level at the next Fibonacci extension level (e.g., 127.2% or 161.8%) or a recent swing high/low.
+  - Alternatively, use a trailing stop to lock in profits as the trend continues.
+
+- **Stop Loss**:
+  - Place the stop loss just below the recent swing low (for long trades) or above the recent swing high (for short trades).
+  - Ensure the stop loss is outside the Fibonacci retracement zone to avoid premature exits.
+
+### Risk Management:
+- Risk no more than 1-2% of your trading capital on any single trade.
+- Adjust position size based on the distance between the entry point and the stop loss to maintain consistent risk exposure.
+- Avoid trading during low-volume periods or major news events to reduce false signals.
+
+### Required Indicators:
+1. **Fibonacci Retracement Tool**: To identify key retracement levels.
+2. **Volume Indicator**: To detect volume spikes (e.g., standard volume or a custom volume spike indicator).
+3. **Candlestick Patterns**: To identify reversal patterns (e.g., engulfing, pin bars, or divergence).
+
+### Additional Notes:
+- This strategy works best in trending markets. Avoid using it in choppy or sideways markets.
+- Combine with other trend confirmation tools (e.g., moving averages or trendlines) for higher accuracy.
+- Backtest the strategy on multiple timeframes (e.g., 1H, 4H, Daily) to find the most suitable one for your trading style.
+
+By combining Fibonacci retracement levels with volume spikes and price reversals, the FibroVolumeReversal strategy offers a robust framework for identifying high-probability trade setups in trending markets.

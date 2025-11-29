@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolumetricBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility expansion with volume confirmation to identify high-probability breakout opportunities. The key components are:
+
+1. INDICATORS REQUIRED:
+- Bollinger Bands (20,2 standard deviations)
+- Volume (20-day simple moving average)
+- RSI (14-period)
+
+2. ENTRY RULES:
+- Price must close ABOVE the upper Bollinger Band
+- Current volume must be at least 2x the 20-day average volume
+- Both conditions must occur simultaneously on the same candle
+
+3. EXIT RULES:
+- When RSI(14) crosses BELOW 70 from above
+- Or when price closes back inside the Bollinger Bands (optional additional exit)
+
+4. RISK MANAGEMENT:
+- Initial stop-loss should be placed at the middle Bollinger Band (20-SMA)
+- Position size should account for the volatility (wider bands = smaller position)
+- Consider implementing a time-based exit (e.g., close after 5 days if not exited)
+
+5. KEY CHARACTERISTICS:
+- Targets strong momentum moves with volume confirmation
+- Works best in trending markets with expanding volatility
+- Avoids false breakouts through volume filter
+- Uses RSI to capture the bulk of the momentum move while avoiding overbought reversals
+
+6. OPTIMIZATION CONSIDERATIONS:
+- Test different volume multipliers (1.5x-3x)
+- Experiment with RSI exit thresholds (65-75)
+- Consider adding a minimum price movement filter (e.g., breakout must be >1% above band)
+
+This strategy is particularly effective during earnings seasons or other high-impact news events when volatility and volume spikes are more likely to sustain directional moves.

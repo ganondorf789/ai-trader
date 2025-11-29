@@ -1,0 +1,61 @@
+STRATEGY_NAME: FibonacciDivergence
+
+STRATEGY_DETAILS:
+
+### Overview
+This is a trend-following strategy called FibonacciDivergence, which identifies high-probability entries by combining Fibonacci retracement levels (to pinpoint pullback zones in an established trend) with MACD oscillator divergence (to confirm momentum shifts). The core idea is to enter trades only when price converges (pulls back) to key Fibonacci levels during a trend, and the MACD shows divergence signaling a potential resumption of the trend. This filters out false breakouts and focuses on confluence between price structure and momentum. It's suitable for trending markets like forex, stocks, or indices on timeframes from H1 to D1. The strategy assumes an initial trend identification using a simple 200-period EMA (price above for uptrend, below for downtrend).
+
+### Key Strategy Components
+1. **Trend Identification**: Use a 200-period Exponential Moving Average (EMA) on the chart to determine the overall trend direction. Long trades are considered only in uptrends (price > 200 EMA), and short trades in downtrends (price < 200 EMA).
+2. **Fibonacci Retracement Levels**: After a significant trend move (e.g., a swing high to swing low in an uptrend), draw Fibonacci retracement levels from the swing low to swing high (or vice versa for downtrends). Key levels for convergence: 38.2%, 50%, and 61.8%. These act as dynamic support/resistance zones where price is expected to pull back before resuming the trend.
+3. **MACD Oscillator**: Standard MACD settings (12, 26, 9) to detect divergence. Divergence occurs when price makes a new low/high but MACD does not, indicating weakening momentum and a likely reversal back to the trend.
+4. **Confluence Signal**: Entry requires both price touching or converging near a Fibonacci level (within 1-2% tolerance) and MACD divergence confirming momentum alignment.
+
+### Entry Rules
+- **Long Entry (Uptrend)**:
+  1. Confirm uptrend: Price is above the 200 EMA, and a recent swing high has been established.
+  2. Draw Fibonacci retracement from the most recent swing low to swing high.
+  3. Wait for price to pull back and converge at the 38.2%, 50%, or 61.8% level (ideally with a candlestick reversal pattern like a hammer or engulfing for added confirmation).
+  4. Check MACD for bullish divergence: Price makes a lower low during the pullback, but MACD histogram or line makes a higher low (or the MACD line crosses above the signal line near zero).
+  5. Enter long on the close of the confirmation candle above the Fibonacci level, or on a breakout above the high of that candle.
+  
+- **Short Entry (Downtrend)**:
+  1. Confirm downtrend: Price is below the 200 EMA, and a recent swing low has been established.
+  2. Draw Fibonacci retracement from the most recent swing high to swing low.
+  3. Wait for price to rally and converge at the 38.2%, 50%, or 61.8% level (with a bearish reversal pattern like a shooting star).
+  4. Check MACD for bearish divergence: Price makes a higher high during the rally, but MACD makes a lower high (or MACD line crosses below the signal line).
+  5. Enter short on the close of the confirmation candle below the Fibonacci level, or on a breakdown below the low of that candle.
+
+Avoid entries if divergence is absent or if the pullback exceeds the 78.6% level (indicating potential trend reversal). Limit to 1-2 open trades per instrument to avoid overexposure.
+
+### Exit Rules
+- **Profit Targets**:
+  - Primary target: Next Fibonacci extension level (e.g., 127.2% or 161.8% from the entry swing) or a 1:2 risk-reward ratio minimum.
+  - Partial exits: Scale out 50% of the position at 1:1 risk-reward, letting the remainder run with a trailing stop.
+  
+- **Stop Loss**:
+  - Place initial stop loss 1-2% beyond the nearest swing low (for longs) or swing high (for shorts), or below/above the 78.6% Fibonacci level to account for deeper pullbacks.
+  - Trailing stop: Once in profit by 1x risk, trail the stop to the 50% Fibonacci level of the current move, then to recent swing points. Exit fully if MACD shows opposite divergence or price crosses the 200 EMA against the trend.
+  
+- **Time-Based Exit**: If no momentum resumption within 5-10 bars after entry, exit to avoid stagnation.
+
+### Risk Management
+- **Position Sizing**: Risk no more than 1-2% of account equity per trade. Calculate position size as: (Account Balance * Risk %) / (Entry Price - Stop Loss Distance).
+- **Maximum Drawdown**: Limit total open risk to 5% across all trades. Avoid trading during high-impact news events (use an economic calendar).
+- **Win Rate and R:R**: Targets a 40-50% win rate with at least 1:2 risk-reward to ensure profitability. Backtest on historical data to adjust Fibonacci tolerances based on asset volatility (e.g., tighter for forex pairs like EUR/USD).
+- **Diversification**: Apply to 3-5 uncorrelated assets; avoid over-optimization by testing on out-of-sample data.
+- **Psychological Rules**: Journal all trades, reviewing divergence accuracy weekly. If consecutive losses exceed 3, pause trading for review.
+
+### Required Indicators and Tools
+- **Core Indicators**:
+  - 200-period EMA (for trend filter).
+  - Fibonacci Retracement/Extension Tool (built into most platforms like TradingView, MT4/5).
+  - MACD (12, 26, 9) – Focus on histogram for divergence visualization.
+  
+- **Optional Enhancements**:
+  - Volume indicator (e.g., OBV) to confirm divergence with increasing volume on reversal candles.
+  - RSI (14-period) as a secondary filter: Avoid entries if RSI is overbought (>70 for longs) or oversold (<30 for shorts) at the Fibonacci level.
+  
+- **Platform Recommendations**: Use charting software with auto-Fibonacci drawing and divergence alerts (e.g., TradingView scripts for MACD divergence scanning). Backtest with tools like Pine Script or Python (using libraries like TA-Lib for MACD and Fib calculations).
+
+This strategy excels in strong trends but underperforms in ranging markets—always confirm trend strength before applying. Regular backtesting (at least 100 trades) is essential to refine parameters for specific assets.

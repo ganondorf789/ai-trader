@@ -1,0 +1,35 @@
+STRATEGY_NAME: SqueezeSpikeTrail
+
+STRATEGY_DETAILS:
+The SqueezeSpikeTrail strategy is a breakout-based approach that combines Bollinger Band squeezes with liquidation volume spikes and dynamic risk management. This strategy is designed to capture strong momentum moves following periods of low volatility and high liquidation activity.
+
+### Key Components:
+1. **Bollinger Band Squeeze**: Identifies periods of low volatility where the Bollinger Bands contract significantly.
+2. **Liquidation Volume Spike**: Detects a 50% or greater increase in liquidation volume, signaling potential market shifts.
+3. **Trailing Stop-Loss**: Uses a trailing stop-loss set at 2x the 14-period ATR to manage risk and lock in profits.
+
+### Entry Rules:
+1. Wait for a Bollinger Band squeeze, indicated by the upper and lower bands contracting to a narrow range (e.g., within 1.5% of the price).
+2. Confirm a 50% or greater spike in liquidation volume compared to the average volume over the past 14 periods.
+3. Enter a long position on a breakout above the upper Bollinger Band or a short position on a breakout below the lower Bollinger Band.
+
+### Exit Rules:
+1. Use a trailing stop-loss set at 2x the 14-period ATR. Adjust the stop-loss level as the price moves in your favor.
+2. Exit the trade if the trailing stop-loss is triggered.
+
+### Risk Management:
+1. Position sizing should be based on the distance between the entry price and the initial stop-loss level (2x ATR).
+2. Risk no more than 1-2% of your trading capital on any single trade.
+3. Avoid trading during major news events or periods of extreme market volatility.
+
+### Required Indicators:
+1. **Bollinger Bands** (20-period, 2 standard deviations)
+2. **Liquidation Volume** (custom indicator or data source)
+3. **ATR** (14-period)
+
+### Additional Notes:
+- This strategy works best in trending markets and may produce false signals in choppy or sideways conditions.
+- Backtest thoroughly to optimize parameters for your specific market and timeframe.
+- Consider combining with additional filters (e.g., RSI or MACD) to reduce false breakouts.
+
+The SqueezeSpikeTrail strategy is ideal for traders looking to capitalize on high-probability breakout opportunities with a clear risk management framework.

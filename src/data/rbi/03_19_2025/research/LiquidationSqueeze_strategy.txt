@@ -1,0 +1,37 @@
+STRATEGY_NAME: LiquidationSqueeze
+
+STRATEGY_DETAILS:
+The LiquidationSqueeze strategy is designed to capitalize on short-term bearish momentum by identifying key liquidation zones, Bollinger Band squeeze breakdowns, and negative funding rate surges. This strategy is particularly effective in volatile markets where liquidity-driven moves are prevalent.
+
+### Key Strategy Components:
+1. **Clustered Liquidation Zones**: Identify areas where a high concentration of stop-loss orders (liquidation zones) are likely to trigger. These zones are typically found near significant support/resistance levels or high-volume nodes.
+2. **Bollinger Band Squeeze Breakdown**: Use Bollinger Bands to detect periods of low volatility (squeeze) followed by a breakdown, indicating a potential breakout in price.
+3. **Negative Funding Rates**: Confirm bearish sentiment with a surge in negative funding rates, which indicates that short positions are being heavily funded.
+4. **High-Volume Nodes**: Use volume profile analysis to identify significant high-volume nodes, which act as key support/resistance levels.
+
+### Entry Rules:
+1. **Liquidation Zone Alignment**: Wait for price to approach a clustered liquidation zone.
+2. **Bollinger Band Squeeze Breakdown**: Confirm a breakdown from a Bollinger Band squeeze (price breaking below the lower band).
+3. **Negative Funding Rate Surge**: Ensure there is a significant surge in negative funding rates, confirming bearish sentiment.
+4. **Entry Signal**: Enter a short position when all three conditions align.
+
+### Exit Rules:
+1. **Retest of High-Volume Node**: Exit the short position when price retests the nearest high-volume node, which acts as a resistance level.
+2. **Stop-Loss**: Place a stop-loss just above the recent swing high or above the upper Bollinger Band to limit potential losses.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of your trading capital (e.g., 1-2%) per trade to manage risk.
+2. **Stop-Loss**: Always use a stop-loss to protect against unexpected reversals.
+3. **Risk-Reward Ratio**: Aim for a minimum risk-reward ratio of 1:2, ensuring that potential profits outweigh potential losses.
+
+### Required Indicators:
+1. **Bollinger Bands**: To identify periods of low volatility (squeeze) and potential breakdowns.
+2. **Volume Profile**: To identify high-volume nodes and liquidation zones.
+3. **Funding Rate Indicator**: To monitor funding rates and confirm bearish sentiment.
+
+### Additional Considerations:
+- **Timeframe**: This strategy works best on lower timeframes (e.g., 5-minute, 15-minute) where liquidity-driven moves are more frequent.
+- **Market Conditions**: Ideal for highly volatile markets with clear trends or breakouts.
+- **Confirmation**: Always wait for confirmation from all three components (liquidation zone, Bollinger Band breakdown, and funding rate surge) before entering a trade.
+
+By following the LiquidationSqueeze strategy, traders can effectively capitalize on short-term bearish momentum while managing risk through clear entry and exit rules.

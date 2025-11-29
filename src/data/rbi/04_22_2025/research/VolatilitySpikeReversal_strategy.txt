@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolatilitySpikeReversal
+
+STRATEGY_DETAILS:
+This strategy capitalizes on extreme volatility events combined with derivatives market sentiment to identify high-probability mean reversion opportunities. The approach combines statistical volatility measurements with funding rate dynamics and channel-based exits.
+
+Key Components:
+1. Volatility Measurement: Uses 3-standard deviation moves from a 20-period rolling standard deviation
+2. Sentiment Indicator: Monitors perpetual futures funding rates for extreme spikes
+3. Exit Mechanism: Keltner Channel (20-period EMA with 2.5x ATR bands) upper band as profit target
+
+Entry Rules:
+1. Price must drop at least 3 standard deviations below its 20-period mean
+2. Concurrent spike in perpetual funding rates (minimum 0.1% daily rate)
+3. Entry occurs at the first 15-minute candle close meeting both conditions
+
+Exit Rules:
+1. Primary Exit: When price touches or crosses the upper Keltner Channel band
+2. Emergency Exit: If price drops further to 4 standard deviations below mean
+3. Time Exit: After 48 hours if neither target nor stop is hit
+
+Risk Management:
+1. Position sizing based on 1% risk of account per trade
+2. Stop loss placed at 4 standard deviations below entry point
+3. Maximum daily loss limit of 5% across all positions
+
+Required Indicators:
+1. Standard Deviation (20-period)
+2. Perpetual Funding Rate monitor
+3. Keltner Channel (20-period EMA, 2.5x 20-period ATR)
+4. Simple Moving Average (20-period for mean calculation)
+
+Optimization Notes:
+- Best performance observed in high-liquidity crypto pairs (BTC, ETH)
+- Ideal timeframe: 15-minute to 4-hour charts
+- Requires monitoring during high volatility periods
+- Most effective when funding rate spike persists for at least 2 consecutive periods
+
+This strategy combines statistical extremes with derivatives market dynamics, creating a robust framework for capturing overextended moves while maintaining disciplined risk parameters. The unique pairing of spot price volatility with derivatives sentiment provides an edge in identifying high-probability reversal setups.

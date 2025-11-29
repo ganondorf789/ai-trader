@@ -1,0 +1,45 @@
+STRATEGY_NAME: VolatileReversion
+
+STRATEGY_DETAILS:
+The VolatileReversion strategy is a mean-reversion approach designed to capitalize on bullish RSI divergences during uptrends, specifically during periods of elevated market volatility as indicated by the VIX. The strategy combines volume analysis, RSI divergence, and trend confirmation to identify high-probability reversal opportunities.
+
+Key Components:
+1. **RSI Divergence**: Identifies potential reversals when price makes lower lows while RSI makes higher lows (bullish divergence)
+2. **Volume Analysis**: Confirms weakening momentum through decreasing volume during the divergence
+3. **Trend Filter**: Ensures trades are only taken in established uptrends
+4. **VIX Filter**: Restricts trading to periods of elevated market volatility
+5. **Exit Mechanism**: Uses price breakouts and stop-losses to manage risk
+
+Entry Rules:
+1. Confirm uptrend using 200-period EMA (price above EMA)
+2. Wait for RSI bullish divergence (price lower lows, RSI higher lows)
+3. Verify decreasing volume during divergence formation
+4. Check VIX is above its 20-period SMA (elevated volatility)
+5. Enter long at the close of the divergence-confirming candle
+
+Exit Rules:
+1. Take profit at 1.5x ATR (14) from entry price
+2. Stop-loss at 0.5x ATR below the divergence low
+3. Exit if price closes below 200 EMA (trend reversal)
+4. Exit if VIX drops below its 20-period SMA (volatility decrease)
+
+Risk Management:
+1. Position size limited to 1-2% of account per trade
+2. Maximum daily loss limit of 5%
+3. No new trades if 3 consecutive losses occur
+4. Stop-loss automatically adjusts to breakeven after price moves 1x ATR in favor
+
+Required Indicators:
+1. RSI (14 periods)
+2. Volume indicator
+3. 200-period EMA
+4. VIX with 20-period SMA
+5. ATR (14 periods)
+
+Additional Notes:
+- Backtest across multiple timeframes (4H, Daily recommended)
+- Avoid trading during major news events
+- Consider implementing a maximum holding period (e.g., 5 days)
+- Monitor correlation with broader market indices for confirmation
+
+This strategy combines mean-reversion principles with volatility awareness, making it particularly effective during periods of market uncertainty while maintaining strict risk controls.

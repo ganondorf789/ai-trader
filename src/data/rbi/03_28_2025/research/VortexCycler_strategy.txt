@@ -1,0 +1,48 @@
+STRATEGY_NAME: VortexCycler
+
+STRATEGY_DETAILS:
+
+Key Components:
+1. Primary Trend Filter: Detrended Price Oscillator (DPO) cycles identify the underlying trend phase
+2. Signal Generator: Vortex Indicator (VI) crossover system (VI+ crossing VI-)
+3. Exit Conditions: VI- reversal signal or volume contraction below 50-day average
+4. Trend Confirmation: Requires DPO to be in uptrend phase for valid entries
+
+Indicator Requirements:
+1. Vortex Indicator (VI) with standard 14-period setting
+2. Detrended Price Oscillator (DPO) with 20-period setting
+3. Volume 50-day simple moving average
+
+Entry Rules:
+1. DPO must be above its centerline (confirming uptrend phase)
+2. VI+ line must cross above VI- line
+3. Both conditions must occur simultaneously
+4. Entry occurs at the next candle's open after confirmation
+
+Exit Rules:
+1. Primary Exit: VI- line crosses above VI+ line (trend reversal signal)
+2. Secondary Exit: Current volume drops below 50-day volume average (momentum warning)
+3. Whichever condition occurs first triggers the exit
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Stop-loss placed below recent swing low (for long positions)
+3. Trailing stop option: Move stop to breakeven when price moves 2x ATR in profit
+4. Maximum trade duration: 20 bars (prevents holding through potential cycle turns)
+
+Optimization Notes:
+1. Test DPO period between 15-25 for different instruments
+2. VI period can be adjusted between 10-20 based on volatility
+3. Volume filter sensitivity can be modified (40-60 day average)
+
+Unique Aspects:
+1. Combines cyclical analysis (DPO) with directional momentum (VI)
+2. Uses volume contraction as early warning exit signal
+3. Filters out counter-trend VI signals with DPO confirmation
+4. Particularly effective in trending markets with clear cycles
+
+Backtesting Recommendations:
+1. Test across different asset classes (stocks, forex, commodities)
+2. Verify performance in both strong and weak trending conditions
+3. Compare results with and without volume filter
+4. Assess drawdown characteristics during ranging markets

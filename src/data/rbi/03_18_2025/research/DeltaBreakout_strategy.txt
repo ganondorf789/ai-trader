@@ -1,0 +1,48 @@
+STRATEGY_NAME: DeltaBreakout
+
+STRATEGY_DETAILS:
+The DeltaBreakout strategy focuses on identifying and trading breakouts from consolidation zones using Keltner Channels and volume delta analysis. The strategy combines price action, volatility, and volume dynamics to capture strong momentum moves while managing risk effectively.
+
+### Key Strategy Components:
+1. **Keltner Channels**: Used to identify consolidation zones and potential breakout levels. The narrowing of the channels indicates reduced volatility and a potential buildup for a breakout.
+2. **Volume Delta**: Measures the difference between buying and selling volume. A surge in volume delta confirms the strength of the breakout.
+3. **Breakout Confirmation**: Requires a breakout above/below the Keltner Channel boundary accompanied by a significant increase in volume delta.
+4. **Exit Signals**: Based on either a reversal of the volume imbalance (indicating weakening momentum) or a breach of the opposite Keltner Channel boundary (indicating a potential trend reversal).
+
+---
+
+### Entry Rules:
+1. **Identify Consolidation**: Look for narrowing Keltner Channels, indicating a period of low volatility and consolidation.
+2. **Volume Delta Surge**: Wait for a significant surge in volume delta (e.g., a spike in buying or selling volume) in the direction of the breakout.
+3. **Breakout Confirmation**: Enter a trade when the price breaks above the upper Keltner Channel (for a long trade) or below the lower Keltner Channel (for a short trade), confirmed by the volume delta surge.
+
+---
+
+### Exit Rules:
+1. **Volume Imbalance Reversal**: Exit the trade if the volume delta reverses (e.g., buying volume decreases significantly in a long trade or selling volume decreases in a short trade).
+2. **Opposite Channel Breach**: Exit the trade if the price breaches the opposite Keltner Channel boundary (e.g., the lower channel in a long trade or the upper channel in a short trade).
+
+---
+
+### Risk Management:
+1. **Stop Loss**: Place a stop loss just outside the opposite Keltner Channel boundary to limit losses if the breakout fails.
+2. **Position Sizing**: Use a fixed percentage of capital per trade (e.g., 1-2%) to manage risk.
+3. **Trailing Stop**: Consider using a trailing stop based on the Keltner Channel boundaries to lock in profits as the trend progresses.
+
+---
+
+### Required Indicators:
+1. **Keltner Channels**: Set with a 20-period EMA and 2x ATR for the channel width.
+2. **Volume Delta**: Use a volume delta indicator to measure the difference between buying and selling volume.
+3. **Volume Profile**: Optional but helpful for identifying key support/resistance levels within the consolidation zone.
+
+---
+
+### Example Trade Setup:
+1. **Consolidation**: Price moves within narrowing Keltner Channels for several candles.
+2. **Breakout**: Price breaks above the upper Keltner Channel with a surge in buying volume delta.
+3. **Entry**: Enter a long trade at the breakout candle's close.
+4. **Stop Loss**: Place a stop loss below the lower Keltner Channel.
+5. **Exit**: Exit the trade if the volume delta reverses or the price breaches the lower Keltner Channel.
+
+The DeltaBreakout strategy is designed to capitalize on high-probability breakout opportunities while minimizing risk through clear entry and exit rules.

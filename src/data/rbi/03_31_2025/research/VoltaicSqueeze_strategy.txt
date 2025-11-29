@@ -1,0 +1,43 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bands Width Contraction:** The strategy identifies periods of low volatility when the Bollinger Bands width reaches a 20-day low, signaling a potential breakout.  
+2. **Volume Confirmation:** A breakout is confirmed only when volume exceeds the 50-day average, ensuring the move has strong participation.  
+3. **Breakout Direction:** The strategy enters long if the price breaks above the upper Bollinger Band and short if it breaks below the lower Bollinger Band.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Bands width is at a 20-day low (indicating a squeeze).  
+  2. Price breaks above the upper Bollinger Band.  
+  3. Volume exceeds the 50-day average volume.  
+- **Short Entry:**  
+  1. Bollinger Bands width is at a 20-day low.  
+  2. Price breaks below the lower Bollinger Band.  
+  3. Volume exceeds the 50-day average volume.  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  1. Price closes back inside the Bollinger Bands.  
+  2. Or, a trailing stop-loss is triggered (e.g., 2x ATR).  
+- **Short Exit:**  
+  1. Price closes back inside the Bollinger Bands.  
+  2. Or, a trailing stop-loss is triggered (e.g., 2x ATR).  
+
+**Risk Management:**  
+- **Stop-Loss:** Initial stop-loss placed at 1.5x ATR (Average True Range) from the entry price.  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Trailing Stop:** Adjust stop-loss to lock in profits as the trade moves favorably (e.g., 2x ATR trailing).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** To identify the squeeze and breakout levels.  
+2. **Volume (50-day MA):** To confirm breakout validity.  
+3. **ATR (14):** For stop-loss and trailing stop calculations.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (Bollinger Squeeze) with volume confirmation for higher-probability breakouts.  
+- Uses ATR for dynamic risk management, adapting to market conditions.  
+- Avoids false breakouts by requiring volume spikes.  
+
+This strategy is ideal for trending markets and works best on higher timeframes (e.g., 1H or daily charts).

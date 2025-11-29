@@ -1,0 +1,66 @@
+STRATEGY_NAME: DivergentPulse
+
+STRATEGY_DETAILS:
+The DivergentPulse strategy combines moving average divergence, RSI divergence, and volume analysis to identify high-probability trading opportunities. It focuses on capturing momentum shifts during overbought conditions while incorporating robust risk management.
+
+### Key Components:
+1. **Moving Averages**:
+   - 10-period Exponential Moving Average (EMA) for short-term momentum
+   - 50-period Simple Moving Average (SMA) for long-term trend
+   - Divergence between these two averages signals potential trend reversals
+
+2. **RSI Divergence**:
+   - 14-period RSI used to identify overbought conditions (above 70)
+   - Bullish divergence occurs when price makes lower lows while RSI makes higher lows
+
+3. **Volume Analysis**:
+   - Volume spike confirms the strength of the divergence signal
+   - Look for a significant increase in volume compared to the average
+
+4. **ATR-Based Stop Loss**:
+   - 14-period Average True Range (ATR) used to set dynamic stop-loss levels
+   - Ensures risk is proportional to market volatility
+
+### Entry Rules:
+1. **Setup**:
+   - Wait for the 10-period EMA to diverge from the 50-period SMA (EMA crosses above SMA)
+   - Confirm RSI is in overbought territory (above 70) and shows bullish divergence
+   - Observe a significant upward spike in volume
+
+2. **Trigger**:
+   - Enter a long position when all three conditions align:
+     - EMA/SMA divergence
+     - RSI bullish divergence
+     - Volume spike
+
+### Exit Rules:
+1. **Take Profit**:
+   - Exit when price returns to equilibrium (EMA and SMA converge)
+   - Alternatively, use a trailing stop based on ATR
+
+2. **Stop Loss**:
+   - Set stop loss at 1.5x the 14-period ATR below the entry price
+   - Adjust stop loss dynamically as the trade progresses
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of the trading capital per trade
+   - Use ATR to calculate position size based on stop-loss distance
+
+2. **Trade Filtering**:
+   - Only trade during high-volume periods to ensure liquidity
+   - Avoid trading during major news events or low-volume sessions
+
+### Required Indicators:
+1. **10-period EMA**
+2. **50-period SMA**
+3. **14-period RSI**
+4. **14-period ATR**
+5. **Volume Indicator**
+
+### Additional Notes:
+- This strategy works best in trending markets with clear momentum shifts
+- Backtest on multiple timeframes to identify optimal settings
+- Combine with fundamental analysis for higher accuracy in specific markets
+
+The DivergentPulse strategy is designed to capitalize on momentum reversals with a strong emphasis on risk management, making it suitable for both swing and intraday traders.

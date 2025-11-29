@@ -1,0 +1,30 @@
+STRATEGY_NAME: LiquidityVolt  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Analysis**: Uses order book liquidity heatmaps to identify high-probability zones where liquidations are likely to occur, creating potential reversal or breakout opportunities.  
+2. **Volatility Contraction Filter**: Requires the 3-day Average True Range (ATR) to be below the 20-day median ATR, signaling a period of low volatility before a potential breakout.  
+3. **Volume-Confirmed Breakout**: Exits are based on momentum confirmed by a surge in trading volume, ensuring the breakout has strong participation.  
+
+**Entry Rules:**  
+1. **Liquidity Proximity**: Enter trades when price approaches a liquidation cluster identified via order book heatmaps (e.g., within 1-2% of a high-density liquidation zone).  
+2. **Volatility Filter**: Confirm that the 3-day ATR is below the 20-day median ATR, indicating a coiled market.  
+3. **Directional Bias**: Align entries with the broader trend (e.g., only long near support clusters in an uptrend, short near resistance clusters in a downtrend).  
+
+**Exit Rules:**  
+1. **Breakout Momentum**: Exit when price breaks out of the contraction zone with a surge in volume (e.g., volume > 1.5x 20-day average).  
+2. **Stop-Loss Placement**: Set stop-loss just beyond the liquidation cluster (e.g., 0.5-1% past the cluster boundary) to avoid false breakouts.  
+3. **Trailing Stop**: For extended moves, use a trailing stop based on a fraction of the 3-day ATR (e.g., 1.5x ATR) to lock in profits.  
+
+**Risk Management:**  
+1. **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss Discipline**: Strict adherence to stop-loss levels to mitigate losses during failed breakouts.  
+3. **Volatility Adjustment**: Reduce position size during periods of elevated market-wide volatility (e.g., VIX > 30).  
+
+**Required Indicators:**  
+1. **Order Book Liquidity Heatmap** (to identify liquidation clusters).  
+2. **Average True Range (ATR)** (3-day and 20-day median for volatility contraction).  
+3. **Volume Indicator** (20-day average volume for breakout confirmation).  
+
+**Unique Edge:** Combines liquidation-driven price inefficiencies with volatility compression, targeting high-probability breakout zones while filtering noise. The name "LiquidityVolt" reflects the fusion of liquidity analysis ("Liquidity") and volatility-based triggers ("Volt" for voltage/energy).

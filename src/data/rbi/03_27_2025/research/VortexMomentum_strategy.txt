@@ -1,0 +1,39 @@
+STRATEGY_NAME: VortexMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI) Crossover:** The strategy uses the VI+ (positive trend) and VI- (negative trend) lines to identify trend direction. A bullish signal occurs when VI+ crosses above VI-, indicating potential upward momentum.  
+2. **Chande Momentum Oscillator (CMO):** The CMO measures momentum strength. A value above 50 confirms strong bullish momentum, while a drop below 30 signals weakening momentum.  
+3. **Combined Confirmation:** Trades are only taken when both conditions align—VI+ crosses above VI- **and** CMO > 50. This dual-filter approach reduces false signals.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when:  
+  - VI+ crosses **above** VI- (bullish trend initiation)  
+  - CMO > 50 (strong momentum confirmation)  
+- **No short entries**—this is a unidirectional momentum strategy.  
+
+**Exit Rules:**  
+- **Profit-Taking/Stop-Loss Exit:** Close the trade when either:  
+  - VI- crosses **back below** VI+ (trend reversal signal)  
+  - CMO drops **below 30** (momentum exhaustion)  
+- Optional: Trail stops using VI- as a dynamic exit level.  
+
+**Risk Management:**  
+- Position sizing: Risk ≤1-2% per trade.  
+- Stop-loss: Initial stop below recent swing low or using ATR (e.g., 1.5x ATR).  
+- Avoid trading during low volatility (CMO near 0) or when VI lines are flat.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI):** Default period (14). Tracks trend direction via VI+/VI- crossovers.  
+2. **Chande Momentum Oscillator (CMO):** Default period (14). Thresholds at +50 (entry) and +30 (exit).  
+
+**Unique Edge:**  
+- Combines trend-following (VI) with momentum confirmation (CMO) for higher-probability entries.  
+- Exits early on momentum decay (CMO < 30) before price reversal.  
+
+**Optimization Tips:**  
+- Test CMO thresholds (e.g., 55/25) for stricter filters.  
+- Add volume confirmation to avoid false breakouts.  
+
+**Note:** Works best on 1H+ timeframes for trending assets (e.g., forex majors, indices). Avoid ranging markets.

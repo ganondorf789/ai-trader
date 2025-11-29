@@ -1,0 +1,30 @@
+STRATEGY_NAME: VolatilityTriad  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Triple Confirmation Setup:**  
+   - **Bollinger Band Width Contraction:** Measures volatility compression (narrowing bands).  
+   - **Keltner Channel Squeeze:** Confirms low volatility when price is constrained within the Keltner bands.  
+   - **Declining Volume:** Validates weakening participation during the contraction phase.  
+
+2. **Entry Trigger:**  
+   - Breakout above/below the Bollinger Band or Keltner Channel (direction depends on trend context or higher timeframe bias).  
+   - Volume should expand on the breakout to confirm new momentum.  
+
+3. **Exit Conditions:**  
+   - **Opposite Volatility Expansion:** Exit when Bollinger Bands widen significantly or price reverses beyond the opposite Keltner Channel boundary.  
+   - **Trailing Stop:** Use a percentage or ATR-based trailing stop to lock in profits during sustained moves.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-adjusted).  
+- Stop-loss placed beyond the recent swing high/low or outside the contraction range.  
+- Risk per trade limited to 1-2% of capital.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 Std Dev).  
+2. Keltner Channels (20-period, 1.5x ATR multiplier).  
+3. Volume indicator (OBV or simple volume MA).  
+4. Optional: ATR for trailing stop calibration.  
+
+**Unique Edge:** Combines three volatility filters to reduce false breakouts, targeting high-probability expansions after consolidation.

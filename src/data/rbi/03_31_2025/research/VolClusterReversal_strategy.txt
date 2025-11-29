@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolClusterReversal
+
+STRATEGY_DETAILS:
+This strategy focuses on identifying high-probability reversal opportunities by combining volatility-adjusted liquidation levels with open interest extremes and negative delta volume divergence. Here's the detailed breakdown:
+
+Key Components:
+1. Volatility-Adjusted Liquidation Cluster: Identifies price levels where forced liquidations are likely to occur based on aggregate open interest and funding rate extremes
+2. Negative Delta Volume Divergence: Confirms reversal signals when trading volume shows strong selling pressure against price movement
+3. Volatility Adjustment: Ensures the liquidation levels adapt to current market conditions
+
+Entry Rules:
+1. Wait for price to breach a volatility-adjusted liquidation cluster level (calculated using open interest extremes and funding rate data)
+2. Confirm with a spike in negative delta volume (volume-weighted order flow showing strong selling pressure against price direction)
+3. Additional confirmation from RSI(14) showing oversold (>70) or overbought (<30) conditions
+
+Exit Rules:
+1. Take profit at next significant liquidity cluster level (1:2 risk-reward minimum)
+2. Stop loss placed beyond the recent swing high/low (for shorts/longs respectively)
+3. Emergency exit if funding rates flip direction strongly against position
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5%
+3. Avoid trading during scheduled high-impact news events
+4. Reduce position size during periods of abnormally high volatility
+
+Required Indicators:
+1. Custom volatility-adjusted liquidation cluster levels (derived from open interest and funding rate data)
+2. Delta volume indicator (showing buy/sell volume imbalance)
+3. RSI (14-period)
+4. Volume-weighted moving average (20-period)
+
+Special Considerations:
+- Works best in trending markets with periodic liquidations
+- Most effective on 1H-4H timeframes
+- Requires clean, untampered exchange data (preferably from major exchanges)
+- Performs best on liquid perpetual futures contracts
+
+The strategy capitalizes on the market's tendency to reverse after sweeping liquidity clusters, with volume divergence providing confirmation of exhaustion moves. The volatility adjustment ensures the liquidation levels remain relevant under different market conditions.

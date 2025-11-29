@@ -1,0 +1,47 @@
+STRATEGY_NAME: BandedMomentum
+
+STRATEGY_DETAILS:
+The BandedMomentum strategy combines the Relative Strength Index (RSI) and Bollinger Bands to identify high-probability momentum-based trading opportunities. This strategy focuses on capturing strong trending moves by leveraging overbought/oversold conditions and volatility-based price breakouts.
+
+### Key Components:
+1. **Relative Strength Index (RSI)**: A momentum oscillator that measures the speed and change of price movements, typically set to a 14-period default.
+2. **Bollinger Bands**: A volatility indicator consisting of a middle band (20-period SMA) and two outer bands (standard deviations above and below the middle band, typically set to 2).
+
+### Entry Rules:
+1. **Long Entry**:
+   - RSI crosses above the upper Bollinger Band (indicating strong momentum).
+   - Price breaks above the middle Bollinger Band (confirming upward momentum).
+   - Both conditions must occur simultaneously or within a short time frame (e.g., within the same candle or the next candle).
+
+2. **Short Entry** (optional, if trading both directions):
+   - RSI crosses below the lower Bollinger Band (indicating strong downward momentum).
+   - Price breaks below the middle Bollinger Band (confirming downward momentum).
+   - Both conditions must occur simultaneously or within a short time frame.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set a fixed risk-reward ratio (e.g., 2:1 or 3:1).
+   - Alternatively, exit when the RSI crosses back below the middle Bollinger Band (for long trades) or above the middle Bollinger Band (for short trades).
+
+2. **Stop Loss**:
+   - Place the stop loss below the most recent swing low (for long trades) or above the most recent swing high (for short trades).
+   - Alternatively, use a fixed percentage or ATR-based stop loss.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital per trade.
+   - Adjust position size based on the distance between entry and stop loss levels.
+
+2. **Trade Filtering**:
+   - Only trade in the direction of the prevailing trend (use a higher timeframe trend filter, such as a 50-period SMA).
+   - Avoid trading during low volatility periods (e.g., when Bollinger Bands are too narrow).
+
+### Required Indicators:
+1. **RSI (14-period default)**.
+2. **Bollinger Bands (20-period SMA, 2 standard deviations)**.
+3. **Optional Trend Filter (e.g., 50-period SMA)**.
+
+### Additional Notes:
+- This strategy works best in trending markets and may produce false signals in ranging or choppy conditions.
+- Backtest thoroughly to optimize parameters (e.g., RSI period, Bollinger Band settings) for your specific market and timeframe.
+- Combine with other confirmation tools (e.g., volume analysis, candlestick patterns) to increase accuracy.

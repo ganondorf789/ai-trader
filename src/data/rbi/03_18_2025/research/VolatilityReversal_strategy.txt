@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolatilityReversal
+
+STRATEGY_DETAILS:
+The VolatilityReversal strategy is designed to capitalize on breakout opportunities following periods of low volatility, using a combination of Bollinger Bands, Supertrend, and ATR for precise entries and exits.
+
+### Key Strategy Components:
+1. **Bollinger Bands Width**: Measures market volatility. The strategy focuses on periods when the Bollinger Bands width is below the historical 10th percentile, indicating a volatility squeeze.
+2. **Supertrend**: A trend-following indicator that helps identify the direction of the market. It flips direction when the price crosses above or below the Supertrend line.
+3. **ATR (Average True Range)**: Used for setting a trailing stop to manage risk and lock in profits.
+
+### Entry Rules:
+- **Long Entry**: 
+  - Bollinger Bands width is below the historical 10th percentile (volatility squeeze).
+  - Supertrend flips from bearish to bullish (price crosses above the Supertrend line).
+- **Short Entry**: 
+  - Bollinger Bands width is below the historical 10th percentile (volatility squeeze).
+  - Supertrend flips from bullish to bearish (price crosses below the Supertrend line).
+
+### Exit Rules:
+- **Long Exit**: 
+  - Supertrend flips back to bearish (price crosses below the Supertrend line).
+  - OR a 2x ATR trailing stop is triggered (price moves 2x ATR below the highest point since entry).
+- **Short Exit**: 
+  - Supertrend flips back to bullish (price crosses above the Supertrend line).
+  - OR a 2x ATR trailing stop is triggered (price moves 2x ATR above the lowest point since entry).
+
+### Risk Management:
+- **Position Sizing**: Use a fixed percentage of capital per trade (e.g., 1-2%).
+- **Stop Loss**: The 2x ATR trailing stop ensures that losses are minimized while allowing room for the trade to develop.
+- **Volatility Filter**: Only trade when Bollinger Bands width is below the 10th percentile, ensuring entries are made during low volatility periods with higher breakout potential.
+
+### Required Indicators:
+1. **Bollinger Bands**: To measure volatility and identify squeeze conditions.
+2. **Supertrend**: To determine trend direction and generate entry/exit signals.
+3. **ATR**: To set trailing stops and manage risk.
+
+### Additional Notes:
+- **Backtesting**: Ensure the strategy is tested across multiple timeframes and asset classes to confirm its robustness.
+- **Optimization**: Adjust the historical percentile for Bollinger Bands width and the ATR multiplier based on market conditions and asset volatility.
+- **Timeframe**: Works best on higher timeframes (e.g., 1H, 4H, Daily) to avoid false signals.
+
+This strategy combines volatility analysis with trend-following and risk management, making it suitable for traders looking to exploit breakout opportunities after periods of consolidation.

@@ -1,0 +1,41 @@
+STRATEGY_NAME: DivergenceBand
+
+STRATEGY_DETAILS:
+The DivergenceBand strategy is a trend reversal approach that combines MACD divergence, Bollinger Bands, and RSI analysis to identify low-volatility environments and potential reversals. Here's a detailed breakdown of the strategy:
+
+### Key Strategy Components:
+1. **MACD Divergence**: Identifies potential trend reversals when price action diverges from MACD movement.
+2. **Bollinger Bands**: Used to define support and resistance levels and assess volatility.
+3. **RSI (Relative Strength Index)**: Confirms sideways momentum in a low-volatility environment.
+4. **Low Volatility Environment**: Ensures trades are taken in stable market conditions.
+
+### Entry Rules:
+1. **MACD Divergence**: Look for bullish divergence (price makes lower lows while MACD makes higher lows) for long positions.
+2. **Bollinger Bands**: Confirm that the price is closing near the lower band, indicating potential oversold conditions.
+3. **RSI**: Ensure RSI is moving sideways (between 30 and 70) to confirm a low-volatility environment.
+4. **Volatility Check**: Bollinger Bands should be narrowing, indicating reduced volatility.
+
+### Exit Rules:
+1. **Bollinger Band Resistance/Support**: Exit long positions when the price touches the upper Bollinger Band (resistance) or re-approaches the lower Bollinger Band (support).
+2. **Stop Loss**: Place a stop loss slightly below the recent swing low for long positions.
+3. **Profit Target**: No fixed profit target; rely on Bollinger Band levels for exits.
+
+### Risk Management:
+1. **Position Sizing**: Risk no more than 1-2% of your trading capital per trade.
+2. **Stop Loss**: Always use a stop loss to limit downside risk.
+3. **Volatility Filter**: Avoid trading during high-volatility periods (wide Bollinger Bands).
+4. **Confirmation**: Only enter trades when all three indicators (MACD, Bollinger Bands, RSI) align.
+
+### Required Indicators:
+1. **MACD (Moving Average Convergence Divergence)**: Default settings (12, 26, 9).
+2. **Bollinger Bands**: Default settings (20-period SMA, 2 standard deviations).
+3. **RSI (Relative Strength Index)**: 14-period RSI.
+
+### Example Setup:
+- **Scenario**: Price is making lower lows, but MACD is making higher lows (bullish divergence).
+- **Bollinger Bands**: Price is closing near the lower band, and bands are narrowing.
+- **RSI**: Moving sideways between 30 and 70, indicating low volatility.
+- **Entry**: Go long when all conditions are met.
+- **Exit**: Close the trade when the price touches the upper Bollinger Band or re-approaches the lower band.
+
+This strategy is ideal for traders looking to capitalize on trend reversals in stable market conditions while minimizing risk through clear entry and exit rules.

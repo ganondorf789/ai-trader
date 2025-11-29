@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolCompress Surge
+
+STRATEGY_DETAILS:
+This strategy capitalizes on extreme volatility compression followed by potential explosive moves, combining Bollinger Band width analysis with oversold conditions and volatility-based exits.
+
+Key Components:
+1. Volatility Measurement: Uses Bollinger Band width (BBW) to identify periods of extreme compression
+2. Oversold Confirmation: Requires RSI below 30 to signal potential reversal
+3. Volatility-based Exit: Uses 2x ATR to capture momentum while allowing room for expansion
+
+Entry Rules:
+1. Bollinger Band width (BBW) must reach its lowest point in the past 252 trading days (1 year)
+2. RSI(14) must be below 30 simultaneously
+3. Enter long position at the next candle's open after both conditions are met
+
+Exit Rules:
+1. Trail exit at 2x the current ATR(14) above entry price
+2. Alternative exit if RSI(14) crosses above 70 (overbought condition)
+3. Hard stop-loss at 1x ATR below entry price
+
+Risk Management:
+1. Position sizing based on 1% risk of account per trade (using ATR stop)
+2. Maximum 5% of portfolio in any single trade
+3. No new entries if portfolio drawdown exceeds 10%
+
+Required Indicators:
+1. Bollinger Bands (20,2) - for width calculation
+2. RSI (14 period)
+3. ATR (14 period)
+
+Optimization Notes:
+1. Test different BB period lengths (14-50)
+2. Experiment with RSI thresholds (25-35)
+3. Adjust ATR multiplier (1.5x-3x) based on asset volatility
+
+This strategy works best in ranging markets transitioning to trends, and should be avoided during strong existing trends where volatility compression may continue. Works particularly well on daily charts of liquid assets with mean-reverting tendencies.

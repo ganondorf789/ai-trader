@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolatilityBandBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility measurement with Bollinger Band dynamics to identify high-probability breakout opportunities in 5-minute timeframes. The core concept revolves around detecting when market volatility expands beyond normal ranges, signaling potential strong directional moves.
+
+Key Components:
+1. ATR (14-period) - Measures true volatility range
+2. Bollinger Bands (20-period, 2 standard deviations) - Defines normal price range
+3. Bollinger Band Width - Calculated as (Upper Band - Lower Band)/Middle Band
+4. Trailing Stop Mechanism - Dynamic exit based on current volatility
+
+Entry Rules:
+1. Wait for 5-minute ATR(14) value to cross ABOVE the Bollinger Band Width
+2. Enter long if price breaks above current candle's high (for bullish breakout)
+3. Enter short if price breaks below current candle's low (for bearish breakout)
+
+Exit Rules:
+1. Primary Exit: 2:1 Risk-Reward Ratio
+   - Calculate entry-to-stop distance (1.5x current ATR)
+   - Set profit target at twice this distance from entry
+2. Secondary Exit: Trailing Stop
+   - Initial stop: 1.5x ATR from entry price
+   - Trail stop by 0.5x ATR as price moves favorably
+3. Emergency Exit: Close position if ATR drops below Bollinger Band Width again
+
+Risk Management:
+1. Position sizing based on 1.5x ATR stop distance
+2. Maximum risk per trade: 1-2% of account
+3. No new entries if 3 consecutive losing trades occur (cool-down period)
+
+Required Indicators:
+1. Average True Range (ATR) - 14 period
+2. Bollinger Bands - 20 period, 2 standard deviations
+3. Bollinger Band Width indicator
+
+Optimization Notes:
+1. Best suited for high-volume, high-volatility instruments
+2. Most effective during active market hours (avoid overnight gaps)
+3. Works well in trending markets, may produce false signals in ranging conditions
+
+The VolatilityBandBreakout strategy uniquely combines two volatility measures (ATR and BB Width) to filter only the most significant breakouts, while the dynamic trailing stop adapts to changing market conditions. The 2:1 reward ratio ensures positive expectancy over time.

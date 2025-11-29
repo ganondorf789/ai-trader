@@ -1,0 +1,35 @@
+STRATEGY_NAME: DualBand Breakout
+
+STRATEGY_DETAILS:
+The DualBand Breakout strategy is a sophisticated approach that combines the Keltner Channel and Bollinger Band indicators to identify high-probability breakout opportunities. The strategy focuses on periods of low volatility (squeeze) followed by a breakout with strong volume confirmation, providing a robust framework for capturing significant price movements.
+
+### Key Strategy Components:
+1. **Keltner Channel**: A volatility-based indicator that uses an exponential moving average (EMA) and average true range (ATR) to create upper and lower bands.
+2. **Bollinger Bands**: A volatility indicator that uses a simple moving average (SMA) and standard deviations to create upper and lower bands.
+3. **Volume Spike**: A significant increase in trading volume compared to recent averages, confirming the strength of the breakout.
+
+### Entry Rules:
+1. **Squeeze Condition**: Wait for both the Keltner Channel and Bollinger Bands to contract simultaneously, indicating a period of low volatility (squeeze).
+2. **Breakout Confirmation**: Enter a trade when the price closes outside both the Keltner Channel and Bollinger Bands.
+3. **Volume Confirmation**: Ensure the breakout is accompanied by a volume spike, indicating strong participation in the move.
+
+### Exit Rules:
+1. **Re-entry into Bands**: Exit the trade when the price re-enters either the Keltner Channel or Bollinger Bands, signaling a potential reversal or loss of momentum.
+2. **Stop Loss**: Place a stop loss just outside the opposite band to limit potential losses.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of your trading capital per trade (e.g., 1-2%) to manage risk.
+2. **Stop Loss**: Set a stop loss at a level that aligns with your risk tolerance, typically just outside the opposite band.
+3. **Take Profit**: Consider using a trailing stop or a predefined profit target based on recent price action or volatility.
+
+### Required Indicators:
+1. **Keltner Channel**: Set with a 20-period EMA and 2x ATR multiplier.
+2. **Bollinger Bands**: Set with a 20-period SMA and 2 standard deviations.
+3. **Volume Indicator**: Use a volume oscillator or simple volume bars to identify spikes.
+
+### Additional Notes:
+- **Timeframe**: This strategy works best on higher timeframes (e.g., 1-hour, 4-hour, or daily charts) to filter out noise and false breakouts.
+- **Market Conditions**: Ideal for trending markets or periods of consolidation followed by strong breakouts.
+- **Confirmation**: Always wait for the close of the candle outside both bands to avoid false signals.
+
+By combining the strengths of both Keltner Channels and Bollinger Bands, the DualBand Breakout strategy provides a robust framework for identifying and trading high-probability breakout opportunities with strong risk management.

@@ -1,0 +1,32 @@
+STRATEGY_NAME: DeltaDonchianBreakout  
+
+STRATEGY_DETAILS:  
+This strategy combines price channel dynamics with volume divergence to identify high-probability short entries. The key components are:  
+
+1. **Key Components**:  
+   - **Donchian Channel (Lower Band)**: Acts as the primary breakout level for short entries.  
+   - **Negative Delta Volume Divergence**: Confirms bearish momentum when price breaks lower while volume shows increasing selling pressure.  
+   - **20-Period Volume-Weighted Moving Average (VWMA)**: Serves as the dynamic exit threshold.  
+
+2. **Entry Rules**:  
+   - Initiate a short position when:  
+     - Price closes below the lower Donchian Channel (e.g., 20-period).  
+     - Negative delta volume divergence is present (e.g., price makes lower lows while volume delta becomes increasingly negative).  
+
+3. **Exit Rules**:  
+   - Close the short position when price retraces and closes above the 20-period VWMA.  
+   - Optional: Use a trailing stop based on recent swing highs or a fixed ATR multiple to protect profits.  
+
+4. **Risk Management**:  
+   - Position sizing: Risk no more than 1-2% of capital per trade.  
+   - Stop-loss: Place initial stop above the recent swing high or the upper Donchian Band.  
+   - Filter: Avoid trading during low-volume periods or major economic events to reduce false breakouts.  
+
+5. **Required Indicators**:  
+   - Donchian Channel (20-period recommended).  
+   - Volume delta (difference between buying and selling volume).  
+   - Volume-Weighted Moving Average (20-period).  
+
+**Note**: This strategy excels in trending markets but may generate whipsaws in ranging conditions. Always validate divergence with price action (e.g., lower highs confirming bearish structure).  
+
+Would you like to refine any parameters (e.g., channel length, delta threshold)?

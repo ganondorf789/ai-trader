@@ -1,0 +1,54 @@
+STRATEGY_NAME: VolcanicSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction with explosive volume expansion to identify high-probability breakout opportunities. The name "VolcanicSqueeze" reflects the pent-up energy (squeeze) followed by explosive movement (volcanic) signaled by volume surge.
+
+Key Components:
+1. Keltner Channel Setup:
+   - 15-period exponential moving average centerline
+   - 1.5x ATR (Average True Range) as channel width
+   - Squeeze condition occurs when price remains within narrowing channels
+
+2. Volume Filter:
+   - 20-day average volume baseline
+   - 50% surge above this average confirms breakout validity
+
+Entry Rules:
+Long Entry:
+1. Price closes ABOVE upper Keltner Channel
+2. Current volume exceeds 20-day average volume by ≥50%
+3. Must occur after a period of channel narrowing (squeeze)
+
+Short Entry:
+1. Price closes BELOW lower Keltner Channel
+2. Current volume exceeds 20-day average volume by ≥50%
+3. Must occur after a period of channel narrowing (squeeze)
+
+Exit Rules:
+1. Channel Reversal Exit:
+   - Long positions exit when price closes back INSIDE the Keltner Channel
+   - Short positions exit when price closes back INSIDE the Keltner Channel
+
+2. Optional Trailing Stop:
+   - Can use 1x ATR trailing stop for more aggressive management
+
+Risk Management:
+1. Position Sizing:
+   - Risk no more than 1-2% of capital per trade
+   - Calculate position size based on distance between entry and channel opposite side
+
+2. Stop Loss:
+   - Natural stop at opposite channel line
+   - Alternative: 2x ATR stop from entry point
+
+Required Indicators:
+1. Keltner Channels (15-period, 1.5x ATR)
+2. Volume (20-day average)
+3. Average True Range (ATR) for channel width and stop calculations
+
+Optimization Notes:
+- Test different ATR multipliers (1.25x-2x) for channel width
+- Adjust volume threshold between 40-60% based on instrument volatility
+- Consider adding momentum confirmation (e.g., RSI >50 for longs, <50 for shorts)
+
+This strategy works best in trending markets after periods of consolidation, using the volume surge as confirmation of genuine breakout rather than false breakout. The Keltner Channel squeeze identifies the consolidation period, while the volume spike confirms institutional participation in the breakout direction.

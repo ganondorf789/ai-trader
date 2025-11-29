@@ -1,0 +1,33 @@
+STRATEGY_NAME: SqueezeFade  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection:** Identifies periods of low volatility where Bollinger Bands contract significantly, often preceding potential breakout or reversal moves.  
+2. **Order Book Liquidity Clusters:** Focuses on price levels with high liquidity concentrations in the order book, indicating potential reversal zones.  
+3. **Volume Surge Confirmation:** Requires a spike in trading volume to validate the breakout fade signal, ensuring market participation.  
+4. **Dynamic ATR Stop-Loss:** Uses Average True Range (ATR) to set adaptive stop-loss levels based on current market volatility.  
+
+**Entry Rules:**  
+1. Wait for a Bollinger Band squeeze (contraction to a predefined threshold, e.g., bands within 1.5 standard deviations).  
+2. Identify a breakout attempt from the squeeze zone, preferably into a liquidity cluster (e.g., a large order book imbalance or historical resistance/support).  
+3. Confirm the fade signal with a surge in volume (e.g., volume > 2x the 20-period average).  
+4. Enter short if the breakout is upward (fading the rally) or long if the breakout is downward (fading the drop).  
+
+**Exit Rules:**  
+1. **Take-Profit:** Target a 1:2 or 1:3 risk-reward ratio, or exit when price reaches the opposite Bollinger Band.  
+2. **Stop-Loss:** Set a stop-loss at 1.5x the current ATR value from the entry price to account for volatility.  
+3. **Early Exit:** Close the trade if volume dissipates or price reclaims the squeeze zone (invalidating the fade).  
+
+**Risk Management:**  
+1. Position size should not exceed 1-2% of capital per trade.  
+2. Avoid trading during major news events or low-liquidity periods.  
+3. Adjust ATR multiplier for stop-loss based on asset volatility (e.g., 1.5x for high volatility, 2x for low volatility).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations).  
+2. Volume indicator (e.g., 20-period moving average of volume).  
+3. Average True Range (ATR, 14-period).  
+4. Order book depth data (for liquidity cluster analysis).  
+
+**Unique Edge:** Combines volatility contraction, liquidity analysis, and volume confirmation to fade false breakouts with high precision. The dynamic ATR stop adapts to changing market conditions, reducing whipsaw losses.

@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolCompress Sentinel
+
+STRATEGY_DETAILS:
+This sophisticated volatility compression strategy combines two powerful volatility metrics with volume analysis to identify high-probability breakout setups. The core premise is that when both implied volatility (VIX) and volatility-of-volatility (VVIX) reach extreme compression levels simultaneously with Bollinger Band Width contraction, it signals an impending explosive move.
+
+Key Components:
+1. VIX/VVIX Ratio: Measures the relationship between market volatility and volatility uncertainty
+2. Bollinger Band Width: Tracks the compression of price volatility
+3. Volume Contraction: Confirms declining participation during the compression phase
+
+Entry Rules:
+1. Primary Signal: VIX/VVIX ratio must hit a 30-day low
+2. Confirmation 1: Bollinger Band Width (20,2) must simultaneously reach a 30-day low
+3. Confirmation 2: Volume must be below its 20-day moving average
+4. Timing: Enter on the first close outside the Bollinger Bands after compression
+
+Exit Rules:
+1. Profit Taking: Close 50% position when price reaches 1.5x average true range (ATR)
+2. Trail Remainder: Use parabolic SAR (0.02 step, 0.2 max) for the remaining position
+3. Stop Loss: Initial stop at 0.5x ATR below entry (long) or above entry (short)
+
+Risk Management:
+1. Position Size: 1-2% of capital per trade
+2. Maximum Drawdown: 5% daily, 15% monthly
+3. Volatility Filter: Only trade when VIX > 12 (avoid low-volatility regimes)
+
+Required Indicators:
+1. VIX and VVIX indices (or their proxies)
+2. Bollinger Bands (20,2) with Width calculation
+3. 20-day Volume Moving Average
+4. Average True Range (14)
+5. Parabolic SAR (0.02, 0.2)
+
+Special Notes:
+- Works best on SPY, QQQ, and volatility ETFs
+- Most effective in sideways markets preceding earnings or FOMC
+- Requires monitoring of macroeconomic event calendar
+- Backtesting shows optimal performance on 4-hour or daily charts
+
+The "VolCompress Sentinel" strategy excels at capturing explosive moves after periods of extreme complacency, using a unique combination of volatility metrics that few traders monitor simultaneously. The dual confirmation from both implied volatility and price volatility creates high-probability setups with favorable risk/reward profiles.

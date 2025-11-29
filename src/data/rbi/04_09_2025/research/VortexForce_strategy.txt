@@ -1,0 +1,40 @@
+STRATEGY_NAME: VortexForce  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI)**: Used to confirm trend direction (VI+ for bullish, VI- for bearish).  
+2. **Elder Force Index (EFI)**: Combines price movement and volume to gauge momentum strength.  
+3. **Threshold Alignment**: Requires both indicators to simultaneously confirm signals above/below predefined thresholds.  
+
+**Entry Rules:**  
+- **Long Entry**: Trigger when:  
+  - VI+ crosses above VI- (bullish trend confirmation).  
+  - EFI > +X threshold (positive momentum with volume backing).  
+- **Short Entry**: Trigger when:  
+  - VI- crosses above VI+ (bearish trend confirmation).  
+  - EFI < -X threshold (negative momentum with volume backing).  
+
+**Exit Rules:**  
+- **Long Exit**: When EFI peaks and reverses below +Y threshold (momentum fade).  
+- **Short Exit**: When EFI troughs and rises above -Y threshold (momentum rebound).  
+
+**Risk Management:**  
+1. **Stop-Loss**: Place below recent swing low (long) or above swing high (short).  
+2. **Position Sizing**: Adjust based on volatility (e.g., ATR-based sizing).  
+3. **Threshold Calibration**: Optimize X/Y values per asset (e.g., EFI +0.5/-0.5 for stocks, ±0.3 for forex).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. Elder Force Index (EFI) with 13-period EMA smoothing.  
+3. Optional: ATR for volatility-adjusted stops.  
+
+**Unique Edge:**  
+- Combines trend persistence (Vortex) with volume-powered momentum (EFI), filtering false breakouts.  
+- Exits at opposing EFI extremes capture reversals before price action confirms them.  
+
+**Example Parameters (adjust per asset):**  
+- VI Period: 14  
+- EFI Period: 13 (EMA-smoothed)  
+- EFI Entry Thresholds: ±0.5  
+- EFI Exit Thresholds: ±0.2 (less strict than entry).

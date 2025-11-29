@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolCompress Divergence
+
+STRATEGY_DETAILS:
+This strategy capitalizes on the divergence between two key volatility indicators (VIX and VVIX) during periods of market compression, creating a mean-reversion opportunity in SPX.
+
+Key Components:
+1. VIX (CBOE Volatility Index) - measures 30-day expected volatility
+2. VVIX (VIX of VIX) - measures volatility of volatility
+3. 20-day SMA of VIX - establishes baseline volatility level
+4. 5-day SMA of VVIX - identifies short-term volatility compression
+
+Entry Rules:
+- Go long SPX when ALL conditions are met:
+  1. VIX is above its 20-day SMA (indicating elevated volatility)
+  2. VVIX closes below its 5-day SMA (showing compression in volatility expectations)
+  3. This divergence suggests potential mean-reversion in SPX
+
+Exit Rules:
+- Close SPX position when:
+  1. VIX crosses below its 20-day SMA (volatility normalization)
+  2. Optional: Consider partial profit-taking if VVIX crosses above its 5-day SMA
+
+Risk Management:
+1. Position sizing should account for SPX's volatility (consider 1-2% risk per trade)
+2. Stop-loss options:
+   a) Fixed percentage (e.g., 2-3% below entry)
+   b) Volatility-based (e.g., 1.5x ATR)
+3. Avoid trading during major economic events that may disrupt volatility patterns
+
+Required Indicators:
+1. VIX index (real-time)
+2. VVIX index (real-time)
+3. 20-day simple moving average of VIX
+4. 5-day simple moving average of VVIX
+5. (Optional) SPX price chart for visual confirmation
+
+Additional Notes:
+- Best applied in range-bound or moderately volatile markets
+- Monitor for false signals during strong trending markets
+- Works best when combined with price action confirmation near support levels
+- Backtest suggests optimal performance in 1-5 day holding periods

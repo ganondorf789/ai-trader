@@ -1,0 +1,33 @@
+STRATEGY_NAME: VoltaVwapBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Width Percentile**: Measures the relative width of Bollinger Bands compared to historical data, identifying periods of extreme volatility contraction.  
+2. **Anchored VWAP**: Anchored Volume-Weighted Average Price (VWAP) from a recent significant price point (e.g., swing high/low) to gauge fair value and potential breakout zones.  
+3. **RSI Profit Targets**: Uses Relative Strength Index (RSI) levels to define take-profit zones, ensuring exits align with overbought/oversold conditions.  
+
+**Entry Rules:**  
+- Enter long when:  
+  1. **Bollinger Band Width Percentile** drops below its 20-day low, signaling extreme volatility contraction.  
+  2. Price breaks above the **Anchored VWAP** (anchored to a recent swing low), confirming bullish momentum.  
+- Enter short when:  
+  1. **Bollinger Band Width Percentile** drops below its 20-day low.  
+  2. Price breaks below the **Anchored VWAP** (anchored to a recent swing high), confirming bearish momentum.  
+
+**Exit Rules:**  
+- **Take-Profit**: Close the trade when RSI reaches:  
+  - **70 (overbought)** for long positions.  
+  - **30 (oversold)** for short positions.  
+- **Stop-Loss**: Place below the recent swing low (long) or above the recent swing high (short), adjusted for volatility (e.g., 1.5x ATR).  
+
+**Risk Management:**  
+- Position size capped at 2% of capital per trade.  
+- Stop-loss levels dynamically adjusted using Average True Range (ATR) to account for changing volatility.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) + Width Percentile calculation.  
+2. Anchored VWAP (from recent swing point).  
+3. RSI (14-period).  
+4. ATR (14-period) for stop-loss adjustment.  
+
+**Unique Edge:** Combines volatility contraction (Bollinger Width) with anchored fair value (VWAP) for high-probability breakouts, while RSI ensures disciplined profit-taking.

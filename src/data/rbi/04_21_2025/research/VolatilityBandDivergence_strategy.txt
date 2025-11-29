@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolatilityBandDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Expansion:** Monitors the expansion of Bollinger Bands (typically set to 20 periods with 2 standard deviations) to identify periods of increasing volatility.  
+2. **VWAP Divergence:** Tracks the divergence between price and Volume-Weighted Average Price (VWAP) to detect potential overextension.  
+3. **High Volatility Filter:** Focuses on trades only during high volatility periods, often confirmed by Bollinger Band width exceeding a historical average.  
+4. **2-Sigma Disconnect:** Enters trades when the price deviates from VWAP by at least 2 standard deviations, signaling extreme conditions.  
+5. **Mean Reversion Confirmation:** Exits trades when Bollinger Bands narrow, indicating reduced volatility and potential mean reversion.  
+
+**Entry Rules:**  
+1. **Bollinger Band Expansion:** Confirm that the Bollinger Band width (upper band - lower band) is expanding beyond its recent average, signaling high volatility.  
+2. **VWAP Divergence:** Identify a disconnect where price is at least 2 standard deviations away from VWAP (e.g., price above VWAP + 2σ or below VWAP - 2σ).  
+3. **Directional Bias:**  
+   - For long entries: Price must be below VWAP - 2σ, suggesting oversold conditions.  
+   - For short entries: Price must be above VWAP + 2σ, suggesting overbought conditions.  
+
+**Exit Rules:**  
+1. **Mean Reversion Signal:** Exit when Bollinger Band width begins to narrow, indicating volatility contraction and potential mean reversion.  
+2. **VWAP Reversion:** Close the trade when price returns to within 1 standard deviation of VWAP.  
+3. **Stop-Loss:** Place a stop-loss at 3 standard deviations from VWAP to limit extreme adverse moves.  
+
+**Risk Management:**  
+1. **Position Sizing:** Use volatility-adjusted position sizing (e.g., ATR-based) to account for high volatility periods.  
+2. **Stop-Loss:** Hard stop at 3σ from VWAP to prevent large drawdowns.  
+3. **Take-Profit:** Partial profits can be taken at 1σ reversion, with the remainder held for band narrowing confirmation.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2)** – To measure volatility expansion/contraction.  
+2. **VWAP** – To identify divergence and mean reversion levels.  
+3. **Standard Deviation (of VWAP)** – To quantify the 2σ/3σ disconnect thresholds.  
+4. **ATR (14)** – Optional for dynamic position sizing.  
+
+**Unique Aspects:**  
+- Combines Bollinger Band dynamics with VWAP divergence for high-probability mean reversion.  
+- Filters trades exclusively during high volatility, avoiding low-volatility chop.  
+- Uses a dual confirmation (band width + VWAP) for both entry and exit.  
+
+This strategy excels in trending markets with volatile pullbacks, capturing overextensions while managing risk through volatility-based exits.

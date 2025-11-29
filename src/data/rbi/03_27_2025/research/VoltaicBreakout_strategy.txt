@@ -1,0 +1,36 @@
+STRATEGY_NAME: VoltaicBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility-Based Entries:** Uses Bollinger Bands to identify volatility extremes for potential breakouts.  
+2. **Volume Confirmation:** Requires declining volume during the breakout to filter false signals.  
+3. **ATR-Based Exits:** Uses a 2x ATR (Average True Range) move in the opposite direction for dynamic exits.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when price closes **above the upper Bollinger Band** AND volume is **declining** (compared to previous bars).  
+- **Short Entry:** Triggered when price closes **below the lower Bollinger Band** AND volume is **declining** (compared to previous bars).  
+
+**Exit Rules:**  
+- **Long Exit:** Close the position if price moves **2x ATR downward** from the entry price.  
+- **Short Exit:** Close the position if price moves **2x ATR upward** from the entry price.  
+
+**Risk Management:**  
+- **Stop-Loss:** The 2x ATR exit acts as a trailing stop, dynamically adjusting to market volatility.  
+- **Position Sizing:** Can be adjusted based on ATR to ensure consistent risk per trade.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (Standard settings: 20-period SMA, 2 standard deviations).  
+2. **Volume Indicator** (To confirm declining volume).  
+3. **Average True Range (ATR)** (14-period recommended for exit signals).  
+
+**Unique Aspects:**  
+- Combines **volatility breakout** with **volume divergence** for higher-probability entries.  
+- Uses **ATR-based exits** instead of fixed stops, adapting to market conditions.  
+- Avoids crowded breakouts by requiring **declining volume**, reducing false signals.  
+
+**Best Suited For:**  
+- Trending markets with clear volatility expansions.  
+- Timeframes: 1H or higher for reliable signals.  
+- Pairs/Instruments: High-volatility assets (e.g., crypto, indices, commodities).  
+
+**Note:** Backtest to optimize Bollinger Band settings and ATR multiplier based on asset class.

@@ -1,0 +1,39 @@
+STRATEGY_NAME: HeikinTickDivergence
+
+STRATEGY_DETAILS:
+This intraday momentum strategy combines Heikin-Ashi candlestick analysis with TICK volume divergence and order book imbalance signals for precise entries and exits.
+
+Key Components:
+1. Heikin-Ashi Trend Filter: Uses smoothed candlesticks to identify clean trends
+2. TICK Volume Divergence: Confirms momentum with volume flow
+3. Order Book Imbalance: Detects potential reversals for exits
+
+Entry Rules:
+1. Heikin-Ashi must show 3 consecutive same-color candles (green for long, red for short)
+2. TICK volume must diverge from price (rising volume with flat/declining price for long entry, falling volume with rising price for short entry)
+3. Entry on break of high/low of the 3-candle formation
+
+Exit Rules:
+1. Primary exit when order book imbalance shows reversal (bid-ask ratio crosses threshold)
+2. Secondary exit on Heikin-Ashi reversal candle (opposite color to position)
+3. Emergency exit if TICK volume reverses direction sharply
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop loss placed at 1.5x average true range (ATR)
+3. Maximum daily loss limit of 5%
+4. No trading during first/last 30 minutes of session
+
+Required Indicators:
+1. Heikin-Ashi candles (smoothed price action)
+2. TICK volume indicator (NYSE TICK or equivalent)
+3. Order book imbalance meter (bid/ask volume ratio)
+4. ATR (14-period for stop calculation)
+
+Optimization Notes:
+1. Best suited for liquid index futures or major forex pairs
+2. Ideal timeframes: 5-15 minute charts
+3. Requires monitoring during high-volume periods
+4. Performance improves with volatility expansion days
+
+The HeikinTickDivergence strategy provides a systematic approach to intraday momentum trading by combining multiple confirmation signals while maintaining strict risk controls.

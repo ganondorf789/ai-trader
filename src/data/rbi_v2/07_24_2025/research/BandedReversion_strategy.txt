@@ -1,0 +1,38 @@
+STRATEGY_NAME: BandedReversion  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Mean-Reversion Focus**: The strategy capitalizes on price retracements toward the mean when oversold conditions are detected.  
+2. **Bollinger Bands (20,2)**: Used to identify oversold conditions when the lower band is above the 20-period moving average (MA).  
+3. **Average True Range (ATR, 14)**: Sets dynamic stop-loss levels at 2x ATR to manage risk while allowing for potential re-tests.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when the price touches or crosses below the lower Bollinger Band **AND** the lower band is above the 20-period MA.  
+- **Confirmation**: Optional: Wait for a bullish candlestick pattern (e.g., hammer, engulfing) or RSI(14) > 30 to avoid false signals.  
+
+**Exit Rules:**  
+- **Stop-Loss**: Placed at **2x ATR (14)** below the entry price to account for volatility.  
+- **Take-Profit**: No fixed target; the trade is held until either:  
+  - The price retests the 20-period MA (partial exit).  
+  - The stop-loss is hit.  
+  - A bearish reversal pattern forms near the MA (full exit).  
+
+**Risk Management:**  
+- Position sizing based on a fixed % of capital (e.g., 1-2% risk per trade).  
+- Avoid trading during high-impact news events to reduce volatility risk.  
+- Filter out downtrends using a higher timeframe (e.g., only trade if 50 MA is flat or rising on the 4H chart).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2)  
+2. 20-period Simple Moving Average (SMA)  
+3. ATR (14)  
+4. Optional: RSI (14) or higher timeframe MA for trend confirmation.  
+
+**Unique Edge:**  
+- Combines Bollinger Band oversold signals with a volatility-adjusted stop (ATR) to avoid premature exits during retracements.  
+- The 20 MA acts as a "mean" reference, while the lower band's position above it filters stronger reversions.  
+
+**Backtest Considerations:**  
+- Test on assets with mean-reverting tendencies (e.g., indices, ETFs).  
+- Adjust ATR multiplier (1.5x-3x) based on asset volatility.  
+- Optimize confirmation filters (e.g., RSI thresholds) to reduce whipsaws.

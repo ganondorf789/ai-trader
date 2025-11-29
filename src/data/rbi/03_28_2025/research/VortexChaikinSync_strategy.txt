@@ -1,0 +1,41 @@
+STRATEGY_NAME: VortexChaikinSync
+
+STRATEGY_DETAILS:
+This strategy combines two powerful momentum indicators - the Vortex Indicator and Chaikin Oscillator - to create a high-probability trading system. The unique synchronization between these indicators provides robust confirmation of momentum shifts while filtering out false signals.
+
+Key Components:
+1. Vortex Indicator (VI+ and VI- lines) - Measures directional movement
+2. Chaikin Oscillator - Combines price and volume momentum
+3. Strict crossover rules for entries
+4. Dual confirmation for exits
+
+Entry Rules:
+1. Primary Signal: VI+ line crosses above VI- line (bullish momentum)
+2. Confirmation: Chaikin Oscillator must be above zero and rising
+3. Both conditions must occur within the same candlestick period
+4. Entry occurs at the open of the next candle after confirmation
+
+Exit Rules:
+1. Primary Exit: VI+ crosses back below VI- (momentum reversal)
+2. Secondary Exit: Bearish divergence on Chaikin Oscillator (price makes higher high while oscillator makes lower high)
+3. More aggressive exit: Chaikin Oscillator crosses below zero
+4. Whichever exit condition triggers first closes the position
+
+Risk Management:
+1. Fixed percentage stop-loss (recommended 1-2% of capital)
+2. Trailing stop based on recent swing low (adjusts with position)
+3. Position sizing based on stop distance and risk tolerance
+4. Time-based exit if position doesn't move favorably within 3-5 periods
+
+Required Indicators:
+1. Vortex Indicator (standard 14-period setting)
+2. Chaikin Oscillator (3,10 period EMA settings recommended)
+3. Optional: Volume indicator to confirm Chaikin signals
+
+Additional Notes:
+- Works best on 1H-4H timeframes for swing trading
+- Avoid trading during low volume periods
+- Strongest signals occur when both indicators align with overall trend direction
+- Backtest recommended for specific asset volatility characteristics
+
+This VortexChaikinSync strategy provides a systematic approach to momentum trading with built-in confirmation filters, making it particularly effective in trending markets while reducing whipsaw losses in ranging conditions.

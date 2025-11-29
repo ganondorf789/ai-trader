@@ -1,0 +1,84 @@
+STRATEGY_NAME: MACDonchian Breakout
+
+STRATEGY_DETAILS:
+Overview
+- Core idea: Trade Donchian-channel breakouts only when momentum confirms via a simultaneous MACD histogram zero-line flip, and manage exits using a 2x ATR trailing stop.
+- Timeframe: Designed for daily bars (adaptable to other timeframes by scaling “day” to “bar”).
+
+Key Components
+- Donchian Channel (20): Upper = highest high of last 20 bars; Lower = lowest low of last 20 bars.
+- MACD Histogram: MACD(12,26) minus Signal(9). “Flip” means crossing the zero line.
+- ATR Trailing Stop: ATR(14) by default; trailing distance = 2.0 × ATR.
+- Confluence Trigger: Breakout must coincide with a momentum flip to reduce false signals.
+
+Entry Rules
+- Long Entry:
+  - Breakout: Close crosses above the 20-day Donchian Upper Band:
+    - close[t-1] ≤ upper[t-1] AND close[t] > upper[t]
+  - Momentum Confirmation: MACD histogram flips from ≤ 0 to > 0 on the same bar:
+    - hist[t-1] ≤ 0 AND hist[t] > 0
+  - Optional Buffer (to avoid marginal breaches): require close[t] > upper[t] + k × ATR[t] with k ∈ [0.0, 0.2], default 0.0.
+  - Execution: Enter on next bar at market open, or place a stop-limit buy at upper[t] (plus buffer) with a slippage-aware limit offset.
+
+- Short Entry (symmetrical, if allowed):
+  - Breakout: Close crosses below the 20-day Donchian Lower Band:
+    - close[t-1] ≥ lower[t-1] AND close[t] < lower[t]
+  - Momentum Confirmation: MACD histogram flips from ≥ 0 to < 0 on the same bar:
+    - hist[t-1] ≥ 0 AND hist[t] < 0
+  - Optional Buffer: close[t] < lower[t] − k × ATR[t].
+  - Execution: Next-bar market sell or stop-limit sell at lower[t] (minus buffer).
+
+Exit Rules
+- Trailing Stop (primary exit):
+  - Long: Trail stop = HighestHighSinceEntry − 2.0 × ATR(current).
+  - Short: Trail stop = LowestLowSinceEntry + 2.0 × ATR(current).
+  - Update each bar; exit when price crosses the stop intrabar (use stop orders).
+- Initial Stop:
+  - Set immediately upon entry at:
+    - Long: entryPrice − 2.0 × ATR(entry bar)
+    - Short: entryPrice + 2.0 × ATR(entry bar)
+- No profit target; ride trends until stopped out by the ATR trail.
+- Optional Time Stop: Exit after N bars (e.g., 60) if still near breakeven to free capital (off by default).
+
+Risk Management
+- Position Sizing (volatility risk parity):
+  - Risk per trade = r% of equity (suggest 0.5%–1.0%).
+  - Dollar risk per share/contract ≈ ATRMultiple × ATR (≈ 2 × ATR).
+  - Position size = (r% × Equity) / (2 × ATR × contractMultiplier).
+- Portfolio Controls:
+  - Max concurrent exposure per asset class (e.g., ≤ 20% per sector; ≤ 60% total).
+  - Max correlated positions (e.g., no more than 3 positions with >0.7 correlation).
+- Trade Filters (optional but recommended):
+  - Liquidity: min ADV threshold (e.g., > $1M) and min price (e.g., > $5).
+  - News/Events: pause new entries around major scheduled events for the traded asset class.
+  - Regime filter (optional): 200-day SMA > 200-day SMA of price for longs only; invert for shorts.
+- Execution Frictions:
+  - Model slippage and commissions; use stop-limit with a protective limit offset (e.g., 0.1%–0.3%) to avoid extreme gaps.
+  - Avoid entering if gap > 1 × ATR beyond the Donchian level unless slippage limits still hold.
+
+Required Indicators and Parameters
+- Donchian Channel:
+  - Length: 20 (tunable 10–55).
+  - upper = highest(high, 20), lower = lowest(low, 20).
+- MACD Histogram:
+  - MACD(12,26,9). Histogram = MACD − Signal.
+  - Zero-line flip must occur on the breakout bar (default). Optional confirmation window: allow flip within last 1 bar if hist[t] > 0 for longs (parameter confirmWindow = 0 or 1).
+- ATR:
+  - ATR(14) (Wilder). Multiplier = 2.0 (tunable 1.5–3.0).
+- State Trackers:
+  - HighestHighSinceEntry / LowestLowSinceEntry for trailing stop.
+  - Entry price and entry ATR.
+
+Implementation Notes
+- Use adjusted prices for backtests (dividends/splits).
+- Define “cross” strictly: previous bar not beyond band, current close beyond band.
+- For intraday systems, compute Donchian and MACD on higher timeframe (e.g., daily) and execute on intraday for better fills, or run fully on chosen timeframe consistently.
+- Avoid repeated signals: one position per symbol; ignore new signals until flat.
+- Pyramiding (optional): add on new Donchian breakouts if unrealized PnL > X ATR and trail each tranche separately or by worst-case stop.
+
+Validation Checklist
+- Backtest across multiple assets and regimes.
+- Sensitivity analysis for Donchian length (10–55), ATR multiple (1.5–3.0), buffer k (0–0.2), and confirmWindow (0–1).
+- Robustness: walk-forward tests, out-of-sample validation, and slippage stress tests.
+
+This specification implements a Donchian breakout gated by a MACD histogram zero-line flip, with a 2× ATR trailing stop as the sole exit, matching the described strategy while adding clear, testable parameters and risk controls.

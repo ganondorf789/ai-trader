@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolatilitySqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Analysis:** The strategy monitors the contraction of Bollinger Band width on a 5-minute timeframe, specifically looking for instances where the width falls into the lowest 10% of its historical range. This indicates a volatility squeeze, often preceding a significant price breakout.  
+2. **RSI Confirmation:** To filter high-probability entries, the strategy requires the RSI (Relative Strength Index) to be below 30, signaling oversold conditions and increasing the likelihood of a bullish reversal.  
+3. **Exit Condition:** Positions are closed when the Bollinger Band width expands beyond its 50th percentile, indicating increased volatility and the potential end of the breakout move.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - The Bollinger Band width (BBW) contracts to the lowest 10% of its historical range (measured over a lookback period, e.g., 100 periods).  
+  - RSI is below 30, confirming oversold conditions.  
+  - Price is above the middle Bollinger Band (20-period SMA) to ensure alignment with the broader trend.  
+
+**Exit Rules:**  
+- **Take Profit/Stop Loss:**  
+  - **Primary Exit:** Close the position when the Bollinger Band width expands beyond the 50th percentile of its historical range.  
+  - **Secondary Exit (Optional):** Use a trailing stop or fixed risk-reward ratio (e.g., 2:1) to lock in profits if the BBW expansion is delayed.  
+
+**Risk Management:**  
+- Position sizing should be based on a fixed percentage of capital (e.g., 1-2% per trade).  
+- A stop-loss can be placed below the recent swing low or the lower Bollinger Band to limit downside risk.  
+- Avoid trading during major news events or low-liquidity periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** To calculate the band width (BBW = (Upper Band - Lower Band) / Middle Band).  
+2. **RSI (14-period):** For oversold confirmation.  
+3. **Historical Percentile Calculator:** To determine the 10th and 50th percentiles of BBW over the lookback period.  
+
+**Additional Notes:**  
+- This strategy works best in ranging or mildly trending markets where volatility cycles are predictable.  
+- Backtesting should focus on optimizing the lookback period for BBW percentiles and RSI thresholds.  
+- Combining with volume analysis (e.g., rising volume on breakout) can further improve accuracy.  
+
+**Why "VolatilitySqueeze"?**  
+The name reflects the core mechanism (Bollinger Band squeeze) and the volatility-based entry/exit logic, making it distinct from generic breakout strategies. The RSI filter adds a unique layer, justifying the specificity of the name.

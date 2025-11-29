@@ -1,0 +1,44 @@
+STRATEGY_NAME: DynamicDivergence
+
+STRATEGY_DETAILS:
+The DynamicDivergence strategy is a sophisticated approach that combines divergence analysis with dynamic breakout levels to identify high-probability trading opportunities. This strategy is designed to capitalize on momentum shifts and trend reversals by detecting divergences between price action and momentum indicators, while also incorporating adaptive breakout levels for precise entries and exits.
+
+### Key Strategy Components:
+1. **Divergence Detection**: The strategy identifies bullish or bearish divergences between price and momentum indicators (e.g., RSI or MACD). Bullish divergence occurs when price makes lower lows while the indicator makes higher lows, signaling potential upward momentum. Bearish divergence occurs when price makes higher highs while the indicator makes lower highs, signaling potential downward momentum.
+2. **Dynamic Breakout Levels**: Instead of fixed support/resistance levels, the strategy uses dynamic levels based on recent price action (e.g., ATR-based levels or moving averages) to determine breakout points.
+3. **Momentum Confirmation**: The strategy requires confirmation from momentum indicators to ensure the divergence is valid and the breakout has strong follow-through.
+
+### Entry Rules:
+1. **Bullish Entry**:
+   - Identify a bullish divergence between price and momentum indicator (e.g., RSI or MACD).
+   - Wait for price to break above a dynamic resistance level (e.g., ATR-based upper band or moving average).
+   - Confirm with momentum indicator crossing above a threshold (e.g., RSI > 50 or MACD histogram turning positive).
+   - Enter a long position on the breakout candle close.
+
+2. **Bearish Entry**:
+   - Identify a bearish divergence between price and momentum indicator.
+   - Wait for price to break below a dynamic support level.
+   - Confirm with momentum indicator crossing below a threshold (e.g., RSI < 50 or MACD histogram turning negative).
+   - Enter a short position on the breakout candle close.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Use a trailing stop based on ATR or a fixed risk-reward ratio (e.g., 2:1).
+   - Alternatively, exit when the momentum indicator shows overbought/oversold conditions (e.g., RSI > 70 for longs or RSI < 30 for shorts).
+
+2. **Stop Loss**:
+   - Place a stop loss below the recent swing low (for longs) or above the recent swing high (for shorts).
+   - Alternatively, use an ATR-based stop loss to account for volatility.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of capital (e.g., 1-2%) per trade to manage risk.
+2. **Volatility Filter**: Avoid trading during high volatility periods by monitoring ATR or Bollinger Band width.
+3. **Correlation Check**: Avoid taking multiple trades in correlated assets to prevent overexposure.
+
+### Required Indicators:
+1. **Momentum Indicator**: RSI or MACD for divergence detection and confirmation.
+2. **Dynamic Levels**: ATR-based bands, moving averages, or pivot points for breakout levels.
+3. **Volatility Filter**: ATR or Bollinger Bands to assess market conditions.
+
+### Summary:
+The DynamicDivergence strategy is a powerful tool for traders who want to combine divergence analysis with dynamic breakout levels. By focusing on momentum shifts and adaptive levels, this strategy provides a systematic approach to identifying high-probability trades while managing risk effectively.

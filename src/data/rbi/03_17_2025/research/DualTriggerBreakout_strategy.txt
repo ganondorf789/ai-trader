@@ -1,0 +1,58 @@
+STRATEGY_NAME: DualTriggerBreakout
+
+STRATEGY_DETAILS:
+The DualTriggerBreakout strategy is a sophisticated approach that combines two distinct breakout signals to confirm high-probability trading opportunities. This strategy is designed to filter out false breakouts by requiring dual confirmation before entering a trade, making it particularly effective in volatile markets.
+
+### Key Strategy Components:
+1. **Price Breakout**: The first trigger is a price breakout above a resistance level or below a support level.
+2. **Volume Confirmation**: The second trigger is a significant increase in trading volume, confirming the strength of the breakout.
+
+### Entry Rules:
+1. **Identify Key Levels**: 
+   - Use technical analysis to identify significant support and resistance levels on the chart.
+   - These levels can be based on historical price action, moving averages, or other technical indicators.
+
+2. **Price Breakout Trigger**:
+   - Enter a long position when the price breaks above a resistance level.
+   - Enter a short position when the price breaks below a support level.
+
+3. **Volume Confirmation Trigger**:
+   - Confirm the breakout with a significant increase in trading volume.
+   - The volume should be at least 1.5 times the average volume of the last 20 periods.
+
+### Exit Rules:
+1. **Profit Target**:
+   - Set a profit target based on a multiple of the Average True Range (ATR). For example, 2x ATR.
+   - Alternatively, use a trailing stop to lock in profits as the price moves in your favor.
+
+2. **Stop Loss**:
+   - Place a stop loss just below the breakout level for long positions or above the breakout level for short positions.
+   - The stop loss should be set at a level that represents a reasonable risk tolerance, such as 1x ATR.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Calculate position size based on the distance between the entry price and the stop loss level.
+   - Risk no more than 1-2% of your trading capital on any single trade.
+
+2. **Diversification**:
+   - Avoid over-concentration in a single asset or market.
+   - Spread your trades across different instruments to reduce risk.
+
+### Required Indicators:
+1. **Support and Resistance Levels**:
+   - Use historical price data to identify key levels.
+   - Consider using tools like pivot points or Fibonacci retracements.
+
+2. **Volume Indicator**:
+   - Use a volume indicator to monitor trading volume.
+   - Ensure the volume spike is significant and not just a random fluctuation.
+
+3. **Average True Range (ATR)**:
+   - Use ATR to set stop loss and profit target levels.
+   - ATR helps in adjusting for market volatility.
+
+### Additional Considerations:
+- **Timeframe**: This strategy works best on higher timeframes (e.g., 1-hour, 4-hour, or daily charts) where breakouts are more significant and less prone to noise.
+- **Market Conditions**: The DualTriggerBreakout strategy is particularly effective in trending markets. Avoid using it in highly choppy or range-bound markets where breakouts are less reliable.
+
+By combining price breakout with volume confirmation, the DualTriggerBreakout strategy provides a robust framework for identifying high-probability trading opportunities while minimizing the risk of false breakouts.

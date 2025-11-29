@@ -1,0 +1,51 @@
+STRATEGY_NAME: VolatilityAnchoredBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility-adjusted VWAP with order flow dynamics to identify high-probability breakout opportunities. The key innovation is using an opening-range-anchored VWAP that automatically adjusts to market volatility conditions, filtered by significant order book imbalance and volume confirmation.
+
+Key Components:
+1. Volatility-Adjusted VWAP: Calculated from the session open, adjusting bandwidth based on recent volatility (ATR or standard deviation)
+2. Opening Range Anchor: Uses the first 15-30 minutes of trading as reference point
+3. Order Book Imbalance: Measures aggressive buying/selling pressure in the limit order book
+4. Volume Surge Filter: Requires 1.5x the 15-minute median volume for confirmation
+
+Entry Rules:
+1. LONG Entry:
+   - Price crosses ABOVE upper volatility-adjusted VWAP band
+   - Order book imbalance shows >60% buy-side dominance
+   - Current volume exceeds 1.5x 15-minute median volume
+
+2. SHORT Entry:
+   - Price crosses BELOW lower volatility-adjusted VWAP band
+   - Order book imbalance shows >60% sell-side dominance
+   - Current volume exceeds 1.5x 15-minute median volume
+
+Exit Rules:
+1. Profit Taking:
+   - 1.5x ATR target from entry point
+   - OR when order book imbalance reverses to <40% in trade direction
+
+2. Stop Loss:
+   - Fixed: 0.75x ATR from entry point
+   - OR when price re-crosses the original VWAP band
+
+Risk Management:
+1. Position sizing based on 1% risk per trade (stop distance)
+2. Maximum 3 concurrent positions
+3. No trading during first/last 15 minutes of session
+4. Daily loss limit of 3% (stop trading if hit)
+
+Required Indicators:
+1. Volatility-Adjusted VWAP (with upper/lower bands)
+2. Real-time Order Book Imbalance metric
+3. 15-minute rolling volume median
+4. 14-period ATR for volatility measurement
+5. Opening Range high/low (first 30 minutes)
+
+Optimization Notes:
+- Adjust VWAP volatility multiplier based on asset class
+- Fine-tune order book imbalance thresholds per instrument
+- Test different volume surge multiples (1.3x-2x)
+- Consider time-of-day filters for highest probability setups
+
+This strategy excels in trending markets with clear volatility expansion, using the combination of anchored VWAP and order flow confirmation to filter out false breakouts. The volume surge requirement ensures only significant moves are traded.

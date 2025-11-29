@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolatilityMomentum
+
+STRATEGY_DETAILS:
+The VolatilityMomentum strategy is a momentum-based swing trading approach designed to capitalize on undervalued stocks during periods of extreme low volatility. The strategy focuses on identifying stocks that are poised for a breakout by combining volatility analysis with momentum indicators. Here’s a detailed breakdown of the strategy:
+
+### Key Strategy Components:
+1. **Volatility Filter**: Identifies periods of extreme low volatility using a volatility indicator such as the Average True Range (ATR) or Bollinger Bands.
+2. **Momentum Indicator**: Uses a 10-day Exponential Moving Average (EMA) to gauge the underlying momentum of the stock.
+3. **Price Ratio**: Compares the 5-day closing price to the 10-day EMA to determine entry and exit points.
+
+### Entry Rules:
+1. **Volatility Condition**: Wait for the stock to exhibit extreme low volatility. This can be identified when the ATR is at its lowest levels over a specified period (e.g., 20-day ATR below a certain threshold) or when Bollinger Bands are at their narrowest.
+2. **Momentum Condition**: Ensure the stock is undervalued and showing signs of potential upward momentum. This can be confirmed if the 5-day closing price is below the 10-day EMA, indicating a potential reversal or breakout.
+3. **Entry Signal**: Enter a long position when the 5-day closing price crosses above the 10-day EMA, signaling a potential upward momentum shift.
+
+### Exit Rules:
+1. **Price Ratio Exit**: Exit the position when the 5-day closing price reaches a predefined ratio above the 10-day EMA. For example, if the ratio is set at 1.05, exit when the 5-day closing price is 5% above the 10-day EMA.
+2. **Stop-Loss**: Implement a stop-loss to manage risk. A common approach is to set the stop-loss at a percentage below the entry price (e.g., 2-3%) or below a recent swing low.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of the portfolio for each trade (e.g., 1-2%) to ensure no single trade can significantly impact the overall portfolio.
+2. **Diversification**: Spread trades across multiple sectors or asset classes to reduce exposure to any single market movement.
+3. **Stop-Loss**: Always use a stop-loss to limit potential losses. Adjust the stop-loss level based on the stock’s volatility and your risk tolerance.
+
+### Required Indicators:
+1. **Average True Range (ATR)**: To measure volatility and identify periods of extreme low volatility.
+2. **Exponential Moving Average (EMA)**: A 10-day EMA to gauge momentum and determine entry/exit points.
+3. **Price Ratio**: The ratio of the 5-day closing price to the 10-day EMA to signal potential breakouts and exits.
+
+### Summary:
+The VolatilityMomentum strategy is designed to capture undervalued stocks during periods of low volatility, with a focus on momentum shifts. By combining volatility analysis with momentum indicators, the strategy aims to enter positions just as the stock begins to move upward, with clear exit rules based on price ratios. Proper risk management, including position sizing and stop-loss orders, is crucial to the strategy’s success.

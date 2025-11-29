@@ -1,0 +1,53 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Bands and Keltner Channels to identify volatility compression periods (squeeze) followed by high-volume breakouts, using an adaptive trailing stop for exits.
+
+Key Components:
+1. Volatility Squeeze Detection:
+   - Bollinger Bands (20-period, 2 std dev)
+   - Keltner Channels (20-period, 1.5 ATR multiplier)
+   - Squeeze occurs when Bollinger Bands are inside Keltner Channels
+
+2. Volume Filter:
+   - 50-day average volume as baseline
+   - Requires breakout volume > 2x average volume
+
+3. Exit Mechanism:
+   - 14-day ATR for volatility measurement
+   - Trailing stop set at 2x ATR value
+
+Entry Rules:
+1. Wait for confirmed squeeze (BB inside KC for at least 3 candles)
+2. Enter on first candle that:
+   - Closes outside both bands (breakout)
+   - Has volume > 2x 50-day average
+   - Direction matches breakout (long for upper breakout, short for lower)
+
+Exit Rules:
+1. Trailing Stop:
+   - For longs: Highest high minus (2 x 14-day ATR)
+   - For shorts: Lowest low plus (2 x 14-day ATR)
+   - Adjust daily based on new extremes
+
+2. Emergency Exit:
+   - If price re-enters squeeze zone (BB back inside KC)
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Stop distance = 2 x ATR
+3. Maximum position size = (Account risk %) / (Stop distance in %)
+4. No new entries if 3 consecutive losing trades
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Keltner Channels (20,1.5)
+3. Volume (50-day average)
+4. ATR (14-day)
+
+Optimization Notes:
+- Test different ATR multiples (1.5-3x) for trailing stop
+- Experiment with squeeze duration (2-5 candles)
+- Consider adding MACD confirmation for stronger trends
+
+This strategy excels in ranging markets transitioning to trends, using the squeeze as a volatility predictor and volume as confirmation of breakout validity. The adaptive trailing stop locks in profits during strong moves while giving room during normal volatility.

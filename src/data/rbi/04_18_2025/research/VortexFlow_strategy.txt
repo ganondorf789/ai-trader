@@ -1,0 +1,31 @@
+STRATEGY_NAME: VortexFlow  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Tracks directional movement using +VI (bullish) and -VI (bearish) lines. A bullish crossover (+VI crossing above -VI) signals potential uptrends.  
+2. **Money Flow Index (MFI):** Momentum oscillator (0–100) measuring buying/selling pressure. Crosses above 30 indicate emerging bullish momentum, while >70 suggests overbought conditions.  
+3. **Volume Confirmation:** Requires expanding volume during the VI/MFI signals to validate strength.  
+
+**Entry Rules:**  
+- Enter long when:  
+  - +VI crosses above -VI (Vortex bullish crossover).  
+  - MFI simultaneously crosses above 30.  
+  - Volume is higher than the prior 5-period average (confirmation).  
+
+**Exit Rules:**  
+- Close position if:  
+  - +VI crosses below -VI (Vortex bearish flip).  
+  - MFI rises above 70 (overbought threshold).  
+
+**Risk Management:**  
+- **Stop-Loss:** Set below the recent swing low or use a trailing stop (e.g., 2x ATR).  
+- **Position Sizing:** Risk ≤1–2% of capital per trade.  
+- **Filter:** Avoid entries during low-volume periods or if price is below 200-period MA (trend context).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI) with default 14-period setting.  
+2. Money Flow Index (MFI) with 14-period setting.  
+3. Volume (expanding relative to 5-period average).  
+4. Optional: 200-period MA for trend bias.  
+
+**Unique Edge:** Combines trend direction (VI), momentum shifts (MFI), and volume confirmation to filter high-probability reversals in emerging uptrends. Avoids choppy markets via volume/MFI thresholds.

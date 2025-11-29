@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolumetricDivergence  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volume-Weighted MACD (VW-MACD):** A modified MACD that incorporates trading volume to confirm trend strength.  
+2. **Chande Momentum Oscillator (CMO):** Measures momentum and identifies bullish/bearish divergences relative to price.  
+3. **Bollinger Bandwidth Consolidation:** Uses narrowing Bollinger Bands (2-day consolidation) to signal potential trend exhaustion.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when:  
+  - The 50-period VW-MACD crosses **above zero** (bullish momentum).  
+  - The CMO shows **bullish divergence** (price makes lower lows, CMO makes higher lows).  
+- **Short Entry:** Trigger when:  
+  - The 50-period VW-MACD crosses **below zero** (bearish momentum).  
+  - The CMO shows **bearish divergence** (price makes higher highs, CMO makes lower highs).  
+
+**Exit Rules:**  
+- **Long/Short Exit:** Trigger when:  
+  - Bollinger Bandwidth contracts for **2 consecutive days**, indicating consolidation and potential reversal.  
+  - Alternatively, use a trailing stop (e.g., 2x ATR) to protect profits.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., 1-2% risk per trade).  
+- Stop-loss placed below recent swing low (long) or above swing high (short).  
+- Avoid trading during low-volume periods to reduce false signals.  
+
+**Required Indicators:**  
+1. **Volume-Weighted MACD** (50-period).  
+2. **Chande Momentum Oscillator (CMO)** (default 14-period).  
+3. **Bollinger Bands** (20-period, 2 Std Dev) + Bandwidth calculation.  
+
+**Unique Aspects:**  
+- Combines **volume-confirmed momentum** (VW-MACD) with **price-momentum divergence** (CMO).  
+- Uses Bollinger Bandwidth contraction as a unique exit signal instead of traditional overbought/oversold levels.  
+- Filters out low-probability trades by requiring multiple confirmations.  
+
+**Optimization Tips:**  
+- Test different VW-MACD periods (e.g., 30 vs. 50) for varying asset volatility.  
+- Adjust CMO sensitivity (e.g., 9 vs. 14 periods) to fine-tune divergence detection.  
+- Combine with a volume filter (e.g., only trade if volume > 20-day average).  
+
+This strategy excels in **trending markets with clear momentum shifts** but may underperform in choppy or range-bound conditions.

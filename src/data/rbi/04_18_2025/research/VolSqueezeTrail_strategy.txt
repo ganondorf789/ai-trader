@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolSqueezeTrail  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies low volatility periods when the Bollinger Band width (20-day, 2σ) contracts below 2%, signaling potential breakout conditions.  
+2. **Volume Surge Confirmation:** Requires volume to surge 50% above the 20-day average to validate the breakout and filter false signals.  
+3. **Trailing Stop Exit:** Uses a dynamic 3x ATR (Average True Range) trailing stop to lock in profits and manage risk during volatile moves.  
+4. **Symmetrical Short Setup:** Applies inverse logic for short entries when Bollinger Band width contracts and volume surges downward.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when:  
+  - Bollinger Band width (20-day, 2σ) contracts below 2%.  
+  - Volume exceeds the 20-day average by 50%.  
+- **Short Entry:** Trigger when:  
+  - Bollinger Band width contracts below 2%.  
+  - Volume drops 50% below the 20-day average (or inversely, surges on price decline).  
+
+**Exit Rules:**  
+- **Trailing Stop:** Exit positions when price reverses by 3x the current ATR (14-period) from the highest high (long) or lowest low (short).  
+- **Optional Time Exit:** Close trades after a fixed period (e.g., 10 bars) if the trailing stop isn’t hit.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate 1-2% of capital per trade.  
+2. **Stop Placement:** Initial stop set at 2x ATR from entry to avoid premature exits.  
+3. **Volatility Filter:** Avoid trading if ATR exceeds 5% of the asset’s price (adjustable threshold).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2σ)** – To measure band width contraction.  
+2. **Volume (20-day MA)** – To confirm breakout strength.  
+3. **ATR (14-period)** – For trailing stop and risk calculation.  
+
+**Unique Edge:** Combines volatility contraction (squeeze) with volume confirmation and aggressive trail management, targeting explosive moves while minimizing whipsaw risk.

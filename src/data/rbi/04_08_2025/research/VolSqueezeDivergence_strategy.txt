@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolSqueezeDivergence
+
+STRATEGY_DETAILS:
+This strategy combines three powerful technical indicators to identify high-probability trade setups during low volatility periods with emerging momentum. The core concept revolves around catching the initial breakout from a volatility contraction with confirmation from volume-weighted momentum.
+
+Key Components:
+1. Bollinger Bandwidth Contraction (10th percentile threshold)
+2. Volume-Weighted RSI Divergence (14-period RSI with volume multiplier)
+3. Keltner Channel Breakout (20-period ATR-based channel)
+
+Entry Rules:
+1. Primary Condition: Bollinger Bandwidth (20,2) must be below its 10th percentile value (measured over 100 periods)
+2. Confirmation: Volume-Weighted RSI (14-period) shows bullish divergence (higher low in RSI while price makes lower low)
+3. Execution: Enter long when price breaks above the upper Bollinger Band with above-average volume
+
+Exit Rules:
+1. Profit Taking: Trail stop at lower Keltner Channel (20-period EMA ± 2.5*ATR)
+2. Stop Loss: Initial stop placed at recent swing low or lower Bollinger Band, whichever is closer
+3. Emergency Exit: Immediate exit if Keltner Channel width expands beyond 2x its entry value
+
+Risk Management:
+1. Position sizing limited to 1-2% of capital per trade
+2. Maximum portfolio exposure capped at 5% during high volatility regimes
+3. Trade frequency limited to 1-2 setups per week to avoid over-trading
+
+Required Indicators:
+1. Bollinger Bands (20,2) with Bandwidth calculation
+2. Volume-Weighted RSI (standard 14-period RSI multiplied by volume ratio)
+3. Keltner Channels (20-period EMA with 2.5*ATR bands)
+4. Volume indicator (for confirmation of breakout)
+
+Optimal Market Conditions:
+- Works best in ranging markets transitioning to trending phases
+- Avoid during high volatility or strongly trending markets
+- Most effective on 1H-4H timeframes for swing trading
+
+The unique combination of volatility contraction, volume-confirmed momentum divergence, and volatility expansion signals creates a high-probability trading edge with clearly defined risk parameters.

@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolatilityContraFlow
+
+STRATEGY_DETAILS:
+This is a sophisticated mean-reversion strategy that capitalizes on excessive volatility expansions when accompanied by declining trading volume, signaling potential exhaustion moves.
+
+Key Components:
+1. Bollinger Band Width Expansion: Uses the bandwidth (difference between upper and lower bands) as primary volatility measure
+2. Volume Divergence: Requires declining volume during volatility expansion
+3. Mean Reversion: Targets returns to average volatility conditions
+
+Entry Rules:
+1. Trigger: When Bollinger Band width exceeds 2 standard deviations from its 20-period moving average
+2. Confirmation: Volume must be declining for at least 3 consecutive periods during the bandwidth expansion
+3. Direction: Enter short if price is in upper band, long if in lower band
+
+Exit Rules:
+1. Primary: When bandwidth returns within 1 standard deviation of its mean
+2. Secondary: Fixed 2:1 risk-reward ratio (adjustable)
+3. Emergency: Hard stop at opposite band level
+
+Risk Management:
+1. Position Sizing: 1-2% risk per trade
+2. Stop Placement: Initial stop at opposite band level
+3. Maximum Drawdown: 5% account limit before strategy review
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Band Width indicator
+3. Volume oscillator (to confirm declining trend)
+4. Standard deviation calculator for bandwidth
+
+Optimization Notes:
+- Works best in ranging markets
+- Avoid during strong trending conditions
+- Ideal timeframe: 4H to daily charts
+- Best asset classes: Forex majors, large-cap equities
+
+The "VolatilityContraFlow" name reflects both the volatility-based nature and contrarian approach of this strategy, while emphasizing the importance of volume flow divergence as confirmation.

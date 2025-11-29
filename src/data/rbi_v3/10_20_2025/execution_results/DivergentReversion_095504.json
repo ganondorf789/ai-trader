@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 Moon Dev: Data loaded and cleaned. Shape: (31066, 6)\nColumns: ['datetime', 'Open', 'High', 'Low', 'Close', 'Volume']\n\ud83c\udf19 Moon Dev: Running backtest... \ud83d\ude80\n\ud83c\udf19 Moon Dev: Indicators initialized \u2728\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v15.py\", line 122, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v15.py\", line 113, in next\n    self.sell(size=position_size, limit=entry_price, sl=sl_price, tp=tp_price)\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 223, in sell\n    assert 0 < size < 1 or round(size) == size, \\\nAssertionError: size must be a positive fraction of equity, or a positive whole number of units\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v15.py` failed. (See above for error)\n",
+  "execution_time": 1.052733,
+  "timestamp": "2025-10-20T09:55:04.582932"
+}

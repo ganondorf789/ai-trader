@@ -1,0 +1,58 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of low volatility followed by high-momentum breakouts, using a combination of Bollinger Bands and Keltner Channels to identify potential trade setups.
+
+Key Components:
+1. Volatility Contraction Detection:
+   - Bollinger Bands (20-period, 2 standard deviations)
+   - Keltner Channels (20-period, 1.5 ATR multiplier)
+   - Squeeze occurs when Bollinger Bands move inside Keltner Channels
+
+2. Breakout Confirmation:
+   - Price must close outside either band with increased volume
+   - Volume must exceed 20-period moving average by 50%
+   - MACD (12,26,9) must show same-direction momentum
+
+Entry Rules:
+1. Long Entry:
+   - When price closes above upper Bollinger Band
+   - Volume surge confirmation (50% above 20MA)
+   - MACD histogram trending upward
+   - Squeeze condition was present for at least 5 bars
+
+2. Short Entry:
+   - When price closes below lower Bollinger Band
+   - Volume surge confirmation (50% above 20MA)
+   - MACD histogram trending downward
+   - Squeeze condition was present for at least 5 bars
+
+Exit Rules:
+1. Profit Taking:
+   - When price reaches 1.5x the average true range (ATR) of the squeeze period
+   - OR when bands diverge beyond their 20-period historical average width
+
+2. Stop Loss:
+   - Fixed at 1x ATR from entry point
+   - OR opposite band crossover (whichever comes first)
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Maximum 3 concurrent positions
+3. No trading during major economic news events
+4. Daily time filter (avoid first/last 30 minutes)
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Keltner Channels (20,1.5 ATR)
+3. Volume (20MA)
+4. MACD (12,26,9)
+5. ATR (14)
+
+Optimization Notes:
+- Adjust ATR multiplier based on asset volatility
+- Test different squeeze duration requirements
+- Consider adding RSI filter for overbought/oversold conditions
+- Backtest various profit target multiples
+
+This strategy works best in ranging markets transitioning to trending conditions, with reduced effectiveness during strong, established trends or extremely volatile conditions.

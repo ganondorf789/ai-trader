@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolumetricSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection:** Uses Bollinger Bandwidth (BBW) to identify periods of low volatility when BBW drops below its 10th percentile.  
+2. **Breakout Confirmation:** Requires price to exit the Keltner Channel (KC) to confirm the breakout direction.  
+3. **Volume Surge Validation:** Entry is only taken if the breakout is accompanied by a surge in volume percentile (e.g., volume above its 80th percentile).  
+4. **Exit Signal:** Triggered by opposing volume spikes (e.g., volume above its 90th percentile in the opposite direction of the trade).  
+
+**Entry Rules:**  
+1. **Condition 1:** Bollinger Bandwidth (BBW) must be below its 10th percentile (indicating a volatility squeeze).  
+2. **Condition 2:** Price must close outside the Keltner Channel (KC) in either direction (upper for long, lower for short).  
+3. **Condition 3:** Volume must surge above a high percentile (e.g., 80th) to confirm the breakout.  
+4. **Execution:** Enter long if price breaks above KC with high volume; enter short if price breaks below KC with high volume.  
+
+**Exit Rules:**  
+1. **Opposing Volume Spike:** Exit the trade if volume spikes above a very high percentile (e.g., 90th) in the opposite direction of the trade.  
+2. **Trailing Stop:** Optional trailing stop (e.g., ATR-based) to protect profits if no opposing volume spike occurs.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place initial stop-loss inside the Keltner Channel (e.g., mid-line or opposite band) to limit downside.  
+2. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+3. **Volatility Filter:** Avoid trading if overall market volatility (e.g., VIX) is extremely high or low beyond typical ranges.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (BB):** To calculate Bollinger Bandwidth (BBW).  
+2. **Keltner Channel (KC):** For breakout confirmation.  
+3. **Volume Percentile:** To measure volume surges (e.g., 50-period rolling percentile).  
+4. **Optional:** ATR for trailing stops, VIX for volatility context.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (BBW) with expansion (KC breakout) for high-probability setups.  
+- Uses volume as both a confirmation (entry) and rejection (exit) tool, adding robustness.  
+- Avoids false breakouts by requiring multi-factor alignment (squeeze, price action, volume).  
+
+**Note:** Backtest optimal percentiles (BBW 10th, volume 80th/90th) for your instrument/timeframe.

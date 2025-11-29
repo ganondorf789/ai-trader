@@ -1,0 +1,41 @@
+STRATEGY_NAME: VortexSurgeBreakout
+
+STRATEGY_DETAILS:
+This is a multi-confirmation breakout strategy that combines momentum signals from the Vortex Indicator with volume validation and volatility filters. The strategy waits for alignment across three technical dimensions before entering trades, with aggressive trailing stops to capture extended moves.
+
+Key Components:
+1. Vortex Indicator Crossover (VI+ crosses above VI-)
+2. Volume Surge (90th percentile or higher relative to recent volume)
+3. Bollinger Band Squeeze (bands within 15% of each other)
+4. 3x ATR Trailing Stop (volatility-adjusted exit)
+
+Entry Rules:
+1. Primary Signal: VI+ crosses above VI- (bullish momentum)
+2. Volume Confirmation: Current volume > 90th percentile of last 50 periods
+3. Volatility Filter: Bollinger Band width < 15% of price (squeeze condition)
+4. Price Action: Breakout above upper Bollinger Band or recent high
+
+Exit Rules:
+1. Trailing Stop: 3x ATR from highest point since entry
+2. Emergency Exit: VI+ crosses below VI- while in position
+3. Time Exit: Close position after 10 periods if no stop hit
+
+Risk Management:
+1. Position Size: 1-2% of capital per trade
+2. Maximum Drawdown: 5% per trading session
+3. Stop Placement: Initial stop at 2x ATR below entry
+4. Trade Filter: Only trade when all 3 confirmations align
+
+Required Indicators:
+1. Vortex Indicator (VI+ and VI- lines)
+2. Bollinger Bands (20,2 standard deviation)
+3. Volume Percentile (90th percentile threshold)
+4. ATR (14-period for stops)
+
+Optimization Notes:
+- Test different percentile thresholds (85th-95th)
+- Adjust Bollinger Band squeeze criteria (10-20%)
+- Experiment with ATR multiples (2.5x-3.5x)
+- Consider adding RSI filter for overbought conditions
+
+This strategy is designed to catch high-probability breakouts during periods of compressed volatility, using volume as a validator and the Vortex Indicator for directional bias. The aggressive trailing stop aims to capture extended moves while protecting profits.

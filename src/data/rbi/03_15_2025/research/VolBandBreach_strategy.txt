@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolBandBreach
+
+STRATEGY_DETAILS:
+The VolBandBreach strategy combines Bollinger Bands, volume analysis, and ATR-based exits to identify high-probability breakout trades during periods of significant market activity. Here's a detailed breakdown of the strategy:
+
+1. **Key Components**:
+   - Bollinger Bands (20-period, 2 standard deviations)
+   - Volume threshold (50% of average daily volume)
+   - 2-day Average True Range (ATR) for exit timing
+
+2. **Entry Rules**:
+   - Wait for price to close above the upper Bollinger Band
+   - Confirm volume is at least 50% higher than the average daily volume
+   - Enter a long position at the next candle's open
+
+3. **Exit Rules**:
+   - Set initial stop-loss at the lower Bollinger Band
+   - Exit the trade when price touches or crosses the lower band
+   - Maximum holding period is 2 ATR periods (calculated daily)
+
+4. **Risk Management**:
+   - Position size based on 1% risk per trade
+   - Stop-loss distance calculated from entry to lower band
+   - No trades taken if ATR exceeds 3% of current price (high volatility filter)
+
+5. **Required Indicators**:
+   - Bollinger Bands (20,2)
+   - Volume indicator
+   - 14-period ATR
+
+6. **Additional Considerations**:
+   - Best suited for liquid assets with consistent volume patterns
+   - Avoid trading during major news events
+   - Works well on daily and 4-hour timeframes
+   - Combine with fundamental analysis for higher conviction trades
+
+7. **Optimization Tips**:
+   - Adjust volume threshold based on asset class
+   - Test different ATR periods for exit timing
+   - Consider adding a momentum filter (e.g., RSI > 50) for additional confirmation
+
+This strategy aims to capture strong momentum moves while using volatility-based parameters to manage risk and exit positions effectively. The combination of volume confirmation and ATR-based exits helps filter out false breakouts while allowing for controlled risk exposure.

@@ -1,0 +1,30 @@
+STRATEGY_NAME: VolCompressionDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Percentile Rank (<10%)**: Identifies periods of extreme volatility compression, signaling potential breakout opportunities.  
+2. **Put/Call Ratio Divergence Surge**: Detects a sudden increase in bearish sentiment (rising put/call ratio) diverging from price action, suggesting an impending reversal or breakout.  
+3. **2x Daily Range Target**: Defines a clear profit-taking exit based on volatility expansion.  
+
+**Entry Rules:**  
+- Trigger when **Bollinger Band width percentile rank** drops below 10% (indicating extreme compression).  
+- Confirm with a **surge in put/call ratio divergence** (e.g., 20%+ increase over a short period, diverging from price stability or uptrend).  
+- Enter on a **break of the prior day’s high/low** (direction depends on put/call divergence: short if put/call spikes, long if call/put spikes).  
+
+**Exit Rules:**  
+- **Profit Target**: 2x the average true range (ATR) of the last 5 days.  
+- **Stop-Loss**: 1x ATR from entry or a close beyond the opposite Bollinger Band.  
+- **Time Exit**: Close position after 3 days if target not hit.  
+
+**Risk Management:**  
+- Position size capped at 2% of capital per trade.  
+- No overlapping trades in correlated assets.  
+- Avoid earnings/events that may distort volatility.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** + width percentile rank (14-period lookback).  
+2. **Put/Call Ratio** (with 5-day MA to identify surges).  
+3. **ATR (5)** for dynamic exit sizing.  
+
+**Unique Edge:** Combines mechanical volatility signals with sentiment divergence, targeting explosive moves after low-volatility regimes.

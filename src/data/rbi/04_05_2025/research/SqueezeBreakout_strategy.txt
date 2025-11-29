@@ -1,0 +1,50 @@
+STRATEGY_NAME: SqueezeBreakout  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on volatility compression and subsequent expansion by combining Bollinger Bands and Keltner Channels. The key idea is to identify periods of low volatility (squeeze) and trade the breakout when price exits the Bollinger Bands but remains within the Keltner Channels, confirming a potential strong directional move.  
+
+### Key Components:  
+1. **Bollinger Bands (BB)**:  
+   - Standard settings (20-period SMA, 2 standard deviations).  
+   - Measures volatility and identifies overbought/oversold conditions.  
+
+2. **Keltner Channels (KC)**:  
+   - Standard settings (20-period EMA, 2x ATR for channel width).  
+   - Acts as a secondary volatility filter and dynamic support/resistance.  
+
+3. **Volume Confirmation**:  
+   - Used to validate breakout strength (e.g., volume above a moving average).  
+
+### Entry Rules:  
+1. **Squeeze Condition**:  
+   - Price is compressed between the upper and lower Bollinger Bands (narrowing bands).  
+
+2. **Breakout Trigger**:  
+   - Price closes **outside** the Bollinger Bands but **inside** the Keltner Channels.  
+   - Long entry: Price closes above upper BB but below upper KC.  
+   - Short entry: Price closes below lower BB but above lower KC.  
+
+3. **Volume Confirmation**:  
+   - Breakout must occur with higher-than-average volume (e.g., volume > 20-period volume MA).  
+
+### Exit Rules:  
+1. **Reversal Signal**:  
+   - Price re-enters both the Bollinger Bands and Keltner Channels (closes back inside both).  
+
+2. **Stop-Loss**:  
+   - Place stop-loss just beyond the opposite KC boundary (e.g., below lower KC for long trades, above upper KC for short trades).  
+
+3. **Take-Profit**:  
+   - Trail stop using the opposite Bollinger Band or set a fixed risk-reward ratio (e.g., 2:1).  
+
+### Risk Management:  
+1. Position sizing based on account risk (e.g., 1-2% per trade).  
+2. Avoid trading during low-volume or choppy market conditions.  
+3. Filter trades using higher timeframes (e.g., only take signals aligned with daily trend).  
+
+### Required Indicators:  
+1. Bollinger Bands (20,2).  
+2. Keltner Channels (20 EMA, 2x ATR).  
+3. Volume MA (e.g., 20-period).  
+
+This strategy is ideal for trending markets and avoids false breakouts by requiring confirmation from both volatility bands and volume. The name "SqueezeBreakout" reflects its focus on volatility compression and high-probability breakout trades.

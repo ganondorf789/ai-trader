@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolumetricCross  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Confirmation:** Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) to identify bullish trends.  
+2. **Volume Filter:** Requires a high-volume spike (2x the average volume) to confirm strong participation in the trend.  
+3. **Momentum Exit:** Relies on the RSI crossing below 70 to exit trades, avoiding overbought conditions.  
+4. **Risk-Reward Management:** Targets a 2:1 reward-to-risk ratio for disciplined profit-taking.  
+
+**Entry Rules:**  
+- Enter a long position when:  
+  1. The 50-period EMA crosses above the 200-period EMA (Golden Cross).  
+  2. Volume is at least 2x the average volume (e.g., 20-period average volume).  
+
+**Exit Rules:**  
+- Exit the long position when:  
+  1. RSI (14-period) crosses below 70 (signaling potential overbought reversal).  
+  2. Stop-loss is placed below the recent swing low or using a fixed percentage (e.g., 1-2%).  
+  3. Take-profit is set at 2x the stop-loss distance (e.g., if stop-loss is 1%, take-profit is 2%).  
+
+**Risk Management:**  
+- Position sizing should align with risk tolerance (e.g., risking 1-2% of capital per trade).  
+- Avoid trading during low liquidity or major news events to prevent false volume spikes.  
+
+**Required Indicators:**  
+1. 50-period Exponential Moving Average (EMA).  
+2. 200-period Exponential Moving Average (EMA).  
+3. Relative Strength Index (RSI, 14-period).  
+4. Volume indicator (e.g., 20-period average volume for comparison).  
+
+**Notes:**  
+- Works best in trending markets; may underperform in choppy or sideways conditions.  
+- Volume spike validation reduces false signals from EMA crosses alone.  
+- Adjust RSI threshold (e.g., 60-80) based on asset volatility.  
+
+This strategy combines trend-following, volume confirmation, and momentum-based exits for a balanced approach.

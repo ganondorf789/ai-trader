@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolCompress Breakout
+
+STRATEGY_DETAILS:
+This strategy specializes in identifying and capitalizing on volatility compression patterns through a precise combination of Bollinger Band metrics and volume confirmation.
+
+Key Components:
+1. Volatility Measurement: Uses Bollinger Band width (BBW) as primary volatility indicator
+2. Compression Threshold: 10-period BBW must cross below 50% of its 20-day range
+3. Volume Confirmation: Requires 3x average volume spike for entry validation
+4. Exit Signal: BBW expansion above 75% of its range triggers exit
+
+Entry Rules:
+1. Wait for BBW(10) to cross below the 50% level of its 20-day range
+2. Confirm with volume spike ≥ 3x the 20-day average volume
+3. Enter long position on next candle open after both conditions are met
+
+Exit Rules:
+1. Primary Exit: When BBW(10) expands above 75% of its 20-day range
+2. Optional Stop Loss: Consider 2x ATR(14) below entry if using protective stop
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Volatility-adjusted stops recommended (e.g., 2x ATR)
+3. Avoid trading during major economic news events
+4. Consider scaling out positions in halves at different BBW expansion levels
+
+Required Indicators:
+1. Bollinger Bands (20,2) - for price context
+2. Bollinger Band Width (10-period)
+3. 20-day BBW range calculation
+4. Volume indicator with 20-day average
+5. Optional: ATR(14) for stop placement
+
+Unique Aspects:
+- Focuses specifically on volatility compression rather than price levels
+- Uses dynamic percentage thresholds based on recent BBW range
+- Requires volume confirmation to filter false breakouts
+- Self-adjusting exit threshold based on current volatility regime
+
+Optimization Notes:
+- Test different BBW period lengths (8-12)
+- Experiment with volume multiplier (2.5x-4x)
+- Adjust percentage thresholds based on asset volatility
+- Consider adding RSI filter for overbought/oversold conditions

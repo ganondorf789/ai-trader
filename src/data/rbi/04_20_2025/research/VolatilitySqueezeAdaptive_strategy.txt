@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolatilitySqueezeAdaptive  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Keltner Channel Contraction:** The strategy identifies low volatility periods when the 5-period Keltner Channel width contracts below the 20th percentile of historical volatility.  
+2. **Breakout Entry:** A long position is triggered when price breaks above the upper Keltner band, signaling a potential volatility expansion.  
+3. **Adaptive Moving Average Exit:** Exits are determined by a reverse crossover of a volume-weighted adaptive moving average, ensuring exits are responsive to volume spikes.  
+
+**Entry Rules:**  
+- **Condition 1:** The width of the 5-period Keltner Channel must be below the 20th percentile of its historical volatility range.  
+- **Condition 2:** Price must break and close above the upper Keltner Channel band.  
+- **Entry Action:** Enter a long position on the next candle's open after both conditions are met.  
+
+**Exit Rules:**  
+- **Exit Condition:** The price crosses below the adaptive moving average (weighted by volume spikes).  
+- **Exit Action:** Close the long position on the same candle's close or the next open to confirm the signal.  
+
+**Risk Management:**  
+- **Stop-Loss:** Set below the recent swing low or a fixed percentage (e.g., 1-2%) below the entry price.  
+- **Position Sizing:** Adjust position size based on volatility (e.g., ATR-based sizing) to account for varying market conditions.  
+
+**Required Indicators:**  
+1. **Keltner Channel (5-period):** To measure volatility contraction and breakout levels.  
+2. **Historical Volatility Percentile (20th percentile):** To identify low volatility regimes.  
+3. **Volume-Weighted Adaptive Moving Average:** For dynamic exit signals based on volume spikes.  
+
+**Additional Notes:**  
+- This strategy excels in ranging markets where volatility contractions often precede strong breakouts.  
+- The adaptive exit mechanism helps lock in profits before reversals, especially during high-volume sell-offs.  
+- Backtesting should focus on different asset classes to validate robustness across volatility regimes.

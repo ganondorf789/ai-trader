@@ -1,0 +1,35 @@
+STRATEGY_NAME: BandwidthSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility when the Bollinger Band width reaches a 6-month low, signaling potential breakout conditions.  
+2. **Volume Surge Confirmation:** Requires volume to surge above the 20-day SMA to validate the breakout, ensuring strong participation.  
+3. **Breakout Entry:** Enters trades when price breaks out of the contracted Bollinger Bands with high volume.  
+4. **Exit Rules:** Uses a double candle retracement (two consecutive opposing candles) or a fixed 1.5x ATR profit target to lock in gains.  
+
+**Entry Rules:**  
+- Wait for Bollinger Band width to reach a 6-month low (indicating extreme contraction).  
+- Confirm volume surges above the 20-day SMA.  
+- Enter long on a bullish breakout above the upper Bollinger Band or short on a bearish breakout below the lower Bollinger Band.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit at 1.5x the current ATR (Average True Range) from the entry point.  
+- **Retracement Stop:** Exit if two consecutive opposing candles (e.g., two bearish candles after a long entry) form.  
+
+**Risk Management:**  
+- Use a stop-loss at 1x ATR from entry to limit downside risk.  
+- Avoid trading during major news events or low-liquidity periods.  
+- Position sizing should align with volatility (e.g., larger positions in low-ATR setups, smaller in high-ATR).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To measure contraction and breakout levels.  
+2. **Volume 20-day SMA** – To confirm volume surge.  
+3. **ATR (14-period)** – For profit target and stop-loss placement.  
+
+**Notes:**  
+- Works best in trending markets after consolidation.  
+- Avoid using in choppy or sideways conditions (verify with ADX > 25 for trend strength).  
+- Backtest for optimal ATR multiplier (1.5x is a starting point).  
+
+This strategy combines low-volatility setups with volume confirmation for high-probability breakouts, while using ATR for dynamic risk/reward management.

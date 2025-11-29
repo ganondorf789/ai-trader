@@ -1,0 +1,60 @@
+STRATEGY_NAME: SynergyOscillator
+
+STRATEGY_DETAILS:
+The SynergyOscillator strategy leverages unconventional combinations of technical indicators to identify unique trading opportunities. This approach focuses on the synergy between seemingly unrelated indicators to generate high-probability signals. The strategy is designed to work across multiple timeframes and asset classes, making it versatile for various market conditions.
+
+### Key Strategy Components:
+1. **Indicator Synergy**: Combines indicators from different categories (e.g., momentum, volatility, and trend) to create a unique signal.
+2. **Adaptive Thresholds**: Uses dynamic levels for indicator crossovers and divergences based on recent market volatility.
+3. **Multi-Timeframe Confirmation**: Incorporates signals from higher timeframes to validate entries on lower timeframes.
+
+### Required Indicators:
+1. **Relative Strength Index (RSI)**: Measures momentum and identifies overbought/oversold conditions.
+2. **Average True Range (ATR)**: Gauges market volatility to adjust entry and exit thresholds.
+3. **Ichimoku Cloud**: Provides trend direction, support/resistance levels, and momentum insights.
+4. **Volume Weighted Moving Average (VWMA)**: Highlights price trends with volume confirmation.
+
+### Entry Rules:
+1. **Bullish Entry**:
+   - RSI crosses above 50 (momentum shift).
+   - Price breaks above the Ichimoku Cloud (trend confirmation).
+   - ATR is above its 14-period average (volatility confirmation).
+   - VWMA is sloping upward (volume-backed trend).
+   - Higher timeframe (e.g., daily) shows a bullish trend.
+
+2. **Bearish Entry**:
+   - RSI crosses below 50 (momentum shift).
+   - Price breaks below the Ichimoku Cloud (trend confirmation).
+   - ATR is above its 14-period average (volatility confirmation).
+   - VWMA is sloping downward (volume-backed trend).
+   - Higher timeframe (e.g., daily) shows a bearish trend.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Use a 2:1 or 3:1 risk-reward ratio based on the ATR value.
+   - Exit when RSI reaches overbought (70) or oversold (30) levels.
+   - Close the trade if the price re-enters the Ichimoku Cloud.
+
+2. **Stop Loss**:
+   - Place the stop loss below the recent swing low (for long trades) or above the recent swing high (for short trades).
+   - Adjust the stop loss using 1.5x the ATR value for volatility-based protection.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of the trading capital per trade.
+   - Use ATR to calculate position size based on the distance to the stop loss.
+
+2. **Diversification**:
+   - Avoid over-concentration in a single asset or sector.
+   - Spread trades across different timeframes and markets.
+
+3. **Trade Filtering**:
+   - Only take trades with a confluence of at least three indicators signaling the same direction.
+   - Avoid trading during low-volume periods or major news events.
+
+### Additional Notes:
+- The SynergyOscillator strategy thrives in trending markets but may underperform in choppy or sideways conditions.
+- Regularly backtest and optimize indicator parameters to adapt to changing market dynamics.
+- Combine this strategy with fundamental analysis for a more holistic trading approach.
+
+This strategy is ideal for traders who want to explore unconventional indicator combinations and leverage the power of synergy between technical tools.

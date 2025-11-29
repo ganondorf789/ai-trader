@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolCompressSurge
+
+STRATEGY_DETAILS:
+Key Components:
+1. Volatility Compression: Uses Bollinger Band width percentile (<5%) to identify extreme compression periods
+2. Volume Surge: Requires simultaneous 90th percentile volume spike for confirmation
+3. Breakout Execution: Enters on breakout from compression pattern
+4. Keltner Channel Exit: Uses opposing Keltner Channel levels for profit-taking
+
+Entry Rules:
+1. Wait for Bollinger Band width to reach <5% percentile (extreme compression)
+2. Confirm with volume spike in 90th percentile of recent volume history
+3. Enter long on breakout above upper Bollinger Band or short below lower Bollinger Band
+4. Entry only valid if both conditions occur within same 2-hour candle
+
+Exit Rules:
+1. For long positions: Exit at upper Keltner Channel level
+2. For short positions: Exit at lower Keltner Channel level
+3. Optional: Partial profit-taking at mid-Keltner Channel level
+
+Risk Management:
+1. Set stop-loss at opposite Bollinger Band level from entry
+2. Position size based on 1-2% risk per trade
+3. Avoid trading during major news events that may cause false breakouts
+4. Maximum 5% portfolio risk across all positions
+
+Required Indicators:
+1. Bollinger Bands (20-period, 2 std dev)
+2. Bollinger Band Width (percentile calculation)
+3. Volume indicator with percentile analysis
+4. Keltner Channels (20-period, 1.5 ATR)
+
+Additional Notes:
+- Best suited for liquid assets with consistent volatility patterns
+- Requires historical data for accurate percentile calculations
+- Works best on 2-hour timeframe but can be adapted to 4-hour with adjustments
+- Volume surge must be significant relative to recent volume history (not absolute values)

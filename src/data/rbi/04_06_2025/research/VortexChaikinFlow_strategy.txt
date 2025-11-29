@@ -1,0 +1,59 @@
+STRATEGY_NAME: VortexChaikinFlow  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):**  
+   - Uses two lines: VI+ (positive trend movement) and VI- (negative trend movement).  
+   - A bullish signal occurs when VI+ crosses above VI-.  
+   - A bearish signal occurs when VI- crosses above VI+.  
+
+2. **Chaikin Money Flow (CMF):**  
+   - Measures buying/selling pressure over a period (typically 20-21 days).  
+   - Confirms trend strength when above +0.05 (bullish) or below -0.05 (bearish).  
+
+3. **Keltner Channel (KC):**  
+   - Volatility-based bands around an exponential moving average (EMA).  
+   - Exit signals occur when price touches or breaches the outer bands, indicating overextension.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - VI+ crosses above VI-.  
+  - CMF > +0.05 (confirming bullish money flow).  
+  - Enter on the next candle’s open.  
+
+- **Short Entry:**  
+  - VI- crosses above VI+.  
+  - CMF < -0.05 (confirming bearish money flow).  
+  - Enter on the next candle’s open.  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  - Price touches or breaches the upper Keltner Channel band.  
+  - Alternatively, if VI- crosses back above VI+ (trend reversal).  
+
+- **Short Exit:**  
+  - Price touches or breaches the lower Keltner Channel band.  
+  - Alternatively, if VI+ crosses back above VI- (trend reversal).  
+
+**Risk Management:**  
+- **Stop-Loss:**  
+  - Place below the recent swing low (long) or above the recent swing high (short).  
+  - Alternatively, use a fixed percentage (e.g., 1-2% of capital).  
+- **Position Sizing:**  
+  - Adjust based on volatility (e.g., ATR-based sizing).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. Chaikin Money Flow (CMF, 20-period).  
+3. Keltner Channel (20-period EMA, 2x ATR width).  
+
+**Unique Aspects:**  
+- Combines trend direction (Vortex) with money flow confirmation (CMF) for high-probability entries.  
+- Uses Keltner Channel for volatility-based exits, avoiding premature reversals.  
+- Avoids choppy markets by requiring alignment of both VI and CMF.  
+
+**Optimization Tips:**  
+- Test different CMF thresholds (e.g., ±0.02 for more signals or ±0.10 for fewer but stronger ones).  
+- Adjust Keltner Channel multiplier (e.g., 1.5x ATR for tighter exits).  
+- Apply on higher timeframes (4H/Daily) for smoother trends.

@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolatilitySqueezeAccumulation
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with volume accumulation signals to identify high-probability volatility breakout opportunities. The approach waits for extreme compression in volatility before entering trades confirmed by underlying accumulation patterns.
+
+Key Components:
+1. Bollinger Bandwidth Contraction: Measures the relative width between Bollinger Bands (typically (Upper Band - Lower Band)/Middle Band)
+2. Klinger Volume Oscillator (KVO): A sophisticated volume indicator that combines price, volume and trend
+3. Time-based Exit: Secondary exit condition to prevent overstaying trades
+
+Entry Rules:
+1. Primary Condition: Bollinger Bandwidth must contract below its 10th percentile (measured over lookback period, typically 100-200 days)
+2. Confirmation: Klinger Volume Oscillator must show accumulation (positive values above its signal line)
+3. Execution: Enter long on breakout above upper Bollinger Band (for long trades) or below lower band (for short trades)
+
+Exit Rules:
+1. Primary Exit: Opposite Bollinger Band (exit long at lower band, exit short at upper band)
+2. Secondary Exit: Close position after 3 trading days if not stopped out
+3. Optional Trailing Stop: Consider adding ATR-based trailing stop (e.g., 1.5-2x ATR)
+
+Risk Management:
+1. Position Sizing: Risk 1-2% of capital per trade
+2. Stop Placement: Initial stop at opposite band or recent swing low/high
+3. Volatility Filter: Avoid trading during high volatility regimes (when bandwidth > 50th percentile)
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations typical)
+2. Bollinger Bandwidth calculation
+3. Klinger Volume Oscillator (default 34,55,13 parameters)
+4. Percentile calculation for bandwidth (requires historical data storage)
+
+Optimization Considerations:
+1. Adjust bandwidth percentile threshold (5th-15% range)
+2. Test different Bollinger Band periods (10-30 days)
+3. Experiment with KVO parameters
+4. Consider adding RSI filter (e.g., only trade if RSI <70 for longs, >30 for shorts)
+
+This strategy works best in ranging markets transitioning to trending phases, and requires patience as extreme bandwidth contractions may be infrequent but high-probability setups.

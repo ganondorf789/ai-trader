@@ -1,0 +1,61 @@
+STRATEGY_NAME: BandStoch Fusion
+
+STRATEGY_DETAILS:
+The BandStoch Fusion strategy combines Bollinger Bands and the Stochastic Oscillator to identify high-probability trading opportunities. This strategy is designed to capture both trend continuation and reversal signals by leveraging the volatility insights from Bollinger Bands and the momentum confirmation from the Stochastic Oscillator.
+
+### Key Strategy Components:
+1. **Bollinger Bands (BB):**
+   - Period: 20
+   - Standard Deviation: 2
+   - Upper Band (UB): Upper Bollinger Band
+   - Lower Band (LB): Lower Bollinger Band
+   - Middle Band (MB): 20-period Simple Moving Average (SMA)
+
+2. **Stochastic Oscillator (Stoch):**
+   - %K Period: 14
+   - %D Period: 3
+   - Overbought Level: 80
+   - Oversold Level: 20
+
+### Entry Rules:
+1. **Long Entry:**
+   - Price touches or crosses below the Lower Bollinger Band (LB).
+   - Stochastic Oscillator is in oversold territory (below 20).
+   - Wait for Stochastic %K to cross above %D (bullish crossover) for confirmation.
+
+2. **Short Entry:**
+   - Price touches or crosses above the Upper Bollinger Band (UB).
+   - Stochastic Oscillator is in overbought territory (above 80).
+   - Wait for Stochastic %K to cross below %D (bearish crossover) for confirmation.
+
+### Exit Rules:
+1. **Long Exit:**
+   - Price touches or crosses the Middle Bollinger Band (MB).
+   - Stochastic Oscillator crosses below 80 (exits overbought condition).
+
+2. **Short Exit:**
+   - Price touches or crosses the Middle Bollinger Band (MB).
+   - Stochastic Oscillator crosses above 20 (exits oversold condition).
+
+### Risk Management:
+1. **Stop Loss:**
+   - For long trades, place a stop loss just below the recent swing low or the Lower Bollinger Band (LB).
+   - For short trades, place a stop loss just above the recent swing high or the Upper Bollinger Band (UB).
+
+2. **Take Profit:**
+   - Use a 1:2 risk-to-reward ratio.
+   - Alternatively, exit when the price reaches the opposite Bollinger Band (UB for long trades, LB for short trades).
+
+3. **Position Sizing:**
+   - Risk no more than 1-2% of your trading capital per trade.
+
+### Required Indicators:
+1. **Bollinger Bands (20, 2)**
+2. **Stochastic Oscillator (14, 3, 3)**
+
+### Additional Notes:
+- This strategy works best in ranging or mildly trending markets. Avoid using it during strong trending conditions, as Bollinger Bands may produce false signals.
+- Always confirm signals with price action and volume for higher accuracy.
+- Backtest the strategy on multiple timeframes (e.g., 1H, 4H, Daily) to ensure consistency.
+
+The BandStoch Fusion strategy is a powerful tool for traders looking to combine volatility and momentum indicators for precise entries and exits.

@@ -1,0 +1,40 @@
+STRATEGY_NAME: DeltaBand Squeeze
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band dynamics with volume delta analysis to identify high-probability short opportunities during market contractions. The core premise exploits the relationship between volatility compression (Bollinger Band width) and increasing selling pressure (negative delta volume) to time bearish breakouts.
+
+Key Components:
+1. Bollinger Band Width Contraction: Measures volatility compression when the distance between upper/lower bands falls below historical norms
+2. Negative Delta Volume: Tracks the difference between selling volume and buying volume showing increasing bearish pressure
+3. Rolling Median Width: Establishes dynamic thresholds for volatility expansion exits
+
+Entry Rules:
+1. Primary Trigger: Price breaks below lower Bollinger Band
+2. Confirmation: Bollinger Band width must be in contraction (below its 20-period average)
+3. Volume Filter: Negative delta volume must be increasing over past 3 periods
+4. Timing: All conditions must occur simultaneously
+
+Exit Rules:
+1. Profit Taking: When Bollinger Band width expands above its 20-period rolling median
+2. Stop Loss: 2x the average true range (ATR) above entry price
+3. Emergency Exit: If positive delta volume spikes above 2 standard deviations of its mean
+
+Risk Management:
+1. Position Size: 1-2% of capital per trade
+2. Maximum Drawdown: 5% stop for entire strategy
+3. Time Exit: Close position if no exit triggers within 5 bars
+4. Market Filter: Only trade when VIX > 15 (avoid low volatility regimes)
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Band Width (20-period SMA of width)
+3. Volume Delta (1-minute or tick data preferred)
+4. Average True Range (14)
+5. VIX Index (for market filter)
+
+Optimization Notes:
+- Test different Bollinger periods (14-26) and deviations (1.8-2.2)
+- Adjust delta volume lookback period (3-5 bars)
+- Experiment with rolling median period (15-25) for exit threshold
+
+This strategy works best in trending markets transitioning from low to high volatility, particularly effective during bearish reversals after prolonged consolidations. The DeltaBand Squeeze approach provides a systematic way to capture breakdown moves with confirmed selling pressure.

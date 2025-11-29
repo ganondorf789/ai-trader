@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolumeSurgeReversal
+
+STRATEGY_DETAILS:
+The VolumeSurgeReversal strategy is a unique approach that combines volume analysis with volatility contraction to identify potential trend reversals or breakouts. The strategy focuses on detecting periods of increased market interest (volume surge) during low volatility conditions (ATR contraction), which often precede significant price movements.
+
+Key Strategy Components:
+1. Volume Analysis: Uses a 20-day average volume as a baseline to identify abnormal trading activity.
+2. Volatility Contraction: Utilizes the 5-day ATR relative to its 20-day average to spot periods of reduced volatility.
+3. Trailing Stop: Implements a dynamic exit mechanism based on 1.5x ATR to capture trends while managing risk.
+
+Entry Rules:
+1. Wait for the current trading volume to surge above its 20-day average.
+2. Simultaneously, confirm that the 5-day ATR has dropped below its 20-day average.
+3. Enter a long position when both conditions are met.
+
+Exit Rules:
+1. Set a trailing stop at 1.5x the current ATR value.
+2. The stop loss adjusts dynamically with price movement, locking in profits as the trend progresses.
+3. Exit the position when the trailing stop is triggered.
+
+Risk Management:
+1. Position sizing should be determined based on the ATR value to ensure consistent risk per trade.
+2. The 1.5x ATR trailing stop provides a dynamic risk management approach.
+3. Avoid trading during major news events or low liquidity periods to prevent false signals.
+
+Required Indicators:
+1. Volume (20-day average)
+2. Average True Range (ATR) with 5-day and 20-day periods
+3. Trailing Stop calculation (1.5x ATR)
+
+Additional Considerations:
+- This strategy works best in trending markets and may produce false signals during choppy or sideways markets.
+- Consider adding a time-based exit (e.g., 5-10 days) if the price doesn't move significantly after entry.
+- Backtest the strategy across different market conditions to optimize the ATR multiplier and volume threshold.
+
+This strategy is particularly effective for swing traders looking to capitalize on potential breakouts or trend reversals while maintaining strict risk control through its dynamic trailing stop mechanism.

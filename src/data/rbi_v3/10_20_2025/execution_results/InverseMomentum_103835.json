@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 Moon Dev Backtest Initialized: Enhanced Bidirectional InverseMomentum Strategy Loaded with Trailing Stops! \u2728\n\ud83c\udf19 Moon Dev Long Entry: Bullish momentum confirmed! Vol (1.2x), Trend, RSI 60.6> 55, ADX 25.5. Entry: 24377.16, Size: 0.205, Initial SL: 21993.44 (Trailing Enabled) \ud83d\ude80\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/InverseMomentum_OPT_v6.py\", line 167, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/InverseMomentum_OPT_v6.py\", line 105, in next\n    if new_sl > self.position.sl:\nAttributeError: 'Position' object has no attribute 'sl'. Did you mean: 'pl'?\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/InverseMomentum_OPT_v6.py` failed. (See above for error)\n",
+  "execution_time": 1.031425,
+  "timestamp": "2025-10-20T10:38:35.410637"
+}

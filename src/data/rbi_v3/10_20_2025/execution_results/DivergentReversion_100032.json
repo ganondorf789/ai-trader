@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 Moon Dev: Data loaded and cleaned. Shape: (31066, 6)\nColumns: ['datetime', 'Open', 'High', 'Low', 'Close', 'Volume']\n\ud83c\udf19 Moon Dev: Running backtest... \ud83d\ude80\n\ud83c\udf19 Moon Dev: Indicators initialized with aggressive tuning (RSI/Stoch/Vol to 8 periods) for rapid signals, combined with trailing stops to maximize returns in dynamic markets \u2728\n\ud83c\udf19 Moon Dev: Short Entry at 19040.41, Size: 25.0000, SL: 19147.25, TP: 18506.22 \u2728\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v28.py\", line 135, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v28.py\", line 77, in next\n    self.position.sl = min(self.position.sl, trail_sl) if self.position.sl else trail_sl\nAttributeError: 'Position' object has no attribute 'sl'. Did you mean: 'pl'?\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v28.py` failed. (See above for error)\n",
+  "execution_time": 1.010952,
+  "timestamp": "2025-10-20T10:00:32.339254"
+}

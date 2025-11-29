@@ -1,0 +1,41 @@
+STRATEGY_NAME: BandwidthPulse
+
+STRATEGY_DETAILS:
+The BandwidthPulse strategy combines Bollinger Band contraction patterns with volume confirmation and volatility-based entry triggers for high-probability breakout trades. This approach specifically targets low-volatility periods that typically precede significant price movements.
+
+Key Components:
+1. Bollinger Bandwidth Contraction: Measures periods of reduced volatility where bands narrow significantly
+2. Volume ROC Divergence: Confirms breakout validity with increasing volume momentum
+3. ATR Filter: Ensures sufficient volatility for trade entry
+4. Fibonacci Extensions: Provides logical profit targets based on contraction range
+
+Entry Rules:
+1. Identify Bollinger Bandwidth contraction (bands narrowing to 20-period low)
+2. Confirm with positive Volume ROC divergence (rising volume as price consolidates)
+3. Enter long when price breaks above upper band AND exceeds 20-period ATR
+4. Enter short when price breaks below lower band AND exceeds 20-period ATR
+
+Exit Rules:
+1. Primary target: 1.618 Fibonacci extension of contraction range
+2. Secondary target: 2.618 Fibonacci extension if momentum continues
+3. Stop-loss: Opposite band level or recent swing low/high (whichever is closer)
+
+Risk Management:
+1. Position size based on 1-2% risk per trade
+2. Trailing stop activates after 0.618 extension is hit
+3. Maximum trade duration: 5 days (avoids false breakouts)
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Bandwidth (20-period)
+3. Volume Rate of Change (14-period)
+4. Average True Range (20-period)
+5. Fibonacci extension tool
+
+Optimization Notes:
+- Best suited for 4-hour or daily charts
+- Works well with liquid assets showing clear volatility cycles
+- Combine with fundamental catalysts for higher success rate
+- Avoid using during major news events that may cause false breakouts
+
+The BandwidthPulse strategy excels in capturing explosive moves after consolidation periods while using multiple confirmation layers to filter false breakouts. The Fibonacci extensions provide disciplined profit-taking levels based on the contraction range's mathematical proportions.

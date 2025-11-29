@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolumetricBandwidth  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volume-Weighted MACD (VW-MACD):** A modified MACD that incorporates volume into its calculation, providing momentum signals with volume confirmation.  
+2. **Bollinger Bandwidth Contraction:** Measures the narrowing of Bollinger Bands, indicating low volatility and potential breakout conditions.  
+3. **Momentum-Volatility Synergy:** Combines momentum (VW-MACD) with volatility (Bandwidth) to identify high-probability entries during low-volatility periods.  
+
+**Entry Rules:**  
+1. **VW-MACD Crossover:** Enter long when the VW-MACD line crosses above its signal line (typically 50-period).  
+2. **Bandwidth Contraction:** Confirm entry only when Bollinger Bandwidth is below 1%, signaling extreme compression.  
+
+**Exit Rules:**  
+1. **VW-MACD Reversal:** Exit when the VW-MACD line crosses below its signal line.  
+2. **Bandwidth Expansion:** Exit if Bollinger Bandwidth expands beyond 3%, indicating increased volatility and potential trend exhaustion.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place below the recent swing low (for longs) or above the swing high (for shorts).  
+2. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+3. **Time-Based Exit:** Exit if the trade doesn’t follow through within 3-5 bars after entry.  
+
+**Required Indicators:**  
+1. **Volume-Weighted MACD (50-period):** Custom MACD incorporating volume.  
+2. **Bollinger Bands (20,2):** Standard settings for bandwidth calculation.  
+3. **Bandwidth Formula:** (Upper Band - Lower Band) / Middle Band * 100.  
+
+**Unique Aspects:**  
+- **Volume-Weighted Momentum:** Filters false signals by requiring volume participation.  
+- **Volatility Confirmation:** Uses bandwidth contraction to time entries during "calm before the storm" phases.  
+- **Dual Exit Logic:** Combines momentum reversal and volatility expansion for robust exits.  
+
+**Note:** This strategy excels in ranging markets transitioning to trends but may underperform in sustained high-volatility regimes. Backtest for optimal bandwidth thresholds.

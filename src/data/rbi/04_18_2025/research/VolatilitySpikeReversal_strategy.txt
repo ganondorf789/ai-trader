@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolatilitySpikeReversal  
+
+STRATEGY_DETAILS:  
+This strategy combines Bollinger Bands, ADX, and volume analysis to identify potential reversal opportunities in low-trend environments with heightened volatility.  
+
+**Key Components:**  
+1. **Bollinger Bands (20,2)** - Identifies overbought/oversold levels relative to recent volatility  
+2. **ADX (14-period)** - Measures trend strength (values below 20 indicate weak/no trend)  
+3. **Volume Spike** - 30-day moving average comparison for confirmation  
+
+**Entry Rules (Long):**  
+1. Price must touch or cross the lower Bollinger Band  
+2. ADX must be below 20 (indicating weak trend)  
+3. Current volume must exceed 30-day average volume  
+All three conditions must be met simultaneously  
+
+**Exit Rules:**  
+1. Primary exit: Price reaches upper Bollinger Band  
+2. Optional stop-loss: Close below lower Bollinger Band (for aggressive risk management)  
+
+**Risk Management:**  
+1. Position sizing should account for the distance between Bollinger Bands  
+2. Consider 1:2 risk-reward ratio (entry to lower band vs. entry to upper band)  
+3. Avoid trading during major news events that may cause false breakouts  
+
+**Required Indicators:**  
+1. Bollinger Bands (20 periods, 2 standard deviations)  
+2. ADX (14 periods)  
+3. Volume + 30-day moving average of volume  
+
+**Optimal Conditions:**  
+- Works best in ranging markets  
+- More effective on higher timeframes (4H/Daily)  
+- Best suited for liquid assets with consistent volume patterns  
+
+**Additional Notes:**  
+- Combine with candlestick patterns for additional confirmation  
+- Backtest to determine optimal volume spike threshold (may vary by asset)  
+- Consider filtering with RSI to avoid extreme oversold conditions

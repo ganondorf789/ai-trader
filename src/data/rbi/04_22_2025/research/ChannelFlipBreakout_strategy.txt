@@ -1,0 +1,31 @@
+STRATEGY_NAME: ChannelFlipBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Donchian Channel (20-day):** Tracks the highest high and lowest low over the past 20 days to define breakout levels.  
+2. **Supertrend Indicator:** Confirms trend direction shifts (bullish/bearish) based on price and volatility.  
+3. **ATR Trailing Stop (2x):** Dynamically adjusts exit points using 2x the Average True Range for risk management.  
+
+**Entry Rules:**  
+- **Long Entry:** Price closes above the 20-day Donchian upper band **AND** Supertrend flips from red (bearish) to green (bullish).  
+- **Short Entry:** Price closes below the 20-day Donchian lower band **AND** Supertrend flips from green (bullish) to red (bearish).  
+
+**Exit Rules:**  
+- **Trailing Stop:** Exit when price reverses by **2x ATR** from the most extreme favorable point (peak for longs, trough for shorts).  
+- **Supertrend Reversal:** Early exit if Supertrend flips opposite to the trade direction (e.g., green → red for longs).  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate ≤2% of capital per trade.  
+- **Stop Placement:** Initial stop set at **1x ATR** from entry; trails aggressively at 2x ATR.  
+- **Filter:** Avoid trading during low volatility (e.g., ATR below 50-day median).  
+
+**Required Indicators:**  
+1. Donchian Channel (20-day upper/lower bands).  
+2. Supertrend (default settings: 10-period ATR, 3x multiplier).  
+3. Average True Range (14-period for trailing stop).  
+
+**Unique Edge:** Combines breakout momentum (Donchian) with trend confirmation (Supertrend) and adaptive exits (ATR), reducing false breakouts. Works best on 4H/daily charts for swing trades.  
+
+**Example Setup:**  
+- *EURUSD 4H chart*: Price breaks 20-day Donchian high while Supertrend turns green → Long with 2x ATR trail. Exit when price drops 2x ATR from the highest close.

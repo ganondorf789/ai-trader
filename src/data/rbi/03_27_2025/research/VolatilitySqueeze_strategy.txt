@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolatilitySqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Focus:** This strategy specifically targets shorting volatility when extreme conditions are met, leveraging the relationship between the VIX (CBOE Volatility Index) and the VVIX (VIX of VIX).  
+2. **Bollinger Band Trigger:** The VIX must close above its 20-day Bollinger Band, indicating an overextended move in volatility.  
+3. **VVIX Confirmation:** The VVIX must be in its 90th percentile historical range, confirming heightened fear or uncertainty in the market.  
+4. **Exit Signal:** The trade is exited when the VIX crosses below its 20-day Simple Moving Average (SMA), signaling a potential decline in volatility.  
+
+**Entry Rules:**  
+- **Condition 1:** The VIX closes above its upper 20-day Bollinger Band (typically set at 2 standard deviations).  
+- **Condition 2:** The VVIX is in its 90th percentile historical range (calculated over a sufficiently long lookback period, e.g., 1-2 years).  
+- **Action:** Initiate a short volatility position (e.g., via VIX futures, options, or volatility ETFs like SVXY).  
+
+**Exit Rules:**  
+- **Condition:** The VIX crosses below its 20-day SMA.  
+- **Action:** Close the short volatility position to lock in profits or limit losses.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate a conservative portion of the portfolio (e.g., 1-3%) to this strategy due to the high-risk nature of shorting volatility.  
+2. **Stop-Loss:** Implement a stop-loss if the VIX continues to rise (e.g., exit if the VIX closes above the upper Bollinger Band again or if the VVIX reaches a new extreme percentile).  
+3. **Time-Based Exit:** Consider exiting after a set period (e.g., 5-10 trading days) if the exit condition isn’t met, to avoid prolonged exposure.  
+
+**Required Indicators:**  
+1. **VIX (CBOE Volatility Index):** Primary indicator for volatility levels.  
+2. **20-Day Bollinger Bands for VIX:** Upper band (typically +2 standard deviations) to identify overbought conditions.  
+3. **VVIX (VIX of VIX):** Measures volatility of the VIX itself; historical percentile is critical for confirmation.  
+4. **20-Day SMA for VIX:** Simple moving average used for exit signals.  
+
+**Additional Notes:**  
+- This strategy works best in mean-reverting volatility environments and may underperform during prolonged volatility spikes.  
+- Backtesting should include stress periods (e.g., 2008, 2020) to assess robustness.  
+- Consider combining with other indicators (e.g., VIX term structure) for additional confirmation.

@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Identification:** The strategy focuses on identifying bullish trends by combining RSI divergence with increasing VIX (volatility index).  
+2. **Divergence Detection:** Looks for bullish RSI divergence (price makes lower lows while RSI makes higher lows) to signal potential trend reversals or continuations.  
+3. **Volatility Confirmation:** Uses rising VIX as a confirmation of increasing market uncertainty, which often precedes strong trend moves.  
+4. **Exit Mechanism:** Exits trades based on multiples of the Average True Range (ATR) to dynamically adjust for market volatility.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Price forms a lower low, but RSI forms a higher low (bullish divergence).  
+  2. VIX is increasing over the last 3-5 periods (confirms rising volatility).  
+  3. Entry occurs on the next candle after divergence is confirmed.  
+
+**Exit Rules:**  
+- **Profit Target:** 2x ATR (from entry point) for partial exit, 3x ATR for full exit.  
+- **Stop Loss:** 1x ATR below the entry candle's low (trailing stop can be applied).  
+
+**Risk Management:**  
+- Position sizing based on ATR to ensure consistent risk per trade (e.g., 1% risk per trade).  
+- Avoid trading during low VIX periods (below a defined threshold) to reduce false signals.  
+
+**Required Indicators:**  
+1. **RSI (14-period):** For divergence detection.  
+2. **VIX (or equivalent volatility index):** To confirm rising volatility.  
+3. **ATR (14-period):** For dynamic stop-loss and profit targets.  
+
+**Additional Notes:**  
+- Works best in trending markets; avoid sideways conditions.  
+- Combine with volume analysis for higher conviction.  
+- Backtest optimal ATR multiples for different asset classes.  
+
+This strategy leverages volatility expansion and momentum shifts for high-probability trend entries while using ATR for adaptive risk management.

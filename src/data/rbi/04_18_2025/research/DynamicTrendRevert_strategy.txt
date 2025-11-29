@@ -1,0 +1,46 @@
+STRATEGY_NAME: DynamicTrendRevert
+
+STRATEGY_DETAILS:
+This strategy combines trend-following elements with mean-reversion exits, creating a dynamic approach to capture trending moves while avoiding overextended conditions. The key components are:
+
+1. Trend Identification:
+- Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) to confirm bullish trend initiation
+- Requires ADX > 25 to validate trend strength and filter out weak moves
+
+2. Entry Rules:
+- Long entry triggered when:
+  a) 50EMA crosses above 200EMA (trend confirmation)
+  b) ADX rises above 25 (trend strength confirmation)
+- Both conditions must be met simultaneously
+
+3. Exit Rules:
+- Profit-taking when RSI crosses below 70 from above (overbought mean-reversion signal)
+- Optional stop-loss can be placed below recent swing low or using ATR-based stop
+
+4. Indicators Required:
+- 50-period Exponential Moving Average (EMA)
+- 200-period Exponential Moving Average (EMA)
+- Average Directional Index (ADX) with period 14 (standard setting)
+- Relative Strength Index (RSI) with period 14 (standard setting)
+
+5. Risk Management:
+- Position sizing should account for volatility (consider ATR-based sizing)
+- Stop-loss placement recommended (either fixed percentage or technical level)
+- Avoid trading during low ADX periods (<25) to prevent false signals
+
+6. Market Conditions:
+- Works best in trending markets with clear directional bias
+- Less effective in ranging/choppy markets (ADX filter helps avoid these)
+- Ideal for daily charts but can be adapted to 4H/1H with parameter adjustments
+
+7. Strengths:
+- Combines trend confirmation with overbought exits
+- ADX filter reduces false signals in non-trending markets
+- Systematic approach removes emotional decision-making
+
+8. Limitations:
+- May exit trends prematurely if RSI becomes overbought early
+- Requires clear EMA crossover which may lag price action
+- Not suitable for counter-trend trading approaches
+
+Implementation Note: This strategy benefits from additional confirmation such as volume analysis or candlestick patterns at entry points. Traders should backtest optimal RSI exit levels as 70 may be too conservative for strongly trending markets.

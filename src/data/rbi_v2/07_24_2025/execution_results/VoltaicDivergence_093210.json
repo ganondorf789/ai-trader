@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v2/07_24_2025/backtests/VoltaicDivergence_BT.py\", line 43, in <module>\n    bt = Backtest(data, VoltaicDivergence, cash=1_000_000, commission=.002)\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1067, in __init__\n    raise ValueError(\"`data` must be a pandas.DataFrame with columns \"\nValueError: `data` must be a pandas.DataFrame with columns 'Open', 'High', 'Low', 'Close', and (optionally) 'Volume'\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v2/07_24_2025/backtests/VoltaicDivergence_BT.py` failed. (See above for error)\n",
+  "execution_time": 0,
+  "timestamp": "2025-07-24T09:32:10.305763"
+}

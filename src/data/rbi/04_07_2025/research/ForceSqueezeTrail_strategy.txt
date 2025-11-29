@@ -1,0 +1,30 @@
+STRATEGY_NAME: ForceSqueezeTrail  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Elder Force Index (EFI):** A momentum indicator combining price movement and volume to measure the strength behind price moves. A cross above zero signals increasing bullish momentum.  
+2. **Bollinger Bandwidth Contraction:** Measures the narrowing of Bollinger Bands, indicating reduced volatility and potential for a breakout.  
+3. **ATR Trailing Stop:** Uses 2x the Average True Range (ATR) to dynamically trail stops, locking in profits while allowing room for volatility.  
+
+**Entry Rules:**  
+- Go **long** when:  
+  - EFI crosses **above zero** (bullish momentum confirmation).  
+  - Bollinger Bandwidth is in contraction (current value below its 20-period SMA, or below a fixed threshold like 0.5).  
+
+**Exit Rules:**  
+- **Trailing Stop:** Exit when price falls **2x ATR** from the highest high since entry.  
+- Optional: Add a time-based exit (e.g., close after 10 bars if stop isn’t hit).  
+
+**Risk Management:**  
+- Position size based on 1-2% risk per trade.  
+- Initial stop loss can be set at 1x ATR below entry for tighter risk control.  
+- Avoid entries during wide Bollinger Bandwidth (high volatility).  
+
+**Required Indicators:**  
+1. Elder Force Index (default 13-period).  
+2. Bollinger Bands (20-period, 2 StdDev) + Bandwidth (calculated as (Upper Band - Lower Band) / Middle Band).  
+3. Average True Range (14-period for ATR trailing stop).  
+
+**Unique Edge:** Combines momentum (EFI) with volatility contraction (Bollinger Squeeze) for high-probability breakouts, while the ATR trailing stop adapts to market conditions.  
+
+**Note:** Backtest to optimize EFI period, Bandwidth threshold, and ATR multiplier for your asset/timeframe.

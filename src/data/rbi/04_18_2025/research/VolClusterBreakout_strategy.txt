@@ -1,0 +1,46 @@
+STRATEGY_NAME: VolClusterBreakout
+
+STRATEGY_DETAILS:
+This strategy focuses on capturing volatility breakouts during clustered liquidation events, combining liquidation level analysis with volume spikes and negative funding rates for high-probability entries.
+
+Key Components:
+1. Liquidation Cluster Detection: Identify price levels with high concentration of liquidations (using liquidation heatmaps or orderbook analysis)
+2. Volume Spike Confirmation: Requires at least 2x average volume spike coinciding with liquidation level breach
+3. Negative Funding Rate: Must have negative funding rates (indicating short squeeze potential)
+4. ATR-Based Targets: Uses Average True Range for dynamic profit taking
+
+Entry Rules:
+1. LONG Entry when:
+   - Price breaches a clustered liquidation level (key support/resistance)
+   - Volume spikes to 2x 20-period average volume
+   - Funding rate is negative (below -0.01%)
+   - Confirmed with price closing beyond liquidation level
+
+Exit Rules:
+1. Profit Taking:
+   - Primary target: 1.5x ATR(14) from entry
+   - Secondary target: 3x ATR(14) from entry (partial exit)
+2. Stop Loss:
+   - Initial stop: 0.75x ATR(14) below entry
+   - Trailing stop: 0.5x ATR(14) once price reaches 1x ATR profit
+3. Funding Rate Reversal:
+   - Immediate exit if funding turns positive (+0.01% or higher)
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Maximum daily trades: 3 (to avoid overexposure)
+3. Time filter: Only trade during high liquidity hours (UTC 12:00-16:00)
+
+Required Indicators:
+1. Liquidation level data (from exchanges or third-party providers)
+2. Volume indicator (20-period average)
+3. ATR(14)
+4. Funding rate monitor
+5. Price action confirmation (candlestick patterns)
+
+Optimal Conditions:
+- Works best in high volatility crypto markets (BTC, ETH)
+- Most effective when liquidation clusters align with key technical levels
+- Avoid during low liquidity periods or major news events
+
+Note: This strategy requires real-time monitoring of liquidation levels and funding rates, making it more suitable for algorithmic execution than manual trading.

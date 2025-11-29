@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolatilityDivergence  
+
+STRATEGY_DETAILS:  
+This strategy combines Bollinger Band width contraction, Chaikin Money Flow (CMF) divergence, and Keltner Channel extremes to identify short opportunities during volatility breakouts.  
+
+### **Key Components:**  
+1. **Bollinger Band Width Contraction:** Measures volatility compression, signaling potential breakout conditions.  
+2. **Chaikin Money Flow (CMF):** Detects bearish divergence (price rising while CMF declines) to confirm weakening buying pressure.  
+3. **Keltner Channel:** Used to define extreme price levels for exit signals.  
+
+### **Entry Rules:**  
+- **Bollinger Band Width:** Must be contracting (indicating low volatility before a breakout).  
+- **CMF Divergence:** Price makes a higher high while CMF makes a lower high (bearish divergence).  
+- **Trigger:** Enter short when price breaks below the lower Bollinger Band after contraction.  
+
+### **Exit Rules:**  
+- **Stop Loss:** If price closes above the upper Keltner Channel.  
+- **Take Profit:** If price closes below the lower Keltner Channel (extreme move).  
+- **Trailing Stop:** Adjust stop to breakeven if price moves favorably beyond a predefined risk-reward ratio (e.g., 1:2).  
+
+### **Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-based stop distance).  
+- Maximum risk per trade: 1-2% of capital.  
+- Avoid trading during major news events to prevent false breakouts.  
+
+### **Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 StdDev) – For contraction and breakout detection.  
+2. **Chaikin Money Flow (CMF)** (20-period) – For bearish divergence confirmation.  
+3. **Keltner Channel** (20-period, 1.5 ATR multiplier) – For exit signals.  
+
+This strategy is best suited for **mean-reversion traders** looking to capitalize on false breakouts in low-volatility environments. Backtesting on multiple timeframes (1H-4H) is recommended before live execution.

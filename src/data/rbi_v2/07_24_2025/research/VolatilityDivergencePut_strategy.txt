@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilityDivergencePut  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Index Divergence:** The strategy capitalizes on divergence between the VIX (20-day futures) and the S&P 500 (20-day price action). A bearish divergence occurs when the S&P 500 trends upward while the VIX remains elevated or rises, signaling potential downside risk.  
+2. **Put Options Execution:** Buy put options on the S&P 500 (SPX or SPY) when divergence is confirmed.  
+3. **Leverage Control:** Maximum leverage is capped at 2x to balance risk and reward.  
+4. **Exit Signal:** Exit the position when the S&P 500 breaches its 10-trading-day moving average (simple or exponential, depending on preference).  
+
+**Entry Rules:**  
+- **Divergence Confirmation:**  
+  - S&P 500 (20-day price action) must be in an uptrend (higher highs or stable).  
+  - VIX (20-day futures) must show elevated levels or an upward trend despite the S&P 500’s strength.  
+- **Put Option Selection:**  
+  - Choose out-of-the-money (OTM) or at-the-money (ATM) puts with at least 14-30 days to expiration.  
+  - Adjust strike selection based on risk tolerance (e.g., 5-10% below current price for OTM).  
+
+**Exit Rules:**  
+- **Moving Average Breach:** Close the put position if the S&P 500 crosses above its 10-day moving average (indicating short-term trend reversal).  
+- **Time-Based Exit:** Exit at expiration if the moving average condition is not met earlier.  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate no more than 5-10% of total capital per trade to avoid overexposure.  
+- **Leverage Cap:** Strictly enforce 2x leverage (e.g., using options spreads or defined-risk positions).  
+- **Stop-Loss (Optional):** Set a stop-loss at 30-50% of the option premium paid to limit downside.  
+
+**Required Indicators:**  
+1. **VIX (20-day futures):** Track implied volatility divergence.  
+2. **S&P 500 (20-day price action):** Assess trend direction (e.g., closing prices or highs/lows).  
+3. **10-Day Moving Average (S&P 500):** Simple or exponential MA for exit signals.  
+
+**Additional Notes:**  
+- Backtest the strategy across different market regimes (e.g., high vs. low volatility periods).  
+- Adjust the moving average period (e.g., 5-day for aggressive traders, 20-day for conservative) based on risk appetite.  
+- Monitor macroeconomic catalysts (e.g., Fed policy, earnings season) that may amplify divergence signals.

@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationReversion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Funding Rate Analysis:** The strategy focuses on extreme negative funding rates, indicating excessive short positioning and potential liquidation cascades.  
+2. **Bollinger Band Oversold Signal:** Uses the lower Bollinger Band as a technical oversold threshold to identify entry points.  
+3. **Mean Reversion Target:** Aims for price recovery to the middle Bollinger Band (20-period SMA) as short liquidations subside.  
+
+**Entry Rules:**  
+- **Condition 1:** Funding rate turns "highly negative" (e.g., below -0.1% per 8-hour interval, adjustable based on asset volatility).  
+- **Condition 2:** Price dips below the lower Bollinger Band (default 20-period, 2 Std Dev).  
+- **Execution:** Enter long upon simultaneous fulfillment of both conditions.  
+
+**Exit Rules:**  
+- **Primary Target:** Middle Bollinger Band (20 SMA).  
+- **Secondary Exit:** If funding rates normalize (e.g., return to neutral or positive) before reaching the target, exit to avoid stagnation.  
+- **Stop-Loss:** Below the recent swing low or a fixed percentage (e.g., 2-3%) below the lower Bollinger Band to account for extended liquidation spikes.  
+
+**Risk Management:**  
+- Position sizing should account for high volatility during liquidation events (e.g., 1-2% risk per trade).  
+- Avoid trading during macro events or exchange outages that may distort funding rates.  
+- Monitor open interest changes: Declining open interest alongside negative funding suggests liquidations are occurring, reinforcing the thesis.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 Std Dev).  
+2. **Funding Rate** data (perpetual swap markets only).  
+3. Optional but recommended: **Open Interest** tracker to confirm liquidation trends.  
+
+**Unique Edge:**  
+Combines behavioral finance (crowded short squeezes) with technical oversold signals, targeting asymmetric opportunities when fear-driven selling exhausts. Works best in crypto perpetual markets with high leverage.

@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolSync Divergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Indicator Synergy:** Combines Chaikin Money Flow (CMF), Klinger Volume Oscillator (KVO), and Bollinger Bands to identify high-probability divergence setups during low volatility.  
+2. **Low-Volatility Filter:** Uses Bollinger Band squeezes (contraction) to confirm periods of low volatility, where breakouts or reversals are more likely.  
+3. **Divergence Confirmation:** Requires both CMF and KVO to reverse direction simultaneously, signaling a potential trend shift.  
+
+**Entry Rules:**  
+1. **Bollinger Squeeze:** Wait for Bollinger Band width to contract to the lowest 20% of its recent range (e.g., 20-period lookback).  
+2. **Divergence Setup:**  
+   - **Bullish Entry:** Price makes a lower low, but CMF and KVO both make higher lows and reverse upward.  
+   - **Bearish Entry:** Price makes a higher high, but CMF and KVO both make lower highs and reverse downward.  
+3. **Confirmation:** Enter on the next candle closing beyond the Bollinger Band midline (20-period SMA) in the direction of the divergence.  
+
+**Exit Rules:**  
+1. **Take Profit:**  
+   - Target 1: Exit 50% of position at 1.5x ATR (14-period) from entry.  
+   - Target 2: Trail remaining position with a 2x ATR trailing stop.  
+2. **Stop Loss:** Place stop at 1x ATR below (for longs) or above (for shorts) the recent swing low/high.  
+
+**Risk Management:**  
+- Risk per trade: ≤2% of capital.  
+- Avoid trading during high volatility (Bollinger Band width expanding).  
+- Filter trades with CMF above/below zero for additional confirmation (e.g., CMF > 0 for bullish, < 0 for bearish).  
+
+**Required Indicators:**  
+1. **Chaikin Money Flow (CMF, 20-period)**  
+2. **Klinger Volume Oscillator (KVO, default settings)**  
+3. **Bollinger Bands (20-period, 2 StdDev)**  
+4. **Average True Range (ATR, 14-period)**  
+
+**Unique Edge:** The strategy capitalizes on the rare but high-conviction alignment of volume-based divergences (CMF + KVO) with Bollinger squeezes, reducing noise and false signals.

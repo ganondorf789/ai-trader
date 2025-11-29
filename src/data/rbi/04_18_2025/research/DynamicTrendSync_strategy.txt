@@ -1,0 +1,48 @@
+STRATEGY_NAME: DynamicTrendSync
+
+STRATEGY_DETAILS:
+The DynamicTrendSync strategy combines trend confirmation with momentum filtering to identify high-probability trades in trending markets. This systematic approach uses three key technical indicators to create a robust trading framework.
+
+Key Components:
+1. Trend Identification (EMA Crossover):
+   - 50-period EMA (Exponential Moving Average)
+   - 200-period EMA (Exponential Moving Average)
+   - The crossover acts as the primary trend confirmation signal
+
+2. Trend Strength Filter (ADX):
+   - ADX (Average Directional Index) set to 25 threshold
+   - Ensures trades are only taken in strong trending markets
+
+3. Momentum Exit Signal (RSI):
+   - RSI (Relative Strength Index) set to 70 overbought threshold
+   - Provides objective exit criteria for profit-taking
+
+Entry Rules:
+1. Primary Condition: 50-EMA must cross above 200-EMA (golden cross)
+2. Secondary Filter: ADX must be above 25 (confirming strong trend)
+3. Both conditions must be met simultaneously for entry
+
+Exit Rules:
+1. Profit-taking: RSI crosses below 70 from above
+2. Emergency Exit: If 50-EMA crosses back below 200-EMA (death cross)
+3. Stop-loss: Recommended at recent swing low or 2% of account equity
+
+Risk Management:
+1. Position sizing: 1-2% of capital per trade
+2. Stop-loss placement: Below recent swing low or fixed percentage
+3. Trade frequency: Limited by strict ADX filter
+4. Avoid trading during low ADX periods (<25)
+
+Required Indicators:
+1. 50-period Exponential Moving Average (EMA)
+2. 200-period Exponential Moving Average (EMA)
+3. ADX (14-period standard setting) with 25 threshold
+4. RSI (14-period standard setting) with 70 level
+
+Additional Notes:
+- Best suited for daily or 4-hour timeframes in trending markets
+- Works well with liquid instruments (major forex pairs, indices)
+- Requires patience as signals may be infrequent due to ADX filter
+- Complementary volume analysis can enhance signal reliability
+
+This strategy systematically combines trend-following with momentum analysis, creating a disciplined approach to capture extended moves while avoiding false signals in ranging markets. The ADX filter significantly improves quality over basic EMA crossover systems.

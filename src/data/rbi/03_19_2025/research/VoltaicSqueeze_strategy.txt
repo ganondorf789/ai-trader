@@ -1,0 +1,52 @@
+STRATEGY_NAME: VoltaicSqueeze
+
+STRATEGY_DETAILS:
+The VoltaicSqueeze strategy is a volatility-based breakout system that capitalizes on periods of low volatility followed by high momentum moves. It combines Bollinger Bands and ATR (Average True Range) to identify potential breakouts and manage risk effectively.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. ATR (14-period) for trailing stop calculation
+3. 30-day historical volatility analysis
+
+Entry Rules:
+1. Identify when Bollinger Bands reach their narrowest point in the last 30 days (volatility squeeze)
+2. For Long Entry:
+   - Wait for price to close above the upper Bollinger Band
+   - Enter long on the next candle's open
+3. For Short Entry:
+   - Wait for price to close below the lower Bollinger Band
+   - Enter short on the next candle's open
+
+Exit Rules:
+1. Use a trailing ATR stop:
+   - For long positions: Set stop at entry price minus 2x ATR
+   - For short positions: Set stop at entry price plus 2x ATR
+   - Adjust stop daily based on new ATR values
+2. Exit when price hits the trailing stop
+3. Optional: Consider taking partial profits at 1x ATR target
+
+Risk Management:
+1. Position size based on 1% risk per trade
+2. Maximum daily loss limit of 3%
+3. Maximum weekly loss limit of 7%
+4. No new entries if daily loss limit is reached
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. ATR (14)
+3. Historical Volatility (30-day)
+
+Additional Notes:
+- Best suited for 4-hour or daily timeframes
+- Works well in trending markets
+- May generate false signals during choppy market conditions
+- Consider combining with volume confirmation for better reliability
+- Backtest across multiple asset classes to ensure robustness
+
+Optimization Tips:
+- Adjust ATR multiplier based on market volatility
+- Experiment with different Bollinger Band periods
+- Consider adding a momentum filter (e.g., RSI) to confirm breakouts
+- Test different timeframes for various trading styles
+
+This strategy aims to capture explosive moves following periods of low volatility, while using ATR-based stops to protect profits and limit losses. The combination of Bollinger Bands and ATR creates a dynamic system that adapts to changing market conditions.

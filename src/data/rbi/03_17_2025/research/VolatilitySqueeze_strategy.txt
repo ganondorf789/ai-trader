@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolatilitySqueeze
+
+STRATEGY_DETAILS:
+The VolatilitySqueeze strategy is designed to capitalize on shorting volatility during periods of high funding rates, using a Bollinger Band squeeze as the primary trigger for entry and liquidity clusters identified by recent volume-weighted price extremes for exits. Here’s a detailed breakdown of the strategy:
+
+### Key Strategy Components:
+1. **High Funding Rate Regime**: The strategy focuses on periods when the funding rate is high, indicating a crowded long position in the market. This often precedes a potential reversal or volatility spike.
+2. **Bollinger Band Squeeze**: The strategy uses Bollinger Bands to identify periods of low volatility (squeeze) which often precede a breakout or significant price movement.
+3. **Volume-Weighted Price Extremes**: Liquidity clusters are identified using recent volume-weighted price extremes, which act as key levels for potential reversals or exits.
+
+### Entry Rules:
+1. **Funding Rate Check**: Monitor the funding rate. Enter a short position when the funding rate is significantly high, indicating a crowded long market.
+2. **Bollinger Band Squeeze Trigger**: Wait for a Bollinger Band squeeze, identified when the bands contract to a certain threshold (e.g., when the distance between the upper and lower bands is less than a specified percentage of the price).
+3. **Confirmation**: Confirm the entry with a price break below the lower Bollinger Band, signaling the start of increased volatility and potential downward movement.
+
+### Exit Rules:
+1. **Liquidity Cluster Identification**: Identify recent volume-weighted price extremes, which are areas where significant trading activity has occurred. These levels often act as support or resistance.
+2. **Exit at Liquidity Clusters**: Exit the short position when the price approaches a key liquidity cluster, as these levels are likely to attract buying interest and potentially reverse the price movement.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of the portfolio for each trade to manage risk.
+2. **Stop-Loss**: Set a stop-loss just above the upper Bollinger Band to limit potential losses if the price moves against the position.
+3. **Take-Profit**: Set a take-profit level at the nearest liquidity cluster identified by volume-weighted price extremes.
+
+### Required Indicators:
+1. **Bollinger Bands**: To identify periods of low volatility (squeeze) and potential breakout points.
+2. **Funding Rate Indicator**: To monitor the funding rate and identify high funding rate regimes.
+3. **Volume-Weighted Price**: To identify liquidity clusters and key levels for exits.
+
+### Summary:
+The VolatilitySqueeze strategy is a sophisticated approach to shorting volatility during high funding rate regimes. By using Bollinger Bands to identify low volatility periods and volume-weighted price extremes to pinpoint exit points, the strategy aims to capitalize on potential reversals and liquidity-driven price movements. Proper risk management and careful monitoring of funding rates are crucial for the success of this strategy.

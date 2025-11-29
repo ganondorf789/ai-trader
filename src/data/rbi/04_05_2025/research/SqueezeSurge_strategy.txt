@@ -1,0 +1,37 @@
+STRATEGY_NAME: SqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **TTM Squeeze Indicator**: Identifies periods of low volatility (contraction) followed by potential breakout opportunities.  
+2. **Volume Surge Confirmation**: Requires trading volume to spike above the 90th percentile to validate the breakout.  
+3. **ATR Trailing Stop**: Uses a 2x ATR (Average True Range) trailing stop to manage risk and lock in profits.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  - The TTM Squeeze indicator exits contraction (releases).  
+  - Trading volume surges above the 90th percentile of recent volume (e.g., 20-day lookback).  
+
+**Exit Rules:**  
+- **Opposing Squeeze Signal**: Exit the trade if the TTM Squeeze re-enters contraction or shows a bearish signal.  
+- **Trailing Stop**: Exit if price retraces by 2x the current ATR from the highest point since entry.  
+
+**Risk Management:**  
+- **Position Sizing**: Allocate a fixed percentage of capital per trade (e.g., 1-2%).  
+- **Stop-Loss**: The 2x ATR trailing stop dynamically adjusts to volatility, protecting gains and limiting losses.  
+- **Avoid Low-Volume Breakouts**: Only trade when volume confirms the breakout to reduce false signals.  
+
+**Required Indicators:**  
+1. **TTM Squeeze**: To identify contraction/release phases.  
+2. **Volume Percentile (90th)**: To confirm high-volume breakouts.  
+3. **ATR (14-period)**: For trailing stop placement.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (Squeeze) with volume confirmation for high-probability entries.  
+- Uses a dynamic trailing stop based on ATR to adapt to market conditions.  
+- Filters out low-conviction breakouts by requiring extreme volume surges.  
+
+**Optimization Tips:**  
+- Test different ATR multipliers (e.g., 1.5x-3x) for the trailing stop.  
+- Adjust the volume percentile threshold (e.g., 85th-95th) based on asset volatility.  
+- Pair with a trend filter (e.g., 50EMA above 200EMA) to avoid counter-trend squeezes.

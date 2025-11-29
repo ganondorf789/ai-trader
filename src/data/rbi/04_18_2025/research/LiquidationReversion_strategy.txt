@@ -1,0 +1,38 @@
+STRATEGY_NAME: LiquidationReversion
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Focuses on short-term mean reversion opportunities
+- Identifies clustered liquidation events (likely using order flow or volume analysis)
+- Combines statistical deviation from VWAP with liquidation signals
+- Uses 20-period Volume Weighted Average Price (VWAP) as baseline
+- Standard deviation bands (1σ and 2.5σ) for entry/exit thresholds
+
+2. Entry Rules:
+- Trigger when both conditions are met:
+  a) Clustered liquidation events detected (likely multiple large orders in short timeframe)
+  b) Price reaches 2.5 standard deviations from 20-period VWAP
+- Enter position in direction of mean reversion (toward VWAP)
+
+3. Exit Rules:
+- Close position when price retraces to 1 standard deviation from VWAP
+- Consider additional exit if liquidation cluster dissipates before reaching target
+
+4. Risk Management:
+- Natural stop-loss beyond 2.5σ entry point (e.g., 3σ as emergency exit)
+- Position sizing should account for volatility (wider stops at extreme deviations)
+- Time-based exit if price stagnates without mean reversion
+
+5. Required Indicators:
+- 20-period VWAP with standard deviation bands (1σ and 2.5σ)
+- Liquidation cluster detection (requires order flow analysis or volume spike indicators)
+- Standard deviation calculator (for VWAP bands)
+
+6. Additional Considerations:
+- Works best in volatile market conditions
+- Requires real-time data feed for liquidation detection
+- Most effective on liquid assets with frequent large orders
+- May combine with volume profile for additional confirmation
+- Timeframe recommendation: 5min to 1hr charts for short-term trades
+
+Note: The strategy assumes clustered liquidations create temporary price distortions that tend to revert toward VWAP. The 2.5σ threshold provides statistical edge while 1σ exit captures majority of reversion move.

@@ -1,0 +1,41 @@
+STRATEGY_NAME: VoltaicBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Choppiness Index (CI):** Measures market consolidation (low volatility) vs. trending conditions. Values above 61.8 indicate choppy/range-bound markets, while values below 38.2 suggest trending conditions.  
+2. **Volume-Weighted RSI Divergence:** Combines RSI momentum with volume confirmation to detect weakening trends before reversals. Bullish divergence occurs when price makes lower lows but RSI makes higher lows (with rising volume). Bearish divergence is the opposite.  
+3. **Fibonacci Extensions:** Used for profit-taking at key levels (e.g., 1.272x, 1.618x of the breakout move).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Choppiness Index drops below 38.2 (transition from consolidation to trend).  
+  2. Volume-weighted RSI shows bullish divergence (price lower low, RSI higher low + volume spike).  
+  3. Price breaks above the recent consolidation high (confirmed candle close).  
+- **Short Entry:**  
+  1. Choppiness Index drops below 38.2.  
+  2. Volume-weighted RSI shows bearish divergence (price higher high, RSI lower high + volume spike).  
+  3. Price breaks below the recent consolidation low (confirmed candle close).  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Measure the height of the consolidation range (high-low).  
+  - Set profit targets at Fibonacci extensions (e.g., 1.272x, 1.618x of the range).  
+- **Stop Loss:**  
+  - Place below the breakout candle’s low (long) or above its high (short).  
+  - Alternatively, use a volatility-based stop (e.g., 1.5x ATR).  
+
+**Risk Management:**  
+- Risk per trade: 1-2% of capital.  
+- Position size adjusted based on stop distance.  
+- Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Choppiness Index (14-period default).  
+2. Volume-weighted RSI (14-period RSI + volume overlay).  
+3. Fibonacci extension tool.  
+4. Optional: ATR (14-period) for dynamic stop placement.  
+
+**Unique Edge:** The strategy combines low-volatility detection (CI) with volume-confirmed momentum shifts (RSI divergence), filtering for high-probability breakouts while avoiding fakeouts. Fibonacci extensions provide structured profit-taking.  
+
+**Note:** Backtest on ranging assets (e.g., forex pairs, crypto) for optimal performance.

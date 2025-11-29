@@ -1,0 +1,41 @@
+STRATEGY_NAME: VortexSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Vortex Indicator Crossover**: Uses VI+ (positive trend) and VI- (negative trend) lines to identify trend direction. A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI- crosses above VI+.  
+2. **Choppiness Index (CI) Filter**: Confirms trending conditions when CI < 38, indicating the market is not in a choppy or range-bound phase.  
+3. **Bollinger Band Width Squeeze**: Identifies low volatility periods when the Bollinger Band width (BBW) contracts to a 10-day low, signaling potential breakout opportunities.  
+4. **Exit Condition**: Monitors Bollinger Band expansion, exiting trades when BBW exceeds 1.5x the width at entry.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  1. VI+ crosses above VI- (bullish vortex signal).  
+  2. Choppiness Index < 38 (confirms trending environment).  
+  3. Bollinger Band width (BBW) reaches a 10-day low (volatility squeeze).  
+- **Short Entry**:  
+  1. VI- crosses above VI+ (bearish vortex signal).  
+  2. Choppiness Index < 38 (confirms trending environment).  
+  3. Bollinger Band width (BBW) reaches a 10-day low (volatility squeeze).  
+
+**Exit Rules:**  
+- **Long Exit**: Bollinger Band width expands to >1.5x the width at entry.  
+- **Short Exit**: Bollinger Band width expands to >1.5x the width at entry.  
+
+**Risk Management:**  
+- Use a stop-loss at the recent swing low (for longs) or swing high (for shorts) to limit downside risk.  
+- Position sizing should align with volatility (e.g., ATR-based sizing) to avoid overexposure during low-volatility setups.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)** – For trend direction confirmation.  
+2. **Choppiness Index (CI)** – To filter out choppy market conditions.  
+3. **Bollinger Bands (BBW)** – To identify volatility contractions and expansions.  
+
+**Unique Aspects:**  
+- Combines trend confirmation (Vortex + Choppiness) with volatility-based timing (Bollinger Squeeze).  
+- Exits on volatility expansion rather than fixed price targets, capturing extended trends while avoiding premature exits.  
+- Avoids range-bound markets by requiring CI < 38, ensuring trades align with strong trends.  
+
+**Optimization Notes:**  
+- Adjust the CI threshold (e.g., 35-40) based on asset volatility.  
+- Test different BBW expansion multiples (1.3x-2x) for exit sensitivity.  
+- Backtest across multiple timeframes to validate robustness.

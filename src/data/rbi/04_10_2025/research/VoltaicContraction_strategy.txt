@@ -1,0 +1,47 @@
+STRATEGY_NAME: VoltaicContraction  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Based Entry:** The strategy identifies periods of expanding volatility using the Average True Range (ATR) indicator.  
+2. **Volume Confirmation:** Declining volume during volatility expansion serves as a secondary confirmation for short entries.  
+3. **Dynamic Exit Conditions:** Exits are triggered when volatility contracts (ATR drops below its shorter-term average) and volume normalizes.  
+
+**Entry Rules:**  
+- **Short Entry Condition:**  
+  - ATR (14-period) > 20-day moving average of ATR (indicating expanding volatility).  
+  - Volume is below its 20-day moving average (confirming declining participation).  
+- **Entry Execution:** Enter a short position when both conditions are met.  
+
+**Exit Rules:**  
+- **Exit Condition:**  
+  - ATR (14-period) < 10-day moving average of ATR (indicating contraction in volatility).  
+  - Volume crosses above its 20-day moving average (signaling normalization).  
+- **Exit Execution:** Close the short position when both exit conditions are satisfied.  
+
+**Risk Management:**  
+1. **Stop-Loss:**  
+   - Set a stop-loss at 1.5x the current ATR value above the entry price to account for volatility spikes.  
+2. **Position Sizing:**  
+   - Allocate no more than 2% of capital per trade to limit downside risk.  
+3. **Time-Based Exit:**  
+   - Exit the trade if it remains open for more than 10 days without meeting exit conditions to avoid prolonged exposure.  
+
+**Required Indicators:**  
+1. **Average True Range (ATR):**  
+   - Period: 14 (for volatility measurement).  
+   - Additional Calculations: 20-day and 10-day moving averages of ATR.  
+2. **Volume:**  
+   - 20-day moving average of volume for confirmation.  
+
+**Unique Aspects:**  
+- Combines volatility expansion (ATR) with volume divergence for high-probability short entries.  
+- Uses dual moving averages of ATR (20-day and 10-day) to differentiate between entry and exit volatility regimes.  
+- Volume normalization acts as a confirming filter for exits, reducing false signals.  
+
+**Optimization Notes:**  
+- Adjust ATR periods (e.g., 10 vs. 14) based on asset volatility.  
+- Test different volume lookback periods (e.g., 15-day vs. 20-day) for smoother confirmation.  
+- Consider adding a price-based filter (e.g., short only in downtrends) to improve win rate.  
+
+This strategy is designed for mean-reverting or range-bound markets where volatility contractions often follow expansions. It avoids trending markets by relying on volume confirmation.

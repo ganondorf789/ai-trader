@@ -1,0 +1,37 @@
+STRATEGY_NAME: VoltaicContraction
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of low volatility followed by potential expansion, using a combination of Bollinger Bandwidth and ADX for confirmation. The approach is designed to catch early movements when volatility compresses to extreme levels and is poised for expansion.
+
+Key Components:
+1. Bollinger Bandwidth (20-period, 2 standard deviations) - Measures volatility contraction
+2. ADX (14-period) - Identifies trend strength
+3. RSI (14-period) - Provides overbought/oversold signals
+
+Entry Rules:
+1. Primary Condition: Bollinger Bandwidth reaches a 10-day low (indicating extreme contraction)
+2. Confirmation: ADX drops below 20 (signaling weak trend/consolidation)
+3. Optional Filter: Price should be between the upper and lower Bollinger Bands
+
+Exit Rules:
+1. Profit Taking: When Bollinger Bandwidth expands to 2x its entry value
+2. Protective Exit: RSI crosses above 70 (overbought condition)
+3. Emergency Stop: 1.5x ATR (14-period) below entry for long positions
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Stop loss placed at 1.5x ATR from entry
+3. No new entries if 3 consecutive losing trades occur
+
+Indicator Settings:
+- Bollinger Bands: 20-period, 2 standard deviations
+- ADX: 14-period (with +DI/-DI disabled)
+- RSI: 14-period
+- ATR: 14-period (for stop loss calculation)
+
+Optimization Notes:
+1. The 10-day lookback period for bandwidth lows can be adjusted based on asset volatility
+2. ADX threshold could be tested between 15-25
+3. RSI exit level might be optimized between 65-75 depending on market conditions
+
+This strategy works best in ranging markets and requires patience during contraction periods. It's particularly effective on daily charts for swing trading opportunities, with potential adaptation to 4-hour charts for more active traders.

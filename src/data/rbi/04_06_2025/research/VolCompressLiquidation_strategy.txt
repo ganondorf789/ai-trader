@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolCompressLiquidation
+
+STRATEGY_DETAILS:
+This strategy capitalizes on the combination of compressed volatility and high open interest resistance levels to anticipate potential cascading liquidations in short positions. The approach specifically targets moments when price approaches significant resistance levels while volatility is unusually low, creating conditions ripe for sharp downside movements when positions unwind.
+
+Key Components:
+1. Open Interest Analysis: Identifies significant resistance levels with high open interest concentration
+2. Volatility Compression: Uses ATR to detect periods of unusually low volatility
+3. Liquidation Targeting: Aims to profit from potential cascading liquidations when compressed volatility breaks
+4. Dynamic Exit Threshold: Adjusts exit conditions based on volatility expansion
+
+Entry Rules:
+1. Confirm price is approaching a high open interest resistance level (top 10% of historical OI at price level)
+2. Current ATR(14) must be below its 20-period moving average (volatility compression)
+3. Price must be within 1.5% of identified resistance level
+4. Volume should be declining or stable (not showing accumulation)
+
+Exit Rules:
+1. Primary Exit: When ATR expands beyond its 20-period MA + 1 standard deviation (dynamic threshold)
+2. Secondary Exit: If price closes above resistance level with above-average volume
+3. Emergency Exit: If price moves 3% against position beyond entry point
+
+Risk Management:
+1. Position sizing based on 1% risk of account per trade
+2. Initial stop placed at 2.5% above entry price
+3. Trailing stop activated after 1:1 risk/reward achieved
+4. Maximum daily loss limit of 3% of account
+
+Required Indicators:
+1. Open Interest data (futures markets)
+2. ATR(14) with 20-period moving average
+3. Volume indicator
+4. Standard deviation calculation for dynamic threshold
+
+Optimization Notes:
+1. Best suited for futures markets with liquid options (helps confirm OI levels)
+2. Most effective on 4H or daily timeframes
+3. Works particularly well before major economic events when positioning is extreme
+4. Requires regular recalibration of ATR parameters to current market volatility regime
+
+This strategy combines order flow analysis (open interest) with volatility regime detection to identify high-probability short setups with clearly defined risk parameters. The "VolCompressLiquidation" approach is particularly effective in trending markets where positions become overcrowded near technical levels.

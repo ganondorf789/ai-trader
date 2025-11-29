@@ -1,0 +1,41 @@
+STRATEGY_NAME: LiquidityGapBreach
+
+STRATEGY_DETAILS:
+This strategy capitalizes on volatility expansion and liquidity gaps by combining Bollinger Band breakouts with ATR spikes, using Keltner Channel as a mean-reversion exit signal.
+
+Key Components:
+1. Bollinger Bands (20,2) - Identifies potential breakout levels
+2. Average True Range (14) - Measures volatility expansion
+3. Keltner Channel (20,1.5) - Provides mean-reversion exit target
+4. 20-day median ATR - Establishes baseline volatility
+
+Entry Rules:
+1. Price must close outside Bollinger Band (upper or lower)
+2. Current ATR must be ≥50% higher than 20-day median ATR
+3. Both conditions must occur simultaneously
+4. Enter at market on next open after confirmation
+
+Exit Rules:
+1. Primary exit when price retraces to Keltner Channel midline
+2. Secondary exit if price reaches 2x ATR from entry point
+3. Emergency exit if price reverses through opposite Bollinger Band
+
+Risk Management:
+1. Position size based on 1% risk per trade
+2. Stop loss placed at 1.5x ATR from entry
+3. Maximum 5 concurrent positions
+4. No trading during major economic news events
+
+Indicator Settings:
+- Bollinger Bands: 20 period, 2 std dev
+- ATR: 14 period
+- Keltner Channel: 20 period, 1.5 multiplier
+- Median ATR calculation: 20-day lookback
+
+Additional Notes:
+1. Works best on 1H-4H timeframes
+2. Most effective in trending markets
+3. Avoid ranging conditions (check ADX >25)
+4. Combine with volume confirmation for higher accuracy
+
+This strategy exploits the "liquidity gap" phenomenon where rapid price movements through key levels create temporary imbalances that often retrace to mean values, providing high-probability trading opportunities.

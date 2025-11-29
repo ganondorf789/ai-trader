@@ -1,0 +1,48 @@
+STRATEGY_NAME: BandedStochastic  
+
+STRATEGY_DETAILS:  
+This strategy combines Bollinger Bands and the Stochastic Oscillator to identify high-probability breakout opportunities by confirming volatility expansion with momentum alignment.  
+
+**Key Components:**  
+1. **Bollinger Bands (20,2):**  
+   - Upper and Lower Bands measure volatility and potential overbought/oversold conditions.  
+   - Price touching or exceeding the bands signals potential breakouts or reversals.  
+
+2. **Stochastic Oscillator (14,3,3):**  
+   - %K and %D lines identify overbought (>80) or oversold (<20) conditions.  
+   - Crossovers (e.g., %K crossing %D) confirm momentum shifts.  
+
+**Entry Rules:**  
+1. **Long Entry:**  
+   - Price closes **above** the upper Bollinger Band.  
+   - Stochastic %K crosses **above** %D while both are below 20 (oversold recovery).  
+   - Volume should confirm the breakout (higher than average).  
+
+2. **Short Entry:**  
+   - Price closes **below** the lower Bollinger Band.  
+   - Stochastic %K crosses **below** %D while both are above 80 (overbought rejection).  
+   - Volume should confirm the breakdown.  
+
+**Exit Rules:**  
+1. **Take Profit:**  
+   - Close position when price touches the opposite Bollinger Band.  
+   - Or, exit when Stochastic reaches extreme levels (e.g., >90 for longs, <10 for shorts).  
+
+2. **Stop Loss:**  
+   - For longs: Place below the recent swing low or middle Bollinger Band (20 SMA).  
+   - For shorts: Place above the recent swing high or middle Bollinger Band.  
+
+**Risk Management:**  
+- Risk no more than 1-2% of capital per trade.  
+- Adjust position size based on the distance to stop-loss.  
+- Avoid trading during low-volume periods or major news events.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20 periods, 2 standard deviations).  
+2. Stochastic Oscillator (14,3,3).  
+3. Volume indicator (optional but recommended).  
+
+**Unique Edge:**  
+The strategy capitalizes on "squeeze" scenarios (narrowing Bollinger Bands) followed by Stochastic-confirmed breakouts, filtering false signals with momentum alignment.  
+
+**Note:** Backtest in ranging vs. trending markets, as Bollinger Bands work best in volatile conditions.

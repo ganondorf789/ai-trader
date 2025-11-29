@@ -1,0 +1,37 @@
+STRATEGY_NAME: BandDivergenceReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bands (BB):** Used to identify potential reversal points at the upper and lower bands.  
+2. **On-Balance Volume (OBV):** Confirms divergence signals to validate reversals.  
+3. **Middle Band (20-period SMA):** Acts as the profit-taking exit level.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Price touches or crosses the **lower Bollinger Band**.  
+  - **Positive OBV Divergence:** Price makes a lower low, but OBV makes a higher low, signaling accumulation.  
+- **Short Entry:**  
+  - Price touches or crosses the **upper Bollinger Band**.  
+  - **Negative OBV Divergence:** Price makes a higher high, but OBV makes a lower high, signaling distribution.  
+
+**Exit Rules:**  
+- **Long Exit:** Close position when price reaches the **middle Bollinger Band (20-period SMA)**.  
+- **Short Exit:** Close position when price reaches the **middle Bollinger Band (20-period SMA)**.  
+
+**Risk Management:**  
+- **Stop Loss:**  
+  - For long trades, place a stop below the recent swing low (or below the lower Bollinger Band).  
+  - For short trades, place a stop above the recent swing high (or above the upper Bollinger Band).  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – Default settings.  
+2. **On-Balance Volume (OBV)** – Confirms divergence.  
+
+**Additional Notes:**  
+- Works best in **ranging or mildly trending markets** (avoid strong trends).  
+- Divergence must be clear—weak signals may lead to false reversals.  
+- Combine with price action (e.g., candlestick patterns) for higher accuracy.  
+
+This strategy capitalizes on **mean reversion** with volume confirmation, making it a **BandDivergenceReversal** system.

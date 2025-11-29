@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolSqueezeAccel
+
+STRATEGY_DETAILS:
+This strategy combines three powerful technical indicators to identify high-probability breakout opportunities during low volatility periods with impending momentum shifts. The core components create a unique confluence of volatility compression, volume confirmation, and fear gauge behavior.
+
+Key Components:
+1. Bollinger Band Squeeze (20,2)
+2. Volume Spike (50% above 20-day average)
+3. VIX Term Structure Flattening (front month vs 3-month)
+
+Entry Rules:
+- Primary Trigger: Bollinger Band width reaches lowest 20% of 6-month range (squeeze condition)
+- Confirmation 1: Volume spikes >50% above 20-day average
+- Confirmation 2: VIX term structure flattens (front month/3-month ratio <1.15)
+- Entry Point: Break above upper Bollinger Band (for long) or below lower band (for short) with all confirmations present
+
+Exit Rules:
+- Profit Taking: Close position when price reaches 2x Bollinger Band width from entry point
+- Parabolic Exit: 3 consecutive closes outside Bollinger Bands
+- Volatility Contraction: Bollinger Band width decreases by 30% from entry width
+- Stop Loss: Original band boundary (retest of opposite band)
+
+Risk Management:
+- Position sizing: 1-2% risk per trade
+- Maximum portfolio volatility: 5% drawdown threshold
+- Time stop: Exit after 5 days if no momentum develops
+- Sector correlation: No more than 3 positions in correlated sectors
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Volume (20-day average + spike detection)
+3. VIX futures term structure
+4. Bollinger Band Width indicator
+
+Optimal Conditions:
+- Works best in transitioning markets (low to high volatility regimes)
+- Effective across 30-min to daily timeframes
+- Particularly strong for index ETFs and high-beta stocks
+
+Special Notes:
+- Avoid trading during scheduled high-impact news events
+- Requires monitoring of VIX futures roll periods
+- Most reliable when all three components align within 24-hour window
+- Backtest shows strongest results in Q2/Q4 market conditions

@@ -1,0 +1,40 @@
+STRATEGY_NAME: MomentumSurge
+
+STRATEGY_DETAILS:
+The MomentumSurge strategy is a momentum-based approach that combines moving average crossovers, RSI oversold conditions, and volume spikes to identify high-probability long entries. The strategy focuses on catching strong upward momentum after a period of consolidation or weakness.
+
+Key Strategy Components:
+1. Moving Averages: Uses 50-period and 200-period moving averages to identify the overall trend direction.
+2. RSI: 14-period RSI to detect oversold conditions.
+3. Volume: Measures volume spikes to confirm increasing buying pressure.
+4. ATR: 14-period ATR for dynamic stop-loss placement.
+
+Entry Rules:
+1. Wait for the 50-period moving average to cross above the 200-period moving average (Golden Cross).
+2. Confirm the RSI(14) is below 30, indicating oversold conditions.
+3. Verify that volume has increased by more than 10% in the last 5 minutes compared to the previous 5-minute period.
+4. Enter a long position when all three conditions are met.
+
+Exit Rules:
+1. Set a stop-loss at 2 times the 14-period ATR below the entry price.
+2. Consider taking profits when RSI(14) reaches overbought levels (above 70) or when the 50-period moving average crosses below the 200-period moving average (Death Cross).
+
+Risk Management:
+1. Position size should be calculated based on the distance between entry price and stop-loss level to maintain consistent risk per trade.
+2. Maximum risk per trade should not exceed 1-2% of total account equity.
+3. Avoid trading during major news events or low liquidity periods.
+
+Required Indicators:
+1. 50-period Simple Moving Average (SMA)
+2. 200-period Simple Moving Average (SMA)
+3. 14-period Relative Strength Index (RSI)
+4. Volume indicator
+5. 14-period Average True Range (ATR)
+
+Additional Considerations:
+- This strategy works best in trending markets and may produce false signals in choppy or sideways markets.
+- Consider using this strategy on liquid assets with sufficient volatility.
+- Backtest the strategy on historical data to optimize parameters for specific markets.
+- Monitor the overall market context and avoid trading against strong bearish trends.
+
+The MomentumSurge strategy aims to capture strong upward moves by combining trend confirmation, oversold conditions, and volume confirmation, while using ATR-based stops to manage risk effectively.

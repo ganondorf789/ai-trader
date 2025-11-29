@@ -1,0 +1,66 @@
+STRATEGY_NAME: VoltaicDivergence
+
+STRATEGY_DETAILS:
+The VoltaicDivergence strategy combines volatility breakout techniques with RSI divergence signals to identify high-probability trading opportunities. This strategy is designed to capitalize on sudden price movements during periods of increased volatility while using RSI divergence as a confirmation tool to filter out false breakouts.
+
+### Key Strategy Components:
+1. **Volatility Breakout**: 
+   - Uses Average True Range (ATR) to measure market volatility.
+   - Identifies breakout levels based on recent price action and volatility.
+
+2. **RSI Divergence**:
+   - Uses the Relative Strength Index (RSI) to detect divergence between price and momentum.
+   - Bullish divergence occurs when price makes a lower low but RSI makes a higher low.
+   - Bearish divergence occurs when price makes a higher high but RSI makes a lower high.
+
+3. **Entry Confirmation**:
+   - Requires both a volatility breakout and RSI divergence to confirm the trade.
+
+### Entry Rules:
+1. **Bullish Entry**:
+   - Price breaks above the upper volatility band (calculated as: Close + (ATR * Multiplier)).
+   - RSI shows bullish divergence (price makes a lower low, RSI makes a higher low).
+   - Enter a long position on the breakout candle close.
+
+2. **Bearish Entry**:
+   - Price breaks below the lower volatility band (calculated as: Close - (ATR * Multiplier)).
+   - RSI shows bearish divergence (price makes a higher high, RSI makes a lower high).
+   - Enter a short position on the breakout candle close.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Use a fixed risk-reward ratio (e.g., 2:1 or 3:1) based on the ATR value at the time of entry.
+   - Alternatively, exit when RSI reaches overbought (70) or oversold (30) levels.
+
+2. **Stop Loss**:
+   - Place the stop loss below the recent swing low for long trades or above the recent swing high for short trades.
+   - Alternatively, use a multiple of ATR (e.g., 1.5x ATR) to set the stop loss.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of the trading capital per trade.
+   - Adjust position size based on the distance between entry and stop loss.
+
+2. **Volatility Filter**:
+   - Avoid trading during extremely low volatility periods (e.g., ATR below a certain threshold).
+
+### Required Indicators:
+1. **Average True Range (ATR)**:
+   - Period: 14 (default).
+   - Used to calculate volatility bands and stop loss levels.
+
+2. **Relative Strength Index (RSI)**:
+   - Period: 14 (default).
+   - Used to identify divergence and overbought/oversold conditions.
+
+3. **Volatility Bands**:
+   - Upper Band: Close + (ATR * Multiplier).
+   - Lower Band: Close - (ATR * Multiplier).
+   - Multiplier: Adjustable (e.g., 1.5 or 2).
+
+### Additional Notes:
+- This strategy works best on higher timeframes (e.g., 1-hour, 4-hour, or daily charts) to reduce noise.
+- Backtest the strategy with different ATR multipliers and RSI settings to optimize for specific markets.
+- Combine with fundamental analysis or news events to avoid trading during major announcements that could cause erratic price movements.
+
+By combining volatility breakout signals with RSI divergence, the VoltaicDivergence strategy aims to provide a robust framework for identifying high-probability trades while minimizing false signals.

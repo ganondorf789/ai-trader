@@ -1,0 +1,32 @@
+STRATEGY_NAME: FlowMomentum
+
+STRATEGY_DETAILS:
+The FlowMomentum strategy is a momentum-based approach that focuses on capitalizing on strong upticks in order flow, specifically targeting long positions 3-5 days after a significant increase in buying pressure. This strategy is designed to capture the continuation of upward price movements that often follow periods of heightened order flow activity.
+
+### Key Strategy Components:
+1. **Order Flow Analysis**: The strategy relies on identifying strong upticks in order flow, which indicate increased buying pressure. This can be measured using volume-based indicators or order flow tools that track the imbalance between buy and sell orders.
+2. **Momentum Confirmation**: After detecting a strong uptick in order flow, the strategy waits for 3-5 days to confirm that the momentum is sustained and not just a short-lived spike.
+3. **Price Action Filter**: The strategy uses price action to filter out false signals, ensuring that the uptick in order flow is accompanied by a corresponding upward movement in price.
+
+### Entry Rules:
+1. **Order Flow Uptick**: Identify a strong uptick in order flow, typically indicated by a significant increase in buying volume or a positive order flow imbalance.
+2. **Momentum Confirmation**: Wait for 3-5 days after the initial uptick to confirm that the momentum is sustained. During this period, the price should continue to show upward movement.
+3. **Price Action Filter**: Enter a long position if the price has consistently closed higher over the 3-5 day period, confirming the continuation of the upward trend.
+
+### Exit Rules:
+1. **Profit Target**: Set a profit target based on a predefined risk-reward ratio (e.g., 2:1). Exit the position once the target is reached.
+2. **Stop Loss**: Place a stop-loss order below a key support level or a recent swing low to limit potential losses.
+3. **Momentum Reversal**: Exit the position if the momentum reverses, indicated by a significant downtick in order flow or a break below a key support level.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of the trading capital for each position (e.g., 1-2%) to manage risk.
+2. **Stop Loss**: Always use a stop-loss order to limit potential losses. The stop-loss level should be based on recent price action and support levels.
+3. **Diversification**: Avoid concentrating all positions in a single asset or sector. Diversify across different instruments to spread risk.
+
+### Required Indicators:
+1. **Order Flow Indicator**: A tool that measures the imbalance between buy and sell orders, such as cumulative delta or volume delta.
+2. **Volume Indicator**: A volume-based indicator (e.g., On-Balance Volume or Volume Weighted Average Price) to confirm the strength of the order flow uptick.
+3. **Price Action Tools**: Candlestick charts and support/resistance levels to filter entry and exit points based on price movement.
+
+### Summary:
+The FlowMomentum strategy is designed to capture the continuation of upward price movements following a strong uptick in order flow. By waiting 3-5 days to confirm sustained momentum and using price action filters, the strategy aims to enter long positions with a higher probability of success. Proper risk management, including position sizing and stop-loss orders, is crucial to protect against potential losses. The strategy requires the use of order flow and volume indicators, along with price action analysis, to identify and confirm trading opportunities.

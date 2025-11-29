@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Breakout:** The strategy focuses on price breaking above the upper Bollinger Band, indicating a potential surge in volatility and upward momentum.  
+2. **ADX Confirmation:** The ADX (Average Directional Index) must be above 25 to confirm a strong trend, ensuring the breakout has directional strength.  
+3. **Volume Surge:** Volume must be at least 20% above its 30-day average, validating the breakout with increased participation.  
+4. **Risk-Reward Management:** Exits are based on a 2:1 risk-reward ratio, ensuring disciplined profit-taking.  
+
+**Entry Rules:**  
+- Enter a long position when:  
+  1. Price crosses above the upper Bollinger Band.  
+  2. ADX is above 25 (confirming trend strength).  
+  3. Volume is at least 20% higher than the 30-day average volume.  
+
+**Exit Rules:**  
+- Set a stop-loss at the lower Bollinger Band or a recent swing low (whichever is closer).  
+- Take profit at a 2:1 risk-reward ratio relative to the stop-loss distance.  
+- Optional: Trail the stop-loss to the lower Bollinger Band as the trade progresses to lock in profits.  
+
+**Risk Management:**  
+- Position sizing should be calculated based on the stop-loss distance to ensure no more than 1-2% of the account is risked per trade.  
+- Avoid trading during low-liquidity periods or major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 standard deviations)** – Identifies volatility and potential breakout levels.  
+2. **ADX (14-period)** – Confirms trend strength (must be >25).  
+3. **Volume (30-day average)** – Filters for high-participation breakouts.  
+
+**Additional Notes:**  
+- This strategy works best in trending markets and may produce false signals in choppy or range-bound conditions.  
+- Backtesting and optimization of parameters (e.g., ADX threshold, volume filter) are recommended for different asset classes.  
+- Combine with higher timeframe trend analysis for improved accuracy.

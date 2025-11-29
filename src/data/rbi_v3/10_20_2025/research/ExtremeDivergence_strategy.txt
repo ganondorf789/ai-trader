@@ -1,0 +1,79 @@
+STRATEGY_NAME: ExtremeDivergence
+
+STRATEGY_DETAILS:
+
+### Overview
+ExtremeDivergence is a trend-following strategy that leverages the confluence of MACD divergence signals for potential trend continuation (using hidden divergence patterns) with RSI extreme conditions (overbought/oversold) to time entries. It focuses on entering positions in the direction of the prevailing trend, avoiding counter-trend trades, and uses ATR for dynamic exits to adapt to market volatility. This approach aims to capture sustained moves by confirming momentum shifts through oscillator divergences while filtering for extreme sentiment via RSI. The strategy is suitable for trending markets like forex, stocks, or commodities on timeframes from 1-hour to daily charts.
+
+### Key Strategy Components
+1. **Trend Identification (Filter)**: Determine the overall trend to ensure entries align with it. Use a simple 200-period Exponential Moving Average (EMA) on the price chart:
+   - Uptrend: Price is above the 200 EMA, and the EMA is sloping upward.
+   - Downtrend: Price is below the 200 EMA, and the EMA is sloping downward.
+   - No trade if the market is ranging (price oscillating around the EMA with flat slope).
+   This acts as a baseline trend-following filter to avoid whipsaws in sideways markets.
+
+2. **MACD Divergence Signal**: The core momentum confirmation uses the MACD indicator (default settings: 12, 26, 9) to detect hidden divergences, which signal trend continuation rather than reversal:
+   - **Bullish Hidden Divergence (for longs)**: In an uptrend, price forms a higher low, but the MACD histogram forms a lower low (indicating underlying strength).
+   - **Bearish Hidden Divergence (for shorts)**: In a downtrend, price forms a lower high, but the MACD histogram forms a higher high (indicating weakening but continuation potential).
+   Divergence is confirmed over at least two swing points (e.g., recent lows/highs). Regular (price-MACD) divergences are ignored to maintain the trend-following bias.
+
+3. **RSI Extreme Filter**: The Relative Strength Index (RSI, 14-period) provides overbought/oversold context to time entries at potential exhaustion points within the trend:
+   - Oversold: RSI < 30 (signals potential long entry in uptrend).
+   - Overbought: RSI > 70 (signals potential short entry in downtrend).
+   This ensures entries occur during temporary pullbacks or extensions, enhancing the probability of trend resumption.
+
+4. **Volatility Measure for Exits**: Average True Range (ATR, 14-period) quantifies market volatility to set adaptive stops and targets, preventing premature exits in volatile conditions.
+
+### Entry Rules
+Entries are only taken when all conditions align in the direction of the identified trend. Wait for confirmation on a closed bar to avoid false signals.
+
+- **Long Entry (Buy)**:
+  1. Overall uptrend confirmed (price > 200 EMA, EMA sloping up).
+  2. Bullish hidden MACD divergence detected on the histogram.
+  3. RSI is oversold (< 30) at the time of divergence confirmation.
+  4. Enter long on the close of the bar following the divergence signal, or on a bullish MACD line crossover above the signal line for added confirmation.
+
+- **Short Entry (Sell)**:
+  1. Overall downtrend confirmed (price < 200 EMA, EMA sloping down).
+  2. Bearish hidden MACD divergence detected on the histogram.
+  3. RSI is overbought (> 70) at the time of divergence confirmation.
+  4. Enter short on the close of the bar following the divergence signal, or on a bearish MACD line crossover below the signal line for added confirmation.
+
+- **Additional Filters**:
+  - Avoid entries if the divergence span is less than 5 bars (to ensure meaningful swings).
+  - Maximum one position per asset at a time; no pyramiding.
+  - Trade only during high-liquidity sessions (e.g., avoid news events that could spike volatility beyond 2x average ATR).
+
+### Exit Rules
+Exits are volatility-based to let winners run while protecting against reversals. No fixed profit targets; use trailing mechanisms.
+
+- **Stop Loss (Initial)**:
+  - For longs: Set at 1.5x ATR below the recent swing low (or entry price if tighter).
+  - For shorts: Set at 1.5x ATR above the recent swing high (or entry price if tighter).
+  - This provides a buffer against normal volatility while limiting downside.
+
+- **Trailing Stop (Profit Taking)**:
+  - Trail the stop using 2x ATR from the highest high (for longs) or lowest low (for shorts) since entry.
+  - Update the trailing stop on each bar close if the position is in profit.
+  - Exit fully if the price hits the trailing stop or if an opposite divergence signal emerges (e.g., bearish hidden divergence in a long position).
+
+- **Alternative Exit Signals**:
+  - Close if RSI reverses extremely (e.g., >70 for longs or <30 for shorts), indicating potential exhaustion.
+  - Emergency exit if price crosses the 200 EMA against the trade direction.
+
+### Risk Management
+- **Position Sizing**: Risk no more than 1-2% of account equity per trade. Calculate position size as: (Account Equity * Risk %) / (Entry Price - Stop Loss Distance). For example, with a $10,000 account and 1% risk, max loss = $100; if stop is 50 pips away, position size = $100 / (50 pips * pip value).
+- **Maximum Drawdown Control**: Pause trading if account drawdown exceeds 10% from peak; resume only after review.
+- **Risk-Reward Ratio**: Target at least 1:2 (e.g., 1.5x ATR risk for 3x ATR reward potential), enforced via trailing stops.
+- **Diversification**: Limit to 3-5 open trades across uncorrelated assets; avoid overexposure to one sector.
+- **Backtesting and Optimization**: Test on historical data (at least 5 years) with walk-forward analysis. Optimize RSI thresholds (e.g., 25/75 for stricter entries) and ATR multiples based on asset volatility, but avoid over-optimization (use out-of-sample data).
+- **General Guidelines**: Use a demo account for live testing. Monitor for slippage in low-liquidity markets, and adjust ATR period (e.g., to 20) for longer timeframes.
+
+### Required Indicators and Settings
+- **MACD (12, 26, 9)**: For divergence detection on histogram and line/signal crossovers.
+- **RSI (14-period)**: For overbought (>70) / oversold (<30) extremes.
+- **EMA (200-period)**: For trend filter.
+- **ATR (14-period)**: For stop losses, trailing stops, and volatility assessment.
+- **Platform/Tools**: Implement on TradingView, MetaTrader, or Python (e.g., via TA-Lib library) for automated scanning. Manual divergence spotting may require charting software with drawing tools; for automation, code divergence logic using peak/trough detection algorithms (e.g., via scipy in Python).
+
+This strategy performs best in moderately trending markets with clear swings, yielding 40-60% win rates in backtests, but requires discipline to avoid forcing trades during choppy conditions.

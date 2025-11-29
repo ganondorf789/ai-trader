@@ -1,0 +1,43 @@
+STRATEGY_NAME: DynamicBandSqueeze  
+
+STRATEGY_DETAILS:  
+This strategy combines trend strength analysis with volatility contraction to identify high-probability breakout opportunities, while using dynamic channel-based exits for risk management.  
+
+**Key Components:**  
+1. **ADX (Average Directional Index)** - Measures trend strength (threshold: >25 for strong trend)  
+2. **Bollinger Bands** - Identifies volatility contraction (bandwidth narrowing)  
+3. **Keltner Channel** - Provides dynamic exit levels (middle line as trailing stop)  
+
+**Entry Rules:**  
+1. Wait for ADX >25 (confirming strong trend environment)  
+2. Identify Bollinger Band contraction (bands within 2% of each other for 3 consecutive periods)  
+3. Enter long on close above upper Bollinger Band  
+4. Enter short on close below lower Bollinger Band  
+
+**Exit Rules:**  
+1. For long positions: Exit when price closes below Keltner Channel midline  
+2. For short positions: Exit when price closes above Keltner Channel midline  
+3. Alternative exit: 2:1 reward-risk ratio take-profit  
+
+**Risk Management:**  
+1. Position size: 1-2% risk per trade  
+2. Initial stop-loss:  
+   - Longs: Recent swing low or lower Bollinger Band  
+   - Shorts: Recent swing high or upper Bollinger Band  
+3. Trailing stop: Keltner Channel midline acts as dynamic stop  
+
+**Required Indicators:**  
+1. ADX (14-period)  
+2. Bollinger Bands (20-period, 2 standard deviations)  
+3. Keltner Channel (20-period, 1.5 ATR multiplier)  
+
+**Unique Aspects:**  
+- Combines trend confirmation (ADX) with volatility signals (Bollinger contraction)  
+- Uses Keltner Channel's mean-reversion tendency for exits rather than entries  
+- Works best in trending markets after consolidation periods  
+- Timeframe: 1H or 4H charts for optimal results  
+
+**Optimization Notes:**  
+- Adjust ADX threshold (20-30 range) based on market volatility  
+- Test different Bollinger Band periods (14-22) for your instrument  
+- Keltner Channel multiplier can range from 1-2 ATR depending on aggressiveness

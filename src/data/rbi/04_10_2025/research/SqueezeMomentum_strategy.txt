@@ -1,0 +1,43 @@
+STRATEGY_NAME: SqueezeMomentum
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band squeeze detection with ADX trend confirmation to identify high-probability breakout trades. The approach focuses on periods of low volatility (squeeze) followed by expansion with strong trend momentum.
+
+KEY COMPONENTS:
+1. Bollinger Bands (20,2) - Identifies squeeze conditions when band width contracts
+2. ADX (14) - Confirms trend strength when above 25
+3. Price action - Breakout direction determines trade bias
+
+ENTRY RULES:
+LONG ENTRY:
+- Price closes above upper Bollinger Band after a squeeze (band width expansion)
+- ADX rises above 25 (confirming trend strength)
+- Current ADX+DI > ADX-DI (bullish momentum)
+
+SHORT ENTRY:
+- Price closes below lower Bollinger Band after a squeeze (band width expansion)
+- ADX rises above 25 (confirming trend strength)
+- Current ADX-DI > ADX+DI (bearish momentum)
+
+EXIT RULES:
+- Take profit: When price closes back inside Bollinger Bands
+- Stop loss: Opposite band (long SL at lower band, short SL at upper band)
+- Alternative exit: When ADX falls below 20 (trend weakening)
+
+RISK MANAGEMENT:
+1. Position size: 1-2% risk per trade
+2. Stop loss placement: Opposite Bollinger Band
+3. Trade filter: Only take trades when volatility expansion exceeds recent average
+4. Time filter: Avoid trading during low-liquidity periods
+
+REQUIRED INDICATORS:
+1. Bollinger Bands (20 periods, 2 std dev)
+2. ADX (14 periods) with +DI/-DI lines
+3. Band width indicator (optional but helpful for squeeze detection)
+
+OPTIMIZATION TIPS:
+- Adjust ADX threshold (20-30) based on market conditions
+- Consider adding volume confirmation for stronger signals
+- Test different timeframes (works best on 1H-4H charts)
+
+This strategy excels in trending markets but may produce false signals during choppy conditions. The combination of volatility contraction (squeeze) followed by expansion with confirmed trend strength creates high-probability trading opportunities.

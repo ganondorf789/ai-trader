@@ -1,0 +1,37 @@
+STRATEGY_NAME: BandSurgeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility where the bands are narrowing, often preceding significant price movements.  
+2. **Keltner Channel Slope Surge:** Measures a sharp increase in the slope of the Keltner Channel, indicating strengthening momentum.  
+3. **Breakout Confirmation:** Requires a candle to close outside both Bollinger Bands with high volume (1.5x the 20-day average) for validation.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Band width must be in contraction (e.g., below a threshold like the 20-period moving average of the width).  
+- **Condition 2:** The Keltner Channel slope must show a sharp upward/downward surge (e.g., slope exceeding a predefined angle or rate of change).  
+- **Condition 3:** A candle must close outside the Bollinger Bands (upper for long, lower for short) with volume exceeding 1.5x the 20-day average volume.  
+- **Entry Point:** Enter on the next candle's open after the breakout confirmation.  
+
+**Exit Rules:**  
+- **Take Profit:** Set at 1.5x the Bollinger Band width at the time of entry (adjustable based on volatility).  
+- **Stop Loss:** Place at the opposite Bollinger Band or the middle line (20-period SMA), whichever is closer.  
+- **Trailing Stop:** Optional—use a percentage or ATR-based trailing stop to lock in profits during strong trends.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Stop Loss Discipline:** Strict adherence to stop levels to prevent large drawdowns.  
+- **Avoid Overcrowded Trades:** Skip entries if volume is suspiciously high (potential manipulation) or if broader market conditions contradict the breakout.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 standard deviations).  
+2. **Keltner Channel** (20-period EMA, 1.5x ATR for bands).  
+3. **Volume** (20-day average as a baseline).  
+4. **Slope Calculation** (e.g., linear regression or angle measurement for Keltner Channel).  
+
+**Unique Aspects:**  
+- Combines volatility contraction (Bollinger) with momentum acceleration (Keltner slope).  
+- Volume filter reduces false breakouts.  
+- Adaptive profit targets based on Bollinger width.  
+
+**Note:** Backtest to optimize slope thresholds and profit multiples for specific instruments/timeframes.

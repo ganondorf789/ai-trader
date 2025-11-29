@@ -1,0 +1,47 @@
+STRATEGY_NAME: VolSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with money flow analysis and volume confirmation to identify high-probability breakout trades from consolidation zones.
+
+Key Components:
+1. Bollinger Band Width (10-day period) - Identifies contraction/consolidation phases when width narrows
+2. Chaikin Money Flow (20-day period) - Confirms weakening momentum during consolidation
+3. Volume Surge Filter - Requires 150% of 20-day average volume for entry confirmation
+
+Entry Rules:
+1. Setup Condition: 
+   - Bollinger Band width must be in bottom 30% of its 20-day range (indicating contraction)
+   - Chaikin Money Flow must show declining trend over past 5 days
+2. Trigger: 
+   - Price breaks above upper Bollinger Band (for long) or below lower Band (for short)
+   - Breakout must be accompanied by volume ≥150% of 20-day average
+3. Execution: 
+   - Enter on close of breakout candle
+   - Stop placed at middle Bollinger Band (20-period SMA)
+
+Exit Rules:
+1. Profit Taking:
+   - Take partial profits at 1.5x average true range (ATR)
+   - Trail remaining position with 2x ATR trailing stop
+2. Stop Loss:
+   - Initial stop at middle Bollinger Band
+   - If not hit, move to breakeven after 1.5x ATR profit reached
+
+Risk Management:
+1. Position sizing based on 1% risk between entry and initial stop
+2. Maximum 3 concurrent positions to avoid overconcentration
+3. No trading during major economic news events to avoid false breakouts
+
+Required Indicators:
+1. Bollinger Bands (20,2) with width calculation
+2. Chaikin Money Flow (20-day)
+3. Volume (20-day average)
+4. Average True Range (14-day) for risk calculation
+
+Optimization Notes:
+- Works best on 1-hour or 4-hour charts for swing trades
+- Most effective in trending markets after consolidation
+- Test different Bollinger Band periods (10-20) for your instrument
+- Adjust volume threshold (125-200%) based on asset liquidity
+
+This VolSqueezeBreakout strategy combines the reliability of volatility contraction with money flow confirmation and volume validation, creating a high-probability breakout system with defined risk parameters.

@@ -1,0 +1,43 @@
+STRATEGY_NAME: LiquidationSpikeBreakout
+
+STRATEGY_DETAILS:
+This strategy capitalizes on breakout opportunities following liquidation-induced price spikes, confirmed by specific volume and volatility conditions. The approach combines order flow analysis with technical indicators for high-probability entries and disciplined exits.
+
+Key Components:
+1. Liquidation-triggered price spikes (market structure breaks)
+2. Negative delta volume surge (3x normal levels)
+3. Bollinger Bandwidth contraction (below 10-day average)
+4. Volatility-based exits (20-day ATR threshold)
+
+Entry Rules:
+1. Wait for a significant price spike (minimum 2% move) indicating potential liquidations
+2. Confirm with negative delta volume at least 3x the 20-period average
+3. Verify Bollinger Bandwidth (BBW) is below its 10-day average, showing contraction
+4. Enter on breakout of the spike's high (for long) or low (for short)
+
+Exit Rules:
+1. Initial exit when current volatility (ATR) exceeds 20-day average ATR by 1.5x
+2. Secondary exit if price retraces beyond 50% of the breakout move
+3. Emergency stop at 2% of account equity
+
+Risk Management:
+1. Position size limited to 1% of capital per trade
+2. Maximum daily loss limit of 3%
+3. No trading during major economic news events
+4. Stop-loss placed at recent swing low/high beyond the breakout point
+
+Required Indicators:
+1. Delta volume (order flow)
+2. Bollinger Bands (20,2 standard deviations)
+3. Bollinger Bandwidth (BBW) calculation
+4. Average True Range (20-period)
+5. Volume average (20-period)
+
+Additional Notes:
+- Best suited for liquid assets with strong order flow visibility
+- Optimal timeframes: 15min to 4hr charts
+- Requires clean price action without excessive wicks
+- Works best when combined with higher timeframe trend analysis
+- Avoid using during low liquidity periods (overnight sessions)
+
+The strategy leverages the unique combination of forced liquidation events (creating explosive moves) with volume confirmation and volatility contraction, providing high-quality breakout opportunities with defined risk parameters.

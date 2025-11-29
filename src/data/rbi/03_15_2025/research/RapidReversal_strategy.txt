@@ -1,0 +1,38 @@
+STRATEGY_NAME: RapidReversal
+
+STRATEGY_DETAILS:
+The RapidReversal strategy is designed to capitalize on oversold conditions with strong momentum shifts, using a combination of RSI, MACD histogram, and ATR for precise entries and exits.
+
+Key Components:
+1. RSI (Relative Strength Index) - Identifies oversold conditions
+2. MACD Histogram - Detects momentum acceleration
+3. ATR (Average True Range) - Sets dynamic profit targets
+
+Entry Rules:
+1. Wait for RSI to drop below 20 (oversold condition)
+2. Confirm MACD histogram is rising at an accelerated rate (faster than its recent average slope)
+3. Enter long position when both conditions are met
+
+Exit Rules:
+1. Set profit target at 1.5x ATR from entry price
+2. Set stop-loss at 0.75x ATR from entry price
+3. Exit immediately if RSI crosses above 50 (momentum weakening)
+
+Risk Management:
+1. Position size based on 1% risk per trade
+2. Maximum daily trades limited to 3
+3. No trading during major news events
+4. Stop-loss is mandatory for every trade
+
+Required Indicators:
+1. RSI (14 period)
+2. MACD (12,26,9)
+3. ATR (14 period)
+
+Optimization Tips:
+1. Backtest different ATR multiples for profit targets
+2. Experiment with RSI thresholds (15-25 range)
+3. Test various MACD settings for optimal momentum detection
+4. Consider adding volume confirmation for stronger signals
+
+This strategy works best in trending markets and should be avoided during choppy, sideways conditions. Always paper trade new settings before live implementation.

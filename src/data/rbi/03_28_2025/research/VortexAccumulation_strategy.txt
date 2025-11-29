@@ -1,0 +1,39 @@
+STRATEGY_NAME: VortexAccumulation  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Identifies trend direction and strength.  
+2. **Chaikin Money Flow (CMF):** Measures volume-weighted accumulation/distribution to confirm divergence.  
+3. **Trend Confirmation:** Requires alignment between Vortex signals and CMF divergence.  
+
+**Entry Rules (Long):**  
+- VI+ crosses above VI- (bullish trend signal).  
+- CMF shows bullish divergence (rising CMF while price is flat/declining).  
+- Both conditions must occur simultaneously for confirmation.  
+
+**Entry Rules (Short):**  
+- VI- crosses above VI+ (bearish trend signal).  
+- CMF shows bearish divergence (falling CMF while price is flat/rising).  
+- Both conditions must align for confirmation.  
+
+**Exit Rules:**  
+- **Long Exit:** VI- crosses above VI+ OR CMF turns negative.  
+- **Short Exit:** VI+ crosses above VI- OR CMF turns positive.  
+- Partial exits allowed if one signal weakens (e.g., CMF flattens but Vortex remains strong).  
+
+**Risk Management:**  
+- Stop-loss: Place below the recent swing low (long) or above swing high (short).  
+- Position sizing: Risk ≤1-2% per trade.  
+- Avoid trading during low-volume periods (CMF unreliable).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. Chaikin Money Flow (14-period default).  
+
+**Unique Aspects:**  
+- Combines trend momentum (Vortex) with volume-backed divergence (CMF).  
+- Filters false breakouts by requiring dual confirmation.  
+- Exits early if volume participation wanes (CMF reversal).  
+
+**Note:** Optimize VI lookback (default 14) and CMF period for your asset’s volatility.

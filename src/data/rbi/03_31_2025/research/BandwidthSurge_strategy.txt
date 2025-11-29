@@ -1,0 +1,35 @@
+STRATEGY_NAME: BandwidthSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction**: The strategy identifies periods of extreme low volatility when the Bollinger Bandwidth reaches a 6-month low, signaling potential breakout opportunities.  
+2. **Volume Surge Confirmation**: A 50% increase in trading volume compared to the 30-day average confirms the breakout signal, adding validity to the setup.  
+3. **Breakout Direction Entry**: The actual trade is triggered in the direction of the breakout from the contracted Bollinger Bands.  
+4. **ATR-Based Exit**: Positions are closed when the price moves 2x the Average True Range (ATR) away from the breakout candle's closing price, ensuring a systematic exit.  
+
+**Entry Rules:**  
+1. Wait for the Bollinger Bandwidth to contract to its lowest level in the past 6 months.  
+2. Confirm the setup with a surge in volume—at least 50% higher than the 30-day average volume.  
+3. Enter long if the price breaks above the upper Bollinger Band or short if it breaks below the lower Bollinger Band.  
+4. The entry is executed on the close of the breakout candle.  
+
+**Exit Rules:**  
+1. Set a profit target at 2x the ATR (calculated over a 14-period lookback) from the breakout candle's closing price.  
+2. Alternatively, exit if the Bollinger Bandwidth expands significantly, indicating the end of the breakout momentum.  
+3. Use a trailing stop based on ATR to protect profits if the price moves favorably.  
+
+**Risk Management:**  
+1. Position sizing should be based on a fixed percentage of capital (e.g., 1-2% per trade).  
+2. A stop-loss can be placed at 1x ATR from the entry point to limit downside risk.  
+3. Avoid trading during major news events or low-liquidity periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA with 2 standard deviations) to measure bandwidth contraction.  
+2. **Volume Indicator** (30-day average volume) to confirm the surge.  
+3. **Average True Range (ATR)** (14-period) for setting profit targets and stop-loss levels.  
+
+**Additional Notes:**  
+- This strategy works best in trending markets after periods of consolidation.  
+- Backtest across multiple asset classes to ensure robustness.  
+- Combine with higher timeframe trend analysis to filter high-probability trades.

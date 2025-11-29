@@ -1,0 +1,46 @@
+STRATEGY_NAME: VolZcoreMomentum
+
+STRATEGY_DETAILS:
+This strategy combines volatility scaling with momentum trading through a sophisticated Z-score analysis of volume-adjusted price returns. Here's the detailed breakdown:
+
+Key Components:
+1. Volatility Scaling: Uses rolling standard deviation to normalize momentum signals
+2. Volume-Adjusted Returns: Incorporates trading volume as a weighting factor in return calculations
+3. Z-score Transformation: Converts raw momentum into standardized units for comparison
+4. Historical Quartile Analysis: Uses percentile thresholds based on historical distribution
+
+Entry Rules:
+1. Calculate daily volume-adjusted returns: (Price Return * Volume)/Average Volume
+2. Compute rolling Z-scores (20-day lookback) of these adjusted returns
+3. Enter long when:
+   - Current Z-score > 75th percentile of historical distribution
+   - Volume is above 20-day average
+4. Enter short when:
+   - Current Z-score < 25th percentile of historical distribution
+   - Volume is above 20-day average
+
+Exit Rules:
+1. Long positions exit when Z-score crosses below 50th percentile
+2. Short positions exit when Z-score crosses above 50th percentile
+3. Emergency exit if Z-score reaches opposite extreme (90th/10th percentile)
+
+Risk Management:
+1. Position sizing based on volatility (1% risk per trade)
+2. Stop-loss at 2x the 20-day average true range
+3. Maximum portfolio allocation of 5% per position
+4. Daily rebalancing to maintain risk parity
+
+Required Indicators:
+1. Rolling Z-score calculator (20-day window)
+2. Volume-weighted price returns
+3. Historical percentile calculator (100-day lookback)
+4. Average True Range (ATR) for stop-loss
+5. Volume moving average (20-day)
+
+Optimization Notes:
+- Backtest different lookback periods for Z-score calculation
+- Experiment with percentile thresholds (70/30 vs 75/25)
+- Test various volatility scaling methods
+- Consider adding a confirmation filter (e.g., RSI divergence)
+
+This strategy excels in trending markets with expanding volume, while the Z-score normalization helps avoid false signals during low-volatility periods. The volume adjustment provides an additional layer of confirmation for significant moves.

@@ -1,0 +1,46 @@
+STRATEGY_NAME: RSI-MACD Breakout
+
+STRATEGY_DETAILS:
+The RSI-MACD Breakout strategy combines the Relative Strength Index (RSI) and Moving Average Convergence Divergence (MACD) indicators to identify potential breakout opportunities in the market. This strategy focuses on capturing strong momentum moves while filtering out false breakouts using overbought/oversold conditions and trend confirmation.
+
+Key Components:
+1. RSI (Relative Strength Index) - Used to identify overbought/oversold conditions
+2. MACD (Moving Average Convergence Divergence) - Used to confirm trend direction and momentum
+3. Price Action - Used to identify breakout levels
+
+Required Indicators:
+- RSI (14-period default)
+- MACD (12,26,9 default)
+- Candlestick chart
+
+Entry Rules:
+1. Wait for RSI to enter overbought (>70) or oversold (<30) territory
+2. Confirm MACD crossover in the same direction:
+   - For long entries: MACD line crosses above signal line
+   - For short entries: MACD line crosses below signal line
+3. Price must break through a significant support/resistance level
+4. Volume should increase during the breakout
+
+Exit Rules:
+1. Take Profit:
+   - Use a risk-reward ratio of 1:2 or higher
+   - Alternatively, exit when RSI reaches opposite extreme (70 for shorts, 30 for longs)
+2. Stop Loss:
+   - Place below recent swing low for long positions
+   - Place above recent swing high for short positions
+   - Alternatively, use ATR-based stop loss
+
+Risk Management:
+1. Risk no more than 1-2% of account per trade
+2. Use proper position sizing based on stop loss distance
+3. Avoid trading during major news events
+4. Implement a daily loss limit (e.g., 5% of account)
+
+Additional Considerations:
+- Best suited for trending markets
+- Works well on 1-hour and 4-hour timeframes
+- Combine with volume analysis for better confirmation
+- Avoid trading during low liquidity periods
+- Consider using a trailing stop for strong trends
+
+This strategy combines momentum and trend confirmation to identify high-probability breakout trades while using RSI to avoid overextended markets. The combination of these indicators helps filter out false breakouts and increases the likelihood of catching strong trending moves.

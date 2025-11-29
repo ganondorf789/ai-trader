@@ -1,0 +1,38 @@
+STRATEGY_NAME: VoltaBand Expansion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bands Width Percentile (BBWP):** Measures volatility contraction by calculating the percentile rank of the current Bollinger Bands width relative to historical values (typically 20-50 periods). Low percentiles (<20%) indicate extreme contraction, signaling potential expansion opportunities.  
+2. **MACD Crossover Confirmation:** Uses the MACD (12,26,9) to validate entries—only trades in the direction of the MACD line crossing above/below the signal line.  
+3. **Bollinger Bands Touch Exit:** Exits positions when price touches the opposite band (e.g., exit long at upper band, exit short at lower band).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. BBWP < 20% (volatility contraction).  
+  2. MACD line crosses above signal line (bullish confirmation).  
+  3. Enter on first candle closing outside the Bollinger Bands after contraction.  
+- **Short Entry:**  
+  1. BBWP < 20%.  
+  2. MACD line crosses below signal line (bearish confirmation).  
+  3. Enter on first candle closing outside the bands.  
+
+**Exit Rules:**  
+- **Long Exit:** Close position when price touches the upper Bollinger Band.  
+- **Short Exit:** Close position when price touches the lower Bollinger Band.  
+- **Optional Stop-Loss:** Set at 1.5x the average true range (ATR) of the contraction period to limit risk.  
+
+**Risk Management:**  
+- Position sizing: Risk 1-2% of capital per trade.  
+- Avoid trading during major news events to prevent false breakouts.  
+- Filter trades using higher timeframes (e.g., only trade longs if daily trend is up).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20 periods, 2 Std Dev).  
+2. Bollinger Bands Width Percentile (custom calculation).  
+3. MACD (12, 26, 9).  
+4. Optional: ATR (14) for stop-loss.  
+
+**Unique Edge:** Combines volatility quantiles with momentum confirmation, targeting high-probability expansions after low-volatility regimes. The opposing-band exit locks in profits before mean reversion occurs.  
+
+**Note:** Backtest optimal BBWP thresholds (e.g., 10-30%) and band settings for specific assets, as volatility characteristics vary.

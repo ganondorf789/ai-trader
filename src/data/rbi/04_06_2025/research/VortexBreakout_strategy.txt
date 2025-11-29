@@ -1,0 +1,43 @@
+STRATEGY_NAME: VortexBreakout
+
+STRATEGY_DETAILS:
+This strategy combines the directional confirmation of the Vortex Indicator with the volatility-based boundaries of Keltner Channels to identify high-probability breakout trades with built-in trend confirmation.
+
+Key Components:
+1. Vortex Indicator (VI) - Comprised of VI+ (bullish trend) and VI- (bearish trend) lines
+2. Keltner Channels - A volatility-based envelope with upper, middle, and lower bands
+3. Trailing stop mechanism based on channel width
+
+Entry Rules:
+Long Entry:
+- VI+ line crosses above VI- line (bullish confirmation)
+- Price closes above the upper Keltner Band (breakout signal)
+- Both conditions must occur simultaneously
+
+Short Entry:
+- VI- line crosses above VI+ line (bearish confirmation)
+- Price closes below the lower Keltner Band (breakout signal)
+- Both conditions must occur simultaneously
+
+Exit Rules:
+- Trailing stop based on Keltner Channel width:
+  * For long positions: Exit when price closes below (Upper Band - X% of Channel Width)
+  * For short positions: Exit when price closes above (Lower Band + X% of Channel Width)
+- Recommended X% value between 25-50% based on volatility
+
+Risk Management:
+1. Position sizing based on account risk tolerance (1-2% per trade recommended)
+2. Initial stop can be placed at the opposite band (middle band for aggressive, opposite band for conservative)
+3. Trailing stop locks in profits as trend develops
+4. Avoid trading during low volatility when channels contract significantly
+
+Required Indicators:
+1. Vortex Indicator (standard 14-period setting recommended)
+2. Keltner Channels (typical settings: 20-period EMA, 2.5x ATR(10) width)
+3. Optional: Volume indicator to confirm breakout strength
+
+Additional Notes:
+- Works best on 1H or 4H timeframes for swing trading
+- More reliable in trending markets than ranging conditions
+- Combine with fundamental/seasonal trends for higher probability setups
+- Recommended to filter with higher timeframe trend alignment

@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolumetricTrix  
+
+STRATEGY_DETAILS:  
+This strategy combines the TRIX oscillator's bullish crossover signal with a significant surge in trading volume to identify high-probability long entries, while using an adaptive ATR-based trailing stop for dynamic exits.  
+
+**Key Components:**  
+1. **TRIX Crossover:** Uses the TRIX (Triple Exponential Moving Average) oscillator to detect momentum shifts. A bullish signal occurs when TRIX crosses above zero.  
+2. **Volume Surge Filter:** Requires trading volume to be at least 1.5x the 20-day average volume, confirming strong participation in the price move.  
+3. **ATR Trailing Stop:** Implements a dynamic exit mechanism based on Average True Range (ATR) to lock in profits while allowing room for price fluctuations.  
+
+**Entry Rules:**  
+- Enter a long position when:  
+  - TRIX (default 15-period) crosses above the zero line.  
+  - Current trading volume exceeds 1.5x the 20-day average volume.  
+
+**Exit Rules:**  
+- Use a trailing stop based on ATR (default 14-period):  
+  - Set the initial stop at [Entry Price - (2 x ATR)].  
+  - Adjust the stop upward as price moves in your favor, maintaining a 2x ATR distance below the highest price reached since entry.  
+- Exit the trade when price hits the trailing stop level.  
+
+**Risk Management:**  
+- Position sizing should account for the ATR-based stop distance to ensure risk per trade aligns with your risk tolerance (e.g., 1-2% of capital).  
+- Avoid entering trades if the volume surge is accompanied by extreme volatility (e.g., gap-ups or news-driven spikes).  
+
+**Required Indicators:**  
+1. TRIX (15-period recommended)  
+2. Volume (20-day average)  
+3. ATR (14-period recommended)  
+
+**Optimization Tips:**  
+- Test different TRIX periods (e.g., 12 or 18) to match your trading timeframe.  
+- Adjust the volume multiplier (e.g., 1.3x or 2x) based on the asset's typical volume patterns.  
+- Fine-tune the ATR multiplier (e.g., 1.5x or 2.5x) for tighter or looser stops.  
+
+This strategy is ideal for swing traders seeking momentum plays with confirmed volume support, while the ATR trailing stop ensures disciplined risk management.

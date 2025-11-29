@@ -1,0 +1,62 @@
+STRATEGY_NAME: VortexSurge
+
+STRATEGY_DETAILS:
+The VortexSurge strategy combines the Vortex Indicator's directional trend signals with volume analysis and volatility-based exits using Keltner Channels. This approach aims to capture strong trending moves while managing risk through volatility-adjusted exits.
+
+### Key Components:
+1. **Vortex Indicator (VI)**: 
+   - Tracks directional movement using two lines: VI+ (positive trend) and VI- (negative trend).
+   - A crossover of VI+ above VI- signals a bullish trend, while VI- crossing above VI+ signals a bearish trend.
+
+2. **Volume Surge**:
+   - Identifies significant increases in trading volume, confirming the strength of the trend signaled by the Vortex Indicator.
+   - Use a volume moving average (e.g., 20-period) to detect spikes above a predefined threshold (e.g., 1.5x the average).
+
+3. **Keltner Channels**:
+   - Adjust the bands using a volatility percentile (e.g., 90th percentile of ATR) to account for market conditions.
+   - Acts as a dynamic exit mechanism based on price volatility.
+
+### Entry Rules:
+1. **Bullish Entry**:
+   - VI+ crosses above VI- (bullish trend signal).
+   - Volume surges above the threshold (e.g., 1.5x the 20-period moving average).
+   - Enter a long position at the next candle's open.
+
+2. **Bearish Entry**:
+   - VI- crosses above VI+ (bearish trend signal).
+   - Volume surges above the threshold.
+   - Enter a short position at the next candle's open.
+
+### Exit Rules:
+1. **Long Exit**:
+   - Price closes below the lower Keltner Channel band (adjusted by the volatility percentile).
+   - Exit the long position at the next candle's open.
+
+2. **Short Exit**:
+   - Price closes above the upper Keltner Channel band (adjusted by the volatility percentile).
+   - Exit the short position at the next candle's open.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Use a fixed percentage of capital per trade (e.g., 1-2%).
+2. **Stop Loss**:
+   - Set a stop loss at a multiple of the ATR (e.g., 2x ATR) from the entry price.
+3. **Take Profit**:
+   - Optional: Use a trailing stop based on the Keltner Channel bands to lock in profits.
+
+### Required Indicators:
+1. **Vortex Indicator (VI)**:
+   - VI+ and VI- lines.
+2. **Volume**:
+   - Volume moving average (e.g., 20-period).
+3. **Keltner Channels**:
+   - Adjusted by a volatility percentile (e.g., 90th percentile of ATR).
+4. **Average True Range (ATR)**:
+   - For volatility adjustments and stop loss calculations.
+
+### Additional Notes:
+- Backtest the strategy to optimize parameters (e.g., volume threshold, ATR multiple, Keltner Channel percentile).
+- Use on trending assets with sufficient liquidity to ensure reliable volume signals.
+- Combine with fundamental or sentiment analysis for additional confirmation in discretionary trading. 
+
+This strategy is designed to capitalize on strong directional moves confirmed by volume, while using volatility-based exits to protect gains and limit losses.

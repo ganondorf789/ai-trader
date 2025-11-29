@@ -1,0 +1,30 @@
+STRATEGY_NAME: VolumetricBandwidth  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Dynamic Volume-Weighted Moving Average (VWMA):** Acts as the primary trend filter and breakout level.  
+2. **Bollinger Bands Width Expansion:** Measures volatility expansion for breakout confirmation.  
+3. **Median-Based Thresholds:** Uses the 20-period median of Bollinger Bands width to define expansion/contraction extremes.  
+
+**Entry Rules:**  
+- **Long Entry:** Price closes above the VWMA **AND** Bollinger Bands width exceeds 1.5x its 20-period median.  
+- **Short Entry:** Price closes below the VWMA **AND** Bollinger Bands width exceeds 1.5x its 20-period median.  
+
+**Exit Rules:**  
+- **Take Profit/Stop Loss:** Exit when Bollinger Bands width contracts below 0 (negative width is invalid, so treat as crossing below a minimal threshold like 0.1x the median).  
+- **Optional Time Exit:** Close trades after a fixed period (e.g., 5-10 bars) if no contraction occurs.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk ≤1-2% per trade.  
+- **Stop Placement:** Initial stop below the recent swing low (long) or above swing high (short).  
+- **Volatility Filter:** Avoid trading if the 20-period median bandwidth is below its long-term average (e.g., 50-period SMA).  
+
+**Required Indicators:**  
+1. Volume-Weighted Moving Average (VWMA) – Default length (e.g., 20 periods).  
+2. Bollinger Bands (20,2) – Track width as (Upper Band - Lower Band).  
+3. Median of Bollinger Bands width (20-period lookback).  
+
+**Unique Edge:** Combines volume-confirmed breakouts with volatility regimes, avoiding false moves in low-volatility conditions. The 1.5x median threshold adapts to changing market dynamics.  
+
+**Note:** Backtest bandwidth contraction thresholds—0 may be too strict; adjust to 0.5x median if needed.

@@ -1,0 +1,46 @@
+STRATEGY_NAME: LiquidationHeatmapBreakout
+
+STRATEGY_DETAILS:
+This strategy combines on-chain liquidation data with technical volatility analysis to trade high-probability breakout opportunities. The core premise focuses on identifying clustered liquidation levels through open interest heatmaps, then executing trades when price breaks out of volatility contraction patterns with sufficient momentum.
+
+Key Components:
+1. On-Chain Liquidation Heatmaps: Identifies dense clusters of liquidation levels that act as potential support/resistance zones
+2. Volatility Contraction Detection: Uses narrowing price ranges and declining ATR to spot consolidation periods
+3. Breakout Confirmation: Requires 2x ATR move from consolidation range boundaries
+4. Liquidation Zone Protection: Places stops beyond identified liquidation clusters
+
+Entry Rules:
+- Long Entry: When price breaks above upper consolidation boundary with:
+  - 2x ATR move confirmation
+  - Break occurs near identified short liquidation cluster
+  - Volume supports breakout validity
+
+- Short Entry: When price breaks below lower consolidation boundary with:
+  - 2x ATR move confirmation
+  - Break occurs near identified long liquidation cluster
+  - Volume supports breakdown validity
+
+Exit Rules:
+- Take-Profit: 3-5x ATR from entry point or next significant liquidation cluster
+- Stop-Loss: Placed 0.5x ATR beyond opposite side of liquidation zone
+- Time Exit: Close position if no follow-through within 3-5 candles
+
+Risk Management:
+- Position sizing based on distance to stop (1-2% risk per trade)
+- Avoid trading during low liquidity periods
+- Maximum 5% portfolio exposure at any time
+- Daily loss limit of 3% of capital
+
+Required Indicators:
+1. ATR (14-period) for volatility measurement
+2. Volume profile/heatmap indicators
+3. On-chain liquidation level data (from specialized providers)
+4. Price consolidation detection tools (can use Bollinger Band Width or similar)
+
+Special Considerations:
+- Works best in crypto markets with transparent on-chain data
+- Requires real-time liquidation level monitoring
+- Most effective on 4H-1D timeframes
+- Avoid around major news events when liquidation levels may shift rapidly
+
+The strategy capitalizes on the market's tendency to hunt liquidity at known liquidation clusters, then ride the resulting momentum when breakouts occur from tight consolidation patterns. The 2x ATR filter helps avoid false breakouts while the liquidation zone placement of stops provides favorable risk-reward ratios.

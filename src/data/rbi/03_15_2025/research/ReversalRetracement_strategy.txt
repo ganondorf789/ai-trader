@@ -1,0 +1,40 @@
+STRATEGY_NAME: ReversalRetracement
+
+STRATEGY_DETAILS:
+The ReversalRetracement strategy is designed to capitalize on high-probability reversal signals in trending markets, using a combination of RSI-based reversal patterns, volume confirmation, and precise retracement levels for entries and exits.
+
+Key Components:
+1. RSI (14) for identifying overbought/oversold conditions
+2. Volume analysis for confirmation of strength
+3. Fibonacci retracement levels for precise entry and exit points
+
+Entry Rules:
+1. Look for a 3-consecutive-day high-low reversal pattern on the RSI (14):
+   - For long positions: RSI must make lower highs and lower lows for 3 consecutive days
+   - Price must be in an overall uptrend (higher highs and higher lows)
+2. Confirm with above-average volume on the reversal day
+3. Enter long position at 38% retracement of the most recent swing high to swing low
+4. Place stop-loss below the 50% retracement level
+
+Exit Rules:
+1. Take profit when price falls below 26% retracement level
+2. Alternatively, exit if RSI crosses above 70 (overbought condition)
+3. Exit if volume drops significantly below average for 2 consecutive days
+
+Risk Management:
+1. Position size should be calculated based on the distance between entry and stop-loss
+2. Risk no more than 1-2% of account capital per trade
+3. Use trailing stops after price moves in your favor by 1.5x the initial risk
+
+Required Indicators:
+1. RSI (14) - for reversal pattern identification
+2. Volume indicator - for confirmation of strength
+3. Fibonacci retracement tool - for precise entry and exit levels
+
+Additional Notes:
+- This strategy works best in trending markets with clear swing highs and lows
+- Avoid using during choppy or sideways market conditions
+- Combine with higher timeframe analysis for better context
+- Optimal timeframes: 4-hour and daily charts for swing trading
+
+The ReversalRetracement strategy provides a systematic approach to trading reversals with clear rules for entry, exit, and risk management, making it suitable for disciplined traders looking to capitalize on trend continuations after pullbacks.

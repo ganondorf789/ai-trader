@@ -1,0 +1,47 @@
+STRATEGY_NAME: SqueezeMomentum
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with momentum confirmation to identify high-probability breakout opportunities during low volatility periods. The key components work together to filter out false breakouts and identify genuine trend initiations.
+
+Key Components:
+1. Bollinger Bands (20,2) - Identifies periods of contraction (squeeze)
+2. ADX (14) - Measures trend strength, looking for values below 25
+3. Volume - Compared to 30-day moving average
+4. MACD (12,26,9) - Confirms breakout direction
+
+Entry Rules:
+1. Wait for Bollinger Band squeeze (upper and lower bands within 5% of each other)
+2. Confirm ADX is declining and below 25 (indicating weak/no trend)
+3. Verify volume is below 30-day average (showing contraction)
+4. Enter long when:
+   - Price breaks above upper Bollinger Band
+   - MACD shows bullish crossover (signal line crosses above MACD line)
+5. Enter short when:
+   - Price breaks below lower Bollinger Band
+   - MACD shows bearish crossover (signal line crosses below MACD line)
+
+Exit Rules:
+1. For long positions:
+   - Take profit when price touches upper band again after breakout
+   - Stop loss at lower Bollinger Band or 2% below entry (whichever is closer)
+2. For short positions:
+   - Take profit when price touches lower band again after breakout
+   - Stop loss at upper Bollinger Band or 2% above entry (whichever is closer)
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5%
+3. No new entries if 3 consecutive losing trades occur
+4. Avoid trading during major news events
+
+Required Indicators:
+1. Bollinger Bands (20 periods, 2 standard deviations)
+2. ADX (14 periods)
+3. Volume + 30-day moving average of volume
+4. MACD (12,26,9 settings)
+
+Additional Notes:
+- Best suited for 1-hour or 4-hour timeframes
+- Most effective in ranging markets transitioning to trending
+- Requires patience as squeezes may take time to develop
+- Works well with liquid assets (major forex pairs, large-cap stocks)

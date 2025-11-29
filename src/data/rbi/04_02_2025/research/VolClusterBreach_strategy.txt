@@ -1,0 +1,59 @@
+STRATEGY_NAME: VolClusterBreach
+
+STRATEGY_DETAILS:
+This strategy combines on-chain liquidation data with technical Bollinger Band analysis to trade volatility contractions following liquidity events. The approach focuses on identifying high-probability reversal zones where market structure has been disrupted by liquidations.
+
+Key Components:
+1. Liquidation Cluster Zones (On-chain):
+   - Identify high-density liquidation levels from on-chain data
+   - These act as support/resistance zones where price may reverse
+
+2. Bollinger Band Width (BBW) Analysis:
+   - Monitor for BBW spikes followed by contraction
+   - Signals volatility expansion then compression
+
+Entry Rules:
+1. Primary Trigger:
+   - Price must breach a liquidation cluster zone (either above resistance or below support)
+   - BBW must show contraction after a recent spike (volatility settling)
+
+2. Confirmation:
+   - Wait for price to pull back to the breached liquidation zone
+   - Entry when price shows rejection at this level (pinbar, engulfing etc.)
+
+Exit Rules:
+1. Profit Targets:
+   - First target at opposing liquidation cluster zone
+   - Final target at next significant cluster beyond
+
+2. Stop Loss:
+   - Place below recent swing low (longs) or above swing high (shorts)
+   - Alternative: 1.5x recent average true range
+
+Risk Management:
+1. Position Sizing:
+   - Risk 1-2% of capital per trade
+   - Adjust position size based on distance to stop
+
+2. Trade Filter:
+   - Only take trades where liquidation cluster zones align with higher timeframe support/resistance
+   - Avoid trading during major news events
+
+Required Indicators:
+1. On-chain:
+   - Liquidation heatmap (showing cluster zones)
+   - Liquidation volume indicators
+
+2. Technical:
+   - Bollinger Bands (20,2 standard settings)
+   - Bollinger Band Width (BBW)
+   - Volume profile
+   - Basic candlestick patterns
+
+Additional Notes:
+- Works best on 4H and daily timeframes for crypto markets
+- Requires clean liquidation data feed (preferably from multiple exchanges)
+- Most effective when combined with slight RSI divergence at entry points
+- Avoid trading this during extreme trending markets without pullbacks
+
+The VolClusterBreach strategy capitalizes on the market's tendency to reverse after liquidity grabs, using the combination of on-chain data and volatility contraction to identify high-probability setups. The unique aspect is waiting for both the liquidity breach AND subsequent volatility contraction before entering.

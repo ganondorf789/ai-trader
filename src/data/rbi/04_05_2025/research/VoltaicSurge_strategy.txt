@@ -1,0 +1,45 @@
+STRATEGY_NAME: VoltaicSurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection:** Uses Bollinger Band width narrowing below a historical percentile (e.g., 20th percentile) to identify periods of low volatility.  
+2. **Momentum Confirmation:** Requires ADX to surge above 25 to confirm potential breakout strength.  
+3. **Breakout Entry:** Enters on price breakout confirmation (e.g., closing above the upper Bollinger Band for long, below the lower for short).  
+4. **Exit Signal:** Exits when ADX flattens or declines, indicating weakening momentum.  
+5. **Risk Management:** Uses ATR-based trailing stops to lock in profits and limit losses dynamically.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Band width narrows below historical percentile (e.g., 20th percentile over 100 periods).  
+  2. ADX rises above 25 (confirming trend strength).  
+  3. Price closes above the upper Bollinger Band (breakout confirmation).  
+- **Short Entry:**  
+  1. Bollinger Band width narrows below historical percentile.  
+  2. ADX rises above 25.  
+  3. Price closes below the lower Bollinger Band.  
+
+**Exit Rules:**  
+- **Primary Exit:** ADX flattens or begins to decline (e.g., 2-period decline from peak).  
+- **Secondary Exit:** ATR trailing stop is triggered (e.g., 2x ATR from the highest/lowest point since entry).  
+
+**Risk Management:**  
+- Initial stop-loss: 1.5x ATR from entry price.  
+- Trailing stop: Adjusts stop to 1x ATR below/above the highest/lowest price reached after entry.  
+- Position sizing: Risk no more than 1-2% of capital per trade.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** To measure volatility contraction (width) and breakout levels.  
+2. **ADX (14):** To confirm trend strength.  
+3. **ATR (14):** For dynamic stop placement and risk calculation.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (Bollinger Band width) with momentum surge (ADX) for high-probability breakouts.  
+- Uses ATR trailing stops to adapt to market conditions, preserving gains during strong trends.  
+- Avoids false breakouts by requiring ADX confirmation.  
+
+**Optimization Tips:**  
+- Test different historical percentiles for Bollinger Band width (e.g., 10th-30th).  
+- Adjust ADX threshold (e.g., 20-30) based on asset volatility.  
+- Fine-tune ATR multiplier for stops (e.g., 1.5x-2.5x) to balance risk/reward.  
+
+This strategy excels in trending markets after periods of low volatility, capturing explosive moves while minimizing whipsaw risk.

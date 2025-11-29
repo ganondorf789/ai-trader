@@ -1,0 +1,43 @@
+STRATEGY_NAME: BandDivergenceContraction  
+
+STRATEGY_DETAILS:  
+**Key Components:**  
+1. **Bollinger Bands (BB):**  
+   - Upper and lower bands (typically 2 standard deviations from a 20-period SMA) define overbought/oversold zones.  
+   - Bandwidth contraction (threshold crossing) signals reduced volatility and potential trend exhaustion.  
+
+2. **Williams %R (14-period):**  
+   - Bullish divergence: Price makes lower lows while %R forms higher lows (oversold < -80).  
+   - Bearish divergence: Price makes higher highs while %R forms lower highs (overbought > -20).  
+
+3. **Bandwidth Rolling Average (e.g., 10-period SMA):**  
+   - Measures volatility compression; exits occur when current bandwidth crosses below this average.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Price touches or crosses the **lower BB**.  
+  2. **Bullish %R divergence** confirmed (price lower low, %R higher low).  
+  3. Enter at candle close or next open.  
+
+- **Short Entry:**  
+  1. Price touches or crosses the **upper BB**.  
+  2. **Bearish %R divergence** confirmed (price higher high, %R lower high).  
+  3. Enter at candle close or next open.  
+
+**Exit Rules:**  
+- **Bandwidth-Based Exit:** Close position when current BB bandwidth drops below its **10-period rolling average**.  
+- **Optional Stop-Loss:**  
+  - Longs: Recent swing low below lower BB.  
+  - Shorts: Recent swing high above upper BB.  
+
+**Risk Management:**  
+- Position sizing: 1–2% risk per trade.  
+- Avoid trading during low volatility (bandwidth persistently below average).  
+- Filter entries with higher timeframe trend alignment (e.g., only longs in uptrends per 50-period SMA).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2).  
+2. Williams %R (14).  
+3. Bandwidth rolling average (10-period SMA of bandwidth).  
+
+**Unique Edge:** Combines mean-reversion (BB touch) with momentum confirmation (%R divergence) and volatility-based exits, reducing false signals in choppy markets.

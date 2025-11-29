@@ -1,0 +1,29 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Dynamic Bollinger Bands**: Uses Bollinger Bands with a width adjusted to 2.5x the Average True Range (ATR) for volatility-based breakout detection.  
+2. **Volume Confirmation**: Requires trading volume to spike above its 20-day moving average (MA) to validate breakout signals.  
+3. **RSI Exit Filter**: Uses the Relative Strength Index (RSI) to determine exit points when it crosses overbought (70) or oversold (30) thresholds.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when the price closes above the upper Bollinger Band (2.5x ATR width) AND volume is above its 20-day MA.  
+- **Short Entry**: Triggered when the price closes below the lower Bollinger Band (2.5x ATR width) AND volume is above its 20-day MA.  
+
+**Exit Rules:**  
+- **Long Exit**: When RSI crosses below 70 (indicating potential overbought conditions).  
+- **Short Exit**: When RSI crosses above 30 (indicating potential oversold conditions).  
+
+**Risk Management:**  
+1. **Stop-Loss**: A trailing stop-loss set at 1.5x ATR from the entry price to account for volatility.  
+2. **Position Sizing**: Risk per trade limited to 1-2% of the total capital.  
+3. **Time-Based Exit**: If no RSI exit signal occurs within 5 days, close the position to avoid prolonged exposure.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (adjusted to 2.5x ATR width).  
+2. **Average True Range (ATR)** for volatility measurement and stop-loss placement.  
+3. **Volume 20-Day Moving Average** for breakout confirmation.  
+4. **Relative Strength Index (RSI)** for exit signals.  
+
+This strategy combines volatility breakout mechanics with volume confirmation and RSI-based exits, making it suitable for trending markets with clear momentum shifts. The dynamic Bollinger Band width ensures adaptability to changing market conditions.

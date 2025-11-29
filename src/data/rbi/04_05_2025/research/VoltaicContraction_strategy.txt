@@ -1,0 +1,58 @@
+STRATEGY_NAME: VoltaicContraction
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of low volatility followed by high-momentum breakouts, using a unique nested volatility channel configuration with confirmation from trend strength indicators.
+
+Key Components:
+1. Nested Volatility Channels:
+   - Primary: Keltner Channels (20-period EMA with 2.5x ATR width)
+   - Secondary: Bollinger Bands (20-period, 2 std dev) inside Keltner
+2. Breakout Confirmation:
+   - ADX (14-period) must surge above 30 within 3 bars of breakout
+3. Exit Mechanism:
+   - Parabolic SAR (0.02 step, 0.2 max) trailing stop
+   - Dynamic adjustment based on volatility contraction/expansion cycles
+
+Entry Rules (Long):
+1. Price must be consolidating inside Bollinger Bands for ≥5 periods
+2. Bollinger Bands must be entirely within Keltner Channels (contraction)
+3. Breakout above upper Bollinger Band
+4. ADX crosses above 30 within 3 bars of breakout
+5. Volume must be above 20-period average on breakout bar
+
+Entry Rules (Short):
+1. Mirror image of long rules
+2. Breakout below lower Bollinger Band
+3. ADX confirmation applies equally
+
+Exit Rules:
+1. Primary: Parabolic SAR reversal
+2. Secondary: 
+   - If Bollinger Band width expands to >150% of entry width
+   - If price re-enters Keltner Channel after breakout
+3. Emergency: 2% of account hard stop (hidden)
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Volatility-adjusted stops:
+   - Initial stop at 1.5x entry bar's ATR
+   - Trailing stop activates after 1R profit
+3. Contraction Quality Filter:
+   - Only trade if Bollinger width is <50% of Keltner width
+   - Minimum 5-period contraction before breakout
+
+Required Indicators:
+1. Keltner Channel (20EMA, 2.5ATR)
+2. Bollinger Bands (20,2)
+3. ADX (14) with +DI/-DI lines
+4. Parabolic SAR (0.02, 0.2)
+5. Volume average (20)
+6. ATR (14) for stop calculation
+
+Optimization Notes:
+1. Best suited for 1H-4H timeframes
+2. Works across forex, commodities, and indices
+3. Requires minimum 30-period contraction for high-probability setups
+4. Combine with fundamental catalysts for best results
+
+This "VoltaicContraction" strategy uniquely combines the reliability of nested volatility channels with the momentum confirmation of ADX, creating high-probability trades during market inflection points. The dynamic exit system preserves gains during extended trends while protecting against false breakouts.

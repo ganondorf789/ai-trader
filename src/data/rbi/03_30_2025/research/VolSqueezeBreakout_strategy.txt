@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with volume surges to identify high-probability breakout opportunities. The unique combination of volatility compression and volume confirmation creates a powerful setup for explosive price movements.
+
+Key Components:
+1. Bollinger Bandwidth Contraction: Measures the relative width between Bollinger Bands (20-period SMA with 2 standard deviations)
+2. Volume Surge Filter: Requires 150% increase over average volume (suggested 20-day average)
+3. Volatility-Based Exit: Uses both profit targets and volatility spikes for exits
+
+Entry Rules:
+1. Wait for Bollinger Bandwidth to reach 20-day low (indicating maximum contraction)
+2. Confirm volume is at least 150% of 20-day average volume
+3. Enter long on break above upper Bollinger Band or short on break below lower Bollinger Band
+
+Exit Rules:
+1. Profit Target: 1.5x the contraction range (distance between upper/lower bands at entry)
+2. Emergency Exit: If 5-day historical volatility spikes above threshold (suggested 2x average)
+3. Optional: Trailing stop at 20-period SMA after profit target reached
+
+Risk Management:
+1. Position size based on 1-2% risk per trade
+2. Stop loss at opposite Bollinger Band (long trades: lower band, short trades: upper band)
+3. Maximum daily loss limit of 5% recommended
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Volume (20-day average)
+3. Historical Volatility (5-day)
+4. Bollinger Bandwidth (BBwidth) calculation
+
+Optimization Notes:
+- Test different volume thresholds (150-200%)
+- Adjust profit multiplier (1.3x-2x contraction range)
+- Consider time-of-day filters for volume surges
+- Backtest different volatility spike thresholds
+
+This strategy excels in ranging markets transitioning to trends, using the "volatility squeeze" concept with volume confirmation to filter false breakouts. The dual exit mechanism locks in profits while protecting against reversals.

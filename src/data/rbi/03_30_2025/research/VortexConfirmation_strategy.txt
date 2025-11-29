@@ -1,0 +1,33 @@
+STRATEGY_NAME: VortexConfirmation  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Tracks directional movement (positive VI+ and negative VI- lines) to identify trend reversals.  
+2. **On-Balance Volume (OBV):** Confirms trend strength and direction by analyzing volume flow.  
+3. **Keltner Channels:** Volatility-based bands used to identify overextended price movements and potential exit points.  
+
+**Entry Rules:**  
+- **Long Entry:** VI+ crosses above VI- **AND** OBV is in an uptrend (higher highs/lows).  
+- **Short Entry:** VI- crosses above VI+ **AND** OBV is in a downtrend (lower highs/lows).  
+
+**Exit Rules:**  
+- **Long Exit:** Price closes below the lower Keltner Channel band **AND** Average True Range (ATR) is below a defined low-volatility threshold.  
+- **Short Exit:** Price closes above the upper Keltner Channel band **AND** ATR is below the low-volatility threshold.  
+
+**Risk Management:**  
+- **Stop-Loss:** Place stops at the recent swing high/low (for short/long) or use a fixed percentage (e.g., 1-2%).  
+- **Position Sizing:** Adjust based on volatility (e.g., larger positions during high OBV momentum, smaller in low ATR conditions).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-)  
+2. On-Balance Volume (OBV)  
+3. Keltner Channels (20-period EMA, 2x ATR width)  
+4. Average True Range (ATR) for volatility filtering  
+
+**Unique Aspects:**  
+- Combines trend confirmation (VI + OBV) with volatility-based exits (Keltner + ATR).  
+- Avoids false signals by requiring both momentum (VI) and volume (OBV) alignment.  
+- Exits are optimized for low-volatility mean reversion scenarios.  
+
+**Note:** Backtest to fine-tune ATR thresholds and OBV trend confirmation rules for specific assets.

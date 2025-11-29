@@ -1,0 +1,37 @@
+STRATEGY_NAME: BandSqueezeReversal
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with Heikin-Ashi trend confirmation and RSI overbought signals for precise mean-reversion entries. The unique combination of volatility measurement, smoothed price action, and momentum filtering creates a high-probability reversal system.
+
+Key Components:
+1. Bollinger Band Width Filter (1.5% threshold)
+2. Heikin-Ashi Trend Confirmation (3 consecutive bullish closes)
+3. RSI Exit Trigger (5-period, 70 threshold)
+
+Entry Rules:
+1. Wait for Bollinger Band width to contract below 1.5% (volatility squeeze condition)
+2. Confirm with three consecutive bullish Heikin-Ashi closes (smoothed trend confirmation)
+3. Enter long at the open of the next candle after both conditions are met
+
+Exit Rules:
+1. Monitor 5-period RSI continuously after entry
+2. Exit position when RSI crosses above 70 (overbought reversal signal)
+3. Alternative exit: Consider closing if Bollinger Band width expands beyond 3% (volatility expansion)
+
+Risk Management:
+1. Recommended stop-loss at recent swing low or 1 ATR below entry
+2. Position size should account for the volatility contraction context
+3. Avoid trading during major news events that may cause sudden volatility spikes
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviation)
+2. Bollinger Band Width indicator (% calculation)
+3. Heikin-Ashi candles (smoothed price series)
+4. 5-period RSI (for exit timing)
+
+Optimization Notes:
+1. The 1.5% bandwidth threshold can be adjusted based on asset volatility (0.8-2% range)
+2. RSI period and threshold can be tested between 3-7 periods and 65-75 levels
+3. Consider adding volume confirmation for stronger signals
+
+This strategy excels in ranging markets with clear volatility cycles, using the Bollinger squeeze to identify potential reversal points and Heikin-Ashi to filter false breakouts. The quick RSI exit captures profits before typical mean-reversion occurs.

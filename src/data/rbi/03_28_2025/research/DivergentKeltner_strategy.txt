@@ -1,0 +1,56 @@
+STRATEGY_NAME: DivergentKeltner
+
+STRATEGY_DETAILS:
+This strategy combines technical channel breakouts with on-chain flow divergence to identify high-probability reversal opportunities. The unique combination of price channel dynamics with blockchain liquidity movements creates a robust filter against false breakouts.
+
+Key Components:
+1. Keltner Channel (20-period EMA with 2.5x ATR bands)
+2. Exchange Netflow (30-day moving average)
+3. Parabolic SAR (0.02 step, 0.2 maximum)
+
+Entry Rules:
+1. Long Entry:
+   - Price closes BELOW lower Keltner band
+   - Simultaneous POSITIVE 30-day netflow (coins moving to cold storage)
+   - SAR must be below price (downtrend confirmation)
+
+2. Short Entry:
+   - Price closes ABOVE upper Keltner band
+   - Simultaneous NEGATIVE 30-day netflow (coins moving to exchanges)
+   - SAR must be above price (uptrend confirmation)
+
+Exit Rules:
+1. Primary Exit:
+   - SAR reversal (when dots flip to opposite side of price)
+   
+2. Emergency Exit:
+   - Price reaches 1.5x ATR beyond opposite channel band
+   - Netflow divergence disappears for 3 consecutive periods
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Stop placement: 
+   - Longs: 1 ATR below entry candle low
+   - Shorts: 1 ATR above entry candle high
+3. Maximum portfolio exposure: 15% across all positions
+
+Indicator Settings:
+1. Keltner Channel:
+   - EMA Period: 20
+   - ATR Multiplier: 2.5
+   - ATR Period: 20
+
+2. Exchange Netflow:
+   - MA Period: 30 days
+   - Threshold: ±0.5% of circulating supply
+
+3. Parabolic SAR:
+   - Step: 0.02
+   - Maximum: 0.2
+
+Optimization Notes:
+- Test ATR multipliers between 2.0-3.0 for different volatility regimes
+- Adjust netflow MA period (20-50 days) based on asset liquidity
+- SAR parameters may need tightening for faster-moving assets
+
+This strategy works best on 4H-1D timeframes for crypto assets with reliable on-chain data. The netflow divergence acts as a powerful confirmation filter, while the Keltner bands identify extreme moves likely to reverse when contradicted by smart money flows.

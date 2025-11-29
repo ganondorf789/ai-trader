@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolClusterBands
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of extreme volatility contraction preceding high liquidity events, using a combination of Bollinger Band analysis and liquidation cluster detection.
+
+Key Components:
+1. Bollinger Bandwidth (BBW) - Measures volatility contraction when reaching yearly lows
+2. Liquidation Level Heatmap - Identifies high concentration of stop orders
+3. Perpetual Funding Rate - Confirms market sentiment shifts
+
+Entry Rules:
+1. Primary Trigger: BBW reaches its lowest point in the past 365 days (volatility contraction)
+2. Secondary Confirmation: Price approaches a high-density liquidation cluster zone
+3. Final Filter: Funding rate begins moving sharply from extreme negative toward neutral
+
+Exit Rules:
+1. Profit Taking: When price breaches the nearest identified liquidation level
+2. Stop Loss: Opposite side of the volatility contraction range
+3. Emergency Exit: Funding rate reverses direction sharply after entry
+
+Risk Management:
+1. Position sizing based on distance to nearest liquidation levels
+2. Maximum risk per trade: 1-2% of capital
+3. No trading during major macroeconomic announcements
+4. Time-based exit if expected move doesn't materialize within 3-5 days
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviation)
+2. Custom BBW calculation (Upper Band - Lower Band)/Middle Band
+3. Liquidation level heatmap (requires order book data)
+4. Perpetual funding rate monitor
+5. 1-year volatility percentile ranking
+
+Optimization Notes:
+- Best suited for crypto markets (particularly BTC and ETH)
+- Timeframe: 4-hour to daily charts
+- Requires clean liquidity data from exchanges
+- Works best in ranging markets preceding volatility expansions
+
+The strategy exploits the market's tendency for explosive moves after periods of extreme complacency, using liquidation clusters as natural profit targets and funding rate reversals as confirmation of impending volatility.

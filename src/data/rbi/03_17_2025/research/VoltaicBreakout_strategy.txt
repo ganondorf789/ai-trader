@@ -1,0 +1,38 @@
+STRATEGY_NAME: VoltaicBreakout
+
+STRATEGY_DETAILS:
+The VoltaicBreakout strategy is designed to capitalize on volatility contraction patterns followed by high-probability breakouts, confirmed by volume spikes. This strategy combines Bollinger Band analysis, volume confirmation, and ATR-based risk management to identify and trade breakouts effectively.
+
+Key Components:
+1. **Bollinger Band Width Contraction**: Measures the narrowing of Bollinger Bands to identify periods of low volatility, which often precede significant price movements.
+2. **Volume Spike Confirmation**: Uses a 50-day volume average to confirm breakout strength, ensuring the move is backed by significant trading activity.
+3. **ATR-Based Stop Loss**: Implements a dynamic stop-loss mechanism using 2x ATR to manage risk and protect profits.
+
+Indicators Required:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Volume (50-day simple moving average)
+3. Average True Range (ATR, 14-period)
+
+Entry Rules:
+- **Long Entry**: 
+  1. Bollinger Band width reaches a 20-day low, indicating volatility contraction.
+  2. Volume spikes above the 50-day average, confirming breakout strength.
+  3. Enter long on the breakout above the upper Bollinger Band.
+- **Short Entry**: 
+  1. Bollinger Band width reaches a 20-day low, indicating volatility contraction.
+  2. Volume spikes above the 50-day average, confirming breakout strength.
+  3. Enter short on the breakout below the lower Bollinger Band.
+
+Exit Rules:
+- **Take Profit**: Exit the trade when the Bollinger Band width expands significantly, indicating the end of the breakout phase.
+- **Stop Loss**: Use a 2x ATR stop-loss level from the entry price to manage risk. Adjust the stop-loss dynamically as the trade progresses.
+
+Risk Management:
+1. Position sizing should be based on the 2x ATR stop-loss level to ensure risk per trade is within acceptable limits (e.g., 1-2% of account equity).
+2. Avoid trading during low-liquidity periods or major news events to reduce slippage and false breakouts.
+3. Monitor the Bollinger Band width and volume spike conditions closely to ensure entries are valid.
+
+Additional Notes:
+- This strategy performs best in trending markets and may produce false signals in choppy or sideways conditions.
+- Backtest the strategy on multiple timeframes and asset classes to optimize parameters and confirm robustness.
+- Consider adding a trailing stop or partial profit-taking mechanism to enhance performance during strong trends.

@@ -1,0 +1,42 @@
+STRATEGY_NAME: ForceBand Contraction
+
+STRATEGY_DETAILS:
+
+Key Components:
+1. Elder Force Index (13-period) - measures buying/selling pressure combining price and volume
+2. Force Index 3-day SMA - smoothed version for crossover signals
+3. Bollinger Bands (20,2) - standard deviation-based volatility channels
+4. Band Width - measures contraction/expansion of Bollinger Bands
+
+Entry Rules:
+1. Primary Condition: Elder Force Index crosses ABOVE its 3-day SMA
+2. Confirmation: Bollinger Band Width must be below its 20-period average (contraction phase)
+3. Execution: Enter long on close above upper Bollinger Band
+   Enter short on close below lower Bollinger Band
+
+Exit Rules:
+1. Profit Target: Opposite Bollinger Band touch
+   - Long exits when price touches lower band
+   - Short exits when price touches upper band
+2. Stop Loss: 2x ATR (14) from entry price
+3. Time Exit: Close position after 5 bars if not exited
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Volatility filter: Only trade when ATR(14) > 0.5% of price
+3. Maximum daily trades: 3 per instrument
+4. Correlation limit: No more than 2 similar positions open
+
+Required Indicators:
+1. Elder Force Index (13-period)
+2. Simple Moving Average (3-period) of Force Index
+3. Bollinger Bands (20,2)
+4. Bollinger Band Width (20-period average)
+5. ATR (14) for stop placement
+
+Optimization Notes:
+- Test different Force Index periods (8-15)
+- Experiment with Bollinger Band deviations (1.8-2.2)
+- Adjust contraction threshold (try 15-25 period BW average)
+
+This strategy combines momentum confirmation (Force Index crossover) with volatility contraction (Bollinger Band Width) for high-probability breakout trades, exiting at mean-reversion points (opposite band touches). The dual confirmation reduces false breakouts while capitalizing on emerging trends.

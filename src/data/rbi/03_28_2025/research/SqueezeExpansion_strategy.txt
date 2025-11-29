@@ -1,0 +1,30 @@
+STRATEGY_NAME: SqueezeExpansion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Squeeze:** Identifies periods of low volatility when the Bollinger Bands narrow significantly, often preceding strong breakouts.  
+2. **Accumulation/Distribution Line Confirmation:** Ensures buying pressure is increasing during the squeeze, validating potential upward momentum.  
+3. **Fibonacci Extension Targets:** Uses Fibonacci levels (e.g., 1.618, 2.0) of the initial squeeze range to set profit-taking zones.  
+
+**Entry Rules:**  
+- **Trigger:** Bollinger Band Width (BBW) reaches a multi-period low (e.g., lowest in 20 bars), indicating a squeeze.  
+- **Confirmation:** Accumulation/Distribution Line (ADL) must be rising, showing underlying buying pressure.  
+- **Entry Signal:** Enter long on a breakout above the upper Bollinger Band or short below the lower band (depending on ADL direction).  
+
+**Exit Rules:**  
+- **Profit Target:** Measure the width of the squeeze (distance between upper and lower Bollinger Bands at the squeeze point). Extend this range upward (for longs) or downward (for shorts) using Fibonacci levels (e.g., 1.618x, 2.0x).  
+- **Stop-Loss:** Place below the recent swing low (for longs) or above the swing high (for shorts), or use a volatility-based stop (e.g., 1.5x ATR).  
+
+**Risk Management:**  
+- Position sizing based on stop distance (e.g., risking 1-2% per trade).  
+- Avoid entering if broader market conditions contradict the breakout direction.  
+- Trail stops after hitting the first Fibonacci target (e.g., 1.618) to lock in profits.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 StdDev) + Band Width (BBW).  
+2. Accumulation/Distribution Line (ADL).  
+3. Fibonacci Extension Tool (for targets).  
+4. Optional: ATR (14-period) for dynamic stop placement.  
+
+**Unique Edge:** Combines volatility contraction (squeeze) with volume-flow confirmation (ADL) and mathematically derived profit targets (Fibonacci), reducing false breakouts and optimizing reward/risk.

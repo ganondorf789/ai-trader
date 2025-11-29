@@ -1,0 +1,42 @@
+STRATEGY_NAME: BandedOverbought
+
+STRATEGY_DETAILS:
+The BandedOverbought strategy is a specialized options trading approach that focuses on identifying overbought conditions using Bollinger Bands and open interest data to sell put options. This strategy is designed to capitalize on potential price reversals when the market reaches extreme overbought levels.
+
+Key Strategy Components:
+1. Bollinger Bands: Used to identify overbought conditions when price touches or exceeds the upper band
+2. Price Analysis: Focuses on the highest highs within the last 5 days
+3. Open Interest: Requires at least 20% of open interest remaining for liquidity
+4. Put Options: Specifically targets selling put options in overbought conditions
+
+Entry Rules:
+1. Wait for the price to touch or exceed the upper Bollinger Band
+2. Confirm that this price level represents the highest high within the last 5 days
+3. Verify that at least 20% of open interest remains for the specific put option
+4. Sell the put option when all conditions are met
+
+Exit Rules:
+1. Close the position when the price moves back within the Bollinger Bands
+2. Set a stop-loss at a predetermined percentage (e.g., 20-30%) of the premium received
+3. Consider closing the position if open interest drops below 10% of initial levels
+4. Exit at expiration if the option remains out of the money
+
+Risk Management:
+1. Position sizing should be based on account risk tolerance (typically 1-2% of total capital per trade)
+2. Use stop-loss orders to limit potential losses
+3. Avoid trading during high-impact news events that could cause sudden volatility
+4. Monitor implied volatility levels, as high volatility could increase risk
+
+Required Indicators:
+1. Bollinger Bands (20-period, 2 standard deviations recommended)
+2. Price chart with 5-day high/low markers
+3. Open interest data for the specific options contract
+4. Volume indicators to confirm liquidity
+
+Additional Considerations:
+- This strategy works best in trending markets with clear overbought conditions
+- Be cautious of earnings announcements or other events that could affect the underlying asset
+- Consider using this strategy on liquid, high-volume stocks or indices
+- Monitor the Greeks, particularly Delta and Theta, to understand position sensitivity
+
+Remember to backtest this strategy thoroughly before live trading and adjust parameters based on your specific market conditions and risk tolerance.

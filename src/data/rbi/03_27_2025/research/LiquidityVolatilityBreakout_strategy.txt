@@ -1,0 +1,38 @@
+STRATEGY_NAME: LiquidityVolatilityBreakout
+
+STRATEGY_DETAILS:
+This strategy combines order book liquidity analysis with short-term volatility spikes to identify high-probability breakout trades. The unique approach focuses on areas of concentrated liquidation levels (where many stop losses cluster) and waits for volatility confirmation before entering.
+
+Key Components:
+1. Liquidity Heatmap Analysis: Identifies high liquidation clusters in the order book where price is likely to accelerate through
+2. Volatility Spike Detection: Uses 1-minute volatility readings to confirm breakout momentum
+3. Breakout Confirmation: Requires price to breach key liquidity levels with increased volume
+
+Entry Rules:
+1. Identify proximity (within 1-2%) to a major liquidation cluster on the heatmap
+2. Wait for volatility to spike 2-3x above the 15-minute average
+3. Enter long when price breaks above the cluster high with increased volume
+4. Enter short when price breaks below the cluster low with increased volume
+
+Exit Rules:
+1. Take profit at next significant liquidity level (1.5-2x risk)
+2. Stop loss placed just beyond the opposite side of the liquidity cluster
+3. Exit if volatility drops below entry level for 3 consecutive minutes
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop loss always placed before entry
+3. No trading during major news events when liquidity is unreliable
+4. Maximum daily loss limit of 5%
+
+Required Indicators:
+1. Order book liquidity heatmap (showing liquidation clusters)
+2. 1-minute volatility indicator (ATR or standard deviation)
+3. Volume spike detector
+4. Key support/resistance levels marked on heatmap
+
+Additional Notes:
+- Works best on liquid assets with deep order books (major crypto pairs, forex majors)
+- Most effective during active trading hours (London/NY overlap)
+- Requires constant monitoring of order book dynamics
+- Backtest with attention to false breakouts near liquidity zones

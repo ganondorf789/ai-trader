@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolatilitySurgeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with volume skewness analysis to identify high-probability breakout opportunities. The approach capitalizes on periods of extreme compression in volatility followed by confirmation through unusual volume activity.
+
+Key Components:
+1. Bollinger Bandwidth (20-period, 2 std dev) at 6-month lows
+2. Volume skewness indicator showing significant deviation from mean
+3. ATR (14-period) for stop placement
+4. Price breaking through either Bollinger Band
+
+Entry Rules:
+1. Primary Condition: Bollinger Bandwidth reaches its lowest point in 6 months (120 trading days)
+2. Confirmation: Volume skewness shows >2 standard deviation move from 20-day average
+3. Execution: Enter long when price closes above upper band (for bullish breakout) or short when price closes below lower band (for bearish breakout)
+
+Exit Rules:
+1. Profit Target: Opposite band touch (for long: exit at lower band touch, for short: exit at upper band touch)
+2. Stop Loss: 2x current 14-period ATR from entry price
+3. Time Exit: Close position if neither target nor stop is hit within 5 days
+
+Risk Management:
+1. Position sizing based on 1% risk of account per trade (using ATR stop distance)
+2. Maximum of 3 concurrent positions
+3. No new entries if account drawdown exceeds 5%
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Bandwidth (20,2 std dev)
+3. Volume skewness (20-period z-score)
+4. ATR (14-period)
+5. 120-day historical bandwidth reference
+
+Optimization Notes:
+- Test different bandwidth lookback periods (3-9 months)
+- Experiment with volume skewness thresholds (1.5-3 std dev)
+- Consider adding RSI filter (e.g., require RSI <30 for long breakouts, >70 for short breakouts)
+
+This strategy is particularly effective in ranging markets transitioning to trending phases, with the volume skewness component helping filter false breakouts. The tight stop relative to target provides favorable risk-reward dynamics.

@@ -1,0 +1,30 @@
+STRATEGY_NAME: LiquidityBandit  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility and potential breakout conditions when the bands narrow significantly.  
+2. **Abnormal Volume Spikes:** Detects unusual trading activity that often precedes strong price movements.  
+3. **On-Chain Liquidity Shift:** Uses rapid changes in on-chain liquidity levels (e.g., large bid/ask movements or exchange flows) to confirm breakout validity.  
+
+**Entry Rules:**  
+1. Wait for Bollinger Band width to contract to a predefined threshold (e.g., below 20% of its 20-period average).  
+2. Observe a volume spike exceeding 2x the 20-period average volume.  
+3. Confirm breakout with a rapid shift in on-chain liquidity (e.g., a sudden increase in exchange net flows or large limit order placements).  
+4. Enter long/short on the breakout candle close or the next candle open, depending on the direction of the liquidity shift.  
+
+**Exit Rules:**  
+1. **Take Profit:** Close the position when price reaches the opposite Bollinger Band (for mean reversion) or after a 2:1 risk-reward ratio is achieved.  
+2. **Stop Loss:** Place a stop loss just below/above the breakout candle’s low/high or at a fixed percentage (e.g., 1-2%) beyond the entry point.  
+3. **Time-Based Exit:** Exit the trade if no significant follow-through occurs within 3-5 candles.  
+
+**Risk Management:**  
+1. Limit position size to 1-2% of total capital per trade.  
+2. Avoid trading during major news events or low-liquidity periods.  
+3. Adjust stop-loss levels dynamically if on-chain liquidity shows sudden reversals.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations).  
+2. Volume indicator (20-period average).  
+3. On-chain liquidity metrics (e.g., exchange net flows, order book depth).  
+
+**Unique Edge:** Combines technical compression (Bollinger Bands) with volume anomalies and on-chain liquidity shifts for high-probability breakout trades.

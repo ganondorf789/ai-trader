@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolatileBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Choppiness Index (CI) Filter**: Identifies consolidation phases (CI > 38.2) and breakout conditions (CI < 38.2).  
+2. **Volume Surge Confirmation**: Requires volume to spike to at least 150% of the 20-day average volume, validating the breakout.  
+3. **Breakout Candle Reference**: Uses the breakout candle's low (for long entries) or high (for short entries) as the stop-loss level.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  1. CI crosses below 38.2, signaling the end of consolidation.  
+  2. Volume exceeds 150% of the 20-day average.  
+  3. Price breaks above the recent consolidation range high.  
+- **Short Entry**: Triggered when:  
+  1. CI crosses below 38.2.  
+  2. Volume exceeds 150% of the 20-day average.  
+  3. Price breaks below the recent consolidation range low.  
+
+**Exit Rules:**  
+- **Take-Profit**: No fixed target; trail stops or use a risk-reward ratio (e.g., 2:1) based on the breakout candle's range.  
+- **Stop-Loss**:  
+  - Long trades: Place stop at the breakout candle's low.  
+  - Short trades: Place stop at the breakout candle's high.  
+
+**Risk Management:**  
+- Position size based on the distance between entry and stop-loss to limit risk per trade (e.g., 1-2% of capital).  
+- Avoid trading during low-volume periods or when CI is > 50 (strong consolidation).  
+
+**Required Indicators:**  
+1. Choppiness Index (CI) – Period 14 (default).  
+2. Volume (20-day moving average for reference).  
+
+**Unique Aspects:**  
+- Combines volatility contraction (CI) with volume expansion for high-probability breakouts.  
+- Adaptive stop-loss tied to breakout candle structure.  
+- Filters false breakouts using volume confirmation.  
+
+**Note**: Backtest optimal CI thresholds (e.g., 38.2 vs. 50) and volume multipliers for your asset/timeframe.

@@ -1,0 +1,36 @@
+STRATEGY_NAME: SqueezeDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** The strategy identifies periods of low volatility when Bollinger Bands narrow to the 1-year percentile, signaling a potential breakout or reversal.  
+2. **TICK Volume Divergence:** Uses surging TICK volume (NYSE TICK index) to detect divergence from price action, indicating underlying strength/weakness before a reversal.  
+3. **Counter-Trend Entries:** Enters trades against the prevailing trend when the squeeze and divergence align, anticipating a reversal.  
+4. **Volatility-Based Exits:** Exits positions when volatility expands beyond the historical average, capturing the momentum shift.  
+
+**Entry Rules:**  
+- **Bollinger Band Squeeze Condition:**  
+  - Bands must contract to the tightest 1-year percentile (e.g., 20-period BB width < 5th percentile).  
+- **TICK Volume Divergence:**  
+  - Price makes a lower high (downtrend) or higher low (uptrend), while TICK volume surges in the opposite direction (e.g., bullish divergence = lower price high + higher TICK volume).  
+- **Entry Trigger:**  
+  - Enter short on bearish divergence (price higher high + lower TICK volume) during a squeeze.  
+  - Enter long on bullish divergence (price lower low + higher TICK volume) during a squeeze.  
+
+**Exit Rules:**  
+- **Volatility Expansion:** Exit when Bollinger Band width expands beyond its 50-day moving average (historical average).  
+- **Stop-Loss:** Place stops at the recent swing high (for shorts) or swing low (for longs) to limit risk.  
+- **Time-Based Exit:** Close trades if volatility doesn’t expand within 5 bars to avoid stagnation.  
+
+**Risk Management:**  
+- Position sizing: Risk ≤ 1% of capital per trade.  
+- Stop-loss: 1.5x the average true range (ATR) to account for volatility.  
+- Avoid trading during major news events to prevent false signals.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 Std Dev)** – To identify squeeze conditions.  
+2. **NYSE TICK Index** – For volume divergence analysis.  
+3. **ATR (14-period)** – For stop-loss placement.  
+4. **Bollinger Band Width (20-period)** – To measure squeeze percentile and expansion.  
+
+**Unique Edge:** Combines mean-reversion (squeeze) with sentiment (TICK divergence) for high-probability counter-trend trades, exiting before volatility normalizes.

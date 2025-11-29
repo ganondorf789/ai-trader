@@ -1,0 +1,32 @@
+STRATEGY_NAME: LiquiditySurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidity Gap Exploitation**: The strategy capitalizes on sudden liquidity shifts when price breaks out of tight consolidation.  
+2. **Keltner Channels**: Used to define the consolidation range (default settings: 20-period EMA, 1.5x ATR multiplier). Narrow channels indicate low volatility and impending breakout potential.  
+3. **Volume Surge Filter**: Requires volume to spike **300% above the 20-day average** to confirm institutional participation and reduce false breakouts.  
+4. **Profit Target**: Fixed at **1.5x the initial breakout range** (high-low of the consolidation phase).  
+
+**Entry Rules:**  
+- **Long Entry**: Price closes **above the upper Keltner Channel** AND volume exceeds 20-day average by 300%.  
+- **Short Entry**: Price closes **below the lower Keltner Channel** AND volume exceeds 20-day average by 300%.  
+
+**Exit Rules:**  
+- **Take Profit**: Exit at 1.5x the consolidation range (measured from breakout point).  
+- **Stop Loss**: Place at the **opposite Keltner Channel boundary** (e.g., for long entries, stop loss is the lower channel line).  
+
+**Risk Management:**  
+- **Position Sizing**: Risk ≤1-2% of capital per trade.  
+- **Stop-Loss Adjustment**: If volume surges but price retraces into the channel, exit immediately (failed breakout).  
+
+**Required Indicators:**  
+1. **Keltner Channels** (20-period EMA, 1.5x ATR).  
+2. **Volume Average** (20-day SMA).  
+3. **ATR** (14-period for channel width).  
+
+**Unique Edge:**  
+- Combines **liquidity signals** (volume surge) with **price compression** (narrow Keltner) to target high-probability breakouts.  
+- Avoids choppy markets by requiring extreme volume confirmation.  
+
+**Note:** Backtest on assets with historically strong breakout tendencies (e.g., indices, large-cap stocks).

@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolcanicSqueeze
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines Bollinger Bands (BB) and Keltner Channels (KC) to identify high-probability breakout opportunities
+- Uses volume surge (3x average) as confirmation filter
+- Relies on ADX for trend strength assessment to manage exits
+- Specifically designed to capitalize on volatility contractions followed by explosive moves
+
+2. Entry Rules:
+- Wait for Bollinger Band squeeze condition (BB width at lowest 20% of 100-period range)
+- Price must break outside Keltner Channel (upper for long, lower for short)
+- Volume must surge to at least 3x 20-period average volume
+- All three conditions must occur simultaneously for valid entry
+
+3. Exit Rules:
+- Primary exit: ADX(14) drops below 25 indicating weakening trend
+- Secondary exit: Price closes back inside Keltner Channel
+- Tertiary exit: Trailing stop at opposite Keltner Channel band
+
+4. Risk Management:
+- Initial stop placed at middle Bollinger Band (20 SMA)
+- Position size calculated to risk no more than 1-2% of capital per trade
+- Maximum of 3 concurrent positions to avoid overexposure
+- Avoid trading during major economic news events due to volume distortions
+
+5. Required Indicators:
+- Bollinger Bands (20,2)
+- Keltner Channels (20,2)
+- Volume (20-period average)
+- ADX (14-period)
+
+6. Additional Notes:
+- Best suited for 1H-4H timeframes on liquid instruments
+- Performs exceptionally well during transitional market phases
+- Requires patience as squeeze conditions may take time to develop
+- Volume confirmation dramatically reduces false breakouts
+- ADX filter prevents exiting during strong trending conditions
+
+This strategy combines volatility contraction, channel breakout, volume confirmation, and trend strength assessment into a robust trading approach that filters out low-probability setups while capturing high-momentum moves.

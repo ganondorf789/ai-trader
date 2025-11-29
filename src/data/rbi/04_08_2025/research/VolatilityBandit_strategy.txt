@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolatilityBandit
+
+STRATEGY_DETAILS:
+This is a volatility-based breakout strategy that combines EMA tracking with adaptive ATR bands for dynamic entry and exit signals. The strategy capitalizes on strong momentum moves while using volatility-adjusted stops for risk management.
+
+Key Components:
+1. Trend Baseline: 20-period EMA (center line)
+2. Volatility Measurement: ATR (14-period recommended)
+3. Entry Bands: ±(2xATR) from EMA
+4. Exit Mechanism: EMA reversion or 1xATR trailing stop
+
+Entry Rules:
+- LONG when price closes ABOVE the Upper Band (EMA + 2xATR)
+- SHORT when price closes BELOW the Lower Band (EMA - 2xATR)
+
+Exit Rules:
+1. Primary Exit: Price closes on opposite side of EMA
+2. Protective Exit: Trailing stop at 1xATR from extreme price
+   - For longs: Trail stop at Highest High - 1xATR
+   - For shorts: Trail stop at Lowest Low + 1xATR
+
+Risk Management:
+1. Position sizing based on ATR (risk per trade typically 1-2% of capital)
+2. Natural stop distance = 2xATR (entry band width)
+3. No trades during extremely low volatility (ATR below threshold)
+
+Required Indicators:
+1. EMA (20-period)
+2. ATR (14-period)
+3. Upper Band: EMA + (2 × ATR)
+4. Lower Band: EMA - (2 × ATR)
+
+Optimization Considerations:
+1. EMA period (test 10-30 range)
+2. ATR multiplier for bands (test 1.5-3 range)
+3. ATR period (test 10-20 range)
+4. Minimum ATR threshold for trade validity
+
+This strategy works best in trending markets with consistent volatility, and may generate false signals during choppy or ranging conditions. The dual exit mechanism provides both trend-following and protective stop functionality.

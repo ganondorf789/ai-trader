@@ -1,0 +1,48 @@
+STRATEGY_NAME: VolterraSqueeze
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines Bollinger Bands and Keltner Channels to identify volatility compression
+- Uses Bollinger Band width percentile to quantify squeeze conditions
+- Requires Keltner Channel contraction as confirmation
+- Incorporates volume surge as breakout validation
+- Focuses on closing price breakouts for confirmation
+
+2. Entry Rules:
+- Wait for Bollinger Band width to fall below 20th percentile (indicating squeeze)
+- Confirm Keltner Channel is contracting (width decreasing)
+- Enter long when price closes ABOVE both upper bands with:
+  - Volume at least 150% of 20-day average
+  - Close must be outside both upper bands
+- Enter short when price closes BELOW both lower bands with:
+  - Volume at least 150% of 20-day average
+  - Close must be outside both lower bands
+
+3. Exit Rules:
+- For long positions:
+  - Take profit at 1.5x average true range (ATR) from entry
+  - Stop loss at 0.75x ATR below entry or below recent swing low
+- For short positions:
+  - Take profit at 1.5x ATR from entry
+  - Stop loss at 0.75x ATR above entry or above recent swing high
+- Alternative exit: Close position if Bollinger Band width expands above 80th percentile
+
+4. Risk Management:
+- Position size limited to 1-2% of capital per trade
+- No new entries if 3 consecutive losing trades occur
+- Avoid trading during major economic news events
+- Prefer setups with higher time frame alignment (daily chart confirming 4h signal)
+
+5. Required Indicators:
+- Bollinger Bands (20,2)
+- Keltner Channels (20,2)
+- Bollinger Band width percentile (20-period lookback)
+- Volume indicator with 20-day average
+- Average True Range (ATR, 14-period)
+
+6. Additional Notes:
+- Works best in ranging markets transitioning to trends
+- Avoid using during strong trending markets (bands may remain wide)
+- Ideal for liquid assets with consistent volume patterns
+- Requires patience as squeeze conditions may take time to develop
+- Backtest suggests best performance on 4h-1d timeframes

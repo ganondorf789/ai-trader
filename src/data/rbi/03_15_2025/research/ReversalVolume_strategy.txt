@@ -1,0 +1,40 @@
+STRATEGY_NAME: ReversalVolume
+
+STRATEGY_DETAILS:
+The ReversalVolume strategy is a unique approach that combines price action, momentum reversal signals, and volume confirmation to identify potential long entry opportunities. This strategy focuses on catching bullish reversals when specific conditions align across multiple indicators.
+
+Key Components:
+1. Price Action: Bullish candlestick formation (e.g., bullish engulfing, hammer, or piercing pattern)
+2. Momentum: 14-day RSI showing a bearish-to-bullish reversal
+3. Volume: Increasing volume confirming the breakout
+
+Entry Rules:
+1. Wait for a bullish candlestick formation to appear
+2. Confirm the 14-day RSI has turned bullish after being in bearish territory (crossing above 30)
+3. Verify that volume is increasing compared to previous periods
+4. Enter a long position when price breaks above the high of the bullish candlestick formation
+
+Exit Rules:
+1. Set a stop-loss below the low of the bullish candlestick formation
+2. Take profit when RSI reaches overbought levels (above 70)
+3. Alternatively, exit when price closes below a key support level or moving average
+
+Risk Management:
+1. Risk no more than 1-2% of account capital per trade
+2. Use a fixed risk-reward ratio of at least 1:2
+3. Adjust position size based on stop-loss distance
+4. Consider using a trailing stop to lock in profits
+
+Required Indicators:
+1. 14-day RSI (Relative Strength Index)
+2. Volume indicator (preferably with moving average for comparison)
+3. Candlestick chart for pattern recognition
+
+Additional Notes:
+- This strategy works best in trending or range-bound markets
+- Avoid using during high-impact news events or low liquidity periods
+- Combine with fundamental analysis for better context
+- Backtest thoroughly before live trading
+- Consider adding a moving average filter (e.g., price above 200-day MA) for additional confirmation
+
+The ReversalVolume strategy is particularly effective for traders looking to capitalize on early signs of trend reversals with strong confirmation signals. The combination of price action, momentum, and volume provides a robust framework for identifying high-probability setups while maintaining strict risk management protocols.

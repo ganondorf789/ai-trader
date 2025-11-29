@@ -1,0 +1,38 @@
+STRATEGY_NAME: ChannelForce Divergence
+
+STRATEGY_DETAILS:
+
+Key Components:
+1. Donchian Channel Breakout: Uses 20-period Donchian Channel to identify potential breakout levels
+2. Elder Force Index Confirmation: Requires a surge in the Elder Force Index to validate breakout momentum
+3. RSI Divergence Filter: Uses 4-hour RSI divergence against the prevailing trend as a confirming filter
+
+Entry Rules:
+1. Wait for price to break above/below the 20-period Donchian Channel (upper/lower band)
+2. Confirm Elder Force Index shows significant surge in buying/selling pressure
+3. Verify 4-hour RSI shows divergence against the prevailing trend (bullish divergence in downtrend or bearish divergence in uptrend)
+4. Enter long on bullish breakout or short on bearish breakout when all conditions align
+
+Exit Rules:
+1. Close position when price crosses the opposite Donchian band (upper band for shorts, lower band for longs)
+2. Alternative exit when Elder Force Index shows opposite momentum surge
+3. Consider partial profits when price reaches 1.5x the Donchian Channel width
+
+Risk Management:
+1. Set stop-loss just beyond the opposite Donchian band
+2. Position size based on 1-2% risk per trade
+3. Avoid trading during major news events that may cause false breakouts
+4. Maximum of 3 concurrent positions open
+
+Required Indicators:
+1. 20-period Donchian Channel (shows breakout levels)
+2. Elder Force Index (13-period recommended, confirms momentum)
+3. 4-hour RSI (14-period recommended, detects divergences)
+4. Price chart with clear trend identification
+
+Additional Notes:
+- Best suited for 1-hour or 4-hour timeframes
+- Works well in trending markets, avoid ranging conditions
+- Combine with volume analysis for additional confirmation
+- Requires patience as setups may take time to develop
+- Backtest optimal Donchian period for specific instruments

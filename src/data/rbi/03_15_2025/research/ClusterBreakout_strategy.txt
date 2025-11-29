@@ -1,0 +1,34 @@
+STRATEGY_NAME: ClusterBreakout
+
+STRATEGY_DETAILS:
+The ClusterBreakout strategy is a trend-following approach that focuses on identifying and confirming breakouts from high-low clusters within an ascending trend. Here's a detailed breakdown of the strategy:
+
+1. **Key Strategy Components**:
+   - **Ascending Trend Line**: Draw a trend line connecting the higher lows of the price action.
+   - **High-Low Cluster**: Identify a cluster of 20 consecutive bars where the highs and lows are tightly packed, indicating consolidation.
+   - **Breakout Confirmation**: Wait for the price to break above the high of the cluster while the trend line remains intact.
+   - **Exit Condition**: Use a 1% retracement level from the breakout point to trigger exits.
+
+2. **Entry Rules**:
+   - **Trend Line Validation**: Ensure the ascending trend line is valid by connecting at least two higher lows.
+   - **Cluster Formation**: Confirm the presence of a high-low cluster over 20 consecutive bars.
+   - **Breakout Signal**: Enter a long position when the price breaks above the highest high of the cluster while the trend line is still ascending.
+
+3. **Exit Rules**:
+   - **Retracement Exit**: Exit the position if the price retraces 1% from the breakout point.
+   - **Trend Line Break**: Alternatively, exit if the price breaks below the ascending trend line, indicating a potential trend reversal.
+
+4. **Risk Management**:
+   - **Position Sizing**: Use a fixed percentage of your capital for each trade (e.g., 1-2%).
+   - **Stop Loss**: Set a stop loss just below the breakout point or the trend line to limit potential losses.
+   - **Take Profit**: Consider using a trailing stop or a fixed profit target based on historical volatility.
+
+5. **Required Indicators**:
+   - **Price Action**: Focus on raw price data to draw the trend line and identify the high-low cluster.
+   - **Volume**: Optionally, use volume to confirm the breakout, ensuring higher volume accompanies the breakout for added confirmation.
+
+6. **Additional Considerations**:
+   - **Timeframe**: This strategy works best on higher timeframes (e.g., 1-hour, 4-hour, or daily charts) to reduce noise and false breakouts.
+   - **Market Conditions**: Ideal for trending markets with clear higher highs and higher lows. Avoid using this strategy in choppy or sideways markets.
+
+By combining the ascending trend line with the high-low cluster breakout and a tight retracement exit, the ClusterBreakout strategy aims to capture strong trending moves while minimizing risk.

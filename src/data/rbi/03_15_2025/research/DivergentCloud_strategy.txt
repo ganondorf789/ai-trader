@@ -1,0 +1,64 @@
+STRATEGY_NAME: DivergentCloud
+
+STRATEGY_DETAILS:
+
+The DivergentCloud strategy is a momentum-contrarian approach that capitalizes on the divergence between short-term Bollinger Bands and long-term Ichimoku Cloud price projections. This strategy is designed to identify potential reversals by leveraging the interplay between short-term volatility and long-term trend dynamics.
+
+### Key Strategy Components:
+1. **Bollinger Bands (Short-Term):**
+   - Period: 20
+   - Standard Deviation: 2
+   - Used to gauge short-term volatility and potential overbought/oversold conditions.
+
+2. **Ichimoku Cloud (Long-Term):**
+   - Tenkan-sen (Conversion Line): 9
+   - Kijun-sen (Base Line): 26
+   - Senkou Span A (Leading Span A): 26
+   - Senkou Span B (Leading Span B): 52
+   - Chikou Span (Lagging Span): 26
+   - Provides a comprehensive view of the long-term trend, support/resistance levels, and momentum.
+
+### Entry Rules:
+1. **Bearish Momentum Entry:**
+   - Wait for the price to touch or exceed the upper Bollinger Band, indicating a potential overbought condition.
+   - Simultaneously, ensure that the Ichimoku Cloud (Senkou Span A and B) is bearish (price below the cloud) or transitioning to bearish.
+   - Confirm with the Chikou Span (Lagging Span) being below the price action, signaling bearish momentum.
+   - Enter a short position when these conditions align.
+
+### Exit Rules:
+1. **Bullish Momentum Exit:**
+   - Monitor the price as it approaches or crosses the lower Bollinger Band, indicating a potential oversold condition.
+   - Check if the Ichimoku Cloud is turning bullish (price above the cloud) or if the Chikou Span crosses above the price action.
+   - Exit the short position when these bullish signals are confirmed.
+
+### Risk Management:
+1. **Stop-Loss:**
+   - Set a stop-loss just above the recent swing high for short positions, or below the recent swing low for long positions.
+   - Alternatively, use a percentage-based stop-loss (e.g., 1-2% of the account balance).
+
+2. **Position Sizing:**
+   - Risk no more than 1-2% of the total account balance on any single trade.
+   - Adjust position size based on the distance to the stop-loss level to maintain consistent risk exposure.
+
+3. **Take-Profit:**
+   - Use a trailing stop or a fixed take-profit level based on recent support/resistance levels.
+   - Consider taking partial profits at key Fibonacci levels or when the price reaches the opposite Bollinger Band.
+
+### Required Indicators:
+1. **Bollinger Bands:**
+   - Period: 20
+   - Standard Deviation: 2
+
+2. **Ichimoku Cloud:**
+   - Tenkan-sen: 9
+   - Kijun-sen: 26
+   - Senkou Span A: 26
+   - Senkou Span B: 52
+   - Chikou Span: 26
+
+### Additional Considerations:
+- **Timeframe:** This strategy works best on higher timeframes (e.g., 1-hour, 4-hour, or daily charts) to filter out noise and false signals.
+- **Market Conditions:** Ideal for trending or ranging markets with clear momentum shifts. Avoid using during highly volatile or news-driven market conditions.
+- **Confirmation:** Consider using additional indicators like RSI or MACD for further confirmation of momentum shifts.
+
+By combining the short-term volatility insights from Bollinger Bands with the long-term trend and momentum analysis from the Ichimoku Cloud, the DivergentCloud strategy aims to provide a robust framework for identifying high-probability reversal opportunities.

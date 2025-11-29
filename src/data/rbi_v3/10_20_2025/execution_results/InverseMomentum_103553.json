@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 Moon Dev Backtest Initialized: Optimized InverseMomentum Strategy Loaded! \u2728\n\ud83c\udf19 Moon Dev Debug [100]: Fast SMA 28277.22, Slow SMA 28035.35, Vol 15752 vs Avg 10010, Close 29660.41 vs Trend 25511.77, RSI 68.9, ATR 1033.65 \ud83d\ude80\n\ud83c\udf19 Moon Dev Debug [150]: Fast SMA 27072.89, Slow SMA 27034.24, Vol 12024 vs Avg 10143, Close 27700.15 vs Trend 28160.92, RSI 53.0, ATR 840.45 \ud83d\ude80\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/InverseMomentum_OPT_v1.py\", line 107, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/InverseMomentum_OPT_v1.py\", line 100, in next\n    self.buy(size=size, sl=sl_price, tp=tp_price)\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 208, in buy\n    assert 0 < size < 1 or round(size) == size, \\\nAssertionError: size must be a positive fraction of equity, or a positive whole number of units\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/InverseMomentum_OPT_v1.py` failed. (See above for error)\n",
+  "execution_time": 1.106289,
+  "timestamp": "2025-10-20T10:35:53.454996"
+}

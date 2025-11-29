@@ -1,0 +1,37 @@
+STRATEGY_NAME: VoltaicBreakout
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines Bollinger Band volatility signals with ADX trend strength confirmation
+- Uses a 20-period Bollinger Band (standard deviation 2) as primary breakout trigger
+- Requires ADX (14-period) to cross above 25 for trend confirmation
+- Implements strict 2:1 risk-reward ratio for exits
+
+2. Entry Rules:
+- Long Entry: When price closes ABOVE upper Bollinger Band AND ADX crosses above 25
+- Short Entry: When price closes BELOW lower Bollinger Band AND ADX crosses above 25
+- Both conditions must be met simultaneously for valid entry
+
+3. Exit Rules:
+- Profit Target: 2x initial risk (measured from entry to stop level)
+- Stop Loss: Opposite Bollinger Band (for longs: lower band, for shorts: upper band)
+- Time Exit: Close position if ADX falls below 20 (trend weakening)
+
+4. Risk Management:
+- Position sizing based on 1-2% risk per trade
+- Stop loss automatically set at opposite Bollinger Band
+- No entries allowed when ADX is below 20 (choppy market filter)
+- Maximum 3 concurrent positions open
+
+5. Required Indicators:
+- Bollinger Bands (20 periods, 2 standard deviations)
+- ADX (14 periods) with +DI/-DI disabled
+- Price chart with closing prices
+
+6. Additional Notes:
+- Best suited for 1H-4H timeframes on liquid instruments
+- Requires clear volatility expansion for optimal performance
+- Avoid using during major news events due to potential false breakouts
+- Works best in trending markets, may underperform in ranging conditions
+
+This strategy combines volatility expansion signals with trend confirmation, creating a systematic approach to capture strong directional moves while filtering out false breakouts through the ADX requirement. The 2:1 reward ratio ensures positive expectancy over multiple trades.

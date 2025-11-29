@@ -1,0 +1,40 @@
+STRATEGY_NAME: NocturnalReversal
+
+STRATEGY_DETAILS:
+The NocturnalReversal strategy is a specialized approach designed to capitalize on overnight price reversals during range-bound market conditions. It focuses on identifying specific candlestick patterns and market contexts to enter long positions with high probability setups.
+
+Key Strategy Components:
+1. Market Context: The strategy operates exclusively during range-bound consolidation phases, avoiding trending markets.
+2. Candlestick Pattern: Identifies two consecutive "hanging candles" (bearish reversal patterns) during overnight trading.
+3. Size Requirement: The second hanging candle must be at least 10% larger than the first.
+4. Timeframe: Focuses on overnight price action, typically between market close and open.
+
+Entry Rules:
+1. Confirm the market is in a range-bound consolidation phase (use Bollinger Bands or ATR to verify).
+2. Identify two consecutive hanging candles during overnight trading.
+3. Verify the second hanging candle is at least 10% larger than the first.
+4. Enter a long position at the opening of the next trading session after pattern confirmation.
+
+Exit Rules:
+1. Set a stop-loss below the low of the second hanging candle.
+2. Take profit at the upper boundary of the consolidation range.
+3. Exit if the price breaks below the consolidation range.
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade.
+2. Maximum stop-loss distance should not exceed 2% of account equity.
+3. Use a risk-reward ratio of at least 1:2.
+4. Avoid trading during major news events or high volatility periods.
+
+Required Indicators:
+1. Bollinger Bands (20,2) to identify range-bound conditions.
+2. Average True Range (ATR) to confirm consolidation.
+3. Volume indicator to validate pattern significance.
+
+Additional Considerations:
+- Backtest the strategy on multiple instruments to confirm its effectiveness.
+- Consider using a confirmation filter (e.g., RSI above 30) to increase reliability.
+- Monitor overnight session volume to ensure sufficient liquidity.
+- Adjust the 10% size requirement based on the instrument's volatility characteristics.
+
+This strategy combines technical pattern recognition with market context analysis to identify high-probability reversal opportunities during specific market conditions. The focus on overnight price action and range-bound markets provides a unique edge in capturing early trend reversals.

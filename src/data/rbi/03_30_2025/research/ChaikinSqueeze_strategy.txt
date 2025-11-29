@@ -1,0 +1,37 @@
+STRATEGY_NAME: ChaikinSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chaikin Money Flow (CMF) Momentum:** Uses the 3-day rate of change (ROC) of CMF to gauge short-term money flow strength.  
+2. **Bollinger Band Squeeze:** Identifies low volatility periods (squeeze) as potential breakout setups.  
+3. **Volume-Weighted Average Price (VWAP) Divergence:** Confirms entries when price diverges from the 20-day VWAP with supporting volume.  
+4. **Volume Confirmation:** Ensures trades are taken only when volume validates the momentum signal.  
+
+**Entry Rules:**  
+1. **Bollinger Band Squeeze Condition:** Wait for Bollinger Bands to contract (bandwidth narrows significantly, indicating low volatility).  
+2. **CMF Momentum Signal:** The 3-day ROC of CMF must be positive (rising money flow) and above a predefined threshold (e.g., >0.05).  
+3. **VWAP Divergence:** Price must break away from the 20-day VWAP (either above or below, depending on direction).  
+4. **Volume Confirmation:** Volume on the breakout candle should be higher than the 10-day average volume.  
+
+**Exit Rules:**  
+1. **Profit Target:** Use a trailing stop or fixed risk-reward ratio (e.g., 2:1). Alternatively, exit when CMF ROC turns negative.  
+2. **Stop Loss:** Place below the recent swing low (for long) or above the swing high (for short). Alternatively, use Bollinger Band width expansion as an exit signal.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop Loss:** Tight stop to avoid volatility traps—adjust based on Bollinger Band width.  
+3. **Avoid Overlapping Signals:** Only trade when all conditions align (squeeze + CMF ROC + VWAP divergence + volume).  
+
+**Required Indicators:**  
+1. **Chaikin Money Flow (CMF)** – 20-period default.  
+2. **Bollinger Bands** – 20-period, 2 standard deviations.  
+3. **Volume-Weighted Average Price (VWAP)** – 20-day period.  
+4. **Volume** – 10-day average for confirmation.  
+
+**Unique Aspects:**  
+- Combines money flow momentum (CMF) with volatility contraction (Bollinger Squeeze).  
+- Uses VWAP divergence as a trend-confirmation filter.  
+- Volume acts as a final gatekeeper to avoid false breakouts.  
+
+This strategy is best suited for swing trading in trending markets with periodic low-volatility phases.

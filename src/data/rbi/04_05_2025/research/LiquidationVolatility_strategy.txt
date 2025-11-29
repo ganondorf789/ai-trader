@@ -1,0 +1,30 @@
+STRATEGY_NAME: LiquidationVolatility  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation-Level Identification:** The strategy focuses on historical liquidation zones marked by clustered high-volume liquidation candles, indicating potential price reaction points.  
+2. **Volatility Filter:** Uses the 1-hour Average True Range (ATR) exceeding its 20-day average to confirm a volatility surge, ensuring trades are taken only during high-momentum conditions.  
+3. **Breakout Execution:** Enters trades when price approaches these liquidation levels and shows breakout behavior, capitalizing on potential continuation or reversal moves.  
+4. **Trailing Stop Exit:** Employs a 2x ATR trailing stop to lock in profits and protect against reversals.  
+
+**Entry Rules:**  
+- **Condition 1:** Identify a historical liquidation zone (clustered high-volume liquidation candles) where price is approaching or testing the level.  
+- **Condition 2:** Confirm a volatility surge (1-hour ATR > 20-day ATR average).  
+- **Entry Trigger:** Enter a breakout trade (long or short) when price breaches the liquidation level with confirmation (e.g., closing beyond the level).  
+
+**Exit Rules:**  
+- **Trailing Stop:** Use a dynamic 2x ATR trailing stop from the entry price, adjusting it as the trade moves in your favor.  
+- **Optional Time Exit:** Consider exiting after a set period (e.g., 24 hours) if the trailing stop hasn’t been hit, to avoid stagnant trades.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk a fixed percentage (e.g., 1-2%) of capital per trade.  
+- **Stop Placement:** Initial stop can be set at 1x ATR from entry, transitioning to the 2x ATR trailing stop once the trade is in profit.  
+- **Avoid Overcrowded Zones:** If multiple liquidation levels cluster too closely, wait for clearer price action to avoid false breakouts.  
+
+**Required Indicators:**  
+1. **ATR (20-day average + 1-hour current value)** – To gauge volatility conditions.  
+2. **Volume Analysis** – To identify high-volume liquidation candles.  
+3. **Price Action Tools** – For spotting breakout confirmations (e.g., candle closes beyond key levels).  
+
+**Unique Edge:** This strategy combines liquidation-level psychology (trader pain points) with volatility expansion, targeting explosive moves while managing risk via ATR-based stops. It avoids low-volatility traps and focuses on high-probability breakout scenarios.

@@ -1,0 +1,49 @@
+STRATEGY_NAME: BandwidthReversal
+
+STRATEGY_DETAILS:
+This strategy combines momentum shifts with volatility contraction to identify high-probability reversal points. The key components are:
+
+1. INDICATORS REQUIRED:
+- 3-day Rate of Change (ROC)
+- 10-day Rate of Change (ROC)
+- Bollinger Bands (20,2 standard deviation recommended)
+- Bollinger Bandwidth (BB width) calculation
+
+2. ENTRY CONDITIONS:
+LONG ENTRY:
+- Current BB width < 10th percentile of 100-day BB width history
+- 3-day ROC crosses ABOVE 10-day ROC
+- Price must be in lower 30% of Bollinger Band
+
+SHORT ENTRY:
+- Current BB width < 10th percentile of 100-day BB width history
+- 3-day ROC crosses BELOW 10-day ROC
+- Price must be in upper 30% of Bollinger Band
+
+3. EXIT CONDITIONS:
+- Primary exit: When BB width expands beyond 25th percentile of 100-day history
+- Secondary exit: When the 3-day ROC crosses back through the 10-day ROC in opposite direction
+- Emergency exit: 2% of account stop-loss (or volatility-adjusted equivalent)
+
+4. RISK MANAGEMENT:
+- Position sizing based on volatility (ATR recommended)
+- Maximum 1-2% risk per trade
+- No new entries when BB width > 50th percentile
+- Avoid trading during major news events
+
+5. FILTERS:
+- Volume should be above 20-day average
+- Preferably trade with prevailing higher timeframe trend
+- Avoid extreme gap openings
+
+6. UNIQUE ASPECTS:
+- Combines momentum crossover with volatility extremes
+- Uses percentile-based bandwidth thresholds rather than fixed values
+- Requires both technical conditions (ROC) and volatility conditions (BB) to align
+
+7. OPTIMIZATION TIPS:
+- Test different ROC periods (2/7, 3/10, 5/14 combinations)
+- Adjust BB width percentiles based on asset volatility
+- Consider adding RSI filter for overbought/oversold conditions
+
+This strategy works best in ranging markets transitioning to trends, and should be avoided during strong, established trends where volatility remains elevated.

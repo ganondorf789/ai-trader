@@ -1,0 +1,45 @@
+STRATEGY_NAME: SqueezeDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze**: Identifies periods of low volatility where price is consolidating, often preceding significant breakouts.  
+2. **VWAP Divergence**: Uses Volume-Weighted Average Price (VWAP) to confirm trend strength and direction when price breaks out of the squeeze.  
+3. **Volume Confirmation**: Ensures breakout validity by requiring increased trading volume.  
+4. **ATR-Based Exit**: Uses Average True Range (ATR) to set dynamic profit targets and manage risk.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  1. Bollinger Bands are in a squeeze (bands narrow significantly, indicating low volatility).  
+  2. Price breaks above the upper Bollinger Band.  
+  3. VWAP crosses above its moving average (e.g., 20-period VWAP MA) with above-average volume.  
+- **Short Entry**:  
+  1. Bollinger Bands are in a squeeze.  
+  2. Price breaks below the lower Bollinger Band.  
+  3. VWAP crosses below its moving average with above-average volume.  
+
+**Exit Rules:**  
+- **Take Profit**:  
+  - Close long position when price touches the lower Bollinger Band or reaches 2x ATR from entry.  
+  - Close short position when price touches the upper Bollinger Band or reaches 2x ATR from entry.  
+- **Stop Loss**:  
+  - For longs: Exit if price closes back inside the Bollinger Bands or below VWAP.  
+  - For shorts: Exit if price closes back inside the Bollinger Bands or above VWAP.  
+
+**Risk Management:**  
+- Position sizing based on 1-2% risk per trade.  
+- Avoid trading during low-volume periods or major economic events that may cause false breakouts.  
+- Monitor for sudden VWAP reversals to exit early if divergence weakens.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations).  
+2. VWAP with a moving average (e.g., 20-period MA of VWAP).  
+3. Volume indicator (to confirm breakout strength).  
+4. Average True Range (ATR, 14-period for dynamic exits).  
+
+**Unique Aspects:**  
+- Combines volatility contraction (squeeze) with volume-weighted trend confirmation (VWAP divergence).  
+- Uses ATR for adaptive profit targets instead of fixed price levels.  
+- Filters false breakouts with volume and VWAP crossovers.  
+
+This strategy excels in trending markets after consolidation phases, capturing early momentum with reduced noise.

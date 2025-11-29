@@ -1,0 +1,45 @@
+STRATEGY_NAME: VolumetricBollinger  
+
+STRATEGY_DETAILS:  
+This strategy combines Bollinger Bands, ADX, volume analysis, and Chandelier Exit for a systematic mean-reversion approach with momentum confirmation.  
+
+**Key Components:**  
+1. **Bollinger Bands (20,2)** – Identifies overbought/oversold levels  
+2. **ADX (14-period)** – Filters for trending conditions (must rise above 25)  
+3. **Volume (30-day SMA)** – Confirms participation in the move  
+4. **Chandelier Exit (3xATR, 22-period)** – Dynamic trailing stop mechanism  
+
+**Entry Rules (Long Only):**  
+1. Price must touch or penetrate the lower Bollinger Band  
+2. ADX must be rising AND cross above 25 (confirming trend strength)  
+3. Current volume must exceed 30-day average volume  
+4. All three conditions must occur simultaneously  
+
+**Exit Rules:**  
+1. **Primary Exit:** Price reaches upper Bollinger Band (take profit)  
+2. **Protective Exit:** Chandelier Exit trailing stop (3xATR) triggers  
+3. **Emergency Exit:** If ADX falls below 20 after entry (trend weakening)  
+
+**Risk Management:**  
+- Position sizing based on 1-2% risk per trade  
+- Initial stop placed at recent swing low (below lower Bollinger Band)  
+- Trailing stop activates once price moves >1.5xATR in profit  
+- No entries if VIX is above 30 (high volatility filter)  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2)  
+2. ADX (14-period)  
+3. Volume + 30-day SMA volume  
+4. ATR (22-period for Chandelier)  
+5. VIX (optional volatility filter)  
+
+**Optimal Conditions:**  
+- Works best in ranging markets with occasional volatility expansions  
+- Avoid during strong bear trends (ADX >35 and falling prices)  
+- Most effective on liquid assets with consistent volume patterns  
+
+**Unique Advantages:**  
+- Volume filter prevents false breakouts  
+- ADX confirms genuine trend strength  
+- Chandelier Exit locks in profits during extended moves  
+- Combines mean-reversion (Bollinger) with trend-following (ADX) elements

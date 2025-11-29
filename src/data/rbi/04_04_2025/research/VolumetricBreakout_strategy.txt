@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Confirmation:** The strategy uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) to confirm a bullish trend.  
+2. **Volume Spike:** Requires volume to spike above its 20-day average, ensuring strong participation in the breakout.  
+3. **Breakout Entry:** Enters trades on the breakout, capitalizing on momentum.  
+4. **Risk Management:** Uses a 2x ATR stop-loss for volatility-adjusted exits and a 5% trailing stop to lock in profits.  
+
+**Entry Rules:**  
+- **Condition 1:** The 50-period EMA must cross above the 200-period EMA (Golden Cross).  
+- **Condition 2:** Volume must exceed its 20-day average, confirming strong buying interest.  
+- **Entry Point:** Enter the trade on the next candle after both conditions are met.  
+
+**Exit Rules:**  
+- **Stop-Loss:** Place a stop-loss at 2x the current ATR (14-period) below the entry price to account for volatility.  
+- **Trailing Stop:** Activate a 5% trailing stop once the trade is in profit to protect gains.  
+
+**Risk Management:**  
+- Position sizing should be adjusted based on the stop-loss distance to ensure risk per trade aligns with your risk tolerance (e.g., 1-2% of capital).  
+- Avoid trading during low-volume periods or major news events to reduce false breakouts.  
+
+**Required Indicators:**  
+1. **50-period EMA** (Exponential Moving Average)  
+2. **200-period EMA**  
+3. **Volume (20-day average)**  
+4. **ATR (14-period)** for stop-loss calculation  
+
+**Additional Notes:**  
+- This strategy works best in trending markets; avoid sideways or choppy conditions.  
+- Backtest to optimize the ATR multiplier (e.g., 1.5x or 2x) and trailing stop percentage for your asset class.  
+- Combine with price action (e.g., higher highs/lows) for additional confirmation.  
+
+The name "VolumetricBreakout" reflects the strategy's focus on volume-confirmed breakouts with robust risk management.

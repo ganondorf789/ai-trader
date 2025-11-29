@@ -1,0 +1,44 @@
+STRATEGY_NAME: VortexFlow  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):**  
+   - VI+ (Positive Vortex) measures upward trend movement.  
+   - VI- (Negative Vortex) measures downward trend movement.  
+   - A bullish signal occurs when VI+ crosses above VI-.  
+   - A bearish signal occurs when VI- crosses above VI+.  
+
+2. **Chaikin Money Flow (CMF):**  
+   - Confirms the strength of the trend by measuring buying/selling pressure.  
+   - A positive CMF (above zero) confirms bullish momentum.  
+   - A negative CMF (below zero) confirms bearish momentum.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - VI+ crosses above VI-.  
+  - CMF is above zero (confirming bullish money flow).  
+- **Short Entry:**  
+  - VI- crosses above VI+.  
+  - CMF is below zero (confirming bearish money flow).  
+
+**Exit Rules:**  
+- **Long Exit:** VI- crosses back above VI+ (trend reversal signal).  
+- **Short Exit:** VI+ crosses back above VI- (trend reversal signal).  
+- Optional: Use a trailing stop or fixed risk percentage (e.g., 2% per trade).  
+
+**Risk Management:**  
+- Set stop-loss below recent swing low (long) or above recent swing high (short).  
+- Position sizing based on account risk (e.g., 1-2% per trade).  
+- Avoid trading during low CMF values (near zero) to filter weak signals.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+ and VI-).  
+2. Chaikin Money Flow (CMF, 20-period default).  
+
+**Additional Notes:**  
+- Works best in trending markets; avoid choppy/range-bound conditions.  
+- Combine with higher timeframe trend alignment for stronger signals.  
+- Backtest optimal CMF threshold (e.g., >0.1 for stronger confirmation).  
+
+This strategy leverages the synergy between trend direction (Vortex) and money flow strength (CMF) for high-probability entries.

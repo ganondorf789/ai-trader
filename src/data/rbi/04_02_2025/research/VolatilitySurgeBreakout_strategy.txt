@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilitySurgeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bands (BB):** Measures price volatility and identifies squeeze conditions (when bands contract).  
+2. **Keltner Channel (KC):** Tracks price volatility expansion, confirming breakout potential.  
+3. **Volume Surge:** Validates breakout strength, ensuring higher participation.  
+4. **Opposite Band Touch:** Defines exit points when price reaches the opposite Bollinger Band.  
+
+**Entry Rules:**  
+1. **Squeeze Condition:** Bollinger Bands must be narrow (contracted), indicating low volatility.  
+2. **KC Expansion:** Keltner Channel must widen, signaling volatility expansion.  
+3. **Volume Surge:** Volume must spike above its recent average (e.g., 20-period MA) to confirm breakout validity.  
+4. **Price Breakout:** Enter long if price breaks above the upper BB + KC expansion, or short if below the lower BB + KC expansion.  
+
+**Exit Rules:**  
+1. **Opposite Band Touch:** Close the trade when price touches the opposite Bollinger Band (e.g., exit long at lower BB, exit short at upper BB).  
+2. **Trailing Stop:** Optional—use a trailing stop (e.g., ATR-based) to lock in profits during strong trends.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place stop-loss below the recent swing low (long) or above the swing high (short).  
+2. **Position Sizing:** Risk ≤1-2% of capital per trade.  
+3. **Filter:** Avoid trading during low-volume periods or major news events.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2).  
+2. Keltner Channel (20, 2).  
+3. Volume MA (e.g., 20-period).  
+4. Optional: ATR (14) for trailing stops.  
+
+**Unique Edge:** Combines volatility contraction (BB squeeze) with expansion (KC) and volume confirmation, reducing false breakouts.

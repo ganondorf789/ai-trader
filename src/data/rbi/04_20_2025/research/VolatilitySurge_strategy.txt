@@ -1,0 +1,29 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+This strategy combines Bollinger Bandwidth contraction with a significant surge in volume to identify high-probability breakout/breakdown opportunities. The key components are:  
+
+1. **Key Indicators**:  
+   - **Bollinger Bands (20,2)**: Measures price volatility and identifies contraction periods.  
+   - **Bollinger Bandwidth**: Calculated as (Upper Band - Lower Band) / Middle Band (20-day SMA). Must be below its 20th percentile (indicating extreme contraction).  
+   - **Volume ROC (Rate of Change)**: Must exceed 200% (a surge in trading activity confirming breakout potential).  
+
+2. **Entry Rules**:  
+   - **Long Entry**: When price breaks above the upper Bollinger Band AND Volume ROC > 200% AND Bandwidth is below its 20th percentile.  
+   - **Short Entry**: When price breaks below the lower Bollinger Band AND Volume ROC > 200% AND Bandwidth is below its 20th percentile.  
+
+3. **Exit Rules**:  
+   - **Take-Profit**: Exit long positions when price touches the upper Bollinger Band again (or short positions when price touches the lower band).  
+   - **Stop-Loss**: Set at the opposite Bollinger Band (e.g., for long positions, stop-loss at the lower band).  
+
+4. **Risk Management**:  
+   - Position sizing should account for volatility (e.g., ATR-based sizing).  
+   - Avoid trading during low-liquidity periods to ensure volume signals are reliable.  
+   - Only trade when both conditions (Bandwidth contraction + Volume ROC surge) align.  
+
+5. **Additional Notes**:  
+   - Works best in trending markets after consolidation.  
+   - False breakouts may occur—wait for closing price confirmation beyond bands.  
+   - Backtest to optimize percentile threshold (20% may vary by asset).  
+
+This strategy capitalizes on "squeeze" setups with volume confirmation, making it distinct from standard Bollinger Band strategies.

@@ -1,0 +1,38 @@
+STRATEGY_NAME: VortexDivergence  
+
+STRATEGY_DETAILS:  
+This strategy combines trend confirmation, momentum divergence, and volatility-based exits to identify high-probability reversal trades. The core components are:  
+
+1. **Key Components**:  
+   - **Vortex Indicator (VI)**: Confirms trend direction (VI+ > VI- for uptrend, VI- > VI+ for downtrend).  
+   - **Elder’s Force Index (EFI)**: Detects bullish/bearish divergences (price makes lower low but EFI makes higher low = bullish reversal signal).  
+   - **Keltner Channels**: Dynamic exit tool (close outside channel triggers exit).  
+   - **Volume Filter**: Only trades during above-average volume periods.  
+
+2. **Entry Rules**:  
+   - **Long Entry**:  
+     1. VI+ crosses above VI- (uptrend confirmation).  
+     2. EFI shows bullish divergence (price lower low, EFI higher low).  
+     3. Volume > 20-period average.  
+   - **Short Entry**:  
+     1. VI- crosses above VI+ (downtrend confirmation).  
+     2. EFI shows bearish divergence (price higher high, EFI lower high).  
+     3. Volume > 20-period average.  
+
+3. **Exit Rules**:  
+   - **Profit-Taking**: Close position when price touches opposite Keltner Channel band (e.g., long exit at upper band).  
+   - **Stop-Loss**:  
+     - Initial stop: Recent swing low (long) / high (short).  
+     - Trailing stop: Adjust to breakeven once price moves 1.5x ATR in profit.  
+
+4. **Risk Management**:  
+   - Max risk per trade: 1-2% of capital.  
+   - No new trades if 3 consecutive losses occur (cool-down period).  
+
+5. **Required Indicators**:  
+   - Vortex Indicator (VI+, VI-; default period 14).  
+   - Elder’s Force Index (13-period EMA of volume-price divergence).  
+   - Keltner Channels (20-period EMA, 2x ATR width).  
+   - Volume (20-period average filter).  
+
+**Unique Edge**: Combines trend confirmation (VI), hidden momentum shifts (EFI divergence), and adaptive exits (Keltner) for high-volume reversals. Avoids choppy markets via volume filter.

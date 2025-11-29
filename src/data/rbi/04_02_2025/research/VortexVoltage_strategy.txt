@@ -1,0 +1,41 @@
+STRATEGY_NAME: VortexVoltage
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines the Vortex Indicator (VI) for trend direction confirmation
+- Uses Volume-Weighted ADX (VWADX) to identify volatility expansions
+- Requires both trend and volatility confirmation for entries
+- Implements fixed risk-adjusted profit targets for systematic exits
+
+2. Entry Rules:
+- Long Entry:
+  + VI+ (positive trend) must cross above VI- (negative trend)
+  + VWADX(14) must be above 25 threshold (confirmed volatility)
+  + Volume must be above 20-period average
+- Short Entry:
+  + VI- must cross above VI+
+  + VWADX(14) > 25
+  + Volume above 20-period average
+
+3. Exit Rules:
+- Primary Exit: Opposite VI crossover (VI- crosses above VI+ for longs, VI+ crosses above VI- for shorts)
+- Secondary Exit: Fixed 1:2 risk-reward ratio (stop loss to take profit)
+- Emergency Exit: If VWADX drops below 15 (volatility contraction)
+
+4. Risk Management:
+- Position sizing based on 1-2% risk per trade
+- Stop loss placed at recent swing low/high (for long/short respectively)
+- Trailing stop activates after price moves 1.5x initial risk
+
+5. Required Indicators:
+- Vortex Indicator (VI+, VI-) - default 14 period
+- Volume-Weighted ADX (VWADX) - 14 period ADX weighted by volume
+- Volume MA - 20 period simple moving average of volume
+
+6. Additional Notes:
+- Best suited for 1H or 4H timeframes
+- Requires confirmation from both indicators to avoid false signals
+- Performs best in trending markets, may underperform in ranging conditions
+- Recommended to combine with price action confirmation at key levels
+
+This "VortexVoltage" strategy creates a systematic approach to trading volatility expansions in the direction of the prevailing trend, with built-in safeguards against false breakouts and clear risk management protocols.

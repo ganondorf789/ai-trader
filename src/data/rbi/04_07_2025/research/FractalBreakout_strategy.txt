@@ -1,0 +1,43 @@
+STRATEGY_NAME: FractalBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Heikin-Ashi Breakout Confirmation:** The strategy uses the smoothed price action of Heikin-Ashi candles to filter out noise and confirm trend direction.  
+2. **Bollinger Band Volatility Expansion:** A breakout beyond the 2-standard deviation Bollinger Band signals extreme volatility and potential continuation.  
+3. **Stochastic RSI Momentum Alignment:** The 1-hour Stochastic RSI crossover ensures momentum supports the breakout direction.  
+4. **Fractal Volatility Anchoring:** Stops are placed at recent fractal highs/lows, which act as dynamic support/resistance zones based on market structure.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. 15-minute Heikin-Ashi candle closes *above* the upper 2σ Bollinger Band.  
+  2. 1-hour Stochastic RSI (14,3,3) crosses *above* its signal line (bullish momentum).  
+- **Short Entry:**  
+  1. 15-minute Heikin-Ashi candle closes *below* the lower 2σ Bollinger Band.  
+  2. 1-hour Stochastic RSI (14,3,3) crosses *below* its signal line (bearish momentum).  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Trail stop using a fractal-based volatility zone (e.g., recent swing high/low).  
+  - Alternatively, target 1:1 or 1:2 risk-reward ratio based on entry-to-stop distance.  
+- **Stop Loss:**  
+  - For longs: Place stop below the most recent fractal low.  
+  - For shorts: Place stop above the most recent fractal high.  
+
+**Risk Management:**  
+- Risk per trade: 1-2% of account capital.  
+- Adjust position size based on stop distance to maintain consistent risk.  
+- Avoid trading during major news events or low liquidity periods.  
+
+**Required Indicators:**  
+1. Heikin-Ashi candles (15-minute chart).  
+2. Bollinger Bands (20-period, 2 standard deviations).  
+3. Stochastic RSI (14,3,3 settings on 1-hour chart).  
+4. Fractal indicator (to identify volatility zones for stops).  
+
+**Unique Aspects:**  
+- Combines smoothed price action (Heikin-Ashi) with volatility extremes (Bollinger Bands) and momentum confirmation (Stochastic RSI).  
+- Uses fractal-based stops for adaptive risk management tied to market structure.  
+- Focuses on high-probability breakouts with multi-timeframe alignment.  
+
+**Note:** Backtest to optimize parameters (e.g., Bollinger Band deviation, Stochastic RSI settings) for specific instruments.

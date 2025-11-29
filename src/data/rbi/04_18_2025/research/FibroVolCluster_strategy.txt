@@ -1,0 +1,40 @@
+STRATEGY_NAME: FibroVolCluster
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Fibonacci retracement cluster identification (multiple Fib levels converging in tight price zone)
+- Volatility contraction detection (measured by narrowing Bollinger Bands or ATR below threshold)
+- On-balance volume divergence confirmation (price making lower highs while OBV makes higher highs, or vice versa)
+- Swing point analysis for stop placement (using recent significant highs/lows)
+
+2. Entry Rules:
+- Wait for price to consolidate within a Fibonacci cluster zone (38.2%-61.8% retracement area with multiple Fib levels converging)
+- Confirm low volatility (Bollinger Band width < X% of price or ATR(14) below Y-period average)
+- Require OBV divergence in direction of breakout (bullish: price lower lows, OBV higher lows / bearish: price higher highs, OBV lower highs)
+- Enter on breakout candle closing beyond cluster boundary with above conditions met
+
+3. Exit Rules:
+- Profit targets at 1:1.5 risk-reward ratio minimum
+- Secondary target at next significant Fibonacci extension level (127% or 161.8%)
+- Trail stop to breakeven after 1:1 risk-reward achieved
+- Exit on OBV reversal signal (break of OBV trendline)
+
+4. Risk Management:
+- Initial stop placed beyond opposite side of consolidation cluster
+- Alternative stop placement at recent swing extreme (last significant high/low)
+- Position size limited to 1-2% risk per trade
+- Maximum 5% portfolio exposure at any time
+
+5. Required Indicators:
+- Fibonacci retracement tool (multiple timeframes recommended)
+- Bollinger Bands (20,2) or ATR(14) for volatility measurement
+- On-balance volume indicator
+- Price swing detection tool (for stop placement)
+
+6. Additional Notes:
+- Best performance in trending markets after pullbacks
+- Higher timeframe clusters (daily/weekly) carry more weight
+- Avoid trading during major news events
+- Requires patience for proper cluster formation (typically 5-15 candles)
+
+This strategy combines Fibonacci harmonic patterns with volume confirmation and volatility filtering to identify high-probability breakout opportunities while maintaining strict risk control. The name "FibroVolCluster" reflects the core elements: Fibonacci retracements (Fibro), volatility contraction (Vol), and price clustering behavior.

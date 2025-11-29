@@ -1,0 +1,51 @@
+STRATEGY_NAME: VortexSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction with directional momentum confirmation through a unique synthesis of the Vortex Indicator, Bollinger Band analysis, and volume spikes.
+
+Key Components:
+1. Vortex Indicator (VI+/VI-) - Primary directional signal
+2. Bollinger Band Width - Volatility contraction filter
+3. Volume Spike - Confirmation of breakout validity
+4. ATR - Dynamic stop-loss mechanism
+
+Entry Rules:
+1. Primary Condition: VI+ must cross above VI- (bullish momentum signal)
+2. Volatility Filter: Bollinger Band Width must be below its 10-day average (volatility squeeze)
+3. Volume Confirmation: Current volume must exceed 2x the 20-day median volume
+All three conditions must be met simultaneously for entry
+
+Exit Rules:
+1. Primary Exit: VI- crosses back above VI+ (momentum reversal signal)
+2. Protective Stop: 1.5x ATR from entry price (volatility-adjusted stop)
+3. Optional Profit Target: None specified (trailing stop approach recommended)
+
+Risk Management:
+1. Position sizing should be based on the ATR stop distance
+2. Maximum risk per trade typically 1-2% of capital
+3. No new entries if current position is active
+4. Consider implementing a maximum daily loss limit
+
+Required Indicators:
+1. Vortex Indicator (VI+/VI-) - Default 14-period recommended
+2. Bollinger Bands (20,2) with Width calculation
+3. Volume (20-day median calculation)
+4. Average True Range (ATR) - 14-period recommended
+
+Optimization Considerations:
+1. Test different Bollinger Band periods for squeeze detection
+2. Experiment with volume multiplier (1.5x-3x range)
+3. Adjust ATR multiplier based on market conditions
+4. Consider adding time-of-day filters for certain markets
+
+Unique Advantages:
+1. Combines momentum, volatility, and volume confirmation
+2. Works particularly well in transitioning markets
+3. Volatility filter reduces false breakouts
+4. Volume confirmation adds validity to signals
+
+Implementation Notes:
+1. Best suited for 15min-4hr timeframes
+2. Works across multiple asset classes
+3. Requires clean, gap-free data for accurate signals
+4. Backtest across different market regimes for robustness

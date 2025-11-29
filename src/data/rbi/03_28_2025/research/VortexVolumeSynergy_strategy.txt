@@ -1,0 +1,49 @@
+STRATEGY_NAME: VortexVolumeSynergy
+
+STRATEGY_DETAILS:
+This strategy combines momentum confirmation with volume validation to identify high-probability entries while using volume-adjusted money flow for exits.
+
+Key Components:
+1. Vortex Indicator (VI+ and VI-) for trend direction confirmation
+2. Volume spike detection (90th percentile threshold)
+3. Volume-adjusted Chaikin Money Flow (CMF) for exit signals
+4. 2-day low filter for exit timing
+
+Entry Rules:
+1. Primary Condition: VI+ crosses above VI- (bullish momentum signal)
+2. Confirmation: Current volume must be in top 10% of recent volume (90th percentile spike)
+3. Both conditions must occur on same trading day
+
+Exit Rules:
+1. Monitor volume-adjusted CMF (20-period recommended)
+2. Exit long position when CMF makes a 2-day low
+3. Alternative exit: Consider trailing stop if CMF remains strong
+
+Risk Management:
+1. Initial stop-loss: 2x ATR(14) below entry price
+2. Position sizing: Risk no more than 1-2% of capital per trade
+3. Maximum portfolio exposure: 5-10% in similar correlated strategies
+
+Required Indicators:
+1. Vortex Indicator (default 14-period)
+2. Volume percentile calculation (lookback period 20-50 days)
+3. Chaikin Money Flow (20-period standard)
+4. Volume adjustment for CMF (multiply standard CMF by volume ratio)
+5. ATR(14) for stop-loss calculation
+
+Optimization Notes:
+1. Test different lookback periods for volume percentile (20-50 days)
+2. Experiment with CMF periods (14-30)
+3. Consider adding filter for overall market trend
+4. Volume spike threshold can be adjusted between 85-95th percentile
+
+Unique Advantages:
+1. Combines momentum and volume confirmation
+2. Uses adaptive exit based on money flow deterioration
+3. Volume spike filter reduces false signals
+4. Works well in trending markets with participation
+
+Potential Limitations:
+1. May underperform in low-volatility, range-bound markets
+2. Requires sufficient liquidity for volume signals
+3. Volume spikes can sometimes indicate exhaustion rather than continuation

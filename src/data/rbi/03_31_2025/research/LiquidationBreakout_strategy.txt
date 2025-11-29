@@ -1,0 +1,45 @@
+STRATEGY_NAME: LiquidationBreakout
+
+STRATEGY_DETAILS:
+This strategy capitalizes on forced long liquidations during periods of extreme negative funding rates, using Keltner Channel breakout as the primary entry trigger and mean reversion to the channel midline for exits.
+
+Key Components:
+1. Keltner Channel (20-period EMA with 2.5x ATR bands)
+2. Funding Rate monitoring (extreme negative values)
+3. Liquidations heatmap/data
+4. Price action confirmation
+
+Entry Rules:
+1. Wait for funding rates to reach extreme negative territory (threshold varies by asset)
+2. Confirm price breaks above upper Keltner Channel band
+3. Volume should confirm the breakout (above 20-period average)
+4. Enter long position on retest of broken channel or immediate breakout confirmation
+
+Exit Rules:
+1. Primary exit: When price returns to Keltner Channel midline
+2. Secondary exit: If price closes below lower Keltner band (emergency stop)
+3. Time-based exit: Close position if target not hit within 3-5 candles
+
+Risk Management:
+1. Position size: 1-2% of capital per trade
+2. Stop loss: Below recent swing low or lower Keltner band
+3. Avoid trading during low liquidity periods
+4. Scale out of positions (50% at midline, 50% at additional targets)
+
+Required Indicators:
+1. Keltner Channel (20EMA, 2.5ATR)
+2. Funding rate monitor
+3. Volume indicator
+4. Liquidations data feed
+
+Special Considerations:
+- Works best in crypto markets with perpetual contracts
+- Most effective during high volatility periods
+- Requires monitoring of market sentiment
+- Combine with order flow analysis for best results
+
+Optimization Tips:
+- Adjust ATR multiplier based on asset volatility
+- Test different funding rate thresholds per asset
+- Consider adding RSI filter (avoid overbought conditions)
+- Backtest across different market regimes

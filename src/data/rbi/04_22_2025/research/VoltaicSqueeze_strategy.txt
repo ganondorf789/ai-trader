@@ -1,0 +1,32 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility (squeeze) when the bands narrow significantly, often preceding explosive price movements.  
+2. **VWAP Deviation:** Measures how far price is from the Volume-Weighted Average Price, confirming breakout strength when price moves away from VWAP.  
+3. **Declining Volume:** During the squeeze, volume typically decreases, and a surge in volume confirms breakout validity.  
+
+**Entry Rules:**  
+1. **Squeeze Condition:** Bollinger Band width (upper - lower) must be below a threshold (e.g., 20-period SMA of width).  
+2. **Breakout Confirmation:** Price must close outside the Bollinger Bands (upper for long, lower for short).  
+3. **Volume Surge:** Volume on breakout must be significantly higher than recent average (e.g., 1.5x 10-period SMA).  
+4. **VWAP Alignment:** For long entries, price should break above VWAP; for short entries, below VWAP.  
+
+**Exit Rules:**  
+1. **Profit Target:** Fixed risk-reward ratio (e.g., 2:1) or Bollinger Band reversion (closing back inside bands).  
+2. **Stop Loss:** Placed at the opposite band or recent swing low/high.  
+3. **Time Exit:** If no significant movement occurs within X bars (e.g., 5-10), exit the trade.  
+
+**Risk Management:**  
+1. Position size capped at 1-2% of capital per trade.  
+2. Stop loss must be respected—no discretionary holding beyond it.  
+3. Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2)  
+2. VWAP (daily anchor)  
+3. Volume (10-period SMA for comparison)  
+4. Bollinger Band Width (custom calculation: upper - lower)  
+
+**Unique Edge:** Combines volatility compression, volume confirmation, and VWAP alignment to filter high-probability breakouts while avoiding false signals. Works best on 15m-1H timeframes in trending markets.

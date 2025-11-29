@@ -1,0 +1,71 @@
+STRATEGY_NAME: MomentumSwapSpread
+
+STRATEGY_DETAILS:
+The MomentumSwapSpread strategy is designed to capitalize on the price divergence between short-term futures and long-term options contracts. This strategy leverages momentum shifts in the market by taking opposing positions in these two instruments, aiming to profit from the spread created by their differing price movements.
+
+### Key Strategy Components:
+1. **Instrument Selection**: 
+   - **Short-Term Futures**: Focus on futures contracts with near-term expiration dates (e.g., 1-3 months).
+   - **Long-Term Options**: Corresponding options contracts with longer expiration dates (e.g., 6-12 months).
+
+2. **Momentum Analysis**:
+   - Identify momentum shifts in the underlying asset using technical indicators like RSI (Relative Strength Index) or MACD (Moving Average Convergence Divergence).
+   - Look for overbought or oversold conditions to time entries.
+
+3. **Spread Calculation**:
+   - Calculate the spread between the short-term futures price and the long-term options price.
+   - Monitor the spread for significant deviations from historical averages.
+
+### Entry Rules:
+1. **Long Futures Position**:
+   - Enter a long position in short-term futures when:
+     - Momentum indicators (e.g., RSI) show oversold conditions (e.g., RSI < 30).
+     - The spread between futures and options is below the historical average.
+
+2. **Short Options Position**:
+   - Simultaneously enter a short position in long-term options when:
+     - Momentum indicators show overbought conditions (e.g., RSI > 70).
+     - The spread between futures and options is above the historical average.
+
+### Exit Rules:
+1. **Close Long Futures Position**:
+   - Exit the long futures position when:
+     - Momentum indicators show overbought conditions (e.g., RSI > 70).
+     - The spread between futures and options returns to or exceeds the historical average.
+
+2. **Close Short Options Position**:
+   - Exit the short options position when:
+     - Momentum indicators show oversold conditions (e.g., RSI < 30).
+     - The spread between futures and options returns to or falls below the historical average.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Allocate capital proportionally between the futures and options positions to maintain a balanced risk profile.
+   - Use a fixed percentage of total capital (e.g., 2-5%) per trade.
+
+2. **Stop-Loss Orders**:
+   - Set stop-loss orders for both positions based on a percentage of the spread (e.g., 1-2%).
+   - Adjust stop-loss levels dynamically as the spread changes.
+
+3. **Diversification**:
+   - Apply the strategy across multiple uncorrelated assets to reduce overall portfolio risk.
+
+### Required Indicators:
+1. **RSI (Relative Strength Index)**:
+   - Used to identify overbought and oversold conditions.
+   - Typical settings: 14-period RSI.
+
+2. **MACD (Moving Average Convergence Divergence)**:
+   - Used to confirm momentum shifts.
+   - Typical settings: 12, 26, 9.
+
+3. **Spread Indicator**:
+   - Custom indicator to calculate and monitor the spread between futures and options prices.
+   - Historical average spread should be calculated over a relevant lookback period (e.g., 30-60 days).
+
+### Additional Considerations:
+- **Liquidity**: Ensure both futures and options contracts have sufficient liquidity to avoid slippage.
+- **Volatility**: Monitor implied volatility in options to avoid excessive premium costs.
+- **Rolling Contracts**: Be prepared to roll futures and options positions as they near expiration to maintain the strategy's effectiveness.
+
+This strategy requires careful monitoring of both price movements and spread dynamics, making it suitable for experienced traders with a solid understanding of derivatives markets.

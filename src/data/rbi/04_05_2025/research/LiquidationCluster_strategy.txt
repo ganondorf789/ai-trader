@@ -1,0 +1,39 @@
+STRATEGY_NAME: LiquidationCluster  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Detection:** The strategy identifies potential market bottoms by detecting clusters of liquidations, signaled by:  
+   - **Extremely Negative Funding Rates:** Indicates excessive short positioning and potential for a short squeeze.  
+   - **Rapid Open Interest (OI) Decline:** Confirms liquidations are occurring as positions are forcibly closed.  
+2. **OI Stabilization:** After the initial liquidation phase, the strategy waits for OI to stabilize, suggesting the bulk of liquidations are complete.  
+3. **Funding Rate Reversion:** Exits positions when funding rates normalize, indicating reduced market pressure.  
+
+**Entry Rules:**  
+1. **Trigger Condition:**  
+   - Funding rate reaches a highly negative threshold (e.g., below -0.1% per 8 hours).  
+   - Open interest shows a sharp decline (e.g., >10% drop within a short timeframe).  
+2. **Confirmation:**  
+   - Wait for OI to stabilize (e.g., no further significant declines for 2-4 candles).  
+   - Enter a long position once stabilization is confirmed.  
+
+**Exit Rules:**  
+1. **Primary Exit:** Funding rate reverts to neutral or slightly positive (e.g., > -0.02%).  
+2. **Secondary Exit:** If price shows weakness (e.g., breaks below a recent low) before funding normalizes.  
+
+**Risk Management:**  
+1. **Position Sizing:** Use conservative leverage (e.g., 2-5x) due to high volatility during liquidation events.  
+2. **Stop-Loss:** Place below the recent swing low or a volatility-based ATR stop (e.g., 1.5x ATR).  
+3. **Time-Based Exit:** Exit if funding remains negative for an extended period (e.g., >12 hours) without price recovery.  
+
+**Required Indicators:**  
+1. **Funding Rate** (perpetual swap data).  
+2. **Open Interest** (futures/swap OI tracking).  
+3. **Optional:** ATR for stop placement, volume confirmation.  
+
+**Unique Aspects:**  
+- Focuses on post-liquidation reversals rather than trend-following.  
+- Combines funding rate extremes with OI dynamics for high-probability entries.  
+- Exits early to avoid "dead cat bounces" by monitoring funding normalization.  
+
+**Note:** Works best in high-leverage crypto markets (e.g., BTC, ETH perpetual swaps) where liquidations are frequent and impactful.

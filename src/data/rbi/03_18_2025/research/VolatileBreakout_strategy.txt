@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolatileBreakout
+
+STRATEGY_DETAILS:
+The VolatileBreakout strategy combines Bollinger Band width contraction, ADX trend strength, and volume analysis to identify high-probability breakout trades. This strategy is designed to capture strong trending moves following periods of low volatility.
+
+Key Components:
+1. Bollinger Bands (20,2) - Identifies periods of contraction and potential breakout levels
+2. ADX (14) - Measures trend strength
+3. Volume Analysis - Confirms breakout momentum
+4. 20-day Volume Average - Provides baseline for volume surge detection
+
+Entry Rules:
+1. Bollinger Band Width must be in contraction (narrowing phase)
+2. Price must close above the upper Bollinger Band
+3. ADX must be above 30, indicating strong trend
+4. Volume must surge at least 50% above the 20-day average
+
+Exit Rules:
+1. Take Profit: Close position when price closes below the middle Bollinger Band (20 SMA)
+2. Stop Loss: Set at the lower Bollinger Band level
+3. Time Exit: Close position if ADX drops below 25, indicating weakening trend
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Maximum portfolio exposure of 5% to any single trade
+3. Use trailing stop loss adjusted daily based on Bollinger Bands
+4. Avoid trading during major news events or low liquidity periods
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. ADX (14)
+3. Volume Indicator
+4. 20-day Volume Average
+
+Additional Considerations:
+- Best suited for trending markets and liquid assets
+- Works well on daily and 4-hour timeframes
+- Combine with fundamental analysis for higher probability trades
+- Backtest on specific instruments to optimize parameters
+
+This strategy aims to capture strong moves following periods of consolidation, using multiple confirmation factors to increase the probability of successful trades while managing risk through defined exit criteria.

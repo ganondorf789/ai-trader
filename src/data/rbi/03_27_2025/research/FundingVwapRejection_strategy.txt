@@ -1,0 +1,38 @@
+STRATEGY_NAME: FundingVwapRejection
+
+STRATEGY_DETAILS:
+This strategy combines funding rate analysis with volume-weighted price action and Bollinger Band dynamics for short entries in perpetual futures markets. The approach specifically targets overextended bullish conditions when they show signs of exhaustion.
+
+Key Components:
+1. Funding Rate Threshold: Uses +0.1% as the trigger level indicating excessive long positioning
+2. Weekly VWAP Clusters: Identifies significant volume-based resistance zones
+3. Price Rejection: Requires bearish price action at VWAP clusters (pin bars, engulfing patterns)
+4. Bollinger Band Liquidity: Daily bands (typically 20-period, 2 std dev) mark potential exit zones
+
+Entry Rules:
+1. Confirm perpetual funding rate > +0.1% (indicating crowded long trade)
+2. Identify price rejection candle(s) at weekly VWAP cluster (minimum 2 touches)
+3. Enter short on break below rejection candle low
+4. Ideal entry shows wick rejection with high volume at VWAP
+
+Exit Rules:
+1. Primary Exit: When funding rate normalizes to ≤ +0.05%
+2. Secondary Exit: Price sweeps below daily Bollinger Band lower band
+3. Emergency Exit: If funding rate spikes beyond +0.3% (indicates potential short squeeze)
+
+Risk Management:
+1. Position Size: 1-2% risk per trade
+2. Stop Loss: Above recent swing high or VWAP cluster top
+3. Time Filter: Avoid entering last 2 hours before funding rate calculation
+4. Asset Selection: Focus on top 5 volume perpetual contracts
+
+Required Indicators:
+1. Perpetual Funding Rate (real-time)
+2. Weekly VWAP with cluster detection
+3. Daily Bollinger Bands (20,2)
+4. Volume indicator (confirming rejection candles)
+
+Optimization Notes:
+1. Adjust funding rate threshold based on asset volatility (crypto vs commodities)
+2. Test different VWAP timeframes (monthly vs weekly)
+3. Consider adding RSI filter (e.g., >60 when entering)

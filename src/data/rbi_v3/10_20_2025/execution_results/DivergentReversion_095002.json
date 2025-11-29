@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 Moon Dev: Data loaded and cleaned. Shape: (31066, 6)\nColumns: ['datetime', 'Open', 'High', 'Low', 'Close', 'Volume']\n\ud83c\udf19 Moon Dev: Running backtest... \ud83d\ude80\n\ud83c\udf19 Moon Dev: Indicators initialized \u2728\n\ud83c\udf19 Moon Dev: Long Entry at 16715.29, Size: 0.0239, SL: 16690.25, TP: 16790.41 \u2728\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v3.py\", line 137, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v3.py\", line 62, in next\n    current_profit = abs(self.position.pl_pnl) / self.position.size if self.position.size != 0 else 0\nAttributeError: 'Position' object has no attribute 'pl_pnl'. Did you mean: 'pl_pct'?\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/DivergentReversion_OPT_v3.py` failed. (See above for error)\n",
+  "execution_time": 1.099221,
+  "timestamp": "2025-10-20T09:50:02.890380"
+}

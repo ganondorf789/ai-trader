@@ -1,0 +1,43 @@
+STRATEGY_NAME: VolCompressShorts
+
+STRATEGY_DETAILS:
+This strategy combines funding rate extremes with volatility compression patterns to identify high-probability short opportunities in crypto markets.
+
+Key Components:
+1. Funding Rate Extremes: Uses 30-day funding rate exceeding historical 90th percentile as overleveraged condition
+2. Volatility Compression: Identified via Keltner Channel contraction followed by expansion
+3. Liquidation Dynamics: Incorporates average liquidation move for exit targeting
+
+Entry Rules:
+1. Primary Condition: 30-day funding rate > 90th percentile historical value
+2. Confirmation: 
+   - Keltner Channel (20-period, 2.5x ATR) shows 3-day contraction (width decreases)
+   - Followed by channel expansion (width increases) indicating volatility breakout
+3. Entry: Short position on confirmed channel expansion
+
+Exit Rules:
+1. Funding Normalization: When current funding rate drops below 75th percentile
+2. Price Retracement: If price moves against position by 1.5x average liquidation move
+   - Calculate average liquidation move as 20-day mean of daily liquidation spikes
+3. Whichever condition occurs first triggers exit
+
+Risk Management:
+1. Position Sizing: Risk no more than 1-2% per trade
+2. Stop Loss: 
+   - Initial: 2x average liquidation move from entry
+   - Trailing: Adjust to 1x liquidation move after favorable move
+3. Maximum Portfolio Exposure: 10-15% across all active positions
+
+Required Indicators:
+1. Funding Rate Data (30-day and historical percentile)
+2. Keltner Channel (20-period, 2.5x ATR multiplier)
+3. Average True Range (14-period for volatility measurement)
+4. Liquidation Data (for calculating average liquidation moves)
+
+Optimization Notes:
+1. Backtest different Keltner Channel periods (14-30 days)
+2. Test various ATR multipliers (2.0-3.0x)
+3. Validate percentile thresholds for funding rates
+4. Adjust liquidation move multiplier (1.0-2.0x) based on asset volatility
+
+This strategy capitalizes on the combination of overleveraged conditions (via funding rates) and volatility regime shifts, targeting the explosive unwinding of crowded long positions. The exit logic incorporates both mean-reversion of funding rates and liquidation cascade dynamics for optimal timing.

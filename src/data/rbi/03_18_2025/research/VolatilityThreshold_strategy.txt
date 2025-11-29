@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilityThreshold
+
+STRATEGY_DETAILS:
+The VolatilityThreshold strategy is a volatility-based trading approach that combines the Average True Range (ATR) indicator with a moving average crossover to identify low-volatility entry points and manage risk effectively. Here's a detailed breakdown of the strategy:
+
+### Key Strategy Components:
+1. **Volatility Filter**: Uses the 20-day ATR to measure market volatility.
+2. **Percentile Threshold**: Identifies low-volatility conditions when the 20-day ATR drops below its 10th percentile.
+3. **Trend Confirmation**: Requires price to cross above the 50-day moving average to confirm a bullish trend.
+4. **Risk Management**: Implements a 2x ATR stop-loss and a 5-day holding period for exits.
+
+### Entry Rules:
+1. **Volatility Condition**: The 20-day ATR must drop below its 10th percentile (calculated over a historical period, e.g., 100 days).
+2. **Trend Condition**: Price must cross above the 50-day moving average.
+3. **Entry Signal**: A long position is initiated when both conditions are met simultaneously.
+
+### Exit Rules:
+1. **Stop-Loss Exit**: Exit the trade if the price drops below the entry price minus 2x the current 20-day ATR.
+2. **Time-Based Exit**: Exit the trade after holding the position for 5 trading days, regardless of profit or loss.
+
+### Risk Management:
+1. **Position Sizing**: Use the 2x ATR stop-loss to determine position size based on your risk tolerance (e.g., risking 1% of capital per trade).
+2. **Stop-Loss Placement**: The stop-loss is dynamic and adjusts with changes in volatility.
+3. **Holding Period Limitation**: The 5-day holding period ensures trades are not held indefinitely, reducing exposure to unexpected market moves.
+
+### Required Indicators:
+1. **20-Day ATR**: To measure volatility and identify low-volatility conditions.
+2. **50-Day Moving Average**: To confirm the trend direction.
+3. **10th Percentile of 20-Day ATR**: Calculated over a historical period (e.g., 100 days) to define the volatility threshold.
+
+### Additional Notes:
+- **Backtesting**: Ensure the 10th percentile of the 20-day ATR is calculated over a sufficiently long historical period (e.g., 100 days) to avoid overfitting.
+- **Market Conditions**: This strategy performs best in trending markets with periodic low-volatility phases.
+- **Optimization**: Consider testing different percentiles (e.g., 5th or 15th) and holding periods to adapt to specific markets or instruments.
+
+The VolatilityThreshold strategy is designed to capitalize on low-volatility breakouts while managing risk through dynamic stop-losses and time-based exits. Its unique combination of volatility filtering and trend confirmation makes it a robust approach for traders seeking to exploit mean-reverting volatility patterns.

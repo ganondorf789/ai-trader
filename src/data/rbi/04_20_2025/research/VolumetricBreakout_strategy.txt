@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Keltner Channel (20-period):** A volatility-based envelope indicator that helps identify breakout opportunities. The channel consists of an exponential moving average (EMA) centerline and upper/lower bands based on Average True Range (ATR).  
+2. **Volume Confirmation:** Requires trading volume to exceed the 50-day average volume to validate the breakout signal.  
+3. **ATR Trailing Stop:** Uses a trailing stop set to 2x the 14-period ATR to protect profits and limit losses.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when price closes above the upper Keltner Channel band AND volume exceeds the 50-day average.  
+- **Short Entry:** Triggered when price closes below the lower Keltner Channel band AND volume exceeds the 50-day average.  
+
+**Exit Rules:**  
+1. **Close Inside Channel:** Exit the trade if price closes back inside the Keltner Channel (above the lower band for shorts, below the upper band for longs).  
+2. **Trailing Stop:** Exit when price hits the trailing stop level, which is set at 2x the 14-period ATR from the most recent extreme (high for longs, low for shorts).  
+
+**Risk Management:**  
+- Position sizing should account for the 2x ATR stop distance to ensure risk per trade aligns with overall capital preservation goals.  
+- Avoid trading during low-volume periods or major economic events that may distort volatility.  
+
+**Required Indicators:**  
+1. **Keltner Channel (20-period, 2x ATR width)**  
+2. **50-day Average Volume**  
+3. **14-period Average True Range (ATR)**  
+
+**Unique Aspects:**  
+- Combines volatility breakout (Keltner Channel) with volume confirmation for higher-probability signals.  
+- Uses a dynamic trailing stop based on ATR to adapt to changing market conditions.  
+- Avoids false breakouts by requiring volume expansion.  
+
+This strategy is best suited for trending markets and may underperform in choppy or range-bound conditions.

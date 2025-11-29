@@ -1,0 +1,67 @@
+STRATEGY_NAME: FibBandSqueeze
+
+STRATEGY_DETAILS:
+The FibBandSqueeze strategy combines Fibonacci retracement levels with Bollinger Bands to identify high-probability trade setups during periods of consolidation and breakout. The strategy focuses on price confirmation at key support/resistance levels while leveraging the narrowing range of Bollinger Bands to anticipate potential breakouts.
+
+### Key Strategy Components:
+1. **Fibonacci Retracement**: Used to identify key support and resistance levels based on recent price swings.
+2. **Bollinger Bands**: Used to detect periods of low volatility (narrowing bands) and potential breakout opportunities.
+3. **Price Confirmation**: Requires price to clearly break or reject a Fibonacci level with strong candlestick patterns.
+
+### Entry Rules:
+1. **Setup Conditions**:
+   - Identify a recent significant price swing (high to low or low to high).
+   - Draw Fibonacci retracement levels (38.2%, 50%, 61.8%) on the swing.
+   - Observe Bollinger Bands narrowing (squeeze) near a key Fibonacci level (support or resistance).
+
+2. **Long Entry**:
+   - Price is near a Fibonacci support level (e.g., 38.2%, 50%, or 61.8%).
+   - Bollinger Bands are narrowing, indicating low volatility.
+   - Price breaks above the upper Bollinger Band with strong bullish momentum (e.g., a large bullish candle closing above the band).
+   - Confirm with volume increase or a bullish candlestick pattern (e.g., engulfing, hammer).
+
+3. **Short Entry**:
+   - Price is near a Fibonacci resistance level.
+   - Bollinger Bands are narrowing.
+   - Price breaks below the lower Bollinger Band with strong bearish momentum (e.g., a large bearish candle closing below the band).
+   - Confirm with volume increase or a bearish candlestick pattern (e.g., shooting star, bearish engulfing).
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set take profit at the next Fibonacci extension level (e.g., 127.2% or 161.8%).
+   - Alternatively, use a trailing stop based on Bollinger Band movement or a fixed risk-reward ratio (e.g., 2:1).
+
+2. **Stop Loss**:
+   - Place stop loss below the recent swing low (for long trades) or above the recent swing high (for short trades).
+   - Alternatively, use the opposite Bollinger Band as a dynamic stop loss.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital per trade.
+   - Adjust position size based on the distance between entry and stop loss.
+
+2. **Trade Filtering**:
+   - Only trade setups with a clear Fibonacci level and Bollinger Band squeeze.
+   - Avoid trading during major news events or low liquidity periods.
+
+3. **Diversification**:
+   - Apply the strategy across multiple timeframes (e.g., 1-hour, 4-hour, daily) and instruments to diversify risk.
+
+### Required Indicators:
+1. **Fibonacci Retracement Tool**:
+   - Available on most trading platforms.
+   - Use to plot key levels based on recent price swings.
+
+2. **Bollinger Bands**:
+   - Default settings (20-period SMA, 2 standard deviations).
+   - Use to identify narrowing ranges and potential breakouts.
+
+3. **Volume Indicator (Optional)**:
+   - Use to confirm breakout strength.
+
+### Additional Notes:
+- This strategy works best in trending markets with clear support/resistance levels.
+- Avoid using it in choppy or sideways markets where Bollinger Bands may give false signals.
+- Combine with other technical tools (e.g., RSI, MACD) for additional confirmation if needed.
+
+By combining Fibonacci levels with Bollinger Band squeezes, the FibBandSqueeze strategy provides a structured approach to trading breakouts with defined risk-reward parameters.

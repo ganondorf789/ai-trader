@@ -1,0 +1,51 @@
+STRATEGY_NAME: VolumeMACD Divergence
+
+STRATEGY_DETAILS:
+This strategy combines MACD (Moving Average Convergence Divergence) with volume analysis to identify high-probability trade entries and exits. The key components are:
+
+1. Key Components:
+- MACD (12,26,9) as the primary indicator
+- Volume analysis (50% above average volume threshold)
+- Divergence detection for exits
+- Trend confirmation for short positions
+
+2. Entry Rules:
+- Long Entry: 
+  1. MACD line crosses above the Signal line
+  2. Current volume exceeds 50% of the average volume (use 20-period volume average)
+  3. Confirm bullish momentum with price above 200 EMA (optional filter)
+
+- Short Entry:
+  1. MACD line crosses below the Signal line
+  2. Current volume exceeds 50% of the average volume
+  3. Price is in a downtrend (confirmed by lower highs and lower lows)
+
+3. Exit Rules:
+- Long Exit:
+  1. Bearish MACD divergence forms (price makes higher high while MACD makes lower high)
+  2. MACD crosses below Signal line
+  3. Stop-loss at recent swing low
+
+- Short Exit:
+  1. Bullish MACD divergence forms (price makes lower low while MACD makes higher low)
+  2. MACD crosses above Signal line
+  3. Stop-loss at recent swing high
+
+4. Risk Management:
+- Position sizing based on 1-2% risk per trade
+- Initial stop-loss at recent swing high/low
+- Trailing stop based on MACD signal line cross
+- Risk-reward ratio minimum 1:2
+
+5. Required Indicators:
+- MACD (12,26,9)
+- Volume indicator (20-period average)
+- Optional: 200 EMA for trend confirmation
+
+6. Additional Notes:
+- Use higher timeframes (4H or Daily) for better signal reliability
+- Avoid trading during low-volume periods
+- Combine with price action confirmation for better accuracy
+- Backtest thoroughly to determine optimal volume threshold for your market
+
+This strategy is particularly effective in trending markets and provides clear entry/exit signals with volume confirmation to filter out false signals. The divergence-based exit helps capture maximum profit potential while managing risk effectively.

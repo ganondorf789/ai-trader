@@ -1,0 +1,40 @@
+STRATEGY_NAME: BandwidthSurge
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with volume confirmation to identify potential explosive breakout opportunities, using an adaptive trailing stop for exit management.
+
+Key Components:
+1. Bollinger Band Width Contraction: Measures periods of low volatility when the bands tighten significantly
+2. Volume Confirmation: Requires substantial buying interest to validate the breakout signal
+3. Adaptive Exit: Uses volatility-based trailing stop to lock in profits during strong trends
+
+Entry Rules:
+- Primary Condition: Bollinger Band Width (20,2) reaches a 10-day low (indicating extreme contraction)
+- Confirmation: Volume must spike above 2x the 20-day average volume
+- Execution: Enter long position at market when both conditions are met simultaneously
+
+Exit Rules:
+- Trailing Stop: Set at 2x the 14-period Average True Range (ATR)
+- The stop trails below the highest price reached since entry
+- No profit target - let the trailing stop determine the exit
+
+Risk Management:
+1. Position Sizing: Risk no more than 1-2% of capital per trade
+2. Stop Placement: Initial stop could be set at 1.5x ATR below entry if not using pure trailing stop
+3. Volatility Filter: Avoid trading when 14-period ATR is below its 20-day average (low volatility periods)
+
+Required Indicators:
+1. Bollinger Bands (20,2) - for width calculation
+2. Volume (20-day average and current)
+3. Average True Range (14-period)
+
+Additional Notes:
+- Works best in markets transitioning from consolidation to trending phases
+- Most effective on daily or 4-hour timeframes
+- Consider combining with RSI (2) < 20 for additional oversold confirmation
+- Avoid using during major news events when volume spikes may be misleading
+
+Optimization Considerations:
+- Test different lookback periods for BB Width low (5-20 days)
+- Experiment with volume multipliers (1.5x-3x average)
+- Adjust ATR multiplier for trailing stop (1.5x-3x) based on market volatility

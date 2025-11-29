@@ -1,0 +1,38 @@
+STRATEGY_NAME: ForceChannel Breakout
+
+STRATEGY_DETAILS:
+This strategy combines the power of Elder's Force Index with Keltner Channel dynamics to identify high-probability breakout opportunities with strong momentum confirmation.
+
+Key Components:
+1. Elder Force Index (13-period) - Measures buying/selling pressure
+2. Keltner Channels (20-period ATR, 1.5 multiplier) - Identifies volatility-based breakout levels
+3. Zero line crossover - Confirms momentum shifts
+
+Entry Rules (Long Positions):
+1. Primary Condition: Price must close ABOVE the upper Keltner Channel
+2. Confirmation: Force Index must cross ABOVE zero on the same candle
+3. Volume Check: Entry candle should show above-average volume (recommended but not required)
+
+Exit Rules:
+1. Primary Exit: Force Index crosses BELOW zero
+2. Protective Stop: Place below the most recent swing low or lower Keltner Channel (whichever is closer)
+3. Optional Profit Target: 2x ATR from entry point
+
+Risk Management:
+1. Position Size: Risk no more than 1-2% of capital per trade
+2. Stop Placement: Minimum 1 ATR distance from entry
+3. Trade Filter: Only trade when volatility (ATR) is above its 20-period average
+
+Required Indicators:
+1. Elder Force Index (13-period standard setting)
+2. Keltner Channels (20-period EMA, 20-period ATR, 1.5 multiplier)
+3. Average True Range (ATR 20) for volatility assessment
+4. Volume indicator (optional but recommended)
+
+Special Considerations:
+- Works best in trending markets (confirm with ADX > 25 if desired)
+- Avoid trading during consolidation (when Keltner Channels are flat)
+- Most effective on 1H or 4H timeframes for swing trading
+- Combine with higher timeframe trend alignment for better results
+
+The "ForceChannel Breakout" strategy excels by requiring both volatility expansion (Keltner breakout) and momentum confirmation (Force Index crossover), creating a high-probability trading scenario with clearly defined risk parameters.

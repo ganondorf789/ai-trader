@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolcanicBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Heikin-Ashi Candles (4H):** Smoothed price action to filter noise and confirm trend direction.  
+2. **Keltner Channel Breakout:** Upper band acts as dynamic resistance; breakout signals bullish momentum.  
+3. **Volatility Squeeze (Bollinger Band Width < SMA 20):** Identifies low volatility periods preceding explosive moves.  
+4. **Volume Confirmation (3x Average):** Validates breakout strength with high participation.  
+
+**Entry Rules:**  
+- **Condition 1:** 4H Heikin-Ashi candle closes **above** Keltner Channel upper band.  
+- **Condition 2:** Bollinger Band width (20,2) is **below** its 20-period SMA (volatility squeeze).  
+- **Condition 3:** Final breakout candle’s volume ≥ 3x the 20-period average volume.  
+- **Action:** Enter long at the **open of the next candle**.  
+
+**Exit Rules:**  
+- **Take Profit:** Trail using Keltner Channel’s upper band (exit when price closes below it).  
+- **Stop Loss:** Place below the **lowest low** of the last 3 Heikin-Ashi candles or the breakout candle’s low (whichever is lower).  
+
+**Risk Management:**  
+- Position size capped at 1-2% of capital per trade.  
+- Stop loss must be ≥ 1.5x the average true range (ATR 14) to avoid whipsaws.  
+
+**Required Indicators:**  
+1. Heikin-Ashi candles (4H timeframe).  
+2. Keltner Channel (20-period EMA, 2x ATR multiplier).  
+3. Bollinger Bands (20,2) + Bandwidth (20-period SMA).  
+4. Volume (20-period average + real-time comparison).  
+
+**Unique Edge:** Combines volatility contraction, volume-fueled breakouts, and Heikin-Ashi trend clarity to capture high-probability expansions. Avoids false breakouts via triple confirmation.  
+
+**Note:** Backtest on assets with historically strong trend-following behavior (e.g., crypto, commodities). Adjust ATR multiplier for tighter/looser stops based on asset volatility.

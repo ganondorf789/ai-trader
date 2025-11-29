@@ -1,0 +1,32 @@
+STRATEGY_NAME: FundingPulse  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Funding Rate Extremes:** The strategy monitors funding rates to identify extreme conditions (either highly positive or negative), which often indicate overleveraged market positions and potential reversals.  
+2. **ADX Filter:** Uses the Average Directional Index (ADX) below 25 to confirm low trend strength, ensuring entries occur in ranging or consolidating markets where reversals are more likely.  
+3. **Exit Conditions:** Positions are closed when ADX rises above 35 (indicating strong trend development) or when funding rates revert to their 30-day median (suggesting normalization of market sentiment).  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when funding rates are extremely negative (e.g., below -0.1% or a user-defined threshold) AND ADX < 25.  
+- **Short Entry:** Triggered when funding rates are extremely positive (e.g., above +0.1% or a user-defined threshold) AND ADX < 25.  
+
+**Exit Rules:**  
+- **ADX-Based Exit:** Close position when ADX crosses above 35, signaling the start of a strong trend that may invalidate the reversal premise.  
+- **Funding Rate Normalization Exit:** Close position when the current funding rate moves back within a defined range (e.g., ±1 standard deviation) of its 30-day median.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Optional stop-loss can be set at a fixed percentage (e.g., 2-5%) or based on recent volatility (ATR-based).  
+2. **Position Sizing:** Adjust position size based on account risk tolerance (e.g., 1-2% per trade).  
+3. **Avoid Overlapping Trades:** Ensure no new entries are taken if an existing position is open in the same direction.  
+
+**Required Indicators:**  
+1. **Funding Rate Data** (from exchange API or trading platform).  
+2. **ADX (14-period default)** to measure trend strength.  
+3. **30-day Median Funding Rate** (historical data needed for comparison).  
+
+**Additional Notes:**  
+- Works best in crypto markets where funding rates are a key sentiment indicator.  
+- Backtest thresholds for "extreme" funding rates based on asset-specific historical data.  
+- Combine with price action (e.g., support/resistance) for higher-probability entries.  
+
+This strategy capitalizes on mean reversion during low-trend conditions, using funding rates as a contrarian signal. The name "FundingPulse" reflects its core focus on funding rate extremes and the cyclical nature of reversals.

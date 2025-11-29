@@ -1,0 +1,32 @@
+STRATEGY_NAME: BandwidthBreakout  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on periods of extreme contraction in volatility followed by high-volume breakouts, using a combination of Bollinger Bands and Keltner Channels to identify high-probability trade setups.  
+
+**Key Components:**  
+1. **Bollinger Band Width Contraction:** Measures volatility compression by tracking the difference between upper and lower Bollinger Bands. A 6-month low indicates extreme consolidation.  
+2. **Keltner Channel Breakout:** Confirms momentum by requiring price to close above the Keltner Channel (typically set with a 20-period EMA and 2x ATR).  
+3. **Volume Confirmation:** Breakout must occur with at least 2x the average volume to validate strong participation.  
+4. **Range-Based Profit Target:** Exit at 1.5x the initial breakout range (high-low of the breakout candle).  
+
+**Entry Rules:**  
+- Trigger: Bollinger Band Width (BBW) reaches its lowest level in 6 months.  
+- Confirmation: Price closes above the Keltner Channel upper band.  
+- Volume: Breakout candle volume ≥ 2x the 20-day average volume.  
+- Entry: Next candle open after confirmation.  
+
+**Exit Rules:**  
+- Profit Target: 1.5x the height of the breakout candle (high - low).  
+- Stop Loss: Below the breakout candle’s low (or Keltner Channel lower band for tighter risk).  
+
+**Risk Management:**  
+- Position Size: Limit risk to 1-2% of capital per trade.  
+- Stop Placement: Adaptive—wider if volatility is high, tighter if BBW contraction was extreme.  
+- Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) + BBW calculation.  
+2. Keltner Channels (20-period EMA, 2x ATR).  
+3. Volume average (20-period).  
+
+**Unique Edge:** Combines volatility contraction, channel breakout, and volume surge to filter low-quality setups. The 1.5x range target ensures asymmetric risk/reward.

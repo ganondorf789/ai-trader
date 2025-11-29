@@ -1,0 +1,31 @@
+STRATEGY_NAME: VortexRetrace  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Uses the intersection of VI+ (positive trend) and VI- (negative trend) lines to identify potential trend reversals.  
+2. **Volume Confirmation:** Requires declining volume during the VI crossover to validate the signal, reducing false breakouts.  
+3. **Fibonacci Retracement Levels:** Exit points are determined using key Fibonacci levels (38.2%, 50%, 61.8%) aligned with recent swing highs/lows for precision.  
+
+**Entry Rules:**  
+- **Long Entry:** VI+ crosses above VI- *and* volume is declining compared to the previous 3-5 candles.  
+- **Short Entry:** VI- crosses above VI+ *and* volume is declining compared to the previous 3-5 candles.  
+- Confirmation: Price must close beyond the crossover candle’s high/low for the respective direction.  
+
+**Exit Rules:**  
+- **Profit Target:** First exit at 38.2% retracement of the recent swing, partial exit at 50%, full exit at 61.8%.  
+- **Stop Loss:** Placed just beyond the recent swing high/low (for longs/shorts) or the opposite VI line’s extreme.  
+
+**Risk Management:**  
+- Position sizing: Risk ≤1-2% per trade.  
+- Trailing stops: Adjust stop to breakeven after price reaches 38.2% retracement.  
+- Avoid trading during major news events to prevent volume spikes invalidating signals.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. Volume oscillator or raw volume with moving average (e.g., 5-period MA).  
+3. Fibonacci retracement tool (applied to the most recent swing high/low).  
+
+**Unique Edge:** Combines trend reversal signals (VI) with volume-based confirmation and Fibonacci-based profit-taking, creating a high-probability mean-reversion system. Works best in ranging or weakly trending markets.  
+
+**Note:** Backtest to optimize VI lookback period (default 14) and volume decline threshold (e.g., 20% below recent average).

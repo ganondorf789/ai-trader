@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationVolatility  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Historical Liquidation Levels:** The strategy identifies price zones where significant liquidations have occurred historically, acting as potential reversal or breakout points.  
+2. **Volatility Contraction Filter:** Uses Bollinger Bandwidth (BBW) to confirm low volatility conditions (BBW < 1-year percentile), signaling a potential breakout or reversal setup.  
+3. **Trailing Exit Mechanism:** Employs a Chandelier Exit adjusted by recent Average True Range (ATR) to dynamically trail profits and protect against reversals.  
+
+**Entry Rules:**  
+- **Trigger:** Price approaches a historical liquidation level (e.g., within 1-2% of the level).  
+- **Confirmation:** Bollinger Bandwidth (BBW) must be below its 1-year percentile (e.g., 20th percentile), indicating a volatility contraction.  
+- **Direction:** Trade in the direction of the breakout if price breaches the liquidation level, or fade the move if price shows rejection (e.g., pin bar, engulfing pattern).  
+
+**Exit Rules:**  
+- **Trailing Stop:** Use the Chandelier Exit (e.g., 3x ATR from the highest high for longs, lowest low for shorts) to trail profits.  
+- **Dynamic Adjustment:** Scale the Chandelier multiplier (e.g., 2x to 4x ATR) based on recent volatility (e.g., 14-period ATR).  
+- **Early Exit:** Exit if BBW expands beyond a threshold (e.g., 75th percentile), signaling increased volatility and potential trend exhaustion.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk 1-2% of capital per trade.  
+- **Stop Loss:** Initial stop placed at 1.5x ATR from entry for mean-reversion trades, or beyond the liquidation level for breakout trades.  
+- **Volatility Filter:** Avoid trading if BBW is above the median (50th percentile) to prevent false signals during high volatility.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To calculate Bollinger Bandwidth (BBW = (Upper Band - Lower Band) / Middle Band).  
+2. **ATR (14-period)** – For trailing stop and volatility adjustment.  
+3. **Chandelier Exit** – Derived from highest high/lowest low ± ATR multiple.  
+4. **Historical Liquidation Data** – Requires access to liquidation heatmaps or orderbook snapshots (e.g., from exchanges like Binance or Bybit).  
+
+**Unique Edge:** Combines crowd psychology (liquidation levels) with volatility regimes, targeting high-probability reversals/breakouts while dynamically managing exits.

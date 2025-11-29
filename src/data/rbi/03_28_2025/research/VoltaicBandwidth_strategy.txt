@@ -1,0 +1,51 @@
+STRATEGY_NAME: VoltaicBandwidth
+
+STRATEGY_DETAILS:
+This strategy combines dynamic volume-weighted pricing with volatility expansion/contraction signals to capture strong momentum moves while avoiding low-volatility periods.
+
+Key Components:
+1. Dynamic VWAP Bands (Primary Trigger)
+   - Calculated using volume-weighted average price with standard deviation bands
+   - Upper/Lower bands adjust based on recent volatility
+
+2. Bollinger Bandwidth Expansion (Confirmation Filter)
+   - Measures the percentage difference between upper/lower Bollinger Bands
+   - Requires bandwidth to be expanding (increasing) for valid signals
+
+3. Keltner Channel Contraction (Exit Condition)
+   - Uses ATR-based channel width
+   - Exits when channel width contracts below a rolling N-period average
+
+Entry Rules:
+LONG:
+- Price closes above upper VWAP band
+- Bollinger Bandwidth is expanding (current > previous)
+- Volume above 20-period average
+
+SHORT:
+- Price closes below lower VWAP band
+- Bollinger Bandwidth is expanding (current > previous)
+- Volume above 20-period average
+
+Exit Rules:
+- Keltner Channel width crosses below its 10-period SMA
+- Or fixed 2:1 risk/reward ratio achieved
+- Or time-based exit after 5 periods without new highs/lows
+
+Risk Management:
+- Initial stop placed at opposite VWAP band
+- Position size limited to 1-2% risk per trade
+- Maximum 5 concurrent positions
+
+Required Indicators:
+1. VWAP with ±1.5 standard deviation bands (20-period lookback)
+2. Bollinger Bands (20,2) with bandwidth calculation
+3. Keltner Channels (20,1.5) with width calculation
+4. Volume average (20-period)
+
+Optimization Notes:
+- Adjust VWAP band multiplier based on asset volatility
+- Test different bandwidth expansion thresholds
+- Consider adding RSI filter for overbought/oversold conditions
+
+This strategy excels in trending markets with increasing volatility, while automatically exiting when volatility contracts. The combination of volume-weighted pricing and dual volatility indicators creates a robust framework for momentum trading.

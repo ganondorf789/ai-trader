@@ -1,0 +1,33 @@
+STRATEGY_NAME: LiquidationSpike  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Level Identification:** The strategy focuses on detecting key price levels where clustered stop-loss orders are likely to trigger liquidations, often leading to sharp price movements.  
+2. **Volume Confirmation:** A breakout is only considered valid if accompanied by a significant spike in trading volume, indicating strong market participation.  
+3. **Open Interest Divergence:** Divergence in open interest (OI) is used to confirm whether the breakout is backed by new positions (increasing OI) or just short covering (decreasing OI).  
+4. **ATR-Based Exit:** Exits are determined by declining volatility, measured using the Average True Range (ATR), to capture the end of the momentum phase.  
+
+**Entry Rules:**  
+1. Identify a key liquidation level where stop-loss orders are likely clustered (e.g., near recent highs/lows or liquidity zones).  
+2. Wait for a breakout above/below this level with a closing candle confirming the move.  
+3. Confirm the breakout with a spike in trading volume (e.g., volume > 1.5x the 20-period average).  
+4. Check for diverging open interest—increasing OI suggests new positions, while decreasing OI may indicate short covering (prefer entries with rising OI).  
+
+**Exit Rules:**  
+1. Monitor the ATR (14-period) for signs of declining volatility. Exit when ATR drops below its 5-period moving average or shows a clear downtrend.  
+2. Alternatively, set a trailing stop based on a multiple of ATR (e.g., 2x ATR) to lock in profits while allowing for extended moves.  
+3. Exit immediately if price retraces back into the liquidation zone, invalidating the breakout.  
+
+**Risk Management:**  
+1. Position sizing should be based on a fixed percentage of capital (e.g., 1-2% per trade).  
+2. Initial stop-loss placed just beyond the opposite side of the liquidation zone (e.g., for a long breakout, place the stop below the recent low).  
+3. Avoid trading during low-liquidity periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Volume** (to confirm breakout strength).  
+2. **Open Interest** (to assess market participation).  
+3. **Average True Range (ATR)** (14-period for volatility-based exits).  
+4. **Price Action** (to identify liquidation zones and breakout confirmation).  
+
+This strategy capitalizes on high-probability breakout scenarios driven by forced liquidations, with a disciplined exit approach to capture momentum while managing risk.

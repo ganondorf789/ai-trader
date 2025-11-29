@@ -1,0 +1,45 @@
+STRATEGY_NAME: SqueezeDivergence
+
+STRATEGY_DETAILS:
+This intraday counter-trend strategy combines multiple technical elements to identify high-probability reversal opportunities. The core approach focuses on detecting market exhaustion through Bollinger Band compression, volume divergence, and liquidity cluster analysis.
+
+Key Components:
+1. Bollinger Band Squeeze (20,2) - Identifies periods of low volatility preceding potential breakouts
+2. TICK Volume Divergence - Requires negative divergence between price and volume (higher highs in price with lower highs in volume)
+3. Liquidation Heatmap - Identifies significant liquidity clusters that may act as reversal zones
+4. Keltner Channels (20,1.5) - Used as dynamic support/resistance for entry triggers
+5. ATR (14) Trailing Stop - Tight 1.5x ATR stop for risk management
+
+Entry Rules:
+1. Wait for Bollinger Band width to reach lowest 20% of 20-period range (squeeze condition)
+2. Confirm negative TICK volume divergence on 5-minute chart
+3. Identify nearby liquidation cluster on heatmap (within 0.5% of current price)
+4. Enter on 5-minute close outside Keltner Channel in direction opposite to prevailing trend
+5. Only trade during first 3 hours of US market session (9:30-12:30 ET)
+
+Exit Rules:
+1. Initial stop: 1.5x ATR(14) from entry price
+2. Trail stop: Adjust to 1x ATR(14) below/above most recent swing low/high
+3. Take partial profits at 1:1 risk-reward ratio (50% position)
+4. Close remaining position when price re-enters Keltner Channel
+
+Risk Management:
+1. Maximum risk per trade: 1% of account
+2. Maximum daily loss: 3% of account
+3. No more than 2 concurrent positions
+4. Avoid trading during major news events (NFP, FOMC, etc.)
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Keltner Channels (20,1.5)
+3. ATR (14)
+4. TICK Volume indicator
+5. Liquidation Heatmap tool
+
+Optimization Notes:
+- Best performance in range-bound markets
+- Most effective on liquid indices (ES, NQ) and forex majors
+- Requires monitoring of order flow for confirmation
+- Works best when multiple timeframes (5m/15m) show confluence
+
+This strategy capitalizes on the tendency of overextended moves to reverse when encountering significant liquidity zones during periods of compressed volatility and weakening participation. The tight ATR stop ensures quick exits when the anticipated reversal fails to materialize.

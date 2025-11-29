@@ -1,0 +1,40 @@
+STRATEGY_NAME: DifferentialCrossover
+
+STRATEGY_DETAILS:
+
+### Key Strategy Components
+This is a momentum reversal strategy that leverages moving average crossovers with a differential calculation to identify potential trend shifts from bearish to bullish momentum. The core idea is to detect when short-to-medium-term momentum (captured by the difference between a 50-period simple moving average (SMA) and a 200-period SMA) gains strength relative to a faster smoothing filter (20-period exponential moving average (EMA)). This setup acts as a reversal signal, entering long positions to capitalize on upward momentum reversals after prolonged downtrends. The strategy assumes a longer-term downtrend (e.g., when 50 SMA is below 200 SMA) and triggers buys when the momentum differential accelerates positively. It's designed for trending markets like stocks, forex, or indices on daily or 4-hour timeframes, but backtesting is recommended to optimize periods for specific assets. No short positions are explicitly defined in the base rule, but they can be mirrored for symmetry (e.g., enter short when the differential crosses below the 20 EMA).
+
+### Entry/Exit Rules
+- **Entry (Long Position)**: 
+  - Calculate the differential: Diff = 50-period SMA - 200-period SMA.
+  - Enter a long position when Diff crosses above the 20-period EMA (i.e., the previous bar's Diff was below the 20 EMA, and the current bar's Diff is above it). This signals building bullish momentum.
+  - Additional filter (recommended for noise reduction): Confirm the overall trend context by ensuring the 50 SMA is below the 200 SMA prior to the crossover (indicating a reversal from a downtrend). Enter at the close of the bar where the crossover occurs, or on a pullback to the 20 EMA for better entry pricing.
+  - Position size: Based on risk management (see below); typically 1-2% of account equity per trade.
+
+- **Exit Rules**:
+  - **Profit Target**: Exit 50-100% of the position when price reaches a 2:1 or 3:1 reward-to-risk ratio from entry, or when Diff crosses back below the 20 EMA (momentum reversal signal).
+  - **Stop Loss**: Place a hard stop loss 1-2% below the recent swing low (e.g., the lowest low in the past 5-10 bars before entry) or below the 200 SMA, whichever is closer. This protects against false reversals.
+  - **Trailing Stop**: For longer holds, trail the stop loss to the 20 EMA once the trade is in profit by 1x the initial risk, or use a 50-period SMA as a dynamic trailing level to lock in gains during sustained uptrends.
+  - Time-based exit (optional): Close the position after 10-20 bars if no significant move occurs, to avoid opportunity cost.
+  - For short entries (if extending the strategy): Mirror the rules—enter short when Diff crosses below the 20 EMA, with stops above recent highs and targets at 2:1 risk-reward.
+
+Avoid entries during high-volatility events (e.g., earnings or news) or if the crossover occurs in a sideways market (e.g., when ADX < 20, if adding an ADX filter).
+
+### Risk Management
+- **Position Sizing**: Risk no more than 1-2% of total account equity per trade. Calculate position size as: (Account Equity * Risk %) / (Entry Price - Stop Loss Price). For example, on a $10,000 account with 1% risk and a $1 stop distance, position size = $100 / $1 = 100 shares.
+- **Maximum Exposure**: Limit to 3-5 open positions at once, with no more than 5% total risk across all trades. Use a correlation filter to avoid overexposure to similar assets (e.g., don't trade multiple correlated forex pairs simultaneously).
+- **Drawdown Controls**: Pause trading if account drawdown exceeds 10% in a month; review and adjust parameters. Incorporate a volatility filter like ATR (Average True Range)—scale position size down if 14-period ATR > 2% of price to reduce risk in choppy markets.
+- **Overall Win Rate Expectation**: Backtests on historical data (e.g., S&P 500 daily) may show 40-60% win rate with 1.5-2.5 average reward:risk, emphasizing fewer but higher-quality reversal trades over frequent signals.
+
+### Required Indicators
+- **50-Period Simple Moving Average (SMA)**: Mid-term trend smoother (applied to close prices).
+- **200-Period Simple Moving Average (SMA)**: Long-term trend anchor (applied to close prices).
+- **20-Period Exponential Moving Average (EMA)**: Fast momentum filter (applied to the differential, not raw price; applied to close prices for consistency).
+- **Differential Line**: Custom calculation: Diff = 50 SMA - 200 SMA (plotted as a line for visualization).
+- **Optional Supporting Indicators**:
+  - Average Directional Index (ADX, 14-period): To confirm trend strength (>25 for valid reversals).
+  - Average True Range (ATR, 14-period): For dynamic stop losses (e.g., stop = entry - 1.5 * ATR).
+  - Volume: Require above-average volume on the crossover bar for confirmation.
+
+Implementation Tip: Code this in platforms like TradingView (Pine Script), MT4/5 (MQL), or Python (with TA-Lib) for alerts and automation. Backtest across 5+ years of data to validate, adjusting periods slightly (e.g., 55/220 for forex) if needed for asset-specific performance.

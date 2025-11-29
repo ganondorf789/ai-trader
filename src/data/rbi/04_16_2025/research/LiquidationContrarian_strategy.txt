@@ -1,0 +1,47 @@
+STRATEGY_NAME: LiquidationContrarian
+
+STRATEGY_DETAILS:
+This strategy combines liquidation zone analysis with volume and momentum divergence to identify high-probability reversal opportunities in the 1-hour timeframe.
+
+Key Components:
+1. Liquidation Level Identification:
+   - Uses order book analysis to detect clustered high-leverage zones
+   - Identifies price levels where many stop losses are likely clustered
+   - These zones act as potential reversal points when price rejects them
+
+2. Confirmation Indicators:
+   - OBV (On-Balance Volume): Looks for divergence between price and volume
+   - RSI (14-period): Identifies momentum divergence at key levels
+
+Entry Rules:
+1. Price must reject a clear liquidation level (minimum 3% move away from level)
+2. Must see either:
+   - Bullish case: Lower price low with higher OBV and RSI making higher low
+   - Bearish case: Higher price high with lower OBV and RSI making lower high
+3. Entry on first pullback after rejection candle closes
+
+Exit Rules:
+1. Take Profit:
+   - Primary target at next significant liquidation level
+   - Secondary target at 1.5x risk
+2. Stop Loss:
+   - Placed just beyond the rejected liquidation level
+   - Maximum 2% of account risk per trade
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. No more than 3 concurrent trades
+3. Daily loss limit of 5%
+4. Weekly loss limit of 10%
+
+Required Indicators:
+1. Liquidation level heatmap (order book analysis tool)
+2. OBV (On-Balance Volume)
+3. RSI (14-period)
+4. Price action confirmation
+
+Additional Notes:
+- Works best in ranging or mildly trending markets
+- Avoid during strong trending conditions
+- Most effective on major crypto pairs with liquid order books
+- Requires patience to wait for clear rejection patterns

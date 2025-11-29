@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolumetricBreakout
+
+STRATEGY_DETAILS:
+The VolumetricBreakout strategy is a dynamic approach that combines moving average crossovers with volume spikes to identify high-probability breakout opportunities. It focuses on capturing strong momentum moves while managing risk through a trailing stop mechanism.
+
+Key Strategy Components:
+1. EMA Crossover: Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as a primary trend confirmation signal.
+2. Volume Spike: Requires trading volume to exceed 2x the 20-day average volume, indicating strong participation in the breakout.
+3. ATR Trailing Stop: Implements a 1.5x ATR trailing stop to protect profits and limit losses.
+
+Entry Rules:
+1. Wait for the 50-period EMA to cross above the 200-period EMA (bullish signal).
+2. Confirm the breakout with a volume spike exceeding 2x the 20-day average volume.
+3. Enter a long position when both conditions are met on the same candle.
+
+Exit Rules:
+1. Use a trailing stop based on 1.5x the current ATR value.
+2. The stop should trail below the highest high since entry.
+3. Exit the position when price touches the trailing stop level.
+
+Risk Management:
+1. Position sizing should be based on the ATR value to ensure consistent risk per trade.
+2. Maximum risk per trade should not exceed 1-2% of account equity.
+3. Avoid trading during low-volume periods or major economic news events.
+
+Required Indicators:
+1. 50-period Exponential Moving Average (EMA)
+2. 200-period Exponential Moving Average (EMA)
+3. 20-day Average Volume
+4. Average True Range (ATR) for trailing stop calculation
+
+Additional Considerations:
+- Backtest the strategy across different market conditions to ensure robustness.
+- Consider implementing a time-based exit if the trade doesn't move in your favor within a specific period.
+- Monitor for false breakouts by waiting for a candle close above the breakout level.
+- Adjust the ATR multiplier (1.5x) based on market volatility and personal risk tolerance.
+
+This strategy is particularly effective in trending markets and can be applied to various timeframes, though it's recommended to use it on daily or 4-hour charts for optimal results.

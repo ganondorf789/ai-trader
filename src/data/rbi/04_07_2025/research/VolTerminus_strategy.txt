@@ -1,0 +1,28 @@
+STRATEGY_NAME: VolTerminus  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **VIX Term Structure Inversion:** The strategy initiates trades when the VIX term structure inverts (front-month VIX > back-month VIX), signaling heightened near-term market stress.  
+2. **Bollinger Bandwidth Contraction:** Confirms entry when Bollinger Bandwidth (BBW) contracts below its 10th percentile, indicating extreme compression and potential volatility expansion.  
+3. **Volatility Divergence Exit:** Exits positions when realized volatility (e.g., 10-day historical volatility) exceeds implied volatility (VIX) by 2 standard deviations, suggesting overpriced volatility.  
+
+**Entry Rules:**  
+- **Condition 1:** VIX term structure inverts (front-month VIX > back-month VIX).  
+- **Condition 2:** Bollinger Bandwidth (20-period, 2 StdDev) drops below its 10th percentile (measured over 252 trading days).  
+- **Action:** Enter long volatility positions (e.g., VIX futures, options, or volatility ETFs) upon simultaneous confirmation of both conditions.  
+
+**Exit Rules:**  
+- **Condition:** Realized volatility (10-day HV) > Implied volatility (VIX) by 2 standard deviations of their historical spread.  
+- **Action:** Close all long volatility positions.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate no more than 5% of capital per trade due to the high-risk nature of volatility instruments.  
+2. **Stop-Loss:** Optional hard stop at 15% loss if the trade moves against the thesis (e.g., term structure steepens post-entry).  
+3. **Time Decay Hedge:** For options, use calendar spreads to mitigate theta decay in prolonged low-volatility regimes.  
+
+**Required Indicators:**  
+1. **VIX Term Structure:** Front-month and back-month VIX futures or constant-maturity VIX indices.  
+2. **Bollinger Bandwidth (BBW):** 20-period SMA with 2 StdDev bands, calculated on the underlying asset (e.g., SPX).  
+3. **Realized vs. Implied Volatility Spread:** 10-day historical volatility (HV) vs. VIX, with a 252-day rolling Z-score for the 2 StdDev threshold.  
+
+**Unique Edge:** Combines term structure signals (macro volatility timing) with Bollinger Bandwidth (micro volatility compression) for high-probability expansion setups, while the exit rule avoids overstaying during volatility mean reversion.

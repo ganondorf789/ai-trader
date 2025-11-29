@@ -1,0 +1,43 @@
+STRATEGY_NAME: SqueezeBreakoutForce  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger-Keltner Squeeze Condition:** Identifies low volatility periods where Bollinger Bands (typically 20-period, 2 standard deviations) contract within the Keltner Channel (typically 20-period, 1.5 ATR multiplier). This signals a potential breakout.  
+2. **Elder Force Index Confirmation:** Uses the 50-period EMA of the Elder Force Index (a volume-weighted momentum indicator) to confirm breakout strength. A crossover above the EMA validates the breakout.  
+3. **ATR-Based Trailing Stop:** Exits trades using a trailing stop set at 2x the 14-period Average True Range (ATR) to lock in profits and manage risk dynamically.  
+
+**Entry Rules:**  
+- Enter a **long position** when:  
+  1. Price is in a **Bollinger-Keltner squeeze** (Bollinger Bands inside Keltner Channel).  
+  2. The **Elder Force Index (13-period) crosses above its 50-period EMA**, confirming momentum.  
+  3. Price breaks **above the upper Bollinger Band** (for longs) or **below the lower Bollinger Band** (for shorts).  
+
+**Exit Rules:**  
+- **Trailing Stop Exit:** Set a trailing stop at **2x the 14-period ATR** from the highest high (for longs) or lowest low (for shorts) since entry.  
+- **Optional Time Exit:** Close the trade if no significant movement occurs within 5 bars to avoid dead capital.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop Placement:** Initial stop can be set at 1x ATR below entry (for longs) or above entry (for shorts) as a fail-safe.  
+3. **Avoid Overcrowded Breakouts:** Filter trades with high volume spikes to confirm institutional participation.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20,2)  
+2. **Keltner Channel** (20,1.5 ATR multiplier)  
+3. **Elder Force Index** (13-period) + 50-period EMA of EFI  
+4. **Average True Range (ATR)** (14-period)  
+
+**Unique Aspects:**  
+- Combines **volatility contraction (squeeze)** with **volume-powered momentum (Elder Force Index)** for high-probability breakouts.  
+- Uses **adaptive trailing stops** based on market volatility (ATR) to maximize trend captures.  
+- Avoids false breakouts by requiring **dual confirmation** (squeeze + EFI crossover).  
+
+**Best Suited For:**  
+- **Intraday to swing trading** in trending markets (stocks, forex, crypto).  
+- Works best in **high-volume instruments** where Elder Force Index signals are reliable.  
+
+**Optimization Tips:**  
+- Test different EMA periods for the Elder Force Index (e.g., 20 vs. 50).  
+- Adjust ATR multiplier (e.g., 1.5x for tighter stops in ranging markets).  
+- Add a **volume filter** (e.g., trade only if breakout volume > 20-day average).

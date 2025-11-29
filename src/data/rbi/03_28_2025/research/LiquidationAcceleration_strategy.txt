@@ -1,0 +1,33 @@
+STRATEGY_NAME: LiquidationAcceleration  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Order Book Imbalance Analysis**: Detects clustered liquidation levels by analyzing order book depth and liquidity zones.  
+2. **Breakout Confirmation**: Enters trades when price accelerates beyond identified liquidation zones, signaling strong momentum.  
+3. **Dynamic Exit Mechanism**: Uses Chandelier stops to trail exits based on volatility, locking in profits while allowing room for price expansion.  
+
+**Entry Rules:**  
+1. **Liquidation Zone Identification**: Use order book data to pinpoint levels where stop-loss clusters are likely to trigger liquidations (e.g., high-density stop orders).  
+2. **Breakout Trigger**: Enter long/short when price:  
+   - Breaks above/below the liquidation zone with strong volume.  
+   - Shows acceleration (e.g., sharp candlestick close beyond the zone).  
+3. **Confirmation Filter**: Optional: Require a minimum order book imbalance (e.g., 2:1 bid/ask ratio) to validate the breakout.  
+
+**Exit Rules:**  
+1. **Chandelier Stop**:  
+   - For longs: Set stop below the highest high since entry, minus a multiple of ATR (e.g., 3x ATR).  
+   - For shorts: Set stop above the lowest low since entry, plus a multiple of ATR.  
+2. **Time-Based Exit**: Close trades after a fixed period (e.g., 24 hours) if the stop isn’t hit.  
+
+**Risk Management:**  
+1. **Position Sizing**: Risk ≤1-2% of capital per trade.  
+2. **Stop-Loss**: Initial stop placed just beyond the opposite side of the liquidation zone (invalidates the breakout if hit).  
+3. **Volatility Adjustment**: Reduce position size during high ATR regimes.  
+
+**Required Indicators/Tools:**  
+1. **Order Book Depth Data** (e.g., bid/ask liquidity heatmap).  
+2. **ATR (14-period)** for Chandelier stop calculation.  
+3. **Volume Indicator** to confirm breakout strength.  
+
+**Unique Edge:** Combines liquidation hunting (common in crypto markets) with momentum breakout and adaptive exits, targeting explosive moves post-liquidation cascades.

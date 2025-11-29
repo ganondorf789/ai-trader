@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "\ud83c\udf19 Moon Dev RotationalNocturne Entry Long at ~30207.29, Size: 6, SL: 28636.78, TP: 33348.32 \ud83d\ude80\n   - New 60m High Confirmed \ud83c\udf1f | RSI (EROD Proxy): 62.9 | Vol OK: True | Trend OK: True\n\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_package/RotationalNocturne_PKG.py\", line 129, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_package/RotationalNocturne_PKG.py\", line 90, in next\n    entry_price = self.position.avg_entry_price\nAttributeError: 'Position' object has no attribute 'avg_entry_price'\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_package/RotationalNocturne_PKG.py` failed. (See above for error)\n",
+  "execution_time": 1.495011,
+  "timestamp": "2025-10-20T10:54:22.368170"
+}

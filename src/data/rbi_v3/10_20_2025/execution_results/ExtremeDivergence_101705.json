@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/ExtremeDivergence_OPT_v3.py\", line 174, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1170, in run\n    strategy.next()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/ExtremeDivergence_OPT_v3.py\", line 52, in next\n    low_indices_rel = argrelextrema(price_slice_low.values, np.less_equal, order=3)[0]  # Tighter order=3 for more swings\nAttributeError: '_Array' object has no attribute 'values'\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/ExtremeDivergence_OPT_v3.py` failed. (See above for error)\n",
+  "execution_time": 1.4072,
+  "timestamp": "2025-10-20T10:17:05.229298"
+}

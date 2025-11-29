@@ -1,0 +1,33 @@
+STRATEGY_NAME: DivergenceDecay  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Price新高 (New High):** The strategy focuses on shorting assets that have recently made a new high in price.  
+2. **Bearish OBV Divergence:** Uses On-Balance Volume (OBV) to identify divergence where price makes a new high but OBV fails to confirm, signaling weakening momentum.  
+3. **Declining ATR:** Requires the Average True Range (ATR) to be in decline, indicating reduced volatility and potential exhaustion of the uptrend.  
+4. **Trailing Stop Exit:** Implements a dynamic exit mechanism based on 3x the 14-period ATR to lock in profits and limit losses.  
+
+**Entry Rules:**  
+- **Trigger:** Price makes a new high (新高).  
+- **Confirmation 1:** Bearish OBV divergence (price higher high, OBV lower high).  
+- **Confirmation 2:** 14-period ATR is declining (e.g., ATR(14) < ATR(14) from 1-2 periods ago).  
+- **Action:** Enter short at the close of the candle where all conditions are met.  
+
+**Exit Rules:**  
+- **Trailing Stop:** Set a trailing stop at 3x the 14-period ATR value at entry. Adjust the stop daily (or per candle) using the latest ATR(14) value.  
+- **Example:** If ATR(14) = 2 at entry, initial stop is 6 units above the entry price. If price moves lower, the stop trails downward, always maintaining 3x the current ATR(14).  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate no more than 1-2% of capital per trade to limit downside.  
+- **Stop Discipline:** Never widen the trailing stop; only tighten it as the trade progresses.  
+- **Filter:** Avoid trading during high-impact news events that may skew ATR/OBV readings.  
+
+**Required Indicators:**  
+1. **On-Balance Volume (OBV):** To detect divergence.  
+2. **Average True Range (ATR, 14-period):** For volatility assessment and trailing stop calculation.  
+3. **Price新高 Detection:** Custom script or manual check for new highs.  
+
+**Notes:**  
+- Works best in trending markets where OBV divergence is reliable.  
+- Declining ATR filters out false breakouts.  
+- Ideal for daily/weekly timeframes; shorter timeframes may require tighter stops.

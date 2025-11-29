@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolSqueezeExpansion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Based Approach**: This strategy capitalizes on periods of low volatility (Bollinger Band squeeze) followed by potential expansion, indicating the start of a new trend.  
+2. **Bollinger Band Width Analysis**: The strategy uses the Bollinger Band width (difference between upper and lower bands) to identify extreme contraction and expansion phases.  
+3. **Statistical Thresholds**:  
+   - **Entry**: Triggered when the Bollinger Band width falls into the lowest 5% of its historical range (indicating extreme contraction).  
+   - **Exit**: Activated when the width expands beyond 2 standard deviations from its 20-period moving average (signaling volatility breakout).  
+
+**Entry Rules:**  
+- Go **long** when:  
+  - The current Bollinger Band width (1-hour timeframe) is in the bottom 5% of its historical distribution (calculated over a sufficiently large lookback period, e.g., 6 months).  
+  - Confirm with price action (e.g., closing above the middle Bollinger Band or a recent higher low) to avoid false signals.  
+
+**Exit Rules:**  
+- Exit the long position when:  
+  - The Bollinger Band width crosses above 2 standard deviations of its 20-period moving average.  
+  - Optional: Use a trailing stop (e.g., 1.5x ATR) to capture extended moves while protecting profits.  
+
+**Risk Management:**  
+- **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+- **Stop-Loss**: Place a stop below the recent swing low or the lower Bollinger Band (adjust based on volatility, e.g., 1.5x the average width).  
+- **Time-Based Exit**: If the trade remains stagnant after 3-5 bars, consider exiting to avoid dead capital.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA with 2 standard deviations, applied to 1-hour candles).  
+2. **Bollinger Band Width** (calculated as: Upper Band − Lower Band).  
+3. **Historical Percentile Tool** (to identify the lowest 5% of width values).  
+4. **Moving Average of Band Width** (20-period SMA of the width).  
+5. **Standard Deviation of Band Width** (20-period std dev for exit threshold).  
+6. **Optional**: ATR (14-period) for dynamic stop placement.  
+
+**Unique Aspects:**  
+- Focuses on **volatility cycles** rather than price direction alone.  
+- Combines **historical percentile extremes** with real-time expansion signals.  
+- Avoids over-trading by waiting for statistically significant setups.  
+
+**Note**: Backtest the strategy’s percentile threshold and exit parameters for optimal performance across different assets.

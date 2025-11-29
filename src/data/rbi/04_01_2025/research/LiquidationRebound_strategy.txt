@@ -1,0 +1,34 @@
+STRATEGY_NAME: LiquidationRebound  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cascade Detection:** The strategy identifies a liquidation event by monitoring a sharp drop in open interest, signaling forced liquidations.  
+2. **Price Rebound Confirmation:** After the liquidation, the price must rebound above the Volume-Weighted Average Price (VWAP) to confirm a potential reversal.  
+3. **Volatility-Based Exit:** The exit is determined using 2x the intraday Average True Range (ATR) to account for volatility and secure profits.  
+
+**Entry Rules:**  
+- **Trigger Condition:** A sharp decline in open interest (e.g., >10% drop within a short timeframe).  
+- **Confirmation Condition:** Price rebounds and closes above VWAP after the liquidation event.  
+- **Entry Point:** Enter long on the confirmed close above VWAP.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit the trade when the price reaches 2x the intraday ATR from the entry point.  
+- **Stop-Loss:** Optional—consider a stop-loss below the recent swing low or a fixed percentage (e.g., 1-2%) for risk management.  
+
+**Risk Management:**  
+1. **Position Sizing:** Use a fixed percentage of capital per trade (e.g., 1-2%) to limit exposure.  
+2. **Volatility Adjustment:** The ATR-based exit ensures the strategy adapts to market conditions.  
+3. **Avoid Overleveraging:** Given the liquidation-driven nature, high leverage should be avoided to prevent being caught in further cascades.  
+
+**Required Indicators:**  
+1. **Open Interest (OI):** To detect liquidation events.  
+2. **VWAP:** For confirming the rebound and defining the entry.  
+3. **Intraday ATR (14-period):** For setting the profit target.  
+
+**Additional Notes:**  
+- Works best in high-liquidity markets (e.g., crypto, futures) where liquidations are frequent.  
+- Backtest for optimal OI drop thresholds and ATR multipliers.  
+- Combine with volume analysis to filter false signals.  
+
+This strategy capitalizes on post-liquidation reversals while using volatility to lock in gains. The name "LiquidationRebound" reflects its unique focus on liquidation-driven opportunities.

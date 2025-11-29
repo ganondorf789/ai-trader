@@ -1,0 +1,57 @@
+STRATEGY_NAME: VolumetricSqueeze
+
+STRATEGY_DETAILS:
+The VolumetricSqueeze strategy combines volume anomaly detection with volatility compression to identify high-probability breakout opportunities. This approach waits for two rare but powerful conditions to align before entering trades.
+
+Key Components:
+1. Volume Spike Detection (Trigger):
+   - Uses 4-hour timeframe for significant moves
+   - Compares current volume to historical distribution
+   - Requires volume exceeding 90th percentile (top 10% of all volume readings)
+
+2. Volatility Contraction (Confirmation):
+   - Bollinger Bandwidth (BBW) must contract below 0.5%
+   - BBW = (Upper Band - Lower Band) / Middle Band
+   - Indicates extreme compression before potential expansion
+
+3. Exit Mechanism:
+   - Uses trailing stops based on Average True Range (ATR)
+   - Allows profits to run during volatility expansion
+   - Automatically protects gains when trend reverses
+
+Entry Rules:
+1. Long Entry:
+   - Current 4H volume > 90th percentile of last 100 periods
+   - Simultaneous BBW reading < 0.5%
+   - Enter at market price after both conditions confirm
+
+Exit Rules:
+1. Trailing Stop:
+   - Initial stop: 1.5x current ATR(14) below entry
+   - Trails upward at 0.75x ATR(14) as price moves favorably
+   - Never moves downward (only ratchets up)
+
+2. Emergency Stop:
+   - Hard stop at 2.5x ATR(14) below entry
+   - Triggers if price moves violently against position
+
+Risk Management:
+1. Position Sizing:
+   - Risk 1-2% of capital per trade
+   - Calculate position size based on distance to emergency stop
+
+2. Trade Frequency:
+   - Expect 1-3 setups per month per instrument
+   - Avoid overtrading by waiting for quality signals
+
+Required Indicators:
+1. Volume (standard indicator)
+2. Bollinger Bands (20,2 settings for BBW calculation)
+3. ATR (14-period for stop calculations)
+
+Optimization Notes:
+- Test different percentile thresholds (85th-95th)
+- Experiment with BBW contraction levels (0.3%-0.7%)
+- Adjust ATR multiples based on instrument volatility
+
+This strategy capitalizes on the explosive potential when unusually high trading interest (volume spike) coincides with extreme price compression (low BBW), creating a high-probability setup for directional moves. The ATR-based exit allows participation in extended trends while protecting capital.

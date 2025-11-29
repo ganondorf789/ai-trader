@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolatilityReversal  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **EMA Crossover:** The strategy uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as a primary signal for potential trend reversal.  
+2. **ADX Filter:** The ADX (Average Directional Index) is used to confirm low-volatility conditions (ADX < 20) before entry and strong trend continuation (ADX > 30) for exit.  
+3. **Trend Reversal Focus:** The strategy targets early-stage trend reversals in low-volatility environments, avoiding strong trending markets where reversals are less likely.  
+
+**Entry Rules:**  
+- Enter a **long position** when:  
+  - The **50-period EMA crosses above the 200-period EMA** (Golden Cross).  
+  - The **ADX is below 20**, indicating low volatility and potential for a new trend.  
+
+**Exit Rules:**  
+- Exit the long position when:  
+  - The **ADX rises above 30**, signaling strong trend continuation (risk of overextension).  
+  - (Optional) A stop-loss can be placed below the recent swing low for additional risk management.  
+
+**Risk Management:**  
+- **Stop-Loss:** Consider placing a stop-loss below the most recent swing low or using a fixed percentage (e.g., 2-3%) to limit downside.  
+- **Position Sizing:** Adjust trade size based on volatility (e.g., ATR-based sizing) to avoid overexposure in choppy markets.  
+- **Avoid Over-Trading:** Only take signals when both EMA crossover and ADX conditions align.  
+
+**Required Indicators:**  
+1. **50-period Exponential Moving Average (EMA)**  
+2. **200-period Exponential Moving Average (EMA)**  
+3. **Average Directional Index (ADX, 14-period default)**  
+
+**Additional Notes:**  
+- Works best in **range-bound or consolidating markets** where ADX is low.  
+- Avoid using in strongly trending markets (ADX > 30) to prevent false signals.  
+- Can be combined with RSI or MACD for additional confirmation if needed.  
+
+This strategy is designed to capture early trend reversals while minimizing risk in low-volatility conditions. The unique combination of EMA crossover and ADX filtering makes it distinct from generic trend-following systems.

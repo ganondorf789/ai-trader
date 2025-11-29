@@ -1,0 +1,34 @@
+STRATEGY_NAME: MomentumReversal
+
+STRATEGY_DETAILS:
+This strategy combines momentum and trend-following principles with volume analysis to identify potential reversals in futures contracts. It focuses on overbought conditions and uses moving averages and volume as confirmation tools for exits.
+
+**Key Components:**
+1. **Momentum Identification:** Uses 3-5 day RSI to identify overbought conditions (RSI > 70).
+2. **Trend Confirmation:** Utilizes 5-day EMA and 10-day EMA to confirm the trend direction.
+3. **Volume Analysis:** Incorporates decreasing volume as a signal for weakening momentum.
+
+**Entry Rules:**
+- Enter a long position when:
+  - The 3-5 day RSI is above 70 (indicating overbought conditions and strong momentum).
+  - Ensure the 5-day EMA is above the 10-day EMA (confirming an uptrend).
+
+**Exit Rules:**
+- Exit the long position when:
+  - The 5-day EMA crosses below the 10-day EMA (indicating a potential trend reversal).
+  - Volume is decreasing (confirming weakening momentum).
+
+**Risk Management:**
+- Set a stop-loss below a recent swing low or use a fixed percentage (e.g., 1-2% of account equity).
+- Use position sizing to limit exposure to any single trade.
+- Avoid trading during low-volume periods or major news events to reduce slippage and volatility risks.
+
+**Required Indicators:**
+1. **RSI (3-5 days):** To identify overbought conditions.
+2. **5-day EMA and 10-day EMA:** To confirm the trend direction and potential reversals.
+3. **Volume Indicator:** To assess the strength of the momentum.
+
+**Additional Notes:**
+- This strategy is best suited for trending markets and may underperform in choppy or sideways conditions.
+- Backtest the strategy on historical data to optimize parameters (e.g., RSI period, EMA periods) for specific futures contracts.
+- Consider combining this strategy with other filters (e.g., macroeconomic trends or sector-specific analysis) to improve accuracy.

@@ -1,0 +1,50 @@
+STRATEGY_NAME: VolumetricDivergence
+
+STRATEGY_DETAILS:
+The VolumetricDivergence strategy is a volatility-based approach that identifies trading opportunities by analyzing the intersection of price action and volume patterns. The strategy focuses on divergence points between price and volume, using their distance as a trigger for trades. Here’s a detailed breakdown of the strategy:
+
+### Key Strategy Components:
+1. **Price Action Analysis**: Monitor price movements to identify trends, support/resistance levels, and key price levels.
+2. **Volume Patterns**: Analyze volume data to detect unusual activity, such as spikes or sustained increases, which may indicate potential reversals or continuations.
+3. **Divergence Detection**: Identify divergence points where price and volume move in opposite directions, signaling potential market reversals or continuations.
+4. **Volatility Measurement**: Use volatility indicators to assess market conditions and adjust trade parameters accordingly.
+
+### Entry Rules:
+1. **Bullish Entry**: 
+   - Price is in an uptrend (higher highs and higher lows).
+   - Volume shows a significant increase, confirming the price movement.
+   - A divergence point is identified where price continues to rise while volume decreases.
+   - Enter a long position when the distance between the divergence points reaches a predefined threshold.
+
+2. **Bearish Entry**:
+   - Price is in a downtrend (lower highs and lower lows).
+   - Volume shows a significant increase, confirming the price movement.
+   - A divergence point is identified where price continues to fall while volume decreases.
+   - Enter a short position when the distance between the divergence points reaches a predefined threshold.
+
+### Exit Rules:
+1. **Take Profit**: 
+   - Set a take profit level based on a multiple of the average true range (ATR) or a fixed percentage of the entry price.
+   - Alternatively, exit when a new divergence point is detected in the opposite direction.
+
+2. **Stop Loss**:
+   - Place a stop loss below the recent swing low for long positions or above the recent swing high for short positions.
+   - Adjust the stop loss based on volatility, using a percentage of the ATR.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of the account balance for each trade (e.g., 1-2%).
+2. **Volatility Adjustment**: Increase position size in low volatility conditions and decrease it in high volatility conditions.
+3. **Diversification**: Avoid over-concentration in a single asset or market by spreading trades across different instruments.
+
+### Required Indicators:
+1. **Volume Indicator**: To analyze volume patterns and detect divergence points.
+2. **Average True Range (ATR)**: To measure volatility and set stop loss/take profit levels.
+3. **Moving Averages**: To identify trends and confirm price action.
+4. **Divergence Detector**: A custom indicator or script to identify divergence points between price and volume.
+
+### Additional Considerations:
+- **Backtesting**: Thoroughly backtest the strategy on historical data to validate its effectiveness.
+- **Market Conditions**: The strategy may perform better in trending markets with clear price and volume patterns.
+- **Timeframes**: Suitable for various timeframes, but may require adjustments for shorter or longer periods.
+
+By focusing on the intersection of price action and volume patterns, the VolumetricDivergence strategy aims to capitalize on market inefficiencies and provide high-probability trading opportunities.

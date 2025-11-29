@@ -1,0 +1,33 @@
+STRATEGY_NAME: BandwidthSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Contraction:** The strategy identifies periods of low volatility when the Bollinger Band width reaches a 20-day low, signaling potential breakout conditions.  
+2. **Volume Spike Confirmation:** A 50% spike in trading volume relative to recent averages confirms strong interest in the breakout direction.  
+3. **Profit Targets & Exit Signals:** Positions are closed either when price reaches a 2x Average True Range (ATR) profit target or when Bollinger Bands expand significantly, indicating a potential reversal or loss of momentum.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Band width must contract to its lowest level in the past 20 days.  
+- **Condition 2:** Volume must spike by at least 50% compared to the recent average (e.g., 20-day moving average of volume).  
+- **Entry Signal:** Enter long/short in the direction of the breakout (price closing above upper band for long, below lower band for short) when both conditions are met.  
+
+**Exit Rules:**  
+- **Profit Target:** Close the position when price reaches a profit equal to 2x the current ATR value from the entry point.  
+- **Reversal Signal:** Exit if Bollinger Bands expand significantly (e.g., width increases by a predefined percentage or returns to its mean), suggesting the breakout may be losing steam.  
+
+**Risk Management:**  
+- **Stop-Loss:** Set a stop-loss at 1x ATR from the entry point to limit downside risk.  
+- **Position Sizing:** Adjust trade size based on ATR to ensure risk per trade is consistent (e.g., 1% of capital risked per trade).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To measure contraction/expansion and identify breakout levels.  
+2. **Volume (20-day MA)** – To confirm breakout strength with volume spikes.  
+3. **Average True Range (ATR, 14-period)** – For setting profit targets and stop-loss levels.  
+
+**Unique Aspects:**  
+- Combines Bollinger Band contraction (low volatility) with volume surges (high momentum) for high-probability breakouts.  
+- Uses ATR for dynamic profit targets and stops, adapting to current market conditions.  
+- Exits on both profit-taking and band expansion, capturing trends while avoiding false breakouts.  
+
+This strategy is ideal for volatile markets where breakouts are frequent but require confirmation to avoid whipsaws. The name "BandwidthSurge" reflects its focus on Bollinger Band width contractions paired with volume surges.

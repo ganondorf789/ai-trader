@@ -1,0 +1,69 @@
+STRATEGY_NAME: FractalReversion
+
+STRATEGY_DETAILS:
+The FractalReversion strategy is a sophisticated mean-reversion approach that combines StochRSI divergence, VDMA (Variable Dynamic Moving Average) filters, and fractal confirmation to identify high-probability price action setups. This strategy is designed to capitalize on overextended market conditions and reversals, while filtering out false signals using multiple confirmation layers.
+
+### Key Strategy Components:
+1. **StochRSI Divergence**: 
+   - Identifies potential reversals by detecting divergences between price action and the StochRSI oscillator.
+   - Bullish divergence: Price makes lower lows while StochRSI makes higher lows.
+   - Bearish divergence: Price makes higher highs while StochRSI makes lower highs.
+
+2. **VDMA Filters**:
+   - Uses Variable Dynamic Moving Averages to filter out noise and confirm the trend direction.
+   - VDMA acts as a dynamic support/resistance level, ensuring trades align with the broader trend.
+
+3. **Fractal Confirmation**:
+   - Fractals are used to confirm key reversal points in price action.
+   - A bullish fractal (higher low) or bearish fractal (lower high) must align with the StochRSI divergence and VDMA filter for a valid setup.
+
+### Entry Rules:
+1. **Bullish Entry**:
+   - StochRSI shows a bullish divergence (price lower low, StochRSI higher low).
+   - Price is above the VDMA, confirming an uptrend.
+   - A bullish fractal (higher low) is present near the divergence point.
+   - Enter a long position on a break above the fractal high.
+
+2. **Bearish Entry**:
+   - StochRSI shows a bearish divergence (price higher high, StochRSI lower high).
+   - Price is below the VDMA, confirming a downtrend.
+   - A bearish fractal (lower high) is present near the divergence point.
+   - Enter a short position on a break below the fractal low.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Use a fixed risk-reward ratio (e.g., 1:2 or 1:3).
+   - Alternatively, exit when StochRSI reaches overbought (for longs) or oversold (for shorts) levels.
+
+2. **Stop Loss**:
+   - Place stop loss below the recent swing low (for longs) or above the recent swing high (for shorts).
+   - Ensure the stop loss aligns with the fractal confirmation level.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of the trading capital per trade.
+   - Adjust position size based on the distance to the stop loss level.
+
+2. **Trade Filtering**:
+   - Only take trades where all three components (StochRSI divergence, VDMA filter, and fractal confirmation) align.
+   - Avoid trading during high-impact news events or low liquidity periods.
+
+### Required Indicators:
+1. **StochRSI**:
+   - Settings: 14-period RSI, 14-period Stochastic, 3-period smoothing.
+   - Used to identify divergences and overbought/oversold conditions.
+
+2. **VDMA (Variable Dynamic Moving Average)**:
+   - Settings: Adaptive period based on market volatility.
+   - Acts as a dynamic trend filter.
+
+3. **Fractals**:
+   - Default settings (5-candle pattern).
+   - Confirms key reversal points in price action.
+
+### Additional Notes:
+- This strategy performs best in ranging or mildly trending markets.
+- Avoid using it in strongly trending markets, as mean-reversion setups may fail.
+- Backtest thoroughly on multiple timeframes (e.g., 1H, 4H, Daily) to ensure robustness.
+
+By combining StochRSI divergence, VDMA filters, and fractal confirmation, the FractalReversion strategy provides a systematic and disciplined approach to trading mean-reversion setups with high accuracy.

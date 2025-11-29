@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolSqueezeBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection:** Uses Bollinger Band Width (BBW) percentile below 10 to identify periods of extreme low volatility (squeeze).  
+2. **Volume Confirmation:** Requires a volume surge exceeding the 20-day average volume to validate breakout potential.  
+3. **Breakout Execution:** Enters trades when price breaks out of the contraction zone with volume confirmation.  
+4. **Exit Mechanism:** Exits positions when Bollinger Band Width expands beyond its historical median, signaling volatility expansion and potential trend exhaustion.  
+
+**Entry Rules:**  
+1. Calculate Bollinger Band Width (BBW) as (Upper Band - Lower Band) / Middle Band (20-period SMA).  
+2. Confirm BBW percentile is below 10 (i.e., current BBW is in the lowest 10% of its historical range).  
+3. Wait for a volume surge where current volume exceeds the 20-day average volume by a significant margin (e.g., 1.5x or more).  
+4. Enter long/short on a breakout above/below the Bollinger Bands with the volume surge confirmation.  
+
+**Exit Rules:**  
+1. Monitor Bollinger Band Width in real-time.  
+2. Exit the trade when BBW expands beyond its historical median value (50th percentile).  
+3. Alternatively, set a trailing stop or fixed risk-reward ratio (e.g., 2:1) to lock in profits.  
+
+**Risk Management:**  
+1. Position sizing based on account risk (e.g., 1-2% per trade).  
+2. Stop-loss placed at the opposite Bollinger Band or a recent swing low/high.  
+3. Avoid trading during major news events unless volume confirms the breakout.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 standard deviations).  
+2. Bollinger Band Width (BBW) calculation.  
+3. Historical BBW percentile (requires lookback period, e.g., 100 days).  
+4. 20-day moving average of volume.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (BBW) with volume surge for high-probability breakouts.  
+- Exits on volatility expansion rather than arbitrary price targets.  
+- Adaptive to market conditions by using percentile-based thresholds.  
+
+**Note:** Backtest to optimize BBW percentile threshold, volume multiplier, and exit criteria for specific instruments/timeframes.

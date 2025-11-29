@@ -1,0 +1,45 @@
+STRATEGY_NAME: BandwidthBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth 10-Day Low:** Identifies periods of low volatility, suggesting an impending breakout.  
+2. **Chande Momentum Oscillator (CMO):** Confirms breakout momentum when crossing above/below zero.  
+3. **2x ATR Trailing Stop:** Manages risk by dynamically adjusting exit points based on volatility.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - Bollinger Bandwidth reaches a 10-day low (indicating low volatility).  
+  - CMO crosses **above zero** (confirming bullish momentum).  
+- **Short Entry:** Triggered when:  
+  - Bollinger Bandwidth reaches a 10-day low.  
+  - CMO crosses **below zero** (confirming bearish momentum).  
+
+**Exit Rules:**  
+- **Trailing Stop:** Exit positions when price moves against the trade by **2x ATR** (Average True Range) from the highest profit point.  
+- **Optional Time Exit:** Consider closing trades after a fixed period (e.g., 5-10 bars) if the trailing stop isn’t hit.  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%).  
+- **Stop-Loss:** Initial stop can be set at **1.5x ATR** from entry if not using trailing stop from the start.  
+- **Volatility Filter:** Avoid trading if ATR is excessively high (adjust threshold based on asset).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2 default settings) + Bandwidth Calculation:**  
+   - Bandwidth = (Upper Band - Lower Band) / Middle Band.  
+2. **Chande Momentum Oscillator (CMO, 14-period default):**  
+   - Confirms momentum direction.  
+3. **Average True Range (ATR, 14-period):**  
+   - Sets trailing stop distance.  
+
+**Unique Aspects:**  
+- Combines **low volatility detection** (Bollinger Bandwidth) with **momentum confirmation** (CMO).  
+- Uses **adaptive exits** via ATR, making it responsive to market conditions.  
+- Avoids false breakouts by requiring both technical conditions to align.  
+
+**Optimization Tips:**  
+- Test different lookback periods for Bandwidth lows (e.g., 5-20 days).  
+- Adjust CMO period for sensitivity (shorter = more signals, longer = fewer but stronger).  
+- Fine-tune ATR multiplier (e.g., 1.5x-3x) based on asset volatility.  
+
+**Note:** Works best in **ranging markets transitioning to trends**; may underperform in sustained trends or choppy conditions.

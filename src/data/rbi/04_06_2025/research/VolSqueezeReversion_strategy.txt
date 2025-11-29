@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolSqueezeReversion
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band volatility compression with VWAP-based mean reversion signals, creating a unique approach to trading low-volatility breakouts with volume confirmation.
+
+Key Components:
+1. Bollinger Bands (20-period, 2σ) to identify volatility compression
+2. VWAP as the mean reversion anchor point
+3. Volume analysis for confirmation signals
+4. Standard deviation channels around VWAP (±2σ)
+
+Entry Rules:
+1. Wait for Bollinger Band width to contract below its 20-period average (low volatility regime)
+2. Enter long when price breaks ABOVE VWAP + 2σ with expanding volume
+3. Enter short when price breaks BELOW VWAP - 2σ with expanding volume
+4. Volume must be at least 20% higher than 10-period average on breakout
+
+Exit Rules:
+1. Take profit when price returns to VWAP with confirming volume
+2. Stop loss placed at ±3σ from VWAP (1σ beyond entry point)
+3. Emergency exit if Bollinger Band width expands beyond 2x its entry value
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop loss mandatory on all positions
+3. No trading during first/last 30 minutes of session
+4. Maximum 3 concurrent positions
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. VWAP (daily)
+3. Volume (10-period average)
+4. Bollinger Band width indicator
+5. Standard deviation channels around VWAP (±2σ, ±3σ)
+
+Optimization Notes:
+1. Best suited for 15min-1hr timeframes
+2. Works well in ranging markets with periodic volatility expansions
+3. Test different σ multiples (1.5-2.5) for various instruments
+4. Volume threshold may need adjustment based on asset liquidity
+
+The VolSqueezeReversion strategy uniquely combines volatility compression detection with volume-weighted mean reversion principles, creating a systematic approach to trading low-volatility breakouts with defined risk parameters.

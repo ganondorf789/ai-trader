@@ -1,0 +1,39 @@
+STRATEGY_NAME: VortexSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI)**: Measures trend direction and strength using two lines (VI+ and VI-).  
+2. **200-period Moving Average (MA)**: Acts as a baseline filter for trend direction.  
+3. **Bollinger Band Width (BBW)**: Measures volatility contraction; narrowing bands indicate potential breakout conditions.  
+4. **1-year Volatility Percentile**: Identifies historically low volatility periods for high-probability entries.  
+
+**Entry Rules (Long):**  
+1. **Trend Filter**: Price must be above the 200-period MA (confirms bullish bias).  
+2. **Vortex Crossover**: VI+ must cross above VI- (signals emerging uptrend).  
+3. **Volatility Squeeze**: BBW must contract below its 1-year percentile (e.g., <20th percentile, indicating extreme compression).  
+4. **Confirmation**: All conditions must align simultaneously.  
+
+**Exit Rules:**  
+1. **Vortex Reversal**: Exit long when VI- crosses back above VI+ (trend weakness signal).  
+2. **Optional Stop-Loss**:  
+   - Fixed percentage (e.g., 2% below entry).  
+   - Trailing stop based on recent swing low or ATR multiple.  
+
+**Risk Management:**  
+- **Position Sizing**: Risk 1-2% of capital per trade.  
+- **Volatility Adjustment**: Reduce size during high-percentile BBW periods.  
+- **Avoid Overcrowding**: No new entries if multiple signals cluster in short timeframes.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-).  
+2. 200-period Simple Moving Average (SMA/EMA).  
+3. Bollinger Bands (20-period, 2 StdDev) + Band Width calculation.  
+4. Historical BBW percentile ranking (1-year lookback).  
+
+**Unique Edge:** Combines trend confirmation (VI+ > VI-), macro alignment (200 MA), and volatility extremes (BBW percentile) for high-probability breakouts. The "squeeze" context filters false breakouts common in mean-reverting markets.  
+
+**Backtest Focus:**  
+- Optimize BBW percentile threshold (e.g., 10th vs. 20th).  
+- Test VI crossover sensitivity (e.g., requiring 2-period confirmation).  
+- Compare exit methods (VI- crossover vs. profit targets).

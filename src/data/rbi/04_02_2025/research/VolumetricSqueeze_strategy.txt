@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolumetricSqueeze
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines volume confirmation (OBV) with volatility contraction (Bollinger Bands)
+- Focuses on breakout potential during low volatility periods
+- Uses adaptive exit mechanism based on volatility expansion
+
+2. Entry Rules:
+- Primary Condition: Bollinger Band width contraction (20-period SMA, 2σ)
+- Confirmation: Positive OBV divergence (price making lower lows while OBV makes higher lows)
+- Execution: Enter long when both conditions are met
+
+3. Exit Rules:
+- Dynamic Trailing Stop: 1.5x ATR(14) from recent high
+- Exit Trigger: Price closes below trailing stop level
+- Additional Exit: Consider closing if Bollinger Band width expands beyond squeeze threshold
+
+4. Risk Management:
+- Position sizing based on ATR (e.g., risk 1% of capital per trade)
+- Stop placement automatically adjusts to market volatility
+- Avoid trading during major news events that may cause false breakouts
+
+5. Required Indicators:
+- Bollinger Bands (20,2)
+- On-Balance Volume (OBV)
+- Average True Range (14-period)
+
+6. Additional Notes:
+- Best suited for 1H-4H timeframes
+- Works well in ranging markets transitioning to trends
+- Requires confirmation from price action near squeeze breakout
+- Avoid using in strongly trending markets without pullbacks
+
+The VolumetricSqueeze strategy uniquely combines volume confirmation with volatility contraction signals, creating a high-probability breakout system with dynamic risk management. The name reflects both the volume analysis (Volumetric) and the Bollinger Band squeeze setup (Squeeze).

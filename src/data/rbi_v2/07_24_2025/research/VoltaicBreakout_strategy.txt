@@ -1,0 +1,37 @@
+STRATEGY_NAME: VoltaicBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Trend Identification:** The strategy focuses on capturing strong bullish trends by combining divergence signals with volatility expansion.  
+2. **Divergence Detection:** Bullish divergence is identified when price makes a lower low while an oscillator (e.g., RSI or MACD) makes a higher low, signaling potential trend reversal or continuation.  
+3. **Volatility Confirmation:** Uses the Keltner Channel (upper band) and Bollinger Bands expansion to confirm breakout strength.  
+4. **Exit Mechanism:** Exits occur when price retraces below the Keltner Channel, indicating weakening momentum.  
+
+**Entry Rules:**  
+1. **Divergence Setup:**  
+   - Price forms a lower low, but the oscillator (RSI/MACD) forms a higher low.  
+2. **Breakout Confirmation:**  
+   - Price closes above the upper Keltner Channel.  
+   - Bollinger Bands show expansion (width increasing), confirming volatility surge.  
+3. **Entry Trigger:**  
+   - Enter long on the next candle's open after both conditions are met.  
+
+**Exit Rules:**  
+1. **Stop-Loss:**  
+   - Initial stop placed below the most recent swing low or below the Keltner Channel lower band.  
+2. **Take-Profit:**  
+   - No fixed target; trail stop using the Keltner Channel (exit when price closes below the middle or lower band).  
+3. **Emergency Exit:**  
+   - Exit immediately if Bollinger Bands contract sharply, signaling volatility collapse.  
+
+**Risk Management:**  
+1. Position sizing based on 1-2% risk per trade.  
+2. Avoid trading during low volatility (narrow Bollinger Bands).  
+3. Filter trades using higher timeframes (e.g., only trade long if daily trend is bullish).  
+
+**Required Indicators:**  
+1. **Keltner Channel** (20-period EMA, 2x ATR multiplier).  
+2. **Bollinger Bands** (20-period SMA, 2 standard deviations).  
+3. **Oscillator** (RSI 14 or MACD for divergence detection).  
+
+**Unique Edge:** Combines divergence (early trend signal) with volatility breakout (confirmation), reducing false entries while capturing strong trends. The name "VoltaicBreakout" reflects the explosive (voltaic) nature of the breakout and its reliance on energy from divergence + volatility.

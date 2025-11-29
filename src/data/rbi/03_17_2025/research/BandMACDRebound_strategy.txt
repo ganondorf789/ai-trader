@@ -1,0 +1,62 @@
+STRATEGY_NAME: BandMACD Rebound
+
+STRATEGY_DETAILS:
+The BandMACD Rebound strategy combines Bollinger Bands and MACD indicators to identify potential buying opportunities during bullish momentum. The strategy focuses on buying near the lower Bollinger Band while ensuring the MACD oscillator remains above zero, indicating sustained upward momentum. Here's a detailed breakdown:
+
+---
+
+### Key Strategy Components:
+1. **Bollinger Bands**: Used to identify potential support levels near the lower band.
+2. **MACD Oscillator**: Confirms bullish momentum when above the zero line.
+3. **Price Action**: Monitors the price relative to the lower Bollinger Band for entry and exit signals.
+
+---
+
+### Entry Rules:
+1. **Buy Signal**:
+   - Price must be near or touching the lower Bollinger Band (within 1-2% of the band).
+   - MACD histogram must be above the zero line, indicating bullish momentum.
+   - Ensure the MACD line (blue) is above the signal line (orange) for additional confirmation.
+
+2. **Short Exit**:
+   - If holding a short position, close it when the price drops below the lower Bollinger Band.
+
+---
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set a take-profit level near the middle Bollinger Band (20-period SMA) or the upper Bollinger Band, depending on market conditions.
+   - Alternatively, use a trailing stop to capture extended moves.
+
+2. **Stop Loss**:
+   - Place a stop-loss just below the lower Bollinger Band (e.g., 1-2% below the band) to limit downside risk.
+
+---
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital per trade.
+2. **Stop-Loss Placement**:
+   - Use the lower Bollinger Band as a dynamic stop-loss level.
+3. **Avoid Overtrading**:
+   - Only take trades when both Bollinger Bands and MACD conditions are met.
+
+---
+
+### Required Indicators:
+1. **Bollinger Bands**:
+   - Period: 20
+   - Standard Deviation: 2
+2. **MACD**:
+   - Fast Length: 12
+   - Slow Length: 26
+   - Signal Smoothing: 9
+
+---
+
+### Additional Notes:
+- This strategy works best in trending or mildly volatile markets.
+- Avoid using it during highly volatile or choppy market conditions, as false signals may occur.
+- Combine with additional confirmation tools like RSI or volume analysis for higher accuracy.
+
+By following the BandMACD Rebound strategy, traders can capitalize on bullish momentum while managing risk effectively.

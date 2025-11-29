@@ -1,0 +1,32 @@
+STRATEGY_NAME: SqueezeAccelero  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection**: Identifies periods of low volatility when the bands contract significantly, often preceding strong breakouts.  
+2. **Volume Rate-of-Change (ROC) Acceleration**: Confirms breakout validity by requiring volume momentum (3-day ROC) to exceed a predefined threshold, ensuring participation.  
+3. **Breakout Entry**: Enters long/short positions when price breaks above/below the Bollinger Bands with volume confirmation.  
+4. **Middle Band Exit**: Uses the middle band (typically a 20-period SMA) as a dynamic exit point for locking in profits or cutting losses.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  1. Price closes *above* the upper Bollinger Band.  
+  2. Volume ROC (3-day) exceeds the threshold (e.g., >20%).  
+- **Short Entry**: Triggered when:  
+  1. Price closes *below* the lower Bollinger Band.  
+  2. Volume ROC (3-day) exceeds the threshold (e.g., >20%).  
+
+**Exit Rules:**  
+- **Long Exit**: Close position when price crosses *below* the middle Bollinger Band (20-period SMA).  
+- **Short Exit**: Close position when price crosses *above* the middle Bollinger Band (20-period SMA).  
+
+**Risk Management:**  
+1. **Stop-Loss**: Optional fixed percentage (e.g., 2%) or ATR-based stop below/above recent swing low/high.  
+2. **Position Sizing**: Allocate 1–2% of capital per trade to limit risk exposure.  
+3. **Avoid Choppy Markets**: Filter trades using ADX (>25) to ensure trending conditions.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 standard deviations).  
+2. **Volume ROC** (3-day rate-of-change).  
+3. **Optional Confirmation**: ADX (14-period) for trend strength.  
+
+**Unique Edge:** Combines volatility contraction (squeeze) with volume momentum, reducing false breakouts and capitalizing on high-probability moves.

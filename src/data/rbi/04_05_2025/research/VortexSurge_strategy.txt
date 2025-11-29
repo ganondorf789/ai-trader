@@ -1,0 +1,35 @@
+STRATEGY_NAME: VortexSurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Measures trend direction and strength. A bullish signal occurs when VI+ crosses above VI-.  
+2. **Volume Spike Filter:** Requires a 50% increase in volume compared to the 10-day average to confirm the entry signal.  
+3. **Keltner Channel Exit:** Uses the upper band of the Keltner Channel as the profit-taking level, providing a dynamic resistance-based exit.  
+
+**Entry Rules:**  
+- Enter a **long position** when:  
+  - The **VI+ line crosses above VI-** (bullish trend confirmation).  
+  - Current **volume is at least 50% higher** than the 10-day average volume (confirms strong participation).  
+
+**Exit Rules:**  
+- Close the long position when:  
+  - Price touches or exceeds the **upper band of the Keltner Channel** (profit-taking level).  
+
+**Risk Management:**  
+1. **Stop-Loss Placement:**  
+   - Set below the recent swing low or use a fixed percentage (e.g., 2-3% below entry).  
+   - Alternatively, exit if **VI- crosses back above VI+**, signaling trend weakness.  
+2. **Position Sizing:**  
+   - Risk no more than 1-2% of capital per trade.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)** – For trend confirmation.  
+2. **Volume (10-day average comparison)** – For entry validation.  
+3. **Keltner Channel (default settings: 20-period EMA, 2x ATR bands)** – For dynamic exit targeting.  
+
+**Additional Notes:**  
+- Works best in **trending markets**; may produce false signals in choppy conditions.  
+- Combine with higher timeframe alignment (e.g., daily chart bias) for improved accuracy.  
+- Avoid trading during low-volume periods (e.g., holidays) to reduce noise.  
+
+This strategy leverages **trend confirmation (Vortex) + volume surge** for high-probability entries and uses **Keltner Channel bands** for disciplined exits.

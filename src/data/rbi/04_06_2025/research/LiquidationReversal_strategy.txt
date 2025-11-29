@@ -1,0 +1,34 @@
+STRATEGY_NAME: LiquidationReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Spike Detection:** The strategy identifies spikes in short liquidations that are 3x above the 30-day average. This indicates potential market exhaustion and a possible reversal point.  
+2. **RSI Divergence Confirmation:** Simultaneously, the strategy looks for bullish RSI divergence (price making lower lows while RSI makes higher lows) to confirm weakening downward momentum.  
+3. **Exit Based on Liquidation Candle Range:** The exit is set at 1.5x the range of the liquidation candle, ensuring a favorable risk-reward ratio.  
+
+**Entry Rules:**  
+- Enter a long position when:  
+  - Short liquidations spike to 3x the 30-day average.  
+  - Bullish RSI divergence is present (price lower low, RSI higher low).  
+  - The entry is triggered on the close of the liquidation spike candle.  
+
+**Exit Rules:**  
+- Exit the long position when the price reaches 1.5x the range of the liquidation candle (high - low of that candle).  
+- Alternatively, exit if RSI crosses below 50, indicating weakening bullish momentum.  
+
+**Risk Management:**  
+- Stop-loss is placed at 0.5x the range of the liquidation candle to limit downside risk.  
+- Position sizing should be adjusted to ensure risk per trade is ≤1-2% of the trading capital.  
+
+**Required Indicators:**  
+1. **Liquidation Data:** Real-time or historical short liquidation data (e.g., from exchanges or APIs like Bybit, Binance, or Coinglass).  
+2. **RSI (14-period):** To identify divergence and confirm momentum shifts.  
+3. **Price Action:** Candlestick charts to determine the liquidation candle range.  
+
+**Additional Notes:**  
+- This strategy works best in highly leveraged markets (e.g., crypto) where liquidations have a pronounced impact.  
+- Backtest across multiple assets to validate robustness.  
+- Avoid using during low-liquidity periods to prevent false signals.  
+
+The unique combination of liquidation spikes and RSI divergence makes this a high-probability reversal strategy.

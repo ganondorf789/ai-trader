@@ -1,0 +1,48 @@
+STRATEGY_NAME: VolatilitySqueezeSurge
+
+STRATEGY_DETAILS:
+This strategy capitalizes on volatility contractions during low liquidity periods, combining Bollinger Bandwidth analysis with VWAP slope confirmation and volume triggers. Here's the detailed breakdown:
+
+Key Components:
+1. Volatility Measurement: Uses Bollinger Bandwidth (BBW) to identify periods of contraction
+2. Liquidity Filter: Focuses on low liquidity periods (overnight/early session)
+3. Confirmation: Requires positive VWAP slope for bullish bias (negative for bearish)
+4. Trigger: Volume surge exceeding 20-day average volume
+5. Risk Management: 2x ATR stop-loss
+
+Entry Rules:
+1. Wait for BBW to reach lowest 20% of its 50-day range (volatility contraction)
+2. Confirm VWAP slope is positive (for long) or negative (for short)
+3. Enter when volume exceeds 20-day average by at least 50%
+4. Entry occurs on the first full candle after volume surge confirmation
+
+Exit Rules:
+1. Primary Exit: 2x ATR trailing stop from entry point
+2. Secondary Exit: When BBW expands beyond median levels (50% of 50-day range)
+3. Emergency Exit: Immediate exit if volume drops below 20-day average for 3 consecutive candles
+
+Risk Management:
+1. Position sizing based on 1% risk of capital per trade
+2. Maximum daily loss limit of 3%
+3. No new entries after 2 consecutive losing trades
+4. Weekend position closure rule (flat before Friday close)
+
+Required Indicators:
+1. Bollinger Bands (20,2) - for Bandwidth calculation
+2. VWAP with 1-period slope calculation
+3. 20-day volume average
+4. ATR (14-period) for stop calculation
+5. Volume histogram
+
+Optimization Notes:
+- Best performance in forex and index futures during Asian/London overlap
+- Requires adjustment of BBW threshold for different asset classes
+- VWAP slope period can be optimized between 3-5 periods
+- Volume surge multiplier can be adjusted between 1.5-3x based on asset volatility
+
+Additional Filters:
+- Avoid FOMC/earnings days
+- Requires minimum 1:2 risk-reward ratio
+- Only trade when overall market is in "normal" volatility regime (VIX between 12-30)
+
+This strategy combines mean-reversion principles (volatility contraction) with momentum triggers (volume surge), creating a high-probability setup during typically lower-activity market periods.

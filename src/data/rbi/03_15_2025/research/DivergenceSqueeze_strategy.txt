@@ -1,0 +1,40 @@
+STRATEGY_NAME: DivergenceSqueeze
+
+STRATEGY_DETAILS:
+The DivergenceSqueeze strategy combines MACD divergence analysis with Bollinger Bands volatility thresholds to identify high-probability trading opportunities. It focuses on spotting weakening momentum through MACD divergence and decreasing volume, while using Bollinger Bands to manage exits during periods of excessive volatility.
+
+Key Strategy Components:
+1. MACD (12, 26, 9) for momentum analysis
+2. Volume indicator for confirmation
+3. Bollinger Bands (20, 2) for volatility measurement
+
+Entry Rules:
+1. Look for MACD divergence (price making higher highs while MACD makes lower highs, or vice versa)
+2. Confirm decreasing volume during the divergence period
+3. Enter long position on bullish divergence (price lower lows, MACD higher lows)
+4. Enter short position on bearish divergence (price higher highs, MACD lower highs)
+
+Exit Rules:
+1. Close position when price touches or exceeds the 2 standard deviation Bollinger Band
+2. Alternatively, exit when MACD crosses the signal line in the opposite direction
+
+Risk Management:
+1. Set stop-loss at 1.5 times the average true range (ATR) from entry point
+2. Risk no more than 1-2% of account capital per trade
+3. Use position sizing based on stop-loss distance
+4. Avoid trading during major news events or low liquidity periods
+
+Required Indicators:
+1. MACD (12, 26, 9)
+2. Volume indicator
+3. Bollinger Bands (20, 2)
+4. ATR (14) for stop-loss calculation
+
+Additional Notes:
+- Best suited for 1-hour or 4-hour timeframes
+- Works well in trending markets with occasional pullbacks
+- Combine with fundamental analysis for better context
+- Backtest thoroughly before live trading
+- Monitor for false signals during low volatility periods
+
+This strategy aims to capture reversals during weakening trends while protecting profits through volatility-based exits. The combination of divergence confirmation and volatility thresholds creates a balanced approach to trend reversal trading.

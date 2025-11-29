@@ -1,0 +1,30 @@
+STRATEGY_NAME: SqueezeSentiment  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze (4H):** Identifies periods of low volatility where price is consolidating, often preceding significant breakouts.  
+2. **Negative Funding Rate Surge:** Acts as a contrarian sentiment indicator, suggesting potential short-term reversals when leveraged shorts are overcrowded.  
+3. **Dynamic Volatility Threshold:** Adjusts exit targets based on recent market volatility to optimize risk-reward.  
+
+**Entry Rules:**  
+- Go **LONG** when:  
+  1. Bollinger Band Width (BBW) on the 4H chart reaches the lowest 20% of its 50-period range (squeeze condition).  
+  2. Funding rates turn significantly negative (e.g., below -0.01% per 8H) and show a sharp drop (e.g., 50% decrease from prior period).  
+
+**Exit Rules:**  
+- **Take Profit:** Recent swing high (last 50 candles) + (ATR(14) × 1.5 to account for volatility expansion.  
+- **Stop Loss:** Recent swing low (last 20 candles) or -1.5× ATR(14), whichever is tighter.  
+
+**Risk Management:**  
+- Position size capped at 2% of equity per trade.  
+- Avoid entries if broader market trend (e.g., 50EMA on daily) opposes the trade direction.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) + Band Width (BBW).  
+2. Funding Rate data (exchange-specific).  
+3. ATR(14) for volatility scaling.  
+4. Swing high/low detection (50/20-period lookback).  
+
+**Unique Edge:** Combines mechanical (squeeze) and sentiment (funding) triggers to exploit overcrowded shorts during low-volatility setups.  
+
+**Note:** Backtest for asset-specific tweaks (e.g., crypto pairs may need tighter ATR multipliers vs. forex).

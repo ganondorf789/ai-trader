@@ -1,0 +1,52 @@
+STRATEGY_NAME: DeltaClusterReversal
+
+STRATEGY_DETAILS:
+This is a sophisticated contrarian strategy that capitalizes on market overextensions near liquidation clusters, combining order book analysis with volatility-based exits.
+
+Key Components:
+1. Liquidation Cluster Identification:
+   - Uses order book delta imbalance to detect areas of concentrated liquidations
+   - Focuses on zones where forced liquidations create temporary price distortions
+
+2. Volatility Measurement:
+   - Keltner Channels (20-period EMA with 2.5 ATR bands) for exit signals
+   - Statistical thresholds (90th percentile) for entry confirmation
+
+Entry Rules:
+1. Trigger Condition:
+   - Wait for liquidation density to exceed 90th percentile historical levels
+   - Confirm via order book delta showing extreme imbalance (minimum 3:1 ratio)
+
+2. Execution:
+   - Enter contrarian position when price reaches identified liquidation cluster
+   - Use limit orders at cluster boundaries for better fills
+
+Exit Rules:
+1. Profit Taking:
+   - Close position when price reaches opposite Keltner band (2.5σ)
+   - Partial profits at 1.5σ if volatility expands rapidly
+
+2. Stop Loss:
+   - Initial stop placed at 1.5x average liquidation cluster size
+   - Trailing stop activates after price moves 1σ in favor
+
+Risk Management:
+1. Position Sizing:
+   - Maximum 2% risk per trade
+   - Adjust size based on cluster density score (higher density = larger position)
+
+2. Volatility Filters:
+   - No entries if ATR > 3% of asset price
+   - Skip trades during scheduled high-impact news events
+
+Required Indicators:
+1. Order Book Delta Imbalance Meter (custom)
+2. Liquidation Density Heatmap (90th percentile threshold)
+3. Keltner Channels (20EMA, 2.5ATR bands)
+4. Average True Range (14-period) for volatility filter
+
+Special Notes:
+- Works best in high-liquidity crypto markets
+- Requires real-time order book data feed
+- Most effective on 15m-4h timeframes
+- Combines mean-reversion principles with liquidity-driven entries

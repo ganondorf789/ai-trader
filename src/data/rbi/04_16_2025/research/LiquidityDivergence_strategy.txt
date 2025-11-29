@@ -1,0 +1,27 @@
+STRATEGY_NAME: LiquidityDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **On-Chain Liquidity Bands:** Tracks shifts in liquidity concentrations (support/resistance zones) using on-chain data (e.g., order book depth, whale wallet movements).  
+2. **Volatility Contraction:** Identifies periods of low volatility (e.g., via Bollinger Band squeeze, ATR drop) signaling potential breakout setups.  
+3. **Volume Surge Confirmation:** Requires a spike in trading volume (e.g., 2x average) to validate liquidity breaches.  
+
+**Entry Rules:**  
+- **Long Entry:** Price breaks above a liquidity cluster (resistance) during volatility contraction, accompanied by a volume surge.  
+- **Short Entry:** Price breaks below a liquidity cluster (support) during volatility contraction, accompanied by a volume surge.  
+
+**Exit Rules:**  
+- **Take Profit:** Targets next major liquidity band (e.g., 1.5x the average true range of the breakout candle).  
+- **Stop Loss:** Placed beyond the breached liquidity cluster (e.g., 0.5x ATR below support for longs, above resistance for shorts).  
+
+**Risk Management:**  
+- Position sizing: 1-2% of capital per trade.  
+- Stop loss must be triggered before volume confirmation fades (e.g., if volume drops below 50% of surge level within 3 candles, exit).  
+
+**Required Indicators:**  
+1. **On-Chain Liquidity Map** (e.g., Glassnode, IntoTheBlock).  
+2. **Volatility Metric** (e.g., Bollinger Band width, 14-period ATR).  
+3. **Volume Oscillator** (e.g., VWAP, volume moving average).  
+
+**Unique Edge:** Combines blockchain data (liquidity shifts) with technical triggers (volatility + volume), filtering false breakouts. Works best on 4H+ timeframes for crypto assets.

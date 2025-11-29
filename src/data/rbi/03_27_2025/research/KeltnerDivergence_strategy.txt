@@ -1,0 +1,51 @@
+STRATEGY_NAME: KeltnerDivergence
+
+STRATEGY_DETAILS:
+This strategy combines the Keltner Channel and RSI indicators to identify high-probability reversal opportunities through divergence patterns, with precise entry/exit rules based on channel breaks and volatility-adjusted targets.
+
+Key Components:
+1. Keltner Channel (20-period EMA with 1.5x ATR bands)
+2. RSI (14-period)
+3. ATR (14-period for exit calculation)
+
+Entry Rules (Long):
+1. Price must close BELOW lower Keltner Channel band
+2. RSI must show bullish divergence (higher low while price makes lower low)
+3. RSI must be below 40 (showing oversold condition)
+4. Enter at next candle's open
+
+Entry Rules (Short):
+1. Price must close ABOVE upper Keltner Channel band
+2. RSI must show bearish divergence (lower high while price makes higher high)
+3. RSI must be above 60 (showing overbought condition)
+4. Enter at next candle's open
+
+Exit Rules:
+1. Profit Target: 2x current 14-period ATR from entry price
+2. Stop Loss: 1x current 14-period ATR from entry price
+3. Time Exit: Close position after 5 candles if not hit target/stop
+
+Risk Management:
+1. Fixed 1% risk per trade (adjust position size accordingly)
+2. Maximum 3 open positions at any time
+3. No trading during major news events
+4. Daily loss limit of 3% (stop trading if hit)
+
+Indicator Settings:
+- Keltner Channel: 20 EMA, 1.5 ATR multiplier
+- RSI: 14 periods
+- ATR: 14 periods (for both channel and exits)
+
+Unique Aspects:
+1. Combines volatility expansion (channel break) with momentum confirmation (RSI divergence)
+2. Uses adaptive profit targets based on current market volatility
+3. Requires both price action and momentum confirmation for entries
+4. Strict risk controls with multiple safeguards
+
+Optimization Notes:
+1. Test ATR multipliers (1.3-2.0) for channel width
+2. Experiment with RSI period (10-20) and threshold levels
+3. Consider adjusting profit target ratio (1.5-3x ATR)
+4. May add volume filter for stronger confirmation
+
+This strategy works best in ranging markets and can capture strong reversals after volatile price movements, while the ATR-based exits ensure risk is always proportional to current market conditions.

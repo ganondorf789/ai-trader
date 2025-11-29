@@ -1,0 +1,38 @@
+STRATEGY_NAME: LiquidityFade  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chande Momentum Oscillator (CMO):** A momentum indicator used to identify overbought (>90) and oversold (<10) conditions.  
+2. **Funding Rate Analysis:** Monitors negative funding rates as a confirmation of extreme sentiment, often signaling potential reversals.  
+3. **Liquidity Gap Targeting:** Identifies price levels with low liquidity on lower timeframes (e.g., 5m/15m) for precise entry and exit zones.  
+
+**Entry Rules:**  
+- **Short Entry:** Triggered when:  
+  - CMO crosses **above 90** (overbought).  
+  - Negative funding rate **surges** (indicating excessive long leverage).  
+  - Price approaches a **resistance liquidity gap** (visible on lower timeframes).  
+- **Long Entry:** Triggered when:  
+  - CMO crosses **below 10** (oversold).  
+  - Negative funding rate **spikes** (indicating excessive short leverage).  
+  - Price approaches a **support liquidity gap** (visible on lower timeframes).  
+
+**Exit Rules:**  
+- **Take Profit:** Target the nearest liquidity gap in the opposite direction (e.g., if shorting, aim for the next support liquidity zone).  
+- **Stop Loss:** Place beyond the recent swing high/low (for shorts/longs) or outside a volatility-based ATR (e.g., 1.5x ATR).  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than **1-2% per trade**.  
+- **Stop Loss Discipline:** Always use a stop loss to prevent extreme drawdowns.  
+- **Avoid Overcrowded Moves:** If funding rates normalize quickly, avoid entering or exit early.  
+
+**Required Indicators:**  
+1. **Chande Momentum Oscillator (CMO, 20-period default).**  
+2. **Funding Rate Data (from exchange API or tracking tool).**  
+3. **Liquidity Heatmap (or order book analysis for gaps).**  
+4. **Optional:** ATR (14-period) for dynamic stop placement.  
+
+**Notes:**  
+- Works best in **ranging or mean-reverting markets**—avoid strong trending conditions.  
+- Lower timeframe (5m/15m) confirmation improves entry precision.  
+- Combines **momentum extremes, sentiment shifts, and liquidity dynamics** for high-probability reversals.

@@ -1,0 +1,76 @@
+STRATEGY_NAME: VolatilityFractal
+
+STRATEGY_DETAILS:
+The VolatilityFractal strategy is a sophisticated approach designed to predict trend reversals by combining divergence analysis, volume fractals, and volatility measurements. It focuses on identifying high-probability reversal points while managing risk through dynamic exit conditions.
+
+### Key Components:
+1. **Divergence Detection**: Uses RSI and MACD to identify potential trend reversals.
+2. **Volume Fractal Confirmation**: Confirms reversals using volume fractal patterns.
+3. **Volatility Management**: Employs ATR multiples to gauge market uncertainty and adjust exits.
+4. **Trend Exhaustion Signals**: Incorporates alternative indicators to detect weakening trends.
+
+---
+
+### Entry Rules:
+1. **Divergence Setup**:
+   - Look for bearish divergence: Price makes higher highs while RSI and MACD make lower highs.
+   - Look for bullish divergence: Price makes lower lows while RSI and MACD make higher lows.
+2. **Volume Fractal Confirmation**:
+   - Identify a fractal pattern in volume that aligns with the divergence (e.g., a spike in volume at the reversal point).
+3. **Entry Trigger**:
+   - Enter a long position on bullish divergence confirmed by volume fractal.
+   - Enter a short position on bearish divergence confirmed by volume fractal.
+
+---
+
+### Exit Rules:
+1. **ATR-Based Exit**:
+   - Monitor the ATR (Average True Range) for rising volatility.
+   - Exit the trade if the ATR exceeds a predefined multiple (e.g., 2x the baseline ATR).
+2. **Trend Exhaustion Signals**:
+   - Exit if alternative indicators (e.g., overbought/oversold RSI levels or MACD crossover) signal trend exhaustion.
+3. **Stop Loss**:
+   - Place a stop loss at a level determined by ATR (e.g., 1.5x ATR from entry).
+4. **Take Profit**:
+   - Set a take profit level based on recent swing highs/lows or a fixed risk-reward ratio (e.g., 2:1).
+
+---
+
+### Risk Management:
+1. **Position Sizing**:
+   - Use a fixed percentage of capital per trade (e.g., 1-2% of account balance).
+2. **Volatility Adjustments**:
+   - Reduce position size during periods of high ATR to account for increased risk.
+3. **Diversification**:
+   - Avoid overconcentration in a single asset or market.
+
+---
+
+### Required Indicators:
+1. **RSI (Relative Strength Index)**:
+   - Period: 14 (default).
+   - Used to identify overbought/oversold conditions and divergences.
+2. **MACD (Moving Average Convergence Divergence)**:
+   - Parameters: 12, 26, 9 (default).
+   - Used to confirm momentum shifts and divergences.
+3. **ATR (Average True Range)**:
+   - Period: 14 (default).
+   - Used to measure volatility and set stop-loss/take-profit levels.
+4. **Volume Fractals**:
+   - Identify fractal patterns in volume to confirm reversal signals.
+
+---
+
+### Example Workflow:
+1. **Identify Divergence**:
+   - Price makes a higher high, but RSI and MACD make lower highs (bearish divergence).
+2. **Confirm with Volume Fractal**:
+   - A significant volume spike occurs at the reversal point.
+3. **Enter Trade**:
+   - Short position initiated at the confirmation candle close.
+4. **Monitor ATR**:
+   - Exit if ATR exceeds 2x the baseline level, indicating rising uncertainty.
+5. **Exit on Trend Exhaustion**:
+   - Close the trade if MACD crosses back above the signal line or RSI moves out of overbought territory.
+
+The VolatilityFractal strategy is ideal for traders who want to capitalize on trend reversals while managing risk through volatility-based exits and volume confirmation.

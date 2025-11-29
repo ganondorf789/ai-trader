@@ -1,0 +1,50 @@
+STRATEGY_NAME: VoidBreakoutDivergence
+
+STRATEGY_DETAILS:
+This strategy combines Heikin-Ashi trend filtering, volatility channel breakouts, and liquidity analysis with volume/open interest divergence for high-probability Asian session trades.
+
+Key Components:
+1. Heikin-Ashi Candles (4H): Smoothed price action to filter trend direction
+2. Keltner Channel (20-period, 2xATR): Volatility-based dynamic support/resistance
+3. Asian Session (00:00-08:00 GMT): Focus on liquidity voids for cleaner breakouts
+4. Open Interest/Volume Ratios: Divergence filter to confirm breakout validity
+
+Entry Rules:
+1. LONG Entry:
+   - Heikin-Ashi candle closes ABOVE upper Keltner band
+   - Volume decreases while Open Interest increases (bullish divergence)
+   - Time between 00:00-08:00 GMT
+
+2. SHORT Entry:
+   - Heikin-Ashi candle closes BELOW lower Keltner band
+   - Volume decreases while Open Interest increases (bearish divergence)
+   - Time between 00:00-08:00 GMT
+
+Exit Rules:
+1. Profit Taking:
+   - 1.5x ATR from entry price (volatility-adjusted target)
+   - OR when Heikin-Ashi color changes (trend reversal signal)
+
+2. Stop Loss:
+   - Opposite Keltner band (dynamic stop)
+   - OR 1x ATR from entry (whichever is closer)
+
+Risk Management:
+1. Position Size: 1-2% risk per trade
+2. Maximum Daily Trades: 2 (to avoid over-trading liquidity voids)
+3. Time Filter: Only trade during specified Asian session hours
+4. Divergence Requirement: Must have confirming OI/volume pattern
+
+Required Indicators:
+1. Heikin-Ashi Candles (4H timeframe)
+2. Keltner Channel (20-period EMA, 2xATR multiplier)
+3. Volume and Open Interest indicators
+4. ATR (14-period for volatility measurement)
+
+Special Notes:
+- Works best on currency pairs with high Asian session liquidity (USD/JPY, AUD/USD)
+- Requires monitoring futures market open interest data
+- Most effective during Tokyo/London session overlap (02:00-04:00 GMT)
+- Avoid news events that may distort volume patterns
+
+This strategy capitalizes on the combination of technical breakout signals during low-liquidity periods, filtered by smart money flow indicators (OI/volume divergence) for higher probability trades.

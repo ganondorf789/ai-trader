@@ -1,0 +1,38 @@
+STRATEGY_NAME: DynamicAccumulationBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volume-weighted price analysis with breakout confirmation and volatility-based exits, creating a sophisticated approach to capturing trending moves during accumulation phases.
+
+Key Components:
+1. Dynamic VWAP Envelope - Acts as the primary breakout filter
+2. On-Balance Volume (OBV) - Confirms accumulation before breakout
+3. Bollinger Bands - Measures volatility for exit signals
+4. Historical Volatility Percentiles - Provides context for current volatility
+
+Entry Rules:
+1. Wait for price to CLOSE outside the dynamic VWAP envelope (upper for long, lower for short)
+2. OBV must show higher highs (for long) or lower lows (for short) confirming accumulation
+3. Volume on breakout candle should exceed 20-period average
+
+Exit Rules:
+1. Primary Exit: When Bollinger Band width expands beyond the 90th percentile of its 100-period historical range
+2. Secondary Exit: Price closes back inside VWAP envelope
+3. Emergency Exit: If OBV reverses direction sharply (3% move against position)
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Initial stop placed at opposite side of VWAP envelope
+3. Trailing stop activates after price moves 1.5x initial risk, trailing at 50% of recent volatility
+
+Required Indicators:
+1. Dynamic VWAP Envelope (VWAP ± 2 standard deviations of 20-period VWAP)
+2. On-Balance Volume (OBV) with 5-period smoothing
+3. Bollinger Bands (20,2) with width measurement
+4. Historical Volatility Percentile (100-period lookback)
+
+Optimization Notes:
+- Adjust VWAP envelope standard deviations based on asset volatility (1.5-2.5 typical range)
+- Test different OBV smoothing periods (3-7) for different timeframes
+- Consider adding a time filter (e.g., only trade first 4 hours of session for day trades)
+
+This strategy excels in trending markets with clear accumulation phases, using volume confirmation to filter false breakouts and volatility expansion to capture maximum moves while protecting profits.

@@ -1,0 +1,29 @@
+STRATEGY_NAME: SqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze (20-day SMA, 2σ):** Identifies periods of low volatility where price is consolidating within tight bands.  
+2. **Volume Surge (50% increase):** Confirms breakout validity with a significant spike in trading volume.  
+3. **MACD Histogram Uptick:** Adds momentum confirmation as the histogram turns positive.  
+4. **Squeeze Midpoint Stop:** Uses the midpoint of the Bollinger Band squeeze as a dynamic stop-loss level.  
+
+**Entry Rules:**  
+1. Wait for price to close **outside** the Bollinger Bands (upper or lower) after a prolonged squeeze (narrowing bands).  
+2. Confirm the breakout with a **50%+ increase in volume** compared to the recent average.  
+3. Require a **positive MACD histogram uptick** (for long entries) or negative (for short entries).  
+
+**Exit Rules:**  
+- **Take Profit:** Trail the stop or use a fixed risk-reward ratio (e.g., 2:1).  
+- **Stop Loss:** Place the stop at the **midpoint of the Bollinger Band squeeze** (average of upper and lower bands during the squeeze).  
+
+**Risk Management:**  
+- Position size based on the distance between entry and stop to limit risk (e.g., 1-2% per trade).  
+- Avoid trading during low-liquidity periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20 SMA, 2σ)  
+2. Volume (50% surge filter)  
+3. MACD (histogram for momentum confirmation)  
+
+**Unique Edge:** Combines volatility contraction (squeeze), volume confirmation, and momentum alignment for high-probability breakouts.

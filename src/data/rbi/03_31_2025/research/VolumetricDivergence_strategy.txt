@@ -1,0 +1,58 @@
+STRATEGY_NAME: VolumetricDivergence
+
+STRATEGY_DETAILS:
+This strategy combines MACD histogram divergence analysis with volume confirmation to identify high-probability reversal points, using Fibonacci retracement levels derived from recent volatility for precise exit targeting.
+
+Key Components:
+1. MACD Histogram Divergence: 
+   - Bullish divergence when price makes lower lows while MACD makes higher lows
+   - Bearish divergence when price makes higher highs while MACD makes lower highs
+   - Divergence must exceed historical threshold (e.g., 2 standard deviations from mean)
+
+2. Volume Surge Confirmation:
+   - Volume must spike above 20-period moving average by at least 50%
+   - Volume should confirm divergence direction (higher volume on bullish divergence bars)
+
+3. Fibonacci Exit Levels:
+   - Calculate recent volatility swing (high-to-low for bearish, low-to-high for bullish)
+   - Key levels: 38.2%, 50%, and 61.8% retracement of the swing
+   - Primary target at 38.2%, secondary at 50%, final at 61.8%
+
+Entry Rules:
+1. Long Entry:
+   - Bullish MACD histogram divergence exceeding threshold
+   - Volume surge confirming bullish momentum
+   - Entry on close of divergence-confirming candle
+
+2. Short Entry:
+   - Bearish MACD histogram divergence exceeding threshold
+   - Volume surge confirming bearish momentum
+   - Entry on close of divergence-confirming candle
+
+Exit Rules:
+1. Profit Targets:
+   - Scale out at Fibonacci levels (38.2%, 50%, 61.8%)
+   - Consider closing full position at 61.8% if strong resistance/support
+
+2. Stop Loss:
+   - Place below recent swing low (long) or above swing high (short)
+   - Alternative: 1.5x average true range (ATR) from entry
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Maximum daily loss limit: 5% of account
+3. Avoid trading during major news events
+4. Filter trades with volatility contraction (ATR below 20-period MA)
+
+Required Indicators:
+1. MACD (12,26,9) - histogram mode
+2. Volume indicator with 20-period MA
+3. Average True Range (ATR) 14-period
+4. Fibonacci retracement tool
+5. Standard deviation calculator for divergence thresholds
+
+Optimization Notes:
+- Backtest divergence thresholds for specific instruments
+- Adjust volume surge percentage based on asset liquidity
+- Test different Fibonacci levels for optimal exits
+- Consider adding Bollinger Bands as additional confirmation

@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolatilitySqueeze  
+
+STRATEGY_DETAILS:  
+This strategy capitalizes on periods of low volatility (contractions) by identifying potential breakout opportunities when volatility compresses and then expands.  
+
+**Key Components:**  
+1. **Volatility Measurement:** Uses the Average True Range (ATR) to gauge market volatility.  
+2. **Consolidation Detection:** Identifies price compression via a 5-day consolidation range.  
+3. **Volatility Thresholds:** Compares short-term (10-day) ATR against its longer-term (50-day) SMA to confirm contraction.  
+
+**Entry Rules:**  
+- **Condition 1:** The 10-day ATR must drop below its 50-day SMA, signaling reduced volatility.  
+- **Condition 2:** Price must breach (close above/below) the high/low of a 5-day consolidation range.  
+- **Direction:** Enter long if price breaks above the consolidation high; enter short if it breaks below the consolidation low.  
+
+**Exit Rules:**  
+- **Profit-Taking:** Exit the trade when the 10-day ATR spikes above its 20-day SMA, indicating volatility expansion.  
+- **Stop-Loss:** Place a stop-loss at the opposite end of the consolidation range (e.g., below the range low for long trades, above the range high for short trades).  
+
+**Risk Management:**  
+- Position sizing should account for the volatility contraction (smaller positions in tighter ranges).  
+- Avoid trading during major news events that may cause erratic volatility spikes.  
+
+**Required Indicators:**  
+1. **Average True Range (ATR)** – 10-day, 20-day, and 50-day periods.  
+2. **SMA of ATR (50-day & 20-day)** – To compare volatility trends.  
+3. **Price Consolidation Range** – High and low of the last 5 days.  
+
+**Additional Notes:**  
+- Works best in trending markets after periods of low volatility.  
+- Avoid using in highly choppy or sideways markets where false breakouts are common.  
+- Consider combining with a trend filter (e.g., 200-day SMA) to improve directional bias.  
+
+This strategy is ideal for traders looking to exploit volatility cycles with clear, rule-based entries and exits.

@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolumeSpikeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volume-weighted moving averages, money flow confirmation, and Renko-based stop management for high-probability breakout trading.
+
+Key Components:
+1. Volume-Weighted Trend Filter: Uses 50-period and 200-period volume-weighted MAs (VWMA) to identify the underlying trend
+2. Money Flow Confirmation: Requires Chaikin Money Flow (CMF) > 0.25 to confirm buying pressure
+3. Renko Brick Stop Management: Uses Renko brick reversals for dynamic stop placement
+
+Entry Rules:
+1. Primary Condition: 50-period VWMA crosses above 200-period VWMA (bullish crossover)
+2. Confirmation: CMF must spike above 0.25 on the same candle as the crossover or immediately after
+3. Execution: Enter long on next candle open after both conditions are met
+
+Exit Rules:
+1. Profit Taking: 
+   - Primary: Trail stop using Renko brick reversals
+   - Alternative: Take partial profits at 2:1 risk-reward ratio
+2. Stop Loss: 
+   - Initial stop placed at most recent Renko brick reversal level
+   - Stop moves to breakeven when price reaches 1.5x initial risk
+
+Risk Management:
+1. Position Sizing: Risk no more than 1-2% of capital per trade
+2. Stop Placement: Always use Renko brick reversal levels for dynamic stops
+3. Filter: Avoid trading during low volume periods (volume < 20-period average)
+
+Required Indicators:
+1. Volume-Weighted Moving Averages (50 & 200 periods)
+2. Chaikin Money Flow (20-period standard settings)
+3. Renko Charts (brick size should be approximately 1-2x the average true range)
+
+Additional Notes:
+- Works best on 1H or 4H timeframes for swing trading
+- Most effective in trending markets - avoid ranging conditions
+- Combine with price action confirmation for higher accuracy
+- Backtest optimal Renko brick size for your instrument

@@ -1,0 +1,47 @@
+STRATEGY_NAME: LiquidationBreakout
+
+STRATEGY_DETAILS:
+This strategy combines on-chain liquidation data with technical volatility patterns to identify high-probability breakout opportunities. The core premise is that clustered liquidation levels create potential price acceleration zones when combined with specific volatility conditions.
+
+Key Components:
+1. On-Chain Liquidation Data: Requires access to real-time liquidation level clustering data from blockchain sources
+2. Volatility Contraction: Uses ATR (14-period) or Bollinger Band Width to identify periods of low volatility
+3. Volatility Spike Confirmation: Requires significant expansion (minimum 2x contraction value) for entry validation
+
+Entry Rules:
+1. Identify clustered liquidation zones (minimum 3 significant liquidation levels within 2% price band)
+2. Confirm volatility contraction (ATR below 20-period moving average OR Bollinger Width < 0.5)
+3. Enter long on upside breakout when:
+   - Price breaches highest liquidation level in cluster
+   - Volatility expands to at least 2x contraction value within 3 candles
+4. Enter short on downside breakout when:
+   - Price breaches lowest liquidation level in cluster
+   - Volatility expands to at least 2x contraction value within 3 candles
+
+Exit Rules:
+1. Profit Taking:
+   - Primary target: 1.5x average liquidation cluster depth
+   - Secondary target: 3x average liquidation cluster depth (trail stop after hitting primary)
+2. Stop Loss:
+   - Fixed: 1x average liquidation cluster depth
+   - OR volatility-based: Exit if ATR returns to contraction levels
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade (stop distance)
+2. Maximum 3 concurrent positions
+3. Avoid trading during scheduled high-impact news events
+4. Time filter: Only trade during highest liquidity hours for the asset
+
+Required Indicators:
+1. On-chain liquidation heatmap (cluster detection)
+2. ATR (14-period) or Bollinger Bands (20,2)
+3. Volume indicator (confirming breakout)
+4. Price levels (for liquidation zone identification)
+
+Optimization Notes:
+1. Test different volatility contraction thresholds (0.3-0.7 for BB Width)
+2. Experiment with cluster density requirements (2-5 levels)
+3. Adjust profit targets based on asset volatility profile
+4. Consider adding RSI filter (e.g., no longs if RSI > 70, no shorts if RSI < 30)
+
+This strategy excels in liquid markets with clear liquidation levels, particularly effective in crypto and leveraged forex markets where stop runs are common. The combination of fundamental liquidation data with technical volatility patterns creates a robust edge in breakout trading.

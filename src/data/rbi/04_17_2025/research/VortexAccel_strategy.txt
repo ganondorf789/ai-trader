@@ -1,0 +1,27 @@
+STRATEGY_NAME: VortexAccel  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator Crossover:** Uses VI+ (positive trend) and VI- (negative trend) lines to identify trend reversals.  
+2. **Volume Acceleration:** Confirms entries with increasing volume (e.g., volume > 20-period SMA).  
+3. **Volatility-Adjusted Stop-Loss:** Uses ATR (Average True Range) to set dynamic stop levels.  
+
+**Entry Rules:**  
+- **Long Entry:** VI+ crosses above VI- **AND** volume > 20-period SMA.  
+- **Short Entry:** VI- crosses above VI+ **AND** volume > 20-period SMA.  
+
+**Exit Rules:**  
+- **Take-Profit:** 2x ATR (14-period) from entry.  
+- **Stop-Loss:** 1.5x ATR (14-period) from entry.  
+
+**Risk Management:**  
+- Position sizing: 1-2% risk per trade.  
+- No trades during low volatility (ATR < recent average).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-)  
+2. Volume (20-period SMA)  
+3. ATR (14-period)  
+
+This strategy combines trend confirmation (Vortex) with volume momentum, while using volatility to manage risk dynamically.

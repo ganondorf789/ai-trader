@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityFlip  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Based Entry:** The strategy focuses on trading long volatility when the 4-hour Chaikin Volatility indicator crosses above its 20-period Simple Moving Average (SMA). This signals an expansion in volatility, often preceding significant price movements.  
+2. **Funding Rate Confirmation:** The trade is only taken if funding rates flip negative, indicating potential bearish sentiment or short-term overextension in the market. This acts as a secondary confirmation filter.  
+3. **Exit at Bollinger Band Extremes:** Positions are closed when price reaches the upper or lower Bollinger Band extremes, suggesting overbought or oversold conditions and potential mean reversion.  
+
+**Entry Rules:**  
+- **Long Volatility Trigger:** Chaikin Volatility (4H) crosses above its 20-period SMA.  
+- **Confirmation:** Funding rates must be negative (indicating bearish sentiment or short-term pressure).  
+- **Trade Direction:** The strategy is agnostic to direction—it capitalizes on volatility expansion, so trades can be long or short depending on the prevailing trend or breakout context.  
+
+**Exit Rules:**  
+- **Bollinger Band Extremes:** Exit the trade when price touches either the upper or lower Bollinger Band (typically set to 2 standard deviations).  
+- **Optional Time-Based Exit:** Consider closing the trade if volatility contracts (Chaikin Volatility crosses back below its 20 SMA) before hitting Bollinger Bands.  
+
+**Risk Management:**  
+- **Stop-Loss:** Place a stop-loss below the recent swing low (for long trades) or above the swing high (for short trades) to limit downside.  
+- **Position Sizing:** Use volatility-adjusted position sizing (e.g., ATR-based) to account for changing market conditions.  
+- **Avoid Overleveraging:** Since the strategy trades volatility spikes, excessive leverage can lead to large drawdowns.  
+
+**Required Indicators:**  
+1. **Chaikin Volatility:** Measures the difference between high and low prices over a period, normalized by the average price range.  
+2. **20-Period SMA of Chaikin Volatility:** Smooths the volatility readings to identify crossovers.  
+3. **Bollinger Bands (20,2):** Identifies overbought/oversold levels for exits.  
+4. **Funding Rates (from exchange data):** Confirms bearish sentiment for trade validation.  
+
+**Additional Notes:**  
+- Works best in trending or breakout markets where volatility expansion leads to sustained moves.  
+- Less effective in low-volatility, range-bound conditions.  
+- Ideal for crypto markets due to the sensitivity to funding rates and volatility regimes.  
+
+This strategy combines volatility expansion signals with sentiment analysis (funding rates) and mean-reversion exits (Bollinger Bands) for a systematic approach to trading volatility spikes.

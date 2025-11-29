@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolSqueezeReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Signal:** Uses Heikin-Ashi candles on the 4-hour timeframe to identify periods of tightening price action (smaller candle bodies).  
+2. **Bollinger Band Squeeze Threshold:** Monitors when the Heikin-Ashi candle body contracts below a predefined threshold (e.g., 20% of the candle range) while Bollinger Bands narrow significantly (indicating low volatility).  
+3. **Funding Rate Flip:** Confirms a potential reversal when perpetual swap funding rates turn negative, suggesting excessive short positioning.  
+4. **Liquidation Cluster Anchoring:** Places stop-loss orders near recent liquidation clusters (high-density order zones) to avoid being caught in false breakouts.  
+
+**Entry Rules:**  
+- Go **long volatility** (e.g., buy options, enter futures, or trade spot with tight stops) when:  
+  1. The 4-hour Heikin-Ashi candle body contracts below the squeeze threshold (e.g., body < 20% of total range).  
+  2. Bollinger Band width (upper - lower band) is at a 20-period low.  
+  3. Funding rates flip negative (confirming bearish overcrowding).  
+
+**Exit Rules:**  
+- Take profit when:  
+  1. Bollinger Bands expand significantly (volatility breakout).  
+  2. Heikin-Ashi candles show strong directional momentum (large body in the opposite direction).  
+  3. Funding rates revert to positive (indicating short squeeze exhaustion).  
+- Stop-loss placed just below the nearest liquidation cluster (identified via order book heatmaps or historical liquidations data).  
+
+**Risk Management:**  
+- Position sizing based on the distance to the liquidation cluster stop (e.g., risk 1-2% per trade).  
+- Avoid entering if Bollinger Bands are still widening (no squeeze present).  
+- Filter out low-liquidity assets to prevent slippage.  
+
+**Required Indicators:**  
+1. Heikin-Ashi candles (4-hour timeframe).  
+2. Bollinger Bands (20-period, 2 StdDev).  
+3. Funding rate monitor (exchange-specific perpetual swap data).  
+4. Liquidation cluster heatmap (tools like Hyblock, Coinglass, or order book analysis).  
+
+**Unique Edge:** Combines volatility contraction, sentiment extremes (funding rates), and liquidation-based stops to exploit mean-reversion in high-leverage markets. The name "VolSqueezeReversal" reflects its focus on volatility compression and contrarian positioning.

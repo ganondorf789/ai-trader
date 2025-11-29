@@ -1,0 +1,50 @@
+STRATEGY_NAME: MomentumBandwidth  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chande Momentum Oscillator (CMO):** A momentum indicator that measures the strength of price movement, ranging from -100 to +100.  
+2. **Bollinger Band Width:** Measures the volatility by calculating the difference between the upper and lower Bollinger Bands, normalized by the middle band.  
+3. **20-Day Low in Bandwidth:** Identifies periods of low volatility, often preceding potential breakouts.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - CMO crosses **above** a predefined threshold (e.g., +50)  
+  - Bollinger Band width is at a **20-day low** (indicating compressed volatility)  
+- **Short Entry:**  
+  - CMO crosses **below** a predefined threshold (e.g., -50)  
+  - Bollinger Band width is at a **20-day low**  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  - CMO crosses **below** a neutral threshold (e.g., +20)  
+  - OR Bollinger Band width expands significantly (e.g., above a moving average of bandwidth)  
+- **Short Exit:**  
+  - CMO crosses **above** a neutral threshold (e.g., -20)  
+  - OR Bollinger Band width expands significantly  
+
+**Risk Management:**  
+- **Stop-Loss:**  
+  - Fixed percentage (e.g., 1-2%) below/above entry price  
+  - OR volatility-based stop using ATR (e.g., 1.5x ATR)  
+- **Position Sizing:**  
+  - Risk no more than 1-2% of capital per trade  
+
+**Required Indicators:**  
+1. **Chande Momentum Oscillator (CMO)** – Typically with a 14-period lookback.  
+2. **Bollinger Bands (20,2)** – Standard settings for calculating bandwidth.  
+3. **Bollinger Band Width Formula:**  
+   \[  
+   \text{Bandwidth} = \frac{\text{Upper Band} - \text{Lower Band}}{\text{Middle Band (SMA 20)}}  
+   \]  
+4. **Optional:** ATR (14-period) for dynamic stop-loss adjustment.  
+
+**Unique Aspects:**  
+- Combines **momentum confirmation (CMO)** with **volatility compression (Bandwidth)** for high-probability breakout entries.  
+- Avoids false breakouts by requiring both momentum and low volatility conditions.  
+
+**Optimization Notes:**  
+- Adjust CMO thresholds (+50/-50) based on asset volatility.  
+- Test different bandwidth lookback periods (e.g., 10-30 days) for optimal compression detection.  
+
+This strategy is ideal for **swing trading** in trending markets with periodic volatility contractions.

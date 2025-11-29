@@ -1,0 +1,38 @@
+STRATEGY_NAME: LiquidityReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidity Zone Identification:** Uses the high/low of the previous 5 trading sessions to define key liquidity zones.  
+2. **Volume Confirmation:** Requires declining volume during the breach of the liquidity zone to validate the reversal signal.  
+3. **ATR-Based Stop:** Uses 2x the Average True Range (ATR) for dynamic stop-loss placement.  
+4. **Midpoint Exit:** Exits trades at the midpoint of the breached liquidity zone for partial profit-taking.  
+
+**Entry Rules:**  
+- **Short Entry:** Triggered when price breaches the *low* of the previous 5 sessions with declining volume.  
+- **Long Entry:** Triggered when price breaches the *high* of the previous 5 sessions with declining volume.  
+
+**Exit Rules:**  
+1. **Profit Target:** Exit at the midpoint of the breached liquidity zone (high/low range).  
+2. **Stop-Loss:** 2x ATR from the entry price (trailing stop optional for aggressive management).  
+3. **Time-Based Exit:** Close trade if target/stop not hit within a set session (e.g., 4 hours).  
+
+**Risk Management:**  
+- Position sizing based on 1-2% risk per trade relative to the ATR stop.  
+- Avoid trading during major news events to prevent false liquidity breaches.  
+- Filter trades with a volatility check (e.g., only trade if ATR > session average).  
+
+**Required Indicators:**  
+1. **5-Session High/Low:** To define liquidity zones.  
+2. **Volume Indicator:** To confirm declining volume during breaches.  
+3. **ATR (14-period):** For stop-loss and volatility filtering.  
+
+**Unique Edge:**  
+- Combines liquidity zones (institutional levels) with volume divergence for high-probability reversals.  
+- Midpoint exit ensures profit capture before potential pullbacks.  
+- ATR adapts stops to current volatility, reducing whipsaw losses.  
+
+**Optimization Tips:**  
+- Test different session lengths (e.g., 3-7 sessions) for liquidity zones.  
+- Adjust ATR multiplier (1.5x-3x) based on asset volatility.  
+- Add a confirmation filter (e.g., RSI divergence) for higher accuracy.

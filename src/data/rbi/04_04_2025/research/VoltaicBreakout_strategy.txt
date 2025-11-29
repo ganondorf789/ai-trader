@@ -1,0 +1,44 @@
+STRATEGY_NAME: VoltaicBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility expansion signals with trend strength confirmation to capture strong directional moves while managing risk through dynamic position sizing.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 standard deviations) - Identifies volatility boundaries
+2. ADX (14-period) - Confirms trend strength
+3. ATR (14-period) - Determines dynamic stop placement
+4. Price action - Triggers entries on band breaks
+
+Entry Rules:
+LONG:
+- Price closes ABOVE upper Bollinger Band
+- ADX (14) > 25 and rising
+- Only enter if previous candle closed inside bands
+
+SHORT:
+- Price closes BELOW lower Bollinger Band
+- ADX (14) > 25 and rising
+- Only enter if previous candle closed inside bands
+
+Exit Rules:
+- Trailing stop set at 2x ATR from entry price
+- Stop moves in favorable direction but never against
+- Close position if ADX drops below 20 (optional trend weakness filter)
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Stop distance = 2x ATR
+3. Maximum position size = (Account risk %) / (Stop distance in $)
+4. No entries if ADX < 25 (avoids low-trend environments)
+
+Indicator Settings:
+- Bollinger Bands: 20 period, 2 std dev
+- ADX: 14 period (consider DI+ > DI- for longs, DI- > DI+ for shorts)
+- ATR: 14 period
+
+Optimization Notes:
+- Test different ATR multiples (1.5x-3x) for stop placement
+- Experiment with ADX thresholds (20-30)
+- Consider adding time filter (only trade first 4 hours of session)
+
+This strategy works best in trending markets with expanding volatility, and should be avoided during ranging conditions (when ADX remains below 25). The combination of volatility breakout with trend confirmation helps filter false breakouts while the ATR-based stop adapts to current market conditions.

@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "",
+  "stderr": "  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v2/07_24_2025/backtests_package/BandedRSI_Trend_PKG.py\", line 41\n    position_size = int(round((self.equity * self.risk_per_trade) / (current_risk * price))\n                       ^\nSyntaxError: '(' was never closed\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v2/07_24_2025/backtests_package/BandedRSI_Trend_PKG.py` failed. (See above for error)\n",
+  "execution_time": 0.443396,
+  "timestamp": "2025-07-24T10:53:02.580544"
+}

@@ -1,0 +1,80 @@
+STRATEGY_NAME: DivergentReversion
+
+STRATEGY_DETAILS:
+
+### Overview
+DivergentReversion is a mean-reversion trading strategy designed for markets exhibiting temporary overextensions, such as stocks, forex, or futures. It capitalizes on divergences between the Relative Strength Index (RSI) and Bollinger Bands (BB) to identify potential reversals when prices deviate significantly from their mean. Volume spikes serve as a confirmation filter to avoid false signals in low-conviction moves. The strategy assumes that overextended prices (as signaled by BB) will revert to the mean, with RSI divergence providing an early warning of momentum exhaustion. It is best suited for ranging or mildly trending markets on timeframes like 1-hour or daily charts, with position sizing adjusted for volatility.
+
+### Key Strategy Components
+1. **Mean-Reversion Core**: The strategy relies on the principle that prices will revert to their statistical mean after extreme deviations. Bollinger Bands act as dynamic mean and volatility envelopes, while RSI measures momentum divergence from this mean.
+2. **Divergence Detection**: Focuses on hidden or regular divergences where RSI fails to confirm BB extremes (e.g., price hits a BB outer band, but RSI does not reach overbought/oversold levels).
+3. **Overextension Trigger**: BB width or position indicates when the market is stretched beyond normal volatility (e.g., price touching or exceeding 2-3 standard deviations from the middle band).
+4. **Volume Confirmation**: A spike in trading volume (e.g., 1.5-2x average) validates the signal, ensuring institutional or high-interest participation in the potential reversal.
+5. **Exit Mechanisms**: Combines volatility-based stops/targets using Average True Range (ATR) with mean-reversion thresholds (e.g., price returning to the BB middle band, interpreted as "contract rollback" in futures contexts or general price rollback to equilibrium).
+
+### Required Indicators and Parameters
+- **Bollinger Bands (BB)**: Period = 20, Standard Deviations = 2 (default; adjust to 2.5 for more conservative overextension). Upper/Lower Bands for overextension; Middle Band (20-period SMA) as the mean reversion target.
+- **Relative Strength Index (RSI)**: Period = 14. Look for divergences: e.g., bullish divergence (price makes lower low on BB lower band, but RSI makes higher low); bearish (price higher high on BB upper band, RSI lower high).
+- **Volume**: Simple volume oscillator or comparison to 20-period average volume. Spike threshold: Current volume > 1.5x 20-period average.
+- **Average True Range (ATR)**: Period = 14. Used for dynamic exits: e.g., stop-loss at 1-2x ATR from entry, take-profit at 2-3x ATR or upon rollback.
+- **Optional Filters**: 
+  - BB Squeeze (low bandwidth < historical average) to avoid entries in low-volatility regimes.
+  - Time filter: Avoid entries near market open/close to reduce noise.
+
+Platform recommendations: Implement on TradingView, MetaTrader, or Python (using TA-Lib for indicators). Backtest with at least 5 years of data, incorporating slippage (0.1-0.5%) and commissions.
+
+### Entry Rules
+Entries are long or short biased toward mean reversion, triggered only when all conditions align to confirm exhaustion and impending rollback.
+
+1. **Overextension Condition (BB)**:
+   - **Long Entry**: Price closes below the Lower BB (overextended downside, e.g., < -2 SD from middle band).
+   - **Short Entry**: Price closes above the Upper BB (overextended upside, e.g., > +2 SD from middle band).
+   - Additional: BB width should be expanding (volatility increasing), indicating a potential climax.
+
+2. **Divergence Condition (RSI relative to BB)**:
+   - **Bullish (Long)**: Price hits a new low on/near Lower BB, but RSI shows divergence (RSI > previous RSI low, ideally RSI < 30 but not confirming the price extreme).
+   - **Bearish (Short)**: Price hits a new high on/near Upper BB, but RSI shows divergence (RSI < previous RSI high, ideally RSI > 70 but not confirming the price extreme).
+   - Divergence must be confirmed over 2-3 bars to filter noise.
+
+3. **Volume Confirmation**:
+   - On the entry bar or the bar confirming divergence, volume must spike (e.g., > 1.5x 20-period average).
+   - No entry if volume is flat or declining, as this suggests lack of conviction.
+
+4. **Final Entry Trigger**:
+   - Enter on the close of the confirmation bar (post-divergence and volume spike).
+   - Position size: Risk 1-2% of account per trade (see Risk Management).
+   - Avoid entries if overall market trend (e.g., via 200-period MA) opposes the reversion signal.
+
+Example Long Entry: In a stock like AAPL on a 1H chart, price drops to Lower BB amid expanding bands, RSI forms higher low (divergence at ~25 vs. prior 20), and volume jumps 2x average → Buy at close.
+
+### Exit Rules
+Exits balance profit-taking on reversion with protection against trend continuation.
+
+1. **Profit Targets (ATR Multiples)**:
+   - **Partial Exit**: Scale out 50% of position at 1.5-2x ATR from entry (captures initial rollback).
+   - **Full Exit**: Close remaining at 3x ATR or when price reaches the BB Middle Band (rollback to mean).
+   - Trailing Stop: After 1x ATR profit, trail stop at 1x ATR behind the Middle BB.
+
+2. **Rollback Exit (Contract/Price Reversion)**:
+   - Exit long when price closes above the BB Middle Band.
+   - Exit short when price closes below the BB Middle Band.
+   - This acts as a dynamic target, typically occurring within 3-10 bars in mean-reverting conditions.
+
+3. **Stop-Loss**:
+   - Initial stop: 1.5-2x ATR beyond the extreme BB band (e.g., for long, below Lower BB by 1.5x ATR).
+   - Hard stop if no volume confirmation on exit bar or if divergence invalidates (e.g., RSI breaks extreme in trend direction).
+
+4. **Time-Based Exit**:
+   - Exit if no rollback within 10-15 bars to avoid opportunity cost in ranging markets.
+
+Example Exit: Enter long at $100 (Lower BB), ATR = $2. Target partial at $103 (1.5x ATR), full at $106 or Middle BB ($104). Stop at $97.
+
+### Risk Management
+- **Position Sizing**: Use ATR for volatility-adjusted sizing. Max risk per trade = 1% of account equity. Formula: Position Size = (Account Risk Amount) / (Entry to Stop Distance in ATR multiples). E.g., $10k account, 1% risk ($100), 2x ATR stop ($4) → Size = $100 / $4 = 25 shares.
+- **Maximum Exposure**: No more than 3-5% total risk across open trades; limit to 2-3 concurrent positions.
+- **Drawdown Controls**: Pause trading if drawdown > 10% in a month; re-optimize parameters quarterly.
+- **Diversification**: Apply to 5-10 uncorrelated assets (e.g., mix of sectors); avoid high-impact news events (use economic calendar filter).
+- **Win Rate and R:R**: Target 60%+ win rate with 1.5:1 reward-to-risk ratio. Backtest to ensure expectancy > 0.5 (e.g., (Win% * Avg Win) - (Loss% * Avg Loss) > 0).
+- **Psychological Notes**: Journal trades to track false divergences; use automation to enforce rules and reduce emotional entries.
+
+This strategy performs best in sideways markets (e.g., ADX < 25) and underperforms in strong trends—pair with a trend filter like ADX for robustness. Always forward-test on demo before live deployment.

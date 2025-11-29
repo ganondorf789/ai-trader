@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolSqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection:** Identifies low volatility periods when the Bollinger Bands' width contracts to within 1% of each other, signaling a potential breakout opportunity.  
+2. **Volume Surge Confirmation:** Requires a 150% increase in volume compared to the recent average to validate the breakout, ensuring strong participation.  
+3. **Volatility Breakout Entry:** Enters trades when price exits the squeezed Bollinger Bands, indicating the start of a new trend.  
+4. **Exit Conditions:** Uses two methods—price returning inside the Bollinger Bands or a trailing stop set at 2x the Average True Range (ATR) to lock in profits or limit losses.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Bands (20-period, 2 standard deviations) must have a width of ≤1% (squeeze).  
+- **Condition 2:** Volume must surge by at least 150% compared to the 20-period moving average of volume.  
+- **Entry Trigger:** A candle closes outside the Bollinger Bands (upper for long, lower for short).  
+
+**Exit Rules:**  
+1. **Bollinger Band Reversion:** Exit if price closes back inside the Bollinger Bands.  
+2. **ATR Trailing Stop:** Maintain a trailing stop at 2x the 14-period ATR from the most recent peak (for longs) or trough (for shorts).  
+
+**Risk Management:**  
+- **Position Sizing:** Use a fixed percentage of capital (e.g., 1-2% per trade).  
+- **Stop Loss:** Initial stop can be set at 1x ATR below/above the entry candle for tighter risk control.  
+- **Trailing Stop:** Adjusts dynamically with price movement to protect profits.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2)  
+2. Volume (20-period moving average for comparison)  
+3. Average True Range (ATR, 14-period)  
+
+**Unique Aspects:**  
+- Combines low-volatility squeeze detection with high-volume confirmation for high-probability breakouts.  
+- Uses a dynamic trailing stop based on volatility (ATR) to adapt to market conditions.  
+- Avoids false breakouts by requiring volume surge, reducing whipsaw trades.  
+
+**Best Suited For:**  
+- High-momentum stocks or forex pairs with frequent volatility contractions.  
+- Traders who prefer mechanical, rules-based systems with clear triggers.

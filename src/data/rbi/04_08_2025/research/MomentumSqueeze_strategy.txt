@@ -1,0 +1,35 @@
+STRATEGY_NAME: MomentumSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chande Momentum Oscillator (CMO):** Measures momentum strength with values ranging from -100 to +100.  
+2. **Bollinger Bands (BB):** Identifies volatility contractions (squeezes) when bands narrow.  
+3. **Volume Filter:** Confirms momentum with increasing volume.  
+4. **TICK Index:** Validates market sentiment shifts (NYSE TICK or equivalent).  
+
+**Entry Rules:**  
+1. **CMO Crossover:** Long when CMO crosses above +50 (strong bullish momentum). Short when CMO crosses below -50 (strong bearish momentum).  
+2. **Bollinger Squeeze:** BB bandwidth (upper - lower band) must be at a 20-period low, indicating low volatility before expansion.  
+3. **Volume Confirmation:** Volume must be higher than its 20-period SMA.  
+4. **TICK Confirmation:** For longs, TICK must show a bullish shift (rising above its 5-period MA). For shorts, TICK must show bearish momentum (falling below its 5-period MA).  
+
+**Exit Rules:**  
+1. **Profit Target:** Close position when CMO crosses back below +30 (long) or above -30 (short).  
+2. **Stop Loss:** Exit if price closes beyond the opposite Bollinger Band (upper band for shorts, lower band for longs).  
+3. **Time Exit:** Exit after 5 bars if no target/stop is hit.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Volatility Adjustment:** Wider stops in high-volatility regimes (use ATR for reference).  
+
+**Required Indicators:**  
+1. Chande Momentum Oscillator (14-period default).  
+2. Bollinger Bands (20-period SMA, 2 StdDev).  
+3. Volume (20-period SMA for filtering).  
+4. TICK Index (5-period MA for confirmation).  
+
+**Notes:**  
+- Works best on 15m-1h timeframes for swing/day trading.  
+- Avoid low-volume periods (overnight, holidays).  
+- Backtest for asset-specific adjustments (e.g., CMO thresholds).

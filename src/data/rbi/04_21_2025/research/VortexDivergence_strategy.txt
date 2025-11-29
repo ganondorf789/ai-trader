@@ -1,0 +1,44 @@
+STRATEGY_NAME: VortexDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **On-Balance Volume (OBV) Divergence**: Detects potential trend reversals by comparing price action with volume flow. Bullish divergence occurs when price makes lower lows while OBV makes higher lows. Bearish divergence occurs when price makes higher highs while OBV makes lower highs.  
+2. **Vortex Indicator Crossover**: Uses VI+ (positive trend movement) and VI- (negative trend movement) lines. A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI+ crosses below VI-.  
+3. **Chande Kroll Stop (CKS)**: Acts as a dynamic trailing stop based on volatility-adjusted price ranges. The stop levels adjust to market conditions, providing exit points for both long and short positions.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  1. OBV shows bullish divergence (price lower low, OBV higher low).  
+  2. VI+ crosses above VI-.  
+  3. Price is above the Chande Kroll Stop (confirms bullish momentum).  
+- **Short Entry**:  
+  1. OBV shows bearish divergence (price higher high, OBV lower high).  
+  2. VI+ crosses below VI-.  
+  3. Price is below the Chande Kroll Stop (confirms bearish momentum).  
+
+**Exit Rules:**  
+- **Long Exit**:  
+  1. Price closes below the Chande Kroll Stop (trailing stop triggered).  
+  2. VI+ crosses below VI- (momentum reversal).  
+- **Short Exit**:  
+  1. Price closes above the Chande Kroll Stop (trailing stop triggered).  
+  2. VI+ crosses above VI- (momentum reversal).  
+
+**Risk Management:**  
+1. Position sizing based on a fixed percentage of capital (e.g., 1-2% per trade).  
+2. Stop-loss initially set at the Chande Kroll Stop level upon entry.  
+3. Trailing stop adjusts dynamically using the Chande Kroll Stop to lock in profits.  
+4. Avoid trading during low-volume periods or major economic events to reduce false signals.  
+
+**Required Indicators:**  
+1. **On-Balance Volume (OBV)** – To identify divergence.  
+2. **Vortex Indicator (VI+, VI-)** – For trend confirmation via crossover.  
+3. **Chande Kroll Stop (CKS)** – For dynamic exit thresholds.  
+
+**Additional Notes:**  
+- Works best on 1H or 4H timeframes for swing trading.  
+- Backtest on multiple assets to confirm robustness.  
+- Combine with price action (support/resistance) for higher-probability entries.  
+
+This strategy combines volume analysis, trend momentum, and adaptive stops for early reversal detection with controlled risk.

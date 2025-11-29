@@ -1,0 +1,35 @@
+STRATEGY_NAME: VoltaicCompression  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **ADX (Average Directional Index)** - Measures trend strength (threshold: >25 for valid trend)  
+2. **Bollinger Band Width** - Identifies volatility contraction (narrowing bands = low volatility)  
+3. **Keltner Channels** - Defines dynamic exit points when price breaks against the trend  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - ADX >25 (strong trend)  
+  - Bollinger Band width (BBW) below its 20-period average (volatility compression)  
+  - Price closes above the upper Bollinger Band  
+- **Short Entry:**  
+  - ADX >25 (strong trend)  
+  - BBW below its 20-period average  
+  - Price closes below the lower Bollinger Band  
+
+**Exit Rules:**  
+- **Long Exit:** Price closes below the lower Keltner Channel (against uptrend)  
+- **Short Exit:** Price closes above the upper Keltner Channel (against downtrend)  
+
+**Risk Management:**  
+- Stop-loss:  
+  - Long trades: Recent swing low or 1.5x ATR below entry  
+  - Short trades: Recent swing high or 1.5x ATR above entry  
+- Position sizing: Risk ≤1-2% of capital per trade  
+
+**Required Indicators:**  
+1. ADX (14-period)  
+2. Bollinger Bands (20,2) + BBW calculation  
+3. Keltner Channels (20, 1.5x ATR)  
+4. Optional: ATR (14) for stop-loss refinement  
+
+**Unique Edge:** Combines trend confirmation (ADX) with volatility cycles (BBW) for high-probability entries, while Keltner Channels prevent overstaying trades during reversals. Works best on 1H-4H timeframes in trending markets.

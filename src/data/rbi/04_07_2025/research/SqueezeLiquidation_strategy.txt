@@ -1,0 +1,41 @@
+STRATEGY_NAME: SqueezeLiquidation  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection:** Uses Bollinger Bandwidth (BBW) to identify periods of low volatility (squeeze) when the BBW reaches a 10-day low.  
+2. **Liquidation Level Clustering:** Analyzes order book delta divergence to pinpoint clustered liquidation levels, indicating potential breakout zones.  
+3. **Breakout Confirmation:** Requires price to breach the Bollinger Bands during the squeeze phase to confirm a breakout.  
+4. **Momentum Filter:** Uses RSI to validate overbought/oversold conditions for exits.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - BBW reaches a 10-day low (volatility squeeze).  
+  - Price breaches the upper Bollinger Band.  
+  - Order book delta divergence confirms clustered liquidation levels supporting upward momentum.  
+- **Short Entry:** Triggered when:  
+  - BBW reaches a 10-day low (volatility squeeze).  
+  - Price breaches the lower Bollinger Band.  
+  - Order book delta divergence confirms clustered liquidation levels supporting downward momentum.  
+
+**Exit Rules:**  
+- **Long Exit:** RSI crosses below 70 (overbought condition).  
+- **Short Exit:** RSI crosses above 30 (oversold condition).  
+
+**Risk Management:**  
+- **Stop-Loss:** Place stop-loss just beyond the opposite Bollinger Band (e.g., below the lower band for long trades, above the upper band for short trades).  
+- **Position Sizing:** Adjust position size based on the volatility (e.g., wider bands = smaller position).  
+- **Time-Based Exit:** Exit trades if the breakout fails to sustain momentum within a predefined time window (e.g., 2-3 candles).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 standard deviations).  
+2. Bollinger Bandwidth (BBW) to measure squeeze conditions.  
+3. RSI (14-period) for exit signals.  
+4. Order book delta divergence (liquidation level clustering analysis).  
+
+**Unique Aspects:**  
+- Combines volatility squeeze (BBW) with order book liquidity analysis for high-probability breakouts.  
+- Uses RSI as a dynamic exit filter rather than a reversal signal.  
+- Focuses on clustered liquidation levels to confirm breakout validity, reducing false signals.  
+
+This strategy is ideal for traders looking to capitalize on low-volatility breakouts with confirmation from liquidity dynamics.

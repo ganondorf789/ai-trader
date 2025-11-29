@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityQuotient  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Based Entry:** The strategy focuses on identifying low-volatility periods by comparing the 10-day historical volatility to its 20-day moving average.  
+2. **RSI-Based Exit:** Exits are triggered when the 5-day RSI indicates overbought conditions, ensuring timely profit-taking.  
+3. **Mean-Reversion Implication:** The strategy implicitly assumes that low volatility periods are followed by mean-reverting price movements.  
+
+**Entry Rules:**  
+- **Long Entry:** Enter a long position when the 10-day historical volatility (HV) falls below its 20-day moving average (MA).  
+  - Formula: `HV(10) < MA(HV(20))`  
+  - This signals a contraction in volatility, often preceding a breakout or mean-reversion move.  
+
+**Exit Rules:**  
+- **Exit Condition:** Close the long position when the 5-day RSI crosses above 70.  
+  - Formula: `RSI(5) > 70`  
+  - This indicates overbought conditions, suggesting a potential reversal or pullback.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Optional but recommended—set a stop-loss at a fixed percentage (e.g., 2-3%) below the entry price or use a trailing stop based on recent volatility.  
+2. **Position Sizing:** Allocate capital based on the volatility of the asset (e.g., higher volatility = smaller position size).  
+3. **Time-Based Exit:** If the trade remains open for an extended period (e.g., 10 days) without triggering the RSI exit, consider closing it to avoid stagnation.  
+
+**Required Indicators:**  
+1. **10-Day Historical Volatility (HV):** Measures the standard deviation of daily price changes over 10 days.  
+2. **20-Day Moving Average of HV:** Smoothes the volatility data to identify trends in volatility.  
+3. **5-Day RSI:** A short-term momentum oscillator to detect overbought conditions.  
+
+**Additional Notes:**  
+- Works best in ranging or mildly trending markets.  
+- Avoid using during high-volatility regimes (e.g., earnings season, macroeconomic events).  
+- Backtest across multiple asset classes to confirm robustness.  
+
+This strategy combines volatility contraction with short-term momentum, making it unique as "VolatilityQuotient." The name reflects its focus on volatility metrics (Quotient) and their predictive power for mean-reverting moves.

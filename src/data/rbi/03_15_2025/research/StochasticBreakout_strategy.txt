@@ -1,0 +1,56 @@
+STRATEGY_NAME: StochasticBreakout
+
+STRATEGY_DETAILS:
+The StochasticBreakout strategy is a high-frequency trading approach that combines the Stochastic Oscillator and Relative Strength Index (RSI) to identify breakout opportunities in volatile markets. This strategy is designed for short-term traders who aim to capitalize on rapid price movements.
+
+### Key Strategy Components:
+1. **Stochastic Oscillator**: Used to identify overbought and oversold conditions. The default settings are typically %K (14) and %D (3).
+2. **Relative Strength Index (RSI)**: Used to confirm momentum and strength of the breakout. The default setting is typically 14 periods.
+3. **Price Action**: Focuses on breakouts above resistance or below support levels.
+
+### Entry Rules:
+1. **Long Entry**:
+   - Stochastic Oscillator: %K crosses above %D in the oversold zone (below 20).
+   - RSI: Confirms momentum by being above 50.
+   - Price: Breaks above a recent resistance level.
+   - Enter a long position when all three conditions are met.
+
+2. **Short Entry**:
+   - Stochastic Oscillator: %K crosses below %D in the overbought zone (above 80).
+   - RSI: Confirms momentum by being below 50.
+   - Price: Breaks below a recent support level.
+   - Enter a short position when all three conditions are met.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set a fixed percentage or price target based on recent volatility (e.g., 1-2% above/below entry).
+   - Alternatively, exit when the Stochastic Oscillator reaches the opposite extreme (overbought for long trades, oversold for short trades).
+
+2. **Stop Loss**:
+   - Place a stop loss just below the breakout level for long trades or above the breakout level for short trades.
+   - Use a fixed percentage (e.g., 0.5-1%) or a recent swing low/high as the stop loss level.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital on any single trade.
+   - Adjust position size based on the distance between entry and stop loss levels.
+
+2. **Diversification**:
+   - Avoid concentrating all trades in a single asset or sector.
+   - Spread trades across multiple instruments to reduce risk.
+
+3. **Timeframe**:
+   - This strategy is best suited for 5-minute or 15-minute charts for high-frequency trading.
+   - Avoid holding positions overnight to minimize exposure to gap risk.
+
+### Required Indicators:
+1. **Stochastic Oscillator** (%K: 14, %D: 3).
+2. **Relative Strength Index (RSI)** (14 periods).
+3. **Support and Resistance Levels** (identified using recent price action).
+
+### Additional Notes:
+- This strategy works best in trending or highly volatile markets.
+- Avoid using it during low-volume or sideways market conditions, as false breakouts are more likely.
+- Backtest the strategy on historical data to optimize parameters and ensure consistency.
+
+By combining the Stochastic Oscillator and RSI with breakout levels, the StochasticBreakout strategy provides a systematic approach to capturing short-term price movements while managing risk effectively.

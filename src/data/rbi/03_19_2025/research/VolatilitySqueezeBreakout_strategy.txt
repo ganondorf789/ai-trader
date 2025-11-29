@@ -1,0 +1,47 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout
+
+STRATEGY_DETAILS:
+The VolatilitySqueezeBreakout strategy is designed to capitalize on periods of low volatility followed by high-probability breakouts. It combines Bollinger Bands and volume analysis to identify potential trading opportunities.
+
+Key Strategy Components:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Volume analysis (20-day average volume)
+3. Volatility contraction detection (30-day narrowest band width)
+
+Entry Rules:
+1. Monitor Bollinger Bands for contraction
+2. Identify when the band width reaches its narrowest point in the last 30 days
+3. Wait for price to break above the upper band (for long) or below the lower band (for short)
+4. Confirm breakout with volume exceeding the 20-day average volume
+5. Enter trade in the direction of the breakout
+
+Exit Rules:
+1. For long positions:
+   - Exit when price closes below the middle Bollinger Band (20-period SMA)
+   - Or when price retraces to the breakout level (upper band)
+2. For short positions:
+   - Exit when price closes above the middle Bollinger Band (20-period SMA)
+   - Or when price retraces to the breakout level (lower band)
+
+Risk Management:
+1. Position sizing based on account risk tolerance (1-2% per trade recommended)
+2. Stop-loss placement:
+   - For long positions: below the lower Bollinger Band
+   - For short positions: above the upper Bollinger Band
+3. Consider using a trailing stop based on the middle band after initial breakout
+4. Avoid trading during major news events or low liquidity periods
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Volume indicator
+3. 20-day average volume calculation
+4. Band width measurement tool
+
+Additional Considerations:
+1. Backtest the strategy on your chosen timeframe
+2. Adjust parameters based on market conditions and asset volatility
+3. Combine with other confirmation indicators (e.g., RSI, MACD) for higher probability setups
+4. Monitor multiple timeframes for confluence
+5. Maintain a trading journal to track performance and refine the strategy
+
+This strategy works best in trending markets and may produce false signals during prolonged consolidation periods. Proper risk management and patience are crucial for long-term success.

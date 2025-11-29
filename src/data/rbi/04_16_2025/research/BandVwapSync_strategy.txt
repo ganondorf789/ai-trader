@@ -1,0 +1,45 @@
+STRATEGY_NAME: BandVwapSync
+
+STRATEGY_DETAILS:
+The BandVwapSync strategy combines Bollinger Band mean-reversion signals with VWAP momentum confirmation for precise entries and exits. This hybrid approach synchronizes volatility-based support levels with volume-weighted trend confirmation.
+
+Key Components:
+1. Bollinger Bands (20,2) - Identifies potential reversal zones at lower band
+2. 20-period VWAP - Confirms trend direction with volume weighting
+3. 5-period MA of VWAP - Provides dynamic exit signal
+4. Bollinger Bandwidth - Calculates adaptive stop levels
+
+Entry Rules:
+1. Price must touch or penetrate the lower Bollinger Band
+2. 20-period VWAP slope must be positive (current VWAP > previous VWAP)
+3. Both conditions must occur simultaneously
+
+Exit Rules:
+1. Primary exit when VWAP crosses below its 5-period moving average
+2. Secondary exit if price reaches upper Bollinger Band (optional profit-taking)
+
+Stop Management:
+1. Initial stop placed at:
+   - Lower band value minus (Bandwidth * 0.5) for tighter stops
+   - OR lower band value minus Bandwidth for wider stops
+2. Trailing stop option: Move stop to breakeven when price reaches middle band
+
+Indicator Settings:
+- Bollinger Bands: 20 periods, 2 standard deviations
+- VWAP: 20-period rolling calculation
+- MA of VWAP: 5-period simple moving average
+
+Risk Management Guidelines:
+1. Position size should not exceed 2% of capital per trade
+2. Minimum reward/risk ratio of 1.5:1 required
+3. Avoid trading during major news events when bands may expand abnormally
+
+Optimal Conditions:
+- Works best in ranging markets with moderate volatility
+- Effective on 15min-4hr timeframes
+- Strongest signals occur after prolonged trends when price first returns to lower band
+
+Additional Filters (optional):
+- RSI(14) > 30 to avoid oversold continuation
+- Volume above 20-period average for confirmation
+- MACD histogram turning positive as confluence

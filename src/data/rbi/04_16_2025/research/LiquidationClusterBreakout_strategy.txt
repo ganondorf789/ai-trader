@@ -1,0 +1,42 @@
+STRATEGY_NAME: LiquidationClusterBreakout
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Focuses on VWAP clusters formed during high liquidation events (market extremes where forced liquidations occur)
+- Uses Bollinger Band width to confirm volatility contraction (signaling potential breakout conditions)
+- Monitors volume-weighted momentum for divergence from price trajectory (exit signal)
+- Combines volume analysis (VWAP) with volatility metrics (Bollinger Bands) and momentum divergence
+
+2. Entry Rules:
+- Identify VWAP clusters formed during high liquidation events (look for extreme price moves with high volume)
+- Wait for volatility contraction (Bollinger Band width narrowing to below average levels)
+- Enter long when price breaks above the VWAP cluster with expanding volume
+- Enter short when price breaks below the VWAP cluster with expanding volume
+- Confirmation: Breakout should occur with volume at least 1.5x the average of recent periods
+
+3. Exit Rules:
+- Primary exit: When volume-weighted momentum (price*volume oscillator) diverges from price trajectory
+  - For long positions: Price makes higher high but momentum makes lower high
+  - For short positions: Price makes lower low but momentum makes higher low
+- Secondary exit: When Bollinger Band width expands beyond 2 standard deviations from its mean
+- Emergency exit: If price returns inside the VWAP cluster after breakout
+
+4. Risk Management:
+- Initial stop placed at the opposite side of the VWAP cluster
+- Position sizing based on distance to stop (risk no more than 1-2% per trade)
+- Trail stop to breakeven once price moves 1.5x the initial risk
+- Maximum daily loss limit of 5% of capital
+
+5. Required Indicators:
+- VWAP (Volume Weighted Average Price) with cluster identification
+- Bollinger Bands (20-period, 2 standard deviations) with width measurement
+- Volume-weighted momentum oscillator (custom indicator combining price and volume)
+- Volume profile (to confirm breakout validity)
+
+6. Additional Notes:
+- Best suited for liquid markets with frequent liquidation events (crypto, futures)
+- Timeframe: 15min to 4hr charts optimal
+- Requires clean chart reading to identify true VWAP clusters
+- Works best when combined with overall market context (trend direction, liquidity levels)
+
+This strategy capitalizes on the unique market structure created by forced liquidations, where VWAP clusters act as significant support/resistance zones, and combines this with volatility contraction and momentum divergence for high-probability entries and exits.

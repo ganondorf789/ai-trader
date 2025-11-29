@@ -1,0 +1,42 @@
+STRATEGY_NAME: FadeVortex  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Contrarian Approach**: The strategy fades price extremes, betting on mean reversion when conditions indicate overextension.  
+2. **Choppiness Index (CI)**: Used to identify low-trending, choppy markets when CI > 75, signaling potential exhaustion.  
+3. **Volume Decline**: Confirms weakening momentum when volume decreases alongside high CI.  
+4. **20-period VWAP**: Acts as the mean reversion target, providing a dynamic support/resistance level.  
+5. **Bollinger Bands**: Used for exit signals when price breaks beyond the bands, indicating volatility expansion.  
+
+**Entry Rules:**  
+- Enter short when:  
+  - Choppiness Index > 75 (indicating a choppy, range-bound market).  
+  - Volume is declining compared to recent periods (e.g., 5-period moving average of volume).  
+  - Price is at or near a recent high (suggesting an extreme).  
+- Enter long when:  
+  - Choppiness Index > 75.  
+  - Volume is declining.  
+  - Price is at or near a recent low.  
+
+**Exit Rules:**  
+- **Take Profit**: Close position when price reaches the 20-period VWAP (mean reversion target).  
+- **Stop Loss**: Exit if price exceeds the Bollinger Band threshold (e.g., upper band for shorts, lower band for longs), indicating volatility expansion and potential trend continuation.  
+- **Time-Based Exit**: Consider exiting if the trade does not revert to VWAP within a set number of bars (e.g., 10-15 periods).  
+
+**Risk Management:**  
+- Position sizing should account for the distance to the VWAP and Bollinger Bands to ensure favorable risk-reward (e.g., 1:2 or better).  
+- Avoid trading during high-impact news events that may disrupt mean reversion behavior.  
+- Use a trailing stop or partial profit-taking near VWAP if the market shows hesitation.  
+
+**Required Indicators:**  
+1. **Choppiness Index (CI)** – To identify range-bound conditions (default period: 14).  
+2. **Volume** – To confirm weakening momentum (compare to a moving average, e.g., 5-period).  
+3. **20-period VWAP** – The mean reversion target.  
+4. **Bollinger Bands** (default: 20-period, 2 standard deviations) – For volatility-based exits.  
+
+**Additional Notes:**  
+- Works best in sideways or mildly trending markets; avoid strong trending conditions.  
+- Backtest to optimize CI threshold (e.g., 70-80) and volume decline criteria.  
+- Combine with price action (e.g., rejection candles at extremes) for higher-probability entries.  
+
+This strategy capitalizes on exhaustion moves in choppy markets, using volume and volatility filters to refine entries and exits. The name **"FadeVortex"** reflects its contrarian nature ("Fade") and the swirling, choppy conditions ("Vortex") it exploits.

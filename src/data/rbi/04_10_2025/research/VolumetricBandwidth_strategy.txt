@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolumetricBandwidth
+
+STRATEGY_DETAILS:
+Key Components:
+1. Bollinger Bandwidth Contraction: Measures periods of low volatility (compression) before potential breakouts
+2. Volume Confirmation: Requires volume spikes above 50-day average to validate breakouts
+3. ATR Trailing Stops: Uses Average True Range for dynamic, volatility-adjusted exit points
+
+Entry Rules:
+1. Wait for Bollinger Bandwidth to reach lowest 20% of its 100-day range (extreme contraction)
+2. Enter long when price breaks above upper Bollinger Band
+3. Confirm with volume spike exceeding 50-day average volume by at least 25%
+4. Optional: Require price to close outside bands for confirmation
+
+Exit Rules:
+1. Initial stop placed at 1.5x ATR(14) below entry price
+2. Trailing stop adjusts daily using 2x ATR(14) below highest high since entry
+3. Exit entire position when trailing stop is hit
+4. Consider partial profit-taking at 2x initial risk level
+
+Risk Management:
+1. Position size calculated to risk 1-2% of capital per trade
+2. Maximum of 3-5 concurrent positions to diversify
+3. Avoid trading during major economic news events
+4. Filter trades with ADX > 25 to confirm trending conditions
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Bollinger Bandwidth (BB width divided by middle band)
+3. 50-day simple moving average of volume
+4. ATR (14-period)
+5. Optional: ADX (14-period) for trend strength confirmation
+
+Optimization Notes:
+1. Test different ATR multiples (1.5-3x) for stop placement
+2. Experiment with bandwidth contraction thresholds (15-25% of range)
+3. Consider adding time filter (e.g., only trade first 2 hours of session)
+4. Backtest different profit-taking ratios (2:1, 3:1)
+
+This strategy combines volatility contraction, volume confirmation, and adaptive exits to capture explosive moves while managing risk through volatility-adjusted position sizing and stops. The VolumetricBandwidth approach is particularly effective in trending markets following periods of consolidation.

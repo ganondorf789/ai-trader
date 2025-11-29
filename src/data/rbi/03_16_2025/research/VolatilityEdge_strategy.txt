@@ -1,0 +1,50 @@
+STRATEGY_NAME: VolatilityEdge
+
+STRATEGY_DETAILS:
+The VolatilityEdge strategy capitalizes on the extremes of implied volatility by exploiting the divergence between high and low volatility environments. This approach combines options trading with volatility analysis to create a delta-neutral position that profits from volatility mean reversion.
+
+Key Strategy Components:
+1. **Volatility Analysis**: Focus on the VIX index as the primary volatility indicator
+2. **Options Selection**: Use call and put options to create a delta-neutral position
+3. **Volatility Extremes**: Identify specific VIX thresholds for trade execution
+4. **Risk Management**: Implement trailing stop-loss at original strike price
+
+Entry Rules:
+1. **High Volatility Entry (Long Call)**
+   - Wait for VIX > 50
+   - Buy at-the-money (ATM) or slightly out-of-the-money (OTM) call options
+   - Ensure position is delta-neutral by adjusting with underlying asset or other options
+
+2. **Low Volatility Entry (Short Put)**
+   - Wait for VIX < 20
+   - Sell at-the-money (ATM) or slightly out-of-the-money (OTM) put options
+   - Maintain delta-neutral position through hedging
+
+Exit Rules:
+1. **Trailing Stop-Loss**
+   - Set stop-loss at original strike price for both positions
+   - Adjust stop-loss as price moves in favorable direction
+
+2. **Volatility Mean Reversion**
+   - Close long call position when VIX drops below 40
+   - Close short put position when VIX rises above 25
+
+Risk Management:
+1. Position sizing based on account risk tolerance (1-2% per trade)
+2. Use of delta-neutral hedging to minimize directional risk
+3. Regular monitoring of implied volatility changes
+4. Strict adherence to stop-loss levels
+
+Required Indicators:
+1. VIX Index (Implied Volatility)
+2. Options Greeks (Delta, Vega, Theta)
+3. Price charts with strike price levels
+4. Volatility cones or historical volatility bands
+
+Additional Considerations:
+- Monitor earnings announcements and macroeconomic events that could impact volatility
+- Adjust position sizes based on volatility skew and term structure
+- Consider using volatility ETFs or futures for hedging purposes
+- Regularly review and adjust delta-neutral positions as market conditions change
+
+This strategy requires a solid understanding of options pricing and volatility dynamics, making it suitable for intermediate to advanced traders with access to real-time volatility data and options trading platforms.

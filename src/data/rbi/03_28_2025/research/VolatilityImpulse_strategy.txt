@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolatilityImpulse
+
+STRATEGY_DETAILS:
+This strategy combines momentum and volatility analysis with trend confirmation to identify high-probability breakout opportunities. The unique aspect lies in using a dynamic volatility-based threshold for the Chande Momentum Oscillator, coupled with Elder's Impulse System for trend confirmation and exit signals.
+
+Key Components:
+1. Chande Momentum Oscillator (CMO) - Measures momentum strength
+2. Dynamic Threshold - 1.5x 20-day rolling volatility (ATR or standard deviation)
+3. Elder's Impulse System - Combines EMA and MACD for trend confirmation
+
+Entry Rules:
+1. Calculate the dynamic threshold as 1.5 times the 20-day volatility measure
+2. Wait for CMO to cross ABOVE this dynamic threshold
+3. Confirm with Elder's Impulse System showing bullish signal (green bar)
+4. Enter long position when all conditions align
+
+Exit Rules:
+1. Primary Exit: When Elder's Impulse System shows bearish reversal (red bar)
+2. Secondary Exit: If CMO falls back below the dynamic threshold
+3. Emergency Exit: Pre-determined stop-loss level (recommend 1x ATR below entry)
+
+Risk Management:
+1. Position sizing based on volatility (recommend 1-2% risk per trade)
+2. Stop-loss at 1x 20-day ATR below entry price
+3. Consider trailing stop based on recent swing lows
+4. Avoid trading during low volatility periods (when threshold < absolute value 10)
+
+Required Indicators:
+1. Chande Momentum Oscillator (standard 20-period)
+2. 20-day volatility measure (ATR or standard deviation)
+3. Elder's Impulse System (13-day EMA + MACD histogram)
+
+Optimization Notes:
+- The 1.5x multiplier can be adjusted between 1.2-2.0 based on asset volatility
+- For more sensitive signals, reduce CMO period to 14
+- For smoother signals, increase CMO period to 25
+- Combine with volume confirmation for higher accuracy
+
+This strategy works best in trending markets and may generate false signals during ranging periods. The dynamic threshold adapts to changing market conditions, while Elder's system provides reliable trend confirmation.

@@ -1,0 +1,38 @@
+STRATEGY_NAME: MomentumBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Trend Confirmation:** The strategy uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) to confirm a bullish trend.  
+2. **Momentum Strength:** The ADX (Average Directional Index) must rise above 25 to ensure strong trending conditions.  
+3. **Breakout Entry:** Trades are initiated on breakouts, leveraging the confirmed trend and momentum.  
+4. **Exit Signals:** Exits are based on either a 2x ATR (Average True Range) trailing stop-loss or a 5-period RSI overbought (>70) or oversold (<30) signal.  
+
+**Entry Rules:**  
+- Enter a long position when:  
+  1. The 50-period EMA crosses above the 200-period EMA (Golden Cross).  
+  2. The ADX rises above 25, indicating strong momentum.  
+  3. Price breaks out above a recent high (confirmation of bullish momentum).  
+
+**Exit Rules:**  
+- Exit the trade when:  
+  1. The price hits a trailing stop-loss set at 2x ATR from the entry point.  
+  2. The 5-period RSI crosses above 70 (overbought) or below 30 (oversold), signaling a potential reversal.  
+
+**Risk Management:**  
+- **Stop-Loss:** Use a trailing stop-loss set at 2x ATR to protect profits and limit losses.  
+- **Position Sizing:** Adjust position size based on the ATR to ensure risk per trade is consistent.  
+- **Avoid Weak Trends:** Only trade when ADX > 25 to filter out weak or choppy markets.  
+
+**Required Indicators:**  
+1. **50-period EMA (Exponential Moving Average)**  
+2. **200-period EMA (Exponential Moving Average)**  
+3. **ADX (Average Directional Index) with a threshold of 25**  
+4. **ATR (Average True Range) for stop-loss calculation**  
+5. **5-period RSI (Relative Strength Index) for exit signals**  
+
+**Additional Notes:**  
+- This strategy is best suited for trending markets and may underperform in ranging or low-volatility conditions.  
+- Backtesting is recommended to optimize the ATR multiplier and RSI period for specific instruments.  
+- Combine with price action or volume confirmation for higher accuracy.  
+
+This strategy combines trend-following, momentum confirmation, and disciplined risk management to capitalize on strong breakout opportunities.

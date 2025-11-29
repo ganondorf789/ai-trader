@@ -1,0 +1,28 @@
+STRATEGY_NAME: VolatilityBandit  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility-Based Entries**: Uses a 20-period EMA as a baseline, with upper/long and lower/short bands set at ±2x the 14-period ATR (Average True Range) to define breakout zones.  
+2. **Momentum Confirmation**: RSI (14-period) is used to validate trend strength, with exits triggered when RSI crosses the 50 midline.  
+3. **Volume Filter**: Requires declining volume (e.g., 5-period volume SMA sloping downward) to confirm exit signals, reducing false reversals.  
+
+**Entry Rules:**  
+- **Long Entry**: Price closes above the *upper band* (20 EMA + 2x ATR).  
+- **Short Entry**: Price closes below the *lower band* (20 EMA − 2x ATR).  
+
+**Exit Rules:**  
+- **Long Exit**: RSI (14) crosses *below 50* AND volume shows a declining trend (e.g., volume SMA(5) < prior period).  
+- **Short Exit**: RSI (14) crosses *above 50* AND volume confirms decline.  
+
+**Risk Management:**  
+1. **Stop-Loss**: Dynamic stop at ±1x ATR from entry price.  
+2. **Position Sizing**: Allocate ≤2% of capital per trade.  
+3. **Time Filter**: Avoid entries during first/last 30 minutes of trading sessions to reduce noise.  
+
+**Required Indicators:**  
+1. **20-period EMA** (baseline).  
+2. **14-period ATR** (volatility bands).  
+3. **14-period RSI** (momentum filter).  
+4. **5-period Volume SMA** (exit confirmation).  
+
+**Unique Edge:** Combines volatility breakouts with momentum/volume confluence, reducing whipsaws typical of pure ATR strategies. The name "VolatilityBandit" reflects its opportunistic, volatility-driven entries and stealthy exits via RSI/volume traps.

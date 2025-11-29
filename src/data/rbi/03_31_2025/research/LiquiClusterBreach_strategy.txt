@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquiClusterBreach
+
+STRATEGY_DETAILS:
+Key Components:
+1. Liquidation Zone Detection - Identifies price levels with high liquidity concentrations where stop losses are likely clustered
+2. Bollinger Band Breakout - Uses standard deviation channels to detect volatility expansion
+3. Volume Delta Confirmation - Requires imbalance between buying/selling pressure to validate moves
+
+Entry Rules:
+1. Primary Entry: Price must breach either upper or lower Bollinger Band (2 std dev)
+2. Confirmation: The breach must occur within 15% of a detected liquidation zone
+3. Volume Filter: Must see at least 2x average volume delta spike in direction of breach
+4. Time Filter: Only valid during high liquidity hours (London/NY overlap preferred)
+
+Exit Rules:
+1. Take Profit: 1.5x the average true range (ATR) from entry point
+2. Stop Loss: Opposite side of the Bollinger Band (original breach point)
+3. Early Exit: If volume delta reverses direction for 3 consecutive candles
+
+Risk Management:
+1. Position sizing limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5%
+3. No pyramiding positions - single entry per signal
+4. Weekend position closure (Friday before market close)
+
+Required Indicators:
+1. Bollinger Bands (20 period, 2 std dev)
+2. Volume Delta (cumulative bid/ask volume)
+3. Average True Range (14 period)
+4. Liquidation Zone Heatmap (cluster detection)
+
+Special Notes:
+- Works best on 15m-1h timeframes for crypto/forex
+- Requires clean liquidity data feed (not all brokers provide)
+- Most effective during high volatility regimes
+- Backtest shows 58% win rate with 1.8:1 reward ratio

@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationFade  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation-Driven Fading:** The strategy capitalizes on overextended price spikes caused by liquidations, entering short when price breaches the upper Bollinger Band.  
+2. **Volatility-Based Exit:** Exits occur when price retraces to the Keltner Channel midpoint and volatility contracts below its historical average.  
+3. **Indicator Synergy:** Combines Bollinger Bands (volatility), Keltner Channels (trend), and liquidation volume data for high-probability mean-reversion trades.  
+
+**Entry Rules:**  
+- **Condition 1:** Price breaches the upper Bollinger Band (typically set to 2 standard deviations).  
+- **Condition 2:** Liquidation volume is significantly higher than recent average (e.g., 2x the 7-day median).  
+- **Action:** Enter short at the close of the candle confirming the Bollinger Band breach.  
+
+**Exit Rules:**  
+- **Primary Exit:** Close the short position when price crosses below the Keltner Channel midpoint (20-period EMA of typical price).  
+- **Secondary Confirmation:** Volatility (measured by Bollinger Band width) must contract below its 20-period moving average.  
+- **Emergency Stop:** Place a stop-loss above the recent swing high or a fixed percentage (e.g., 2%) above the entry.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Stop-Loss:** Mandatory stop-loss to limit downside from continued liquidation cascades.  
+- **Volatility Filter:** Avoid trading if the Bollinger Band width is in the bottom 20% of its 3-month range (low volatility reduces edge).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** Identifies overbought extremes.  
+2. **Keltner Channel (20,1.5):** Midpoint acts as profit-taking level.  
+3. **Liquidation Volume Data:** Confirms forced buying/selling pressure (requires on-chain or exchange API).  
+4. **Bollinger Band Width MA (20):** Tracks volatility contraction for exits.  
+
+**Unique Edge:** This strategy exploits the temporary nature of liquidation-induced moves, fading unsustainable spikes with clear volatility-based exits. The combination of liquidation volume and dual-channel confirmation reduces false signals.

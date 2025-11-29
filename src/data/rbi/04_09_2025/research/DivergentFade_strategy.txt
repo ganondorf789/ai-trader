@@ -1,0 +1,47 @@
+STRATEGY_NAME: DivergentFade
+
+STRATEGY_DETAILS:
+The DivergentFade strategy is a mean-reversion approach that capitalizes on overextended price movements when confirmed by volume and momentum divergences. This strategy combines Bollinger Bands, volume analysis, MACD histogram, and ATR for a comprehensive fade setup.
+
+Key Components:
+1. Bollinger Bands (20,2) - Identifies potential overbought/oversold conditions
+2. Volume - Confirms weakening momentum when price breaches bands
+3. MACD Histogram (12,26,9) - Detects momentum divergence
+4. ATR (14) - Used for dynamic stop placement
+
+Entry Rules (Short Setup):
+1. Price breaches upper Bollinger Band
+2. Volume is declining during the breach (at least 2 consecutive lower volume bars)
+3. MACD histogram shows bearish divergence (price makes higher high while histogram makes lower high)
+4. Enter short on next candle open
+
+Entry Rules (Long Setup):
+1. Price breaches lower Bollinger Band
+2. Volume is declining during the breach (at least 2 consecutive lower volume bars)
+3. MACD histogram shows bullish divergence (price makes lower low while histogram makes higher low)
+4. Enter long on next candle open
+
+Exit Rules:
+1. Stop Loss: 1.5x ATR from entry price (opposite side of trade)
+2. Take Profit: 
+   - Primary: When price returns to middle Bollinger Band (20 SMA)
+   - Secondary: When opposite divergence signal appears
+
+Risk Management:
+1. Position size calculated to risk no more than 1-2% of capital per trade
+2. Stop loss is mandatory on all positions
+3. No new entries if 3 consecutive losing trades occur (requires strategy review)
+
+Indicator Settings:
+- Bollinger Bands: 20 period, 2 standard deviations
+- Volume: 14 period SMA for reference
+- MACD: 12,26,9 standard settings
+- ATR: 14 period
+
+Additional Notes:
+1. Works best in ranging or mildly trending markets
+2. Avoid during strong trending markets (confirmed by ADX > 30)
+3. Higher timeframe signals (4H/Daily) tend to be more reliable
+4. Requires patience - not all Bollinger Band breaches will qualify
+
+This strategy combines multiple confirmation factors to identify high-probability fade opportunities while maintaining strict risk control through ATR-based stops. The unique combination of volume confirmation with MACD divergence creates a robust filter against false signals.

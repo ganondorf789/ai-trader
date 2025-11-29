@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with volume confirmation to identify high-probability breakout opportunities, using dynamic risk management through opening-range anchored stops.
+
+Key Components:
+1. Bollinger Band Width Contraction: Measures periods of compressed volatility when the BB width falls below a historical percentile threshold
+2. Volume Surge Filter: Requires trading volume to exceed its 20-period median to confirm breakout validity
+3. Opening-Range Anchored Stop: Uses the breakout candle's range to set dynamic trailing stop levels
+
+Entry Rules:
+1. Wait for Bollinger Band width to contract below its X-period percentile (e.g., 20th percentile over 100 periods)
+2. Confirm volume exceeds 20-period median volume
+3. Enter long on break above upper Bollinger Band or short on break below lower Bollinger Band
+4. Entry executes only if both conditions are met simultaneously
+
+Exit Rules:
+1. Initial Stop: Set at opposite end of breakout candle's range (for longs: low of candle; for shorts: high of candle)
+2. Trailing Stop: Adjust stop to maintain original candle range distance from price extreme
+3. Profit Target: None specified - trail stop until exit
+
+Risk Management:
+1. Position sizing based on stop distance to maintain consistent risk per trade
+2. Maximum risk per trade typically 1-2% of capital
+3. Stop placement ensures defined risk before entry
+4. Volume filter reduces false breakout entries
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations recommended)
+2. Bollinger Band Width indicator (calculates Upper-Lower band difference)
+3. Volume indicator with 20-period median calculation
+4. Historical percentile calculator for BB width
+
+Optimization Notes:
+1. Test different percentile thresholds (15th-25th) for BB width contraction
+2. Experiment with various lookback periods for percentile calculation
+3. Consider adding time filter (e.g., only trade first 2 hours of session)
+4. May combine with momentum oscillator for additional confirmation
+
+This strategy excels in ranging markets transitioning to trends, using volatility compression as a springboard for explosive moves confirmed by volume participation, while the anchored stop provides favorable risk-reward dynamics.

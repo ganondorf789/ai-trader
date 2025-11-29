@@ -1,0 +1,51 @@
+STRATEGY_NAME: VolatilityPulse
+
+STRATEGY_DETAILS:
+The VolatilityPulse strategy is designed to capitalize on periods of low volatility followed by explosive price movements. It combines Bollinger Bands and volume analysis to identify high-probability breakout opportunities. Here's a detailed breakdown of the strategy:
+
+1. **Key Strategy Components**:
+   - Bollinger Bands (20-period, 2 standard deviations)
+   - Volume analysis (20-day average volume)
+   - Volatility contraction detection (30-day narrowest Bollinger Band width)
+
+2. **Entry Rules**:
+   - Monitor Bollinger Band width daily
+   - Identify when the bands reach their narrowest point in the last 30 days
+   - Wait for price to break above the upper band or below the lower band
+   - Confirm breakout with volume exceeding the 20-day average volume
+   - Enter long position on upper band breakout with volume confirmation
+   - Enter short position on lower band breakout with volume confirmation
+
+3. **Exit Rules**:
+   - For long positions: Exit when price closes back inside the Bollinger Bands
+   - For short positions: Exit when price closes back inside the Bollinger Bands
+   - Alternatively, set a trailing stop at the opposite band level
+   - Consider taking partial profits at 1x ATR (Average True Range) from entry point
+
+4. **Risk Management**:
+   - Position size based on 1-2% risk per trade
+   - Initial stop-loss placed at the opposite band level
+   - Maximum daily loss limit of 5% of account
+   - Maximum weekly loss limit of 10% of account
+   - Avoid trading during major news events or holidays
+
+5. **Required Indicators**:
+   - Bollinger Bands (20,2)
+   - Volume indicator with 20-day average
+   - ATR (14) for profit target calculation
+   - Optional: RSI (14) for additional confirmation (avoid overbought/oversold conditions)
+
+6. **Additional Considerations**:
+   - Best suited for 4-hour or daily charts
+   - Works well in trending markets
+   - Less effective in choppy or sideways markets
+   - Combine with fundamental analysis for higher timeframes
+   - Backtest on multiple instruments to find best-performing assets
+
+7. **Optimization Tips**:
+   - Adjust Bollinger Band period and standard deviations based on asset volatility
+   - Experiment with different volume confirmation thresholds
+   - Consider adding a momentum filter (e.g., MACD) to avoid false breakouts
+   - Test different timeframes for various trading styles (intraday vs. swing trading)
+
+This strategy requires patience as it waits for high-probability setups, but can yield significant returns when volatility expands after contraction periods. Always paper trade and backtest thoroughly before live implementation.

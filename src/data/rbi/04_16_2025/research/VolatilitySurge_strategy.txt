@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility-Based Entry**: The strategy uses the Average True Range (ATR) to gauge market volatility. A long position is initiated when the 5-minute ATR crosses above its 20-period moving average, signaling increasing volatility.  
+2. **Price Confirmation**: The entry is further validated by ensuring the price is above the Volume-Weighted Average Price (VWAP), indicating bullish momentum.  
+3. **Dynamic Exit**: Positions are managed using a trailing stop set at 2x the current ATR value, allowing for adaptive risk management while capturing potential upside.  
+
+**Entry Rules:**  
+- **Condition 1**: The 5-minute ATR crosses above its 20-period moving average (ATR > ATR_MA).  
+- **Condition 2**: The current price is above the VWAP.  
+- **Action**: Enter a long position when both conditions are met.  
+
+**Exit Rules:**  
+- **Trailing Stop**: Set a trailing stop at 2x the current ATR value. The stop adjusts dynamically as the ATR changes, locking in profits during favorable moves and limiting losses during reversals.  
+
+**Risk Management:**  
+1. **Position Sizing**: Allocate a fixed percentage of capital per trade (e.g., 1-2%) to ensure consistency.  
+2. **Stop-Loss**: The 2x ATR trailing stop acts as both a profit-taking and loss-limiting mechanism.  
+3. **Volatility Filter**: Avoid trading during low volatility (e.g., when ATR is below a certain threshold) to reduce false signals.  
+
+**Required Indicators:**  
+1. **Average True Range (ATR)**: 14-period (default) for measuring volatility.  
+2. **ATR Moving Average (ATR_MA)**: 20-period SMA of the ATR to identify volatility surges.  
+3. **Volume-Weighted Average Price (VWAP)**: To confirm bullish price alignment.  
+
+**Unique Aspects:**  
+- Combines volatility expansion (ATR cross) with price confirmation (VWAP) for high-probability entries.  
+- Uses a dynamic, volatility-adjusted trailing stop for exits, optimizing risk-reward.  
+- Ideal for trending markets where volatility expansion often precedes significant price moves.  
+
+**Note**: This strategy performs best in assets with consistent volatility patterns and is less effective in choppy or range-bound markets. Always backtest and adapt parameters to specific instruments.

@@ -1,0 +1,48 @@
+STRATEGY_NAME: VortexVolumeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines multiple technical indicators to identify high-probability breakout trades with strong momentum confirmation. The core approach uses the Vortex Indicator for directional signals, On-Balance Volume for confirmation of buying/selling pressure, and ADX for trend strength validation.
+
+Key Components:
+1. Vortex Indicator (VI+ and VI- lines) - Primary directional signal
+2. On-Balance Volume (OBV) - Volume confirmation
+3. Average Directional Index (ADX) - Trend strength filter
+4. Risk-reward ratio (2:1) - Profit-taking mechanism
+5. Trailing stop-loss - Exit mechanism
+
+Entry Rules:
+LONG ENTRY:
+1. VI+ crosses above VI- (bullish Vortex crossover)
+2. OBV is making higher highs (increasing buying pressure)
+3. ADX > 30 (strong trend confirmation)
+4. Price breaks above recent resistance level
+
+SHORT ENTRY:
+1. VI- crosses above VI+ (bearish Vortex crossover)
+2. OBV is making lower highs (increasing selling pressure)
+3. ADX > 30 (strong trend confirmation)
+4. Price breaks below recent support level
+
+Exit Rules:
+1. Take profit at 2:1 risk-reward ratio (target = 2x initial risk)
+2. Trailing stop-loss activated after price moves 1x risk in profit
+3. Immediate exit if ADX drops below 25 (trend weakening)
+
+Risk Management:
+1. Initial stop-loss placed at recent swing low (long) or swing high (short)
+2. Position size calculated to risk no more than 1-2% of capital per trade
+3. No new entries if ADX is below 25 (avoid ranging markets)
+
+Required Indicators:
+1. Vortex Indicator (default 14-period)
+2. On-Balance Volume
+3. ADX (14-period)
+4. Price chart with clear support/resistance levels
+
+Optimization Notes:
+- Best suited for 1-hour or 4-hour timeframes
+- Works well in trending markets (commodities, indices)
+- Less effective in choppy or ranging conditions
+- Consider combining with candlestick patterns for additional confirmation
+
+This strategy provides a systematic approach to trading breakouts with multiple confirmation layers, focusing on high-probability setups with favorable risk-reward ratios. The combination of directional indicators (Vortex), volume confirmation (OBV), and trend strength (ADX) creates a robust framework for identifying and managing trades.

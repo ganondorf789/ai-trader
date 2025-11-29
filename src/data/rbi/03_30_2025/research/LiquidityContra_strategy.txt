@@ -1,0 +1,34 @@
+STRATEGY_NAME: LiquidityContra  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidity Heatmaps:** Identifies high-liquidity zones where large stop orders are likely clustered, acting as potential reversal points.  
+2. **Bollinger Bandwidth Contraction:** Measures periods of low volatility (compression) before potential breakout/breakdown.  
+3. **Volatility Expansion Confirmation:** Ensures the breakout from the liquidity zone is accompanied by increased momentum.  
+4. **Contrarian Positioning:** Takes trades against the initial breach of liquidity, anticipating a reversal due to stop-loss triggers.  
+
+**Entry Rules:**  
+1. **Liquidity Zone Breach:** Price must break a high-liquidity level (long or short) identified via liquidation heatmaps.  
+2. **Bollinger Bandwidth Contraction:** Bandwidth must be below a defined threshold (e.g., lowest 20% of recent readings), indicating compression.  
+3. **Volatility Expansion:** After the breach, bandwidth must expand significantly (e.g., 50% increase from the contraction low) to confirm momentum.  
+4. **Contrarian Entry:** Enter a trade in the opposite direction of the initial breach (e.g., if price breaks below liquidity, go long).  
+
+**Exit Rules:**  
+1. **Opposing Liquidity Cluster:** Exit the trade when price reaches the next opposing liquidity zone (e.g., take profit at the next high-liquidity level in the direction of the trade).  
+2. **Volatility Contraction:** If bandwidth contracts again without reaching the target, consider early exit to preserve gains.  
+
+**Risk Management:**  
+1. **Stop-Loss Placement:** Set stops just beyond the breached liquidity zone (e.g., 1-2% past the level for a buffer).  
+2. **Position Sizing:** Risk no more than 1-2% of capital per trade, adjusting for the distance to the stop.  
+3. **Time-Based Exit:** If the trade doesn’t materialize within a set period (e.g., 3-5 candles post-entry), exit to avoid stagnation.  
+
+**Required Indicators:**  
+1. **Liquidation Heatmap Tool** (e.g., proprietary data or platforms like TradingView’s heatmap indicators).  
+2. **Bollinger Bands Bandwidth** (calculated as (Upper Band - Lower Band) / Middle Band).  
+3. **Volatility Thresholds:** Custom thresholds for bandwidth contraction/expansion (e.g., 20th percentile for contraction, 50% increase for expansion).  
+
+**Unique Edge:**  
+This strategy exploits market maker behavior around liquidity zones, combining contrarian entries with volatility filters to avoid false breakouts. The dual confirmation (liquidity breach + bandwidth expansion) increases the probability of catching reversals driven by stop hunts.  
+
+**Note:** Backtest to fine-tune bandwidth thresholds and liquidity zone sensitivity, as these vary by asset and timeframe.

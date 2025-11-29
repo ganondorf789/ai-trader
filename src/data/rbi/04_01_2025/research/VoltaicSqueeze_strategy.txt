@@ -1,0 +1,33 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection:** Uses Bollinger Band width percentile to identify periods of low volatility (contraction).  
+2. **Breakout Confirmation:** Requires a crossover of price above the Keltner Channel upper band to confirm breakout validity.  
+3. **Dynamic Exit Management:** Implements an ATR-based trailing stop to lock in profits and minimize losses during volatile moves.  
+
+**Entry Rules:**  
+- **Bollinger Band Width Percentile < 20%:** Indicates a volatility contraction (squeeze).  
+- **Price Closes Above Keltner Channel Upper Band:** Confirms breakout from the contraction phase.  
+- **Both Conditions Must Be Met:** Ensures higher-probability entries by requiring dual confirmation.  
+
+**Exit Rules:**  
+- **ATR Trailing Stop:** Initial stop set at 2x ATR below entry (for long positions). The stop trails upward as price moves favorably, maintaining a 2x ATR distance from the highest close since entry.  
+- **Emergency Exit:** If Bollinger Band width percentile expands above 80%, close the trade to avoid potential reversals after extreme volatility expansion.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade based on the distance between entry and ATR stop.  
+- **Volatility Filter:** Avoid trading if the 14-period ATR is below its 20-day average (prevents false breakouts in lethargic markets).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** Standard deviation-based bands to measure volatility contraction.  
+2. **Bollinger Band Width Percentile:** Calculated as (current width / max width over 100 periods) * 100.  
+3. **Keltner Channel (20,1.5):** ATR-based channel for breakout confirmation.  
+4. **ATR (14):** Used for trailing stop placement and volatility assessment.  
+
+**Unique Aspects:**  
+- Combines Bollinger Band squeeze detection with Keltner Channel breakout confirmation for higher accuracy.  
+- Uses ATR dynamically for both stop placement and volatility filtering.  
+- Avoids over-trading by requiring dual confirmation and volatility thresholds.  
+
+**Note:** Works best on 1H-4H timeframes for swing trading; backtest for optimal ATR multiplier adjustments.

@@ -1,0 +1,35 @@
+STRATEGY_NAME: LiquidityBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **High-Liquidation Zones Detection:** Uses order book clustering to identify areas where liquidations are likely to occur, indicating potential breakout points.  
+2. **Volume Delta Surge Confirmation:** Requires a significant increase in volume delta (difference between buying and selling pressure) to validate the breakout.  
+3. **Volatility Expansion Filter:** Uses Bollinger Band width thresholds to confirm that volatility is expanding, ensuring the breakout has momentum.  
+
+**Entry Rules:**  
+- **Trigger:** Price approaches a high-liquidation zone identified via order book clustering.  
+- **Confirmation:**  
+  - Volume delta shows a sharp increase (e.g., 2x the average of the last 10 periods).  
+  - Bollinger Band width expands beyond a predefined threshold (e.g., upper band width > 2 standard deviations from the mean).  
+- **Entry Point:** Enter long/short on a confirmed breakout above/below the high-liquidation zone.  
+
+**Exit Rules:**  
+- **Take Profit:** Set at a multiple of the average true range (ATR) or a key resistance/support level beyond the breakout zone.  
+- **Stop Loss:** Place below/above the recent swing low/high or the opposite side of the Bollinger Band.  
+
+**Risk Management:**  
+- Position sizing based on a fixed percentage of capital (e.g., 1-2% per trade).  
+- Stop loss must be respected to avoid emotional trading.  
+- Avoid trading during low-liquidity periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Order Book Clustering Tool:** To detect high-liquidation zones.  
+2. **Volume Delta Indicator:** To measure buying vs. selling pressure.  
+3. **Bollinger Bands:** To assess volatility expansion (width threshold).  
+4. **Average True Range (ATR):** For setting dynamic profit targets.  
+
+**Additional Notes:**  
+- Works best in trending markets with clear liquidity clusters.  
+- Avoid using during sideways or choppy market conditions.  
+- Backtest to optimize Bollinger Band width and volume delta thresholds for specific assets.

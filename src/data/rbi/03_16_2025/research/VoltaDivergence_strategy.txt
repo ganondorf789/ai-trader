@@ -1,0 +1,37 @@
+STRATEGY_NAME: VoltaDivergence
+
+STRATEGY_DETAILS:
+The VoltaDivergence strategy is a volatility-based trading approach that combines Bollinger Bands and MACD divergence to identify high-probability entry points, with exits triggered by price reversion to the moving average. This strategy is designed to capitalize on periods of high volatility while managing risk through clear entry and exit rules.
+
+### Key Strategy Components:
+1. **Bollinger Bands**: Used to measure volatility and identify overbought/oversold conditions.
+2. **MACD (Moving Average Convergence Divergence)**: Used to detect momentum shifts and divergence patterns.
+3. **Moving Average (MA)**: Acts as a dynamic support/resistance level for exit signals.
+
+### Entry Rules:
+1. **Volatility Expansion**: Wait for the price to touch or exceed the upper or lower Bollinger Band, indicating a potential breakout or extreme move.
+2. **MACD Divergence**: Confirm the entry with a bullish or bearish divergence on the MACD:
+   - **Bullish Entry**: Price touches the lower Bollinger Band while MACD shows a bullish divergence (higher low on MACD while price makes a lower low).
+   - **Bearish Entry**: Price touches the upper Bollinger Band while MACD shows a bearish divergence (lower high on MACD while price makes a higher high).
+
+### Exit Rules:
+1. **Price Reversion to MA**: Exit the trade when the price reverts to the moving average line (e.g., 20-period SMA or EMA).
+2. **Stop Loss**: Place a stop loss just beyond the opposite Bollinger Band to limit downside risk.
+3. **Trailing Stop**: Optionally, use a trailing stop to lock in profits as the trade moves in your favor.
+
+### Risk Management:
+1. **Position Sizing**: Risk no more than 1-2% of your trading capital per trade.
+2. **Stop Loss**: Always use a stop loss to protect against adverse moves.
+3. **Avoid Overtrading**: Only take trades that meet both Bollinger Band and MACD divergence criteria.
+
+### Required Indicators:
+1. **Bollinger Bands** (20-period, 2 standard deviations).
+2. **MACD** (12, 26, 9 settings).
+3. **Moving Average** (20-period SMA or EMA).
+
+### Example Trade Setup:
+- **Scenario**: Price touches the lower Bollinger Band, and MACD shows a bullish divergence.
+- **Action**: Enter a long position.
+- **Exit**: Close the trade when the price reverts to the 20-period MA or hits the stop loss.
+
+The VoltaDivergence strategy is ideal for traders who want to combine volatility analysis with momentum confirmation, providing a systematic approach to trading breakouts and reversals.

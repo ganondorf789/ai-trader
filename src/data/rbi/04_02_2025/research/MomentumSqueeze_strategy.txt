@@ -1,0 +1,36 @@
+STRATEGY_NAME: MomentumSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chande Momentum Oscillator (CMO):** A momentum indicator that measures the difference between the sum of recent gains and losses over a specified period, normalized to oscillate between -100 and +100.  
+2. **Bollinger Band Width Contraction:** Measures the narrowing of Bollinger Bands, indicating reduced volatility and potential breakout conditions.  
+3. **Average True Range (ATR):** Used to define exit conditions based on volatility-adjusted price movement.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - The Chande Momentum Oscillator (CMO) is rising (current CMO > previous CMO).  
+  - Bollinger Band width is below its 20-period moving average (indicating contraction).  
+  - Price is above the middle Bollinger Band (20-period SMA).  
+
+**Exit Rules:**  
+- **Take-Profit:** Exit the trade when price moves **2x ATR (14-period)** in favor of the position from the entry price.  
+- **Stop-Loss:** Exit if price moves **1x ATR (14-period)** against the position from the entry price.  
+- **Time-Based Exit:** Close the trade if no target is hit within **5 periods** to avoid stagnation.  
+
+**Risk Management:**  
+- Position sizing should be based on a fixed percentage of capital (e.g., 1-2% risk per trade).  
+- Avoid trading during major news events or extreme volatility outside normal Bollinger Band ranges.  
+
+**Required Indicators:**  
+1. **Chande Momentum Oscillator (CMO)** – Default period (14).  
+2. **Bollinger Bands** – 20-period SMA, 2 standard deviations.  
+3. **Bollinger Band Width** – Calculated as (Upper Band - Lower Band) / Middle Band.  
+4. **Average True Range (ATR)** – 14-period for volatility adjustment.  
+
+**Additional Notes:**  
+- Works best in ranging or consolidating markets where Bollinger Bands contract before expansion.  
+- Avoid using in strongly trending markets without confirmation from CMO direction.  
+- Backtest optimal CMO period (default 14) for different asset classes.  
+
+This strategy capitalizes on low-volatility momentum setups, aiming to catch early breakouts while managing risk with ATR-based exits.

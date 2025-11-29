@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolumetricBandwidth
+
+STRATEGY_DETAILS:
+The VolumetricBandwidth strategy combines volume surges with Bollinger Bandwidth expansion to identify high-probability trading opportunities. This approach capitalizes on moments when market activity and volatility simultaneously spike, indicating strong directional momentum.
+
+Key Components:
+1. Volume Analysis (20-day average)
+2. Bollinger Bandwidth (14-day median)
+3. Volume contraction exit signal
+
+Entry Rules:
+LONG ENTRY:
+- Current volume > 2x 20-day average volume
+- Bollinger Bandwidth > 1.5x its 14-day median
+- Price must be above the middle Bollinger Band (20 SMA)
+
+SHORT ENTRY:
+- Current volume > 2x 20-day average volume
+- Bollinger Bandwidth > 1.5x its 14-day median
+- Price must be below the middle Bollinger Band (20 SMA)
+
+Exit Rules:
+- Exit position when volume contracts below 1x the 20-day average volume
+- Optional: Trail stop at recent swing high/low for long/short positions respectively
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Initial stop-loss: 2x ATR(14) from entry price
+3. Maximum daily loss limit: 5% of account
+4. Trade only during high liquidity hours (market open, London/New York overlap)
+
+Required Indicators:
+1. Volume (20-day average)
+2. Bollinger Bands (20,2 standard deviations)
+3. Bollinger Bandwidth calculation
+4. ATR(14) for stop placement
+
+Additional Notes:
+- Works best on 15min-4hr timeframes for day/swing trading
+- Most effective in trending market conditions
+- Filter trades with overall market direction (use higher timeframe trend)
+- Combine with RSI(14) >50/<50 for additional confirmation on long/short entries
+
+This strategy excels in capturing explosive moves by waiting for both volume confirmation and volatility expansion, while exiting before momentum completely fades. The unique combination of volume and bandwidth filters helps avoid false breakouts while catching strong trends early.

@@ -1,0 +1,46 @@
+STRATEGY_NAME: VwapSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volume-Weighted Average Price (VWAP):** Acts as the primary trend and mean-reversion reference.  
+2. **Bollinger Band Squeeze:** Identifies periods of low volatility (contraction) that often precede significant price movements.  
+3. **VWAP Slope Reversal:** Used as an exit signal when the trend direction changes.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Bands show contraction (squeeze condition).  
+  2. Price breaks **above** the VWAP with confirmation (e.g., closing candle above VWAP).  
+  3. Volume increases on the breakout for added confirmation.  
+
+- **Short Entry:**  
+  1. Bollinger Bands show contraction (squeeze condition).  
+  2. Price breaks **below** the VWAP with confirmation (e.g., closing candle below VWAP).  
+  3. Volume increases on the breakdown for added confirmation.  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  1. VWAP slope turns downward (indicating weakening bullish momentum).  
+  2. Price closes back below VWAP.  
+
+- **Short Exit:**  
+  1. VWAP slope turns upward (indicating weakening bearish momentum).  
+  2. Price closes back above VWAP.  
+
+**Risk Management:**  
+- **Stop-Loss:**  
+  - For long trades: Place below the recent swing low or below the lower Bollinger Band.  
+  - For short trades: Place above the recent swing high or above the upper Bollinger Band.  
+- **Take-Profit:**  
+  - Use a trailing stop based on VWAP slope reversal or a fixed risk-reward ratio (e.g., 1:2).  
+
+**Required Indicators:**  
+1. **VWAP** (Volume-Weighted Average Price) – Primary trend filter.  
+2. **Bollinger Bands (20,2)** – To identify squeeze conditions.  
+3. **Volume Indicator** – Confirms breakout strength.  
+
+**Additional Notes:**  
+- Works best in **ranging or consolidating markets** where volatility contractions precede strong moves.  
+- Avoid trading during **low-volume periods** as false breakouts are more likely.  
+- Combine with **higher timeframe trend alignment** for better success rate.  
+
+This strategy capitalizes on the synergy between volatility contraction (Bollinger Squeeze) and institutional price reference (VWAP), making it ideal for intraday or swing trading.

@@ -1,0 +1,66 @@
+STRATEGY_NAME: RotationalNocturne
+
+STRATEGY_DETAILS:
+
+### Overview
+RotationalNocturne is a momentum-based, long-only trading strategy designed for capturing short-term upward surges in the overnight session (typically defined as the period from market close to the next day's open, e.g., 4:00 PM to 9:30 AM ET for U.S. equities or futures). It focuses on entering positions at 60-minute price highs, with adjustments applied via the EROD ratio to account for sector rotation dynamics. The EROD ratio (Earnings Rotation Overlap Divergence) is a custom momentum indicator that measures the relative strength of a sector's earnings-driven rotation compared to the broader market, helping filter entries to avoid false signals during sector shifts (e.g., from tech to energy). This strategy is suited for liquid assets like major stock indices (e.g., S&P 500 futures), sector ETFs, or forex pairs with extended trading hours. It emphasizes disciplined risk control using ATR for volatility-adjusted stops, aiming for high-probability, low-duration trades (holding periods of 1-4 hours).
+
+### Key Strategy Components
+1. **Timeframe and Session Focus**: 
+   - Primary chart: 60-minute candles.
+   - Trading window: Exclusively during the overnight session to exploit lower-volume breakouts and institutional rebalancing. Avoid regular trading hours to reduce noise from retail activity.
+   
+2. **Core Signal: 60-Minute Highs**:
+   - Identifies new highs on the 60-minute chart as potential breakout points, signaling short-term bullish momentum in low-liquidity environments.
+
+3. **Adjustment Mechanism: EROD Ratio**:
+   - The EROD ratio filters entries by quantifying sector rotation. It is calculated as: EROD = (Sector Earnings Momentum / Market Earnings Momentum) × (Overlap Divergence Factor), where:
+     - Sector Earnings Momentum: 14-period EMA of the sector's recent earnings surprise percentage.
+     - Market Earnings Momentum: Similar EMA for the broader index (e.g., S&P 500).
+     - Overlap Divergence Factor: A normalized measure (0-1) of price overlap between the asset and its sector index over the last 5 sessions, penalizing divergence > 0.7 (indicating rotation away from the sector).
+   - Adjustment rule: Only enter if EROD > 1.2 (indicating favorable sector rotation toward the asset's sector) and the 60-minute high exceeds the prior session's high by at least 0.5% (to confirm strength).
+
+4. **Position Sizing**:
+   - Risk 1-2% of account equity per trade.
+   - Position size = (Account Equity × Risk %) / (Entry Price - Stop-Loss Price).
+
+### Entry Rules
+- **Long Entry Conditions** (all must align):
+  1. Price reaches a new 60-minute high during the overnight session (e.g., the close of a 60-minute candle is higher than the previous 4 candles' highs).
+  2. EROD ratio > 1.2, confirming sector rotation support (e.g., if trading a tech ETF, ensure tech sector EROD is elevated relative to cyclicals).
+  3. Volume confirmation: Overnight volume > 50% of the average 60-minute volume from the prior regular session (to filter thin liquidity traps).
+  4. No major news events (e.g., FOMC announcements) within 2 hours, checked via economic calendar.
+- Enter at the open of the next 60-minute candle after the high is confirmed.
+- Avoid entries if the asset is in a broader downtrend (e.g., below 200-period SMA on daily chart).
+- Maximum 1-2 open positions at a time, diversified across sectors if using multiple assets.
+
+### Exit Rules
+- **Profit Target**: 
+  - Initial target: 2:1 reward-to-risk ratio (e.g., if stop is 5% below entry, target 10% above).
+  - Trailing exit: Once +3% in profit, trail stop to entry (breakeven), then use a 14-period ATR multiplier (1.5× ATR) below the highest high since entry.
+- **Time-Based Exit**: Exit all positions by the end of the overnight session (e.g., 30 minutes before regular market open) to avoid gap risk.
+- **Alternative Exits**:
+  - If EROD drops below 0.8 (signaling sector rotation reversal), exit immediately.
+  - Manual exit if price closes below the 60-minute low after entry.
+
+### Risk Management
+- **Stop-Loss**: Set at 5% below entry price, dynamically adjusted using ATR for volatility. Calculation: Stop-Loss = Entry Price - (5% of Entry Price × (Current 14-period ATR / Average True Range Threshold)). Use a minimum 1% stop to avoid over-tightening in low-vol environments; cap at 8% for high-vol assets.
+- **Overall Risk Controls**:
+  - Daily loss limit: 3% of account equity; halt trading if hit.
+  - Position correlation limit: No more than 50% exposure to correlated sectors (e.g., limit tech + consumer discretionary to 50% total).
+  - Drawdown rule: If strategy drawdown exceeds 10% over 20 trades, pause and review EROD parameters.
+  - No pyramiding; single entry per signal.
+
+### Required Indicators and Tools
+1. **Price and Time Data**: 60-minute OHLCV (Open, High, Low, Close, Volume) for overnight session; access via platforms like TradingView, Thinkorswim, or NinjaTrader with extended hours enabled.
+2. **EROD Ratio**: Custom indicator requiring:
+   - Earnings data feed (e.g., from Yahoo Finance API or Bloomberg for sector earnings surprises).
+   - EMAs (14-period) for momentum.
+   - Divergence calculation: Use RSI(14) overlap between asset and sector index.
+3. **ATR (Average True Range)**: 14-period on 60-minute chart for stop-loss volatility adjustment.
+4. **Supporting Tools**:
+   - Sector rotation heatmap (e.g., via Finviz or custom script) to monitor EROD inputs.
+   - Economic calendar for news filters.
+   - Backtesting software (e.g., Backtrader or Pine Script) to optimize EROD threshold based on historical overnight data.
+
+This strategy performs best in trending markets with moderate volatility (VIX 15-25) and requires automation for real-time EROD computation. Backtest on at least 5 years of data, focusing on win rate (>55%) and profit factor (>1.5).

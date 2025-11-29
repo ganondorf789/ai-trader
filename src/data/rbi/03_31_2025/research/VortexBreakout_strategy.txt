@@ -1,0 +1,36 @@
+STRATEGY_NAME: VortexBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Confirms trend direction by comparing VI+ (positive trend) and VI- (negative trend).  
+2. **Keltner Channels:** Volatility-based bands that identify potential breakout opportunities.  
+3. **Combined Signal:** Requires both VI+ crossing above VI- (bullish confirmation) AND price closing outside Keltner bands (breakout confirmation).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. VI+ crosses above VI- (bullish trend confirmation).  
+  2. Price closes *above* the upper Keltner Channel band.  
+- **Short Entry:**  
+  1. VI- crosses above VI+ (bearish trend confirmation).  
+  2. Price closes *below* the lower Keltner Channel band.  
+
+**Exit Rules:**  
+- **Long Exit:** Price closes *back inside* the upper Keltner Channel.  
+- **Short Exit:** Price closes *back inside* the lower Keltner Channel.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place stop-loss just beyond the opposite Keltner band (e.g., below lower band for long trades, above upper band for short trades).  
+2. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+3. **Avoid Choppy Markets:** Filter trades using ADX (e.g., only trade if ADX > 25 to confirm trend strength).  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)** – Default period (14).  
+2. **Keltner Channels** – Typical settings: 20-period EMA, 2x ATR (10-period).  
+3. **Optional: ADX (14-period)** – To filter for strong trends.  
+
+**Unique Edge:**  
+- Combines trend confirmation (VI) with volatility expansion (Keltner), reducing false breakouts.  
+- Exits on channel re-entry lock in profits while allowing runners during strong trends.  
+
+**Note:** Backtest optimal Keltner/VI periods for your asset class (e.g., crypto may need shorter periods than forex).

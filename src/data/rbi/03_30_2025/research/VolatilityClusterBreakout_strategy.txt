@@ -1,0 +1,48 @@
+STRATEGY_NAME: VolatilityClusterBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility compression, channel breakout, and volume-confirmed reversal signals for high-probability trades. The core approach identifies low-volatility conditions followed by explosive breakouts, with intelligent exit management.
+
+Key Components:
+1. Chaikin Volatility (10-day) - Measures market volatility
+2. Keltner Channel - Identifies potential breakout levels
+3. ATR (2x) - Sets dynamic exit thresholds
+4. Volume-weighted price clusters - Confirms reversal signals
+
+Entry Rules:
+LONG:
+1. 10-day Chaikin Volatility drops below 20th percentile (low volatility regime)
+2. Price closes ABOVE upper Keltner Channel band
+3. Enter at next open with stop below recent swing low
+
+SHORT:
+1. 10-day Chaikin Volatility drops below 20th percentile
+2. Price closes BELOW lower Keltner Channel band
+3. Enter at next open with stop above recent swing high
+
+Exit Rules:
+1. Initial exit when price reverses by 2x ATR from entry point
+2. Confirmation requires closing price to form a new cluster (3+ closes) on volume > 20-day average
+3. Trail stop to breakeven after 1x ATR move in favor
+4. Close entire position when both conditions trigger
+
+Risk Management:
+1. Position size limited to 1-2% risk per trade
+2. Initial stop placed at 1.5x ATR from entry
+3. Maximum portfolio exposure capped at 10%
+4. No new entries if 3 consecutive losing trades
+
+Required Indicators:
+1. Chaikin Volatility (10-day period)
+2. Keltner Channel (20-day EMA, 2x ATR width)
+3. ATR (14-day period)
+4. Volume 20-day moving average
+5. Price clustering detection (3-period minimum)
+
+Optimization Notes:
+- Test different volatility percentile thresholds (15th-25th)
+- Adjust Keltner Channel multiplier (1.5x-2.5x ATR)
+- Experiment with cluster confirmation periods (2-4 closes)
+- Consider adding RSI filter for overbought/oversold conditions
+
+This strategy excels in ranging markets transitioning to trends, using volatility contraction as an early warning signal and volume-confirmed clusters to avoid false breakouts. The dual exit mechanism protects profits while allowing runners to develop.

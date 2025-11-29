@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolAccum Breakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band compression, money flow analysis, and volume confirmation to identify high-probability breakout opportunities during periods of accumulation.
+
+Key Components:
+1. Bollinger Band (20,2) - Identifies compression periods when price hugs the lower band
+2. Chaikin Money Flow (20) - Detects accumulation when crossing above zero
+3. Volume - Confirms breakout validity with increased participation
+
+Entry Rules:
+1. Price must be consolidating within the lower Bollinger Band (touching or near lower band)
+2. Chaikin Money Flow must cross above zero line
+3. Breakout occurs when price closes above the consolidation high
+4. Volume on breakout should be above recent average
+
+Exit Rules:
+1. Take profit at 1.5x the height of the consolidation pattern
+2. Stop loss placed below the recent swing low within consolidation
+3. Alternative exit when Chaikin Money Flow crosses below zero
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Risk-reward ratio minimum 1:1.5
+3. Avoid trading during major news events that may distort volatility
+
+Required Indicators:
+1. Bollinger Bands (20 periods, 2 std dev)
+2. Chaikin Money Flow (20 periods)
+3. Volume indicator (simple moving average of volume)
+
+Special Considerations:
+- Works best in trending markets (confirm with higher timeframe trend)
+- Most effective on daily/4h timeframes
+- Avoid using during extremely low volatility conditions
+- Combine with higher timeframe support/resistance for better accuracy
+
+This "VolAccum Breakout" strategy specifically targets the sweet spot where accumulation meets volatility contraction, providing high-quality breakout signals with confirmed money flow and volume participation.

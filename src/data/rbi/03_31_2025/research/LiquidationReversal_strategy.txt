@@ -1,0 +1,42 @@
+STRATEGY_NAME: LiquidationReversal
+
+STRATEGY_DETAILS:
+
+Key Strategy Components:
+1. Liquidation Cluster Analysis: Identifies high-density liquidation levels from order book data where large clusters of stop-loss orders are concentrated
+2. Contrarian Approach: Takes positions opposite to the prevailing trend when price breaches these key liquidation levels
+3. Confirmation Signals: Uses RSI divergence and volume spikes to validate reversal opportunities
+4. Mean-Reversion Focus: Capitalizes on overextended moves that trigger cascading liquidations
+
+Entry Rules:
+1. Primary Trigger: Price must breach a pre-identified liquidation cluster level (derived from order book analysis)
+2. RSI Confirmation: Must show bullish divergence (for long entries) or bearish divergence (for short entries) on the 4H or 1D timeframe
+3. Volume Spike: Requires at least 2x average volume on the breach candle
+4. Entry Execution: Enter on first pullback after breach confirmation, with limit orders placed at 38.2% retracement of the liquidation move
+
+Exit Rules:
+1. Profit Targets:
+   - First target: 1.5x average true range (ATR) from entry
+   - Second target: Previous swing high/low (for mean reversion to fair value)
+2. Stop Loss: 
+   - Placed at 1x ATR beyond the liquidation cluster level
+   - Trailed using parabolic SAR once price reaches first target
+
+Risk Management:
+1. Position Sizing: Risk no more than 1% of capital per trade
+2. Maximum Drawdown: Cease trading for the day after 3 consecutive losses
+3. Time Filter: Avoid trading during low liquidity periods (overnight sessions, holidays)
+4. Asset Selection: Only trade instruments with verifiable order book depth data
+
+Required Indicators:
+1. Liquidation Heatmap (custom order book visualization)
+2. 14-period RSI (for divergence detection)
+3. 20-period ATR (for risk measurement)
+4. Volume Profile (for spike confirmation)
+5. Parabolic SAR (for trailing stops)
+
+Special Considerations:
+- Works best in high-leverage crypto markets where liquidations are frequent
+- Requires real-time order book data feed
+- Most effective after prolonged trends when positioning becomes extreme
+- Combines both technical (RSI/volume) and on-chain (liquidation data) analysis

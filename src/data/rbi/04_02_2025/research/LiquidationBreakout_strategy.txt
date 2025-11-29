@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquidationBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **On-Chain Liquidation Clusters:** The strategy identifies high liquidation zones using on-chain data, which act as potential breakout points due to forced liquidations creating price inefficiencies.  
+2. **Volatility Contraction:** Requires 1-hour volatility to be below the 20-day average, indicating a potential breakout setup with reduced noise.  
+3. **Breakout Confirmation:** Entries are triggered when price approaches these liquidation clusters, signaling a potential breakout.  
+4. **ATR-Based Exits:** Uses a 2x ATR (Average True Range) from the entry point to define profit targets, ensuring a systematic exit.  
+
+**Entry Rules:**  
+- Identify high liquidation clusters via on-chain data (e.g., liquidation heatmaps or order book analysis).  
+- Confirm 1-hour volatility is below the 20-day average (e.g., using Bollinger Band width or standard deviation).  
+- Enter long/short on a breakout above/below the liquidation cluster with a confirmed close beyond the cluster boundary.  
+
+**Exit Rules:**  
+- Set profit target at 2x ATR from the entry price.  
+- Use a trailing stop or fixed stop-loss (e.g., 1x ATR) to protect against reversals.  
+- Exit immediately if volatility expands sharply (e.g., 1-hour volatility exceeds the 20-day average post-entry).  
+
+**Risk Management:**  
+- Position sizing based on ATR (e.g., risk 1-2% of capital per trade).  
+- Avoid trading during high-impact news events to prevent false breakouts.  
+- Diversify across assets to reduce correlation risk.  
+
+**Required Indicators:**  
+1. On-chain liquidation data (e.g., liquidation heatmaps, order book imbalance).  
+2. Volatility metric (e.g., Bollinger Band width, standard deviation).  
+3. ATR (14-period recommended) for exit and stop-loss placement.  
+
+**Unique Aspects:**  
+- Combines on-chain liquidation data with volatility contraction for high-probability breakouts.  
+- Uses ATR for dynamic profit targets, adapting to market conditions.  
+- Focuses on liquidity-driven moves rather than pure technical patterns.  
+
+This strategy is ideal for traders who want to capitalize on liquidity-driven breakouts while managing risk through volatility filters and ATR-based exits.

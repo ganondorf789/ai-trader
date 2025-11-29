@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidityReversion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** Measures volatility compression, signaling potential breakout or mean-reversion opportunities.  
+2. **On-Chain Liquidation Clusters:** Identifies high-density liquidation zones where price is likely to reverse due to forced liquidations.  
+3. **Mean-Reversion Logic:** Enters trades when price reaches extreme liquidation zones, expecting a reversion to the mean.  
+4. **Opposite Liquidity Pool Zones:** Defines exit points where price is likely to encounter resistance or support from opposing liquidity concentrations.  
+
+**Entry Rules:**  
+1. **Bollinger Bandwidth Threshold:** Wait for the Bollinger Bandwidth to contract below a defined threshold (e.g., 20-period lower percentile), indicating low volatility.  
+2. **Liquidation Cluster Confirmation:** Identify a liquidation cluster level (e.g., using on-chain data like Glassnode or CryptoQuant) where a high volume of liquidations occurred.  
+3. **Price Touch:** Enter a long trade if price dips into a major long liquidation cluster (support zone) or a short trade if price rallies into a major short liquidation cluster (resistance zone).  
+
+**Exit Rules:**  
+1. **Opposite Liquidity Zone:** Close the trade when price reaches the opposing liquidity concentration zone (e.g., if long, exit near a short liquidation cluster).  
+2. **Bollinger Bandwidth Expansion:** Exit if volatility expands significantly (e.g., Bandwidth rises above a threshold), indicating trend continuation risk.  
+3. **Fixed Risk-Reward Ratio:** Use a predefined risk-reward ratio (e.g., 1:2) to secure profits or cut losses.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%).  
+2. **Stop-Loss Placement:** Set stop-loss just beyond the liquidation cluster level to avoid false breakouts.  
+3. **Volatility Filter:** Avoid trading during high Bandwidth expansion phases to prevent whipsaws.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To measure Bandwidth contraction/expansion.  
+2. **On-Chain Liquidation Data** – From platforms like Glassnode, CryptoQuant, or Kaiko.  
+3. **Price Action Confirmation** – Candlestick patterns or volume spikes near liquidation zones.  
+
+**Unique Edge:** Combines technical volatility signals with on-chain liquidity dynamics, targeting high-probability mean-reversion setups in low-volatility regimes.

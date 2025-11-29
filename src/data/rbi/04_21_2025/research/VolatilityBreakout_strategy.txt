@@ -1,0 +1,27 @@
+STRATEGY_NAME: VolatilityBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Donchian Channel Breakout:** Uses a 20-period Donchian Channel (high/low range) to identify potential breakout levels.  
+2. **Bollinger Band Width Filter:** Confirms low volatility conditions by requiring the Bollinger Band width to be at a 6-month low before entry.  
+3. **Average True Range (ATR) Target:** Sets a profit target at 1.5x the current ATR to capitalize on volatility expansion.  
+
+**Entry Rules:**  
+- **Long Entry:** Price closes above the upper Donchian Channel (20-period high) **AND** Bollinger Band width is at its lowest level in the last 6 months.  
+- **Short Entry:** Price closes below the lower Donchian Channel (20-period low) **AND** Bollinger Band width is at its lowest level in the last 6 months.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit when price reaches 1.5x the current ATR from the entry point.  
+- **Stop Loss:** Exit if price reverses and closes back inside the Donchian Channel.  
+
+**Risk Management:**  
+- Position sizing should be adjusted based on the ATR to limit risk per trade (e.g., 1-2% of capital).  
+- Avoid trading during major news events that may cause erratic volatility.  
+
+**Required Indicators:**  
+1. **Donchian Channel (20-period)** – Identifies breakout levels.  
+2. **Bollinger Bands (20,2)** – Measures volatility contraction via band width.  
+3. **Average True Range (ATR, 14-period)** – Sets dynamic profit targets.  
+
+This strategy capitalizes on breakouts from low-volatility environments, aiming to catch early momentum in new trends while using volatility-based exits for disciplined risk/reward.

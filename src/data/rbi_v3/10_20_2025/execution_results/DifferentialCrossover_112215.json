@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_final/DifferentialCrossover_BTFinal_v2.py\", line 125, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1139, in run\n    strategy.init()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_final/DifferentialCrossover_BTFinal_v2.py\", line 32, in init\n    self.diff = self.I(lambda: self.sma50[-1] - self.sma200[-1])\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 139, in I\n    if is_arraylike and np.argmax(value.shape) == 0:\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/numpy/core/fromnumeric.py\", line 1229, in argmax\n    return _wrapfunc(a, 'argmax', axis=axis, out=out, **kwds)\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/numpy/core/fromnumeric.py\", line 56, in _wrapfunc\n    return _wrapit(obj, method, *args, **kwds)\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/numpy/core/fromnumeric.py\", line 45, in _wrapit\n    result = getattr(asarray(obj), method)(*args, **kwds)\nValueError: attempt to get argmax of an empty sequence\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_final/DifferentialCrossover_BTFinal_v2.py` failed. (See above for error)\n",
+  "execution_time": 1.021981,
+  "timestamp": "2025-10-20T11:22:15.437953"
+}

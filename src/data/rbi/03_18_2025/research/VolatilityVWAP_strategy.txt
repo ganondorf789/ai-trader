@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilityVWAP
+
+STRATEGY_DETAILS:
+The VolatilityVWAP strategy is a sophisticated approach that combines volatility analysis with volume-weighted price action to identify high-probability long entries during low-volatility regimes. The strategy uses a dynamic exit mechanism based on Fibonacci retracement levels to maximize profit potential while managing risk.
+
+### Key Strategy Components:
+1. **Volatility-Adjusted VWAP**: The strategy uses a VWAP that is adjusted for current market volatility, providing a more responsive and accurate measure of the average price.
+2. **14-Day ATR Percentile**: This measures the current volatility relative to the past 14 days, helping to identify low-volatility regimes.
+3. **Dynamic Fibonacci Trailing Stops**: The exit mechanism uses Fibonacci retracement levels that adjust based on recent price action, providing a flexible and adaptive way to lock in profits.
+
+### Entry Rules:
+- **Condition 1**: The 14-day ATR percentile must be below 30%, indicating a low-volatility regime.
+- **Condition 2**: The price must cross above the volatility-adjusted VWAP.
+- **Action**: Enter a long position when both conditions are met.
+
+### Exit Rules:
+- **Trailing Stop**: Use dynamic Fibonacci retracement levels (e.g., 38.2%, 50%, 61.8%) as trailing stop levels.
+- **Adjustment**: The trailing stop levels should be recalculated based on recent price highs and lows, ensuring they adapt to changing market conditions.
+- **Action**: Exit the position when the price retraces to the current trailing stop level.
+
+### Risk Management:
+- **Position Sizing**: Use a fixed percentage of the portfolio (e.g., 1-2%) per trade to manage risk.
+- **Stop-Loss**: Initially set a stop-loss at a predefined level (e.g., 1% below the entry price) to limit potential losses.
+- **Volatility Filter**: Only trade during low-volatility regimes to reduce the risk of sudden price swings.
+
+### Required Indicators:
+1. **Volatility-Adjusted VWAP**: A custom VWAP that adjusts for current volatility.
+2. **14-Day ATR Percentile**: To measure the current volatility relative to the past 14 days.
+3. **Dynamic Fibonacci Retracement Levels**: For setting trailing stop levels based on recent price action.
+
+### Summary:
+The VolatilityVWAP strategy is designed to capitalize on low-volatility regimes by entering long positions when the price crosses above a volatility-adjusted VWAP. The use of dynamic Fibonacci trailing stops ensures that profits are locked in while adapting to changing market conditions. This approach combines the precision of volume-weighted price analysis with the flexibility of volatility-based risk management, making it a robust strategy for various market conditions.

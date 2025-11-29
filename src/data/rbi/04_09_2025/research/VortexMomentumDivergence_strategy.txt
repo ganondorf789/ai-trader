@@ -1,0 +1,44 @@
+STRATEGY_NAME: VortexMomentumDivergence
+
+STRATEGY_DETAILS:
+This strategy combines three powerful technical indicators to identify high-probability trade setups with strong momentum confirmation. The approach focuses on catching emerging trends while filtering out false signals through volume confirmation.
+
+Key Components:
+1. Vortex Indicator (VI+ and VI-): Identifies trend direction and potential reversals through crossover events
+2. Chande Momentum Oscillator (CMO): Detects momentum divergences that often precede trend reversals
+3. Volume Filter: Requires above-average volume to confirm genuine interest in the price movement
+4. ATR Trailing Stop: Uses 2x the 14-period Average True Range for dynamic exit management
+
+Entry Rules (Long Position):
+1. VI+ crosses above VI- (bullish vortex crossover)
+2. CMO shows bullish divergence (price makes lower low while CMO makes higher low)
+3. Current volume exceeds 20-period simple moving average of volume
+4. All conditions must occur within 3 bars of each other
+
+Entry Rules (Short Position):
+1. VI- crosses above VI+ (bearish vortex crossover)
+2. CMO shows bearish divergence (price makes higher high while CMO makes lower high)
+3. Current volume exceeds 20-period simple moving average of volume
+4. All conditions must occur within 3 bars of each other
+
+Exit Rules:
+1. Trailing stop set at 2x the 14-period ATR from the highest high (long) or lowest low (short)
+2. Immediate exit if opposite vortex crossover occurs (VI+ crosses below VI- for longs or VI- crosses below VI+ for shorts)
+
+Risk Management:
+1. Position size should be calculated based on 1-2% risk of capital
+2. Initial stop can be set at 1x ATR below entry (long) or above entry (short)
+3. No trades should be taken if ATR value suggests stop would be >3% of account risk
+
+Required Indicators:
+1. Vortex Indicator (default 14 periods)
+2. Chande Momentum Oscillator (default 20 periods)
+3. Volume 20-period SMA
+4. Average True Range (14 periods)
+
+Optimization Notes:
+- Adjust CMO period between 14-30 based on market volatility
+- Consider testing 1.5x-2.5x ATR multiplier for trailing stop
+- Volume filter period can be adjusted between 10-30 periods
+
+This strategy works best in trending markets and may produce false signals during ranging conditions. The combination of vortex crossovers, momentum divergences, and volume confirmation creates a robust filter for high-quality setups.

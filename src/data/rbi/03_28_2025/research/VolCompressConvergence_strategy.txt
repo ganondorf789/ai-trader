@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolCompressConvergence  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection**: Uses Bollinger Band width to identify periods of extremely low volatility (below 10th percentile).  
+2. **Price-VWAP Convergence**: Requires VWAP to be within 1 ATR of the current price, signaling potential breakout readiness.  
+3. **ATR-Based Exit**: Exits trades when price moves 2x ATR from the entry point, capturing post-contraction expansions.  
+
+**Entry Rules:**  
+- Trigger: Bollinger Band width (20,2) falls below its 10th percentile (measured over 100 bars).  
+- Confirmation: Current price must be within ±1 ATR (14-period) of VWAP.  
+- Entry: Buy/sell at market upon simultaneous satisfaction of both conditions.  
+
+**Exit Rules:**  
+- Profit Target: Close position when price reaches ±2x ATR (from entry).  
+- Stop Loss: None (implied by the 2x ATR exit acting as both target/stop).  
+
+**Risk Management:**  
+- Position sizing based on ATR (e.g., 1% risk per trade = 2x ATR stop).  
+- Avoid trading during scheduled high-impact news events.  
+- Maximum 3 concurrent trades to limit volatility exposure.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) + width calculation.  
+2. VWAP (daily anchor).  
+3. ATR (14-period).  
+
+**Unique Aspects:**  
+- Combines volatility percentile thresholds with VWAP convergence for high-probability breakout entries.  
+- Self-adjusting exits via ATR account for changing market conditions.  
+- Avoids overfitting by using percentile-based thresholds instead of fixed values.  
+
+**Optimization Notes:**  
+- Test different percentile thresholds (5th-15th) for Bollinger width.  
+- Experiment with VWAP convergence multiples (0.75-1.25 ATR).  
+- Consider adding volume confirmation for stronger signals.

@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationVolt  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Levels:** Price zones where high liquidation events occur, indicating potential reversal or continuation points.  
+2. **Low Volatility Filter:** Uses 14-period ATR (Average True Range) to confirm low volatility conditions before entry.  
+3. **Volatility Expansion Exit:** Monitors ATR's 20-day moving average to detect breakout conditions for exits.  
+
+**Entry Rules:**  
+- **Condition:** Price approaches predefined liquidation cluster levels (must be identified through historical data or order flow analysis).  
+- **Confirmation:** 14-period ATR must be below a set threshold (e.g., bottom 30% of its 50-day range).  
+- **Action:** Enter long position when both conditions align.  
+
+**Exit Rules:**  
+- **Volatility Expansion:** Exit long position when current ATR exceeds its 20-day moving average, signaling increased volatility.  
+- **Alternative Exit:** Consider a trailing stop or fixed risk-reward ratio (e.g., 1:2) if volatility remains suppressed.  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%).  
+- **Stop-Loss:** Place below the liquidation cluster level or a recent swing low.  
+- **Volatility Adjustment:** Reduce position size if ATR is abnormally low (indicating potential explosive moves).  
+
+**Required Indicators:**  
+1. **ATR (14-period):** To measure volatility and set entry/exit thresholds.  
+2. **ATR 20-day Moving Average:** To gauge volatility expansion for exits.  
+3. **Liquidation Cluster Detection Tool:** Custom script or order flow data to identify high-liquidation zones.  
+
+**Unique Edge:** Combines liquidation-based support/resistance with volatility regimes, targeting low-risk entries before high-momentum moves. Avoids choppy markets by filtering for low ATR.  
+
+**Note:** Backtest liquidation clusters for asset-specific behavior and optimize ATR thresholds per instrument.

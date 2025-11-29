@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityThreshold  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Filter:** Uses the 20-day Average True Range (ATR) to identify low-volatility conditions when it drops below its 10th percentile (historically calculated).  
+2. **Trend Confirmation:** Requires price to cross above the 200-day Simple Moving Average (SMA) to ensure alignment with a broader uptrend.  
+3. **Exit Mechanism:** Combines a trailing stop-loss (2x ATR) and a time-based exit (5-day holding period) to lock in profits or limit losses.  
+
+**Entry Rules:**  
+- **Long Entry Trigger:**  
+  1. The 20-day ATR must fall below its 10th percentile (indicating unusually low volatility).  
+  2. Price must close above the 200-day SMA (confirming bullish momentum).  
+- Both conditions must be met simultaneously for a trade entry.  
+
+**Exit Rules:**  
+- **Stop-Loss Exit:** A dynamic trailing stop set at 2x the current 20-day ATR value from the entry price.  
+- **Time-Based Exit:** Automatically exits the trade after 5 trading days, regardless of profit/loss.  
+
+**Risk Management:**  
+- Position sizing should account for the 2x ATR stop to limit risk per trade (e.g., risking 1-2% of capital).  
+- Avoid trading during major news events that could spike volatility unexpectedly.  
+
+**Required Indicators:**  
+1. **20-day ATR:** To measure volatility and identify the 10th percentile threshold.  
+2. **200-day SMA:** For trend confirmation.  
+3. **Historical Percentile Calculation:** To determine the 10th percentile ATR level (requires backtesting or rolling window analysis).  
+
+**Unique Aspects:**  
+- Combines mean-reversion (low ATR) with trend-following (SMA crossover).  
+- Dual exit logic balances short-term profit-taking and volatility protection.  
+- Avoids choppy markets by filtering for low volatility before trend entries.  
+
+**Optimization Notes:**  
+- Test different ATR percentiles (e.g., 5th or 15th) for sensitivity adjustments.  
+- Experiment with SMA periods (e.g., 100-day or 50-day) for varying trend horizons.

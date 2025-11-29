@@ -1,0 +1,48 @@
+STRATEGY_NAME: VortexChopTrend
+
+STRATEGY_DETAILS:
+This strategy combines the Vortex Indicator (VI) with the Choppiness Index (CI) to identify emerging trends in non-choppy market conditions. The approach focuses on catching early trend movements while avoiding sideways markets.
+
+Key Components:
+1. Vortex Indicator (VI): 
+   - VI+ (positive trend movement)
+   - VI- (negative trend movement)
+   - Crossover signals potential trend changes
+
+2. Choppiness Index (CI):
+   - Measures market consolidation (0-100 scale)
+   - Below 38.6 indicates trending conditions
+   - Above 61 indicates choppy/range-bound markets
+
+Entry Rules:
+1. Primary Condition: VI+ crosses above VI- (bullish signal)
+2. Confirmation: CI must be below 38.6 (confirming trending environment)
+3. Both conditions must occur simultaneously
+
+Exit Rules:
+1. Primary Exit: CI rises above 61 (market becoming choppy)
+2. Optional Exit: VI- crosses above VI+ (trend reversal signal)
+3. Whichever condition occurs first triggers the exit
+
+Risk Management:
+1. Position Size: 1-2% of capital per trade
+2. Stop Loss: 
+   - Fixed percentage (e.g., 2-3% below entry)
+   - OR below recent swing low (for longs)
+3. Take Profit: 
+   - 2:1 risk-reward ratio minimum
+   - OR trail stop when CI approaches 50
+
+Required Indicators:
+1. Vortex Indicator (standard 14-period)
+2. Choppiness Index (14-period recommended)
+3. Optional: Volume confirmation (increasing volume on entry)
+
+Additional Notes:
+- Best suited for 1H-4H timeframes in trending markets
+- Works well on forex majors and liquid commodities
+- Avoid using during major news events
+- Combine with price action confirmation for better accuracy
+- Backtest optimal CI thresholds for specific instruments (38.6-61 range may vary)
+
+This strategy excels in capturing early trend movements while avoiding false signals in ranging markets, making it particularly effective in trending environments with clear directional bias.

@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Filter:** Uses the 20-day Average True Range (ATR) to identify low volatility conditions when it drops below its 10th percentile (historically calculated).  
+2. **Trend Confirmation:** Requires price to cross above the 200-day Simple Moving Average (SMA) to confirm a bullish trend.  
+3. **Exit Mechanism:** Implements a dual exit system—a fixed 2x ATR stop-loss and a dynamic 5% trailing stop to lock in profits.  
+
+**Entry Rules:**  
+- **Condition 1:** The 20-day ATR must be below its 10th percentile (indicating suppressed volatility).  
+- **Condition 2:** Price must close above the 200-day SMA (confirming bullish momentum).  
+- **Action:** Enter a long position on the next candle’s open if both conditions are met.  
+
+**Exit Rules:**  
+1. **Stop-Loss:** Exit if price drops 2x the current 20-day ATR value from the entry price.  
+2. **Trailing Stop:** Exit if price retraces 5% from its highest point since entry.  
+3. **Optional Time Exit:** Close the position after 20 days if neither stop is triggered (prevoves stagnation).  
+
+**Risk Management:**  
+- Position sizing adjusts based on the 2x ATR stop (e.g., risking 1% of capital per trade).  
+- Avoids trading during earnings or major news events to prevent volatility spikes.  
+
+**Required Indicators:**  
+1. **20-day ATR** (for volatility percentile calculation).  
+2. **200-day SMA** (trend filter).  
+3. **Historical Percentile Data** (pre-calculated 10th percentile of ATR over a 1-year lookback).  
+
+**Unique Edge:** Combines mean-reverting volatility signals (ATR percentile) with trend-following (SMA crossover), targeting explosive moves after low-volatility periods.  
+
+**Optimization Notes:**  
+- Test different ATR percentiles (e.g., 5th or 15th) for sensitivity.  
+- Experiment with SMA periods (e.g., 100-day or 50-day) for varying trend horizons.

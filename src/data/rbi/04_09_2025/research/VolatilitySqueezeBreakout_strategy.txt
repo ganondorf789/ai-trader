@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection**: Uses Bollinger Bands (20-period, 2 standard deviations) and Keltner Channels (20-period ATR, 1.5 multiplier) to identify periods of low volatility (squeeze).  
+2. **Breakout Confirmation**: Requires price to break the 20-period range high/low with a surge in volume (e.g., volume > 1.5x 20-period average).  
+3. **Trend Alignment**: Favors breakouts in the direction of the broader trend (e.g., price above/below 200-period SMA for long/short bias).  
+
+**Entry Rules:**  
+1. **Squeeze Condition**: Bollinger Bands must be inside Keltner Channels (volatility contraction).  
+2. **Breakout Trigger**: Price closes above the 20-period high (long) or below the 20-period low (short).  
+3. **Volume Confirmation**: Volume on breakout candle must exceed 1.5x the 20-period average volume.  
+
+**Exit Rules:**  
+1. **Opposing Squeeze Signal**: Exit when the opposite squeeze condition appears (e.g., long exits when BBands re-enter Keltner Channels).  
+2. **Trailing Stop**: Use a 2x ATR trailing stop from the entry price.  
+3. **Time-Based Exit**: Close trade after 5 periods if no opposing signal occurs.  
+
+**Risk Management:**  
+1. **Position Sizing**: Risk ≤1% of capital per trade (e.g., stop distance = entry to 2x ATR).  
+2. **Stop Loss**: Initial stop at 1x ATR from entry.  
+3. **No Overnight Gaps**: Avoid holding through major news events.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2).  
+2. Keltner Channel (20-period EMA, 1.5x ATR).  
+3. Volume (20-period average).  
+4. 200-period SMA (trend filter, optional).  
+5. ATR (14-period for stops).  
+
+**Unique Edge:** Combines volatility contraction (squeeze) with volume-confirmed breakouts, reducing false signals while capturing explosive moves. The dual-channel confirmation (BBands + Keltner) adds robustness.

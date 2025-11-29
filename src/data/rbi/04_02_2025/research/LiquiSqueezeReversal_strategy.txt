@@ -1,0 +1,58 @@
+STRATEGY_NAME: LiquiSqueezeReversal
+
+STRATEGY_DETAILS:
+This strategy combines liquidation cluster detection through funding rate acceleration with Bollinger Band squeezes to identify high-probability reversal opportunities in volatile markets. The approach capitalizes on market overextensions where excessive leverage meets technical compression patterns.
+
+Key Components:
+1. Funding Rate Acceleration: Monitors the rate of change in perpetual swap funding rates to detect extreme sentiment and potential liquidation clusters
+2. Bollinger Band Squeeze: Identifies periods of exceptionally low volatility (compression) preceding potential explosive moves
+3. Volatility Expansion: Uses Bollinger Band width expansion as confirmation of momentum shift
+4. Funding Rate Normalization: Tracks when extreme funding rates return to mean levels
+
+Entry Rules:
+1. Primary Trigger: 
+   - Funding rate acceleration reaches 90th percentile of historical values (extreme bullish/bearish sentiment)
+   - Simultaneous Bollinger Band squeeze (band width in lowest 20th percentile)
+   - Price at extreme Bollinger Band (upper band for short entries, lower band for long entries)
+
+2. Confirmation:
+   - Volume spike (minimum 1.5x 20-period average)
+   - RSI divergence (price making new extreme while RSI fails to confirm)
+
+Exit Rules:
+1. Profit Taking:
+   - When price reaches opposite Bollinger Band (from entry band)
+   - OR when volatility expansion reaches 2x squeeze threshold
+
+2. Stop Loss:
+   - Hard stop at 1.5x Bollinger Band width from entry
+   - Emergency stop if funding rate reverses direction sharply (50% retracement from extreme)
+
+Risk Management:
+1. Position Sizing: 
+   - 1-2% risk per trade based on stop distance
+   - Reduce size during high VIX regimes (>30)
+
+2. Trade Filtering:
+   - Only trade when both signals align (funding rate + squeeze)
+   - Avoid news events and macro announcements
+   - Require minimum 1:3 risk/reward ratio
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Funding Rate Acceleration (3-period ROC of funding rates)
+3. Volume (20-period MA)
+4. RSI (14-period)
+5. Bollinger Band Width indicator
+
+Special Considerations:
+- Works best on 4H-1D timeframes for crypto perpetuals
+- Requires monitoring of multiple exchanges for accurate funding rate data
+- Most effective in ranging markets with occasional volatility spikes
+- Combine with order book analysis for additional confirmation
+
+Optimization Tips:
+- Backtest different percentile thresholds for funding rate extremes
+- Experiment with Bollinger Band periods (20 vs 50)
+- Test various band width squeeze definitions
+- Adjust profit targets based on average true range

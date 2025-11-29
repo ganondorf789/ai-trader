@@ -1,0 +1,51 @@
+STRATEGY_NAME: VoltaicSqueeze
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of low volatility followed by explosive breakouts, combining Bollinger Band contraction with ATR-based confirmation and dynamic exit management.
+
+Key Components:
+1. Volatility Measurement:
+   - Bollinger Bands (20,2) to identify contraction periods
+   - 20-day ATR as volatility threshold (default 1.5x multiplier)
+   
+2. Breakout Confirmation:
+   - Price must close above upper Bollinger Band
+   - Bollinger Band width must be below ATR threshold
+   - Breakout candle must show above-average volume (optional filter)
+
+Entry Rules:
+1. Primary Trigger:
+   - When Bollinger Band width (upper-lower) < (ATR20 * 1.5)
+   - AND price closes above upper Bollinger Band
+   - Enter long at next open
+
+Exit Rules:
+1. Dynamic Trailing Stop:
+   - Initial stop: 50% of breakout candle's range below entry
+   - Trail stop upward at 25% of subsequent candles' ranges
+   - Never moves stop downward
+
+2. Alternative Exit:
+   - Close position if price crosses below middle Bollinger Band
+   - OR after 10 bars without new high (time-based exit)
+
+Risk Management:
+1. Position Sizing:
+   - Risk 1-2% of capital per trade
+   - Stop distance determines position size
+
+2. Volatility Filter:
+   - Only trade when ATR > 0.5% of instrument price
+   - Avoid extremely low liquidity conditions
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. ATR (20)
+3. Volume (optional confirmation)
+
+Optimization Notes:
+- Adjust ATR multiplier (1.3-2.0) based on instrument volatility
+- Test different trailing stop percentages (20-50%)
+- Consider adding RSI filter (e.g., >30) for stronger momentum confirmation
+
+This strategy works best in trending markets after consolidation periods, with the VoltaicSqueeze name reflecting its explosive energy release from compressed volatility conditions.

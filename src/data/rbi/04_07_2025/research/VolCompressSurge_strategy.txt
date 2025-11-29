@@ -1,0 +1,60 @@
+STRATEGY_NAME: VolCompress Surge
+
+STRATEGY_DETAILS:
+This strategy specializes in identifying and capitalizing on volatility compression breakouts using a multi-indicator confluence approach with volume confirmation.
+
+Key Components:
+1. Volatility Compression Detection:
+   - Bollinger Bands (20-day, 2σ) showing narrowing width (compression)
+   - Keltner Channel (20-day ATR) showing descending bands (decreasing volatility)
+   - The convergence of these two indicators creates a "volatility sandwich" pattern
+
+2. Breakout Confirmation:
+   - Price must close outside either Bollinger Band
+   - Volume must surge above 50-day average volume (minimum 20% increase)
+   - Breakout direction determines trade bias (long/short)
+
+Entry Rules:
+1. Long Entry:
+   - When price closes above upper Bollinger Band
+   - With volume > 50-day average volume by at least 20%
+   - While Keltner Channel is descending (confirming prior compression)
+
+2. Short Entry:
+   - When price closes below lower Bollinger Band
+   - With volume > 50-day average volume by at least 20%
+   - While Keltner Channel is descending (confirming prior compression)
+
+Exit Rules:
+1. Profit Taking:
+   - 2:1 reward-risk ratio minimum
+   - Alternative: When price re-enters Keltner Channel
+   - Or when opposite Bollinger Band is touched (for mean reversion)
+
+2. Stop Loss:
+   - Placed at middle Bollinger Band (20-day SMA)
+   - Or at opposite side of Keltner Channel entry
+   - Whichever is closer to entry price
+
+Risk Management:
+1. Position Sizing:
+   - Maximum 2% risk per trade
+   - Adjust position size based on stop distance
+
+2. Trade Filter:
+   - Only trade when both indicators show compression
+   - Avoid trading during earnings announcements
+   - Prefer liquid assets with tight spreads
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Keltner Channel (20-day ATR based)
+3. Volume (50-day average)
+4. Standard moving average (20-day SMA for reference)
+
+Optimization Notes:
+- Test different ATR multiples for Keltner Channel (1.5-2.5)
+- Experiment with volume thresholds (15-25% above average)
+- Consider adding RSI filter for overbought/oversold conditions
+
+This strategy excels in ranging markets transitioning to trends, capturing the explosive moves that follow periods of volatility compression, with volume acting as the key confirmation signal to validate genuine breakouts versus false moves.

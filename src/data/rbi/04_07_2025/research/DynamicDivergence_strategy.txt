@@ -1,0 +1,42 @@
+STRATEGY_NAME: DynamicDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Strength Confirmation:** Uses ADX (Average Directional Index) above 25 to ensure strong trending conditions.  
+2. **Volume Divergence:** OBV (On-Balance Volume) divergence confirms underlying strength/weakness in price action.  
+3. **Retracement Entry:** Entries are triggered when price retraces to the 20-period VWAP (Volume-Weighted Average Price), acting as a dynamic support/resistance level.  
+4. **Dynamic Risk Management:** Stop-loss is set at 1.5x the 14-period ATR (Average True Range) to account for volatility.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - ADX > 25 (confirming strong trend).  
+  - Bullish OBV divergence (price makes lower low, OBV makes higher low).  
+  - Price retraces to touch or approach the 20-period VWAP.  
+- **Short Entry:**  
+  - ADX > 25 (confirming strong trend).  
+  - Bearish OBV divergence (price makes higher high, OBV makes lower high).  
+  - Price retraces to touch or approach the 20-period VWAP.  
+
+**Exit Rules:**  
+- **Take-Profit:** No fixed target; trail stop or exit when OBV shows reversal signs (e.g., divergence against price).  
+- **Stop-Loss:**  
+  - Long trades: Stop placed at 1.5x ATR below the entry candle’s low.  
+  - Short trades: Stop placed at 1.5x ATR above the entry candle’s high.  
+
+**Risk Management:**  
+- Position sizing adjusts based on stop distance (e.g., risk 1-2% of capital per trade).  
+- Avoid trading during low ADX (<25) or choppy market conditions.  
+
+**Required Indicators:**  
+1. ADX (14-period default).  
+2. OBV (On-Balance Volume).  
+3. 20-period VWAP.  
+4. 14-period ATR for stop placement.  
+
+**Notes:**  
+- Works best in trending markets (ADX confirmation critical).  
+- OBV divergence adds conviction to retracement entries.  
+- ATR-based stops adapt to volatility, reducing premature exits.  
+
+This strategy combines trend, volume, and price action for high-probability setups while dynamically managing risk.

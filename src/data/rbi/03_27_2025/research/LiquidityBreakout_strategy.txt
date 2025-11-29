@@ -1,0 +1,35 @@
+STRATEGY_NAME: LiquidityBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidity Zones Identification:** The strategy focuses on detecting clustered liquidation levels in the order book, which act as key support/resistance zones. These zones represent areas where high liquidity is concentrated, making them prime spots for potential breakouts.  
+2. **ATR Contraction/Expansion:** Uses the Average True Range (ATR) to identify periods of low volatility (contraction) for entry and high volatility (expansion) for exit.  
+3. **Breakout Confirmation:** Entries are triggered when price approaches and breaks through identified liquidity zones, validated by ATR contraction signaling a potential breakout.  
+
+**Entry Rules:**  
+1. **Liquidity Zone Approach:** Monitor order book data to identify clustered liquidation levels (high liquidity zones).  
+2. **ATR Contraction:** Wait for ATR to show contraction (low volatility), indicating a potential buildup for a breakout.  
+3. **Breakout Trigger:** Enter a long position if price breaks above a liquidity zone or a short position if it breaks below, with confirmation from ATR contraction.  
+
+**Exit Rules:**  
+1. **ATR Expansion:** Exit the trade when ATR shows expansion (high volatility), signaling the breakout momentum may be fading.  
+2. **Liquidity Zone Retest:** Consider exiting if price retests the breakout zone and shows rejection (e.g., wicks or failure to hold the level).  
+3. **Trailing Stop:** Use a trailing stop based on ATR (e.g., 2x ATR) to lock in profits as the trend extends.  
+
+**Risk Management:**  
+1. **Stop-Loss Placement:** Set stop-loss orders just below (for longs) or above (for shorts) the liquidity zone to minimize risk if the breakout fails.  
+2. **Position Sizing:** Adjust position size based on the distance to the stop-loss to maintain consistent risk per trade (e.g., 1-2% of capital).  
+3. **Avoid Overleveraging:** Given the volatility around liquidity zones, use conservative leverage to withstand potential false breakouts.  
+
+**Required Indicators:**  
+1. **Order Book Data:** To identify clustered liquidation levels (liquidity zones).  
+2. **Average True Range (ATR):** For measuring volatility contraction/expansion.  
+3. **Price Action Tools:** Candlestick patterns or volume analysis to confirm breakout validity.  
+
+**Unique Aspects:**  
+- Combines order book liquidity analysis with ATR-based volatility signals for high-probability breakouts.  
+- Focuses on institutional-level liquidity zones, which often lead to significant price movements.  
+- Uses ATR for both entry (contraction) and exit (expansion), creating a self-contained volatility framework.  
+
+This strategy is ideal for traders who want to capitalize on institutional liquidity flows while managing risk through volatility-based exits.

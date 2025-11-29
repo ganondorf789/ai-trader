@@ -1,0 +1,62 @@
+STRATEGY_NAME: LiquidationClusterReversal
+
+STRATEGY_DETAILS:
+This strategy specializes in identifying high-probability counter-trend opportunities by monitoring liquidation clusters and volatility conditions. The approach combines liquidation analytics with volume-weighted price action for precise entries and exits.
+
+Key Components:
+1. Liquidation Cluster Analysis (Primary Trigger)
+   - Monitors liquidation levels exceeding 2 standard deviations from 30-day average
+   - Requires clusters (multiple liquidations at similar levels) for confirmation
+
+2. Volatility Filters (ATR-Based)
+   - Uses Average True Range to gauge market conditions
+   - Requires volatility contraction before entry
+   - Uses volatility expansion for exit signals
+
+3. VWAP Confirmation
+   - Volume-Weighted Average Price acts as dynamic support/resistance
+   - Opposing liquidations must cross VWAP for exit confirmation
+
+Entry Rules:
+1. Primary Trigger:
+   - Liquidation clusters must exceed +2 STD (for short entries) or -2 STD (for long entries) of 30-day average
+   - Cluster must contain minimum 3 significant liquidation events
+
+2. Confirmation:
+   - Current price must be at/near liquidation cluster level
+   - ATR(14) must be below its 20-period moving average (volatility contraction)
+
+Exit Rules:
+1. Profit Taking:
+   - When ATR(14) expands beyond its 20-period MA by 15%
+   - AND opposing liquidation activity crosses VWAP
+
+2. Stop Loss:
+   - Initial stop placed at 1.5x ATR from entry
+   - Trailing stop activates at 0.5x ATR beyond breakeven
+
+Risk Management:
+1. Position Sizing:
+   - Maximum 2% risk per trade
+   - Adjust position size based on ATR (volatility-adjusted sizing)
+
+2. Trade Frequency:
+   - Maximum 2 concurrent positions
+   - Minimum 24-hour cooldown between trades in same direction
+
+Required Indicators:
+1. Liquidation Heatmap (custom)
+2. ATR (14-period)
+3. VWAP (daily)
+4. Standard Deviation (30-day) of liquidation levels
+
+Special Notes:
+- Works best in trending markets with periodic overextensions
+- Requires high-quality liquidation data feed
+- Most effective on 4H-1D timeframes
+- Performs poorly during low-liquidity periods or news events
+
+Optimization Tips:
+- Adjust STD multiplier (1.8-2.2 range) based on asset volatility
+- Test different ATR period lengths (10-20) for volatility filter
+- Consider adding RSI(3) <20/>80 as additional confirmation for extreme moves

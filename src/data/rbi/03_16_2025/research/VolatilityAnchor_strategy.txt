@@ -1,0 +1,57 @@
+STRATEGY_NAME: VolatilityAnchor
+
+STRATEGY_DETAILS:
+The VolatilityAnchor strategy combines volatility analysis with key support and resistance levels to identify high-probability trading opportunities. This approach is designed to capitalize on market reversals and breakouts while managing risk effectively.
+
+Key Components:
+1. Volatility Measurement: Use ATR (Average True Range) to gauge market volatility
+2. Support/Resistance Levels: Identify key price levels using recent swing highs/lows
+3. Price Action Confirmation: Wait for clear candlestick patterns at key levels
+
+Required Indicators:
+- ATR (14-period)
+- Horizontal support/resistance levels
+- Candlestick patterns (engulfing, pin bars, etc.)
+
+Entry Rules:
+1. For Breakouts:
+   - Wait for price to close above resistance or below support
+   - ATR should be above its 20-period average (indicating sufficient volatility)
+   - Enter on retest of broken level with confirmation candle
+
+2. For Reversals:
+   - Identify key support/resistance levels
+   - Wait for price to reach these levels with ATR showing decreasing volatility
+   - Look for reversal candlestick patterns (engulfing, pin bars, etc.)
+   - Enter on confirmation of reversal pattern
+
+Exit Rules:
+1. Take Profit:
+   - For breakouts: Set target at next significant support/resistance level
+   - For reversals: Set target at previous swing high/low
+
+2. Stop Loss:
+   - Place stop loss below support (for long trades) or above resistance (for short trades)
+   - Adjust stop loss size based on current ATR value (1.5x ATR recommended)
+
+Risk Management:
+1. Position Sizing:
+   - Risk no more than 1-2% of account per trade
+   - Adjust position size based on stop loss distance
+
+2. Trade Filtering:
+   - Only take trades when ATR is above its 20-period average for breakouts
+   - Look for decreasing ATR for reversal setups
+   - Avoid trading during major news events
+
+3. Timeframe Considerations:
+   - Works best on 1-hour and 4-hour charts
+   - Can be adapted to daily charts for swing trading
+
+Additional Notes:
+- Combine with fundamental analysis for higher probability setups
+- Pay attention to volume spikes at key levels
+- Use multiple time frame analysis to confirm setups
+- Keep a trading journal to track performance and refine strategy parameters
+
+This strategy is particularly effective in ranging markets with clear support/resistance levels and can be adapted to various asset classes including forex, stocks, and commodities.

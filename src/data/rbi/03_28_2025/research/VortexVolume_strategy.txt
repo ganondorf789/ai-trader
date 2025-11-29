@@ -1,0 +1,29 @@
+STRATEGY_NAME: VortexVolume  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI) Crossovers**: The strategy uses the Vortex Indicator (VI+ and VI-) to identify potential trend reversals. A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI+ crosses below VI-.  
+2. **Declining Volume Confirmation**: The strategy requires volume to be declining (lower than its moving average) to confirm the VI crossover signal, indicating weakening momentum in the current trend.  
+3. **Chandelier Exit for Stop-Loss**: The Chandelier Exit is used to dynamically place stop-loss levels based on recent volatility (ATR). For long positions, the stop is placed below the highest high since entry minus a multiple of ATR. For short positions, it’s placed above the lowest low since entry plus a multiple of ATR.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when VI+ crosses above VI- *and* volume is below its moving average (e.g., 20-period MA).  
+- **Short Entry**: Triggered when VI+ crosses below VI- *and* volume is below its moving average.  
+
+**Exit Rules:**  
+- **Take-Profit**: Use a trailing stop based on the Chandelier Exit (e.g., 3x ATR).  
+- **Stop-Loss**: The Chandelier Exit level acts as the dynamic stop-loss. Exit the trade if price hits this level.  
+
+**Risk Management:**  
+1. Position sizing should be based on a fixed percentage of capital (e.g., 1-2% risk per trade).  
+2. Avoid trading during low-liquidity periods or major news events to prevent false signals.  
+3. The Chandelier Exit ensures stops adapt to market volatility, reducing risk during erratic price movements.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)** – To identify trend reversals.  
+2. **Volume Moving Average (e.g., 20-period SMA of volume)** – To confirm weakening momentum.  
+3. **Chandelier Exit (based on ATR)** – For dynamic stop-loss placement.  
+4. **Average True Range (ATR, 14-period default)** – To set the trailing stop distance.  
+
+This strategy combines trend reversal signals (VI crossovers) with volume confirmation and adaptive risk management, making it suitable for swing trading in trending markets.

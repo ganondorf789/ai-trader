@@ -1,0 +1,50 @@
+STRATEGY_NAME: VortexVolumeBand
+
+STRATEGY_DETAILS:
+This strategy combines three sophisticated technical elements to identify high-probability trade setups: the Vortex Indicator for trend direction, volume acceleration clusters for confirmation, and dynamic support-resistance bands for precise entry/exit levels.
+
+Key Components:
+1. Vortex Indicator (VI+ and VI- lines) - Identifies trend direction and strength
+2. Volume Acceleration Clusters - Detects unusual volume spikes confirming momentum
+3. Fractal Adaptive Moving Averages (FRAMA) - Creates dynamic support/resistance bands
+4. Price Action - Confirms breakouts/breakdowns relative to FRAMA bands
+
+Entry Rules (Long):
+1. VI+ must cross above VI- (bullish trend signal)
+2. Volume acceleration cluster appears (minimum 2x average volume)
+3. Price closes above upper FRAMA band (dynamic resistance)
+4. All conditions must occur within 3 candles of each other
+
+Entry Rules (Short):
+1. VI- must cross above VI+ (bearish trend signal)
+2. Volume acceleration cluster appears (minimum 2x average volume)
+3. Price closes below lower FRAMA band (dynamic support)
+4. All conditions must occur within 3 candles of each other
+
+Exit Rules:
+1. Take Profit: 
+   - 2x ATR (14) from entry point
+   - OR when opposite VI crossover occurs
+2. Stop Loss:
+   - 1x ATR (14) from entry point
+   - OR when price re-enters FRAMA band
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Maximum 5 open positions at any time
+3. No trading during major economic news events
+4. Daily loss limit of 5% of account balance
+
+Required Indicators:
+1. Vortex Indicator (default 14-period)
+2. Volume (with acceleration detection)
+3. FRAMA (default 28-period, fractal dimension 0.5)
+4. ATR (14-period for stop/target calculations)
+
+Optimization Notes:
+1. Best suited for 1H-4H timeframes
+2. Works well with trending currency pairs and commodities
+3. Requires adjustment of FRAMA sensitivity for volatile instruments
+4. Volume thresholds should be calibrated to the specific market's average volume profile
+
+This strategy excels in capturing strong momentum moves while using the adaptive nature of FRAMA bands to filter out false breakouts. The volume confirmation adds an additional layer of reliability to the Vortex signals.

@@ -1,0 +1,31 @@
+STRATEGY_NAME: FractalFibonacci  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Fractal Pattern Identification:** The strategy identifies self-similar price patterns (fractals) on multiple timeframes to detect potential reversals or continuations.  
+2. **Fibonacci Retracement Levels:** Uses key Fibonacci levels (38.2%, 50%, 61.8%) to determine support/resistance zones where price reactions are likely.  
+3. **Divergence Confirmation:** Entries are triggered when price diverges from Fibonacci levels, signaling weakening momentum and potential reversal.  
+
+**Entry Rules:**  
+1. **Fractal Formation:** Identify a fractal pattern (e.g., higher highs/lower lows) on a higher timeframe (e.g., 4H or daily).  
+2. **Fibonacci Alignment:** Draw Fibonacci retracement levels from the most recent swing high to swing low (or vice versa).  
+3. **Divergence Signal:** Look for RSI or MACD divergence near a key Fibonacci level (e.g., price makes a higher high, but RSI makes a lower high).  
+4. **Entry Trigger:** Enter long/short when price rejects the Fibonacci level with a confirming candlestick pattern (e.g., pin bar, engulfing).  
+
+**Exit Rules:**  
+1. **Take Profit:** Target the next Fibonacci extension level (e.g., 127.2% or 161.8%) or a prior swing point.  
+2. **Stop Loss:** Place stop loss below/above the fractal breakout point or the opposite Fibonacci level (e.g., beyond 61.8% for longs).  
+
+**Risk Management:**  
+1. Position size limited to 1-2% of capital per trade.  
+2. Risk-reward ratio of at least 1:2.  
+3. Avoid trading during high-impact news events to reduce false signals.  
+
+**Required Indicators:**  
+1. **Fractal Indicator** (e.g., Bill Williams Fractals).  
+2. **Fibonacci Retracement Tool**.  
+3. **RSI or MACD** for divergence confirmation.  
+4. **Candlestick Patterns** (e.g., pin bars, engulfing) for entry validation.  
+
+**Unique Aspects:** Combines fractal geometry with Fibonacci harmonics, focusing on divergence for high-probability reversals. Works best in trending markets with clear swing points.

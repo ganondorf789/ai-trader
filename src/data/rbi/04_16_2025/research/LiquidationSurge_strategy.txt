@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Historical Liquidation Levels:** Identify key price zones where significant liquidations (stop-loss triggers) have occurred in the past. These levels act as potential breakout points.  
+2. **Low Volatility Filter:** Use a volatility indicator (e.g., Bollinger Band Width or ATR) to confirm periods of low volatility, indicating a potential breakout setup.  
+3. **Order Book Imbalance Surge:** Monitor the order book for a sudden increase in buy/sell pressure imbalance (e.g., bid-ask volume ratio or depth changes) to confirm breakout momentum.  
+
+**Entry Rules:**  
+1. **Setup:** Price approaches a historical liquidation level during a low volatility period (e.g., Bollinger Band Width < X or ATR below its 20-period average).  
+2. **Confirmation:** A surge in order book imbalance (e.g., bid volume >> ask volume for long entries, or vice versa for shorts) occurs as price tests the liquidation level.  
+3. **Entry Trigger:** Enter on a breakout candle closing beyond the liquidation level, with the order book imbalance persisting.  
+
+**Exit Rules:**  
+1. **Take-Profit:** Set a profit target at the next significant liquidation level or a fixed risk-reward ratio (e.g., 2:1).  
+2. **Stop-Loss:** Place a stop-loss below the breakout candle’s low (for longs) or above its high (for shorts), or use a volatility-based stop (e.g., 1.5x ATR).  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Volatility Adjustment:** Reduce position size during higher volatility to account for wider stops.  
+3. **False Breakout Filter:** Avoid re-entering if the order book imbalance fades quickly after the breakout.  
+
+**Required Indicators/Tools:**  
+1. **Historical Liquidation Data:** Requires access to liquidation heatmaps or historical price levels where liquidations clustered.  
+2. **Volatility Indicator:** Bollinger Band Width, ATR, or similar to gauge low volatility.  
+3. **Order Book Metrics:** Real-time bid/ask volume ratio, depth changes, or cumulative delta.  
+
+**Unique Edge:** This strategy capitalizes on the "liquidation cascade" effect, where price breaks key levels due to forced liquidations, amplified by order book imbalances. The low volatility filter reduces false breakouts, while the order book confirmation adds high-probability momentum.  
+
+**Note:** Works best in leveraged markets (e.g., crypto futures) where liquidations are frequent and impactful. Backtest for optimal volatility thresholds and imbalance thresholds.

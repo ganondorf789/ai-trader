@@ -1,0 +1,49 @@
+STRATEGY_NAME: VolatilityMomentum
+
+STRATEGY_DETAILS:
+This strategy combines volatility analysis with momentum signals to capture breakout opportunities while using mean reversion for exits. Here are the key components:
+
+1. KEY COMPONENTS:
+- Chande Momentum Oscillator (CMO): Measures momentum strength
+- 20-day rolling volatility: Creates dynamic threshold for CMO signals
+- Bollinger Band %B: Identifies mean reversion points for exits
+
+2. ENTRY RULES:
+- Go LONG when:
+  1. CMO crosses ABOVE its dynamic threshold (20-day rolling volatility * adjustment factor)
+  2. Price shows volatility expansion (confirmed by recent volatility increase)
+- Optional confirmation: Volume spike or price breaking recent high
+
+3. EXIT RULES:
+- Close position when:
+  1. Bollinger Band %B crosses back below 0.5 (mean reversion)
+  2. Or when %B reaches extreme level (e.g., >0.8 for profit taking)
+  3. Stop-loss at recent swing low or volatility-based stop (e.g., 2x ATR)
+
+4. RISK MANAGEMENT:
+- Position sizing based on volatility (e.g., 1% risk per trade)
+- Dynamic stop-loss adjustment based on current volatility
+- Maximum portfolio exposure limit (e.g., 20% in volatile markets)
+
+5. REQUIRED INDICATORS:
+- Chande Momentum Oscillator (14-period recommended)
+- 20-day historical volatility (standard deviation of returns)
+- Bollinger Bands (20,2 standard deviations) with %B calculation
+- Optional: ATR (14-period) for stop-loss calculation
+
+6. OPTIMIZATION TIPS:
+- Adjust CMO period (14-21 days) based on market conditions
+- Test different volatility multipliers (1.5-2.5x) for threshold
+- Experiment with Bollinger Band settings for exits
+
+7. BEST APPLICATIONS:
+- Works well in trending markets with periodic volatility expansions
+- Effective on liquid assets with clear volatility patterns (stocks, forex majors)
+- Timeframes: 1H charts or higher recommended
+
+8. WARNING SIGNS:
+- Avoid trading during low volatility regimes (CMO may give false signals)
+- Be cautious when VIX is at extremes (market may be overextended)
+- Watch for divergence between price and CMO
+
+This strategy requires regular volatility monitoring and benefits from periodic parameter adjustments to match changing market conditions.

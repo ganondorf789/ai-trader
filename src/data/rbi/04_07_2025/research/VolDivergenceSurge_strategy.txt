@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolDivergenceSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** Identifies periods of low volatility and potential breakout conditions.  
+2. **Elder Force Index Divergence:** Detects weakening momentum (negative divergence) despite price action, signaling potential reversals.  
+3. **Volatility Expansion Trigger:** Confirms breakout via Bollinger Bandwidth expansion.  
+4. **Volume Surge Filter:** Requires volume to exceed the 90th percentile of recent historical volume to validate the signal.  
+
+**Entry Rules:**  
+1. **Setup Conditions:**  
+   - Bollinger Bandwidth (20-period, 2 StdDev) must be narrowing (reaching a 10-period low).  
+   - Elder Force Index (13-period) shows higher highs in price but lower highs in the indicator (negative divergence).  
+2. **Trigger:**  
+   - Bollinger Bandwidth begins expanding after contraction.  
+   - Volume surges above the 90th percentile of the past 50 periods.  
+3. **Entry:**  
+   - Short entry if the above conditions align during a downtrend or at a resistance level.  
+   - Long entry (rare) if conditions align during an uptrend or at support (requires additional confirmation).  
+
+**Exit Rules:**  
+1. **Profit-Taking:**  
+   - Close position when Bollinger Bandwidth reaches a 10-period high (volatility peak).  
+   - Alternatively, use a 2:1 reward-to-risk ratio based on the initial stop.  
+2. **Stop-Loss:**  
+   - Place stop above the recent swing high (short) or below the swing low (long).  
+   - Adjust stop to breakeven if price moves 1.5x the initial risk in favor.  
+
+**Risk Management:**  
+1. Position size limited to 1-2% of capital per trade.  
+2. Avoid trading during major news events to prevent false volume spikes.  
+3. Filter trades to align with higher-timeframe trends for better consistency.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2 StdDev) + Bandwidth calculation.  
+2. Elder Force Index (13-period).  
+3. Volume histogram + 90th percentile threshold (50-period lookback).  
+
+**Unique Edge:** Combines volatility cycles, momentum decay, and volume confirmation for high-probability reversals. Works best in ranging or topping markets.

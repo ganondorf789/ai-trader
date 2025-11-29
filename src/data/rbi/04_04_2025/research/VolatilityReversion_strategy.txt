@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolatilityReversion
+
+STRATEGY_DETAILS:
+This strategy capitalizes on mean-reversion opportunities during low-volatility market conditions, using ATR for volatility measurement and RSI for timing exits.
+
+Key Components:
+1. Volatility Measurement: 20-day ATR (Average True Range) to identify low-volatility conditions
+2. Mean-Reversion Trigger: ATR dropping below its 10th percentile threshold
+3. Exit Signal: 5-minute RSI crossing above 70 indicating overbought conditions
+
+Entry Rules:
+1. Calculate the 20-day ATR percentile ranking daily
+2. Enter long position when:
+   - Current 20-day ATR drops below its 10th percentile (historically low volatility)
+   - Price is above the 200-day moving average (trend filter, optional)
+
+Exit Rules:
+1. Monitor 5-minute RSI continuously after entry
+2. Exit position when:
+   - 5-minute RSI crosses above 70 (overbought condition)
+   - OR if the position reaches -2% from entry (stop-loss)
+
+Risk Management:
+1. Position sizing: Risk no more than 1% of capital per trade
+2. Stop-loss: -2% from entry price (hard stop)
+3. Take-profit: None (rely solely on RSI exit signal)
+4. Maximum holding period: 5 trading days (time-based exit)
+
+Required Indicators:
+1. 20-day ATR (Average True Range)
+2. ATR percentile calculation (requires historical ATR data)
+3. 5-minute RSI (14-period recommended)
+4. Optional: 200-day moving average for trend filter
+
+Additional Notes:
+- Works best in range-bound markets
+- Avoid trading during earnings announcements or major news events
+- Requires daily monitoring of ATR percentile levels
+- Backtest suggested to determine optimal ATR lookback period and percentile threshold for specific instruments
+
+This strategy combines volatility regime identification with short-term overbought signals, targeting the tendency of prices to mean-revert during low-volatility periods. The unique combination of daily ATR analysis with intraday RSI monitoring creates a distinctive approach to volatility-based trading.

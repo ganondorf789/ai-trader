@@ -1,0 +1,51 @@
+STRATEGY_NAME: VortexChopFlip  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Identifies trend direction and potential reversals when VI+ crosses above/below VI-.  
+2. **Choppiness Index (CI):** Measures market consolidation (values >61.8) or trending phases (values <38.2). Used to confirm low-volatility conditions before reversals.  
+3. **ADX (14-period):** Filters trades by trend strength (ADX >25 for valid signals). Exits occur when ADX declines below 20.  
+4. **Volume Confirmation:** Requires above-average volume on entry/exit to validate signals.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. VI+ crosses **above** VI- (bullish reversal signal).  
+  2. CI crosses **below** 61.8 (exiting choppy phase).  
+  3. ADX >25 (trend strength confirmation).  
+  4. Volume > 20-period average.  
+
+- **Short Entry:**  
+  1. VI+ crosses **below** VI- (bearish reversal signal).  
+  2. CI crosses **above** 38.2 (entering choppy phase).  
+  3. ADX >25.  
+  4. Volume > 20-period average.  
+
+**Exit Rules:**  
+- **Profit-Taking:**  
+  - Trail stop at 2x ATR (14-period) from peak/trough.  
+- **Stop-Loss:**  
+  - Fixed: 1.5x ATR from entry.  
+- **Early Exit:**  
+  - ADX drops below 20 (trend weakening).  
+  - Volume falls below 20-period average.  
+
+**Risk Management:**  
+- Max risk per trade: 1-2% of capital.  
+- No trades during major news events (high volatility skews CI/VI).  
+- Avoid overlapping positions in correlated assets.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-; default 14-period).  
+2. Choppiness Index (14-period, range-bound).  
+3. ADX (14-period).  
+4. Volume (20-period MA).  
+5. ATR (14-period for stops).  
+
+**Unique Edge:**  
+- Combines **trend reversal signals (VI)** with **volatility context (CI)** to avoid false breakouts.  
+- Volume + ADX filters ensure high-probability entries/exits.  
+- Optimized for swing trading (2-10 day holds).  
+
+**Backtest Note:**  
+- Test on assets with mean-reverting tendencies (e.g., indices, commodities). Avoid strongly trending cryptos.

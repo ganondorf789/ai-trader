@@ -1,0 +1,34 @@
+STRATEGY_NAME: VoltaVWAP  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility-Adjusted VWAP Bands**: Uses a rolling 24-hour Volume-Weighted Average Price (VWAP) as the mean reference, with dynamic bands set at ±2x the Average True Range (ATR) to account for volatility.  
+2. **Mean-Reversion Focus**: Aims to capitalize on price deviations beyond the VWAP bands, assuming reversion to the mean.  
+3. **Dynamic Exit Mechanism**: Exits trades when price returns inside the bands or via a trailing stop scaled by volatility (ATR).  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when price closes **below** the lower band (VWAP - 2x ATR).  
+- **Short Entry**: Triggered when price closes **above** the upper band (VWAP + 2x ATR).  
+- **Confirmation**: Optional filter (e.g., RSI < 30 for longs, RSI > 70 for shorts) to avoid false signals in strong trends.  
+
+**Exit Rules:**  
+1. **Primary Exit**: Close position when price crosses back **inside** the VWAP bands (e.g., long exits when price > VWAP - 2x ATR).  
+2. **Trailing Stop**: Adjusts stop-loss dynamically using ATR (e.g., 1.5x ATR from recent extreme).  
+3. **Time-Based Exit**: Optional 24-hour hold period to align with VWAP recalibration.  
+
+**Risk Management:**  
+- **Position Sizing**: Scale based on ATR (e.g., risk 1% of capital per trade, stop distance = 2x ATR).  
+- **Stop-Loss**: Initial stop at ±3x ATR from entry for outlier protection.  
+- **Volatility Filter**: Pause trading if ATR exceeds 5% of price (extreme volatility).  
+
+**Required Indicators:**  
+1. **24-Hour Rolling VWAP** (recalculated hourly).  
+2. **ATR (14-period)** for band width and stop calculations.  
+3. **Optional**: RSI (14-period) for trend confirmation.  
+
+**Unique Aspects:**  
+- **Volatility Scaling**: Bands and stops adapt to market conditions via ATR.  
+- **Time-Sensitive Mean**: 24-hour VWAP ensures relevance to recent price action.  
+- **Asymmetric Exits**: Combines mean-reversion (band re-entry) and trend-following (trailing stop) logic.  
+
+**Note**: Works best in ranging markets; avoid during strong trends (use RSI filter if added).

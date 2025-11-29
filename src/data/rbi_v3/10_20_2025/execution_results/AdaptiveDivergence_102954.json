@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "",
+  "stderr": "  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/AdaptiveDivergence_OPT_v2.py\", line 1\n    ```python\n    ^\nSyntaxError: invalid syntax\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi_v3/10_20_2025/backtests_optimized/AdaptiveDivergence_OPT_v2.py` failed. (See above for error)\n",
+  "execution_time": 0.435541,
+  "timestamp": "2025-10-20T10:29:54.843552"
+}

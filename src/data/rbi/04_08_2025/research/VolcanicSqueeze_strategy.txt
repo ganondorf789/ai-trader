@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolcanicSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Keltner Channel Breakout**: The strategy focuses on breakouts from a narrowing Keltner Channel, indicating a potential volatility squeeze.  
+2. **Volume Surge Confirmation**: Breakouts must be accompanied by a significant surge in trading volume to validate the move.  
+3. **Liquidation Heatmap Spike**: A spike in liquidation heatmap density suggests heightened market activity and potential follow-through.  
+4. **Volatility-Based Fibonacci Extensions**: Exits are determined using Fibonacci extensions derived from recent volatility levels, ensuring profit-taking aligns with market momentum.  
+
+**Entry Rules:**  
+1. **Keltner Channel Narrowing**: Wait for the Keltner Channel to contract, signaling reduced volatility and a potential breakout.  
+2. **Breakout Confirmation**: Enter long if price breaks above the upper Keltner Channel or short if it breaks below the lower channel.  
+3. **Volume Surge**: Confirm the breakout with a volume spike (e.g., volume > 1.5x the 20-period average).  
+4. **Liquidation Heatmap**: Ensure a corresponding spike in liquidation heatmap density, indicating strong market participation.  
+
+**Exit Rules:**  
+1. **Fibonacci Extensions**: Use volatility-based Fibonacci extensions (e.g., 1.618 or 2.618 of recent ATR) as profit targets.  
+2. **Trailing Stop**: Implement a trailing stop (e.g., 1.5x ATR) to lock in profits if the trend reverses before hitting Fibonacci targets.  
+3. **Keltner Reversion**: Exit if price re-enters the Keltner Channel, signaling loss of momentum.  
+
+**Risk Management:**  
+1. **Stop-Loss**: Place a stop-loss just outside the opposite Keltner Channel band or at a fixed ATR-based distance (e.g., 2x ATR).  
+2. **Position Sizing**: Use volatility-adjusted position sizing (e.g., risk 1-2% of capital per trade based on stop distance).  
+3. **Filtering**: Avoid trading during low-volume periods or when liquidation heatmap activity is stagnant.  
+
+**Required Indicators:**  
+1. **Keltner Channel** (20-period EMA, 2x ATR bands).  
+2. **Volume** (20-period average for comparison).  
+3. **Liquidation Heatmap** (real-time density tracking).  
+4. **ATR** (14-period for volatility measurement).  
+5. **Fibonacci Extensions** (calculated from recent swing highs/lows and ATR multiples).  
+
+**Unique Edge:** The combination of a volatility squeeze (Keltner), volume confirmation, liquidation heatmap intensity, and volatility-based Fibonacci exits creates a high-probability, momentum-driven strategy. The name "VolcanicSqueeze" reflects the explosive breakout potential from a compressed volatility state.

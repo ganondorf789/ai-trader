@@ -1,0 +1,56 @@
+STRATEGY_NAME: DynamicBreakoutEMA
+
+STRATEGY_DETAILS:
+This strategy combines trend confirmation with momentum strength to identify high-probability breakout opportunities. The key components are:
+
+1. TREND CONFIRMATION:
+- Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) as primary trend confirmation
+- This establishes the overall bullish bias for potential breakouts
+
+2. MOMENTUM FILTER:
+- Requires ADX (Average Directional Index) to be above 25
+- Ensures the market has sufficient directional strength for the breakout
+- ADX rising confirms increasing momentum
+
+3. ENTRY RULES:
+- Enter long when price makes a new high after the EMA crossover
+- ADX must be above 25 and rising at time of entry
+- Entry occurs on first candle closing above recent swing high
+
+4. RISK MANAGEMENT:
+- Initial stop-loss set at 2x ATR (Average True Range) below entry
+- Take-profit set at 3x ATR above entry
+- 1.5:1 reward-to-risk ratio
+- Position size calculated based on stop-loss distance
+
+5. EXIT RULES:
+- Exit when either:
+  a) Price hits 3x ATR take-profit target
+  b) Price hits 2x ATR stop-loss
+  c) ADX falls below 25 (momentum weakening)
+
+6. REQUIRED INDICATORS:
+- 50-period Exponential Moving Average (EMA)
+- 200-period Exponential Moving Average (EMA)
+- ADX (14-period standard setting)
+- ATR (14-period standard setting)
+
+7. OPTIONAL ENHANCEMENTS:
+- Add volume confirmation (rising volume on breakout)
+- Wait for pullback to 50-EMA after crossover for better risk/reward
+- Use higher timeframe (daily) EMAs for stronger confirmation
+
+8. BEST MARKET CONDITIONS:
+- Works best in trending markets
+- Avoid ranging markets (ADX below 20)
+- Most effective on liquid instruments with strong trends (major forex pairs, indices)
+
+9. TIME FRAME CONSIDERATIONS:
+- Works on all timeframes but most reliable on 1H or higher
+- Lower timeframes may produce more false signals
+- Daily timeframe provides strongest signals
+
+10. PSYCHOLOGICAL DISCIPLINE:
+- Requires patience to wait for all conditions to align
+- Must accept that some breakouts will fail
+- Strict adherence to stop-loss rules is critical

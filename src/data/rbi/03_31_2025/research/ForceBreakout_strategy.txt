@@ -1,0 +1,42 @@
+STRATEGY_NAME: ForceBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Donchian Channel Breakout:** The strategy uses the 10-day Donchian Channel (upper and lower bounds) to identify potential breakout levels.  
+2. **Elder Force Index Confirmation:** A 50% surge in the Elder Force Index (a volume-weighted momentum indicator) is required to confirm the breakout signal.  
+3. **ATR-Based Exit:** Positions are exited when price reverses by 2x the Average True Range (ATR) from the peak price after entry.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Price breaks above the 10-day Donchian Channel upper bound.  
+  - The Elder Force Index shows a 50% increase from its previous value (indicating strong momentum).  
+- **Short Entry:**  
+  - Price breaks below the 10-day Donchian Channel lower bound.  
+  - The Elder Force Index shows a 50% decrease from its previous value (indicating strong downward momentum).  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  - Price falls by 2x the current ATR value from the highest point reached after entry.  
+- **Short Exit:**  
+  - Price rises by 2x the current ATR value from the lowest point reached after entry.  
+
+**Risk Management:**  
+- **Stop-Loss:** The 2x ATR reversal acts as a trailing stop-loss, dynamically adjusting to volatility.  
+- **Position Sizing:** Risk per trade should be limited (e.g., 1-2% of capital) based on the ATR distance from entry to initial stop.  
+- **Filtering:** Only take trades with high volume confirmation (Elder Force Index surge) to avoid false breakouts.  
+
+**Required Indicators:**  
+1. **Donchian Channel (10-day):** Defines breakout levels.  
+2. **Elder Force Index:** Confirms momentum strength.  
+3. **Average True Range (ATR):** Sets dynamic exit thresholds.  
+
+**Unique Aspects:**  
+- Combines price breakout (Donchian) with momentum confirmation (Elder Force Index).  
+- Uses ATR for adaptive exits, scaling stop-losses with market volatility.  
+- Avoids false breakouts by requiring a significant surge in buying/selling pressure.  
+
+**Optimization Tips:**  
+- Test different Donchian periods (e.g., 5-20 days) for varying market conditions.  
+- Adjust the Elder Force Index threshold (e.g., 40-60%) to balance sensitivity and reliability.  
+- Use a longer ATR period (e.g., 14 days) for smoother exits in trending markets.

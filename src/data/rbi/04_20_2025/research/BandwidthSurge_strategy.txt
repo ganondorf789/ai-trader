@@ -1,0 +1,36 @@
+STRATEGY_NAME: BandwidthSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** Identifies periods of low volatility when the Bollinger Bandwidth reaches a 20-day low, signaling potential breakout conditions.  
+2. **Volume Surge Trigger:** Requires a 200% increase in volume compared to the 50-day average, confirming strong participation in the breakout.  
+3. **Breakout Entry:** Enters a trade when price breaks out of the contracted Bollinger Bands, validated by the volume surge.  
+4. **Opposing Band Exit:** Exits the trade when price reaches the opposite Bollinger Band, capturing the momentum move.  
+
+**Entry Rules:**  
+- Wait for Bollinger Bandwidth (BBW) to reach a 20-day low, indicating contraction.  
+- Confirm a 200% surge in volume relative to the 50-day average.  
+- Enter long if price breaks above the upper Bollinger Band or short if it breaks below the lower Bollinger Band.  
+
+**Exit Rules:**  
+- For long positions, exit when price touches the lower Bollinger Band.  
+- For short positions, exit when price touches the upper Bollinger Band.  
+- Alternatively, use a trailing stop or time-based exit (e.g., after 5-10 bars) if bands are too wide.  
+
+**Risk Management:**  
+- Set stop-loss at the midpoint of the Bollinger Bands or the recent swing low/high.  
+- Risk no more than 1-2% of capital per trade.  
+- Avoid trading during major news events or low-liquidity periods.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations)  
+2. Bollinger Bandwidth (BBW) calculation: (Upper Band - Lower Band) / Middle Band  
+3. Volume (50-day average and current volume comparison)  
+
+**Notes:**  
+- Works best in trending markets; avoid sideways conditions.  
+- Combine with price action (e.g., candle closes outside bands) for higher accuracy.  
+- Adjust band settings (e.g., 50-period for slower markets) if needed.  
+
+This strategy capitalizes on volatility contractions followed by high-volume breakouts, targeting mean-reversion at opposing bands.

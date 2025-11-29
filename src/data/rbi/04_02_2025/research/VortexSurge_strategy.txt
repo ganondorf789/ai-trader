@@ -1,0 +1,47 @@
+STRATEGY_NAME: VortexSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** The primary directional signal generator.  
+2. **Volume Surge Filter:** Requires a 50% increase in volume compared to recent average to confirm strength.  
+3. **ATR Expansion:** Uses the 14-day ATR exceeding its 30-day average to identify volatility expansion, validating the trade setup.  
+
+**Entry Rules:**  
+- Go **LONG** when:  
+  1. **VI+ crosses above VI-** (bullish signal).  
+  2. **Volume surges by 50% or more** compared to the recent average (confirms participation).  
+  3. **14-day ATR > 30-day ATR average** (confirms volatility expansion).  
+
+**Exit Rules:**  
+- Exit the trade when:  
+  1. **VI- crosses back below VI+** (bearish reversal signal).  
+
+**Risk Management:**  
+1. **Stop-Loss:**  
+   - Set below the recent swing low or use a multiple of the ATR (e.g., 1.5x 14-day ATR).  
+2. **Position Sizing:**  
+   - Adjust based on volatility (e.g., risk 1-2% of capital per trade).  
+3. **Time-Based Exit:**  
+   - Consider exiting if the trade does not follow through within 3-5 bars to avoid stagnation.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)** – For trend direction.  
+2. **Volume (50% surge confirmation)** – For momentum validation.  
+3. **Average True Range (ATR 14 vs. 30)** – For volatility filter.  
+
+**Notes:**  
+- This strategy combines trend (Vortex), momentum (volume surge), and volatility (ATR) for high-probability entries.  
+- Works best in trending markets; avoid sideways conditions.  
+- Backtest for optimal volume/ATR parameters based on the asset.  
+
+**Example Setup:**  
+1. VI+ crosses above VI- on daily chart.  
+2. Volume spikes 50% above 20-day average.  
+3. 14-day ATR > 30-day ATR average.  
+4. Enter long, stop below swing low.  
+5. Exit when VI- crosses below VI+.  
+
+**Name Justification:**  
+- "Vortex" reflects the core indicator.  
+- "Surge" captures the volume/volatility expansion requirement, making it distinct from basic Vortex strategies.

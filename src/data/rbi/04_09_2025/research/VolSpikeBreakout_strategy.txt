@@ -1,0 +1,47 @@
+STRATEGY_NAME: VolSpikeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility expansion signals with volume confirmation to identify high-probability breakout opportunities. The core concept revolves around detecting significant price movements that break through established volatility boundaries while being validated by unusual trading activity.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 standard deviations) - Defines the volatility boundaries
+2. Volume percentile analysis (90th percentile of 20-day lookback) - Confirms breakout validity
+3. Breakout direction detection - Determines long/short bias
+
+Entry Rules:
+LONG ENTRY:
+- Price closes ABOVE the upper Bollinger Band (2 std dev)
+- Current volume exceeds 90th percentile of past 20 days volume
+- Both conditions must occur simultaneously
+
+SHORT ENTRY:
+- Price closes BELOW the lower Bollinger Band (2 std dev)
+- Current volume exceeds 90th percentile of past 20 days volume
+- Both conditions must occur simultaneously
+
+Exit Rules:
+- Fixed take-profit at 1.5x the Bollinger Band width (measured at entry)
+- Fixed stop-loss at 0.75x the Bollinger Band width (measured at entry)
+- Alternative exit: When price re-enters the Bollinger Band (closes inside)
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Stop-loss is mandatory on all positions
+3. No new entries allowed until current position is closed
+4. Daily time frame recommended for reduced noise
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Volume indicator with percentile calculation
+3. Band width measurement tool (for TP/SL calculation)
+
+Optimal Conditions:
+- Works best in trending markets
+- Avoid ranging/choppy periods
+- Most effective on liquid assets with consistent volume patterns
+- Recommended timeframes: 4H or Daily charts
+
+Additional Notes:
+- The 90th volume percentile acts as a filter to confirm institutional participation
+- Bollinger Band width should be monitored - wider bands suggest stronger potential moves
+- Consider combining with a trend filter (e.g., 200MA) for additional confirmation in strong trends

@@ -1,0 +1,34 @@
+STRATEGY_NAME: FlowBand Reversion  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility, often preceding significant price movements.  
+2. **On-Chain Exchange Netflow Divergence:** Tracks the net movement of assets into/out of exchanges to detect accumulation (negative netflow) or distribution (positive netflow).  
+3. **Mean Reversion Logic:** Exploits price extremes near Bollinger Bands when confirmed by on-chain flow divergence.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when:  
+  - Price touches or approaches the **lower Bollinger Band**.  
+  - **Negative netflow** (accumulation) is observed, indicating reduced selling pressure.  
+- **Short Entry:** Trigger when:  
+  - Price touches or approaches the **upper Bollinger Band**.  
+  - **Positive netflow** (distribution) is observed, signaling potential selling pressure.  
+
+**Exit Rules:**  
+- **Take Profit:** Close position when price reaches the **middle band (SMA 20)**.  
+- **Stop Loss (Optional):**  
+  - For longs: A break below the recent swing low.  
+  - For shorts: A break above the recent swing high.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate 1-2% of capital per trade.  
+2. **Confirmation:** Require both technical (Bollinger Band) and on-chain (netflow) signals to align.  
+3. **Avoid Overextension:** Skip trades during high Bollinger Band width expansion (volatility spikes).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2)** – Default settings.  
+2. **On-Chain Exchange Netflow Data** – From sources like Glassnode, CryptoQuant, or Santiment.  
+
+**Unique Edge:** Combines **price-based mean reversion** with **on-chain behavioral data**, reducing false signals from pure technical setups. Works best in ranging or mildly trending markets.  
+
+**Note:** Backtest for asset-specific adjustments (e.g., netflow thresholds, band width filters).

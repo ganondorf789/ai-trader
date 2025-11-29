@@ -1,0 +1,10 @@
+It seems the strategy content is incomplete. Please provide the full details of the backtesting idea or trading strategy so I can analyze it and create a unique name along with detailed instructions. 
+
+For example, if you could provide:
+- The indicators used
+- Entry/exit conditions
+- Timeframe
+- Any specific rules or filters
+- Risk management approach
+
+I can then create a unique strategy name and detailed analysis based on the complete information. Let me know when you have the full strategy details!

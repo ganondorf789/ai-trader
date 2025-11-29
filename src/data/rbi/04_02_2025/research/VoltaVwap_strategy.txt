@@ -1,0 +1,33 @@
+STRATEGY_NAME: VoltaVWAP  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Measurement:** Uses 2x ATR (Average True Range) to create dynamic price envelopes around the 20-period VWAP (Volume-Weighted Average Price).  
+2. **Trend Confirmation:** VWAP acts as the baseline, while ATR adapts the breakout thresholds to current market volatility.  
+3. **Momentum Filter:** RSI (Relative Strength Index) thresholds (70/30) validate overbought/oversold conditions for exits.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when price closes *above* the upper band (VWAP + 2x ATR).  
+- **Short Entry:** Triggered when price closes *below* the lower band (VWAP - 2x ATR).  
+
+**Exit Rules:**  
+- **Long Exit:** RSI crosses *below 70* (locking in profits during overbought conditions).  
+- **Short Exit:** RSI crosses *above 30* (covering shorts during oversold conditions).  
+- **Optional Stop-Loss:** 1.5x ATR from entry price to limit downside risk.  
+
+**Risk Management:**  
+- Position sizing adjusted based on ATR (e.g., 1% risk per trade of account equity).  
+- No entries if RSI is already >70 (for longs) or <30 (for shorts) to avoid false breakouts.  
+
+**Required Indicators:**  
+1. **VWAP (20-period)** – Baseline for volatility bands.  
+2. **ATR (14-period recommended)** – Defines dynamic breakout thresholds.  
+3. **RSI (14-period)** – Confirms exit signals.  
+
+**Unique Edge:**  
+Combines volume-weighted trend bias (VWAP) with adaptive volatility breaks (ATR) and momentum confirmation (RSI), reducing whipsaws in choppy markets while capturing strong trends.  
+
+**Optimization Tips:**  
+- Test ATR multipliers (e.g., 1.5x–3x) for different asset classes.  
+- Adjust RSI thresholds (e.g., 75/25) for more aggressive exits.  
+- Use higher timeframe VWAP (e.g., 50-period) for slower, more stable trends.

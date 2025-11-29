@@ -1,0 +1,39 @@
+STRATEGY_NAME: MomentumConverge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Chande Momentum Oscillator (CMO):** Measures momentum strength and direction (default 14-period).  
+2. **SuperTrend:** Identifies trend direction (default settings: 10-period ATR, 3x multiplier).  
+3. **Volume-Weighted Average Price (VWAP) Deviation:** Confirms entries with volume-backed price spikes (threshold: ±1.5% from VWAP).  
+4. **Fibonacci Extensions:** Uses 1.618x and 2.618x of recent volatility range (ATR-based) for profit targets.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. CMO crosses above 50 (bullish momentum).  
+  2. Price crosses above SuperTrend (trend confirmation).  
+  3. VWAP deviation spikes ≥1.5% above VWAP (volume-backed breakout).  
+- **Short Entry:**  
+  1. CMO crosses below −50 (bearish momentum).  
+  2. Price crosses below SuperTrend (trend confirmation).  
+  3. VWAP deviation drops ≤−1.5% below VWAP (volume-backed breakdown).  
+
+**Exit Rules:**  
+- **Take-Profit:**  
+  - First target: 1.618x ATR of the entry candle’s range.  
+  - Second target: 2.618x ATR (trail partial position).  
+- **Stop-Loss:**  
+  - Placed at opposite SuperTrend level or 1x ATR from entry, whichever is tighter.  
+
+**Risk Management:**  
+- Max risk per trade: 1–2% of capital.  
+- No trades during low-volume periods (VWAP confirmation required).  
+- Avoid entries if CMO is between ±25 (neutral zone).  
+
+**Required Indicators:**  
+1. Chande Momentum Oscillator (14-period).  
+2. SuperTrend (10-period ATR, 3x multiplier).  
+3. VWAP + deviation bands (±1.5%).  
+4. Average True Range (ATR, 14-period) for Fibonacci extensions.  
+
+**Unique Edge:** Combines momentum (CMO), trend (SuperTrend), and volume (VWAP) filters to avoid false breakouts, targeting volatility-based extensions for high-probability exits.

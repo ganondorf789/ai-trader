@@ -1,0 +1,39 @@
+STRATEGY_NAME: LiquidationContraction
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Contrarian approach based on liquidation clusters (extreme market positioning)
+- Volatility confirmation using Bollinger Band width contraction
+- ATR-based profit targets for systematic exits
+
+2. Entry Rules:
+- Primary Trigger: Liquidation clusters exceeding 200% of 30-day average (extreme market positioning)
+- Confirmation Filter: Bollinger Band width (20,2) must be below 50% of its 14-day range (volatility contraction)
+- Entry Point: Market order when both conditions are met
+
+3. Exit Rules:
+- Profit Target: 1.5x the 14-period ATR from entry price
+- Stop Loss: No fixed stop - the liquidation cluster itself acts as implicit stop (extreme positioning suggests reversal likelihood)
+- Time Exit: Close position if not triggered within 5 candles
+
+4. Risk Management:
+- Position sizing based on 1% risk of capital relative to 1.5x ATR distance
+- Only trade during main session hours (avoid thin liquidity periods)
+- Maximum 3 concurrent positions across uncorrelated assets
+
+5. Required Indicators:
+- Liquidation cluster data (exchange-specific or from aggregators)
+- Bollinger Bands (20,2) for width calculation
+- ATR (14) for profit targeting
+- 30-day moving average of liquidation data
+
+6. Special Considerations:
+- Works best in trending markets with periodic overextensions
+- Requires reliable liquidation data feed
+- Most effective on 4H or daily timeframes
+- Complementary to momentum strategies as hedge
+
+7. Optimization Tips:
+- Test different multiples for liquidation threshold (1.8x-2.5x)
+- Experiment with Bollinger Band period (14-20) and width thresholds
+- Adjust ATR multiplier based on asset volatility (1.2x-2x)

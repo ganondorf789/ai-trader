@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolSqueezeBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Donchian Channel Breakout:** Uses a 20-period Donchian Channel (high/low range) to identify potential breakout levels.  
+2. **Volatility Filter:** Requires the Donchian Channel width to be below a historical volatility percentile (e.g., 30th percentile), indicating a "volatility squeeze."  
+3. **Volume Confirmation:** Breakout trades are only taken if volume surges above its 50-day median, confirming participation.  
+4. **Exit Conditions:** Exits occur on either a reversal of the Donchian Channel (price closing back inside) or a sharp volatility spike (e.g., channel width expanding beyond a threshold).  
+
+**Entry Rules:**  
+- **Long Entry:** Price closes above the upper Donchian Channel band while:  
+  - Channel width is below its historical volatility percentile (e.g., 30th percentile).  
+  - Volume exceeds its 50-day median.  
+- **Short Entry:** Price closes below the lower Donchian Channel band while the same volatility and volume conditions are met.  
+
+**Exit Rules:**  
+- **Stop-Loss:** Initial stop placed at the opposite Donchian band (e.g., long stop at lower band).  
+- **Volatility Spike Exit:** Exit if the Donchian Channel width expands beyond a dynamic threshold (e.g., 70th percentile of recent width values).  
+- **Reversal Exit:** Exit if price closes back inside the Donchian Channel.  
+
+**Risk Management:**  
+- Position sizing based on the Donchian Channel width (e.g., risk 1-2% of capital per trade).  
+- Avoid trading during major economic events that may cause false breakouts.  
+
+**Required Indicators:**  
+1. 20-period Donchian Channel (high/low).  
+2. Historical volatility percentile (e.g., 30-day rolling percentile of channel width).  
+3. 50-day median volume.  
+
+**Unique Aspects:**  
+- Combines volatility contraction ("squeeze") with volume confirmation for higher-probability breakouts.  
+- Dynamic exits adapt to both price action (channel reversal) and volatility regime changes.  
+
+**Note:** Backtest to optimize volatility percentile thresholds and volume filters for your asset class.

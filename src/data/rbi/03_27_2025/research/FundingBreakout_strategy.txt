@@ -1,0 +1,40 @@
+STRATEGY_NAME: FundingBreakout  
+
+STRATEGY_DETAILS:  
+This strategy combines mean-reversion signals from funding rates with momentum-based breakout triggers, creating a unique hybrid approach for crypto markets.  
+
+**Key Components:**  
+1. **Funding Rate Extremes:** Uses 24-hour funding rate hitting a 30-day low as a contrarian signal (indicating excessive short positioning)  
+2. **Breakout Confirmation:** Requires price to breach the 10-day high to confirm momentum  
+3. **Volatility-Adjusted Exit System:** Implements dynamic risk management  
+
+**Entry Rules:**  
+- LONG when:  
+  a) Current 24h funding rate ≤ lowest funding rate of past 30 days  
+  b) Price > highest high of past 10 days  
+- Entry occurs on the first candle closing above 10-day high after funding rate condition is met  
+
+**Exit Rules:**  
+1. **Profit-Taking:** Close 50% position when price retraces 50% from the peak (measured from entry to highest point)  
+2. **Stop-Loss:**  
+   - Initial: 2x the 14-day ATR below entry  
+   - Trailing: Adjust stop to breakeven when price reaches 1.5x ATR above entry  
+
+**Risk Management:**  
+- Position sizing based on 1% risk of capital per trade  
+- Maximum portfolio exposure: 5% across all positions  
+- Trade filter: Only triggers during UTC 00:00-04:00 (peak liquidity hours)  
+
+**Required Indicators:**  
+1. 24-hour funding rate data (exchange-specific)  
+2. 10-day high price channel  
+3. 30-day funding rate low tracker  
+4. 14-day Average True Range (ATR) for volatility measurement  
+
+**Special Notes:**  
+- Works best on perpetual futures contracts (BTC, ETH, SOL)  
+- Requires monitoring funding rates across multiple exchanges  
+- Most effective during periods of high open interest and liquidations  
+- Backtest suggests optimal performance on 4h-12h timeframes  
+
+This "FundingBreakout" strategy uniquely blends funding rate anomalies with breakout dynamics, creating a systematic approach to capture short squeezes while maintaining strict volatility controls.

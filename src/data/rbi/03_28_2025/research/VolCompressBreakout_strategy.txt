@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolCompressBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Width Percentile:** Measures the relative width of Bollinger Bands compared to historical levels, indicating periods of low volatility (compression) and potential breakout opportunities.  
+2. **Keltner Channel Squeeze:** Identifies when price volatility is constrained within the Keltner Channels, signaling a potential breakout when the channels expand.  
+3. **Volume Surge Confirmation:** Ensures breakout validity by requiring volume to exceed the 20-day average, indicating strong participation in the move.  
+
+**Entry Rules:**  
+1. **Volatility Compression:** Both Bollinger Band width percentile and Keltner Channel squeeze must indicate low volatility (e.g., Bollinger Width < 20th percentile, Keltner squeeze active).  
+2. **Breakout Signal:** Wait for price to close outside the Keltner Channel or Bollinger Band, confirming expansion.  
+3. **Volume Confirmation:** Volume must surge above the 20-day average on the breakout candle.  
+4. **Directional Bias:** Enter long if breakout is above the upper band/channel; enter short if breakout is below the lower band/channel.  
+
+**Exit Rules:**  
+1. **Profit Target:** Use a fixed risk-reward ratio (e.g., 2:1) or trail stops using a percentage of the recent volatility (e.g., ATR-based trailing stop).  
+2. **Stop Loss:** Place stop loss below the recent swing low (for long) or above the recent swing high (for short), or use the opposite band/channel as a dynamic stop.  
+3. **Early Exit:** Exit if volume drops significantly below the 20-day average, indicating weakening momentum.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Volatility Filter:** Avoid trading during excessively high volatility (e.g., Bollinger Width > 80th percentile) to reduce false breakouts.  
+3. **Timeframe Alignment:** Confirm signals on higher timeframes (e.g., daily) for stronger validity.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations) + Width Percentile calculation.  
+2. Keltner Channels (20-period, 1.5 ATR multiplier).  
+3. Volume (20-day moving average for surge confirmation).  
+4. Optional: ATR (14-period) for dynamic stop placement.  
+
+**Unique Aspects:**  
+- Combines two volatility compression metrics (Bollinger + Keltner) for higher-confidence signals.  
+- Volume surge acts as a momentum filter, reducing false breakouts.  
+- Works best in ranging markets transitioning to trends.  
+
+**Note:** Backtest to optimize percentile thresholds and squeeze definitions for your asset class.

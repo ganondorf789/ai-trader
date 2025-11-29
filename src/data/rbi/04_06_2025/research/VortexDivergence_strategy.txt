@@ -1,0 +1,41 @@
+STRATEGY_NAME: VortexDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Used to confirm the prevailing trend direction (bullish when VI+ > VI-, bearish when VI- > VI+).  
+2. **Chaikin Money Flow (CMF):** Identifies money flow divergence (bullish when price makes lower lows but CMF makes higher lows, bearish when price makes higher highs but CMF makes lower highs).  
+3. **Bollinger Band Width (BBW):** Measures volatility contraction for exit signals (BBW dropping below a defined threshold indicates reduced momentum).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - VI+ crosses above VI- (bullish trend confirmation).  
+  - CMF shows bullish divergence (price lower low, CMF higher low).  
+  - Enter on the next candle’s open after both conditions align.  
+
+- **Short Entry:**  
+  - VI- crosses above VI+ (bearish trend confirmation).  
+  - CMF shows bearish divergence (price higher high, CMF lower high).  
+  - Enter on the next candle’s open after both conditions align.  
+
+**Exit Rules:**  
+- **Profit-Taking/Stop-Loss:**  
+  - Trailing stop based on recent swing highs/lows or a fixed ATR multiple.  
+  - **Primary Exit:** Bollinger Band Width (BBW) contracts below a volatility threshold (e.g., BBW < 0.5 * its 20-period SMA).  
+
+**Risk Management:**  
+1. Position sizing: 1-2% risk per trade.  
+2. Stop-loss:  
+   - Long trades: Below the recent swing low or a volatility-based stop (e.g., 1.5x ATR).  
+   - Short trades: Above the recent swing high or 1.5x ATR.  
+3. Avoid trading during low-volume sessions or major news events.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI) – Default period (14).  
+2. Chaikin Money Flow (CMF) – Default period (20).  
+3. Bollinger Bands (BB) – Default settings (20, 2) with BBW derived from band width.  
+4. Optional: ATR (14) for dynamic stop-loss.  
+
+**Unique Edge:** Combines trend confirmation (VI) with smart-money divergence (CMF) and volatility-based exits (BBW) to capture high-probability reversals in trending markets.  
+
+**Note:** Backtest thresholds (e.g., BBW contraction level) should be optimized for specific assets/timeframes.

@@ -1,0 +1,37 @@
+STRATEGY_NAME: VoltaSqueezeReversal
+
+STRATEGY_DETAILS:
+The VoltaSqueezeReversal strategy is a volatility-based trading approach that capitalizes on periods of low volatility followed by potential breakouts. It combines Bollinger Bands width analysis, RSI momentum confirmation, and ATR-based exit rules to identify high-probability setups.
+
+Key Components:
+1. Bollinger Bands Width: Measures market volatility by calculating the difference between the upper and lower bands.
+2. RSI (Relative Strength Index): Used to confirm momentum direction when volatility expands.
+3. ATR (Average True Range): Determines exit points based on price movement relative to volatility.
+
+Entry Rules:
+1. Wait for Bollinger Bands width to reach a 20-day low, indicating a volatility squeeze.
+2. Confirm RSI crosses above 50, signaling bullish momentum.
+3. Enter long position when both conditions are met.
+
+Exit Rules:
+1. Set initial stop-loss at 1x ATR from entry price.
+2. Take profit when price moves 2x ATR in your favor from entry.
+3. Exit if RSI crosses back below 50 before reaching target.
+
+Risk Management:
+1. Position size should be calculated based on 1x ATR stop-loss distance.
+2. Risk no more than 1-2% of account capital per trade.
+3. Avoid trading during major news events that could cause erratic volatility.
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. RSI (14)
+3. ATR (14)
+
+Additional Notes:
+- This strategy works best in trending markets and may produce false signals in choppy conditions.
+- Consider using on 1-hour or 4-hour timeframes for optimal results.
+- Combine with price action confirmation for higher probability setups.
+- Monitor overall market context and trend direction before entering trades.
+
+The VoltaSqueezeReversal strategy provides a systematic approach to trading volatility contractions and expansions, with clear rules for entry, exit, and risk management. Its unique combination of indicators makes it particularly effective for identifying potential breakout opportunities while managing risk through volatility-based position sizing.

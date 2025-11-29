@@ -1,0 +1,40 @@
+STRATEGY_NAME: FibroDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Fibonacci Retracement Clusters:** The strategy identifies significant retracement levels (particularly the 61.8% level) where multiple Fibonacci retracements from different swing highs and lows converge, creating a strong support/resistance zone.  
+2. **On-Balance Volume (OBV) Divergence:** The OBV indicator is used to detect divergence between price action and volume flow. A bullish setup occurs when price makes a lower low but OBV makes a higher low, and vice versa for bearish setups.  
+3. **Harmonic Pattern Completion:** Exits are timed when price reaches a confluent point where harmonic patterns (such as Gartley, Bat, or Butterfly) complete, providing additional confirmation for reversal or continuation.  
+
+**Entry Rules:**  
+- **Bullish Entry:**  
+  1. Price retraces to a 61.8% Fibonacci level (clustered with other Fib levels for stronger confirmation).  
+  2. OBV shows bullish divergence (price makes a lower low, OBV makes a higher low).  
+  3. Enter long on a bullish reversal candle (e.g., hammer, engulfing) at or near the Fib cluster.  
+
+- **Bearish Entry:**  
+  1. Price retraces to a 61.8% Fibonacci level (clustered with other Fib levels).  
+  2. OBV shows bearish divergence (price makes a higher high, OBV makes a lower high).  
+  3. Enter short on a bearish reversal candle (e.g., shooting star, bearish engulfing) at or near the Fib cluster.  
+
+**Exit Rules:**  
+- **Take Profit:** Exit at the completion point of a harmonic pattern (e.g., D point in a Gartley or Bat pattern) or at the next significant Fibonacci extension level (e.g., 127.2%, 161.8%).  
+- **Stop Loss:** Place stop loss just beyond the most recent swing high (for short trades) or swing low (for long trades), or beyond the 78.6% Fibonacci retracement level for additional safety.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop Loss Discipline:** Always use a stop loss to protect against adverse moves.  
+3. **Confirmation:** Wait for candle close confirmation before entering to avoid false signals.  
+
+**Required Indicators:**  
+1. **Fibonacci Retracement Tool** (for identifying 61.8% clusters).  
+2. **On-Balance Volume (OBV)** (for detecting divergence).  
+3. **Harmonic Pattern Recognition** (manually or via tools like ZUP or AutoHarmonic).  
+
+**Additional Notes:**  
+- This strategy works best in trending markets where retracements are clear and OBV divergence is pronounced.  
+- Avoid using it in choppy or ranging markets where Fib levels may fail frequently.  
+- Combine with higher timeframe analysis for stronger confluence.  
+
+This strategy leverages the precision of Fibonacci clusters, the reliability of OBV divergence, and the predictive power of harmonic patterns for high-probability entries and exits.

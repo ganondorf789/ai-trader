@@ -1,0 +1,32 @@
+STRATEGY_NAME: LiquidationFader  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Analysis:** The strategy focuses on identifying high-probability liquidation levels derived from aggregated exchange data. These levels represent zones where a large number of stop-loss orders or liquidations are likely to occur.  
+2. **Volatility Filter:** Uses ATR (Average True Range) to gauge market volatility. Entries are only considered during ATR spikes, indicating heightened market activity.  
+3. **Entry Trigger:** Requires a 15-minute candle close exceeding 2x ATR from the liquidation cluster level, signaling a strong move that may reverse due to liquidity grabs.  
+4. **Exit Mechanism:** Implements a trailing stop set at 1.5x ATR to lock in profits while allowing room for volatility.  
+
+**Entry Rules:**  
+- Identify a high-probability liquidation cluster level using aggregated exchange data.  
+- Wait for an ATR spike (e.g., ATR value significantly above its moving average).  
+- Enter a fade (counter-trend) trade when the 15-minute candle closes beyond 2x ATR from the liquidation level.  
+- Trade direction is opposite to the candle close (e.g., short if price closes above the level, long if below).  
+
+**Exit Rules:**  
+- Set a trailing stop at 1.5x ATR from the entry price.  
+- Adjust the trailing stop dynamically as the trade moves in your favor.  
+- Exit the trade when the trailing stop is hit.  
+
+**Risk Management:**  
+- Position sizing should account for the volatility (e.g., smaller positions during higher ATR values).  
+- Avoid trading during low volatility (ATR below a certain threshold).  
+- Consider a maximum risk per trade (e.g., 1-2% of capital).  
+
+**Required Indicators:**  
+1. **ATR (Average True Range):** To measure volatility and set entry/exit thresholds.  
+2. **Liquidation Cluster Data:** Aggregated exchange data highlighting high-probability liquidation levels.  
+3. **15-minute Candlestick Chart:** For timing entries and exits.  
+
+This strategy capitalizes on market inefficiencies around liquidation events, using volatility as a filter and ATR-based stops to manage risk. The unique combination of liquidation zones and ATR spikes makes it distinct from standard mean-reversion or breakout strategies.

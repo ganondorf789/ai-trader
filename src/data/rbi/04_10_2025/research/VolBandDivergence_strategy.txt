@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolBand Divergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Measures volatility compression by tracking the percentage difference between upper and lower bands. Signals potential breakout when width falls below a historical percentile (e.g., 20th percentile).  
+2. **On-Balance Volume (OBV) Divergence:** Identifies discrepancies between price action and cumulative volume flow. Bullish divergence occurs when price makes lower lows while OBV forms higher lows (vice versa for bearish).  
+3. **Volume Delta Confirmation:** Uses net buying/selling pressure (delta) to validate breakouts. Requires a spike in positive delta for long exits (upper band cross) or negative delta for short exits (lower band cross).  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - Bollinger Band Width contracts below its 20th percentile (adaptive threshold).  
+  - Bullish OBV divergence forms (price lower low + OBV higher low).  
+- **Short Entry:** Triggered when:  
+  - Bollinger Band Width contracts below its 20th percentile.  
+  - Bearish OBV divergence forms (price higher high + OBV lower high).  
+
+**Exit Rules:**  
+- **Long Exit:** Close position when:  
+  - Price crosses *above* the upper Bollinger Band.  
+  - Volume Delta shows a significant spike in selling pressure (negative delta).  
+- **Short Exit:** Close position when:  
+  - Price crosses *below* the lower Bollinger Band.  
+  - Volume Delta shows a significant spike in buying pressure (positive delta).  
+
+**Risk Management:**  
+- **Stop-Loss:** Place at the opposite band (e.g., lower band for long entries, upper band for shorts) or a fixed ATR-based distance (e.g., 1.5x ATR).  
+- **Position Sizing:** Allocate 1-2% of capital per trade, adjusted for volatility (e.g., wider bands = smaller position).  
+- **Filter:** Avoid trading during major economic events or extreme volume droughts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – Default settings for band calculation.  
+2. **Bollinger Band Width** – (Upper Band - Lower Band) / Middle Band, normalized to historical percentiles.  
+3. **On-Balance Volume (OBV)** – Cumulative volume adjusted for price direction.  
+4. **Volume Delta** – Real-time net difference between buying/selling volume.  
+
+**Unique Edge:** Combines volatility compression (Bollinger Width) with capital flow divergence (OBV) and institutional activity (Volume Delta) for high-probability, low-noise setups. The dual confirmation (divergence + delta) filters false breakouts common in band-based strategies.  
+
+**Optimization Tips:**  
+- Backtest percentile thresholds for Band Width (e.g., 15th vs. 25th).  
+- Adjust OBV lookback periods to match asset liquidity (e.g., 50 periods for stocks, 14 for crypto).  
+- Use tick-level volume delta for intraday, aggregate for swing trades.

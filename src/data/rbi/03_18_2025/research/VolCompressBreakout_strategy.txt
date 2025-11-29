@@ -1,0 +1,49 @@
+STRATEGY_NAME: VolCompress Breakout
+
+STRATEGY_DETAILS:
+The VolCompress Breakout strategy is designed to capitalize on periods of low volatility followed by potential explosive price movements. It combines Bollinger Bands width analysis with volume confirmation to identify high-probability breakout opportunities.
+
+Key Strategy Components:
+1. Bollinger Bands (20,2) - Standard settings
+2. Bollinger Bands Width indicator
+3. Volume analysis (20-day average)
+4. 6-month historical data for width comparison
+
+Entry Rules:
+1. Monitor Bollinger Bands Width daily
+2. Identify when the width reaches a 6-month low (volatility compression)
+3. Wait for price to close above the upper band or below the lower band
+4. Confirm with volume spike exceeding the 20-day average volume
+5. Enter long if price breaks above upper band with volume confirmation
+6. Enter short if price breaks below lower band with volume confirmation
+
+Exit Rules:
+1. For long positions:
+   - Set initial stop-loss at the middle band (20 SMA)
+   - Trail stop to the lower band as price moves in your favor
+   - Exit when price closes below the lower band
+2. For short positions:
+   - Set initial stop-loss at the middle band (20 SMA)
+   - Trail stop to the upper band as price moves in your favor
+   - Exit when price closes above the upper band
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Maximum portfolio exposure of 5% at any given time
+3. Use stop-loss orders for every trade
+4. Consider implementing a time-based exit (e.g., 10 days) if no significant move occurs
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Bands Width indicator
+3. Volume indicator with 20-day moving average
+4. Historical data for 6-month width comparison
+
+Additional Considerations:
+- Works best in trending markets
+- May generate false signals in choppy or sideways markets
+- Combine with sector/industry analysis for better context
+- Consider implementing a filter for overall market trend (e.g., 200-day SMA)
+- Backtest thoroughly on your chosen timeframe and instruments
+
+This strategy is particularly effective for traders looking to capitalize on periods of market consolidation followed by potential breakouts, with volume confirmation adding an extra layer of reliability to the signals.

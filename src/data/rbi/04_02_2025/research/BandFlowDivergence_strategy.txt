@@ -1,0 +1,34 @@
+STRATEGY_NAME: BandFlow Divergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bands (BB):** Used to identify potential breakout levels.  
+2. **Money Flow Index (MFI):** Confirms breakout validity through divergence analysis.  
+3. **Keltner Channels (KC):** Acts as a dynamic exit trigger when price reverts inside the bands.  
+
+**Entry Rules:**  
+1. **Breakout Condition:** Price must close outside the Bollinger Bands (upper for long, lower for short).  
+2. **MFI Divergence Confirmation:**  
+   - For long entries: Price makes a higher high, but MFI shows a lower high (bearish divergence invalidated by breakout).  
+   - For short entries: Price makes a lower low, but MFI shows a higher low (bullish divergence invalidated by breakout).  
+3. **Volume Filter (Optional):** Ensure breakout volume is above average for added confirmation.  
+
+**Exit Rules:**  
+1. **Keltner Channel Reversion:**  
+   - Long positions exit when price closes back inside the upper Keltner Channel.  
+   - Short positions exit when price closes back inside the lower Keltner Channel.  
+2. **Trailing Stop (Optional):** Use the opposite Bollinger Band as a dynamic stop-loss (e.g., lower BB for long trades).  
+
+**Risk Management:**  
+1. **Stop-Loss Placement:**  
+   - Initial stop at the midpoint of the Bollinger Bands or the recent swing low/high.  
+2. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+3. **Time-Based Exit:** Close trades if no follow-through within 3-5 bars after entry.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 Std Dev).  
+2. Money Flow Index (14-period).  
+3. Keltner Channels (20-period, 1.5 ATR multiplier).  
+
+**Unique Edge:** Combines volatility expansion (BB), momentum confirmation (MFI divergence), and mean reversion (KC) for high-probability breakouts with defined exits.

@@ -1,0 +1,45 @@
+STRATEGY_NAME: DynamicTrendSurge
+
+STRATEGY_DETAILS:
+The DynamicTrendSurge strategy combines trend confirmation with momentum strength analysis to capture sustained directional moves while avoiding overbought conditions. This systematic approach uses three key technical indicators to identify high-probability entries and exits.
+
+Key Components:
+1. Trend Identification (EMA Crossover):
+   - 50-period EMA crossing above 200-period EMA (Golden Cross) establishes the bullish trend foundation
+   - This long-term moving average crossover filters out false signals and confirms the broader trend direction
+
+2. Trend Strength (ADX Filter):
+   - Requires ADX (14-period) > 25 to confirm strong trending conditions
+   - Maintains position while ADX remains above 20, exiting when trend weakens
+
+3. Momentum Extremes (RSI Exit):
+   - Uses RSI (14-period) > 70 as overbought exit signal
+   - Prevents holding positions during potential reversals from extended moves
+
+Entry Rules:
+1. Primary Condition: 50-EMA > 200-EMA (crossover confirmed)
+2. Secondary Confirmation: ADX > 25 and rising
+3. Entry Trigger: Next candle open after both conditions are met
+
+Exit Rules:
+1. Profit-taking/Overbought Exit: RSI > 70
+2. Trend Weakness Exit: ADX < 20
+3. Stop-loss: Optional trailing stop (e.g., 2x ATR below price)
+
+Risk Management:
+1. Position sizing based on account risk parameters (1-2% per trade recommended)
+2. Optional stop-loss placement below recent swing low
+3. Avoid entering when price is already extended (consider distance from EMAs)
+
+Required Indicators:
+1. Exponential Moving Averages (50 and 200 periods)
+2. Average Directional Index (ADX 14-period)
+3. Relative Strength Index (RSI 14-period)
+4. Optional: Average True Range (ATR) for stop placement
+
+Optimization Notes:
+- EMA periods can be adjusted for different timeframes (e.g., 20/50 for shorter timeframes)
+- ADX threshold can be tested between 20-30 depending on market volatility
+- RSI exit level can be adjusted to 75 for stronger trends or 65 for more conservative exits
+
+This strategy works best in trending markets and may produce false signals during ranging conditions. Traders should combine with price action analysis for additional confirmation.

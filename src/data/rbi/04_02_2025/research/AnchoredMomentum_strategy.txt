@@ -1,0 +1,48 @@
+STRATEGY_NAME: AnchoredMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Heikin-Ashi Candlesticks:** Used to filter trends by smoothing price action and identifying sustained momentum.  
+2. **Anchored VWAP:** Calculated from significant swing points (highs/lows) to act as dynamic support/resistance.  
+3. **Volume Skew Confirmation:** Rising volume on pullbacks validates the strength of the retracement.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Heikin-Ashi candles show a consistent uptrend (green candles with no lower wicks).  
+  2. Price pulls back to anchored VWAP support (calculated from a recent swing low).  
+  3. Volume skew rises during the retracement, indicating accumulation.  
+  4. Enter on the first Heikin-Ashi green candle closing above the anchored VWAP.  
+
+- **Short Entry:**  
+  1. Heikin-Ashi candles show a consistent downtrend (red candles with no upper wicks).  
+  2. Price retraces to anchored VWAP resistance (calculated from a recent swing high).  
+  3. Volume skew rises during the retracement, indicating distribution.  
+  4. Enter on the first Heikin-Ashi red candle closing below the anchored VWAP.  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Trail using the Heikin-Ashi trend: Exit when the candle color reverses (green to red for longs, red to green for shorts).  
+  - Alternatively, target 1.5x the average true range (ATR) of the last 14 candles.  
+
+- **Stop Loss:**  
+  - Place below the anchored VWAP (for longs) or above it (for shorts).  
+  - Alternatively, use a fixed percentage (e.g., 1-2%) or the recent swing low/high.  
+
+**Risk Management:**  
+- Risk per trade: 1-2% of capital.  
+- Position sizing adjusted based on stop-loss distance.  
+- Avoid trading during low-volume periods or major news events.  
+
+**Required Indicators:**  
+1. Heikin-Ashi Candlesticks  
+2. Anchored VWAP (customizable anchor points)  
+3. Volume Skew Indicator (or volume spike detection)  
+4. Optional: ATR (14-period) for profit targets  
+
+**Unique Aspects:**  
+- Combines smoothed trend identification (Heikin-Ashi) with dynamic levels (anchored VWAP).  
+- Volume skew acts as a confirmation filter, reducing false pullback entries.  
+- Adapts to changing market conditions by recalculating VWAP from recent swing points.  
+
+**Note:** Backtest to optimize anchor point selection (e.g., swing lows/highs of the last 5-20 candles) and volume skew thresholds.

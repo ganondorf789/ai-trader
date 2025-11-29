@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquidationDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Funding Rate Extremes:** Identifies overbought/oversold conditions in perpetual futures markets by tracking extreme funding rates (positive for longs paying shorts, negative for shorts paying longs).  
+2. **Exchange Net Flow Divergence:** Monitors net inflows/outflows across exchanges to detect institutional or whale activity diverging from retail sentiment.  
+3. **Liquidation Clusters:** Uses order book data to pinpoint high-density liquidation zones (price levels where many stop-losses cluster).  
+4. **Stochastic RSI Mean Reversion:** Confirms exits when the Stochastic RSI (momentum oscillator) reverts to its median level after extreme moves.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - Funding rate is deeply negative (shorts overleveraged).  
+  - Exchange net flows show accumulation (smart money buying).  
+  - Price breaches the nearest upper liquidation cluster (short squeeze potential).  
+- **Short Entry:** Triggered when:  
+  - Funding rate is excessively positive (longs overleveraged).  
+  - Exchange net flows show distribution (smart money selling).  
+  - Price breaches the nearest lower liquidation cluster (long squeeze potential).  
+
+**Exit Rules:**  
+- **Profit-Taking:** Close position when Stochastic RSI (14,3,3) crosses back below 80 (longs) or above 20 (shorts).  
+- **Stop-Loss:** Place stops just beyond the opposite-side liquidation cluster (e.g., below the next lower cluster for longs).  
+
+**Risk Management:**  
+- Position sizing: Allocate 1–2% of capital per trade.  
+- Avoid trading during low-liquidity periods (reduces slippage risk).  
+- Filter entries to only high-volume exchanges to ensure cluster reliability.  
+
+**Required Indicators:**  
+1. **Funding Rate** (Binance/Bybit API for real-time data).  
+2. **Exchange Net Flow** (Glassnode/CryptoQuant for aggregated flows).  
+3. **Liquidation Heatmap** (TradingView or proprietary tools like Coinalyze).  
+4. **Stochastic RSI** (14-period, 3,3 smoothing).  
+
+**Unique Edge:** Combines behavioral finance (crowded trades) with on-chain/order-book mechanics, targeting high-probability squeeze scenarios before retail traders react.

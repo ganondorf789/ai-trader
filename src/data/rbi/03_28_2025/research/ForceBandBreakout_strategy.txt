@@ -1,0 +1,40 @@
+STRATEGY_NAME: ForceBand Breakout
+
+STRATEGY_DETAILS:
+This strategy combines Elder Force Index momentum signals with Bollinger Band contraction/expansion patterns for high-probability breakout trading.
+
+Key Components:
+1. Elder Force Index (13-period) - measures buying/selling pressure
+2. Bollinger Bands (20,2) - identifies contraction/expansion phases
+3. ATR (14-period) - sets dynamic exit thresholds
+4. Price action - confirms breakout direction
+
+Entry Rules:
+1. Wait for Bollinger Band width to contract below 50% of its 20-period average (narrowing volatility)
+2. Elder Force Index must cross above zero for long entries or below zero for short entries
+3. Price must break above upper band (long) or below lower band (short)
+4. All three conditions must align within 3 bars of each other
+
+Exit Rules:
+1. Primary exit: When Bollinger Band width expands beyond 1.5x the current ATR value
+2. Secondary exit: When Elder Force Index crosses back below zero (long) or above zero (short)
+3. Emergency exit: 2x ATR trailing stop from entry point
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Initial stop placed at 1x ATR from entry
+3. No trading during major economic news events
+4. Maximum 5 concurrent positions open
+
+Required Indicators:
+1. Elder Force Index (13-period)
+2. Bollinger Bands (20,2)
+3. ATR (14-period)
+4. Bollinger Band Width indicator
+
+Optimization Notes:
+1. Test different ATR multipliers (1.3x-1.7x) for exit threshold
+2. Experiment with 10-15 period Force Index
+3. Consider adding volume confirmation for stronger signals
+
+This "ForceBand Breakout" strategy capitalizes on the convergence of momentum (Force Index) and volatility contraction/expansion (Bollinger Bands), using ATR for dynamic risk management. The unique combination provides high-quality breakout signals while minimizing false breakouts.

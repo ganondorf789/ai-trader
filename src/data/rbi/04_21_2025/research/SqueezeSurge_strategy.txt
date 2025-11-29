@@ -1,0 +1,36 @@
+STRATEGY_NAME: SqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility (squeeze) when the Bollinger Band width reaches a 20-day low, signaling potential breakout conditions.  
+2. **ADX Confirmation:** Uses ADX (below 25) to confirm a lack of strong trend, increasing the likelihood of a breakout.  
+3. **Volume Surge Trigger:** Requires a breakout with volume exceeding 50% of the 20-day average, validating the move.  
+4. **ATR-Based Exit:** Implements a trailing stop at 2x ATR to lock in profits while allowing room for volatility.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Band width contracts to a 20-day low.  
+  2. ADX is below 25 (indicating weak trend).  
+  3. Price breaks above the upper Bollinger Band with volume >50% of the 20-day average.  
+- **Short Entry:**  
+  1. Bollinger Band width contracts to a 20-day low.  
+  2. ADX is below 25.  
+  3. Price breaks below the lower Bollinger Band with volume >50% of the 20-day average.  
+
+**Exit Rules:**  
+- **Trailing Stop:** Exit when price moves against the position by 2x the current ATR value from the highest point (long) or lowest point (short) post-entry.  
+- **Optional Time Exit:** Consider closing trades after 5-10 days if no significant breakout occurs.  
+
+**Risk Management:**  
+- Position sizing based on 1-2% risk per trade.  
+- Avoid trading during major news events to prevent false breakouts.  
+- Filter trades using higher timeframes (e.g., daily squeeze for intraday confirmation).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2 standard deviations) + Band Width.  
+2. ADX (14-period, threshold at 25).  
+3. ATR (14-period for trailing stop).  
+4. Volume (20-day average comparison).  
+
+**Unique Edge:** Combines volatility contraction (squeeze), trend weakness (ADX), and volume confirmation for high-probability breakouts with dynamic risk control.

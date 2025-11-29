@@ -1,0 +1,33 @@
+STRATEGY_NAME: DivergentBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Divergence Detection:** The strategy identifies breakouts when On-Balance Volume (OBV) diverges from price action, signaling potential accumulation or distribution.  
+2. **Low ADX Filter:** Trades are only taken when the Average Directional Index (ADX) is below a specified threshold, indicating weak or consolidating trends.  
+3. **OBV Confirmation:** Entry signals are confirmed by OBV moving average crossovers, ensuring volume supports the breakout.  
+4. **Exit Trigger:** Positions are closed when ADX rises above a predefined level, suggesting the start of a strong trend that may invalidate the breakout setup.  
+
+**Entry Rules:**  
+- **Condition 1:** OBV shows divergence from price (e.g., price makes a lower low while OBV makes a higher low, or vice versa).  
+- **Condition 2:** ADX is below a set threshold (e.g., < 25), indicating low trend strength.  
+- **Condition 3:** OBV crosses above/below its moving average (e.g., 20-period SMA) in the direction of the breakout.  
+- **Action:** Enter long on bullish divergence + OBV crossover above MA, or short on bearish divergence + OBV crossover below MA.  
+
+**Exit Rules:**  
+- **Primary Exit:** Close the trade when ADX rises above the threshold (e.g., > 30), signaling trend strength that may oppose the breakout.  
+- **Secondary Exit:** Use a trailing stop or fixed risk-reward ratio (e.g., 1:2) to protect profits.  
+
+**Risk Management:**  
+- **Stop-Loss:** Place stops below the recent swing low (for longs) or above the swing high (for shorts).  
+- **Position Sizing:** Risk a fixed percentage of capital per trade (e.g., 1-2%).  
+- **Avoid Overtrading:** Only act on high-confidence divergences with clear OBV crossovers.  
+
+**Required Indicators:**  
+1. **On-Balance Volume (OBV):** To detect divergence and confirm breakouts.  
+2. **Moving Average (MA) of OBV:** Typically a 20-period SMA for crossover signals.  
+3. **Average Directional Index (ADX):** Set to a 14-period default, with thresholds for filtering (e.g., < 25 for entry, > 30 for exit).  
+
+**Unique Edge:** This strategy combines volume divergence with low-trend environments to capture early breakout reversals, avoiding false breakouts common in high-ADX conditions. The OBV crossover adds confirmation, while the ADX exit locks in profits before trend exhaustion.  
+
+**Note:** Backtest to optimize ADX thresholds and OBV MA periods for your asset/timeframe.

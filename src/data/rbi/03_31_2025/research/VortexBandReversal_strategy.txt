@@ -1,0 +1,45 @@
+STRATEGY_NAME: VortexBand Reversal
+
+STRATEGY_DETAILS:
+This strategy combines the Vortex Indicator with Bollinger Bands and volume analysis to identify potential reversal points in overextended markets. The approach focuses on catching trend exhaustion when momentum indicators align with overbought conditions.
+
+Key Components:
+1. Vortex Indicator (VI+ and VI-): Measures trend direction and strength
+2. Bollinger Bands (20-period): Identifies overbought conditions
+3. Volume: Confirms weakening momentum
+4. 20-period SMA: Serves as exit trigger
+
+Entry Rules:
+1. Price must be above the upper Bollinger Band (indicating overbought condition)
+2. Volume must be in decline (showing weakening participation)
+3. VI+ must cross below VI- (signaling potential trend reversal)
+4. All three conditions must occur simultaneously
+
+Exit Rules:
+1. Close position when price crosses above the 20-period SMA
+2. Alternatively, consider exiting if price closes back inside Bollinger Bands
+
+Risk Management:
+1. Recommended stop-loss placement:
+   - Below recent swing low
+   - Or at 1.5x average true range (ATR) from entry
+2. Position sizing should account for Bollinger Band width (wider bands = smaller position)
+3. Avoid trading during major news events that may cause erratic volume patterns
+
+Required Indicators:
+1. Vortex Indicator (default 14-period)
+2. Bollinger Bands (20-period, 2 standard deviations)
+3. Volume indicator (preferably with moving average)
+4. 20-period Simple Moving Average
+5. Optional: ATR for stop-loss calculation
+
+Additional Notes:
+- Works best in trending markets that have shown clear momentum
+- More effective on higher timeframes (1H or above)
+- Combine with price action confirmation (bearish reversal candles at entry point)
+- Avoid using during low volatility periods when Bollinger Bands contract significantly
+
+Optimization Considerations:
+- Test different Bollinger Band periods (14-20) and deviations (1.5-2.5)
+- Experiment with volume confirmation (e.g., requiring volume below its 20-period MA)
+- Consider adding RSI filter (e.g., only trade if RSI > 60) for additional confirmation

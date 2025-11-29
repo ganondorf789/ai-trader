@@ -1,0 +1,41 @@
+STRATEGY_NAME: DivergentPulse
+
+STRATEGY_DETAILS:
+The DivergentPulse strategy is a momentum-based approach that combines RSI and MACD divergence signals with volume confirmation and Bollinger Bands for exit management. It focuses on identifying strong upward momentum shifts in oversold conditions.
+
+Key Components:
+1. RSI (14-period) for oversold identification (below 30)
+2. MACD (12,26,9) for bullish divergence confirmation
+3. Volume indicator for confirmation of increasing buying pressure
+4. Bollinger Bands (20,2) for exit signals
+
+Entry Rules:
+1. RSI must be below 30 (oversold condition)
+2. MACD must show bullish divergence (price making lower lows while MACD makes higher lows)
+3. Volume must be increasing compared to previous 5 candles
+4. All conditions must align on the same candle
+
+Exit Rules:
+1. Primary exit: Price touches the upper Bollinger Band
+2. Secondary exit: 2% profit target is reached (whichever comes first)
+3. Emergency exit: If RSI crosses back below 30 after entry
+
+Risk Management:
+1. Position sizing: Risk no more than 1% of capital per trade
+2. Stop-loss: Set at 1.5x the average true range (ATR) below entry price
+3. Maximum daily trades: 3 to prevent overtrading
+4. Time filter: Only trade during high-volume hours (first 2 hours of market open)
+
+Required Indicators:
+1. RSI (14-period)
+2. MACD (12,26,9)
+3. Volume indicator
+4. Bollinger Bands (20,2)
+5. ATR (14-period) for stop-loss calculation
+
+Additional Notes:
+- This strategy works best in trending markets
+- Avoid trading during major news events
+- Backtest on at least 200 trades before live implementation
+- Consider using a 5-minute or 15-minute timeframe for intraday trading
+- Combine with price action confirmation for better accuracy

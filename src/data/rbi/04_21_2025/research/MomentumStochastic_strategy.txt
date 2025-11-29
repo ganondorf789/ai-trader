@@ -1,0 +1,33 @@
+STRATEGY_NAME: MomentumStochastic  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Stochastic Oscillator Crossover:** The strategy uses the Stochastic Oscillator (typically 14,3,3 settings) to identify potential entry points when the %K line crosses above the %D line (bullish signal) or below the %D line (bearish signal).  
+2. **ADX Confirmation:** The Average Directional Index (ADX) must be above 25 to confirm a strong trend, ensuring trades are only taken in high-momentum environments.  
+3. **Trailing Stop Exit:** A trailing stop is set at 2x the 14-period Average True Range (ATR) to lock in profits while allowing room for price fluctuations.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when the %K line crosses above the %D line in the Stochastic Oscillator AND the ADX is above 25.  
+- **Short Entry:** Triggered when the %K line crosses below the %D line in the Stochastic Oscillator AND the ADX is above 25.  
+
+**Exit Rules:**  
+- **Trailing Stop:** The stop-loss is dynamically adjusted to 2x the 14-period ATR below (for long positions) or above (for short positions) the highest/lowest price reached since entry.  
+- **Optional Exit:** Consider closing the trade if the ADX drops below 20, indicating weakening momentum.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of the trading capital per trade.  
+2. **Stop-Loss:** The initial stop-loss can be set at 1x ATR from entry, but the trailing stop takes over once the trade moves in your favor.  
+3. **Avoid Low ADX:** Do not enter trades if ADX is below 25, as it suggests a lack of strong trend.  
+
+**Required Indicators:**  
+1. **Stochastic Oscillator (14,3,3)** – For crossover signals.  
+2. **Average Directional Index (ADX, 14-period)** – To confirm trend strength.  
+3. **Average True Range (ATR, 14-period)** – For trailing stop placement.  
+
+**Additional Notes:**  
+- This strategy works best in trending markets (e.g., forex, commodities) and may underperform in choppy or sideways conditions.  
+- Backtest to optimize ATR multiplier (e.g., 1.5x or 2.5x) based on asset volatility.  
+- Combine with price action (e.g., support/resistance levels) for higher-probability entries.  
+
+This strategy combines momentum confirmation (ADX) with precise entry timing (Stochastic) and disciplined exit management (ATR trailing stop), making it a robust trend-following approach.

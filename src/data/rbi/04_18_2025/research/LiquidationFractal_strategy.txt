@@ -1,0 +1,63 @@
+STRATEGY_NAME: LiquidationFractal
+
+STRATEGY_DETAILS:
+This strategy focuses on identifying and trading reversal opportunities at key liquidation clusters, combining order book analysis with Fibonacci retracement levels for high-probability entries.
+
+Key Components:
+1. Liquidation Cluster Identification:
+   - Aggregates historical high-leverage positions data
+   - Identifies price levels with significant liquidations
+   - Marks these as potential reversal zones
+
+2. Order Book Confirmation:
+   - Monitors order book depth in real-time
+   - Looks for sudden depletion of liquidity at key levels
+   - Confirms potential reversal when depth drops sharply
+
+3. Fibonacci Filter:
+   - Uses Fibonacci retracement levels (38.2%, 50%, 61.8%)
+   - Only considers trades where liquidation clusters align with key Fib levels
+   - Adds confluence to the reversal setup
+
+Entry Rules:
+1. Long Entry:
+   - Price approaches identified liquidation cluster from above
+   - Order book shows sudden depth depletion at the level
+   - Cluster aligns with Fibonacci support level (38.2%, 50%, or 61.8%)
+   - Enter on first bullish reversal candle after confirmation
+
+2. Short Entry:
+   - Price approaches identified liquidation cluster from below
+   - Order book shows sudden depth depletion at the level
+   - Cluster aligns with Fibonacci resistance level (38.2%, 50%, or 61.8%)
+   - Enter on first bearish reversal candle after confirmation
+
+Exit Rules:
+1. Take Profit:
+   - First target at next significant liquidity zone
+   - Second target at 1.618 Fibonacci extension of recent swing
+   - Consider partial profits at 1:1 risk-reward ratio
+
+2. Stop Loss:
+   - Place stop beyond the liquidation cluster
+   - Minimum 1.5x the average candle size
+   - Adjust based on volatility (ATR can be used)
+
+Risk Management:
+1. Position sizing limited to 1-2% of capital per trade
+2. Maximum daily loss limit of 5%
+3. Avoid trading during low liquidity periods
+4. Adjust position size based on cluster significance
+
+Required Indicators/Tools:
+1. Liquidation cluster heatmap (historical leverage data)
+2. Real-time order book depth analyzer
+3. Fibonacci retracement tool
+4. Volume profile (optional for additional confirmation)
+5. ATR for stop loss sizing (optional)
+
+Additional Notes:
+- Works best in markets with high leverage participation (crypto, forex)
+- Most effective on higher timeframes (1H, 4H, Daily)
+- Requires monitoring of market sentiment/news for potential catalysts
+- Backtest with different Fibonacci levels to find optimal settings

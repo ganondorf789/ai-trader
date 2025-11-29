@@ -1,0 +1,56 @@
+STRATEGY_NAME: VolatilityFilteredEMA
+
+STRATEGY_DETAILS:
+This strategy combines trend-following with volatility filtering to identify high-probability trades during stable market conditions. The key components are:
+
+1. Trend Identification:
+- Uses the 50-period EMA (Exponential Moving Average) crossing above the 200-period EMA (Golden Cross) as the primary trend signal
+- This crossover indicates potential start of a bullish trend
+
+2. Volatility Filter:
+- Requires VIX (Volatility Index) to be below 15 for entry
+- This ensures trades are only taken during low-volatility, stable market conditions
+- VIX above 20 triggers exits to protect gains during increasing market uncertainty
+
+3. Entry Rules:
+- Wait for 50 EMA to cross above 200 EMA (closing basis)
+- Confirm VIX is below 15 at time of crossover
+- Enter long position on next candle open after both conditions are met
+
+4. Exit Rules:
+- Monitor VIX daily
+- Exit entire position when VIX closes above 20
+- Alternatively, exit if 50 EMA crosses back below 200 EMA (Death Cross)
+
+5. Risk Management:
+- Position sizing should account for potential volatility expansion
+- Consider using stop-loss at recent swing low or ATR-based stop
+- Avoid adding to positions when VIX is between 15-20 (neutral zone)
+
+6. Required Indicators:
+- 50-period EMA (Exponential Moving Average)
+- 200-period EMA
+- VIX (Volatility Index) data feed
+- Optional: ATR for stop placement
+
+7. Timeframe Considerations:
+- Works best on daily charts for swing trading
+- Can be adapted to 4-hour charts for shorter-term trades
+- Less effective on very short timeframes due to VIX sensitivity
+
+8. Strengths:
+- Avoids trading during high volatility periods
+- Captures strong trends during stable markets
+- Simple, rules-based approach
+
+9. Limitations:
+- May miss early trend entries if VIX is slightly above 15
+- Requires monitoring of both price and VIX
+- Potential whipsaws during transitional market periods
+
+10. Optimization Notes:
+- VIX thresholds can be adjusted based on market regime (15/20 works for normal conditions)
+- EMA periods can be tested (e.g., 20/50 for faster signals)
+- Consider adding volume confirmation for stronger signals
+
+This strategy is particularly effective in bull markets and during periods of sustained low volatility, providing a systematic way to participate in trends while avoiding high-risk environments.

@@ -1,0 +1,30 @@
+STRATEGY_NAME: VolSqueezeSurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Monitors the width of Bollinger Bands (typically 20-period, 2 StdDev) and triggers when it falls below a historically low percentile (e.g., 10th percentile of recent 100-period data).  
+2. **Open Interest Surge:** Confirms the signal with a significant increase in open interest (e.g., >20% above its 10-day moving average), indicating heightened market participation.  
+3. **Volatility Expansion Exit:** Uses Average True Range (ATR) thresholds (e.g., 1.5x the 14-period ATR) to exit trades when volatility expands beyond typical levels.  
+
+**Entry Rules:**  
+- Go **long** when:  
+  1. Bollinger Band width contracts below the 10th percentile of its 100-period historical range.  
+  2. Open interest surges >20% above its 10-day moving average.  
+  3. Price is within the Bollinger Bands (not breaking out).  
+
+**Exit Rules:**  
+- Close the position when:  
+  1. The daily price range (High - Low) exceeds 1.5x the 14-period ATR.  
+  2. Bollinger Band width expands above its 50th percentile (median) of the 100-period range.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., risk ≤1% of capital per trade).  
+- Stop-loss placed at 2x the 14-period ATR below entry for longs (adjust for shorts).  
+- Avoid trading during major economic events unless confirmed by open interest.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 StdDev).  
+2. Open Interest (with 10-day MA filter).  
+3. Average True Range (14-period).  
+
+**Unique Edge:** Combines volatility compression (Bollinger squeeze) with institutional activity (open interest surge) for high-probability mean-reversion setups, exiting before excessive volatility erodes profits.

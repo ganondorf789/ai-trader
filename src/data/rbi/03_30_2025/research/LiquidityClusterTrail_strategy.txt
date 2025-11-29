@@ -1,0 +1,28 @@
+STRATEGY_NAME: LiquidityClusterTrail  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidity Cluster Detection:** The strategy identifies zones where liquidation levels are densely clustered, indicating potential areas of market interest.  
+2. **Volatility Regime Filter:** Only trades during low volatility periods to avoid erratic price movements.  
+3. **Trailing Stop Mechanism:** Uses a volatility-based trailing stop to protect profits and exit trades dynamically.  
+
+**Entry Rules:**  
+- **Long Entry Trigger:** When price approaches a detected cluster of liquidation levels below the current price.  
+- **Confirmation:** Must occur during a low volatility regime (e.g., Bollinger Band squeeze, low ATR values).  
+
+**Exit Rules:**  
+- **Profit Target:** Exit at the next detected liquidity cluster above the entry point.  
+- **Trailing Stop:** A volatility-based trailing stop (e.g., using ATR or standard deviation) follows the price upward to lock in gains.  
+
+**Risk Management:**  
+- **Position Sizing:** Risk per trade should be a fixed percentage of capital (e.g., 1-2%).  
+- **Stop-Loss:** Initial stop-loss placed below the liquidity cluster or a recent swing low.  
+- **Volatility Filter:** Avoid trading if volatility exceeds a predefined threshold.  
+
+**Required Indicators:**  
+1. **Liquidation Level Heatmap** (or similar tool to detect liquidity clusters).  
+2. **Volatility Measure** (e.g., ATR, Bollinger Band Width).  
+3. **Trailing Stop Mechanism** (e.g., ATR-based trailing stop).  
+
+This strategy capitalizes on market inefficiencies around liquidity zones while managing risk through volatility filters and dynamic exits.

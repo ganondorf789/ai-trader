@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolumetricBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Based Breakout:** Uses dynamically adjusted Bollinger Bands (set at 2.5x ATR width) to identify breakout conditions.  
+2. **Volume Confirmation:** Requires volume to exceed its 20-period moving average by at least 50% to validate the breakout.  
+3. **Momentum-Based Exits:** Relies on RSI crossing 30 (for long exits) or 70 (for short exits) to close positions.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when price closes above the upper Bollinger Band (2.5x ATR width) AND volume is > 1.5x its 20-period moving average.  
+- **Short Entry:** Triggered when price closes below the lower Bollinger Band (2.5x ATR width) AND volume is > 1.5x its 20-period moving average.  
+
+**Exit Rules:**  
+- **Long Exit:** Close position when RSI crosses below 30 (oversold condition).  
+- **Short Exit:** Close position when RSI crosses above 70 (overbought condition).  
+
+**Risk Management:**  
+- **Stop-Loss:** Optional trailing stop based on ATR (e.g., 1.5x ATR from entry).  
+- **Position Sizing:** Adjust based on volatility (e.g., risk per trade ≤ 1-2% of capital).  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (set to 2.5x ATR width instead of standard deviations).  
+2. **ATR (Average True Range)** for dynamic band width calculation.  
+3. **Volume MA (20-period)** to confirm breakout strength.  
+4. **RSI (14-period default)** for exit signals.  
+
+**Unique Aspects:**  
+- Combines volatility expansion (Bollinger Bands + ATR) with volume confirmation for high-probability breakouts.  
+- Uses RSI for mean-reversion exits, preventing overexposure to extended trends.  
+- Dynamic band width adapts to market conditions better than fixed standard deviations.  
+
+**Optimization Notes:**  
+- Test different ATR multipliers (e.g., 2.0x-3.0x) for band sensitivity.  
+- Adjust volume threshold (e.g., 40-60% above MA) to filter false breakouts.  
+- Consider adding a trend filter (e.g., 50/200 MA crossover) to align with broader momentum.

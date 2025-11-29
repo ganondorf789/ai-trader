@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolatilityThreshold  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Filter:** Uses the 20-day Average True Range (ATR) to identify low-volatility conditions when it drops below its 10th percentile (historically derived).  
+2. **Trend Confirmation:** Requires price to close above the 200-day Simple Moving Average (SMA) to ensure alignment with a long-term uptrend.  
+3. **Exit Mechanism:** Implements a dynamic trailing stop set at 2x the current ATR value to protect profits and limit losses.  
+
+**Entry Rules:**  
+- **Condition 1:** The 20-day ATR must be below its 10th percentile (calculated over a sufficiently long lookback period, e.g., 1-2 years).  
+- **Condition 2:** The closing price must be above the 200-day SMA.  
+- **Action:** Enter a long position when both conditions are met on the same candle.  
+
+**Exit Rules:**  
+- **Trailing Stop:** The stop-loss is set at 2x the current ATR below the highest price reached since entry.  
+- **Update Rule:** Adjust the stop upward as new highs are made, but never lower it.  
+- **Exit Trigger:** Close the position when price hits the trailing stop level.  
+
+**Risk Management:**  
+- Position sizing should account for the ATR-based stop distance to ensure consistent risk per trade (e.g., risking 1-2% of capital per trade).  
+- Avoid entering during high-volatility regimes (when ATR is above its median).  
+- The 200-day SMA acts as a secondary filter to prevent counter-trend trades.  
+
+**Required Indicators:**  
+1. **20-day ATR** (for volatility measurement and stop calculation).  
+2. **200-day SMA** (for trend confirmation).  
+3. **ATR Percentile Calculation** (requires historical ATR data to determine the 10th percentile threshold).  
+
+**Notes:**  
+- Backtest the ATR percentile threshold to ensure robustness across different market regimes.  
+- Works best in trending markets; may underperform in prolonged sideways conditions.  
+- The 2x ATR multiplier can be adjusted based on asset volatility (e.g., 1.5x for less volatile instruments).

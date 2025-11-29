@@ -1,0 +1,30 @@
+STRATEGY_NAME: LiquidationVolt  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Counter-Trend Focus**: The strategy aims to capitalize on excessive liquidations by taking positions against the prevailing trend when liquidation thresholds are breached.  
+2. **Volatility-Adjusted Threshold**: Uses aggregated liquidation data normalized by market volatility to identify high-probability reversal points.  
+3. **Keltner Channel Breakout**: Exits trades when price breaks out of the Keltner Channel, capturing the subsequent volatility expansion after liquidation-induced compression.  
+
+**Entry Rules:**  
+- **Liquidation Trigger**: Enter a counter-trend trade (long in a downtrend/short in an uptrend) when aggregated liquidations exceed a volatility-adjusted threshold (e.g., 2x the average liquidation volume for the given volatility regime).  
+- **Confirmation**: Wait for a closing price reversal candle or short-term RSI divergence to confirm the liquidation signal.  
+
+**Exit Rules:**  
+- **Keltner Breakout**: Exit the position when price closes outside the Keltner Channel (20-period EMA ± 2x ATR).  
+- **Time-Based Exit**: If no breakout occurs within 3-5 bars, exit to avoid stagnation.  
+
+**Risk Management:**  
+- **Stop-Loss**: Place stops at 1.5x the recent ATR beyond the entry price to account for volatility spikes.  
+- **Position Sizing**: Risk no more than 1-2% of capital per trade, adjusting for volatility (e.g., wider stops in high ATR environments require smaller position sizes).  
+
+**Required Indicators:**  
+1. **Aggregated Liquidations Data**: Real-time liquidation metrics (long/short) from derivatives exchanges.  
+2. **ATR (14-period)**: To measure volatility and set the Keltner Channel width.  
+3. **Keltner Channel (20EMA ± 2ATR)**: For breakout-based exits.  
+4. **RSI (2-4 period)**: Optional for divergence confirmation.  
+
+**Unique Edge:**  
+The strategy exploits the market’s tendency to overextend during liquidations, then revert as volatility compresses. The Keltner breakout ensures participation in follow-through momentum while filtering false reversals.  
+
+**Note:** Backtest with liquidation data specific to your traded asset (e.g., crypto perpetuals vs. equities) to refine thresholds.

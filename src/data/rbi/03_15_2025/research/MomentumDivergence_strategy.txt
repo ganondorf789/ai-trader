@@ -1,0 +1,46 @@
+STRATEGY_NAME: MomentumDivergence
+
+STRATEGY_DETAILS:
+The MomentumDivergence strategy combines trend-following and momentum-based signals to identify high-probability long entries. It uses a combination of moving averages, RSI, and volume analysis to confirm trade setups.
+
+Key Components:
+1. Trend Confirmation: 20-period EMA crossing above 50-period EMA
+2. Momentum Filter: 14-day RSI below 70
+3. Divergence Signal: RSI-based momentum indicator showing bullish divergence
+4. Volume Confirmation: Current volume within 20% of daily average
+
+Entry Rules:
+1. Wait for 20-period EMA to cross above 50-period EMA (bullish trend confirmation)
+2. Confirm 14-day RSI is below 70 (no overbought conditions)
+3. Identify bullish RSI divergence (price making lower lows while RSI makes higher lows)
+4. Verify current volume is within 20% of daily average volume
+5. Enter long position when all conditions are met
+
+Exit Rules:
+1. Set stop-loss below recent swing low
+2. Take profit when:
+   - 20-period EMA crosses below 50-period EMA (trend reversal)
+   - RSI crosses above 70 (overbought condition)
+   - Price reaches 2:1 risk-reward ratio
+
+Risk Management:
+1. Position size based on 1-2% risk per trade
+2. Stop-loss placement below recent swing low
+3. Trailing stop option: Move stop to breakeven when price reaches 1:1 risk-reward
+4. Maximum daily loss limit of 5% of account
+
+Required Indicators:
+1. 20-period Exponential Moving Average (EMA)
+2. 50-period Exponential Moving Average (EMA)
+3. 14-day Relative Strength Index (RSI)
+4. Volume indicator (for average volume calculation)
+5. RSI-based momentum divergence indicator
+
+Additional Notes:
+- Best suited for trending markets
+- Works well on 1-hour to daily timeframes
+- Combine with fundamental analysis for higher probability setups
+- Avoid trading during major news events
+- Regularly backtest and optimize parameters for specific instruments
+
+This strategy combines trend confirmation with momentum analysis and volume validation, creating a robust framework for identifying potential long opportunities while managing risk effectively.

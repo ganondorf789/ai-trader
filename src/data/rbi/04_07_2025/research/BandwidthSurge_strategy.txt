@@ -1,0 +1,37 @@
+STRATEGY_NAME: BandwidthSurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Breakout:** The strategy identifies breakouts when the Bollinger Bandwidth reaches a 6-month low, indicating a period of extreme compression and potential volatility expansion.  
+2. **Volume Surge Confirmation:** A breakout is only valid if accompanied by a surge in trading volume exceeding the 50-day average, ensuring strong participation in the move.  
+3. **Low ADX Filter:** The ADX (Average Directional Index) must be below 20, confirming a lack of strong trend and increasing the likelihood of a new trend emerging from the breakout.  
+4. **Parabolic SAR Exit:** Trailing stops using the Parabolic SAR indicator are employed to lock in profits and exit trades when the trend reverses.  
+
+**Entry Rules:**  
+- Enter a long position when:  
+  1. Bollinger Bandwidth reaches a 6-month low (indicating compression).  
+  2. Price breaks above the upper Bollinger Band.  
+  3. Volume exceeds the 50-day average volume.  
+  4. ADX is below 20 (confirming low trend strength).  
+
+**Exit Rules:**  
+- Exit the trade when the Parabolic SAR flips below the price (for long positions), signaling a potential trend reversal.  
+- Alternatively, set a fixed stop-loss (e.g., 2-3% below entry) to manage risk in case of false breakouts.  
+
+**Risk Management:**  
+- Position sizing should be conservative (e.g., 1-2% of capital per trade) due to the volatility of breakouts.  
+- Avoid trading during major news events or low-liquidity periods to reduce false signals.  
+- Monitor the Parabolic SAR closely for timely exits.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations) + Bandwidth calculation.  
+2. Volume (50-day average for comparison).  
+3. ADX (14-period, threshold at 20).  
+4. Parabolic SAR (default settings: 0.02 step, 0.2 maximum).  
+
+**Notes:**  
+- This strategy excels in ranging markets where Bollinger Bandwidth compression precedes explosive moves.  
+- Backtest for optimal ADX threshold and volume multiplier adjustments.  
+- Combine with price action (e.g., candle closes above BB) for higher accuracy.  
+
+**Name Justification:** "BandwidthSurge" reflects the core mechanics: Bollinger Bandwidth contraction ("Bandwidth") and volume surge confirmation ("Surge"), making it distinct from generic breakout strategies.

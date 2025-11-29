@@ -1,0 +1,40 @@
+STRATEGY_NAME: VoltaicBreakout
+
+STRATEGY_DETAILS:
+This strategy focuses on trading volatility contraction breakouts by combining Bollinger Band analysis with volume confirmation and dynamic exit management. The approach capitalizes on periods of low volatility followed by high-probability breakout moves.
+
+Key Components:
+1. Bollinger Band Width Percentile (BBWP): Measures the relative tightness of Bollinger Bands compared to historical levels
+2. Volume Surge Confirmation: Requires above-average volume to validate breakout moves
+3. Chandelier Exit: Uses a trailing stop based on 3x ATR to lock in profits while allowing room for trend continuation
+
+Entry Rules:
+1. Wait for BBWP to drop below 20th percentile (indicating significant volatility contraction)
+2. Enter long when price breaks above upper Bollinger Band
+3. Confirm breakout with volume > 20-day average volume
+4. Only trade in direction of 50-day SMA slope (long if SMA rising, short if falling)
+
+Exit Rules:
+1. Initial stop loss placed at 1.5x ATR from entry
+2. Once trade moves 1x ATR in profit, switch to Chandelier Exit trailing at 3x ATR
+3. Exit entire position when price touches Chandelier line
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. No new entries if portfolio drawdown exceeds 5%
+3. Maximum 3 concurrent positions allowed
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Band Width Percentile (20-day lookback)
+3. Volume 20-day moving average
+4. 50-day Simple Moving Average
+5. Average True Range (14)
+6. Chandelier Exit (3x ATR)
+
+Optimization Notes:
+- BBWP threshold can be adjusted between 15-25% based on market conditions
+- ATR multiplier for Chandelier can range from 2.5-3.5 depending on volatility tolerance
+- Volume confirmation threshold can be increased to 1.25x average in high-volume markets
+
+This strategy works best in trending markets following consolidation periods, with the volume confirmation helping filter false breakouts while the Chandelier Exit allows for extended runs in strong trends.

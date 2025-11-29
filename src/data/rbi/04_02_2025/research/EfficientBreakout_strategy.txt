@@ -1,0 +1,29 @@
+STRATEGY_NAME: EfficientBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Kaufman Efficiency Ratio (KER)**: Measures the efficiency of price movement (trend strength). A value above 0.8 indicates strong trending conditions.  
+2. **Bollinger Bands**: Used to identify volatility and potential breakout levels. The upper band acts as a breakout confirmation.  
+3. **20-period SMA**: Serves as a dynamic exit level when price retraces to it.  
+4. **Chandelier Exit**: A volatility-based trailing stop that adjusts with market conditions, protecting profits while allowing room for trends to develop.  
+
+**Entry Rules:**  
+- Go **long** when:  
+  1. **Kaufman Efficiency Ratio (KER) > 0.8** (confirming strong trend efficiency).  
+  2. Price **closes above the upper Bollinger Band** (breakout confirmation).  
+
+**Exit Rules:**  
+- **Take Profit/Exit Signal**: Close the position when price **touches or crosses the 20-period SMA** (mean reversion signal).  
+- **Stop Loss**: Use the **Chandelier Exit** (trailing stop) set below the highest high since entry, adjusted for volatility (typically 3x ATR).  
+
+**Risk Management:**  
+1. Position sizing should account for the Chandelier Exit distance to ensure risk per trade aligns with account size (e.g., 1-2% risk per trade).  
+2. Avoid trading during low volatility (KER < 0.5) or when Bollinger Bands are excessively narrow.  
+
+**Required Indicators:**  
+1. Kaufman Efficiency Ratio (KER) (default period: 10).  
+2. Bollinger Bands (20-period SMA, 2 standard deviations).  
+3. 20-period Simple Moving Average (SMA).  
+4. Chandelier Exit (3x ATR, 22-period lookback).  
+
+**Unique Edge:** Combines trend efficiency (KER) with volatility breakout (Bollinger Bands) and a dynamic exit system (SMA + Chandelier), optimizing for strong trends while minimizing false breakouts.

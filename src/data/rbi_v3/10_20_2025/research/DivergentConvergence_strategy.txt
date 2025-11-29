@@ -1,0 +1,61 @@
+STRATEGY_NAME: DivergentConvergence
+
+STRATEGY_DETAILS:
+
+### Key Strategy Components
+This strategy, named DivergentConvergence, leverages the complementary strengths of two popular momentum oscillators: the Relative Strength Index (RSI) and the Stochastic Oscillator. The core idea is to identify potential bullish trend reversals by combining RSI's detection of price-momentum divergence (where price and the indicator move in opposite directions, signaling weakening downside momentum) with the Stochastic Oscillator's convergence signal (where the %K and %D lines begin to narrow or align after being apart, often in oversold conditions, indicating building upward momentum). 
+
+The strategy focuses on long-only entries in downtrending or ranging markets, aiming to capture reversals early. It operates on any timeframe (e.g., 1-hour or daily charts for swing trading), but performs best in volatile markets like forex pairs (e.g., EUR/USD) or equities with clear trends. Backtesting should use historical data to optimize parameters, such as RSI period (default 14) and Stochastic settings (default 14,3,3 for %K period, %K smoothing, %D period).
+
+Key assumptions:
+- Bullish RSI divergence occurs when price makes a lower low, but RSI forms a higher low (indicating hidden buying pressure).
+- Stochastic convergence refers to the %K line approaching or crossing toward the %D line from below in the oversold region (below 20), signaling potential momentum shift without a full crossover yet.
+- Both signals must align within 3-5 bars for confirmation to reduce false positives.
+
+### Required Indicators
+1. **Relative Strength Index (RSI)**:
+   - Period: 14 (standard; adjustable to 9 for more sensitivity or 21 for smoother signals).
+   - Overbought/Oversold Levels: 70/30 (used for context, but divergence is the primary focus).
+   - Calculation: RSI = 100 - (100 / (1 + RS)), where RS is the average gain/loss over the period.
+   - Platform: Available on most charting tools like TradingView, MetaTrader, or Thinkorswim.
+
+2. **Stochastic Oscillator**:
+   - Settings: %K period = 14, %K smoothing = 3, %D period = 3 (slow stochastic for reduced noise).
+   - Levels: Oversold = 20, Overbought = 80.
+   - Calculation: %K = 100 * ((Close - Lowest Low) / (Highest High - Lowest Low)) over the lookback period; %D is a 3-period SMA of %K.
+   - Focus: Monitor for convergence where %K rises toward %D in the oversold zone.
+
+No additional filters are strictly required, but volume confirmation (e.g., rising volume on reversal candles) or a simple moving average (e.g., 50-period SMA) can be added to ensure the market is not in a strong downtrend.
+
+### Entry Rules
+- **Long Entry Signal**:
+  1. Identify bullish RSI divergence: Scan for at least one recent price swing low where the current price low is lower than the previous swing low, but the corresponding RSI value is higher (e.g., price at 1.1000 vs. prior 1.1050, but RSI at 25 vs. prior 20). This must occur with RSI below 50 (ideally in 30-40 range for stronger signals).
+  2. Confirm Stochastic convergence: Within 3-5 bars of the RSI divergence, the Stochastic %K line must be below 20 (oversold) and start converging toward the %D line (e.g., %K rising from 15 toward %D at 25, with the gap narrowing by at least 5-10 points). Avoid entries if %K has already crossed above %D (wait for fresh convergence).
+  3. Overall Confirmation: Enter long on the close of the bar following both signals, or on a bullish candlestick pattern (e.g., hammer or engulfing) for added precision. Only trade if the asset is above a long-term trend filter like the 200-period SMA to avoid counter-trend traps.
+  
+- **No Short Entries**: This strategy is designed for bullish reversals only; adapt for shorts by inverting signals (bearish RSI divergence + Stochastic divergence in overbought zone) if desired, but that's outside the core scope.
+
+- **Trade Frequency**: Expect 2-5 signals per month on daily charts; avoid overtrading by requiring both indicators to align strictly.
+
+### Exit Rules
+- **Profit Target (Take Profit)**:
+  - Primary: Set at 2-3 times the risk per trade (e.g., if risking 1%, target 2-3% profit). Alternatively, use a measured move based on the prior downswing length (project upward by 100-161.8% Fibonacci extension from the divergence low).
+  - Dynamic Exit: Trail stops using the Stochastic—exit if %K crosses below %D after entry, or if RSI reaches overbought (above 70).
+
+- **Stop Loss**:
+  - Place below the most recent swing low (from the divergence point), typically 1-2% below entry or 1.5x the Average True Range (ATR, 14-period) to account for volatility.
+  - Example: If entry at $50 and swing low at $48.50, set stop at $48.00 (with a buffer).
+
+- **Time-Based Exit**: If no movement after 10-15 bars, exit to avoid stagnation.
+
+### Risk Management
+- **Position Sizing**: Risk no more than 1-2% of total account capital per trade. Calculate position size as: Risk Amount / (Entry Price - Stop Loss Price). For example, with a $10,000 account and 1% risk ($100), if stop is $2 below entry, position size = $100 / $2 = 50 shares.
+- **Maximum Exposure**: Limit to 3-5 open trades at once; no more than 5% total risk across positions.
+- **Drawdown Control**: Pause trading if account drawdown exceeds 10% in a month; review and adjust parameters (e.g., increase RSI period for fewer signals).
+- **Additional Safeguards**:
+  - Avoid trading during major news events (use an economic calendar).
+  - Use a risk-reward ratio of at least 1:2 to ensure positive expectancy.
+  - Backtest and forward-test on demo accounts; aim for a win rate of 50-60% with the strategy's edge from dual confirmation.
+  - Volatility Adjustment: In high-volatility assets, widen stops by 20%; in low-volatility, tighten to 0.5x ATR.
+
+This strategy's strength lies in its dual-oscillator confirmation, reducing whipsaws common in single-indicator reversals, but it may lag in strong trends—always combine with market context for best results.

@@ -1,0 +1,33 @@
+STRATEGY_NAME: VoltaicDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Breakout:** Measures volatility expansion when the band width (difference between upper and lower bands) exceeds a threshold, signaling potential trend acceleration.  
+2. **VWAP Divergence:** Identifies discrepancies between price and volume-weighted average price (VWAP), confirming momentum shifts.  
+3. **VWAP Reversion:** Exit signal triggered when price retraces to the VWAP, indicating loss of momentum.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Band width expands beyond its 20-period average (volatility breakout).  
+  2. Price closes above the upper Bollinger Band while VWAP slopes upward (bullish divergence).  
+- **Short Entry:**  
+  1. Bollinger Band width expands beyond its 20-period average.  
+  2. Price closes below the lower Bollinger Band while VWAP slopes downward (bearish divergence).  
+
+**Exit Rules:**  
+- **Long Exit:** Price crosses below the VWAP or Bollinger Band width contracts below its 20-period average.  
+- **Short Exit:** Price crosses above the VWAP or Bollinger Band width contracts below its 20-period average.  
+
+**Risk Management:**  
+- Stop-loss placed at 1.5x the average true range (ATR) from entry.  
+- Position size capped at 2% of capital per trade.  
+- No trades during low-volume periods (volume < 50% of 20-day average).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 standard deviations).  
+2. VWAP (session-based).  
+3. ATR (14-period for stop calculation).  
+4. Volume oscillator (to filter low-volume conditions).  
+
+**Unique Edge:** Combines volatility expansion (Bollinger Width) with volume-confirmed momentum (VWAP divergence), filtering false breakouts via volume and mean reversion to VWAP.

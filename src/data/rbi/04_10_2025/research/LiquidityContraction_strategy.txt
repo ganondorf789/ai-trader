@@ -1,0 +1,34 @@
+STRATEGY_NAME: LiquidityContraction  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Contrarian Positioning:** The strategy takes trades against prevailing market sentiment by identifying high liquidation clusters where forced exits (stop-losses or margin calls) are likely concentrated.  
+2. **Liquidation Clusters:** Uses aggregated exchange data to pinpoint price zones with high liquidation activity, indicating potential reversal points due to excessive leverage.  
+3. **Volatility Contraction Trigger:** Enters trades only when the 3-day Average True Range (ATR) falls below the 20-day ATR average, signaling a period of compressed volatility before potential expansion.  
+4. **Exit Mechanics:** Exits positions when liquidity grabs (sharp price movements triggering stops) occur or when volatility expands (3-day ATR rising above its 20-day average).  
+
+**Entry Rules:**  
+- Identify high liquidation clusters using order book data or aggregated exchange metrics (e.g., liquidation heatmaps).  
+- Wait for volatility contraction: 3-day ATR must be below the 20-day ATR average.  
+- Enter a contrarian position (long near liquidation-driven sell clusters, short near buy clusters) when price approaches the high-liquidation zone.  
+
+**Exit Rules:**  
+- **Liquidity Grab Exit:** Close the trade if price sharply reverses into the liquidation zone, indicating stop runs or forced exits.  
+- **Volatility Expansion Exit:** Exit when the 3-day ATR crosses above the 20-day ATR average, signaling increased volatility and potential trend continuation.  
+- Optional: Use a trailing stop based on recent swing highs/lows to protect profits.  
+
+**Risk Management:**  
+- Position sizing should account for the high volatility nature of liquidation zones (e.g., smaller size or wider stops).  
+- Stop-loss placed beyond the liquidation cluster to avoid being caught in false breakouts.  
+- Avoid trading during major news events or low liquidity periods where liquidation data may be unreliable.  
+
+**Required Indicators:**  
+1. **ATR (Average True Range)** – 3-day and 20-day periods for volatility contraction/expansion signals.  
+2. **Liquidation Cluster Data** – Aggregated from exchanges or third-party providers (e.g., liquidation heatmaps, order flow tools).  
+3. **Price Action Confirmation** – Candlestick patterns or volume spikes near liquidation zones for additional validation.  
+
+**Notes:**  
+- Works best in leveraged markets (e.g., crypto, futures) where liquidations are frequent.  
+- Requires real-time data feeds for accurate liquidation zone identification.  
+- Combines mean-reversion (contrarian) and breakout (volatility expansion) principles.

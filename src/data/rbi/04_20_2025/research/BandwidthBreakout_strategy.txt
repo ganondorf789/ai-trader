@@ -1,0 +1,36 @@
+STRATEGY_NAME: BandwidthBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **EMA Filter:** Uses a 50-period Exponential Moving Average (EMA) to identify the prevailing trend direction.  
+2. **Bollinger Bandwidth Condition:** Requires the Bollinger Band width to be at a 6-month low, indicating a period of extreme contraction and potential volatility expansion.  
+3. **Breakout Entry:** Triggers a trade when price crosses the 50 EMA, confirming momentum in the direction of the breakout.  
+4. **ATR-Based Exit:** Exits the trade when price moves 2x the Average True Range (ATR) from the entry point, ensuring a systematic profit-taking approach.  
+
+**Entry Rules:**  
+- **Long Entry:** Price closes above the 50 EMA while Bollinger Band width is at a 6-month low.  
+- **Short Entry:** Price closes below the 50 EMA while Bollinger Band width is at a 6-month low.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit when price reaches 2x ATR (from entry) in the direction of the trade.  
+- **Stop Loss:** Consider using a trailing stop or a fixed ATR-based stop (e.g., 1x ATR) to protect against reversals.  
+
+**Risk Management:**  
+- Position sizing should be based on ATR to account for volatility (e.g., risk 1-2% of capital per trade).  
+- Avoid trading during major news events or low-liquidity periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **50-period EMA** (Exponential Moving Average)  
+2. **Bollinger Bands** (20-period, 2 standard deviations) – Monitor the width for contraction.  
+3. **Average True Range (ATR)** (14-period) – Used for exit and stop-loss calculations.  
+
+**Additional Notes:**  
+- This strategy capitalizes on low-volatility environments (Bollinger Band squeeze) followed by high-probability breakouts.  
+- Works best on higher timeframes (e.g., 4H, Daily) to filter noise.  
+- Backtest to optimize ATR multiplier (e.g., 1.5x or 3x may work better for certain assets).  
+
+**Why "BandwidthBreakout"?**  
+- "Bandwidth" highlights the Bollinger Band width contraction as a key filter.  
+- "Breakout" emphasizes the EMA-crossing trigger for entries.  
+- The name is unique and directly tied to the strategy’s core logic.

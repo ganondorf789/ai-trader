@@ -1,0 +1,40 @@
+STRATEGY_NAME: LiquidationReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Counter-Trend Focus:** The strategy aims to identify potential trend reversals by analyzing liquidation clusters and funding rates.  
+2. **Liquidation Clusters:** High liquidation zones indicate areas where many traders' stop-loss orders may be triggered, potentially leading to price reversals.  
+3. **Negative Funding Rates:** Negative funding rates suggest that short positions are paying longs, often signaling excessive bearish sentiment, which can precede reversals.  
+4. **Price Rejection Candles:** Entry signals are confirmed by candlestick patterns (e.g., pin bars, hammers, or engulfing patterns) showing rejection of lower prices.  
+5. **Volatility-Adjusted Targets:** Exits are based on dynamic targets derived from recent volatility (e.g., ATR multiples or recent swing highs/lows).  
+
+**Entry Rules:**  
+1. **Identify Liquidation Clusters:** Use order flow data or liquidation heatmaps to spot zones with high liquidation activity.  
+2. **Check Funding Rates:** Confirm negative funding rates (indicating bearish overcrowding).  
+3. **Wait for Price Rejection:** Enter on a bullish rejection candle (e.g., pin bar, hammer, or bullish engulfing) near the liquidation zone.  
+4. **Confirmation:** Optional: Use a momentum oscillator (e.g., RSI < 30) to confirm oversold conditions.  
+
+**Exit Rules:**  
+1. **Profit Targets:** Set targets at 1.5x to 2x the Average True Range (ATR) from entry or key resistance levels.  
+2. **Stop-Loss:** Place stops below the recent swing low or the liquidation cluster zone.  
+3. **Trailing Stop:** Adjust stops to breakeven or trail using a percentage or volatility-based method once price moves favorably.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss Discipline:** Strict adherence to stop levels to avoid large drawdowns.  
+3. **Avoid Overleveraging:** Use moderate leverage (e.g., 2x-5x) due to the counter-trend nature of the strategy.  
+
+**Required Indicators/Tools:**  
+1. **Liquidation Heatmap or Order Flow Data** (e.g., from exchanges or platforms like Coinalyze, Hyblock).  
+2. **Funding Rate Monitor** (available on most crypto exchanges).  
+3. **Candlestick Patterns** (for rejection confirmation).  
+4. **Volatility Measure** (e.g., ATR for dynamic targets).  
+5. **Optional: RSI or Stochastic Oscillator** (for oversold/overbought confirmation).  
+
+**Notes:**  
+- Best suited for crypto markets due to high liquidity and funding rate dynamics.  
+- Works well in ranging or overextended trending markets.  
+- Avoid trading during major news events or low-liquidity periods.  
+
+This strategy capitalizes on market overreactions and liquidity imbalances, offering high-reward setups with clearly defined risk parameters.

@@ -1,0 +1,58 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection:**  
+   - **Bollinger Band Width Percentile (BBWP):** Measures the relative width of Bollinger Bands compared to historical data. A value below 20% indicates extreme contraction, signaling potential breakout conditions.  
+   - **Keltner Channel Squeeze:** Confirms volatility contraction when the Keltner Channel width is at multi-period lows, reinforcing the Bollinger Band signal.  
+
+2. **Breakout Confirmation:**  
+   - **Volume Surge:** A breakout is validated only if trading volume exceeds the 50-day moving average of volume, ensuring strong participation in the move.  
+
+**Entry Rules:**  
+1. **Setup Conditions:**  
+   - BBWP < 20% (indicating extreme volatility contraction).  
+   - Keltner Channel width at its lowest levels in recent periods (e.g., 20-period low).  
+   - Price is consolidating within the Bollinger Bands and Keltner Channels.  
+
+2. **Trigger:**  
+   - Price breaks above the upper Bollinger Band or below the lower Bollinger Band.  
+   - Volume exceeds the 50-day average volume on the breakout candle.  
+
+3. **Entry Execution:**  
+   - **Long Entry:** Buy if price breaks above the upper Bollinger Band with high volume.  
+   - **Short Entry:** Sell if price breaks below the lower Bollinger Band with high volume.  
+
+**Exit Rules:**  
+1. **Take Profit:**  
+   - Use a trailing stop based on the opposite Bollinger Band (e.g., for long trades, trail stop below the lower band).  
+   - Alternatively, target a multiple of the average true range (ATR) at entry (e.g., 2x ATR).  
+
+2. **Stop Loss:**  
+   - Place initial stop loss inside the Bollinger Band/Keltner Channel (e.g., mid-band or opposite band).  
+   - For long trades: Stop below the recent swing low or lower Bollinger Band.  
+   - For short trades: Stop above the recent swing high or upper Bollinger Band.  
+
+**Risk Management:**  
+1. **Position Sizing:**  
+   - Risk no more than 1-2% of capital per trade.  
+   - Adjust position size based on the distance to the stop loss.  
+
+2. **Trade Filter:**  
+   - Avoid trading during major news events or low-liquidity periods.  
+   - Focus on liquid assets with tight spreads to reduce slippage.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 standard deviations).**  
+2. **Bollinger Band Width Percentile (BBWP) or custom calculation for width percentile.**  
+3. **Keltner Channels (20-period, 1.5 ATR multiplier).**  
+4. **Volume (50-day moving average for surge confirmation).**  
+5. **Optional:** ATR (14-period) for profit target scaling.  
+
+**Unique Aspects:**  
+- Combines Bollinger Band and Keltner Channel squeezes for high-probability setups.  
+- Volume surge acts as a confirmation filter, reducing false breakouts.  
+- Focuses on extreme volatility contractions, which often precede strong directional moves.  
+
+This strategy is ideal for traders looking to capitalize on explosive moves after periods of low volatility, with clear rules for entry, exit, and risk management.

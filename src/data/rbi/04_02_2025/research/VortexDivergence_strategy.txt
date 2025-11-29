@@ -1,0 +1,39 @@
+STRATEGY_NAME: VortexDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Used to identify potential trend reversals. The strategy looks for crossovers between the VI+ (positive trend) and VI- (negative trend) lines.  
+2. **Money Flow Index (MFI):** Measures buying and selling pressure. Divergence between MFI and price action is used to confirm potential reversals.  
+3. **Average Directional Index (ADX):** The slope of ADX is analyzed to gauge trend strength. The rate of change in the ADX slope helps adjust the trailing stop dynamically.  
+4. **Trailing Stop:** Exit mechanism that adjusts based on the ADX slope’s rate of change, ensuring profits are protected during strong trends while allowing flexibility in volatile conditions.  
+
+**Entry Rules:**  
+1. **Vortex Indicator Crossover:** A bullish signal occurs when VI+ crosses above VI-, while a bearish signal occurs when VI- crosses above VI+.  
+2. **MFI Divergence Confirmation:**  
+   - For a long entry, look for price making a lower low while MFI makes a higher low (bullish divergence).  
+   - For a short entry, look for price making a higher high while MFI makes a lower high (bearish divergence).  
+3. **Entry Execution:** Enter the trade only when both the VI crossover and MFI divergence conditions are met.  
+
+**Exit Rules:**  
+1. **Dynamic Trailing Stop:**  
+   - The initial stop-loss is placed at a fixed percentage (e.g., 2%) below the entry price for longs or above for shorts.  
+   - The trailing stop is adjusted based on the rate of change of the ADX slope:  
+     - If the ADX slope is increasing rapidly, tighten the trailing stop to lock in profits.  
+     - If the ADX slope is flattening or decreasing, widen the trailing stop to avoid premature exits.  
+2. **Manual Exit:** Exit the trade if the VI lines cross again in the opposite direction, indicating a potential reversal.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of the trading capital per trade.  
+2. **Stop-Loss:** Always use the dynamic trailing stop to protect capital.  
+3. **Avoid Overtrading:** Only take trades where both VI and MFI conditions are clearly met.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI) – Default period (14).  
+2. Money Flow Index (MFI) – Default period (14).  
+3. Average Directional Index (ADX) – Default period (14).  
+
+**Additional Notes:**  
+- This strategy performs best in trending markets but may produce false signals in choppy or sideways conditions.  
+- Backtest the strategy with different ADX slope sensitivity settings to optimize the trailing stop adjustments.  
+- Combine with price action or support/resistance levels for higher-probability entries.

@@ -1,0 +1,39 @@
+STRATEGY_NAME: VortexSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI) Crossover:** The strategy uses the VI+ (positive trend movement) and VI- (negative trend movement) lines. A bullish signal occurs when VI+ crosses above VI-, indicating potential upward momentum.  
+2. **On-Balance Volume (OBV) Divergence:** Confirms the trend strength by ensuring OBV is rising alongside price, validating accumulation.  
+3. **Bollinger Band Squeeze:** Identifies low volatility periods where a breakout is likely. The squeeze is confirmed when the bands contract significantly.  
+
+**Entry Rules:**  
+- Enter a **long position** when:  
+  1. VI+ crosses above VI- (bullish momentum).  
+  2. OBV is rising (confirms buying pressure).  
+  3. Bollinger Bands are in a squeeze (narrowing bands, indicating low volatility before a breakout).  
+- Enter a **short position** (if strategy allows) when:  
+  1. VI+ crosses below VI- (bearish momentum).  
+  2. OBV is falling (confirms selling pressure).  
+  3. Bollinger Bands are in a squeeze.  
+
+**Exit Rules:**  
+- **For long positions:**  
+  - Exit when VI+ crosses back below VI- (momentum reversal).  
+  - Use a **trailing stop** (e.g., ATR-based or percentage-based) to lock in profits.  
+- **For short positions:**  
+  - Exit when VI+ crosses back above VI-.  
+  - Apply the same trailing stop logic.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-adjusted).  
+- Stop-loss placed below recent swing low (long) or above swing high (short).  
+- Avoid trading during high volatility outside Bollinger Band squeezes.  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)** – Tracks trend direction.  
+2. **On-Balance Volume (OBV)** – Confirms volume-backed momentum.  
+3. **Bollinger Bands (20,2)** – Identifies squeeze conditions.  
+4. **Optional:** ATR (14-period) for dynamic stop-loss adjustments.  
+
+**Unique Edge:** Combines trend confirmation (VI), volume validation (OBV), and low-volatility breakout setups (Bollinger Squeeze) for high-probability entries.

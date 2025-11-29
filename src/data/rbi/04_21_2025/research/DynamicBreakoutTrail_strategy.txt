@@ -1,0 +1,37 @@
+STRATEGY_NAME: DynamicBreakoutTrail  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Donchian Channel Breakout**: Uses a 20-period Donchian Channel (high/low range) to identify potential breakout levels.  
+2. **ADX Confirmation**: Requires the ADX (Average Directional Index) to be above 25 to confirm trend strength before entry.  
+3. **Trailing Stop Exit**: Uses a trailing stop set at 2x the ATR (Average True Range) to lock in profits and manage risk dynamically.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when the price closes above the upper band of the 20-period Donchian Channel AND the ADX is above 25 (confirming strong trend momentum).  
+- **Short Entry**: Triggered when the price closes below the lower band of the 20-period Donchian Channel AND the ADX is above 25.  
+
+**Exit Rules:**  
+- **Trailing Stop**: The stop-loss is set at 2x the current ATR value from the most recent closing price (trailing stop adjusts with price movement).  
+- **Optional Time-Based Exit**: Consider adding a fixed holding period (e.g., 10 bars) if the trailing stop is not hit, to avoid prolonged exposure.  
+
+**Risk Management:**  
+1. **Position Sizing**: Allocate a fixed percentage of capital per trade (e.g., 1-2%) to limit drawdowns.  
+2. **Stop-Loss**: The trailing stop (2x ATR) ensures exits are adaptive to volatility, protecting gains and cutting losses.  
+3. **ADX Filter**: Avoids false breakouts by requiring trend confirmation (ADX > 25).  
+
+**Required Indicators:**  
+1. **Donchian Channel (20-period)**: Tracks the highest high and lowest low over 20 bars.  
+2. **ADX (14-period default)**: Measures trend strength; must be > 25 for entry.  
+3. **ATR (14-period default)**: Sets the trailing stop distance (2x ATR).  
+
+**Unique Aspects:**  
+- Combines breakout momentum (Donchian) with trend confirmation (ADX) for higher-probability entries.  
+- Uses a volatility-adjusted trailing stop (ATR-based) for dynamic risk management.  
+- Avoids choppy markets by filtering for strong trends (ADX > 25).  
+
+**Optimization Tips:**  
+- Test different Donchian periods (e.g., 10-30) for varying sensitivity.  
+- Adjust the ADX threshold (e.g., 20-30) based on asset volatility.  
+- Fine-tune the ATR multiplier (e.g., 1.5x-3x) for tighter/looser stops.  
+
+**Note**: Works best in trending markets; may underperform in ranging conditions. Backtest across multiple assets/timeframes for robustness.

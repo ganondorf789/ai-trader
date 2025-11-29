@@ -1,0 +1,33 @@
+STRATEGY_NAME: ChaikinTSI Breakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Momentum Confirmation:** Uses Chaikin Money Flow (CMF) and True Strength Index (TSI) crossovers to validate momentum shifts.  
+2. **Breakout Filter:** Donchian Channel width narrowing indicates consolidation before potential breakouts.  
+3. **Exit Signal:** Parabolic SAR provides trailing stop-loss and trend-exit signals.  
+
+**Entry Rules:**  
+1. **CMF & TSI Alignment:**  
+   - CMF must cross above zero (bullish momentum).  
+   - TSI line (default 25-period) must cross above its signal line (13-period EMA of TSI).  
+2. **Donchian Confirmation:**  
+   - Donchian Channel width (20-period) must be narrowing (lower highs in width over last 5 bars).  
+   - Price breaks above Donchian upper band (for long) or below lower band (for short).  
+
+**Exit Rules:**  
+1. **Parabolic SAR Reversal:** Close position when SAR dots flip to the opposite side of price.  
+2. **Emergency Stop:** Fixed 2% below entry price (intra-trade risk cap).  
+
+**Risk Management:**  
+- Position size: 1-2% of capital per trade.  
+- No entries if Donchian width is expanding (avoid false breakouts).  
+- TSI must remain above signal line to hold position.  
+
+**Required Indicators:**  
+1. Chaikin Money Flow (20-period).  
+2. True Strength Index (25-period TSI, 13-period signal).  
+3. Donchian Channel (20-period width analysis).  
+4. Parabolic SAR (default 0.02 step, 0.2 max).  
+
+**Unique Edge:** Combines money flow (CMF) with smoothed momentum (TSI) and volatility contraction (Donchian) for high-probability breakouts, while SAR locks in profits dynamically. Avoids choppy markets via Donchian width filter.

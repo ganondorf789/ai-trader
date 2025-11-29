@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolmoBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Filter:** Uses Bollinger Band Width (BBW) compared to 0.5x ATR to identify low-volatility conditions, signaling potential breakout setups.  
+2. **Momentum Confirmation:** Chande Momentum Oscillator (CMO) crossing its signal line validates breakout direction.  
+3. **Dynamic Exit Logic:** Combines opposing momentum crosses for early exits and a 2x ATR trailing stop for risk management.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - BBW < 0.5 * ATR (volatility contraction)  
+  - CMO crosses *above* its signal line (bullish momentum)  
+  - Price breaks above recent high (confirms breakout)  
+- **Short Entry:** Triggered when:  
+  - BBW < 0.5 * ATR (volatility contraction)  
+  - CMO crosses *below* its signal line (bearish momentum)  
+  - Price breaks below recent low (confirms breakout)  
+
+**Exit Rules:**  
+- **Opposing Momentum Exit:** Close position if CMO crosses back in the opposite direction (e.g., long exits on CMO cross below signal line).  
+- **Trailing Stop Exit:** 2x ATR trailing stop from the most recent extreme (high for longs, low for shorts).  
+
+**Risk Management:**  
+- Position sizing based on 1-2% risk per trade.  
+- Stop-loss initially set at 1x ATR from entry, then trails at 2x ATR.  
+- Avoid trading during high BBW (>0.5*ATR) to filter choppy markets.  
+
+**Required Indicators:**  
+1. **Chande Momentum Oscillator (CMO)** + Signal Line (e.g., 9-period SMA of CMO).  
+2. **Bollinger Band Width (BBW)** = (Upper Band - Lower Band) / Middle Band.  
+3. **Average True Range (ATR)** (14-period recommended).  
+
+**Unique Edge:** Combines volatility contraction (BBW) with momentum confirmation (CMO) for high-probability breakouts, while the 2x ATR trailing stop locks in profits during extended moves. Avoids false breakouts by requiring low volatility *and* momentum alignment.  
+
+**Optimization Tips:**  
+- Test different ATR/BBW ratios (e.g., 0.4-0.6) for volatility thresholds.  
+- Adjust CMO signal line period (e.g., 7-12) for sensitivity.  
+- Validate on multiple timeframes (e.g., 1H/4H for swing trades).

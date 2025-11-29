@@ -1,0 +1,35 @@
+STRATEGY_NAME: FundingBandit  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Funding Rate Regime Analysis:** The strategy focuses on identifying periods of high funding rates, which typically indicate excessive long positioning in perpetual futures markets.  
+2. **Bollinger Band Breakout:** Uses a 4-hour timeframe with Bollinger Bands set to 2 standard deviations (σ) to identify oversold conditions when the price breaches the lower band.  
+3. **Trailing Stop Mechanism:** Implements a 3% trailing stop to protect profits and limit downside risk.  
+4. **Exit Condition:** Positions are closed when funding rates normalize, signaling a reduction in market bias or over-leveraged conditions.  
+
+**Entry Rules:**  
+- **Trigger:** Price must breach the lower Bollinger Band (2σ) on the 4-hour chart.  
+- **Confirmation:** Funding rates must be significantly high (indicating crowded long positions).  
+- **Action:** Enter a long position upon the simultaneous occurrence of both conditions.  
+
+**Exit Rules:**  
+- **Primary Exit:** Funding rates normalize (return to neutral or below a predefined threshold).  
+- **Secondary Exit:** A 3% trailing stop is triggered from the highest point reached after entry.  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%) to avoid overexposure.  
+- **Stop-Loss:** The 3% trailing stop dynamically adjusts to lock in profits while protecting against reversals.  
+- **Avoid Overleveraging:** Given the focus on funding rates, ensure leverage is moderate to prevent liquidation during volatile swings.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period SMA, 2σ)** – To identify oversold conditions.  
+2. **Funding Rate Data** – To gauge market sentiment and crowding in perpetual futures.  
+3. **Trailing Stop Calculator** – To manage exits based on price action.  
+
+**Unique Aspects:**  
+- Combines mean-reversion (Bollinger Band breach) with sentiment analysis (funding rates).  
+- Exploits market inefficiencies during high funding regimes where reversals are more likely.  
+- Adaptive exit mechanism based on both trailing stops and funding rate normalization.  
+
+**Note:** This strategy works best in trending or volatile markets where funding rates exhibit clear regimes. Avoid sideways/low-volatility conditions where false signals may occur.

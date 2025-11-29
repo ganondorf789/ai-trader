@@ -1,0 +1,43 @@
+STRATEGY_NAME: BandMACD Divergence
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Bands, MACD, and ATR to identify and trade trend-following opportunities based on divergence patterns. The key components are:
+
+1. **Key Components:**
+   - **Bollinger Bands (BB):** Focuses on the slope of the upper band to measure trend steepness.
+   - **MACD (Moving Average Convergence Divergence):** Tracks momentum divergence relative to the Bollinger Band slope.
+   - **ATR (Average True Range):** Used to define dynamic thresholds for entry and exit conditions.
+
+2. **Entry Rules:**
+   - Calculate the slope of the upper Bollinger Band over a specified period (e.g., 5-10 bars).
+   - Monitor the MACD line for divergence relative to the Bollinger Band slope.
+   - Enter a long trade when:
+     - The upper Bollinger Band slope is steep (e.g., above a predefined angle threshold).
+     - The MACD line shows bullish divergence (e.g., rising while price is consolidating or pulling back).
+     - The divergence exceeds a threshold measured in ATR units (e.g., 1.5x ATR).
+   - Enter a short trade when:
+     - The upper Bollinger Band slope is flattening or declining.
+     - The MACD line shows bearish divergence (e.g., falling while price is rising or consolidating).
+     - The divergence exceeds a threshold measured in ATR units.
+
+3. **Exit Rules:**
+   - Exit long trades when:
+     - The upper Bollinger Band slope flattens or reverses.
+     - The MACD line crosses below the signal line.
+     - The price moves beyond a predefined ATR-based stop-loss or take-profit level.
+   - Exit short trades when:
+     - The upper Bollinger Band slope steepens.
+     - The MACD line crosses above the signal line.
+     - The price moves beyond a predefined ATR-based stop-loss or take-profit level.
+
+4. **Risk Management:**
+   - Use ATR to set dynamic stop-loss levels (e.g., 2x ATR from entry).
+   - Define position sizing based on account risk tolerance (e.g., 1-2% per trade).
+   - Avoid trading during low volatility periods (e.g., when ATR is below a threshold).
+
+5. **Required Indicators:**
+   - Bollinger Bands (20-period, 2 standard deviations).
+   - MACD (12, 26, 9 settings).
+   - ATR (14-period).
+
+This strategy is designed to capitalize on strong trends while managing risk through dynamic thresholds and divergence confirmation. It works best in trending markets and should be avoided during choppy or sideways conditions.

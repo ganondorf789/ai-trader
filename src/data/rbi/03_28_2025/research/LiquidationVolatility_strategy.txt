@@ -1,0 +1,36 @@
+STRATEGY_NAME: LiquidationVolatility  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Order Book Heatmap Analysis**: Identifies clustered liquidation zones where significant stop orders are likely to trigger.  
+2. **Bollinger Bandwidth Contraction**: Detects periods of low volatility (compression) before potential breakouts.  
+3. **Volume Surge Confirmation**: Ensures breakout validity by requiring a spike in trading volume.  
+
+**Entry Rules:**  
+1. **Setup Conditions**:  
+   - Bollinger Bandwidth must be in contraction (below a defined threshold, e.g., 20-period moving average of bandwidth).  
+   - Order book heatmap shows a dense cluster of liquidity (potential liquidation zone) near current price.  
+2. **Trigger**:  
+   - Price breaks above/below the liquidation zone with a surge in volume (e.g., volume > 1.5x the 20-period average).  
+   - Entry is executed in the direction of the breakout.  
+
+**Exit Rules:**  
+1. **Take Profit**:  
+   - Fixed risk-reward ratio (e.g., 2:1 or 3:1) based on the distance to the next liquidity cluster or a trailing stop.  
+2. **Stop Loss**:  
+   - Placed just beyond the opposite side of the liquidation zone (invalidating the breakout premise).  
+
+**Risk Management:**  
+1. Position size is calculated based on a fixed percentage of capital (e.g., 1-2% per trade).  
+2. Stop loss is mandatory and adjusted dynamically if new liquidation zones form.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20,2) with Bandwidth calculation.  
+2. **Order Book Heatmap** (real-time liquidity clustering visualization).  
+3. **Volume Indicator** (e.g., VWAP or raw volume with moving average).  
+
+**Unique Edge:**  
+This strategy combines market microstructure (liquidation zones) with volatility and volume dynamics, targeting high-probability breakouts where forced liquidations amplify price moves.  
+
+**Note**: Works best in high-liquidity markets (e.g., crypto, forex) during active trading hours. Backtest for optimal bandwidth thresholds and volume surge multipliers.

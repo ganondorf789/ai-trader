@@ -1,0 +1,29 @@
+STRATEGY_NAME: VortexSurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Uses VI+ (positive trend movement) and VI- (negative trend movement) crossovers to identify potential trend reversals.  
+2. **Average Directional Index (ADX):** Measures trend strength, ensuring trades are taken only in strong trends (ADX >25).  
+3. **Volume Confirmation:** Requires volume to be at least 20% above the average to validate the strength of the signal.  
+
+**Entry Rules:**  
+- **Long Entry:** VI+ crosses above VI- while ADX >25 and volume is 20% above the average.  
+- **Short Entry:** VI- crosses above VI+ while ADX >25 and volume is 20% above the average.  
+
+**Exit Rules:**  
+- **Exit Long/Short:** ADX drops below 20, indicating weakening trend strength.  
+- **Optional Stop-Loss:** ATR-based stop-loss (e.g., 2x ATR) can be added for additional risk management.  
+
+**Risk Management:**  
+- Only trade when all three conditions (VI crossover, ADX >25, volume surge) are met to filter false signals.  
+- Position sizing should align with volatility (e.g., using ATR to adjust trade size).  
+- Avoid trading during low-volume or choppy market conditions (ADX <20).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+ and VI-)  
+2. Average Directional Index (ADX)  
+3. Volume (compared to its moving average, e.g., 20-period MA)  
+4. Optional: Average True Range (ATR) for dynamic stop-loss placement.  
+
+**Unique Edge:**  
+The combination of VI crossovers, ADX trend strength, and volume confirmation creates a high-probability setup for strong trending moves while avoiding weak or false breakouts. The name "VortexSurge" reflects the synergy between the Vortex Indicator and the surge in volume/trend strength.

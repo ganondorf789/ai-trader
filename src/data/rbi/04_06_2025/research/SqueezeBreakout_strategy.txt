@@ -1,0 +1,31 @@
+STRATEGY_NAME: SqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Consolidation Identification:** Uses narrowing Keltner Channels (KC) to detect price compression, signaling potential breakout opportunities.  
+2. **Volume Confirmation:** Requires declining volume during the consolidation phase, indicating reduced participation before a breakout.  
+3. **Breakout Trigger:** Enters on a close outside the Keltner Channel, confirming the breakout.  
+4. **TICK Index Surge:** Adds confirmation via a spike in the TICK index (NYSE breadth indicator), validating broad market participation in the breakout direction.  
+
+**Entry Rules:**  
+1. **Setup:** Wait for Keltner Channels to narrow significantly (e.g., channel width below a 20-period average) with declining volume.  
+2. **Trigger:** Enter long on a close above the upper KC or short on a close below the lower KC.  
+3. **Confirmation:** Require a simultaneous surge in the TICK index (e.g., > +500 for longs or < -500 for shorts) to confirm market-wide momentum.  
+
+**Exit Rules:**  
+1. **Profit Target:** Use a multiple of the KC width (e.g., 1.5x the channel width at breakout) or a fixed risk-reward ratio (e.g., 2:1).  
+2. **Stop Loss:** Place stops inside the KC (e.g., mid-channel or opposite band) or below the recent swing low/high.  
+3. **Time Exit:** Exit if the trade doesn’t follow through within 2-3 bars to avoid false breakouts.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk 1-2% of capital per trade, adjusting stop distance accordingly.  
+2. **Filter:** Avoid trading during low-volume periods (e.g., holidays) or ahead of major news events.  
+3. **Diversification:** Limit correlated assets to prevent overexposure to a single breakout pattern.  
+
+**Required Indicators:**  
+1. **Keltner Channels (KC):** Default settings (20-period EMA, 2x ATR band width).  
+2. **Volume:** Confirming downtrend during consolidation.  
+3. **TICK Index:** Real-time NYSE breadth data for confirmation.  
+
+**Unique Edge:** Combines price compression (KC squeeze), volume dynamics, and market breadth (TICK) to filter high-probability breakouts with reduced false signals.

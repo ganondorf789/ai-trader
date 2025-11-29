@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolumetricBollinger
+
+STRATEGY_DETAILS:
+The VolumetricBollinger strategy is a unique approach that combines Bollinger Bands analysis with precise volume conditions to identify high-probability trading opportunities. This strategy focuses on low volatility periods with unusually high trading volume, creating a setup for potential breakout or reversal trades.
+
+Key Components:
+1. Bollinger Bands Width: Monitors the volatility of the asset by tracking the distance between the upper and lower bands
+2. Volume Analysis: Requires exact doubling of the average daily trading volume
+3. Position Sizing: Initiates a 50% long position to maintain risk control
+4. Time Constraint: Executes trades only within a specific 30-minute window
+
+Entry Rules:
+1. Wait for Bollinger Bands width to contract below 2 standard deviations
+2. Confirm that current trading volume is exactly 200% of the average daily volume
+3. Enter a 50% long position within the next 30 minutes of these conditions being met
+
+Exit Rules:
+1. Set stop-loss at 20% above the entry price
+2. Set take-profit at 10% below the entry price
+3. Exit the position if either target is hit
+
+Risk Management:
+1. Position sizing limited to 50% of available capital
+2. Stop-loss placement at 20% above entry price
+3. Risk-reward ratio of 2:1 (20% stop-loss vs 10% take-profit)
+4. Strict volume condition filters out low-probability trades
+
+Required Indicators:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Volume indicator (to calculate average daily volume)
+3. Real-time volume tracker (to confirm exact 200% volume condition)
+
+Additional Considerations:
+1. Backtest the strategy to confirm the effectiveness of the exact 200% volume condition
+2. Consider implementing a time-based exit if neither target is hit within a specific period
+3. Monitor for potential slippage due to the precise volume requirement
+4. Adjust position sizing based on account size and risk tolerance
+
+This strategy is particularly suited for traders who prefer precise, rule-based systems with clear entry and exit criteria. The combination of low volatility (Bollinger Bands width) and high volume creates a unique setup that could indicate potential price movements. However, the exact volume requirement may limit trading opportunities, making this a potentially low-frequency but high-conviction strategy.

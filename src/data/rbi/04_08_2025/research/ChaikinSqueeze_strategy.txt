@@ -1,0 +1,29 @@
+STRATEGY_NAME: ChaikinSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Chaikin Oscillator Divergence:** Detects bullish/bearish divergence between price and money flow momentum.  
+2. **Bollinger Band Width Contraction:** Identifies low-volatility accumulation phases ("the squeeze").  
+3. **Volume-Confirmed Breakout:** Requires above-average volume to validate exits.  
+
+**Entry Rules (Long Example):**  
+- **Prerequisite:** Bollinger Band width (BBW) below its 20-period average (low volatility).  
+- **Signal:** Bullish Chaikin divergence (price makes lower low, oscillator makes higher low).  
+- **Confirmation:** Price closes inside Bollinger Bands (not a breakout yet).  
+
+**Exit Rules:**  
+- **Take Profit:** Price closes outside Bollinger Bands WITH volume > 20-period average.  
+- **Stop Loss:** Recent swing low (for longs) or trailing 2x ATR below entry.  
+
+**Risk Management:**  
+- Position size capped at 2% account risk per trade.  
+- No entries if BBW > average (avoid high volatility).  
+- Filter: Only trade if ADX(14) < 25 (no strong trend).  
+
+**Required Indicators:**  
+1. Chaikin Oscillator (3,10 EMA difference of Accum/Dist).  
+2. Bollinger Bands (20,2) + BBW calculation.  
+3. Volume MA (20-period).  
+4. ADX (14-period) for trend filter.  
+
+**Unique Edge:** Combines "smart money" flow (Chaikin) with volatility cycles, avoiding false breakouts via volume confirmation. Works best on 4H/daily charts for swing trades.

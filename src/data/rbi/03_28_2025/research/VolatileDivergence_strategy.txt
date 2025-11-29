@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatileDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **RSI Bullish Divergence (3-day):** Identifies potential trend reversals when price makes a lower low while RSI makes a higher low.  
+2. **ATR Expansion (5-day vs. 20-day):** Confirms volatility breakout by requiring the 5-day ATR to exceed twice its 20-day average.  
+3. **Exit Signal (10-day SMA Crossover):** Closes the trade when price crosses below the 10-day SMA, indicating weakening momentum.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when:  
+  - **RSI Divergence:** A 3-day RSI bullish divergence forms (price lower low, RSI higher low).  
+  - **ATR Confirmation:** The 5-day ATR is > 2x its 20-day average.  
+
+**Exit Rules:**  
+- **Exit Long:** When price closes below the 10-day SMA.  
+
+**Risk Management:**  
+- **Stop-Loss:** Consider a trailing stop based on recent swing lows or a fixed percentage (e.g., 2-3x ATR).  
+- **Position Sizing:** Adjust trade size based on volatility (e.g., using ATR to normalize risk per trade).  
+
+**Required Indicators:**  
+1. **RSI (3-day):** For divergence detection.  
+2. **ATR (5-day & 20-day):** For volatility confirmation.  
+3. **SMA (10-day):** For exit signal.  
+
+**Unique Aspects:**  
+- Combines **divergence reversal signals** with **volatility expansion** for high-probability entries.  
+- Uses **SMA crossover** for dynamic exits, avoiding fixed profit targets.  
+- Ideal for **swing trading** in volatile markets where momentum shifts are abrupt.  
+
+**Note:** Backtest to optimize ATR multiplier (e.g., 1.5x–2.5x) and SMA period (e.g., 8–12 days) for different assets.

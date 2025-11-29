@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolatilitySqueezeDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection**: The strategy identifies periods of low volatility where Bollinger Bands contract significantly, signaling potential breakout opportunities.  
+2. **VWAP Divergence Confirmation**: The strategy requires divergence between the current price and the Volume-Weighted Average Price (VWAP) to confirm the squeeze signal.  
+3. **Historical Volatility Percentiles**: The divergence must exceed predefined historical volatility percentiles to ensure the signal is statistically significant.  
+4. **Volume-Weighted Momentum Flips**: Exits are triggered when momentum, weighted by volume, reverses direction, indicating a potential trend exhaustion.  
+
+**Entry Rules:**  
+1. **Bollinger Band Squeeze**: Wait for the Bollinger Bands to contract to a predefined threshold (e.g., bandwidth below the 20th percentile of historical values).  
+2. **VWAP Divergence**: Confirm the squeeze with a divergence between price and VWAP (e.g., price making higher highs while VWAP makes lower highs, or vice versa).  
+3. **Volatility Filter**: Ensure the divergence exceeds a historical volatility percentile (e.g., 80th percentile) to filter out weak signals.  
+4. **Entry Trigger**: Enter long if the squeeze and divergence occur in an uptrend (price above VWAP) or short in a downtrend (price below VWAP).  
+
+**Exit Rules:**  
+1. **Reverse Volume-Weighted Momentum Flip**: Exit the trade when the volume-weighted momentum (e.g., a smoothed volume-weighted RSI or MACD) flips direction (e.g., crosses below a threshold for longs or above for shorts).  
+2. **Trailing Stop**: Optionally, use a trailing stop based on recent volatility (e.g., ATR-based) to protect profits.  
+
+**Risk Management:**  
+1. **Position Sizing**: Use a fixed percentage of capital per trade (e.g., 1-2%) to manage risk.  
+2. **Stop-Loss**: Place a stop-loss at a recent swing low/high or a multiple of the ATR (e.g., 1.5x ATR) from the entry point.  
+3. **Volatility Adjustment**: Reduce position size or avoid trades during extremely high volatility (e.g., when historical volatility exceeds the 90th percentile).  
+
+**Required Indicators:**  
+1. **Bollinger Bands**: To detect squeezes (standard settings: 20-period SMA, 2 standard deviations).  
+2. **VWAP**: To confirm divergence (calculated using typical volume-weighted methods).  
+3. **Historical Volatility Percentiles**: To filter signals (e.g., using rolling standard deviation or ATR).  
+4. **Volume-Weighted Momentum Oscillator**: For exits (e.g., volume-weighted RSI or MACD with volume as a multiplier).  
+
+**Unique Aspects:**  
+- Combines Bollinger Band squeezes with VWAP divergence, adding a volume-confirmed layer to volatility signals.  
+- Uses historical volatility percentiles to ensure only high-probability setups are traded.  
+- Exits are based on volume-weighted momentum, which accounts for both price and volume shifts, reducing false exits.  
+
+This strategy is ideal for traders looking to capitalize on low-volatility breakouts with high-probability confirmation from volume and volatility metrics.

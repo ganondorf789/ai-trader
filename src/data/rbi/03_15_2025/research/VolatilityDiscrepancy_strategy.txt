@@ -1,0 +1,30 @@
+STRATEGY_NAME: VolatilityDiscrepancy
+
+STRATEGY_DETAILS:
+The VolatilityDiscrepancy strategy focuses on identifying and trading extreme price discrepancies by combining momentum oscillators and volatility measures. This approach aims to capitalize on overextended price movements and reversals, leveraging the interplay between momentum and volatility.
+
+### Key Strategy Components:
+1. **Momentum Oscillators**: Use indicators like RSI (Relative Strength Index) or Stochastic Oscillator to identify overbought or oversold conditions.
+2. **Volatility Measures**: Incorporate indicators such as ATR (Average True Range) or Bollinger Bands to assess market volatility and identify extreme price levels.
+3. **Price Discrepancy Detection**: Look for significant deviations from the mean or typical price range, signaling potential reversals or corrections.
+
+### Entry Rules:
+1. **Overbought/Oversold Conditions**: Enter a short position when the momentum oscillator (e.g., RSI) indicates overbought conditions (e.g., RSI > 70) and volatility is high (e.g., ATR above its average). Conversely, enter a long position when the oscillator indicates oversold conditions (e.g., RSI < 30) and volatility is elevated.
+2. **Price Deviation**: Confirm the entry with a significant price deviation from the mean (e.g., price touching the upper Bollinger Band for a short entry or the lower Bollinger Band for a long entry).
+
+### Exit Rules:
+1. **Momentum Reversal**: Exit the position when the momentum oscillator shows signs of reversal (e.g., RSI crossing back below 70 for a short position or above 30 for a long position).
+2. **Volatility Contraction**: Exit if volatility contracts significantly (e.g., ATR drops below its average), indicating a potential loss of momentum.
+3. **Profit Target**: Set a profit target based on a multiple of the ATR (e.g., 1.5x ATR) to lock in gains from the price discrepancy.
+
+### Risk Management:
+1. **Stop-Loss Placement**: Place a stop-loss order at a level that accounts for the current volatility (e.g., 1x ATR from the entry price).
+2. **Position Sizing**: Adjust position size based on the volatility measure to ensure consistent risk exposure (e.g., smaller positions during high volatility and larger positions during low volatility).
+3. **Risk-Reward Ratio**: Aim for a minimum risk-reward ratio of 1:2 to ensure profitable trades outweigh losing ones.
+
+### Required Indicators:
+1. **RSI (Relative Strength Index)**: To identify overbought and oversold conditions.
+2. **ATR (Average True Range)**: To measure volatility and set stop-loss levels.
+3. **Bollinger Bands**: To identify price deviations from the mean and potential reversal points.
+
+By combining momentum oscillators and volatility measures, the VolatilityDiscrepancy strategy provides a systematic approach to trading extreme price discrepancies, ensuring robust risk management and clear entry/exit rules.

@@ -1,0 +1,39 @@
+STRATEGY_NAME: VolCompressSpike
+
+STRATEGY_DETAILS:
+This strategy capitalizes on periods of extreme volatility compression followed by high-volume breakouts, combining Bollinger Band analysis with volume confirmation for precise entries and exits.
+
+Key Components:
+1. Volatility Measurement: Uses Bollinger Band width to identify compression periods (6-month percentile lows)
+2. Volume Confirmation: Requires 200% spike above 30-day average volume
+3. Breakout Threshold: 1.5 standard deviations for exits
+4. Risk Management: Stop-loss at compression range midpoint
+
+Entry Rules:
+1. Wait for Bollinger Band width to reach lowest 6th percentile (extreme compression)
+2. Confirm with volume spike >200% of 30-day average
+3. Enter long/short in direction of initial breakout candle
+
+Exit Rules:
+1. Take profit when price moves beyond 1.5 standard deviations from mean
+2. Stop-loss placed at midpoint of compression range
+3. Alternative exit if volume drops below 50% of 30-day average for 3 consecutive periods
+
+Risk Management:
+1. Position size calculated based on distance to stop-loss
+2. Maximum risk per trade: 1-2% of capital
+3. No new entries if 3 consecutive losing trades occur
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Bollinger Band Width indicator
+3. Volume (30-day average)
+4. Percentile ranking calculator (6-month lookback)
+
+Optimization Notes:
+1. Test different percentile thresholds (5th-10th)
+2. Experiment with volume spike multiples (150-250%)
+3. Adjust standard deviation exit targets (1.25-2.0)
+4. Consider adding RSI filter (e.g., no trades when RSI >70/<30)
+
+This strategy works best in ranging markets transitioning to trends, avoiding pure mean-reversion or strong trending environments. Requires daily monitoring for compression setups.

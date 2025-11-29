@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolatilityHammer
+
+STRATEGY_DETAILS:
+The VolatilityHammer strategy is a unique options trading approach that combines volatility analysis with candlestick pattern recognition to identify high-probability selling opportunities for put options at expiration. This strategy is specifically designed to capitalize on market conditions where fear is elevated (as indicated by the VIX) and potential reversals are signaled by price action.
+
+Key Strategy Components:
+1. VIX Analysis: The strategy uses the VIX (Volatility Index) as a sentiment indicator. A VIX above 20 suggests heightened market fear, which often leads to overpriced options premiums.
+2. Candlestick Pattern Recognition: The Hammer candlestick pattern is used as a potential reversal signal, indicating that sellers may be losing control after a downtrend.
+3. Options Expiration Timing: The strategy focuses on selling put options at expiration, taking advantage of time decay (theta) and the potential for rapid premium erosion.
+
+Entry Rules:
+1. Wait for the VIX to be above 20, indicating elevated market fear.
+2. Identify a Hammer candlestick pattern on the underlying asset's price chart:
+   - Small real body (either bullish or bearish)
+   - Long lower shadow (at least twice the length of the real body)
+   - Little or no upper shadow
+   - Occurs after a downtrend
+3. Sell at-the-money (ATM) or slightly out-of-the-money (OTM) put options with expiration on the same day.
+
+Exit Rules:
+1. If the underlying price remains above the strike price at expiration, the option expires worthless, and you keep the full premium.
+2. If the underlying price falls below the strike price at expiration, you may be assigned the shares at the strike price.
+
+Risk Management:
+1. Position sizing: Limit each trade to a small percentage of your total portfolio (e.g., 1-2%).
+2. Use stop-loss orders on the underlying asset to limit potential losses if the trade goes against you.
+3. Consider buying a further OTM put option as a hedge, creating a credit spread to limit maximum loss.
+4. Avoid using this strategy on highly volatile or earnings-related stocks.
+
+Required Indicators:
+1. VIX (Volatility Index)
+2. Candlestick chart with Hammer pattern recognition
+3. Options chain for the underlying asset
+
+Additional Considerations:
+- This strategy works best in markets with elevated fear but potential for stabilization.
+- The Hammer pattern should be confirmed by other technical indicators or volume analysis for higher probability setups.
+- Be cautious of using this strategy during major market events or economic releases that could cause sudden volatility spikes.
+
+Remember that options trading involves significant risk and is not suitable for all investors. Always paper trade and thoroughly backtest any strategy before implementing it with real capital.

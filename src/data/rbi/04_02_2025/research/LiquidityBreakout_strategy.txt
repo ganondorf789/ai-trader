@@ -1,0 +1,41 @@
+STRATEGY_NAME: LiquidityBreakout
+
+STRATEGY_DETAILS:
+This strategy combines order book liquidity analysis with volatility filtering to identify high-probability breakout opportunities. The core concept revolves around trading in the direction of liquidity pools when price approaches clustered liquidation levels during favorable low-volatility conditions.
+
+Key Components:
+1. Liquidity Cluster Identification: Uses order book delta to detect significant liquidity clusters (potential liquidation levels)
+2. Volatility Filter: 4-hour ATR must be below its 30-day median to qualify as a low volatility environment
+3. Directional Bias: Trades only in the direction of the dominant liquidity pool
+4. Protective Stops: Places stops beyond the opposite liquidity cluster
+
+Entry Rules:
+1. Confirm low volatility condition (4H ATR < 30-day median ATR)
+2. Identify clustered liquidation levels via order book delta analysis
+3. Wait for price to approach a liquidity cluster (within 1-2% of level)
+4. Enter long if approaching lower cluster with upper cluster as target
+5. Enter short if approaching upper cluster with lower cluster as target
+
+Exit Rules:
+1. Take Profit: When price reaches opposite liquidity cluster
+2. Stop Loss: Placed just beyond the opposite liquidity cluster (1-2% beyond)
+3. Time Exit: Close position if no movement occurs within 24 hours
+
+Risk Management:
+1. Position sizing based on distance to stop (1-2% risk per trade)
+2. Maximum daily loss limit (e.g., 5% of capital)
+3. No trading during high-impact news events
+4. Stop moved to breakeven when price reaches 50% of target
+
+Required Indicators:
+1. Order Book Delta (for liquidity cluster identification)
+2. 4-hour ATR (for volatility filter)
+3. 30-day median ATR (as volatility benchmark)
+4. Price action confirmation (candlestick patterns at liquidity levels)
+
+Additional Notes:
+- Works best in ranging markets transitioning to trends
+- Requires reliable order book data feed
+- Most effective on liquid assets with clear liquidity pools
+- Backtest suggested timeframes: 15min-4H charts
+- Ideal for forex majors and large-cap crypto pairs

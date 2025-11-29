@@ -1,0 +1,38 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies periods of low volatility (contraction) when the Bollinger Band width falls below its 50-day average, signaling potential breakout opportunities.  
+2. **ADX Trend Strength:** Confirms breakout validity by requiring ADX to rise above 30, ensuring strong trend momentum.  
+3. **Parabolic SAR Trailing Stop:** Manages exits dynamically by trailing price movements, locking in profits while minimizing risk.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Bollinger Band width (BBW) < 50-day average of BBW (volatility contraction).  
+  - Price breaks *above* the upper Bollinger Band.  
+  - ADX rises above 30 (confirming strong trend strength).  
+- **Short Entry:**  
+  - Bollinger Band width (BBW) < 50-day average of BBW (volatility contraction).  
+  - Price breaks *below* the lower Bollinger Band.  
+  - ADX rises above 30 (confirming strong trend strength).  
+
+**Exit Rules:**  
+- **Trailing Stop:** Parabolic SAR flips to the opposite side of the trade (e.g., SAR moves above price in a long trade).  
+- **Emergency Stop:** Fixed stop-loss at 2x the average true range (ATR) from entry to limit downside risk.  
+
+**Risk Management:**  
+- Position sizing: Risk no more than 1-2% of capital per trade.  
+- Avoid entries if ADX is declining or below 25 (weak trend).  
+- Only trade breakouts after prolonged (>1 month) volatility contraction for higher reliability.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To identify squeeze conditions and breakout levels.  
+2. **ADX (14)** – To confirm trend strength.  
+3. **Parabolic SAR (0.02, 0.2)** – For trailing stop exits.  
+4. **ATR (14)** – For emergency stop-loss placement.  
+
+**Unique Edge:**  
+The *VoltaicSqueeze* strategy combines low-volatility breakouts (high-probability setups) with ADX trend validation, reducing false signals. Parabolic SAR ensures adaptive risk management, making it ideal for trending markets after consolidation phases.  
+
+**Note:** Backtest on daily/weekly charts for best results, as 1-month volatility contractions require longer timeframes.

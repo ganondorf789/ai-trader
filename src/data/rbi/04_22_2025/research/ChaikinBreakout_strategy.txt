@@ -1,0 +1,39 @@
+STRATEGY_NAME: ChaikinBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Breakout Trigger:** The strategy identifies breakouts when price crosses either the 20-day high (for long entries) or the 20-day low (for short entries).  
+2. **Confirmation Filter:** The Chaikin Money Flow (CMF) indicator must confirm the breakout with a 3-day streak in the same direction (positive streak for long entries, negative streak for short entries).  
+3. **Exit Condition:** Positions are closed when price reverts to the 5-day rolling mean, signaling a potential loss of momentum.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Price crosses above the 20-day high.  
+  - CMF has been positive for at least 3 consecutive days.  
+- **Short Entry:**  
+  - Price crosses below the 20-day low.  
+  - CMF has been negative for at least 3 consecutive days.  
+
+**Exit Rules:**  
+- **Long Exit:** Price crosses below the 5-day rolling mean.  
+- **Short Exit:** Price crosses above the 5-day rolling mean.  
+
+**Risk Management:**  
+- Use a stop-loss order at a fixed percentage (e.g., 2-3%) below the entry price for long positions or above the entry price for short positions.  
+- Adjust position sizing based on account risk tolerance (e.g., risking no more than 1-2% of capital per trade).  
+
+**Required Indicators:**  
+1. **20-day High/Low:** Track the highest and lowest prices over the past 20 days.  
+2. **Chaikin Money Flow (CMF):** A volume-weighted momentum indicator to confirm the strength of the breakout.  
+3. **5-day Rolling Mean:** A simple moving average of the closing prices over the past 5 days, used for exit signals.  
+
+**Additional Notes:**  
+- This strategy combines breakout momentum with volume confirmation (via CMF) to filter false breakouts.  
+- The 5-day mean reversion exit ensures timely exits before potential reversals.  
+- Works best in trending markets; may underperform in choppy or range-bound conditions.  
+
+**Optimization Tips:**  
+- Test different CMF streak lengths (e.g., 2-4 days) for confirmation.  
+- Experiment with alternative exit conditions, such as a trailing stop or volatility-based stop.  
+- Consider adding a trend filter (e.g., 50-day SMA) to avoid counter-trend breakouts.

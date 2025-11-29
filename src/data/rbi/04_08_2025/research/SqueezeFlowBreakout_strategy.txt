@@ -1,0 +1,34 @@
+STRATEGY_NAME: SqueezeFlowBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies periods of low volatility where the bands contract, often preceding significant price movements.  
+2. **Chaikin Money Flow (CMF) Confirmation:** Uses the 15-minute CMF crossing above zero to validate bullish momentum during the squeeze.  
+3. **Measured Move Target:** The profit target is set at 1.5x the width of the Bollinger Band squeeze at the time of entry.  
+4. **Stop Loss Placement:** The stop loss is placed at the lower Bollinger Band to protect against false breakouts.  
+
+**Entry Rules:**  
+- Wait for a Bollinger Band squeeze (contraction of the bands to a predefined threshold, e.g., bands within 1.5% of each other).  
+- Confirm the 15-minute Chaikin Money Flow (CMF) crosses above zero, indicating bullish money flow.  
+- Enter a long position on the breakout candle closing above the upper Bollinger Band.  
+
+**Exit Rules:**  
+- **Profit Target:** Calculate the width of the Bollinger Band squeeze (distance between upper and lower bands at entry) and set the target at 1.5x this width above the entry price.  
+- **Stop Loss:** Place the stop loss at the lower Bollinger Band at the time of entry.  
+- **Optional Trailing Stop:** Consider moving the stop loss to breakeven or trailing it below recent swing lows once the trade reaches 1x the squeeze width in profit.  
+
+**Risk Management:**  
+- Position sizing should align with the distance between entry and stop loss to ensure risk per trade is limited (e.g., 1-2% of capital).  
+- Avoid trading during major news events or low liquidity periods to reduce false signals.  
+- Only trade when both conditions (squeeze + CMF crossover) align to increase the probability of success.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 standard deviations)** – To identify the squeeze and define entry/exit levels.  
+2. **Chaikin Money Flow (15-minute, 20-period)** – To confirm bullish money flow.  
+3. **Price Chart (15-minute timeframe recommended)** – For visual confirmation of the breakout.  
+
+**Notes:**  
+- This strategy works best in trending markets but may produce false signals in choppy or range-bound conditions.  
+- Backtest to optimize the squeeze threshold (e.g., band width percentage) and CMF period for your chosen asset.  
+- Combine with higher timeframe trend analysis (e.g., daily chart alignment) to filter higher-probability trades.

@@ -1,0 +1,67 @@
+STRATEGY_NAME: FibBandReversal
+
+STRATEGY_DETAILS:
+The FibBandReversal strategy combines Fibonacci retracement levels with Bollinger Bands to identify high-probability reversal zones and trade breakouts. The strategy leverages the confluence of these two technical tools to pinpoint precise entry points while using the VIX as a volatility-based exit signal.
+
+### Key Components:
+1. **Fibonacci Retracement Levels**: 
+   - Identify key retracement levels (38.2%, 50%, 61.8%) after a significant price move.
+   - These levels act as potential support or resistance zones.
+
+2. **Bollinger Bands**:
+   - Use a 20-period Bollinger Band with 2 standard deviations.
+   - The bands help identify overbought or oversold conditions and potential breakout points.
+
+3. **Volatility Index (VIX)**:
+   - Monitor VIX levels to gauge market sentiment and volatility.
+   - Use VIX as a trailing exit indicator to manage risk during high volatility.
+
+### Entry Rules:
+1. **Setup**:
+   - Draw Fibonacci retracement levels from the recent swing high to swing low (or vice versa).
+   - Wait for price to approach a key Fibonacci level (38.2%, 50%, or 61.8%).
+
+2. **Confirmation**:
+   - Look for price to touch or exceed the Bollinger Band (upper or lower) near the Fibonacci level.
+   - For a bullish reversal, price should break above the upper Bollinger Band near a Fibonacci support level.
+   - For a bearish reversal, price should break below the lower Bollinger Band near a Fibonacci resistance level.
+
+3. **Entry**:
+   - Enter a long position when price breaks above the upper Bollinger Band near a Fibonacci support level.
+   - Enter a short position when price breaks below the lower Bollinger Band near a Fibonacci resistance level.
+
+### Exit Rules:
+1. **Volatility-Based Exit**:
+   - Monitor the VIX for exit signals.
+   - If the VIX rises above a predefined threshold (e.g., 20), consider closing the trade to avoid excessive risk during high volatility.
+
+2. **Bollinger Band Exit**:
+   - Exit the trade if price re-enters the Bollinger Band, indicating a loss of momentum.
+
+3. **Fibonacci Exit**:
+   - Use the next Fibonacci level (e.g., 78.6% or 100%) as a profit target.
+
+### Risk Management:
+1. **Stop Loss**:
+   - Place a stop loss just below the Fibonacci support level for long trades or above the Fibonacci resistance level for short trades.
+   - Alternatively, use the opposite Bollinger Band as a stop-loss level.
+
+2. **Position Sizing**:
+   - Risk no more than 1-2% of the trading capital per trade.
+   - Adjust position size based on the distance between entry and stop-loss levels.
+
+3. **Volatility Filter**:
+   - Avoid entering trades if the VIX is already elevated (e.g., above 25), as this indicates high market uncertainty.
+
+### Required Indicators:
+1. **Fibonacci Retracement Tool**:
+   - Available on most trading platforms.
+
+2. **Bollinger Bands**:
+   - Standard settings: 20-period moving average with 2 standard deviations.
+
+3. **Volatility Index (VIX)**:
+   - Use the VIX index or a similar volatility measure.
+
+### Summary:
+The FibBandReversal strategy is designed to capitalize on high-probability reversal zones by combining Fibonacci retracement levels with Bollinger Bands. The VIX is used as a volatility filter to manage exits and avoid excessive risk during turbulent market conditions. This strategy is ideal for traders who prefer a systematic approach to identifying reversals and managing risk based on market volatility.

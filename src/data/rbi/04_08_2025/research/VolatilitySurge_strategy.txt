@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Breakout Focus:** The strategy capitalizes on significant volatility expansions by comparing short-term (5-minute) and daily ATR values.  
+2. **Bollinger Band Confirmation:** Uses the upper Bollinger Band as a price confirmation filter to validate breakout strength.  
+3. **Dynamic Trailing Stop:** Implements an adaptive exit mechanism based on 15-minute ATR to lock in profits during volatile moves.  
+
+**Entry Rules:**  
+- **Condition 1:** The 5-minute ATR must exceed **2x the daily ATR**, signaling an unusual volatility surge.  
+- **Condition 2:** Price must **close above the upper Bollinger Band** (20-period, 2 standard deviations) on the same 5-minute candle.  
+- **Action:** Enter a **long position** immediately upon meeting both conditions.  
+
+**Exit Rules:**  
+- **Trailing Stop:** Set at **1.5x the 15-minute ATR** from the highest price reached after entry. Adjusts dynamically with price movement.  
+- **Stop Placement:** Recalculated on each new candle to ensure optimal risk management during volatile phases.  
+
+**Risk Management:**  
+- **Position Sizing:** Allocate no more than 1-2% of capital per trade to mitigate volatility risks.  
+- **Stop Discipline:** Never override the trailing stop; exits are purely system-based.  
+- **Time Filter:** Avoid trading during low-liquidity periods (e.g., overnight sessions) to reduce false breakouts.  
+
+**Required Indicators:**  
+1. **ATR (Average True Range):**  
+   - 5-minute ATR (14-period) for entry trigger.  
+   - Daily ATR (14-period) for volatility benchmark.  
+   - 15-minute ATR (14-period) for trailing stop.  
+2. **Bollinger Bands (20-period, 2 StdDev):** Upper band acts as price confirmation.  
+
+**Unique Edge:**  
+- Combines **multi-timeframe volatility analysis** (5m/daily) with **price-channel confirmation** (Bollinger Bands) for high-probability breakouts.  
+- Adaptive trailing stop ensures optimal risk-reward during erratic price swings.  
+
+**Note:** Backtest for asset-specific volatility characteristics (e.g., crypto vs. forex) and adjust ATR multipliers if needed.

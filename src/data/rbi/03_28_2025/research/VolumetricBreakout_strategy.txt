@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolumetricBreakout
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines volatility breakout (Bollinger Bands) with volume confirmation
+- Uses RSI for exit timing
+- Requires simultaneous confirmation from price action and volume
+- Designed to capture strong momentum moves with volume validation
+
+2. Entry Rules:
+- Price must close ABOVE the upper Bollinger Band (20 period, 2 std dev)
+- Current volume must exceed the 90th percentile of recent volume (suggested lookback: 20-50 periods)
+- Both conditions must occur on the same candle
+- Only long positions are taken (no short side)
+
+3. Exit Rules:
+- Close position when RSI(14) crosses BELOW 70
+- Optional secondary exit: If price closes back inside Bollinger Bands before RSI exit triggers
+- No trailing stop required (RSI acts as momentum filter)
+
+4. Risk Management:
+- Recommended stop loss: Recent swing low or 1-2% below entry
+- Position sizing based on volatility (ATR-based sizing recommended)
+- Maximum risk per trade: 1-2% of capital
+- Avoid trading during low-volume periods or major news events
+
+5. Required Indicators:
+- Bollinger Bands (20 period, 2 standard deviations)
+- Volume indicator with percentile calculation (90th percentile threshold)
+- RSI (14 period)
+- Optional: ATR for position sizing
+
+6. Additional Notes:
+- Best suited for liquid assets with consistent volume patterns
+- Works well in trending markets, may produce false signals in ranging conditions
+- Suggested timeframe: 1-hour charts or higher for reliability
+- Volume percentile should be calculated dynamically based on recent market conditions
+- Consider filtering trades with overall market direction (e.g., only trade long when above 200MA)

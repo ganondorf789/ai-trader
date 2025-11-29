@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquiditySqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies periods of low volatility where price is consolidating within tightening Bollinger Bands (typically using a 20-period SMA with 2 standard deviations).  
+2. **On-Chain Liquidity Clusters:** Uses blockchain data to detect zones where large liquidity pools (buy/sell orders) are concentrated, acting as support/resistance.  
+3. **Volatility Expansion Confirmation:** Requires a breakout from the squeeze with strong volume or price momentum to confirm the trade direction.  
+
+**Entry Rules:**  
+1. Wait for Bollinger Bands to contract (squeeze) near a liquidity cluster zone (e.g., a high volume node or order book imbalance).  
+2. Enter long on a bullish breakout (price closes above upper band) or short on a bearish breakout (price closes below lower band).  
+3. Confirm with additional indicators like RSI (not overbought/sold) or volume spike to validate the breakout.  
+
+**Exit Rules:**  
+1. Take profit at the next opposing liquidity cluster (e.g., if long, exit near a sell-side liquidity zone).  
+2. Stop loss placed just beyond the opposite Bollinger Band or the nearest liquidity cluster invalidating the trade.  
+3. Trail stops if volatility continues to expand favorably.  
+
+**Risk Management:**  
+1. Position size limited to 1-2% of capital per trade.  
+2. Stop loss must be respected—no discretionary widening.  
+3. Avoid trading during low-liquidity periods (e.g., weekends, holidays) to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 StdDev).  
+2. On-chain liquidity data (e.g., order book heatmaps, volume profiles).  
+3. Volume indicator (to confirm breakout validity).  
+4. Optional: RSI (14-period) to filter overextended moves.  
+
+**Unique Edge:** Combines technical squeeze patterns with blockchain liquidity insights for high-probability, asymmetric risk/reward setups.

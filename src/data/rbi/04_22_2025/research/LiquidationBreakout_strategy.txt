@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Heatmap Clusters:** Identifies high-probability breakout zones by analyzing order book imbalances where liquidations are likely to occur.  
+2. **Volatility Contraction Pattern (Bollinger Band Width < 0.5*ATR):** Ensures entry occurs after a period of low volatility, increasing the likelihood of a strong breakout.  
+3. **Perpetual Funding Rate Divergence:** Confirms breakout validity by detecting shifts in market sentiment via funding rate spikes.  
+
+**Entry Rules:**  
+1. **Breakout Signal:** Price must exit a volatility contraction zone (Bollinger Band Width < 0.5*ATR).  
+2. **Liquidation Cluster Confirmation:** The breakout must align with a high-liquidation zone from the heatmap.  
+3. **Funding Rate Surge:** Perpetual funding rate must show a divergence (sudden spike or drop) to confirm strong directional bias.  
+
+**Exit Rules:**  
+1. **Take-Profit:** Set at 1.5x the average true range (ATR) of the breakout candle.  
+2. **Stop-Loss:** Placed below the recent swing low (for long) or above the swing high (for short) within the contraction zone.  
+3. **Funding Rate Reversal:** Exit if funding rate reverts to mean, indicating weakening momentum.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss Discipline:** Strict adherence to stop levels to prevent emotional exits.  
+3. **Trailing Stop:** Adjust stop to breakeven once price reaches 0.75x ATR profit.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (BB Width)** – To measure volatility contraction.  
+2. **Average True Range (ATR)** – For volatility-based entry and profit targets.  
+3. **Liquidation Heatmap** – To identify high-probability breakout zones.  
+4. **Perpetual Funding Rate** – To confirm breakout strength via sentiment shift.  
+
+This strategy combines order flow dynamics, volatility compression, and derivatives market sentiment for high-probability breakout trades.

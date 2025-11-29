@@ -1,0 +1,42 @@
+STRATEGY_NAME: SqueezeMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies periods of low volatility where price is consolidating, often preceding a breakout.  
+2. **Chande Momentum Oscillator (CMO):** Measures momentum strength; cross above/below its signal line indicates potential trend shifts.  
+3. **Volume Surge Confirmation:** Ensures breakout validity by requiring volume to exceed the 20-day average.  
+
+**Entry Rules:**  
+1. **Long Entry:** Triggered when:  
+   - Bollinger Bands are in a squeeze (bands narrow significantly).  
+   - CMO crosses *above* its signal line.  
+   - Volume exceeds the 20-day average.  
+   - Price breaks above the upper Bollinger Band.  
+
+2. **Short Entry:** Triggered when:  
+   - Bollinger Bands are in a squeeze.  
+   - CMO crosses *below* its signal line.  
+   - Volume exceeds the 20-day average.  
+   - Price breaks below the lower Bollinger Band.  
+
+**Exit Rules:**  
+1. **Take Profit:**  
+   - Close long positions when CMO crosses *below* its signal line or price closes back inside the Bollinger Bands.  
+   - Close short positions when CMO crosses *above* its signal line or price closes back inside the Bollinger Bands.  
+
+2. **Stop Loss:**  
+   - For longs: Place below the recent swing low or lower Bollinger Band.  
+   - For shorts: Place above the recent swing high or upper Bollinger Band.  
+
+**Risk Management:**  
+- Risk per trade: 1-2% of capital.  
+- Adjust position size based on stop-loss distance.  
+- Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 standard deviations).  
+2. **Chande Momentum Oscillator** (default 14-period).  
+3. **Volume** (20-day average for confirmation).  
+
+**Unique Edge:** Combines volatility contraction (squeeze), momentum confirmation (CMO), and volume surge to filter high-probability breakouts, reducing false signals.

@@ -1,0 +1,42 @@
+STRATEGY_NAME: VoltaicSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection:** Uses Bollinger Band Width (BBW) percentile to identify periods of low volatility.  
+2. **Volume Surge Confirmation:** Requires a significant increase in volume delta (buying/selling pressure) to validate the breakout.  
+3. **Dynamic Exit Points:** Exits are determined using opposing Keltner Channel bands to capture momentum shifts.  
+
+**Entry Rules:**  
+1. **BBW Percentile Threshold:** The Bollinger Band Width (BBW) must drop below its 10-day rolling percentile threshold (e.g., below the 20th percentile), indicating extreme contraction.  
+2. **Volume Delta Surge:** The volume delta (difference between buying and selling volume) must exceed its 10-day rolling average by a predefined multiple (e.g., 2x).  
+3. **Directional Bias:** Enter long if the price breaks above the upper Bollinger Band, or short if it breaks below the lower Bollinger Band.  
+
+**Exit Rules:**  
+1. **Keltner Channel Bands:**  
+   - For long positions, exit when the price touches or crosses the lower Keltner Channel band.  
+   - For short positions, exit when the price touches or crosses the upper Keltner Channel band.  
+2. **Time-Based Exit:** If no opposing Keltner Channel signal occurs, exit after a fixed holding period (e.g., 5 bars).  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place a stop-loss at the opposite Bollinger Band (for longs, below the lower band; for shorts, above the upper band).  
+2. **Position Sizing:** Use volatility-adjusted sizing (e.g., ATR-based) to limit risk per trade.  
+3. **Max Drawdown Cap:** Halt trading if account drawdown exceeds a set threshold (e.g., 5%).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – For BBW calculation and contraction detection.  
+2. **Volume Delta** – To measure buying/selling pressure surge.  
+3. **Keltner Channels (20,1.5)** – For dynamic exit signals.  
+4. **ATR (14)** – Optional for risk sizing.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (BBW) with volume confirmation for high-probability breakouts.  
+- Uses opposing Keltner Channels for exits, capturing momentum exhaustion.  
+- Avoids false breakouts by requiring both BBW and volume delta triggers.  
+
+**Optimization Notes:**  
+- Adjust BBW percentile threshold (e.g., 10th-30th) based on asset volatility.  
+- Tune volume delta multiplier (e.g., 1.5x-3x) to filter noise.  
+- Test different Keltner Channel settings for optimal exits.  
+
+This strategy excels in ranging markets with periodic volatility expansions, avoiding choppy price action via volume confirmation.

@@ -1,0 +1,51 @@
+STRATEGY_NAME: VolatilityAnchorVwap
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction, volume spikes, and anchored VWAP to identify high-probability breakout or mean-reversion opportunities. Here's the detailed breakdown:
+
+Key Components:
+1. Volatility Filter: Bollinger Bandwidth (20,2) must be below its 50th percentile over a 3-day period
+2. Volume Trigger: Sudden 200%+ increase in volume compared to 20-day average
+3. Anchored VWAP: Calculated from the volume spike candle as the anchor point
+
+Entry Rules:
+1. Breakout Entry:
+- When price breaks above the anchored VWAP with confirmation candle close
+- Only valid if breakout occurs within 3 candles of the volume spike
+- Volume on breakout should be at least 150% of 20-day average
+
+2. Mean-Reversion Entry:
+- When price pulls back to anchored VWAP after initial spike
+- Requires RSI(14) between 30-70 for confirmation
+- Must occur within 5 candles of the volume spike
+
+Exit Rules:
+1. For Breakout Trades:
+- Take profit at 1.5x average true range (ATR14) from entry
+- Stop loss at 0.75x ATR14 below anchored VWAP
+- Trail stop after 1x ATR profit is reached
+
+2. For Mean-Reversion Trades:
+- Take profit at 1x ATR14 from entry
+- Stop loss at 1.5x ATR14 beyond anchored VWAP
+- Close position if price doesn't reverse within 3 candles
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. No more than 3 concurrent positions
+3. Daily loss limit of 5% total capital
+4. Weekly drawdown limit of 10%
+
+Required Indicators:
+1. Bollinger Bands (20,2) for bandwidth calculation
+2. Volume 20-day moving average
+3. Anchored VWAP (from spike candle)
+4. RSI (14 periods)
+5. ATR (14 periods)
+
+Additional Notes:
+- Best suited for 15min-4hr timeframes
+- Works well with liquid stocks/forex pairs
+- Requires manual confirmation of volume spike quality
+- Avoid trading during major news events
+- Backtest suggested for optimal ATR multiples

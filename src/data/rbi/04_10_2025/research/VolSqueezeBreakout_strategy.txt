@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolSqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection:** Uses a 10-day Keltner Channel to identify periods of low volatility (squeeze).  
+2. **Volume Confirmation:** Requires a surge in trading volume exceeding 2x the 20-day average volume to validate the breakout signal.  
+3. **Exit Conditions:** Exits trades either when price reaches Bollinger Band extremes (indicating overextension) or when a 3% trailing stop is triggered.  
+
+**Entry Rules:**  
+- **Signal Generation:** Wait for the Keltner Channel width to contract significantly, indicating a volatility squeeze.  
+- **Volume Spike:** Confirm the breakout with a volume spike of at least twice the 20-day average volume.  
+- **Directional Bias:** Enter long if the breakout is above the Keltner Channel upper band; enter short if the breakout is below the lower band.  
+
+**Exit Rules:**  
+- **Profit-Taking:** Close the position when price touches the outer Bollinger Band (typically set to 2 standard deviations).  
+- **Stop-Loss:** Use a 3% trailing stop to protect profits and limit losses. Adjust the stop dynamically as the price moves in favor of the trade.  
+
+**Risk Management:**  
+- Position sizing should be based on the 3% trailing stop to ensure risk per trade is controlled (e.g., 1-2% of capital).  
+- Avoid trading during major news events or low-liquidity periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. **Keltner Channel (10-day):** To detect volatility contractions.  
+2. **Volume (20-day average):** To confirm breakout validity.  
+3. **Bollinger Bands (20-day, 2 Std Dev):** To identify overbought/oversold extremes for exits.  
+
+**Additional Notes:**  
+- Works best in trending markets; may produce false signals in choppy or range-bound conditions.  
+- Combine with higher timeframe analysis (e.g., daily/weekly trend) to filter trades.  
+- Backtest optimal parameters for the Keltner Channel (e.g., ATR multiplier) and Bollinger Band settings.

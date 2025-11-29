@@ -1,0 +1,36 @@
+STRATEGY_NAME: DivergentPowerSurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Stochastic Oscillator Divergence:** Identifies potential reversals when price makes a lower low but the Stochastic Oscillator makes a higher low (bullish divergence).  
+2. **Elder-Ray Index Bull Power Surge:** Confirms buying pressure when the Bull Power (close minus EMA low) shows a significant upward spike.  
+3. **Volume Confirmation:** Ensures validity of the signal with above-average trading volume.  
+4. **Keltner Channel Upper Band:** Acts as the exit trigger when price breaches this level, indicating overbought conditions.  
+
+**Entry Rules:**  
+- **Condition 1:** Bullish divergence on the Stochastic Oscillator (14,3,3 settings) in oversold territory (<20).  
+- **Condition 2:** Elder-Ray Bull Power surges upward, crossing above its recent average.  
+- **Condition 3:** Volume is higher than the 20-period moving average of volume.  
+- **Entry:** Long position triggered when all three conditions align.  
+
+**Exit Rules:**  
+- **Primary Exit:** Price closes above the Keltner Channel (20-period EMA, 2x ATR) upper band.  
+- **Secondary Exit (Stop Loss):** Place a stop below the most recent swing low or a fixed percentage (e.g., 2%).  
+
+**Risk Management:**  
+- Position sizing based on 1-2% risk per trade.  
+- Trailing stop can be applied using the Keltner Channel midline for partial exits.  
+- Avoid trading during low volatility (ATR below threshold).  
+
+**Required Indicators:**  
+1. Stochastic Oscillator (14,3,3)  
+2. Elder-Ray Index (13-period EMA for Bear/Bull Power)  
+3. Volume + 20-period Volume MA  
+4. Keltner Channel (20 EMA, 2x ATR)  
+
+**Unique Aspects:**  
+- Combines momentum (Stochastic), buying pressure (Elder-Ray), and volume for high-probability reversals.  
+- Uses Keltner Channel for dynamic profit-taking instead of fixed targets.  
+- Filters out weak signals with volume confirmation.  
+
+**Note:** Works best in ranging or moderately trending markets; avoid strong downtrends without divergence.

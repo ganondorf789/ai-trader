@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Order Book Imbalance Analysis:** Identifies clustered liquidation zones where high liquidity is concentrated, indicating potential breakout areas.  
+2. **Volume-Weighted Volatility Expansion:** Uses volume-adjusted volatility to confirm breakout strength, filtering false moves.  
+3. **Dynamic Support/Resistance Flips:** Adjusts exit points based on real-time shifts in key price levels.  
+
+**Entry Rules:**  
+- **Liquidation Zone Detection:** Monitor order book depth for high liquidity clusters (e.g., large bid/ask stacks) that suggest stop-loss concentrations.  
+- **Volatility Trigger:** Enter long/short when price breaks the liquidation zone with:  
+  - Volume-weighted volatility (e.g., standard deviation of price changes scaled by volume) expanding above a threshold (e.g., 1.5x the 20-period average).  
+  - Confirmation from a surge in trade volume (e.g., > 2x the 10-period median).  
+
+**Exit Rules:**  
+- **Dynamic S/R Flip:** Exit when price closes beyond the opposite side of the breakout zone (e.g., for a long, exit if price closes below the nearest prior support level).  
+- **Trailing Stop:** Adjust stop-loss to breakeven once price moves 1.5x the average true range (ATR) in profit.  
+
+**Risk Management:**  
+- Position sizing: Risk ≤ 1% of capital per trade.  
+- Initial stop-loss: Place at the midpoint of the liquidation zone or 1x ATR from entry, whichever is tighter.  
+- Avoid trading during low-liquidity periods (e.g., weekends, pre-market).  
+
+**Required Indicators:**  
+1. Order book depth (liquidation zone mapping).  
+2. Volume-weighted volatility (custom calculation).  
+3. Average true range (ATR) for stop placement.  
+4. Volume surge detector (e.g., rolling Z-score of volume).  
+
+**Unique Edge:** Combines liquidation hunting behavior with quantifiable volatility expansion, reducing false breakouts common in traditional methods.

@@ -1,0 +1,41 @@
+STRATEGY_NAME: LiquidityBandReversion
+
+STRATEGY_DETAILS:
+This strategy combines order book liquidity analysis with volatility-based mean reversion, creating a unique approach to identify high-probability reversal points in the market.
+
+Key Components:
+1. Order Book Delta Clustering - Identifies significant liquidity zones by analyzing order book imbalances and volume concentrations
+2. Bollinger Bandwidth Threshold - Measures volatility contraction to identify potential breakout/reversal points
+3. Liquidity Zone Boundaries - Uses detected clusters as dynamic support/resistance levels
+
+Entry Rules:
+1. Wait for Bollinger Bandwidth to contract below a defined threshold (suggested: 20-period BB with 2 std dev, bandwidth < 0.5)
+2. Price must touch or approach a detected liquidity cluster boundary (within 0.5% of cluster edge)
+3. Confirm with RSI (14-period) not in extreme territory (between 30-70 preferred)
+4. Enter long when touching lower liquidity cluster with volatility contraction
+5. Enter short when touching upper liquidity cluster with volatility contraction
+
+Exit Rules:
+1. Primary exit at opposing liquidity cluster (if detected)
+2. Secondary exit at 1:1.5 risk-reward ratio from entry
+3. Emergency exit if Bollinger Bandwidth expands beyond entry threshold + 20%
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop loss placed just beyond the liquidity cluster boundary (typically 0.8-1.2% beyond entry)
+3. Maximum daily loss limit of 5% of capital
+4. Avoid trading during major news events when liquidity clusters may shift rapidly
+
+Required Indicators:
+1. Order Book Delta Clustering algorithm (custom implementation)
+2. Bollinger Bands (20,2) with Bandwidth calculation
+3. RSI (14-period)
+4. Volume Profile (for cluster confirmation)
+
+Optimization Notes:
+1. Test different bandwidth thresholds (0.3-0.7 range)
+2. Experiment with cluster boundary sensitivity (0.3-1.0% from edge)
+3. Adjust RSI filters based on asset volatility
+4. Consider time-of-day effects on liquidity cluster reliability
+
+This strategy excels in ranging markets with clear liquidity zones, and requires careful monitoring of order book dynamics. Backtesting should focus on assets with sufficient liquidity depth for reliable cluster detection.

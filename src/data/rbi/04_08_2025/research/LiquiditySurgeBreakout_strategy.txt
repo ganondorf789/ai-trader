@@ -1,0 +1,49 @@
+STRATEGY_NAME: LiquiditySurgeBreakout
+
+STRATEGY_DETAILS:
+This strategy focuses on identifying high-probability breakout opportunities from clustered liquidation zones using a combination of order book analysis, volume surges, and momentum confirmation. Here's the detailed breakdown:
+
+Key Components:
+1. Liquidation Zone Detection:
+   - Monitor order book delta imbalances to identify clustered liquidation levels
+   - These zones represent high-concentration areas where stop losses cluster
+
+2. Confirmation Signals:
+   - Requires 3x surge in trading volume compared to recent average
+   - MACD histogram must show reversal pattern (slope change from negative to positive)
+
+Entry Rules:
+1. Wait for price to approach identified liquidation zone
+2. Confirm breakout when:
+   - Price breaks through zone with closing confirmation
+   - Volume surges to 3x recent average
+   - MACD histogram shows bullish reversal
+3. Enter on retest of broken level or immediate breakout continuation
+
+Exit Rules:
+1. Profit Targets:
+   - Primary target: Next identified liquidity pool level
+   - Secondary target: 1.5x risk (measured from entry to stop loss)
+2. Stop Loss:
+   - Place below recent swing low (for long) or above swing high (for short)
+   - Alternative: Below the liquidation zone for longs, above for shorts
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Risk-reward ratio minimum 1:1.5
+3. Avoid trading during low liquidity periods
+4. Maximum daily loss limit of 5% of capital
+
+Required Indicators:
+1. Order Book Delta Imbalance indicator
+2. Volume indicator (with average calculation)
+3. MACD with histogram (standard settings: 12,26,9)
+4. Liquidity pool identification tool
+
+Additional Notes:
+- Best suited for liquid assets with significant order book depth
+- Higher timeframe (1H+) provides more reliable signals
+- Works particularly well during high volatility periods
+- Requires constant monitoring of order book dynamics
+
+This strategy combines the predictive power of liquidity analysis with technical confirmation, creating a robust framework for trading breakouts from key liquidation zones. The volume surge requirement helps filter false breakouts, while the MACD confirmation adds momentum validation to the setup.

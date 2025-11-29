@@ -1,0 +1,39 @@
+STRATEGY_NAME: DeltaBand Convergence
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines volume-weighted price action with volatility contraction
+- Uses Bollinger Bandwidth contraction as a volatility filter
+- Requires volume confirmation through delta volume spikes
+- Focuses on high-probability breakout scenarios
+
+2. Entry Rules:
+- Wait for 50-period VWAP to converge with price (price within 0.5% of VWAP)
+- Bollinger Bandwidth must be narrowing (20-period BB width decreasing for 3 consecutive periods)
+- Delta volume must spike to at least 2x the 10-day median delta volume
+- Enter long on breakout above upper Bollinger Band or short below lower band
+
+3. Exit Rules:
+- Take profit at 1.5x the Bollinger Band width from entry point
+- Stop loss placed at opposite Bollinger Band
+- Exit if delta volume drops below 0.5x the 10-day median for 2 consecutive periods
+- Close position if Bollinger Bandwidth expands beyond entry level by 25%
+
+4. Risk Management:
+- Position size limited to 1-2% of capital per trade
+- Maximum daily loss limit of 5%
+- No new entries if 3 consecutive losing trades occur
+- Avoid trading during first/last 30 minutes of session
+
+5. Required Indicators:
+- 50-period Volume Weighted Average Price (VWAP)
+- 20-period Bollinger Bands (2 standard deviations)
+- Bollinger Bandwidth (BB width) indicator
+- Delta volume (buy volume - sell volume)
+- 10-day median delta volume reference line
+
+6. Additional Notes:
+- Best suited for liquid assets with consistent volume patterns
+- Works well in ranging markets transitioning to trends
+- Requires monitoring of volume dynamics throughout trade
+- Most effective on 15m-1h timeframes for day trading

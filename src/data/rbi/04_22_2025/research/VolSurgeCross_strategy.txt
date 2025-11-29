@@ -1,0 +1,25 @@
+STRATEGY_NAME: VolSurgeCross  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Crossover:** Uses the relationship between 5-day and 20-day Historical Volatility (HV) to identify potential trend shifts.  
+2. **Volume Surge Filter:** Requires volume to exceed 1.5x its 50-day average to confirm entries, ensuring participation.  
+3. **Volatility-Based Exit:** Exits trades when 3-day volatility spikes above the 90th percentile, capturing extreme moves.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when 5-day HV crosses *below* 20-day HV (signaling potential stabilization/uptrend) **AND** volume > 1.5x 50-day average volume.  
+- **Short Entry:** Triggered when 5-day HV crosses *above* 20-day HV (signaling potential acceleration/downtrend) **AND** volume > 1.5x 50-day average volume.  
+
+**Exit Rules:**  
+- Close position if the 3-day HV exceeds the 90th percentile of its historical range (predefined threshold), indicating excessive volatility and potential reversal/stop-run.  
+
+**Risk Management:**  
+- **Stop-Loss:** Optional trailing stop based on 2x the 5-day HV to account for volatility expansion.  
+- **Position Sizing:** Allocate capital based on the 20-day HV (higher volatility = smaller position).  
+
+**Required Indicators:**  
+1. **Historical Volatility (5-day and 20-day)**  
+2. **Volume (50-day average)**  
+3. **90th Percentile Volatility Threshold** (calculated from historical 3-day HV data).  
+
+**Unique Edge:** Combines volatility regime shifts with volume confirmation, targeting low-volatility entries and exiting before extreme volatility spikes. Suitable for mean-reverting or breakout strategies depending on asset behavior.

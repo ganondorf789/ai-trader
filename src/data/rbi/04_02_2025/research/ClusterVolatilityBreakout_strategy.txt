@@ -1,0 +1,41 @@
+STRATEGY_NAME: ClusterVolatilityBreakout
+
+STRATEGY_DETAILS:
+This strategy combines on-chain liquidation data with technical indicators to identify high-probability breakout opportunities from key liquidity zones. The core concept revolves around detecting dense stop-loss clusters (liquidation zones) where price movements may accelerate due to forced liquidations, while volatility contraction signals potential explosive moves.
+
+Key Components:
+1. On-Chain Liquidation Data: Identifies price levels with high concentration of stop-loss orders (liquidation clusters)
+2. Bollinger Bandwidth: Measures volatility contraction (threshold <1%)
+3. Volume Confirmation: Validates breakout authenticity
+
+Entry Rules:
+1. Identify liquidation cluster zones from on-chain data (typically 1-2% above/below current price)
+2. Wait for price to test the liquidation zone
+3. Confirm Bollinger Bandwidth <1% (20-period, 2 std dev)
+4. Enter long if price breaks above cluster with increasing volume
+5. Enter short if price breaks below cluster with increasing volume
+
+Exit Rules:
+1. Take profit at 1.5x the average true range (ATR) from entry
+2. Stop loss placed at opposite side of the liquidation cluster
+3. Emergency exit if bandwidth expands beyond 3% without directional move
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop loss always placed (never trade without)
+3. No trades during major news events (avoid false breakouts)
+4. Daily loss limit of 5% (stops trading if hit)
+
+Required Indicators:
+1. On-chain liquidation heatmap (external data source)
+2. Bollinger Bands (20-period, 2 std dev) with bandwidth calculation
+3. Volume indicator (preferably with MA comparison)
+4. Average True Range (14-period for target calculation)
+
+Optimization Notes:
+- Best suited for 4H-1D timeframes on liquid assets
+- Works particularly well on crypto derivatives (BTC, ETH perpetuals)
+- Requires clean on-chain data feed for liquidation clusters
+- Bandwidth threshold may need adjustment for different assets
+
+This strategy capitalizes on the market mechanics where liquidity clusters become both magnets (attracting price) and accelerators (when broken) while volatility contraction increases the likelihood of a sustained breakout. The combination of on-chain data with technical filters creates a robust edge in detecting high-probability breakout scenarios.

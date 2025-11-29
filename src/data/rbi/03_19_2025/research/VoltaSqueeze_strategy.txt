@@ -1,0 +1,47 @@
+STRATEGY_NAME: VoltaSqueeze
+
+STRATEGY_DETAILS:
+
+The VoltaSqueeze strategy is a volatility-based trading approach that capitalizes on periods of low volatility followed by potential breakouts. It combines Bollinger Bands and volume analysis to identify high-probability entry and exit points. Here's a detailed breakdown of the strategy:
+
+1. **Key Strategy Components**:
+   - Bollinger Bands (20-period, 2 standard deviations)
+   - Volume analysis (20-day average volume)
+   - Volatility squeeze detection (narrowest Bollinger Band width in 30 days)
+
+2. **Entry Rules**:
+   - Wait for Bollinger Bands to contract to their narrowest width in the last 30 days, indicating a volatility squeeze.
+   - Enter a long position when:
+     - Price breaks above the upper Bollinger Band
+     - Volume on the breakout candle exceeds the 20-day average volume
+   - Enter a short position when:
+     - Price breaks below the lower Bollinger Band
+     - Volume on the breakout candle exceeds the 20-day average volume
+
+3. **Exit Rules**:
+   - For long positions:
+     - Exit when price closes back inside the Bollinger Bands
+     - Or when price touches the opposite (lower) Bollinger Band
+   - For short positions:
+     - Exit when price closes back inside the Bollinger Bands
+     - Or when price touches the opposite (upper) Bollinger Band
+
+4. **Risk Management**:
+   - Set stop-loss at 1.5 times the average true range (ATR) from entry point
+   - Position size should be calculated based on 1% risk per trade
+   - Maximum daily loss limit of 3% of account equity
+   - Use trailing stops to lock in profits during strong trends
+
+5. **Required Indicators**:
+   - Bollinger Bands (20,2)
+   - Volume indicator with 20-day average
+   - Average True Range (ATR) for stop-loss calculation
+   - Custom script to detect narrowest Bollinger Band width in 30 days
+
+6. **Additional Considerations**:
+   - Best applied on liquid assets with consistent volatility patterns
+   - Works well on daily and 4-hour timeframes
+   - Combine with fundamental analysis for higher probability setups
+   - Avoid trading during major news events that may cause false breakouts
+
+This strategy is particularly effective in trending markets and can be adapted to various asset classes. The combination of volatility contraction, breakout confirmation, and volume validation creates a robust framework for identifying high-probability trading opportunities.

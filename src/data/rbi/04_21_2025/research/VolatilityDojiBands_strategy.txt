@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolatilityDojiBands
+
+STRATEGY_DETAILS:
+This strategy combines multiple technical indicators to identify low-volatility compression periods and trade the subsequent breakout with volume confirmation.
+
+Key Components:
+1. Heikin-Ashi Candles (4H): Used to identify indecision periods through consecutive doji formations
+2. Bollinger Bands (1st percentile width): Measures extreme contraction in volatility
+3. Keltner Channels: Provides dynamic breakout levels
+4. Volume Spikes (15m): Confirms breakout validity with 200% surge above 20-period average
+
+Entry Rules:
+- Trigger: 3+ consecutive doji candles on 4H Heikin-Ashi chart
+- Confirmation: Bollinger Band width in 1st percentile of historical range
+- Execution: Enter long volatility position at market when conditions met
+
+Exit Rules:
+- Primary Exit: 2% price breach beyond Keltner Channel boundaries
+- Volume Confirmation: 15-minute volume must spike >200% of 20-period average
+- Stop Loss: 1.5x the Bollinger Band width at entry
+
+Risk Management:
+- Position Size: 1-2% of capital per trade
+- Maximum Drawdown: 5% of account per day
+- Time Filter: Avoid trading during major economic news events
+- Correlation Check: Ensure no overlapping volatility positions
+
+Required Indicators:
+1. Heikin-Ashi candles (4H timeframe)
+2. Bollinger Bands (20,2 settings) with width percentile calculation
+3. Keltner Channels (20,1.5 settings)
+4. Volume indicator with 20-period MA (15m timeframe)
+
+Special Notes:
+- Works best in currency markets and commodities
+- Requires monitoring multiple timeframes (4H for setup, 15m for exits)
+- Most effective during Asian/London session overlaps
+- Backtest suggested for optimal Bollinger Band width threshold adjustment

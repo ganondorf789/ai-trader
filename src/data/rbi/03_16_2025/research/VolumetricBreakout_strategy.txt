@@ -1,0 +1,52 @@
+STRATEGY_NAME: VolumetricBreakout
+
+STRATEGY_DETAILS:
+The VolumetricBreakout strategy focuses on identifying high-probability breakout opportunities by combining engulfing candlestick patterns with significant volume spikes. This approach capitalizes on periods of heightened market activity and volatility, aiming to catch strong directional moves.
+
+Key Strategy Components:
+1. Engulfing Candlestick Pattern: Look for bullish or bearish engulfing patterns that signal potential trend reversals or continuations.
+2. Volume Analysis: Identify significant volume spikes that confirm the strength of the engulfing pattern.
+3. Volatility Filter: Use ATR (Average True Range) to ensure the market is sufficiently volatile for breakout trades.
+4. Confirmation: Wait for price to break above/below key levels (e.g., recent highs/lows) to confirm the breakout.
+
+Entry Rules:
+1. Bullish Setup:
+   - Bullish engulfing pattern forms
+   - Volume during the engulfing candle is at least 2x the 20-period average
+   - ATR(14) is above its 20-period moving average
+   - Enter long when price breaks above the high of the engulfing candle
+
+2. Bearish Setup:
+   - Bearish engulfing pattern forms
+   - Volume during the engulfing candle is at least 2x the 20-period average
+   - ATR(14) is above its 20-period moving average
+   - Enter short when price breaks below the low of the engulfing candle
+
+Exit Rules:
+1. Take Profit:
+   - Set TP at 1.5x ATR(14) from entry point
+   - Alternatively, trail stop using 50% of ATR(14)
+
+2. Stop Loss:
+   - Place stop loss at the opposite side of the engulfing candle
+   - Maximum risk should not exceed 1% of account equity
+
+Risk Management:
+1. Position sizing based on 1% risk per trade
+2. Maximum daily loss limit of 3%
+3. Avoid trading during major news events
+4. Only trade during high-volume market hours
+
+Required Indicators:
+1. Volume (standard volume indicator)
+2. ATR(14) - Average True Range
+3. Moving Average of Volume (20-period)
+4. Moving Average of ATR (20-period)
+
+Additional Notes:
+- Focus on liquid markets with tight spreads
+- Best applied to 1-hour or 4-hour charts
+- Combine with fundamental analysis for higher probability setups
+- Monitor for false breakouts by waiting for candle close beyond key levels
+
+This strategy works best in trending markets and should be avoided during choppy or range-bound conditions. Always backtest and forward test before live trading.

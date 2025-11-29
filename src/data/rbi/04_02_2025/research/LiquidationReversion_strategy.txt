@@ -1,0 +1,35 @@
+STRATEGY_NAME: LiquidationReversion  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Liquidation Heatmap Focus**: The strategy prioritizes areas with clustered liquidation zones, indicating potential exhaustion of downward momentum.  
+2. **Bollinger Band Extremes**: Uses the 1-hour Bollinger Band (lower boundary) to identify oversold conditions when price dips 3x below it.  
+3. **Mean Reversion Logic**: Targets price snapbacks after extreme deviations from the mean (Bollinger Band).  
+4. **Volume-Weighted Exit**: Exits are based on the 20-period SMA confluence with bid walls (high-volume support zones).  
+
+**Entry Rules:**  
+- **Trigger**: Price must drop **3x below the 1h Bollinger Band lower boundary**.  
+- **Confirmation**: The dip must occur near **clustered liquidation heatmap zones** (indicating forced seller exhaustion).  
+- **Long Entry**: Execute a long position upon confirmation.  
+
+**Exit Rules:**  
+- **Primary Exit**: When price retraces to the **20-period SMA** AND encounters a **volume-weighted bid wall** (large buy orders).  
+- **Stop-Loss**: Place below the nearest significant liquidation cluster low or a fixed percentage (e.g., 2-3% below entry).  
+
+**Risk Management:**  
+- **Position Sizing**: Conservative sizing (1-2% risk per trade).  
+- **Stop-Loss Mandatory**: Prevents large drawdowns if the reversion fails.  
+- **Avoid Overleveraging**: Since liquidations are volatile, leverage should be capped (e.g., 3-5x).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (1h)**: Settings (20,2) to identify extreme deviations.  
+2. **Liquidation Heatmap**: To detect clustered liquidations (e.g., via platforms like Hyblock, Coinglass).  
+3. **20-Period SMA**: For mean reversion target.  
+4. **Volume Profile**: To identify bid walls for exits.  
+
+**Notes:**  
+- Works best in **high-liquidity markets** (BTC, ETH).  
+- Avoid using during **macro news events** (unpredictable volatility).  
+- Combines **order flow (liquidations) + technical extremes (Bollinger Bands)** for high-probability reversions.  
+
+This strategy exploits forced seller exhaustion and institutional bid absorption for mean-reverting trades.

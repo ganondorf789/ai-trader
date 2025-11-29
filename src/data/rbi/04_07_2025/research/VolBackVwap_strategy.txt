@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolBackVwap  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **VWAP Breakout:** Uses Volume-Weighted Average Price (VWAP) as a dynamic support/resistance level.  
+2. **Volume Confirmation:** Requires volume to exceed the 20-day average to validate the breakout.  
+3. **VIX Backwardation Filter:** Only trades when the VIX term structure is in backwardation (front-month > back-month), signaling heightened short-term volatility expectations.  
+4. **Bollinger Band Target:** Exits long positions when price touches the upper Bollinger Band (2 standard deviations), a common mean-reversion signal.  
+
+**Entry Rules:**  
+- **Condition 1:** Price crosses *above* VWAP.  
+- **Condition 2:** Current volume > 20-day average volume.  
+- **Condition 3:** VIX term structure in backwardation (e.g., VIX1 > VIX2).  
+
+**Exit Rules:**  
+- **Profit Target:** Close position when price touches the upper Bollinger Band (2σ).  
+- **Stop-Loss (Optional):** Consider adding a trailing stop (e.g., 1.5x ATR) or a fixed % below VWAP.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., 1-2% risk per trade).  
+- Avoid trading during low-volume periods or when VIX term structure flattens/contango.  
+
+**Required Indicators:**  
+1. VWAP (Volume-Weighted Average Price)  
+2. 20-day average volume  
+3. VIX term structure (VIX1 vs. VIX2)  
+4. Bollinger Bands (20-period, 2σ)  
+
+**Unique Edge:** Combines volume-confirmed VWAP breakouts with volatility regime filtering (backwardation), reducing false signals in choppy markets. The Bollinger Band exit ensures profit-taking during overbought conditions.  
+
+**Note:** Backtest to optimize exit timing (e.g., closing partial position at 1σ BBand).

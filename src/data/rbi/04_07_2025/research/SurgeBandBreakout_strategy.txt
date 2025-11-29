@@ -1,0 +1,41 @@
+STRATEGY_NAME: SurgeBand Breakout
+
+STRATEGY_DETAILS:
+This strategy combines volume surge detection with Bollinger Band breakouts for high-probability trade entries. The unique combination of volume confirmation and volatility-based price thresholds creates a powerful filter for significant market moves.
+
+Key Components:
+1. Volume Surge Filter (200% above 20-day average)
+2. Bollinger Band Breakout (close outside bands)
+3. Time-based exit (48-hour maximum hold)
+4. Band-reversion exit (price returns inside bands)
+
+Entry Rules:
+1. Calculate 20-day average volume
+2. Wait for current volume to exceed 200% of this average
+3. Confirm price closes outside Bollinger Bands (either upper or lower)
+4. Enter long if above upper band, short if below lower band
+
+Exit Rules:
+1. Primary Exit: Price closes back inside Bollinger Bands
+2. Secondary Exit: 48 hours elapse from entry (time-based stop)
+3. (Optional) Trailing stop can be added at 2x Bollinger Band width
+
+Risk Management:
+1. Position sizing based on volatility (wider bands = smaller position)
+2. Hard stop-loss at opposite band (for long: lower band, for short: upper band)
+3. Maximum capital allocation per trade: 2% of portfolio
+4. Daily volume filter prevents over-trading in low-liquidity conditions
+
+Required Indicators:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Volume indicator with 20-day average
+3. Time-based exit counter
+4. (Optional) ATR for additional volatility measurement
+
+Optimization Notes:
+1. Test different volume thresholds (150-250%)
+2. Experiment with band periods (14-26 days)
+3. Adjust standard deviation multiplier (1.5-2.5)
+4. Consider adding RSI filter for overbought/oversold conditions
+
+This strategy excels in trending markets with clear volatility expansions, while the volume filter helps avoid false breakouts. The 48-hour timeout prevents excessive drawdown during ranging periods.

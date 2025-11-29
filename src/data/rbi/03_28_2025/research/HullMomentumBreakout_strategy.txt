@@ -1,0 +1,43 @@
+STRATEGY_NAME: HullMomentumBreakout
+
+STRATEGY_DETAILS:
+This strategy combines the precision of Hull Moving Average (HMA) slope analysis with Chande Momentum Oscillator (CMO) confirmation to identify high-probability breakout trades, using volume-weighted Fibonacci retracements for strategic exits.
+
+Key Components:
+1. Hull Moving Average (HMA) - Smoothed trend indicator with reduced lag
+2. HMA Slope Threshold - Minimum angle requirement for trend validity
+3. Chande Momentum Oscillator (CMO) - Confirms trend strength/direction
+4. Volume-Weighted Fibonacci Retracement - Exit levels adjusted by trading volume
+
+Entry Rules:
+1. HMA must show upward slope exceeding predefined angle threshold (e.g., 30 degrees)
+2. CMO must be above +50 (strong uptrend) or below -50 (strong downtrend)
+3. Price must break through recent swing high/low with confirmation candle close
+4. Volume should be above 20-period average on breakout candle
+
+Exit Rules:
+1. Primary Target: 1.618 Fibonacci extension of recent swing
+2. Secondary Exit: 38.2% volume-weighted retracement from breakout point
+3. Emergency Exit: When HMA slope flattens below threshold angle
+4. Stop Loss: Recent swing low (long) or high (short) beyond breakout point
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop loss must be placed immediately after entry
+3. Trail stop to breakeven after reaching 1:1 risk-reward ratio
+4. Maximum daily loss limit of 5% of account
+
+Required Indicators:
+1. Hull Moving Average (14-period recommended)
+2. HMA Slope Angle Indicator
+3. Chande Momentum Oscillator (20-period)
+4. Volume Weighted Fibonacci Retracement Tool
+5. Standard Volume Indicator
+
+Optimization Notes:
+- Adjust HMA period based on asset volatility (shorter for crypto, longer for stocks)
+- Slope threshold may need testing between 25-45 degrees
+- CMO period can be optimized between 14-30 periods
+- Fibonacci levels can be weighted by 1-3 period volume average
+
+This strategy excels in trending markets but should be avoided during choppy, range-bound conditions. The combination of HMA slope and CMO filtering helps avoid false breakouts while the volume-weighted exits maximize profit potential.

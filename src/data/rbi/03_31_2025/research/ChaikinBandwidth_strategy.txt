@@ -1,0 +1,60 @@
+STRATEGY_NAME: ChaikinBandwidth  
+
+STRATEGY_DETAILS:  
+This strategy combines Chaikin Money Flow (CMF) divergence with Bollinger Bandwidth contraction to identify accumulation/distribution phases, followed by entries triggered by breakouts from the 20-period Keltner Channel.  
+
+**Key Components:**  
+1. **Chaikin Money Flow (CMF) Divergence:**  
+   - Bullish Divergence: Price makes a lower low while CMF makes a higher low (accumulation signal).  
+   - Bearish Divergence: Price makes a higher high while CMF makes a lower high (distribution signal).  
+   - Confirms underlying strength/weakness in price movements.  
+
+2. **Bollinger Bandwidth Contraction:**  
+   - Measures the narrowing of Bollinger Bands (volatility contraction).  
+   - Signals potential breakout when bandwidth is below a defined threshold (e.g., lowest 20% of recent readings).  
+
+3. **Keltner Channel Breakout:**  
+   - 20-period Keltner Channel (typical settings: 2x ATR multiplier).  
+   - Long Entry: Price closes above the upper Keltner band after CMF bullish divergence + bandwidth contraction.  
+   - Short Entry: Price closes below the lower Keltner band after CMF bearish divergence + bandwidth contraction.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. CMF shows bullish divergence.  
+  2. Bollinger Bandwidth is in contraction (e.g., below 20th percentile).  
+  3. Price breaks and closes above the upper Keltner Channel.  
+
+- **Short Entry:**  
+  1. CMF shows bearish divergence.  
+  2. Bollinger Bandwidth is in contraction.  
+  3. Price breaks and closes below the lower Keltner Channel.  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Trailing stop using ATR (e.g., 3x ATR from peak/trough).  
+  - Or fixed risk-reward ratio (e.g., 2:1).  
+
+- **Stop Loss:**  
+  - Place below the recent swing low (long) or above the swing high (short).  
+  - Alternatively, use the opposite Keltner band as dynamic exit.  
+
+**Risk Management:**  
+- Position size based on 1-2% risk per trade.  
+- Avoid trading during high-impact news events to prevent false breakouts.  
+- Filter trades with higher timeframes (e.g., only trade long if weekly trend is up).  
+
+**Required Indicators:**  
+1. Chaikin Money Flow (21-period typical).  
+2. Bollinger Bands (20,2) + Bandwidth calculation.  
+3. Keltner Channel (20,2x ATR).  
+4. ATR (14-period for trailing stops).  
+
+**Unique Aspects:**  
+- Combines volume (CMF), volatility (Bandwidth), and price channels (Keltner) for high-probability breakouts.  
+- Focuses on "quiet before the storm" setups (contraction + divergence).  
+- Avoids choppy markets by requiring clear accumulation/distribution signals.  
+
+**Optimization Tips:**  
+- Adjust CMF period for sensitivity (shorter for scalping, longer for swings).  
+- Test different bandwidth thresholds (e.g., 15th vs. 25th percentile).  
+- Combine with RSI to avoid overbought/oversold breakouts.

@@ -1,0 +1,40 @@
+STRATEGY_NAME: ClusterBandwidth
+
+STRATEGY_DETAILS:
+The ClusterBandwidth strategy combines Bollinger Band contraction analysis with liquidity cluster detection for high-probability entries and ATR-based exits. This approach capitalizes on periods of low volatility preceding potential breakouts near key liquidity zones.
+
+Key Components:
+1. Bollinger Band Width Contraction: Measures periods of reduced volatility when bands narrow significantly
+2. Liquidation Cluster Detection: Identifies dense order book areas where stop losses cluster
+3. ATR-based Exit: Uses 2x ATR for dynamic profit-taking and stop management
+
+Entry Rules:
+1. Wait for Bollinger Band width to contract below its 20-period average (indicating compression)
+2. Identify nearest liquidation cluster level (price zone with high stop order density)
+3. Enter long when price breaks ABOVE the cluster level in an uptrend
+4. Enter short when price breaks BELOW the cluster level in a downtrend
+
+Exit Rules:
+1. Set initial profit target at 2x current ATR(14) from entry price
+2. Trail stop to breakeven +0.5x ATR once price reaches 1x ATR in profit
+3. Exit entire position if price returns to cluster level (failed breakout)
+
+Risk Management:
+1. Position size based on 1% risk per trade
+2. Initial stop placed at 1x ATR from entry
+3. Maximum daily loss limit of 3% of account
+4. Avoid trading during major news events when clusters may shift rapidly
+
+Required Indicators:
+1. Bollinger Bands (20,2) with width calculation
+2. Liquidation cluster detection (order flow analysis tool)
+3. ATR (14-period for volatility measurement)
+4. Volume profile (for cluster confirmation)
+
+Optimization Notes:
+1. Test different ATR multiples (1.5x-3x) for exits
+2. Experiment with Bollinger Band periods (14-22)
+3. Verify cluster detection sensitivity
+4. Backtest during different volatility regimes
+
+This strategy works best in ranging markets transitioning to trends, using the Bollinger contraction as a volatility filter and liquidity clusters as high-probability breakout points. The ATR-based exits ensure dynamic position management relative to current market conditions.

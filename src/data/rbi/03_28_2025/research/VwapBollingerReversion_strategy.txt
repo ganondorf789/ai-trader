@@ -1,0 +1,34 @@
+STRATEGY_NAME: VwapBollingerReversion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Mean-Reversion Core**: The strategy capitalizes on price deviations from the mean, specifically when price breaches the lower Bollinger Band while the VWAP confirms an upward trend.  
+2. **Bollinger Bands**: Used to identify overbought (upper band) and oversold (lower band) conditions.  
+3. **VWAP (Volume-Weighted Average Price)**: Acts as a trend filter—only trades are taken when VWAP is trending upward, ensuring alignment with broader market momentum.  
+4. **Choppiness Index**: Dynamically adjusts position sizing to avoid low-volatility or consolidation periods, enhancing risk-adjusted returns.  
+
+**Entry Rules:**  
+- **Long Entry**: Triggered when:  
+  1. Price closes below the lower Bollinger Band (typically set to 2 standard deviations).  
+  2. VWAP is sloping upward (confirmed by a higher VWAP over the last N periods, e.g., 5-10 candles).  
+- **Position Sizing**: Adjusted based on the Choppiness Index (CI):  
+  - Higher CI (e.g., > 61.8) = Smaller position (avoiding choppy markets).  
+  - Lower CI (e.g., < 38.2) = Larger position (favoring trending or mean-reverting conditions).  
+
+**Exit Rules:**  
+- **Take-Profit**: Price touches or closes above the upper Bollinger Band.  
+- **Stop-Loss**: Optional trailing stop (e.g., 1.5x ATR) or fixed percentage below the entry price.  
+
+**Risk Management:**  
+1. **Dynamic Sizing**: The Choppiness Index reduces exposure during low-confidence (choppy) periods.  
+2. **Bollinger Band Width**: Avoid trades if bands are too narrow (indicating low volatility).  
+3. **VWAP Filter**: Ensures trades align with the prevailing trend, reducing false reversals.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period SMA, 2 StdDev).  
+2. VWAP (with slope confirmation).  
+3. Choppiness Index (14-period recommended).  
+4. Optional: ATR (for stop-loss placement).  
+
+**Unique Edge:** Combines mean-reversion (Bollinger Bands) with trend confirmation (VWAP) and adaptive sizing (Choppiness Index), filtering out low-probability trades in consolidation phases.

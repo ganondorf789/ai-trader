@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilityReversal
+
+STRATEGY_DETAILS:
+The VolatilityReversal strategy focuses on identifying significant reversals in market volatility by combining RSI divergence analysis with volume patterns. This approach is particularly effective in capturing turning points during periods of high volatility, making it suitable for both trending and ranging markets.
+
+Key Strategy Components:
+1. **RSI Divergence**: The Relative Strength Index (RSI) is used to detect divergences between price action and momentum. Bullish divergence occurs when price makes a lower low while RSI makes a higher low, indicating potential upward reversal. Bearish divergence occurs when price makes a higher high while RSI makes a lower high, signaling potential downward reversal.
+
+2. **Volume Patterns**: Volume is analyzed to confirm the strength of the reversal signal. A significant increase in volume during the divergence formation adds credibility to the reversal signal. Conversely, low volume during divergence may indicate a weak signal.
+
+3. **Volatility Filter**: A volatility indicator such as ATR (Average True Range) is used to ensure that the strategy only takes trades during periods of significant volatility, avoiding false signals in low-volatility conditions.
+
+Entry Rules:
+- **Bullish Entry**: Enter a long position when a bullish RSI divergence is confirmed by a spike in volume and the ATR indicates high volatility.
+- **Bearish Entry**: Enter a short position when a bearish RSI divergence is confirmed by a spike in volume and the ATR indicates high volatility.
+
+Exit Rules:
+- **Take Profit**: Set a take profit level based on a multiple of the ATR (e.g., 2x ATR) to ensure the trade captures a significant portion of the reversal move.
+- **Stop Loss**: Place a stop loss just below the recent swing low for long positions or above the recent swing high for short positions.
+- **Trailing Stop**: Use a trailing stop based on a percentage of the ATR to lock in profits as the trade moves in your favor.
+
+Risk Management:
+- **Position Sizing**: Adjust position size based on the ATR to ensure that the risk per trade is consistent and manageable.
+- **Risk-Reward Ratio**: Aim for a minimum risk-reward ratio of 1:2 to ensure that profitable trades outweigh losing ones.
+- **Maximum Drawdown**: Set a maximum daily or weekly drawdown limit to prevent excessive losses.
+
+Required Indicators:
+1. **RSI (Relative Strength Index)**: Set to a 14-period for divergence detection.
+2. **Volume Indicator**: To confirm the strength of the reversal signal.
+3. **ATR (Average True Range)**: Set to a 14-period to filter trades based on volatility.
+
+By combining RSI divergence, volume analysis, and a volatility filter, the VolatilityReversal strategy provides a robust framework for identifying and capitalizing on significant market reversals.

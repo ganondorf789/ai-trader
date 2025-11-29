@@ -1,0 +1,40 @@
+STRATEGY_NAME: VoltaicRetest  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection**: Uses Bollinger Bandwidth (BBW) to identify periods of low volatility (contraction) by monitoring when BBW falls below a predefined threshold.  
+2. **Breakout Confirmation**: Requires a breakout from the contraction phase, confirmed by a significant spike in volume, indicating strong interest in the breakout direction.  
+3. **Retest Entry**: Enters the trade only after the price retests the breakout level, ensuring the breakout is valid and reducing false signals.  
+4. **Trailing Exit**: Uses the Chandelier Exit indicator to trail the stop dynamically, locking in profits while allowing for potential extended moves.  
+
+**Entry Rules:**  
+1. **Signal Trigger**: Bollinger Bandwidth (BBW) crosses below a low threshold (e.g., 0.05 or another optimized value), indicating volatility contraction.  
+2. **Breakout Confirmation**: Price breaks out of the contraction range (upper or lower Bollinger Band) accompanied by a volume spike (e.g., volume > 1.5x the 20-period average).  
+3. **Retest Entry**: After the breakout, wait for a retest of the breakout level (e.g., price touches or nears the breakout band again) before entering in the breakout direction.  
+
+**Exit Rules:**  
+1. **Trailing Stop**: Use the Chandelier Exit (e.g., 3x ATR trailing from the highest high since entry) to dynamically adjust the stop-loss level.  
+2. **Early Exit**: If the price fails to sustain momentum after entry (e.g., closes back inside the Bollinger Bands), exit the trade prematurely.  
+
+**Risk Management:**  
+1. **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss**: Initial stop-loss can be placed just below the retest level (for long) or above it (for short).  
+3. **Volatility Filter**: Avoid trading if overall market volatility (e.g., VIX) is excessively high, as it may invalidate the contraction logic.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 standard deviations) to derive Bollinger Bandwidth (BBW).  
+2. **Volume** (20-period average) for spike confirmation.  
+3. **Chandelier Exit** (3x ATR, 22-period lookback) for trailing stops.  
+4. **ATR** (14-period) for volatility context and stop calculations.  
+
+**Unique Aspects:**  
+- Combines volatility contraction, volume confirmation, and retest validation for high-probability breakouts.  
+- Uses Chandelier Exit for adaptive profit protection, unlike static targets or stops.  
+- Avoids chasing breakouts by enforcing retest discipline.  
+
+**Optimization Tips:**  
+- Test BBW threshold (e.g., 0.03–0.10) and volume multiplier (e.g., 1.3x–2x) for different instruments.  
+- Adjust Chandelier Exit ATR multiple (e.g., 2–4) based on asset volatility.  
+- Apply to 1H/4H/Daily timeframes for swing trades.  
+
+**Note**: Works best in trending markets; avoid ranging conditions (use ADX > 25 as optional filter).

@@ -1,0 +1,43 @@
+STRATEGY_NAME: VortexBreakout  
+
+STRATEGY_DETAILS:  
+This strategy combines trend identification, consolidation breakouts, and volume confirmation for high-probability entries, with dynamic exits based on volatility.  
+
+**Key Components:**  
+1. **Vortex Indicator (VI):** Identifies the prevailing trend direction.  
+   - VI+ > VI- = Bullish trend  
+   - VI- > VI+ = Bearish trend  
+2. **Choppiness Index (CI):** Detects consolidation phases (CI > 61.8) and breakout potential (CI crossing below 38.2).  
+3. **Volume Surge:** Requires volume > 90th percentile of recent volume (e.g., 20-period lookback) to confirm breakout validity.  
+4. **ATR Trailing Stop:** Exits trades when price reverses by 1.5-2x the current ATR (14-period) from the peak.  
+
+**Entry Rules:**  
+1. **Trend Filter:** VI+ must be above VI- for long entries (or vice versa for shorts).  
+2. **Breakout Trigger:** CI must cross below 38.2 after being above 61.8 (indicating end of consolidation).  
+3. **Volume Confirmation:** Volume on breakout candle must exceed the 90th percentile of the last 20 periods.  
+4. **Entry Execution:** Enter on the close of the breakout candle meeting all criteria.  
+
+**Exit Rules:**  
+1. **Trailing Stop:** Adjust stop to 1.5x ATR below the highest high since entry (long) or above the lowest low (short).  
+2. **Emergency Exit:** Close trade if VI flips (VI- crosses above VI+ for longs, or opposite for shorts).  
+
+**Risk Management:**  
+- Position size capped at 1-2% of capital per trade.  
+- No entries if CI is between 38.2-61.8 (neutral zone).  
+- Avoid trading during low-volume periods (e.g., holidays).  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI) (default 14-period)  
+2. Choppiness Index (CI) (default 14-period)  
+3. Average True Range (ATR) (14-period)  
+4. Volume + 90th percentile threshold calculation  
+
+**Unique Edge:**  
+- Combines trend, volatility compression, and volume spikes to filter false breakouts.  
+- ATR trailing stop adapts to changing market conditions.  
+- CI ensures trades only occur after prolonged consolidation, increasing breakout reliability.  
+
+**Optimization Tips:**  
+- Test ATR multiplier (1.5-2.5) for stop sensitivity.  
+- Adjust CI thresholds (e.g., 60/40 instead of 61.8/38.2) for different assets.  
+- Pair with a momentum oscillator (e.g., RSI) to avoid overextended breakouts.

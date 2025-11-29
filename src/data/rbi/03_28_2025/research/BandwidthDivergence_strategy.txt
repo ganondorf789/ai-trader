@@ -1,0 +1,45 @@
+STRATEGY_NAME: BandwidthDivergence
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Bands width contraction with Chaikin Oscillator divergence to identify high-probability breakout opportunities with volume confirmation. The approach capitalizes on periods of low volatility followed by momentum shifts indicated by money flow divergence.
+
+Key Components:
+1. Bollinger Bands (20-period, 2 std dev) - Identifies contraction periods when bandwidth narrows significantly
+2. Chaikin Oscillator (3,10) - Detects bullish/bearish divergence from price action
+3. Volume - Confirms breakout validity
+
+Entry Rules:
+LONG ENTRY:
+- Bollinger Band width contracts to lowest 20% of recent range
+- Price makes higher low while Chaikin Oscillator makes lower low (bullish divergence)
+- Price breaks above upper band with above-average volume
+- Stop loss placed at lower band or recent swing low
+
+SHORT ENTRY:
+- Bollinger Band width contracts to lowest 20% of recent range
+- Price makes lower high while Chaikin Oscillator makes higher high (bearish divergence)
+- Price breaks below lower band with above-average volume
+- Stop loss placed at upper band or recent swing high
+
+Exit Rules:
+- Take profit when price crosses back through the middle band (20 SMA)
+- Alternative exit when opposite band is touched (for extended trends)
+- Chaikin Oscillator crossing zero line can serve as early exit signal
+
+Risk Management:
+- Position size limited to 1-2% risk per trade
+- Stop loss mandatory on all positions
+- Avoid trading during major news events when bands may expand artificially
+- Filter trades to only highest probability setups (clear divergence + volume)
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Chaikin Oscillator (3,10 EMA)
+3. Volume indicator (preferably VWAP or OBV for confirmation)
+
+Optimal Conditions:
+- Works best in ranging markets transitioning to trends
+- Most effective on 1H-4H timeframes
+- Ideal for liquid assets with consistent volume patterns
+
+The "BandwidthDivergence" strategy offers a systematic approach to trading breakouts by combining volatility contraction, money flow divergence, and volume confirmation for higher probability setups.

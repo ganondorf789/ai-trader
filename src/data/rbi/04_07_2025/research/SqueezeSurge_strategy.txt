@@ -1,0 +1,45 @@
+STRATEGY_NAME: SqueezeSurge
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines EMA crossover signals with Bollinger Band squeeze detection
+- Incorporates volume confirmation for stronger signals
+- Uses a fast EMA period (2) for responsive entries
+- Bollinger Band parameters (20-day SMA with 2.5σ) identify volatility contraction
+- Volume surge (above 50-day average) confirms participation
+
+2. Entry Rules:
+LONG ENTRY:
+- 2-period EMA crosses above previous EMA
+- Bollinger Band width is at recent lows (squeeze condition)
+- Current volume > 50-day average volume
+- All three conditions must occur simultaneously
+
+SHORT ENTRY:
+- 2-period EMA crosses below previous EMA
+- Bollinger Band width is at recent lows (squeeze condition)
+- Current volume > 50-day average volume
+- All three conditions must occur simultaneously
+
+3. Exit Rules:
+- Close long position when 2-period EMA crosses below previous EMA
+- Close short position when 2-period EMA crosses above previous EMA
+- Alternative exit: 1% profit target (optional)
+
+4. Risk Management:
+- Recommended stop-loss: 1% below entry for longs, 1% above for shorts
+- Position sizing should account for volatility (consider ATR-based sizing)
+- Avoid trading during major news events that may cause false squeezes
+
+5. Required Indicators:
+- 2-period Exponential Moving Average (EMA)
+- Bollinger Bands (20-period SMA, 2.5 standard deviations)
+- 50-day simple moving average of volume
+- Volume indicator (current period)
+
+6. Additional Notes:
+- Works best on liquid assets with consistent volatility patterns
+- Timeframe recommendation: 15min to 4hr charts
+- Backtest suggested to optimize squeeze detection parameters
+- Combine with price action confirmation for higher accuracy
+- The strategy capitalizes on volatility expansion following contraction periods

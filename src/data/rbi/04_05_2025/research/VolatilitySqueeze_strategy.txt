@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilitySqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Based Entry:** The strategy focuses on low-volatility conditions (measured by ATR) followed by a breakout, indicating potential expansion in volatility.  
+2. **Bollinger Band Squeeze Confirmation:** Uses Bollinger Bands to identify periods of contraction (squeeze) and subsequent breakout.  
+3. **ATR Filter:** The 5-minute ATR must drop below its 20-period moving average to confirm low volatility before entry.  
+4. **Breakout Trigger:** Entry occurs when price breaks above the Bollinger Band squeeze threshold (typically the upper band).  
+5. **Risk-Managed Exits:** Uses a 2x ATR trailing stop-loss and a reversal below the middle Bollinger Band (20-period SMA) for exits.  
+
+**Entry Rules:**  
+- **Condition 1:** The 5-minute ATR (14-period) must be below its 20-period moving average (indicating low volatility).  
+- **Condition 2:** Price must break above the upper Bollinger Band (20-period, 2 standard deviations) after a squeeze (narrowing bands).  
+- **Action:** Enter a long position on the breakout candle close.  
+
+**Exit Rules:**  
+1. **Stop-Loss:** Set a trailing stop-loss at 2x the current ATR value from the entry price.  
+2. **Take-Profit/Reversal Exit:** Exit the trade if price closes below the middle Bollinger Band (20-period SMA).  
+
+**Risk Management:**  
+- Position sizing should account for the 2x ATR stop-loss to align with risk tolerance (e.g., 1-2% of capital per trade).  
+- Avoid trading during major news events that may cause erratic volatility.  
+- Only trade in the direction of the higher timeframe trend for additional confirmation (optional filter).  
+
+**Required Indicators:**  
+1. **Average True Range (ATR)** – 14-period for volatility measurement.  
+2. **ATR Moving Average** – 20-period SMA of ATR to confirm low volatility.  
+3. **Bollinger Bands** – 20-period, 2 standard deviations to identify squeeze and breakout levels.  
+
+**Additional Notes:**  
+- Works best in ranging or consolidating markets where volatility compression precedes directional moves.  
+- Avoid using in strongly trending markets without pullbacks, as false breakouts may occur.  
+- Can be applied to forex, stocks, or crypto on 5-minute or higher timeframes.  
+
+This strategy capitalizes on the "calm before the storm" principle, entering when volatility is suppressed and exiting when momentum fades or reverses.

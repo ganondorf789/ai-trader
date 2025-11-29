@@ -1,0 +1,35 @@
+STRATEGY_NAME: MomentumSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Fisher Transform Crossover:** The Fisher Transform is used to identify potential reversals in price momentum. A bullish signal occurs when the Fisher Transform crosses above its signal line.  
+2. **Volume Uptrend:** Confirmation of momentum is required via a 3-day increasing volume trend, ensuring participation in the move.  
+3. **Bollinger Bandwidth Squeeze:** Narrowing Bollinger Bandwidth indicates low volatility and a potential breakout, adding confluence to the entry signal.  
+
+**Entry Rules:**  
+- Enter a long position when:  
+  1. The Fisher Transform crosses above its signal line (bullish momentum).  
+  2. Volume has been increasing for at least 3 consecutive days (confirmation of interest).  
+  3. Bollinger Bandwidth is narrowing (indicating a squeeze and potential breakout).  
+
+**Exit Rules:**  
+- Exit the long position when:  
+  1. The Fisher Transform crosses below its signal line (momentum reversal).  
+  2. Bollinger Bandwidth expands significantly (volatility breakout, suggesting exhaustion).  
+
+**Risk Management:**  
+- Use a trailing stop or fixed percentage stop (e.g., 2-3% below entry) to protect gains and limit losses.  
+- Avoid entering if broader market conditions are bearish or if volume is declining despite the Fisher signal.  
+
+**Required Indicators:**  
+1. **Fisher Transform** (with its signal line, typically a 9-period EMA of the Fisher).  
+2. **Volume** (to confirm the 3-day uptrend).  
+3. **Bollinger Bands** (to monitor Bandwidth contraction/expansion).  
+
+**Notes:**  
+- This strategy works best in trending markets but may produce false signals in choppy conditions.  
+- Combining with a higher timeframe trend filter (e.g., 200-day MA) can improve reliability.  
+- Adjust the Fisher and Bollinger Band parameters based on asset volatility (e.g., shorter periods for crypto, longer for stocks).  
+
+The name "MomentumSqueeze" reflects the strategy’s focus on momentum (Fisher Transform) combined with volatility contraction (Bollinger Bandwidth squeeze).

@@ -1,0 +1,61 @@
+STRATEGY_NAME: BetaVolATR
+
+STRATEGY_DETAILS:
+The BetaVolATR strategy is a momentum-based approach that focuses on high-beta stocks with strong upward momentum, using volume and volatility filters to refine entries and position sizing. Here's a detailed breakdown of the strategy:
+
+---
+
+### **Key Strategy Components**
+1. **High-Beta Momentum Focus**: Targets stocks with high beta (greater sensitivity to market movements) that are showing strong upward momentum over a 3-day period.
+2. **Volume Threshold**: Requires at least 80% of the trading volume to be long-only, ensuring strong buyer participation.
+3. **ATR Scaling**: Uses the 20-period Exponential Moving Average (EMA) of the Average True Range (ATR) to scale position sizes, adjusting for volatility.
+
+---
+
+### **Entry Rules**
+1. **Momentum Signal**: Identify stocks that have made a new 3-day high, indicating strong upward momentum.
+2. **Volume Filter**: Confirm that at least 80% of the trading volume over the past 3 days is long-only (buying volume).
+3. **ATR Scaling**: Calculate the 20-period EMA of the ATR to determine the position size. Higher ATR values result in smaller position sizes to account for increased volatility.
+
+---
+
+### **Exit Rules**
+1. **Momentum Reversal**: Exit the position if the stock closes below its 3-day low, signaling a potential reversal in momentum.
+2. **Time-Based Exit**: If no reversal occurs, hold the position for a maximum of 5 trading days to lock in profits and avoid overexposure.
+
+---
+
+### **Risk Management**
+1. **Position Sizing**: Use the 20-period EMA of the ATR to scale positions. For example:
+   - Position Size = (Account Risk per Trade) / (ATR EMA * Multiplier)
+   - Adjust the multiplier based on your risk tolerance (e.g., 1x for conservative, 2x for aggressive).
+2. **Stop-Loss**: Set a stop-loss at 1.5x the 20-period EMA of the ATR below the entry price to limit downside risk.
+3. **Diversification**: Limit exposure to any single stock to 5% of the total portfolio to avoid concentration risk.
+
+---
+
+### **Required Indicators**
+1. **Beta**: To identify high-beta stocks (e.g., beta > 1.5).
+2. **Volume Analysis**: To measure long-only volume percentage (e.g., 80% threshold).
+3. **ATR (Average True Range)**: To calculate volatility and scale position sizes.
+4. **20-Period EMA of ATR**: To smooth the ATR values for more consistent position sizing.
+
+---
+
+### **Example Setup**
+1. **Stock Selection**: Identify a high-beta stock (e.g., beta = 1.8) that has made a new 3-day high.
+2. **Volume Check**: Confirm that 80% of the volume over the past 3 days is long-only.
+3. **ATR Calculation**: Calculate the 20-period EMA of the ATR (e.g., ATR EMA = $2.50).
+4. **Position Sizing**: If your account risk per trade is $1,000, the position size would be:
+   - Position Size = $1,000 / ($2.50 * 1) = 400 shares.
+5. **Entry**: Enter the trade at the current market price.
+6. **Exit**: Exit if the stock closes below its 3-day low or after 5 trading days.
+
+---
+
+### **Key Advantages**
+- **High-Beta Focus**: Captures strong momentum moves in volatile stocks.
+- **Volume Filter**: Ensures trades are backed by strong buyer participation.
+- **ATR Scaling**: Adjusts position sizes dynamically based on volatility, improving risk-adjusted returns.
+
+This strategy is ideal for traders looking to capitalize on short-term momentum in high-beta stocks while managing risk through volatility-based position sizing.

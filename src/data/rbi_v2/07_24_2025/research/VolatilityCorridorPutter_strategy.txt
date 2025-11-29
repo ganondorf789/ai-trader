@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolatilityCorridorPutter
+
+STRATEGY_DETAILS:
+This strategy combines volatility correlation analysis with precise expiration timing for put option selling. The approach focuses on capitalizing on mean-reverting volatility patterns while using price action triggers for execution.
+
+Key Components:
+1. VIX-S&P Correlation Band: Monitor the 20-day rolling correlation between VIX and SPX, only trading when within ±5% of zero correlation
+2. Expiration Timing: Execute only on option expiration days (typically Fridays)
+3. Price Action Triggers: Use daily high/low patterns for precise entry/exit
+
+Entry Rules:
+1. Correlation Check: Confirm VIX-SPX correlation is between -0.05 and +0.05 (5% band)
+2. Timing: Wait until expiration day (Friday)
+3. Price Trigger: Enter short put position when price breaks above prior day's high
+4. Strike Selection: Sell ATM or slightly OTM puts (5-10% below current price)
+
+Exit Rules:
+1. Profit Target: Close position if price reaches next day's low (calculated from prior day's range)
+2. Time Exit: Automatically exit at market close on expiration day if not stopped out
+3. Emergency Exit: Close position if VIX-SPX correlation breaks beyond ±10% band
+
+Risk Management:
+1. Position Sizing: Limit to 5% of portfolio per trade
+2. Maximum Allocation: No more than 20% of portfolio in active put positions
+3. Volatility Filter: Skip trades if VIX > 30 (high volatility regime)
+4. Correlation Monitoring: Daily check of VIX-SPX relationship
+
+Required Indicators:
+1. VIX Index
+2. S&P 500 Index (SPX)
+3. 20-day rolling correlation between VIX and SPX
+4. Daily price high/low data
+5. Option chain data (for strike selection)
+
+Optimization Notes:
+- Test different correlation bands (3-7% range)
+- Experiment with various strike selection methods (fixed % vs. delta-based)
+- Consider adding volume confirmation for entry triggers
+- Backtest different holding periods (same-day vs. multi-day)
+
+This strategy is designed for traders with access to real-time volatility data and option chains, offering a systematic approach to premium collection during low-correlation volatility regimes.

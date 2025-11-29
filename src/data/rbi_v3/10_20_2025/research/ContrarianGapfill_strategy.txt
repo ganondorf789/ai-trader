@@ -1,0 +1,83 @@
+STRATEGY_NAME: ContrarianGapfill
+
+STRATEGY_DETAILS:
+
+### Overview
+The ContrarianGapfill strategy is a contrarian momentum approach that capitalizes on temporary oversold conditions in stocks exhibiting high short interest (measured by days-to-cover ratio) and bearish options sentiment (via elevated put-call ratios). It targets stocks that experience a gap-down (a sharp opening drop below the previous close, often due to negative news or sentiment), buying at these depressed "lower price levels" in anticipation of a reversal. The reversal is driven by short covering (as high short interest amplifies upside pressure) and mean-reversion toward filling the gap, aiming for 10-20% gains on the subsequent upside move. This strategy suits volatile markets or sectors prone to sentiment-driven swings, such as small-cap or biotech stocks, and requires screening for liquidity to ensure tradable volume.
+
+### Key Strategy Components
+1. **Sentiment Indicators for Screening**:
+   - **Short Interest Coverage (Days to Cover)**: Measures the number of days it would take for short sellers to cover their positions based on average daily trading volume. High coverage indicates potential for a short squeeze if positive catalysts emerge.
+   - **Put-Call Ratio (PCR)**: Ratio of put options volume to call options volume over a recent period (e.g., 5-10 days). A "strong" PCR (typically >1.0, preferably >1.5) signals heavy bearish betting, which can be contrarian if the stock is otherwise fundamentally sound.
+   - **Gap-Down Identification**: A gap-down occurs when the stock opens at least 3-5% below the previous day's close with no trading in between, often confirmed by a red candlestick on daily charts.
+
+2. **Market Context**:
+   - Focus on stocks in the $5-50 price range with moderate to high volatility (beta >1.0) to ensure potential for quick reversals.
+   - Avoid illiquid stocks (average daily volume <500,000 shares) to minimize slippage.
+   - Timeframe: Intraday to swing trading (hold 1-10 days), best applied during bull markets or after broad market dips.
+
+3. **Position Sizing and Portfolio Rules**:
+   - Limit to 5-10 positions at a time, with no more than 5% of portfolio per trade.
+   - Use fundamental filters: Positive earnings surprises in the last quarter or undervalued metrics (e.g., P/E <15) to avoid pure "value traps."
+
+### Entry Rules
+1. **Screening Criteria** (Run daily or intraday scans using tools like Finviz, TradingView, or Yahoo Finance):
+   - Days-to-cover ratio >5-7 (high short interest; source: Nasdaq or exchange data, updated bi-monthly).
+   - Put-call ratio >1.2-1.5 (bearish sentiment peak; source: CBOE or options data platforms like Optionistics).
+   - Recent gap-down: Stock opens 4-10% below prior close, with volume spike (>150% of 20-day average) indicating capitulation.
+
+2. **Buy Signal**:
+   - Enter long after the gap-down confirms (e.g., post-open when price stabilizes 1-2% above the open low).
+   - Price level: At or near the intraday low, ideally within 5% of the gap's bottom, confirming oversold via RSI (14-period) <30 on 1-hour chart.
+   - Volume confirmation: Increasing buy volume on the bounce (e.g., 15-minute candles showing higher lows).
+   - Avoid entries if broader market (S&P 500) is down >2% or if there's ongoing negative news (e.g., SEC filings).
+
+3. **Example Entry**:
+   - Stock XYZ gaps down 7% to $20 from $21.50 close. Days-to-cover = 8 days; PCR = 1.8. Buy at $20.20 if RSI hits 25 and volume surges.
+
+### Exit Rules
+1. **Profit Targets**:
+   - Primary: 10-20% gain from entry, or when the gap fills (price reaches/exceeds prior close level).
+   - Partial exits: Sell 50% at 10% gain to lock in profits, trail the rest with a 5% stop from peak.
+
+2. **Stop-Loss and Trailing Stops**:
+   - Initial stop: 5-8% below entry or below the gap-down low (whichever is lower) to protect against further downside.
+   - Trailing stop: Move to breakeven after 5% gain, then trail by 3-5% as price rises, or use a 20-period moving average on the 1-hour chart.
+
+3. **Time-Based Exit**:
+   - Exit if no reversal within 3-5 days (to avoid holding through prolonged weakness).
+   - Sell on signs of reversal failure: PCR dropping below 1.0 (sentiment shifting neutral) or short interest declining rapidly.
+
+4. **Example Exit**:
+   - From $20.20 entry, target $22.22-$24.24 (10-20%). If gap fills at $21.50, exit full position. Stop at $18.80 if breached.
+
+### Risk Management
+1. **Position Risk**:
+   - Risk no more than 1-2% of total portfolio per trade (e.g., $10,000 portfolio risks $100-200 max loss).
+   - Use position sizing formula: Shares = (Portfolio Risk Amount) / (Entry Price - Stop Price).
+
+2. **Overall Portfolio Controls**:
+   - Maximum drawdown: Pause trading if portfolio drops 10% from peak.
+   - Diversification: No more than 20% exposure to one sector; balance with hedges like SPY puts during high-volatility periods (VIX >25).
+   - Backtesting/Monitoring: Test on historical data (e.g., 2018-2023 squeezes like GME) using platforms like Backtrader. Track win rate (aim >60%), average gain/loss ratio (>2:1).
+
+3. **Additional Safeguards**:
+   - Avoid earnings weeks or major events unless PCR spikes massively.
+   - Monitor for "fakeouts": If price gaps down further on day 2, exit immediately.
+   - Emotional discipline: Use alerts for criteria; no chasing if missed entry.
+
+### Required Indicators and Tools
+1. **Core Indicators**:
+   - **Days-to-Cover Ratio**: Short interest shares / average daily volume (free on Yahoo Finance or paid on ShortSqueeze.com).
+   - **Put-Call Ratio**: Daily/weekly PCR (CBOE website or Thinkorswim platform).
+   - **RSI (14-period)**: For oversold confirmation (built into most charting tools).
+   - **Gap Analysis**: Visual on candlestick charts; calculate gap size as (Prior Close - Open) / Prior Close.
+   - **Volume**: On-balance volume (OBV) or simple volume bars to confirm momentum shift.
+
+2. **Tools and Data Sources**:
+   - Screening: Finviz (free short interest/PCR filters), StockCharts, or TradingView.
+   - Execution: Broker platforms like Interactive Brokers or TD Ameritrade for real-time options data.
+   - Options: Not required for entry but useful for advanced users to monitor PCR intraday.
+   - Frequency: Daily scans pre-market; intraday monitoring for entries.
+
+This strategy leverages behavioral finance (contrarian to extreme bearishness) and technical mean-reversion, with historical success in short-squeeze events, but it carries high risk due to potential for deeper gaps in bear markets. Always paper trade before live implementation.

@@ -1,0 +1,30 @@
+STRATEGY_NAME: VolatilityContraction
+
+STRATEGY_DETAILS:
+The VolatilityContraction strategy focuses on identifying periods of market complacency and narrow price ranges, combined with elevated VIX levels, to initiate bearish positions. The strategy capitalizes on the tendency for volatility to revert to the mean after extreme readings, particularly when price action remains constrained.
+
+Key Strategy Components:
+1. VIX Index Analysis: Monitor the VIX Index for peaks relative to its historical highs. This indicates elevated market fear or uncertainty.
+2. Price Range Analysis: Identify narrow price ranges in the underlying asset, suggesting consolidation or indecision.
+3. Bollinger Bands: Use Bollinger Bands to confirm the narrow range and identify potential breakout points.
+
+Entry Rules:
+1. Confirm the VIX Index is at or near a historical high relative to its recent range.
+2. Ensure the underlying asset is trading within a narrow range, as indicated by tight Bollinger Bands (e.g., bandwidth less than 2% of the asset price).
+3. Initiate a bearish position (short sell or buy puts) when both conditions above are met.
+
+Exit Rules:
+1. Close the position when the price touches the upper or lower Bollinger Band, signaling a potential breakout or reversal.
+2. Alternatively, exit if the VIX Index drops significantly from its peak, indicating a reduction in market fear.
+
+Risk Management:
+1. Position sizing should be conservative, as volatility strategies can experience sharp reversals.
+2. Use a stop-loss order slightly above the recent high of the narrow range to limit downside risk.
+3. Monitor the VIX Index and Bollinger Bands closely for early signs of a breakout or trend change.
+
+Required Indicators:
+1. VIX Index: To measure market volatility and fear levels.
+2. Bollinger Bands (20-period, 2 standard deviations): To identify narrow price ranges and potential breakout points.
+3. Historical VIX Data: To compare current VIX levels with historical highs.
+
+This strategy is particularly effective in sideways or consolidating markets where volatility is elevated but price action remains constrained. It requires careful monitoring of both the VIX Index and price action to time entries and exits effectively.

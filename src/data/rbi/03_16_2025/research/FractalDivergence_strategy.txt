@@ -1,0 +1,42 @@
+STRATEGY_NAME: FractalDivergence
+
+STRATEGY_DETAILS:
+The FractalDivergence strategy is a sophisticated trend-following approach that combines RSI divergence, fractal dimension analysis, and volume filtering to identify high-probability trade setups. The strategy focuses on aligning multiple technical indicators to confirm trend strength and potential reversals.
+
+Key Components:
+1. RSI Divergence: Identifies potential trend reversals by comparing price action with RSI momentum.
+2. Fractal Dimension: Measures the complexity of price action to confirm trend strength.
+3. Volume Filter: Uses decreasing volume as a confirmation signal for trend continuation.
+4. ATR Multiples: Determines dynamic exit points based on market volatility.
+5. Fibonacci Retracement: Provides additional exit levels based on key price levels.
+
+Entry Rules:
+1. Look for RSI divergence (bullish or bearish) on the daily chart.
+2. Confirm increasing fractal dimension of price action using a fractal dimension indicator.
+3. Ensure volume is decreasing during the divergence period.
+4. Enter a long position on bullish divergence or a short position on bearish divergence when all conditions align.
+
+Exit Rules:
+1. Use ATR multiples (e.g., 2x ATR) as initial profit targets.
+2. Set secondary exit points at key Fibonacci retracement levels (38.2%, 50%, 61.8%).
+3. Implement a trailing stop based on ATR to lock in profits during strong trends.
+4. Exit the trade if the fractal dimension starts decreasing, indicating potential trend weakness.
+
+Risk Management:
+1. Set stop-loss orders at 1x ATR below/above the entry point.
+2. Risk no more than 1-2% of account equity per trade.
+3. Use position sizing based on ATR to maintain consistent risk levels.
+4. Avoid trading during high-impact news events or periods of extreme volatility.
+
+Required Indicators:
+1. RSI (14-period) for divergence analysis.
+2. Fractal Dimension Indicator (custom or built-in).
+3. Volume Indicator (standard or OBV).
+4. ATR (14-period) for volatility measurement.
+5. Fibonacci Retracement Tool.
+
+Additional Notes:
+- This strategy works best on daily and 4-hour timeframes for swing trading.
+- Backtest thoroughly on different market conditions to optimize parameters.
+- Combine with fundamental analysis for higher probability setups.
+- Monitor multiple timeframes for confirmation of fractal dimension trends.

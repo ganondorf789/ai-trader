@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolatilitySqueezeBreach  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Breakout:** The strategy focuses on price breaching the upper Bollinger Band, indicating potential upward momentum.  
+2. **Volatility Squeeze:** A volatility squeeze is identified when the Bollinger Band bandwidth (difference between upper and lower bands) is at its narrowest over a 10-day period, signaling low volatility and potential for a breakout.  
+3. **Volume Confirmation:** Rising volume is required to confirm the breakout, ensuring the move is supported by increased trading activity.  
+4. **Exit Conditions:** The trade is exited when price touches the lower Bollinger Band (indicating potential reversal or weakening momentum) or when volume drops below its 10-day average (loss of confirmation).  
+
+**Entry Rules:**  
+1. **Volatility Squeeze Condition:** The Bollinger Band bandwidth must be at its narrowest over the past 10 days.  
+2. **Price Action:** Price must breach the upper Bollinger Band.  
+3. **Volume Confirmation:** Volume must be rising (e.g., higher than previous day’s volume or above a short-term average).  
+
+**Exit Rules:**  
+1. **Lower Band Touch:** Exit the trade when price touches the lower Bollinger Band.  
+2. **Volume Drop:** Exit if volume falls below the 10-day average volume.  
+
+**Risk Management:**  
+1. **Stop-Loss:** Consider placing a stop-loss just below a recent swing low or a key support level to limit downside risk.  
+2. **Position Sizing:** Allocate a conservative portion of capital per trade (e.g., 1-2% of portfolio) to manage risk during volatile breakouts.  
+3. **Avoid Overcrowded Conditions:** Be cautious of false breakouts during low-liquidity periods or major news events.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2):** Standard settings (20-period SMA with 2 standard deviations).  
+2. **Bandwidth Calculation:** (Upper Band - Lower Band) / Middle Band (SMA), measured over 10 days to identify the squeeze.  
+3. **Volume Indicator:** 10-day average volume for confirmation and exit signals.  
+
+**Additional Notes:**  
+- This strategy works best in trending markets but may produce false signals in choppy or sideways conditions.  
+- Backtest on multiple assets/timeframes to validate robustness.  
+- Combine with additional filters (e.g., RSI not overbought) to improve accuracy.

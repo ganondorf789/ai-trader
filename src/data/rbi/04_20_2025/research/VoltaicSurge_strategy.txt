@@ -1,0 +1,65 @@
+STRATEGY_NAME: VoltaicSurge
+
+STRATEGY_DETAILS:
+This strategy combines volatility expansion with volume confirmation to capture strong intraday momentum moves. The core concept revolves around identifying abnormal volatility expansion compared to the daily baseline, coupled with supporting volume activity.
+
+Key Components:
+1. Volatility Measurement:
+   - 5-minute ATR (14-period) as short-term volatility gauge
+   - Daily ATR (14-period) as baseline volatility reference
+   - Breakout threshold = Daily ATR * 1.5 (50% exceedance)
+
+2. Volume Confirmation:
+   - 20-period volume moving average as baseline
+   - Current volume must exceed this average for signal validation
+
+3. Exit Mechanism:
+   - Trailing stop set at 2x the breakout ATR value
+   - Dynamic adjustment as position moves favorably
+
+Entry Rules:
+1. Long Trigger:
+   - When 5-min ATR > (Daily ATR * 1.5)
+   - AND Current volume > 20-period volume average
+   - Entry on next candle open after conditions met
+
+Exit Rules:
+1. Trailing Stop:
+   - Initial stop = Entry price - (2 * breakout ATR)
+   - For long positions, trail upward at 2x breakout ATR below current price
+   - Never moves downward (only ratchets up)
+
+2. Time-based Exit (optional):
+   - Close all positions at end of trading session
+   - Prevents overnight risk exposure
+
+Risk Management:
+1. Position Sizing:
+   - Calculate risk per trade based on stop distance
+   - Example: If account risk tolerance is 1% per trade:
+     Position size = (1% of account) / (2 * breakout ATR in $ terms)
+
+2. Maximum Exposure:
+   - Limit to 3-5 concurrent positions
+   - Avoid overlapping correlated assets
+
+Required Indicators:
+1. ATR (14-period) on both:
+   - 5-minute chart (for signal generation)
+   - Daily chart (for baseline comparison)
+
+2. Volume:
+   - Raw volume data
+   - 20-period simple moving average of volume
+
+Optimization Considerations:
+1. ATR Period:
+   - Test 7-21 period ranges for sensitivity
+
+2. Breakout Multiplier:
+   - Adjust 1.3-2.0x range for different volatility regimes
+
+3. Volume Threshold:
+   - Consider 1.2-1.5x average instead of simple crossover
+
+This strategy performs best in trending markets with clear volatility expansions, and may generate false signals during choppy or mean-reverting conditions. Regular performance review is recommended to adjust parameters for changing market dynamics.

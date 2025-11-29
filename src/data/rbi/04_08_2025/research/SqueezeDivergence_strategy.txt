@@ -1,0 +1,43 @@
+STRATEGY_NAME: SqueezeDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies low volatility periods where price consolidates, often preceding significant breakouts.  
+2. **Chaikin Money Flow (CMF) Divergence:** Detects discrepancies between price action and money flow, signaling potential reversals or continuations.  
+3. **Volatility Expansion Threshold:** Defines exit conditions based on a predefined expansion of volatility post-breakout.  
+4. **Trailing Stop:** Dynamically adjusts exit points to lock in profits while allowing for trend continuation.  
+
+**Entry Rules:**  
+1. **Setup:**  
+   - Bollinger Bands (20-period, 2 standard deviations) must show a squeeze (bands narrowing significantly).  
+   - Price must be trading within the upper and lower bands.  
+2. **Confirmation:**  
+   - Chaikin Money Flow (21-period) must diverge from price (e.g., price makes a lower low while CMF makes a higher low for bullish divergence, or vice versa for bearish divergence).  
+3. **Trigger:**  
+   - Enter long on a bullish breakout above the upper Bollinger Band with bullish CMF divergence.  
+   - Enter short on a bearish breakout below the lower Bollinger Band with bearish CMF divergence.  
+
+**Exit Rules:**  
+1. **Volatility Expansion Exit:**  
+   - Exit the trade when the Bollinger Band width (difference between upper and lower bands) expands beyond a predefined threshold (e.g., 1.5x the width at entry).  
+2. **Trailing Stop Exit:**  
+   - For long positions: Set a trailing stop below the most recent swing low or a fixed percentage (e.g., 2-3%) below the highest price since entry.  
+   - For short positions: Set a trailing stop above the most recent swing high or a fixed percentage above the lowest price since entry.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss:** Initial stop-loss placed at the opposite Bollinger Band (e.g., for long entries, stop below the lower band; for short entries, stop above the upper band).  
+3. **Profit Targets:** Consider scaling out partially (e.g., 50%) at a 1:1 risk-reward ratio, letting the remainder run with the trailing stop.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2)** – To identify squeeze conditions and breakout levels.  
+2. **Chaikin Money Flow (21-period)** – To confirm divergence signals.  
+3. **Bollinger Band Width** – To measure volatility expansion for exits.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (squeeze) with money flow divergence for high-probability breakout entries.  
+- Uses volatility expansion as a dynamic exit criterion, adapting to market conditions.  
+- Integrates trailing stops to capture extended trends while protecting profits.  
+
+**Note:** Backtest to optimize parameters (e.g., CMF period, volatility expansion multiplier) for specific assets and timeframes.

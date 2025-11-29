@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquiditySqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection:** Uses Bollinger Band Width (BBW) percentile to identify periods of low volatility (squeeze) followed by potential breakout expansion.  
+2. **Liquidation Heatmap Confirmation:** Requires a surge in liquidation heatmap density, indicating increased market activity and potential liquidity grabs.  
+3. **Liquidity Pool Targeting:** Aims for the nearest liquidity pool levels (support/resistance zones) as profit targets.  
+
+**Entry Rules:**  
+- **Condition 1:** BBW percentile drops below a threshold (e.g., <20%) indicating a volatility squeeze.  
+- **Condition 2:** Price breaks out of the squeeze (closes outside Bollinger Bands).  
+- **Condition 3:** Liquidation heatmap shows a sharp increase in density (confirming market participation).  
+- **Direction:** Enter long if breakout is above upper band; short if below lower band.  
+
+**Exit Rules:**  
+- **Take Profit:** Target the nearest liquidity pool level (e.g., prior swing high/low or orderbook imbalance zone).  
+- **Stop Loss:** Place below the breakout candle’s low (long) or above its high (short).  
+- **Time Exit:** Exit if no follow-through within 3-5 candles.  
+
+**Risk Management:**  
+- Position size based on 1-2% risk per trade.  
+- Stop loss must be respected; no moving it further away.  
+- Avoid trading during low-liquidity periods (e.g., weekends).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) + BBW percentile.  
+2. Liquidation heatmap (e.g., from exchanges like Binance or Bybit).  
+3. Price action to identify liquidity pools (swing points/orderbook data).  
+
+**Unique Edge:** Combines volatility contraction, liquidation-driven momentum, and liquidity targeting for high-probability breakouts. Avoids false breakouts by requiring heatmap confirmation.

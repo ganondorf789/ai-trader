@@ -1,0 +1,37 @@
+STRATEGY_NAME: SqueezeSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze (20-day, 2σ):** Identifies periods of low volatility where price is consolidating within tightening Bollinger Bands.  
+2. **Volume Surge (50% above 10-day average):** Confirms breakout validity with a significant increase in trading volume.  
+3. **RSI (5-period) Reversal:** Used for exit signals when RSI crosses above 70 (overbought) or below 30 (oversold).  
+
+**Entry Rules:**  
+- Enter a **long** position when:  
+  - Price breaks **above** the upper Bollinger Band after a squeeze (narrowing bands).  
+  - Volume is **50% higher** than the 10-day average volume.  
+- Enter a **short** position when:  
+  - Price breaks **below** the lower Bollinger Band after a squeeze.  
+  - Volume is **50% higher** than the 10-day average volume.  
+
+**Exit Rules:**  
+- **Long Exit:** Close the trade when the 5-period RSI crosses **below 70** (signaling overbought reversal).  
+- **Short Exit:** Close the trade when the 5-period RSI crosses **above 30** (signaling oversold reversal).  
+
+**Risk Management:**  
+- **Stop-Loss:** Place a stop-loss at the **middle Bollinger Band (20-day SMA)** to protect against false breakouts.  
+- **Position Sizing:** Risk no more than **1-2% of capital** per trade.  
+- **Avoid Choppy Markets:** Only trade when Bollinger Bands are visibly narrowing (squeeze condition).  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2σ)** – To identify squeeze and breakout levels.  
+2. **Volume (10-day average + current volume)** – To confirm breakout strength.  
+3. **RSI (5-period)** – For exit signals.  
+
+**Additional Notes:**  
+- Works best in **trending markets** after consolidation.  
+- Avoid trading during low-liquidity periods (e.g., overnight or pre-market).  
+- Backtest on multiple assets to confirm robustness.  
+
+This strategy combines **volatility contraction (squeeze), volume confirmation (surge), and momentum exhaustion (RSI reversal)** for high-probability breakout trades.

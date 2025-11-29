@@ -1,0 +1,39 @@
+STRATEGY_NAME: VortexEmergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):**  
+   - Tracks directional movement and trend strength  
+   - VI+ (positive trend movement) crossing above VI- (negative trend movement) signals potential bullish momentum  
+
+2. **Choppiness Index (14-period):**  
+   - Measures market consolidation/trending conditions  
+   - Low values (<35) indicate trending markets (favorable for entries)  
+   - High values (>65) indicate choppy/consolidating markets (exit signal)  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  1. VI+ crosses **above** VI- (bullish momentum)  
+  2. Choppiness Index (14) is **below 35** (confirming trending conditions)  
+
+**Exit Rules:**  
+- **Long Exit:** Triggered when:  
+  1. Choppiness Index (14) rises **above 65** (market entering consolidation)  
+
+**Risk Management:**  
+1. **Stop-Loss:**  
+   - Optional: Set below recent swing low or use ATR-based stop (e.g., 1.5x ATR)  
+2. **Position Sizing:**  
+   - Risk ≤1-2% of capital per trade  
+3. **Filter:** Avoid trading during major news events or extreme volatility  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+ and VI-)  
+2. Choppiness Index (14-period)  
+
+**Optional Enhancements:**  
+- Add volume confirmation (e.g., rising volume on VI+ crossover)  
+- Combine with higher timeframe trend alignment (e.g., 200EMA filter)  
+
+**Note:** This strategy capitalizes on early trend emergence while avoiding choppy markets. Backtest for optimal Choppiness Index thresholds based on asset class.

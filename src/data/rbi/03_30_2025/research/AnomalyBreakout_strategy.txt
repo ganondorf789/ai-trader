@@ -1,0 +1,45 @@
+STRATEGY_NAME: AnomalyBreakout
+
+STRATEGY_DETAILS:
+This strategy combines mean-reversion signals from funding rates with trend-following technical triggers, creating a unique approach to capturing short-term bearish momentum during unfavorable funding conditions.
+
+Key Components:
+1. 50-period Simple Moving Average (SMA) - Primary trend filter
+2. Funding Rate Analysis - Extreme negative values indicate potential mean-reversion opportunities
+3. Average True Range (ATR) - Dynamic risk management tool
+
+Entry Rules:
+1. Wait for price to break BELOW the 50-period SMA (confirming bearish momentum)
+2. Confirm funding rates are in extreme negative territory (suggesting overcrowded short positions)
+3. Enter short position on next candle open after both conditions are met
+
+Exit Rules:
+1. Primary Exit: When funding rates normalize (return to neutral/positive territory)
+2. Protective Exit: 2x ATR trailing stop (places stop at 2x current ATR below entry price, trails upward)
+3. Optional Time Exit: Consider closing after 24-48 hours if neither trigger hits
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Maximum stop distance of 3x ATR if market extremely volatile
+3. Avoid trading during major news events that may distort funding rates
+4. Daily volume filter (only trade above average volume days)
+
+Required Indicators:
+1. 50-period SMA (simple moving average)
+2. Funding Rate data (exchange-specific)
+3. 14-period ATR (average true range)
+4. Volume indicator (optional but recommended)
+
+Special Considerations:
+- Works best in trending markets with occasional funding anomalies
+- Most effective on 1h-4h timeframes
+- Requires monitoring of multiple exchanges' funding rates
+- Performs poorly during prolonged bear markets with sustained negative funding
+
+Optimization Tips:
+1. Test different SMA periods (40-60 range)
+2. Experiment with ATR multipliers (1.5x-3x)
+3. Add volume confirmation filter
+4. Consider combining with RSI for overbought confirmation
+
+This "AnomalyBreakout" strategy uniquely combines fundamental funding data with technical breakouts, creating a high-probability shorting opportunity when the crowd is overly bearish but price action confirms downside momentum.

@@ -1,0 +1,51 @@
+STRATEGY_NAME: CloudSurgeTrail
+
+STRATEGY_DETAILS:
+This strategy combines Ichimoku Cloud analysis with volume confirmation and momentum filtering to trade breakouts with dynamic trailing stops. Here are the key components:
+
+1. KEY COMPONENTS:
+- Ichimoku Cloud (15min timeframe): Primary trend filter and breakout detection
+- Volume Surge (2x average): Confirmation of breakout strength
+- Stochastic RSI: Momentum filter to avoid overextended conditions
+- Chandelier Exit: Adaptive trailing stop mechanism
+
+2. ENTRY RULES:
+- Long Entry:
+  1. Price breaks ABOVE Ichimoku Cloud (Senkou Span)
+  2. Volume exceeds 2x 20-period average volume
+  3. Stoch RSI (14,3,3) is below 80 (not overbought)
+  4. Cloud must be bullish (Price > Cloud, Senkou Span A > Senkou Span B)
+
+- Short Entry:
+  1. Price breaks BELOW Ichimoku Cloud (Senkou Span)
+  2. Volume exceeds 2x 20-period average volume
+  3. Stoch RSI (14,3,3) is above 20 (not oversold)
+  4. Cloud must be bearish (Price < Cloud, Senkou Span A < Senkou Span B)
+
+3. EXIT RULES:
+- Primary Exit: Chandelier Exit (22-period, 3x ATR) trails the position
+- Secondary Exit: 
+  - For longs: Stoch RSI crosses below 80
+  - For shorts: Stoch RSI crosses above 20
+- Emergency Exit: Price re-enters opposite side of Cloud
+
+4. RISK MANAGEMENT:
+- Initial stop placed at opposite side of Cloud at entry
+- Position size limited to 1-2% of capital per trade
+- No new entries if 3 consecutive losing trades occur
+- Maximum daily loss limit of 5% of account
+
+5. REQUIRED INDICATORS:
+- Ichimoku Cloud (9,26,52 standard settings)
+- Volume (20-period average)
+- Stochastic RSI (14,3,3 settings)
+- Chandelier Exit (22-period, 3x ATR multiplier)
+- ATR (14-period for Chandelier calculation)
+
+6. SPECIAL NOTES:
+- Best suited for liquid assets with consistent volume patterns
+- Requires confirmation from all components - no partial signals
+- Cloud thickness adds validity - thicker clouds = stronger signals
+- Avoid trading during major news events due to volume distortions
+
+This strategy combines trend confirmation (Ichimoku), momentum filtering (Stoch RSI), volume validation, and dynamic risk management (Chandelier) for a comprehensive breakout approach.

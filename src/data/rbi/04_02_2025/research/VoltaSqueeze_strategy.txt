@@ -1,0 +1,33 @@
+STRATEGY_NAME: VoltaSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Bands Squeeze:** Identifies low volatility periods when the Bollinger Bands width contracts below its 20-period moving average, signaling potential breakout conditions.  
+2. **RSI Confirmation:** Uses the Relative Strength Index (RSI) crossing above 50 to confirm bullish momentum before entering a long position.  
+3. **ATR-Based Exit:** Exits trades when price moves 2x the Average True Range (ATR) from the entry point, ensuring dynamic profit-taking based on current volatility.  
+
+**Entry Rules:**  
+- **Condition 1:** Bollinger Bands width (Upper Band - Lower Band) is below its 20-period simple moving average (SMA), indicating a volatility squeeze.  
+- **Condition 2:** RSI (14-period) crosses above 50, confirming upward momentum.  
+- **Action:** Enter a long position when both conditions are met.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit the trade when price reaches 2x the ATR (14-period) from the entry price.  
+- **Stop-Loss:** No fixed stop-loss; the ATR-based exit also acts as a trailing stop.  
+
+**Risk Management:**  
+- Position sizing should account for the 2x ATR move to avoid excessive risk.  
+- Avoid trading during major news events that may cause erratic volatility.  
+- Monitor Bollinger Bands width expansion post-entry to confirm the breakout’s validity.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2)** – Standard deviation set to 2, period 20.  
+2. **RSI (14-period)** – For momentum confirmation.  
+3. **ATR (14-period)** – For dynamic exit calculation.  
+
+**Additional Notes:**  
+- Works best in ranging or consolidating markets before breakouts.  
+- Backtest on multiple timeframes (1H, 4H, Daily) to optimize parameters.  
+- Combine with volume analysis for higher-probability setups.  
+
+This strategy capitalizes on volatility contractions followed by momentum shifts, using ATR to adapt exits to market conditions.

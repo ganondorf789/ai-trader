@@ -1,0 +1,46 @@
+STRATEGY_NAME: ChaikinBands
+
+STRATEGY_DETAILS:
+The ChaikinBands strategy combines the Chaikin Oscillator and Bollinger Bands to identify intraday breakout opportunities. This approach leverages the momentum insights from the Chaikin Oscillator and the volatility-based price boundaries from Bollinger Bands to create a robust trading system.
+
+### Key Components:
+1. **Chaikin Oscillator**: Measures the accumulation/distribution line's momentum, helping identify potential trend reversals or continuations.
+2. **Bollinger Bands**: Provides dynamic support and resistance levels based on price volatility, helping identify breakout zones.
+3. **Timeframe**: Optimized for intraday trading (e.g., 5-minute or 15-minute charts).
+
+### Entry Rules:
+1. **Breakout Confirmation**:
+   - Wait for the price to break above the upper Bollinger Band (for a long entry) or below the lower Bollinger Band (for a short entry).
+   - Ensure the Chaikin Oscillator is above the zero line for a long entry or below the zero line for a short entry, confirming bullish or bearish momentum.
+2. **Volume Filter**:
+   - Confirm the breakout with above-average trading volume to ensure the move has strong participation.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set a take-profit level at the middle Bollinger Band (20-period SMA) or a fixed risk-reward ratio (e.g., 1:2).
+2. **Stop Loss**:
+   - Place a stop loss just below the breakout candle's low for long trades or above the breakout candle's high for short trades.
+3. **Reversal Signal**:
+   - Exit the trade if the Chaikin Oscillator crosses back below the zero line (for long trades) or above the zero line (for short trades).
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital per trade.
+2. **Volatility Adjustment**:
+   - Adjust position size based on the width of the Bollinger Bands (wider bands indicate higher volatility, requiring smaller position sizes).
+3. **Time-Based Exit**:
+   - Exit trades that do not reach the take-profit level within a predefined time window (e.g., 2-3 hours) to avoid holding losing positions.
+
+### Required Indicators:
+1. **Chaikin Oscillator**:
+   - Parameters: Default settings (3-day EMA of the accumulation/distribution line minus a 10-day EMA of the same line).
+2. **Bollinger Bands**:
+   - Parameters: 20-period SMA with 2 standard deviations.
+3. **Volume Indicator**:
+   - Use a simple volume histogram to confirm breakout strength.
+
+### Additional Notes:
+- This strategy works best in trending or high-volatility markets. Avoid using it during low-volatility or sideways market conditions.
+- Backtest the strategy on multiple instruments and timeframes to optimize parameters for your specific trading style.
+
+By combining the momentum insights of the Chaikin Oscillator with the volatility-based boundaries of Bollinger Bands, the ChaikinBands strategy provides a systematic approach to intraday breakout trading.

@@ -1,0 +1,38 @@
+STRATEGY_NAME: MomentumBreakoutEMA  
+
+STRATEGY_DETAILS:  
+This strategy combines trend confirmation via EMA crossovers with momentum strength measured by ADX and volatility-based exits using ATR and trailing stops.  
+
+**Key Components:**  
+1. **Trend Identification:**  
+   - Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) to confirm a bullish trend.  
+   - The crossover must be accompanied by an ADX reading above 25 to ensure strong directional momentum.  
+
+2. **Entry Rules:**  
+   - Enter a long position when:  
+     - The 50 EMA crosses above the 200 EMA.  
+     - ADX is rising and above 25.  
+   - The breakout is confirmed by price closing above the recent high (or resistance level).  
+
+3. **Exit Rules:**  
+   - **Stop-Loss:**  
+     - Initial stop-loss set at 2x the current ATR (Average True Range) below the entry price to account for volatility.  
+   - **Trailing Stop:**  
+     - A dynamic 5% trailing stop is activated once the trade is in profit, locking in gains while allowing for further upside.  
+
+4. **Risk Management:**  
+   - Position sizing should be adjusted based on the ATR stop distance to ensure risk per trade is consistent (e.g., 1-2% of capital).  
+   - Avoid trading during low ADX (<25) or choppy market conditions.  
+
+**Required Indicators:**  
+- 50-period EMA (Exponential Moving Average)  
+- 200-period EMA  
+- ADX (14-period, threshold at 25)  
+- ATR (14-period, for stop calculation)  
+
+**Additional Notes:**  
+- Works best on higher timeframes (H4/Daily) to reduce false signals.  
+- Avoid using in sideways markets—wait for ADX confirmation to filter weak trends.  
+- Backtest to optimize EMA periods or ADX threshold for specific instruments.  
+
+This strategy is ideal for traders seeking high-probability breakouts with clear risk parameters. The combination of EMA crossovers, ADX strength, and volatility-adjusted stops creates a systematic approach to trend-following.

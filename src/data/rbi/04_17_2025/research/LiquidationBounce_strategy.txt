@@ -1,0 +1,41 @@
+STRATEGY_NAME: LiquidationBounce
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band breakouts with order book liquidity analysis to identify high-probability short entries during market stress periods, with a mean-reversion exit condition.
+
+Key Components:
+1. Bollinger Bands (20-period, 2σ) - Identifies oversold conditions
+2. Liquidation Cluster Density - Order book analysis to detect high liquidation zones
+3. Keltner Channel (Midline) - Provides mean-reversion exit signal
+4. 15-minute timeframe - Balances responsiveness with noise reduction
+
+Entry Rules:
+1. Wait for price to breach the LOWER Bollinger Band (2σ, 20-period)
+2. Confirm presence of high liquidation cluster density via order book imbalance:
+   - Significant increase in market sell orders
+   - Large resting bids being pulled
+   - Elevated liquidation heatmap activity
+3. Enter short position on confirmation of both conditions
+
+Exit Rules:
+1. Primary Exit: When price closes ABOVE Keltner Channel midline on 15-minute candle
+2. Emergency Exit: If price closes back INSIDE Bollinger Bands (above lower band)
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Stop loss: Initial stop above recent swing high or Bollinger Band midline
+3. Time-based exit: Close position if not profitable within 4 hours
+4. Avoid trading during major news events or low liquidity periods
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Keltner Channel (20,2)
+3. Order book imbalance indicator
+4. Liquidation heatmap/cluster density tool
+
+Optimization Notes:
+1. Test different Bollinger Band periods (14-26) and deviations (1.8-2.2σ)
+2. Adjust Keltner Channel parameters for different volatility regimes
+3. Fine-tune liquidation cluster thresholds based on asset class
+
+This strategy capitalizes on the combination of technical oversold conditions with order flow confirmation, while using the Keltner Channel as a dynamic exit point to capture mean-reversion moves after liquidation events.

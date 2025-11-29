@@ -1,0 +1,55 @@
+STRATEGY_NAME: ChaikinDivergenceBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Chaikin Money Flow with MACD histogram divergence to identify high-probability breakout trades, using volume spikes and trendline analysis for precise exits.
+
+Key Components:
+1. Chaikin Money Flow (CMF) - 20-period standard setting
+2. MACD Histogram (12,26,9 default settings)
+3. Volume analysis (raw volume spikes)
+4. Trendline analysis (manual drawing required)
+
+Entry Rules:
+LONG ENTRY:
+1. CMF must cross ABOVE zero line (bullish money flow)
+2. Concurrent BULLISH MACD histogram divergence (price makes lower low while histogram makes higher low)
+3. Price must break above recent swing high (confirms breakout)
+
+SHORT ENTRY:
+1. CMF must cross BELOW zero line (bearish money flow)
+2. Concurrent BEARISH MACD histogram divergence (price makes higher high while histogram makes lower high)
+3. Price must break below recent swing low (confirms breakout)
+
+Exit Rules:
+LONG EXIT:
+1. Bearish volume spike (volume exceeds 150% of 20-period average on down candle)
+2. Break below upward trendline (connect at least 2 swing lows)
+3. CMF crosses below zero line (confirms loss of buying pressure)
+
+SHORT EXIT:
+1. Bullish volume spike (volume exceeds 150% of 20-period average on up candle)
+2. Break above downward trendline (connect at least 2 swing highs)
+3. CMF crosses above zero line (confirms loss of selling pressure)
+
+Risk Management:
+1. Position size: 1-2% risk per trade
+2. Stop placement:
+   - Longs: Below most recent swing low or 1.5x ATR(14) below entry
+   - Shorts: Above most recent swing high or 1.5x ATR(14) above entry
+3. Profit targets:
+   - Primary: 2:1 risk-reward ratio
+   - Secondary: Trail stop when CMF reverses direction
+
+Required Indicators:
+1. Chaikin Money Flow (20 period)
+2. MACD (12,26,9 settings)
+3. Volume indicator (raw or SMA)
+4. ATR (14 period for stop calculation)
+
+Additional Notes:
+- Best used on 1H or 4H timeframes for reliable signals
+- Requires confluence of all three elements (CMF, MACD divergence, breakout)
+- Avoid trading during low volume periods (overnight sessions, holidays)
+- Works particularly well in trending markets, less effective in choppy conditions
+
+This strategy's strength lies in combining money flow confirmation with momentum divergence, creating high-probability breakout trades with clear risk parameters.

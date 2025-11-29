@@ -1,0 +1,34 @@
+STRATEGY_NAME: BandwidthSurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Contraction:** Identifies periods of low volatility when the Bollinger Bandwidth reaches a 10-day low, signaling potential breakout conditions.  
+2. **Volume Surge Confirmation:** Requires volume to spike at least 50% above the 20-day average, validating increased participation in the move.  
+3. **RSI Oversold Reversal:** Uses RSI crossing above 30 to confirm momentum shifting from oversold conditions.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when all three conditions align:  
+  1. Bollinger Bandwidth hits a 10-day low (volatility contraction).  
+  2. Current volume exceeds the 20-day average volume by 50% or more.  
+  3. RSI crosses above 30 (momentum reversal from oversold).  
+
+**Exit Rules:**  
+- **Take Profit/Exit Long:** Close the position when either of the following occurs:  
+  1. Bollinger Bandwidth reaches a 5-day high (volatility expansion signaling potential exhaustion).  
+  2. RSI exceeds 70 (overbought condition).  
+
+**Risk Management:**  
+- **Stop-Loss:** Consider placing a stop-loss below the recent swing low or using a fixed percentage (e.g., 2-3%) to limit downside risk.  
+- **Position Sizing:** Adjust trade size based on volatility (e.g., using ATR) to ensure consistent risk per trade.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – To calculate Bandwidth (Upper Band - Lower Band / Middle Band).  
+2. **Volume (20-day SMA)** – To measure volume surge against the average.  
+3. **RSI (14-period)** – To identify oversold/overbought conditions.  
+
+**Unique Edge:** Combines volatility contraction, volume confirmation, and momentum reversal for high-probability mean-reversion entries with clear exit signals. Avoids false breakouts by requiring multiple confluent factors.  
+
+**Optimization Tips:**  
+- Test different RSI thresholds (e.g., 25-35 for entry, 65-75 for exit).  
+- Adjust Bandwidth lookback periods (e.g., 7-15 days) for sensitivity.  
+- Filter trades with additional trend confirmation (e.g., price above 200-day MA for long bias).

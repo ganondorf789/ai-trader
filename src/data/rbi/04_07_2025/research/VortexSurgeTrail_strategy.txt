@@ -1,0 +1,35 @@
+STRATEGY_NAME: VortexSurgeTrail  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Used to identify trend direction. VI+ crossing above VI- signals potential bullish momentum.  
+2. **Volume Surge:** Confirmation of entry requires volume exceeding the 20-day average, ensuring strong participation in the move.  
+3. **Choppiness Index (CI):** Acts as the trailing stop mechanism. A drop below a predefined threshold (e.g., 38.2) suggests the trend is losing strength, triggering an exit.  
+
+**Entry Rules:**  
+- Go **long** when:  
+  - VI+ crosses above VI- (bullish signal).  
+  - Volume exceeds the 20-day moving average (confirms strong buying interest).  
+
+**Exit Rules:**  
+- **Trailing Stop:** Monitor the Choppiness Index (CI). Exit the trade when CI crosses below a set threshold (e.g., 38.2), indicating the trend is weakening or becoming choppy.  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%).  
+2. **Stop-Loss:** Consider an additional hard stop-loss (e.g., 2x ATR) as a backup in case of sudden reversals.  
+3. **Take-Profit:** Optional—scale out partially at predefined resistance levels or use a multiple of the initial risk (e.g., 2:1 reward-to-risk).  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)** – For trend direction.  
+2. **Volume (20-day MA)** – For confirmation of strength.  
+3. **Choppiness Index (CI)** – For trailing stop logic.  
+
+**Unique Aspects:**  
+- Combines trend-following (Vortex) with volume confirmation for high-probability entries.  
+- Uses CI dynamically to trail exits, adapting to market conditions instead of fixed price-based stops.  
+- Avoids over-trading by requiring both momentum (VI+) and volume participation.  
+
+**Optimization Notes:**  
+- Test different CI thresholds (e.g., 38.2 vs. 50) to balance between early exits and maximizing trends.  
+- Adjust the volume MA period (e.g., 10 vs. 20 days) based on the asset’s volatility.

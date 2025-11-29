@@ -1,0 +1,47 @@
+STRATEGY_NAME: VoltaicSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Breakout Focus**: The strategy capitalizes on sudden increases in volatility, indicating potential strong price movements.  
+2. **ATR-Based Trigger**: Uses the 5-minute Average True Range (ATR) to detect breakout conditions when it exceeds twice the daily average ATR.  
+3. **Volume Confirmation**: Requires volume to spike above the 20-period moving average to validate the breakout, reducing false signals.  
+4. **Risk-Reward Management**: Exits are strictly based on a 1:2 risk-reward ratio, ensuring disciplined profit-taking and loss mitigation.  
+
+**Entry Rules:**  
+- **Long Entry Triggered When**:  
+  1. The 5-minute ATR exceeds **2x the daily average ATR** (calculated over a lookback period, e.g., 14 days).  
+  2. Current volume is **above the 20-period moving average of volume** (confirming participation in the move).  
+  3. Entry occurs at the **next candle's open** after conditions are met.  
+
+**Exit Rules:**  
+- **Take-Profit**: Set at **2x the initial risk** (e.g., if stop-loss is 10 pips, take-profit is 20 pips).  
+- **Stop-Loss**: Placed at a logical level (e.g., below the recent swing low for longs) or a fixed ATR-based distance (e.g., 1x daily ATR).  
+
+**Risk Management:**  
+1. **Position Sizing**: Risk per trade should not exceed 1-2% of the trading capital.  
+2. **Stop-Loss Discipline**: Never adjust stop-loss to widen; only to tighten (e.g., trailing stops after partial profits).  
+3. **Time Filter**: Avoid trading during low-liquidity periods (e.g., holidays, overnight sessions) to prevent slippage.  
+
+**Required Indicators:**  
+1. **Average True Range (ATR)**:  
+   - 5-minute ATR (for breakout detection).  
+   - Daily ATR (for baseline volatility comparison).  
+2. **Volume Moving Average**: 20-period MA of volume (for confirmation).  
+
+**Unique Aspects:**  
+- Combines **volatility expansion** (ATR) with **volume surge** for high-probability breakouts.  
+- Strict **1:2 risk-reward** enforces consistency, avoiding emotional exits.  
+- Avoids over-trading by requiring dual confirmation (ATR + volume).  
+
+**Optimization Tips:**  
+- Test different ATR multipliers (e.g., 1.5x or 2.5x) to adapt to asset-specific volatility.  
+- Adjust volume MA period (e.g., 10 or 30) based on the asset’s typical volume patterns.  
+- Apply to **high-liquidity assets** (e.g., major forex pairs, large-cap stocks) for reliable execution.  
+
+**Example Trade:**  
+- **Condition**: 5-minute ATR = 15 pips, daily ATR = 7 pips (15 > 2x7), volume spikes above 20-period MA.  
+- **Action**: Enter long at next open, stop-loss 10 pips below entry, take-profit 20 pips above.  
+- **Outcome**: If price hits +20 pips, profit = 2x risk. If stop-loss hits, loss is contained.  
+
+**Note**: This strategy thrives in **trending markets** but may underperform in choppy/low-volatility conditions. Use a volatility filter (e.g., VIX or ADX) to avoid false signals.

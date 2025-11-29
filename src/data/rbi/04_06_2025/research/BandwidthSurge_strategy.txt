@@ -1,0 +1,36 @@
+STRATEGY_NAME: BandwidthSurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility when the Bollinger Band width reaches a 20-day low, signaling potential breakout conditions.  
+2. **Volume Surge Confirmation:** Requires a 50-day high in trading volume to validate the breakout, ensuring strong participation.  
+3. **MACD Histogram Crossover:** Uses MACD histogram cross above/below the zero line to confirm the breakout direction (bullish/bearish).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Bollinger Band width contracts to a 20-day low.  
+  2. Volume surges to a 50-day high.  
+  3. MACD histogram crosses above zero, confirming bullish momentum.  
+- **Short Entry:**  
+  1. Bollinger Band width contracts to a 20-day low.  
+  2. Volume surges to a 50-day high.  
+  3. MACD histogram crosses below zero, confirming bearish momentum.  
+
+**Exit Rules:**  
+- **Take Profit:**  
+  - Close position when Bollinger Band width expands significantly (e.g., 2x the entry width) or price reaches a predefined risk-reward ratio (e.g., 2:1).  
+- **Stop Loss:**  
+  - Set below the recent swing low (for long) or above the recent swing high (for short).  
+  - Alternatively, use a volatility-based stop (e.g., 1.5x ATR).  
+
+**Risk Management:**  
+- Risk per trade: 1-2% of capital.  
+- Avoid trading during major news events to prevent false breakouts.  
+- Filter trades using higher timeframes (e.g., daily chart alignment) for stronger confirmation.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20, 2) + Bandwidth calculation.  
+2. Volume (50-day comparison).  
+3. MACD (standard 12, 26, 9) with histogram focus.  
+
+**Unique Edge:** Combines volatility contraction, volume surge, and momentum confirmation to filter high-probability breakouts, reducing false signals.

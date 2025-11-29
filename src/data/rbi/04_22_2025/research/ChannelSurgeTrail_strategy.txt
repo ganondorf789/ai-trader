@@ -1,0 +1,36 @@
+STRATEGY_NAME: ChannelSurgeTrail
+
+STRATEGY_DETAILS:
+This is a dynamic breakout system combining volatility expansion with trend strength confirmation, using Donchian channels as breakout triggers and ADX as trend validation, protected by an adaptive trailing stop.
+
+Key Components:
+1. Donchian Channel (20-period): Defines the breakout boundaries
+2. ADX (25 threshold): Filters for strong trending conditions
+3. ATR (3x multiple): Provides dynamic risk management
+
+Entry Rules:
+1. Long Entry: When price closes above the upper Donchian band (20-period high) AND ADX > 25
+2. Short Entry: When price closes below the lower Donchian band (20-period low) AND ADX > 25
+
+Exit Rules:
+1. Trailing Stop: Maintains a 3x ATR trailing stop from the most extreme favorable price
+2. Stop Adjustment: Updates daily based on new ATR values and price extremes
+3. Emergency Exit: Immediate exit if ADX drops below 20 (trend weakness signal)
+
+Risk Management:
+1. Position Sizing: Based on 1-2% risk of capital per trade
+2. Initial Stop: Set at 3x ATR from entry price
+3. Stop Tightening: Trail stops only in the profitable direction
+4. Maximum Drawdown: Cease trading after 5 consecutive losing trades
+
+Indicator Settings:
+1. Donchian Channel: 20 periods (high/low)
+2. ADX: 14-period with 25 threshold
+3. ATR: 14-period with 3x multiplier
+
+Optimization Notes:
+- Test different ADX thresholds (20-30 range)
+- Experiment with Donchian periods (15-25 range)
+- Adjust ATR multiplier (2.5-3.5 range) based on volatility
+
+This strategy captures strong trending moves while filtering out false breakouts, with the trailing stop locking in profits during extended trends. The ADX requirement ensures trades are only taken when momentum confirms the breakout direction.

@@ -1,0 +1,55 @@
+STRATEGY_NAME: VolatilitySync  
+
+STRATEGY_DETAILS:  
+The VolatilitySync strategy combines Elder's Force Index with dynamic volatility thresholds and Bollinger Bandwidth contraction to identify high-probability entries, while using Keltner Channel breakouts scaled by volume surges for precise exits. This approach synchronizes momentum, volatility compression, and volume confirmation for robust trade signals.  
+
+**Key Components:**  
+1. **Elder's Force Index (EFI):** A momentum indicator that combines price movement and volume to measure buying/selling pressure.  
+2. **Dynamic Volatility Threshold:** Uses rolling standard deviation (e.g., 20-period) of EFI to filter meaningful crosses.  
+3. **Bollinger Bandwidth Contraction:** Measures the narrowing of Bollinger Bands (e.g., 20-period, 2 StdDev) to identify low-volatility setups.  
+4. **Keltner Channel Breakouts:** A volatility-based channel (e.g., 20-period ATR, 1.5x multiplier) for exit signals.  
+5. **Volume Surge Percentiles:** Recent volume spikes (e.g., 90th percentile over 50 periods) scale exit sensitivity.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. EFI crosses above its rolling standard deviation (dynamic threshold).  
+  2. Bollinger Bandwidth is below its 20-period average (contraction phase).  
+  3. Price is above the 200-period moving average (trend filter).  
+
+- **Short Entry:**  
+  1. EFI crosses below its negative rolling standard deviation.  
+  2. Bollinger Bandwidth is contracted.  
+  3. Price is below the 200-period MA.  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  1. Price closes above the upper Keltner Channel, AND  
+  2. Volume exceeds the 75th percentile of recent volume (adjust sensitivity via percentile).  
+
+- **Short Exit:**  
+  1. Price closes below the lower Keltner Channel, AND  
+  2. Volume surge confirms (e.g., > 70th percentile).  
+
+**Risk Management:**  
+- **Stop-Loss:**  
+  - Fixed percentage (e.g., 2% of capital) or ATR-based (e.g., 1.5x ATR).  
+- **Position Sizing:**  
+  - Volatility-adjusted (e.g., risk per trade = 1% of equity / (ATR * contract size)).  
+- **Take-Profit:**  
+  - Trailing stop (e.g., 50% of ATR) or Keltner Channel reversal.  
+
+**Required Indicators:**  
+1. Elder's Force Index (13-period recommended).  
+2. Bollinger Bands (20-period, 2 StdDev) + Bandwidth calculation.  
+3. Rolling Standard Deviation (20-period of EFI).  
+4. Keltner Channels (20-period, 1.5x ATR multiplier).  
+5. Volume percentile analysis (50-period lookback).  
+6. 200-period moving average (trend filter).  
+
+**Unique Edge:**  
+VolatilitySync uniquely combines:  
+- EFI's momentum with *dynamic* volatility thresholds (avoids static values).  
+- Bandwidth contraction for low-risk entries.  
+- Volume-scaled Keltner exits to avoid false breakouts.  
+
+Backtest this on assets with moderate-to-high volume for optimal results.

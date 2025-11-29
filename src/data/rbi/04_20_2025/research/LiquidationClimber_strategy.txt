@@ -1,0 +1,44 @@
+STRATEGY_NAME: LiquidationClimber
+
+STRATEGY_DETAILS:
+This strategy capitalizes on market inefficiencies created by forced liquidations during low volatility periods, combining on-chain liquidation data with technical volatility indicators for precise entries and exits.
+
+Key Components:
+1. On-chain liquidation cluster detection
+2. Volatility regime analysis (low volatility conditions)
+3. Statistical anomaly identification (2σ liquidation spikes)
+4. ATR-based volatility expansion signals
+
+Entry Rules:
+1. Primary Condition: Market must be in low volatility regime (ATR below 30-day average)
+2. Trigger: Liquidation spike exceeding 2 standard deviations above mean liquidation volume
+3. Confirmation: Price must show initial counter-move against liquidation direction
+4. Execution: Enter position opposite to liquidation direction (e.g., long if shorts liquidated)
+
+Exit Rules:
+1. Primary Exit: ATR crosses above its 30-day average (volatility expansion signal)
+2. Secondary Exit: 2:1 reward/risk ratio achieved
+3. Emergency Exit: Liquidation volume drops below 1 standard deviation from mean
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Stop placement: 1 ATR value from entry point
+3. Maximum drawdown limit: 15% account equity
+4. Trade frequency limit: 3 positions open simultaneously
+
+Required Indicators:
+1. On-chain liquidation data feed (preferably with historical standard deviation calculations)
+2. 14-period ATR (for volatility measurement)
+3. 30-day simple moving average of ATR (for regime definition)
+4. Standard deviation calculator for liquidation volumes (30-day lookback)
+
+Special Considerations:
+- Works best in sideways/consolidating markets
+- Requires real-time liquidation data feed
+- Most effective on liquid assets with high leverage markets
+- Performance improves with additional confirmation from order book depth analysis
+
+Optimization Notes:
+- Adjust standard deviation multiplier (1.5σ-2.5σ) based on asset volatility
+- Consider adding time filter (e.g., only trade during high liquidity hours)
+- May combine with RSI extremes for additional confirmation

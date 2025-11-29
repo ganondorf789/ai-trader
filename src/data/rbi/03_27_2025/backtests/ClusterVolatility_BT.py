@@ -1,0 +1,83 @@
+```python
+# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR ClusterVolatility STRATEGY 🌙
+
+import pandas as pd
+import talib
+from backtesting import Backtest, Strategy
+from backtesting.lib import crossover
+import pandas_ta as ta
+
+# =====================
+# DATA PREPARATION ✨
+# =====================
+data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
+data = pd.read_csv(data_path, parse_dates=['datetime'], index_col='datetime')
+
+# Clean and prepare columns 🌙
+data.columns = data.columns.str.strip().str.lower()
+data = data.drop(columns=[col for col in data.columns if 'unnamed' in col.lower()])
+data = data.rename(columns={
+    'open': 'Open',
+    'high': 'High',
+    'low': 'Low',
+    'close': 'Close',
+    'volume': 'Volume'
+})
+
+# =====================
+# CORE STRATEGY CLASS 🚀
+# =====================
+class ClusterVolatility(Strategy):
+    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    
+    def init(self):
+        # =====================
+        # INDICATORS CALCULATION ✨
+        # =====================
+        # Keltner Channel Components 🌙
+        self.ema20 = self.I(talib.EMA, self.data.Close, 20)
+        self.atr20 = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 20)
+        self.keltner_lower = self.I(lambda: self.ema20 - 2*self.atr20, name='Keltner Lower')
+        self.keltner_upper = self.I(lambda: self.ema20 + 2*self.atr20, name='Keltner Upper')
+        
+        # VWAP Calculation 🚀
+        typical_price = (self.data.High + self.data.Low + self.data.Close) / 3
+        tpv = typical_price * self.data.Volume
+        self.vwap = self.I(lambda: talib.SMA(tpv, 20) / talib.SMA(self.data.Volume, 20), name='VWAP_20')
+        
+        # Liquidation Zone Proxies 🌙
+        self.swing_high_20 = self.I(talib.MAX, self.data.High, 20, name='Swing High 20')
+        self.consolidation_range = self.I(lambda: talib.MAX(self.data.High, 5) - talib.MIN(self.data.Low, 5), name='Consolidation Range')
+        
+        # Volume Filter ✨
+        self.vol_sma = self.I(talib.SMA, self.data.Volume, 20, name='Volume SMA')
+        
+        print("🌙✨ MOON DEV INDICATORS LOADED ✨🚀")
+
+    def next(self):
+        # =====================
+        # ENTRY LOGIC 🌙
+        # =====================
+        if not self.position:
+            # Cluster Condition ✨
+            price_near_liq = self.data.High[-1] > (self.swing_high_20[-1] - 1.5*self.atr20[-1])
+            tight_range = self.consolidation_range[-1] < 0.8*self.atr20[-1]
+            
+            # Volatility Trigger 🚀
+            keltner_break = self.data.Close[-1] < self.keltner_lower[-1]
+            
+            # Volume Confirmation 🌙
+            volume_spike = self.data.Volume[-1] > 1.2*self.vol_sma[-1]
+            
+            if all([price_near_liq, tight_range, keltner_break, volume_spike]):
+                # Risk Management Calculation ✨
+                stop_level = min(self.swing_high_20[-1], self.keltner_upper[-1])
+                risk_per_share = stop_level - self.data.Close[-1]
+                
+                if risk_per_share > 0:
+                    position_size = int(round((self.equity * self.risk_per_trade) / risk_per_share))
+                    self.sell(size=position_size, sl=stop_level, tag="MoonDev Short")
+                    print(f"🚀🌙 MOON DEV SHORT ENTRY 🚀 | Price: {self.data.Close[-1]:.2f}")
+                    print(f"   ✨ Size: {position_size} | SL: {stop_level:.2f} | Risk: {risk_per_share:.2f}")
+
+        # =

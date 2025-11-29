@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolSqueezeSurge
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction with volume confirmation to identify high-probability breakout opportunities. The core concept revolves around detecting periods of compressed volatility (squeeze) followed by a significant volume surge, signaling potential explosive moves.
+
+Key Components:
+1. Bollinger Band Width: Measures volatility contraction when hitting 10-day lows
+2. Volume Surge: 50% increase from average volume confirms breakout potential
+3. Keltner Channel: Provides dynamic exit targets based on average true range
+
+Entry Rules:
+- Trigger: Bollinger Band width reaches 10-day low (volatility squeeze condition)
+- Confirmation: Current volume exceeds 50% of 20-day average volume
+- Execution: Enter long position when both conditions are met simultaneously
+
+Exit Rules:
+- Primary Exit: When price touches upper Keltner Channel line
+- Secondary Exit: If Bollinger Band width expands beyond 2x its squeeze level without reaching target
+
+Risk Management:
+1. Position Sizing: Risk no more than 1-2% of capital per trade
+2. Stop Loss: Place below recent swing low or lower Keltner Channel
+3. Time Exit: Close position if target not hit within 5 days of entry
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Bollinger Band Width indicator
+3. Keltner Channel (20,2 ATR multiplier)
+4. Volume (20-day average)
+
+Optimization Notes:
+- Adjust volume surge threshold (40-60%) based on asset volatility
+- Test different squeeze duration (7-14 days) for optimal results
+- Consider adding RSI filter (e.g., >30) to avoid oversold conditions
+
+This strategy works best in ranging markets transitioning to trending phases, capturing the initial momentum burst while managing risk through volatility-based exits.

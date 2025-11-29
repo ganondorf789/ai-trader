@@ -1,0 +1,34 @@
+STRATEGY_NAME: VortexDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Confirms trend direction (bullish when VI+ > VI-, bearish when VI- > VI+).  
+2. **On-Balance Volume (OBV):** Identifies divergence (price makes higher highs while OBV makes lower highs = bearish signal; price makes lower lows while OBV makes higher lows = bullish signal).  
+3. **Keltner Channel (KC):** Acts as a volatility-based exit trigger (middle line = EMA, outer bands = ATR-based).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. VI+ crosses above VI- (bullish trend confirmation).  
+  2. OBV shows bullish divergence (price lower low, OBV higher low).  
+  3. Enter at the next candle’s open.  
+- **Short Entry:**  
+  1. VI- crosses above VI+ (bearish trend confirmation).  
+  2. OBV shows bearish divergence (price higher high, OBV lower high).  
+  3. Enter at the next candle’s open.  
+
+**Exit Rules:**  
+- **Long Exit:** Close position when price closes below the Keltner Channel’s lower band.  
+- **Short Exit:** Close position when price closes above the Keltner Channel’s upper band.  
+
+**Risk Management:**  
+- Set stop-loss at 1.5x the ATR (used in Keltner Channel) from entry price.  
+- Position size capped at 2% of capital per trade.  
+- Avoid trading during major economic news events to reduce false signals.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI) – Default period (14).  
+2. On-Balance Volume (OBV) – No settings, raw values.  
+3. Keltner Channel – EMA (20), ATR multiplier (2.0), ATR period (10).  
+
+**Unique Edge:** Combines trend confirmation (VI), volume-backed divergence (OBV), and volatility exits (KC) for high-probability mean-reversion or breakout trades.

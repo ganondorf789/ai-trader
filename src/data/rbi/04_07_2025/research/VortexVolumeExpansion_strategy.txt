@@ -1,0 +1,28 @@
+STRATEGY_NAME: VortexVolumeExpansion  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI+ and VI-):** Measures trend direction and strength. VI+ represents bullish trend movement, while VI- represents bearish trend movement.  
+2. **Volume Confirmation:** Requires trading volume to exceed the 20-day average to validate the signal.  
+3. **ATR Expansion:** Uses the Average True Range (ATR) to confirm volatility expansion, indicating strong momentum.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when VI+ crosses above VI- (bullish signal).  
+- **Volume Filter:** Volume must exceed the 20-day moving average to confirm participation.  
+- **ATR Expansion:** ATR must be expanding (current ATR > previous ATR) to ensure volatility supports the trend.  
+
+**Exit Rules:**  
+- **Primary Exit:** VI- crosses back below VI+ (bearish reversal signal).  
+- **Secondary Exit:** ATR contracts below its 10-day moving average threshold, indicating weakening momentum.  
+
+**Risk Management:**  
+- **Stop-Loss:** Consider placing a stop-loss below the recent swing low or using a fixed percentage (e.g., 1-2%).  
+- **Position Sizing:** Adjust trade size based on ATR to account for volatility (e.g., risk 1% of capital per trade).  
+
+**Required Indicators:**  
+1. **Vortex Indicator (VI+ and VI-)**  
+2. **Volume (20-day moving average filter)**  
+3. **Average True Range (ATR) for volatility confirmation**  
+
+This strategy combines trend confirmation (Vortex), volume validation, and volatility expansion (ATR) for high-probability entries while using clear reversal signals for exits. The name "VortexVolumeExpansion" reflects its unique combination of these elements.

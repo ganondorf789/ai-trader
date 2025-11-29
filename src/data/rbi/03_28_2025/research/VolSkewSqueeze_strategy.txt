@@ -1,0 +1,46 @@
+STRATEGY_NAME: VolSkewSqueeze  
+
+STRATEGY_DETAILS:  
+The **VolSkewSqueeze** strategy combines Bollinger Band squeeze detection with volume skew analysis to identify high-probability breakout trades. It focuses on periods of low volatility (squeeze) followed by directional moves confirmed by increasing volume in the breakout direction.  
+
+### **Key Components:**  
+1. **Bollinger Band Squeeze**  
+   - Uses standard Bollinger Bands (20-period SMA, 2 standard deviations)  
+   - Squeeze occurs when the distance between upper and lower bands reaches a 6-month low percentile (threshold adjustable)  
+
+2. **Volume Skew Confirmation**  
+   - Compares current volume to 20-period average volume  
+   - Requires volume to be at least 1.5x the average in the breakout direction  
+   - Volume must be skewed toward buying (long) or selling (short) pressure  
+
+3. **Volatility-Based Exit**  
+   - Trailing stop based on recent ATR (14-period)  
+   - Exit if price reverses into opposite squeeze or hits trailing stop  
+
+### **Entry Rules:**  
+**Long Entry:**  
+- Price breaks above upper Bollinger Band  
+- Volume exceeds 1.5x 20-period average  
+- No opposing squeeze condition (bands not contracting again)  
+
+**Short Entry:**  
+- Price breaks below lower Bollinger Band  
+- Volume exceeds 1.5x 20-period average  
+- No opposing squeeze condition  
+
+### **Exit Rules:**  
+- **Trailing Stop:** 2x ATR(14) from recent peak/trough  
+- **Early Exit:** If Bollinger Bands re-enter squeeze state (contraction)  
+- **Time-Based Exit:** Close trade after 5 bars if no follow-through  
+
+### **Risk Management:**  
+- Position size: 1-2% of capital per trade  
+- Stop-loss: Initial stop at 1x ATR(14) from entry  
+- Max daily trades: 3 (to avoid overexposure)  
+
+### **Required Indicators:**  
+1. Bollinger Bands (20, 2)  
+2. Volume (20-period average)  
+3. ATR (14-period)  
+
+This strategy excels in ranging markets transitioning to trends, using volume as a key filter to avoid false breakouts. The name **VolSkewSqueeze** reflects its unique blend of volatility contraction (squeeze) and volume skew confirmation.

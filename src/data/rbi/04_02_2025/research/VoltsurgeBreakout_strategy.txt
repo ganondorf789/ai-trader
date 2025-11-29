@@ -1,0 +1,42 @@
+STRATEGY_NAME: VoltsurgeBreakout
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Focuses on volatility contraction patterns followed by explosive breakouts
+- Combines Bollinger Bandwidth contraction with volume confirmation
+- Uses adaptive trailing stops based on market volatility (ATR)
+
+2. Entry Rules:
+- Primary Trigger: Bollinger Bandwidth (20,2) reaches 10-day low
+- Confirmation: Volume must surge 50% above 20-day average volume
+- Entry Point: Next candle's open after both conditions are met
+- Direction: Trade in the direction of the breakout (long if price breaks upper band, short if breaks lower band)
+
+3. Exit Rules:
+- Trailing Stop: Set at 2x the 14-day ATR from entry price
+- Stop Adjustment: Recalculate ATR daily and adjust stop accordingly
+- Time Exit: Close position if no significant movement after 5 days
+
+4. Risk Management:
+- Position Sizing: Risk no more than 1-2% of capital per trade
+- Stop Placement: Initial stop set at 1.5x ATR (tighter than trailing stop)
+- Volatility Filter: Avoid trading if 14-day ATR > 3% of price (too volatile)
+
+5. Required Indicators:
+- Bollinger Bands (20,2) - for bandwidth calculation
+- Volume 20-day MA - for volume surge detection
+- ATR (14) - for stop placement and volatility assessment
+- Custom Bollinger Bandwidth indicator (upper band - lower band)/middle band
+
+6. Additional Notes:
+- Works best in ranging markets transitioning to trends
+- Avoid during earnings season or major news events
+- Most effective on liquid stocks/ETFs with average daily volume >1M shares
+- Optimal timeframes: 1-hour to daily charts
+
+7. Performance Enhancement:
+- Add RSI(14) filter: Only take trades when RSI between 30-70
+- Consider partial profits at 1x ATR move, letting remainder run
+- Weekend Gap Protection: Close positions before Friday close if holding over weekend
+
+This strategy capitalizes on the market's tendency for periods of low volatility to precede significant moves, with volume confirming genuine breakout participation. The adaptive trailing stop allows for trend continuation while protecting gains.

@@ -1,0 +1,55 @@
+STRATEGY_NAME: VoltaBandwidth
+
+STRATEGY_DETAILS:
+The VoltaBandwidth strategy is a sophisticated volatility-based trading system that combines Bollinger Band dynamics with RSI and volume-weighted moving averages for precise entry and exit signals.
+
+Key Components:
+1. Dynamic Bollinger Band Width Threshold: Uses standard deviation-based bands to identify volatility breakouts
+2. RSI Filter: Confirms overbought/oversold conditions for exit signals
+3. Volume-Weighted MA: Adds liquidity confirmation to trade exits
+4. Dual Timeframe Analysis: Requires alignment across different timeframes for higher probability trades
+
+Entry Rules (Long):
+1. Price must close above upper Bollinger Band
+2. Band width must be expanding (current width > previous width)
+3. Volume must be above 20-period average
+4. RSI must be below 70 (not yet overbought)
+
+Entry Rules (Short):
+1. Price must close below lower Bollinger Band
+2. Band width must be expanding (current width > previous width)
+3. Volume must be above 20-period average
+4. RSI must be above 30 (not yet oversold)
+
+Exit Rules (Long Positions):
+1. RSI crosses below 70 from above (overbought signal)
+2. Price closes below Volume-Weighted MA (20-period)
+3. Band width contracts by 15% from entry width
+4. Whichever condition occurs first
+
+Exit Rules (Short Positions):
+1. RSI crosses above 30 from below (oversold signal)
+2. Price closes above Volume-Weighted MA (20-period)
+3. Band width contracts by 15% from entry width
+4. Whichever condition occurs first
+
+Risk Management:
+1. Initial stop-loss at 1.5x average true range (ATR) from entry
+2. Position sizing based on 1% risk per trade
+3. Maximum daily loss limit of 3%
+4. No new entries if 3 consecutive losing trades occur
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. RSI (14-period)
+3. Volume-Weighted Moving Average (20-period)
+4. Average True Range (14-period)
+5. Volume indicator
+
+Optimization Notes:
+1. Best suited for 15min-4hr timeframes
+2. Works well with liquid assets (forex majors, large-cap stocks)
+3. Requires volatility to be present (avoid ranging markets)
+4. Backtest suggested parameters before live trading
+
+The VoltaBandwidth strategy excels in trending markets with expanding volatility, using the unique combination of band width expansion, RSI confirmation, and volume-weighted exits to capture strong moves while avoiding false breakouts.

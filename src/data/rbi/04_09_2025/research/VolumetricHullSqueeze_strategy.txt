@@ -1,0 +1,45 @@
+STRATEGY_NAME: VolumetricHullSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines three powerful technical elements - Hull Moving Average smoothing, volume-weighted volatility compression, and on-chain reserve analysis - to identify high-probability breakout opportunities with built-in confirmation filters.
+
+Key Components:
+1. Hull Moving Average (10-day): Provides smoother trend identification than traditional MAs with reduced lag
+2. Volume-Weighted Volatility Squeeze (3-day): Measures compression of price range relative to trading volume
+3. On-Chain Exchange Reserves: Monitors divergence in exchange balances as confirmation signal
+4. Range Expansion Multiplier (2x): Defines profit-taking based on volatility expansion
+
+Entry Rules:
+1. Primary Condition: 10-day HMA flattens (slope < 15 degrees) indicating consolidation
+2. Confirmation: 3-day volume-weighted Bollinger Band width contracts below 0.5 standard deviations
+3. Trigger: Price breaks above upper Bollinger Band with volume > 20-day average
+
+Exit Rules:
+1. Profit Target: 2x the average true range (ATR) of past 14 days from entry point
+2. Stop Loss: Trailing stop at 1.5x ATR below highest high since entry
+3. Emergency Exit: On-chain exchange reserves show >5% divergence from 7-day trend
+
+Risk Management:
+1. Position sizing: 1-2% of capital per trade
+2. Maximum drawdown: 5% per trade, 15% across all positions
+3. Time stop: Exit after 5 days if no target hit
+4. Blackout period: No new entries within 3 days of previous exit
+
+Required Indicators:
+1. Hull Moving Average (10-period)
+2. Volume-Weighted Bollinger Bands (20,2)
+3. Average True Range (14-period)
+4. On-chain exchange reserve tracking
+5. Volume oscillator (current vs 20-day MA)
+
+Unique Advantages:
+- Combines technical compression with on-chain confirmation
+- Uses HMA for cleaner trend signals than SMA/EMA
+- Volume-weighting prevents false breakouts
+- Dual exit criteria (technical + on-chain) improves win rate
+
+Optimization Notes:
+- Test HMA periods between 8-12 days
+- Adjust volatility squeeze threshold (0.4-0.6 std dev)
+- Calibrate range multiplier (1.8x-2.2x) to market conditions
+- Verify reserve divergence threshold with exchange-specific data

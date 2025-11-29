@@ -1,0 +1,60 @@
+STRATEGY_NAME: VolatilityFilterEMA
+
+STRATEGY_DETAILS:
+This strategy combines trend identification with volatility filtering to capture stable trends while avoiding high-volatility periods. The key components are:
+
+1. Trend Identification:
+- Uses the classic 50/200 EMA crossover system (Golden Cross)
+- Long positions only triggered when 50 EMA > 200 EMA
+- No short positions in this version
+
+2. Volatility Filter:
+- Uses Average True Range (ATR) to measure market volatility
+- Requires low volatility for entry (current ATR below its 20-day average)
+- Exits when volatility spikes (current ATR > 20-day ATR average)
+
+3. Entry Rules:
+- Wait for 50-period EMA to cross above 200-period EMA
+- Confirm current ATR is below its 20-day average
+- Enter long position at market price
+
+4. Exit Rules:
+- Monitor ATR daily
+- Exit position when current ATR rises above its 20-day average
+- No trailing stop or profit target (volatility-based exit only)
+
+5. Risk Management:
+- Position sizing should account for the ATR values
+- Consider using ATR-based stop loss (e.g., 2x current ATR)
+- No re-entry until ATR drops back below average and EMAs remain bullish
+
+6. Required Indicators:
+- 50-period Exponential Moving Average (EMA)
+- 200-period Exponential Moving Average (EMA)
+- Average True Range (ATR) with 20-day average calculation
+
+7. Ideal Market Conditions:
+- Works best in trending markets
+- Avoids choppy or highly volatile periods
+- Particularly effective in steady bull markets
+
+8. Timeframe Considerations:
+- Designed for daily charts
+- Can be adapted to 4-hour charts with parameter adjustments
+- Not recommended for very short timeframes
+
+9. Strengths:
+- Reduces whipsaws during volatile periods
+- Captures sustained trends
+- Simple rule-based approach
+
+10. Weaknesses:
+- May miss early trend entries during volatile breakouts
+- Requires patience during low volatility periods
+- No short-side implementation in basic version
+
+Implementation Notes:
+- Backtest different ATR periods (14-day vs 20-day)
+- Consider adding volume confirmation
+- May combine with RSI for overbought/oversold filtering
+- Works well as part of a diversified portfolio

@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolumetricFisher  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Fisher Transform**: A technical indicator that transforms price data into a Gaussian normal distribution, helping identify potential reversals and trend continuations.  
+2. **Volume-Weighted MACD Divergence**: A modified MACD that incorporates trading volume to confirm momentum strength and divergence signals.  
+3. **Parabolic SAR**: A trailing stop indicator used to determine exit points by identifying potential trend reversals.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  1. Fisher Transform crosses above its signal line (indicating bullish momentum).  
+  2. Volume-Weighted MACD shows bullish divergence (price makes a lower low, but MACD makes a higher low).  
+  3. Both signals must align to confirm trend acceleration.  
+
+- **Short Entry**:  
+  1. Fisher Transform crosses below its signal line (indicating bearish momentum).  
+  2. Volume-Weighted MACD shows bearish divergence (price makes a higher high, but MACD makes a lower high).  
+  3. Both signals must align to confirm trend acceleration.  
+
+**Exit Rules:**  
+- **Long Exit**: Parabolic SAR dots flip below the price (indicating a potential reversal).  
+- **Short Exit**: Parabolic SAR dots flip above the price (indicating a potential reversal).  
+
+**Risk Management:**  
+1. **Stop-Loss**: Set at the recent swing low (for long) or swing high (for short).  
+2. **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+3. **Trailing Stop**: Use Parabolic SAR to trail profits dynamically.  
+
+**Required Indicators:**  
+1. Fisher Transform (with signal line).  
+2. Volume-Weighted MACD (standard settings: 12, 26, 9).  
+3. Parabolic SAR (default settings: step = 0.02, max = 0.2).  
+
+**Additional Notes:**  
+- Works best in trending markets (avoid choppy/range-bound conditions).  
+- Volume confirmation is critical to filter false signals.  
+- Combine with higher timeframe trend analysis for stronger conviction.  
+
+This strategy leverages the unique combination of Fisher Transform's normalization and volume-weighted MACD divergence to capture high-probability momentum trades, while Parabolic SAR ensures disciplined exits.

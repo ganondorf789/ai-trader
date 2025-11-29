@@ -1,0 +1,44 @@
+STRATEGY_NAME: LiquidationBreakout
+
+STRATEGY_DETAILS:
+This strategy focuses on trading breakouts from clustered liquidation levels identified through on-chain leverage data, combining volume confirmation with dynamic order flow analysis for exits.
+
+Key Components:
+1. Liquidation Level Identification: Uses on-chain data to detect price levels with high concentrations of liquidations (both long and short)
+2. Volume Confirmation: Requires significant volume surge on breakout confirmation candles
+3. Order Flow Analysis: Monitors subsequent order flow imbalances to establish dynamic support/resistance levels
+
+Entry Rules:
+1. Identify clustered liquidation zones through on-chain leverage data (typically where many stops are concentrated)
+2. Wait for price to approach these levels with increasing volume
+3. Enter on close of confirmation candle that:
+   - Breaks through liquidation level
+   - Shows volume significantly above recent average (suggesting liquidation cascade)
+   - Preferably closes near high/low of candle for direction confirmation
+
+Exit Rules:
+1. Initial exit at 1.5-2x average true range (ATR) from entry
+2. Secondary exit based on order flow imbalances:
+   - Watch for large opposing volume spikes
+   - Monitor delta divergence (volume vs price movement)
+   - Exit when order flow shows strong counter-trend pressure
+3. Emergency exit if price retraces back through original liquidation level
+
+Risk Management:
+1. Position sizing based on distance to opposite liquidation level
+2. Stop loss placed just beyond opposite side of liquidation zone
+3. Maximum risk per trade: 1-2% of capital
+4. Reduce position size during high volatility periods
+
+Required Indicators:
+1. On-chain liquidation level data (from platforms like Glassnode, CryptoQuant)
+2. Volume indicator (preferably with MA comparison)
+3. Order flow tools (volume delta, footprint charts)
+4. Average True Range (ATR) for volatility measurement
+5. Price action confirmation (candle patterns at key levels)
+
+Additional Notes:
+- Works best in high leverage crypto markets
+- Most effective when multiple liquidation levels cluster near same price
+- Avoid trading during low liquidity periods
+- Combine with overall market structure analysis for better context

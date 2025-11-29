@@ -1,0 +1,29 @@
+STRATEGY_NAME: LiquidationBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Identification:** Uses order book heatmaps to detect high-probability liquidity zones where stop-loss orders cluster, indicating potential breakout points.  
+2. **Volatility Contraction Filter:** Bollinger Band width measures volatility contraction, ensuring breakouts occur in low-volatility environments for higher reliability.  
+3. **Volume-Driven Exits:** Exits trades when volume spikes create exhaustion gaps, signaling a potential reversal or loss of momentum.  
+
+**Entry Rules:**  
+1. **Liquidity Zone Breakout:** Enter long/short when price breaches a liquidation cluster (support/resistance) identified via order book heatmap analysis.  
+2. **Bollinger Band Confirmation:** Only take trades if Bollinger Band width is below a threshold (e.g., 20-period moving average of width), indicating low volatility before expansion.  
+
+**Exit Rules:**  
+1. **Exhaustion Gap Close:** Exit when a sudden volume spike creates a price gap against the trend, suggesting exhaustion.  
+2. **Trailing Stop:** Use a dynamic trailing stop (e.g., ATR-based) to lock in profits if no exhaustion gap appears.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% per trade.  
+2. **Stop-Loss Placement:** Initial stop placed beyond the opposite side of the liquidity cluster (e.g., below support for longs).  
+3. **Volatility Adjustment:** Reduce position size if Bollinger Band width is extremely low (potential false breakout risk).  
+
+**Required Indicators:**  
+1. **Order Book Heatmap** (to identify liquidation clusters).  
+2. **Bollinger Bands** (for volatility contraction filter).  
+3. **Volume Indicator** (to spot exhaustion gaps).  
+4. **ATR** (for trailing stop calculation).  
+
+**Unique Edge:** Combines liquidity hunting (institutional flow analysis) with volatility regimes, avoiding false breakouts and capturing high-probability moves.

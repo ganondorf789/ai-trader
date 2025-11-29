@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolatilityCollapse
+
+STRATEGY_DETAILS:
+The VolatilityCollapse strategy is designed to capitalize on periods of low volatility and sudden price breakouts, combined with a collapse in trading volume. This strategy is particularly effective in identifying potential reversals or significant trend continuations after periods of consolidation.
+
+Key Strategy Components:
+1. **Inverse Volatility**: The strategy uses the inverse of volatility as a key indicator. Lower volatility periods are identified using a volatility measure such as the Average True Range (ATR) or Bollinger Bands. The inverse volatility is calculated to highlight periods of market consolidation.
+2. **Volume Collapse**: A significant drop in trading volume is used as a confirmation signal. This is typically measured using a volume indicator like the Volume Moving Average (VMA) or On-Balance Volume (OBV).
+3. **Breakout Confirmation**: A price breakout from the consolidation zone is required to confirm the trade signal. This can be identified using price action or a breakout indicator like the Donchian Channel.
+
+Entry Rules:
+1. **Identify Low Volatility**: Wait for the inverse volatility to reach a predefined threshold, indicating a period of low volatility.
+2. **Volume Collapse**: Confirm that trading volume has significantly decreased, typically below a certain percentage of the average volume over a specified period.
+3. **Breakout Signal**: Enter a trade when the price breaks out of the consolidation zone, either above a resistance level for a long position or below a support level for a short position.
+
+Exit Rules:
+1. **Profit Target**: Set a profit target based on a multiple of the ATR or a fixed percentage of the entry price.
+2. **Stop Loss**: Place a stop loss just outside the consolidation zone, typically at a level that represents a small percentage of the entry price or a multiple of the ATR.
+3. **Trailing Stop**: Optionally, use a trailing stop to lock in profits as the price moves in your favor.
+
+Risk Management:
+1. **Position Sizing**: Determine position size based on the stop loss distance and your risk tolerance. A common approach is to risk no more than 1-2% of your trading capital on any single trade.
+2. **Diversification**: Avoid over-concentration in a single asset or market. Spread your risk across different instruments or sectors.
+3. **Review and Adjust**: Regularly review the performance of the strategy and adjust parameters as needed based on changing market conditions.
+
+Required Indicators:
+1. **Volatility Indicator**: ATR or Bollinger Bands to measure volatility.
+2. **Volume Indicator**: VMA or OBV to track trading volume.
+3. **Breakout Indicator**: Donchian Channel or price action to identify breakout levels.
+
+By combining inverse volatility, volume collapse, and breakout confirmation, the VolatilityCollapse strategy aims to provide a robust framework for identifying high-probability trading opportunities in both trending and ranging markets.

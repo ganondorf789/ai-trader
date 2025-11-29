@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolatilityDecay
+
+STRATEGY_DETAILS:
+The VolatilityDecay strategy is designed to capitalize on short-term declines in implied volatility (IV) by selling options with a focus on rapid time decay. This strategy is particularly effective in low-volatility environments where IV tends to compress, leading to premium erosion in options prices.
+
+### Key Strategy Components:
+1. **Implied Volatility Analysis**: Monitor weekly changes in implied volatility. A 3% decline in IV over the past week is the primary trigger for entering a trade.
+2. **Option Selection**: Focus on selling options that expire within 5 days to maximize the benefits of time decay (theta).
+3. **Stop-Loss Mechanism**: Implement a stop-loss at the entry price to limit potential losses if the trade moves against you.
+
+### Entry Rules:
+1. **Identify IV Decline**: Calculate the percentage change in implied volatility over the past week. A 3% or greater decline is the entry signal.
+2. **Select Expiration**: Choose options that expire within 5 days to take advantage of accelerated time decay.
+3. **Sell Options**: Sell either call or put options, depending on the underlying asset's trend and your market outlook.
+
+### Exit Rules:
+1. **Stop-Loss**: Exit the trade if the option price reaches the same level as the entry price. This is a strict risk management rule to prevent significant losses.
+2. **Expiration**: Allow the option to expire worthless if the price remains below the stop-loss level, capturing the full premium as profit.
+
+### Risk Management:
+1. **Position Sizing**: Limit the size of each trade to a small percentage of your total portfolio to manage risk effectively.
+2. **Diversification**: Avoid concentrating all trades in a single underlying asset or sector to spread risk.
+3. **Stop-Loss**: Always use the stop-loss at the entry price to protect against adverse movements.
+
+### Required Indicators:
+1. **Implied Volatility (IV)**: Use IV data to monitor weekly changes and identify the 3% decline threshold.
+2. **Option Pricing Models**: Utilize models to calculate the theoretical price of options and assess time decay.
+3. **Technical Analysis Tools**: Incorporate technical indicators to confirm the underlying asset's trend and improve trade timing.
+
+### Summary:
+The VolatilityDecay strategy leverages the rapid time decay of short-dated options and the decline in implied volatility to generate profits. By strictly adhering to the stop-loss rule and focusing on options with less than 5 days to expiration, this strategy aims to capture premium erosion while managing risk effectively.

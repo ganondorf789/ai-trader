@@ -1,0 +1,39 @@
+STRATEGY_NAME: VortexVolumeBreakout
+
+STRATEGY_DETAILS:
+Key Components:
+1. Vortex Indicator (VI) - Uses VI+ and VI- lines to detect trend direction and strength
+2. Volume Confirmation - Requires trading volume above 20-day average
+3. Volatility Filter - Only trades when price movement exceeds a defined threshold
+4. Parabolic SAR - Used for exit signals and trailing stop management
+
+Entry Rules:
+1. Primary Condition: VI+ line crosses above VI- line (bullish signal)
+2. Confirmation 1: Current trading volume > 20-day moving average of volume
+3. Confirmation 2: Price volatility exceeds predefined threshold (ATR recommended)
+4. All three conditions must be met simultaneously for entry
+
+Exit Rules:
+1. Primary Exit: Parabolic SAR dots reverse position (appear above price for long positions)
+2. Secondary Exit: VI+ crosses back below VI- (early warning signal)
+3. Emergency Exit: Fixed percentage stop-loss (recommend 2-3% below entry)
+
+Risk Management:
+1. Position Sizing: 1-2% of capital per trade
+2. Stop-Loss: Initial stop at 2-3% below entry, trailed by Parabolic SAR
+3. Volatility Adjustment: Reduce position size during high volatility periods
+4. Maximum Drawdown: Cease trading if account loses 5% in a week
+
+Required Indicators:
+1. Vortex Indicator (VI) - Period 14 recommended
+2. Volume MA - 20-day simple moving average of volume
+3. Parabolic SAR - Step 0.02, Maximum 0.2
+4. Optional: ATR (14) for volatility measurement
+
+Optimization Notes:
+1. Test different VI periods (14-28) for your market
+2. Adjust volume MA period based on instrument liquidity
+3. Fine-tune SAR parameters for your risk tolerance
+4. Consider adding a time filter (e.g., only trade first 2 hours)
+
+This strategy combines trend confirmation (Vortex), volume validation, and volatility filtering to identify high-probability breakouts, while using Parabolic SAR for disciplined exit management. The volume component helps filter false breakouts common in low-liquidity environments.

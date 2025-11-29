@@ -1,0 +1,37 @@
+STRATEGY_NAME: VoltaicDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Based Divergence Detection:** The strategy identifies divergences between price action and volatility indicators (ATR, Bollinger Bands) to spot potential breakout opportunities.  
+2. **Breakout Confirmation:** Uses price breaking above/below key levels (support/resistance, Bollinger Bands) to confirm entries.  
+3. **Momentum Filter:** Incorporates RSI or MACD to ensure trades align with the broader momentum direction.  
+
+**Entry Rules:**  
+1. **Divergence Setup:**  
+   - Price makes a higher high (uptrend) or lower low (downtrend).  
+   - Volatility (ATR or Bollinger Bandwidth) contracts or shows a contrary move (e.g., decreasing volatility during a price high).  
+2. **Breakout Trigger:**  
+   - Long: Price closes above upper Bollinger Band or resistance level with RSI > 50 (or MACD histogram turning positive).  
+   - Short: Price closes below lower Bollinger Band or support level with RSI < 50 (or MACD histogram turning negative).  
+
+**Exit Rules:**  
+1. **Take Profit:**  
+   - Fixed risk-reward ratio (e.g., 1:2) or trailing stop based on ATR (e.g., 2x ATR).  
+2. **Stop Loss:**  
+   - Below recent swing low (long) / above swing high (short) or Bollinger Band midline.  
+
+**Risk Management:**  
+1. Position sizing: 1-2% risk per trade.  
+2. Stop loss mandatory on all trades.  
+3. Avoid trading during low volatility (ATR below 50-period average).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 StdDev).  
+2. ATR (14-period).  
+3. RSI (14-period) or MACD (12,26,9).  
+
+**Unique Edge:** Combines volatility contraction/divergence with breakout confirmation, reducing false signals in choppy markets.  
+
+---  
+*Note: Backtest optimal parameters for your asset/timeframe. Adjust ATR/RSI thresholds for sensitivity.*

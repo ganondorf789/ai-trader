@@ -1,0 +1,80 @@
+STRATEGY_NAME: VolumetricTrend
+
+STRATEGY_DETAILS:
+The VolumetricTrend strategy is a trend-following approach that combines moving average crossovers with volume confirmation and uses ATR-based exits for dynamic risk management. Here's a detailed breakdown of the strategy:
+
+### Key Components:
+1. **Trend Identification**: Uses a 10-period and 50-period Moving Average (MA) crossover to identify the direction of the trend.
+2. **Volume Confirmation**: Requires higher-than-average volume during the crossover to validate the strength of the trend.
+3. **Dynamic Exit**: Uses multiples of the Average True Range (ATR) to determine exit points, adapting to market volatility.
+
+---
+
+### Entry Rules:
+1. **Long Entry**:
+   - The 10-period MA crosses above the 50-period MA.
+   - Volume during the crossover is higher than the average volume over the last 20 periods.
+   - Enter a long position at the close of the crossover candle.
+
+2. **Short Entry**:
+   - The 10-period MA crosses below the 50-period MA.
+   - Volume during the crossover is higher than the average volume over the last 20 periods.
+   - Enter a short position at the close of the crossover candle.
+
+---
+
+### Exit Rules:
+1. **Long Exit**:
+   - Exit the long position when the price moves below the entry price minus a multiple of the ATR (e.g., 1.5x ATR).
+   - Alternatively, exit if the 10-period MA crosses back below the 50-period MA.
+
+2. **Short Exit**:
+   - Exit the short position when the price moves above the entry price plus a multiple of the ATR (e.g., 1.5x ATR).
+   - Alternatively, exit if the 10-period MA crosses back above the 50-period MA.
+
+---
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of capital per trade (e.g., 1-2% of account balance).
+2. **Stop Loss**: Set a stop loss at the ATR multiple level (e.g., 1.5x ATR) from the entry price.
+3. **Take Profit**: No fixed take profit; let the ATR-based exit or MA crossover determine the exit.
+
+---
+
+### Required Indicators:
+1. **Moving Averages**:
+   - 10-period Simple Moving Average (SMA).
+   - 50-period Simple Moving Average (SMA).
+2. **Volume**:
+   - 20-period Average Volume.
+3. **ATR**:
+   - 14-period Average True Range (ATR).
+
+---
+
+### Example Setup:
+- **Long Trade**:
+  - 10-period MA crosses above 50-period MA.
+  - Volume is 20% higher than the 20-period average.
+  - Enter long at the close of the crossover candle.
+  - Set stop loss at 1.5x ATR below the entry price.
+  - Exit when price drops below the stop loss or the 10-period MA crosses back below the 50-period MA.
+
+- **Short Trade**:
+  - 10-period MA crosses below 50-period MA.
+  - Volume is 20% higher than the 20-period average.
+  - Enter short at the close of the crossover candle.
+  - Set stop loss at 1.5x ATR above the entry price.
+  - Exit when price rises above the stop loss or the 10-period MA crosses back above the 50-period MA.
+
+---
+
+### Key Advantages:
+- Combines trend-following with volume confirmation for higher accuracy.
+- Uses ATR for dynamic exits, adapting to market volatility.
+- Simple yet effective rules for both entry and exit.
+
+### Key Considerations:
+- Works best in trending markets; may underperform in choppy or sideways conditions.
+- Requires careful selection of ATR multiples to balance risk and reward.
+- Volume confirmation helps filter out false signals but may reduce the number of trades in low-volume markets.

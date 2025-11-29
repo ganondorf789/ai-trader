@@ -1,0 +1,45 @@
+STRATEGY_NAME: StochasticBreakout
+
+STRATEGY_DETAILS:
+The StochasticBreakout strategy combines the Stochastic Oscillator with breakout confirmation to identify high-probability trading opportunities. This strategy focuses on detecting price breakouts while ensuring momentum alignment using the Stochastic Oscillator.
+
+### Key Strategy Components:
+1. **Stochastic Oscillator (14,3,3)** - Used to identify overbought/oversold conditions and momentum direction.
+2. **Price Breakout Levels** - Key support/resistance levels or recent swing highs/lows.
+3. **Breakout Confirmation** - Requires a close above/below the breakout level with strong momentum.
+
+### Entry Rules:
+1. **Long Entry**:
+   - Price breaks above a key resistance level.
+   - Stochastic Oscillator is above 50 (indicating bullish momentum).
+   - Wait for a candle to close above the breakout level for confirmation.
+2. **Short Entry**:
+   - Price breaks below a key support level.
+   - Stochastic Oscillator is below 50 (indicating bearish momentum).
+   - Wait for a candle to close below the breakout level for confirmation.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Set a fixed risk-reward ratio (e.g., 1:2 or 1:3).
+   - Alternatively, use the next significant support/resistance level as a target.
+2. **Stop Loss**:
+   - Place the stop loss below the breakout level for long trades or above the breakout level for short trades.
+   - Use the Average True Range (ATR) to set a dynamic stop loss if preferred.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your trading capital per trade.
+2. **Avoid Overtrading**:
+   - Only take trades with clear breakout confirmation and Stochastic alignment.
+3. **Avoid News Events**:
+   - Do not trade during high-impact news events to avoid false breakouts.
+
+### Required Indicators:
+1. **Stochastic Oscillator (14,3,3)** - For momentum confirmation.
+2. **Support/Resistance Levels** - For identifying breakout zones.
+3. **Optional: ATR (14)** - For dynamic stop loss placement.
+
+### Additional Notes:
+- This strategy works best in trending markets. Avoid using it in choppy or sideways markets.
+- Always backtest the strategy on historical data to ensure its effectiveness in your chosen market.
+- Combine this strategy with other technical tools (e.g., moving averages, volume analysis) for additional confirmation if needed.

@@ -1,0 +1,45 @@
+STRATEGY_NAME: MomentumBreakoutADX
+
+STRATEGY_DETAILS:
+This strategy combines trend confirmation, momentum strength, and volatility-based exits for high-probability breakout trading.
+
+Key Components:
+1. Trend Identification:
+   - Uses the golden cross (50EMA > 200EMA) as primary trend confirmation
+   - Requires ADX > 25 to confirm strong trending conditions
+
+2. Entry Rules:
+   - Enter long positions when:
+     1. 50-period EMA crosses above 200-period EMA
+     2. ADX reading is above 25 (confirming trend strength)
+     3. Price breaks above recent high (breakout confirmation)
+
+3. Exit Rules:
+   - Protective Stop:
+     - Placed at 2x ATR below entry price (volatility-adjusted)
+   - Profit Taking:
+     - Close position when 5-period RSI crosses below 70 (longs) or above 30 (shorts)
+   - Alternative Exit:
+     - Consider trailing stop at 1.5x ATR once in profit
+
+4. Risk Management:
+   - Position sizing based on 2x ATR stop distance
+   - Maximum risk per trade typically 1-2% of capital
+   - No new entries if ADX begins declining below 25
+
+Required Indicators:
+1. Exponential Moving Averages (50 & 200 periods)
+2. Average Directional Index (ADX, 14-period default)
+3. Average True Range (ATR, 14-period for stop calculation)
+4. Relative Strength Index (RSI, 5-period for exits)
+
+Additional Notes:
+- Best suited for 4H or daily timeframes in trending markets
+- Avoid trading during ADX values between 15-25 (weak trend)
+- Combine with higher timeframe analysis for better context
+- Works well in commodities and forex markets with strong trends
+
+Optimization Considerations:
+- Test different ADX thresholds (20-30 range)
+- Experiment with RSI period length (3-7 periods)
+- Adjust ATR multiplier based on market volatility (1.5-3x)

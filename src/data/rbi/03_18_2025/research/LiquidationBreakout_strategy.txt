@@ -1,0 +1,63 @@
+STRATEGY_NAME: LiquidationBreakout
+
+STRATEGY_DETAILS:
+The LiquidationBreakout strategy focuses on identifying high-probability breakout opportunities from consolidation zones using a combination of Bollinger Bands, futures market liquidation data, and spot-futures basis divergence. This approach leverages market structure and sentiment shifts to capture strong directional moves.
+
+### Key Strategy Components:
+1. **Bollinger Bands (Narrowing Width):**
+   - Use Bollinger Bands to identify consolidation zones where price volatility contracts.
+   - Look for periods where the Bollinger Band width (distance between upper and lower bands) narrows significantly, indicating a potential breakout setup.
+
+2. **Futures Market Liquidations:**
+   - Monitor futures market liquidation data for a surge in liquidations, which often precedes significant price movements.
+   - A sharp increase in liquidations suggests a shift in market sentiment and potential capitulation, increasing the likelihood of a breakout.
+
+3. **Spot-Futures Basis Divergence:**
+   - Use the spot-futures basis (difference between spot and futures prices) as a confirmation filter.
+   - Look for divergence between spot and futures prices, which can indicate underlying strength or weakness in the market.
+
+### Entry Rules:
+1. **Breakout Confirmation:**
+   - Wait for price to break above the upper Bollinger Band (for a long entry) or below the lower Bollinger Band (for a short entry).
+   - Ensure the breakout occurs with a surge in futures market liquidations.
+
+2. **Basis Divergence Filter:**
+   - For a long entry, confirm that the spot price is stronger than the futures price (positive basis divergence).
+   - For a short entry, confirm that the spot price is weaker than the futures price (negative basis divergence).
+
+### Exit Rules:
+1. **Profit Target:**
+   - Set a profit target based on the average true range (ATR) or a multiple of the Bollinger Band width at the time of the breakout.
+   - Alternatively, use a trailing stop to capture extended moves.
+
+2. **Stop Loss:**
+   - Place a stop loss just below the breakout level (for a long entry) or above the breakout level (for a short entry).
+   - Adjust the stop loss based on volatility, using the Bollinger Band width or ATR.
+
+### Risk Management:
+1. **Position Sizing:**
+   - Use a fixed percentage of capital per trade (e.g., 1-2%) to manage risk.
+   - Adjust position size based on the strength of the breakout signal and the level of futures liquidations.
+
+2. **Risk-Reward Ratio:**
+   - Aim for a minimum risk-reward ratio of 1:2 or higher.
+   - Ensure the potential reward justifies the risk taken on each trade.
+
+### Required Indicators:
+1. **Bollinger Bands:**
+   - Standard settings (20-period moving average with 2 standard deviations).
+   - Monitor the Bollinger Band width for narrowing patterns.
+
+2. **Futures Liquidation Data:**
+   - Access real-time or near-real-time liquidation data from futures exchanges or specialized data providers.
+
+3. **Spot-Futures Basis:**
+   - Calculate the basis as the difference between the spot price and the corresponding futures price.
+   - Use this as a divergence filter for trade confirmation.
+
+### Additional Notes:
+- This strategy works best in markets with high liquidity and clear trends.
+- Combine with fundamental analysis or news events to enhance the probability of success.
+- Regularly backtest and optimize parameters to adapt to changing market conditions.
+
+By focusing on the interplay between technical patterns, market sentiment, and spot-futures dynamics, the LiquidationBreakout strategy aims to capture high-probability breakout moves with controlled risk.

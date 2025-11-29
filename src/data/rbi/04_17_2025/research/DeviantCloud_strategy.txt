@@ -1,0 +1,35 @@
+STRATEGY_NAME: DeviantCloud  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Funding Rate Extremes:** The strategy identifies overleveraged market conditions by tracking when the 4-hour funding rate exceeds 2 standard deviations above its 30-day average.  
+2. **Ichimoku Cloud Confirmation:** A short entry is only triggered if the price simultaneously breaks below the Ichimoku Cloud, confirming bearish momentum.  
+3. **Mean Reversion Exit:** Positions are closed when the funding rate returns to its 30-day average, indicating reduced speculative pressure.  
+
+**Entry Rules:**  
+- **Short Entry Condition:**  
+  - Current 4-hour funding rate > 2 standard deviations above its 30-day average.  
+  - Price breaks below the Ichimoku Cloud (Tenkan-Sen/Kijun-Sen or Senkou Span B).  
+- **Confirmation:** Wait for the candle to close below the cloud to avoid false breakouts.  
+
+**Exit Rules:**  
+- **Profit-Taking/Exit Condition:**  
+  - Funding rate reverts to or below its 30-day average.  
+  - Optional: Use a trailing stop or fixed risk-reward ratio (e.g., 1:2) to secure profits if the mean reversion is slow.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss:** Place a stop-loss above the recent swing high or the Ichimoku Cloud top to limit downside.  
+3. **Avoid Overexposure:** Do not enter if multiple correlated assets (e.g., BTC and ETH) simultaneously meet the criteria.  
+
+**Required Indicators:**  
+1. **Funding Rate Data:** 4-hour funding rate with a 30-day rolling average and standard deviation.  
+2. **Ichimoku Cloud:** Tenkan-Sen, Kijun-Sen, Senkou Span A/B for trend confirmation.  
+
+**Notes:**  
+- Best suited for high-liquidity crypto perpetual markets (e.g., BTC, ETH).  
+- Avoid trading during major news events that may distort funding rates artificially.  
+- Backtest to optimize the standard deviation threshold (e.g., 1.5σ vs. 2σ) for different assets.  
+
+This strategy combines mean reversion (funding rate) with trend confirmation (Ichimoku) to exploit overleveraged short-term bearish setups.

@@ -1,0 +1,44 @@
+STRATEGY_NAME: VolatilitySynchron  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Composite Indicator:** Combines three distinct volatility metrics:  
+   - **Normalized Keltner Channel Squeeze:** Measures contraction/expansion of volatility bands (typically using ATR-based Keltner Channels).  
+   - **3-Day Volume Entropy:** Quantifies disorder in recent volume patterns (higher entropy suggests volatility potential).  
+   - **Overnight Gap Percentage:** Tracks price gaps between sessions as a volatility signal.  
+2. **Regime Filter:** Only trades when all three metrics exceed their rolling percentile thresholds (e.g., 80th percentile), ensuring alignment across volatility dimensions.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  1. Keltner squeeze exits contraction (normalized value crosses above threshold).  
+  2. Volume entropy spikes above its percentile threshold (e.g., >80%).  
+  3. Overnight gap exceeds its percentile threshold (e.g., >75%).  
+- **Short Entry:** Same logic but for downside volatility (e.g., gap down + entropy spike).  
+
+**Exit Rules:**  
+- **Profit-Taking:** Close trade when:  
+  1. Keltner bands expand to 1.5x the entry width (volatility exhaustion).  
+  2. Volume entropy drops below median (50th percentile).  
+- **Stop-Loss:** Dynamic trailing stop at 2x the recent ATR (14-period).  
+
+**Risk Management:**  
+- Position sizing: Risk ≤1% per trade based on stop distance.  
+- No trades during scheduled high-impact news events (reduce noise).  
+- Maximum 3 concurrent open trades to avoid overexposure.  
+
+**Required Indicators:**  
+1. Keltner Channels (20-period EMA, 2x ATR width).  
+2. Volume Entropy (3-day Shannon entropy calculation).  
+3. Overnight Gap Percentage: \( \frac{|Open - Prior Close|}{Prior Close} \).  
+4. Rolling Percentiles (lookback 50-100 periods for thresholds).  
+
+**Unique Edge:**  
+- **Synchronicity Focus:** Requires *all three* volatility dimensions to align, reducing false signals.  
+- **Normalization:** Metrics are scaled to percentile ranges for adaptive regime detection.  
+- **Overnight Gap Integration:** Captures institutional flow shifts missed by intraday indicators.  
+
+**Optimization Notes:**  
+- Test percentile thresholds (70-90%) for each component.  
+- Adjust ATR multiplier for Keltner expansion exit (1.3x-2x).  
+- Backtest across asset classes (works best on equities/indices with overnight sessions).

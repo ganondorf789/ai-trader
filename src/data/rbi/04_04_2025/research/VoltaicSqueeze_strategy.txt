@@ -1,0 +1,44 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction Detection**: Uses Bollinger Band (BB) width (standard deviation) to identify periods of low volatility when the width contracts below a 10-day moving average.  
+2. **Breakout Confirmation**: Requires a breakout above the Keltner Channel (KC) upper band or below the lower band to confirm an entry signal.  
+3. **Dynamic Exit Mechanism**: Exits trades when price crosses the opposite KC band or triggers a trailing stop based on 2x the Average True Range (ATR).  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  1. BB width (BB upper - BB lower) is below its 10-day moving average (volatility squeeze condition).  
+  2. Price closes above the upper Keltner Channel band.  
+- **Short Entry**:  
+  1. BB width is below its 10-day moving average.  
+  2. Price closes below the lower Keltner Channel band.  
+
+**Exit Rules:**  
+- **Long Exit**:  
+  1. Price closes below the lower Keltner Channel band (opposite band crossover).  
+  2. Trailing stop: Exit if price drops 2x ATR from the highest high since entry.  
+- **Short Exit**:  
+  1. Price closes above the upper Keltner Channel band.  
+  2. Trailing stop: Exit if price rises 2x ATR from the lowest low since entry.  
+
+**Risk Management:**  
+- Position sizing should account for volatility (e.g., using ATR-based sizing).  
+- Avoid trading during major news events that may cause erratic volatility expansions.  
+- Consider a maximum daily loss limit (e.g., 2% of capital).  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period SMA, 2 standard deviations) – To measure volatility contraction.  
+2. **Keltner Channels** (20-period EMA, 2x ATR multiplier) – For breakout confirmation.  
+3. **Average True Range (ATR)** (14-period) – For trailing stop and volatility adjustment.  
+
+**Unique Aspects:**  
+- Combines BB width contraction (volatility squeeze) with KC breakout for high-probability entries.  
+- Uses a dynamic trailing stop (2x ATR) to lock in profits while allowing room for volatility.  
+- Avoids false breakouts by requiring prior low volatility (BB squeeze).  
+
+**Optimization Notes:**  
+- Test different BB/KC periods (e.g., 14 vs. 20) for varying asset classes.  
+- Adjust ATR multiplier (e.g., 1.5x–3x) based on risk tolerance.  
+- Filter trades with additional confirmation (e.g., RSI > 50 for longs, < 50 for shorts).

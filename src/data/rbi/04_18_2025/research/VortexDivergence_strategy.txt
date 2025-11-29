@@ -1,0 +1,38 @@
+STRATEGY_NAME: VortexDivergence  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI)**: Used to confirm the prevailing trend direction. The strategy looks for the VI+ (positive trend) to cross above VI- (negative trend) for bullish signals and vice versa for bearish signals.  
+2. **On-Balance Volume (OBV) Divergence**: Identifies potential reversals when price makes a higher high but OBV makes a lower high (bearish divergence) or price makes a lower low but OBV makes a higher low (bullish divergence).  
+3. **Keltner Channel**: Acts as a dynamic support/resistance framework. The midpoint serves as a retracement entry point, while the opposite band defines the profit target.  
+
+**Entry Rules:**  
+- **Long Entry**:  
+  1. VI+ crosses above VI- (bullish trend confirmation).  
+  2. Bullish OBV divergence forms (price lower low, OBV higher low).  
+  3. Price retraces to the Keltner Channel midpoint.  
+- **Short Entry**:  
+  1. VI- crosses above VI+ (bearish trend confirmation).  
+  2. Bearish OBV divergence forms (price higher high, OBV lower high).  
+  3. Price retraces to the Keltner Channel midpoint.  
+
+**Exit Rules:**  
+- **Take Profit**: Exit at the opposite Keltner Channel band (upper band for longs, lower band for shorts).  
+- **Stop Loss**: Place below the recent swing low (for longs) or above the recent swing high (for shorts), or use a fixed percentage (e.g., 1-2%).  
+
+**Risk Management:**  
+1. Position sizing based on account risk (e.g., 1% per trade).  
+2. Stop loss is mandatory to limit downside.  
+3. Avoid trading during low-volume periods or major news events to reduce false signals.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI) (default period: 14).  
+2. On-Balance Volume (OBV).  
+3. Keltner Channel (typical settings: 20-period EMA, 2x ATR multiplier).  
+
+**Unique Aspects:**  
+- Combines trend confirmation (VI) with volume-based divergence (OBV) for high-probability reversals.  
+- Uses Keltner Channel for disciplined retracement entries and profit targets.  
+- Filters out noise by requiring alignment of trend, volume, and price structure.  
+
+**Note**: Backtest to optimize Keltner Channel settings and divergence thresholds for your asset/timeframe.

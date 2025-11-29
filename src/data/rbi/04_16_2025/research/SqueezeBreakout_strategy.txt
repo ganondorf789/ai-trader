@@ -1,0 +1,44 @@
+STRATEGY_NAME: SqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection** – Identifies periods of low volatility when the Bollinger Bands contract significantly.  
+2. **Donchian Channel Breakout** – Confirms the breakout direction by checking if price exceeds the 20-day high/low.  
+3. **Donchian Channel Width Expansion** – Ensures volatility is increasing, validating the breakout.  
+4. **ADX Trend Strength Filter** – Exits trades when trend momentum weakens (ADX < 25).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Price closes above the upper Bollinger Band (squeeze breakout).  
+  - Price exceeds the 20-day Donchian high.  
+  - Donchian Channel width is expanding (volatility increasing).  
+- **Short Entry:**  
+  - Price closes below the lower Bollinger Band (squeeze breakout).  
+  - Price falls below the 20-day Donchian low.  
+  - Donchian Channel width is expanding (volatility increasing).  
+
+**Exit Rules:**  
+- **Long Exit:** ADX(14) drops below 25 (trend weakening).  
+- **Short Exit:** ADX(14) drops below 25 (trend weakening).  
+- **Optional Stop-Loss:**  
+  - For longs: Recent swing low or lower Bollinger Band.  
+  - For shorts: Recent swing high or upper Bollinger Band.  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-based stops).  
+- Avoid trading during extremely narrow Bollinger Bands (potential false breakouts).  
+- Wait for Donchian Channel confirmation to reduce whipsaws.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2)** – Identifies squeeze conditions.  
+2. **Donchian Channel (20)** – Confirms breakout highs/lows.  
+3. **ADX (14)** – Measures trend strength for exits.  
+4. **Optional:** ATR (14) for dynamic stop-loss placement.  
+
+**Unique Aspects:**  
+- Combines Bollinger squeeze (low volatility) with Donchian breakout (high volatility expansion).  
+- Uses ADX to avoid exiting prematurely in strong trends.  
+- Filters false breakouts by requiring Donchian Channel width expansion.  
+
+This strategy works best in trending markets after consolidation phases. Backtest for optimal parameter tuning (e.g., ADX threshold, Donchian period).

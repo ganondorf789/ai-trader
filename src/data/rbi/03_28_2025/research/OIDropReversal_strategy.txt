@@ -1,0 +1,44 @@
+STRATEGY_NAME: OIDropReversal
+
+STRATEGY_DETAILS:
+This strategy combines open interest dynamics with technical indicators to identify potential reversal opportunities in oversold conditions.
+
+Key Components:
+1. Open Interest Analysis: Tracks 24-hour open interest changes as a sentiment indicator
+2. Price Action: Requires significant price decline to confirm oversold conditions
+3. RSI Filter: Uses RSI to validate oversold conditions
+4. SMA Exit: Implements a simple moving average crossover for trend confirmation
+
+Entry Rules:
+- Trigger Condition 1: 24-hour open interest drops by 20% (significant decrease in market participation)
+- Trigger Condition 2: Price declines by 5% (confirms downward momentum)
+- Confirmation: RSI < 30 (validates oversold conditions)
+- All three conditions must be met simultaneously for entry
+
+Exit Rules:
+- Primary Exit: When price crosses above 10-period SMA (trend reversal confirmation)
+- Secondary Exit: RSI > 50 (momentum normalization)
+- Whichever condition occurs first triggers the exit
+
+Risk Management:
+1. Position Sizing: Recommended 1-2% risk per trade
+2. Stop Loss: Consider placing below recent swing low (not specified in original rules)
+3. Time Filter: Avoid trading during low liquidity periods
+4. Asset Selection: Best suited for liquid futures or perpetual swap markets
+
+Required Indicators:
+1. Open Interest (24-hour change calculation)
+2. Price Percentage Change Calculator
+3. Relative Strength Index (14-period standard)
+4. 10-period Simple Moving Average
+
+Additional Notes:
+- Works best in trending markets experiencing sharp corrections
+- Requires reliable open interest data source
+- May generate fewer signals in stable markets
+- Complementary volume analysis could enhance signal reliability
+
+Optimization Considerations:
+- Adjust RSI thresholds based on asset volatility
+- Test different SMA periods for exit optimization
+- Consider adding volume confirmation for stronger signals

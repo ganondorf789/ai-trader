@@ -1,0 +1,36 @@
+STRATEGY_NAME: VoltaVWAP  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility-Scaled VWAP Bands**: The strategy uses Volume-Weighted Average Price (VWAP) as a baseline, surrounded by two dynamic bands calculated using historical volatility (e.g., standard deviation of returns).  
+2. **Deviation-Based Triggers**: Trades are triggered when price crosses either the upper or lower volatility band, indicating an extreme move relative to recent volume-adjusted price action.  
+3. **Dynamic Position Sizing**: Position sizes are adjusted inversely to recent realized volatility—higher volatility reduces position size, and lower volatility increases it.  
+
+**Entry Rules:**  
+- **Long Entry**: When price crosses above the upper volatility band (VWAP + 2 * volatility).  
+- **Short Entry**: When price crosses below the lower volatility band (VWAP - 2 * volatility).  
+
+**Exit Rules:**  
+- **Take Profit**: Exit when price reverts to the VWAP line or a predefined risk-reward ratio (e.g., 1:2) is achieved.  
+- **Stop Loss**: Exit if price moves beyond the opposite volatility band (e.g., for a long trade, exit if price drops below the lower band).  
+
+**Risk Management:**  
+- **Volatility-Based Sizing**: Positions are sized as (1 / recent_volatility) * capital_allocated, ensuring smaller trades in high-volatility regimes.  
+- **Hard Stop Loss**: Maximum loss per trade is capped at a fixed percentage of capital (e.g., 1-2%).  
+
+**Required Indicators:**  
+1. **VWAP** (Volume-Weighted Average Price).  
+2. **Historical Volatility Bands** (e.g., VWAP ± 2 * rolling standard deviation of returns).  
+3. **Realized Volatility** (e.g., 20-day rolling standard deviation for dynamic sizing).  
+
+**Unique Aspects:**  
+- Combines volume-weighted price action with volatility scaling for adaptive entries.  
+- Position sizing dynamically adjusts to market conditions, reducing risk during turbulent periods.  
+- Avoids over-trading by only acting on statistically significant deviations.  
+
+**Optimization Notes:**  
+- Test different volatility multipliers (e.g., 1.5x or 2.5x bands) for sensitivity.  
+- Experiment with lookback periods for volatility calculation (e.g., 10 vs. 20 days).  
+- Consider adding a confirmation filter (e.g., RSI divergence) to reduce false breakouts.  
+
+This strategy excels in mean-reverting or range-bound markets but may underperform in strong trending conditions without additional filters.

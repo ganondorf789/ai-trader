@@ -1,0 +1,35 @@
+STRATEGY_NAME: FractalChannelTrend
+
+STRATEGY_DETAILS:
+The FractalChannelTrend strategy is a trend-following approach that utilizes fractal channel patterns to identify and capitalize on sustained price movements. This strategy combines fractal analysis with channel-based trend confirmation to provide clear entry and exit signals.
+
+### Key Strategy Components:
+1. **Fractal Channel Identification**:
+   - Fractals are used to identify key support and resistance levels.
+   - A fractal channel is formed by connecting the most recent fractal highs and lows, creating a dynamic price channel.
+
+2. **Trend Confirmation**:
+   - The strategy confirms a trend when the price consistently respects the fractal channel boundaries.
+   - An uptrend is confirmed when the price remains above the lower fractal channel line.
+   - A downtrend is confirmed when the price remains below the upper fractal channel line.
+
+3. **Entry Rules**:
+   - **Long Entry**: Enter a long position when the price breaks above the upper fractal channel line in an uptrend.
+   - **Short Entry**: Enter a short position when the price breaks below the lower fractal channel line in a downtrend.
+
+4. **Exit Rules**:
+   - **Long Exit**: Exit the long position when the price closes below the lower fractal channel line.
+   - **Short Exit**: Exit the short position when the price closes above the upper fractal channel line.
+
+5. **Risk Management**:
+   - **Stop Loss**: Place a stop loss just below the most recent fractal low for long positions and just above the most recent fractal high for short positions.
+   - **Position Sizing**: Adjust position size based on the distance between the entry point and the stop loss to maintain a consistent risk percentage per trade.
+   - **Take Profit**: Use a trailing stop based on the fractal channel lines to lock in profits as the trend continues.
+
+6. **Required Indicators**:
+   - **Fractal Indicator**: To identify fractal highs and lows.
+   - **Price Channel**: To draw the fractal channel lines.
+   - **Trend Confirmation Tools**: Optional tools like moving averages or RSI can be used to confirm the strength of the trend.
+
+### Summary:
+The FractalChannelTrend strategy is designed to capture sustained trends by leveraging fractal channel patterns. It provides clear entry and exit signals based on price action within the fractal channel, ensuring that trades are aligned with the prevailing trend. Proper risk management is crucial to mitigate potential losses and maximize gains in trending markets.

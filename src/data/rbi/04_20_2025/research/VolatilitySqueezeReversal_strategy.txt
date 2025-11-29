@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilitySqueezeReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility (squeeze) where the Bollinger Bands narrow significantly, often preceding a volatility expansion.  
+2. **Negative Funding Rates Surge:** Uses funding rates as a sentiment indicator; extreme negative funding rates suggest excessive short positioning, which can lead to short squeezes.  
+3. **Normalized Hurst Exponent:** Measures the persistence of price trends (mean-reverting vs. trending behavior). A normalized Hurst Exponent helps identify overextended moves and potential reversals.  
+
+**Entry Rules:**  
+1. **Volatility Contraction Signal:** Wait for Bollinger Band width to contract below a defined threshold (e.g., lower 20th percentile of its historical range).  
+2. **Sentiment Confirmation:** Ensure a sharp spike in negative funding rates (e.g., funding rate drops below -0.1% or a significant deviation from its mean).  
+3. **Entry Trigger:** Enter a long position when volatility expands (Bollinger Bands widen) and price breaks above the upper Bollinger Band, confirming the anticipated move.  
+
+**Exit Rules:**  
+1. **Hurst Exponent Mean Reversion:** Exit the trade when the normalized Hurst Exponent crosses above a predefined threshold (e.g., 0.7), signaling overextension and likely reversion.  
+2. **Trailing Stop:** Use a dynamic trailing stop (e.g., ATR-based or percentage-based) to lock in profits if the trend continues before the Hurst signal triggers.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss:** Initial stop placed below the recent swing low or a volatility-based stop (e.g., 1.5x ATR).  
+3. **Avoid Overcrowded Conditions:** Filter out trades if open interest or liquidation heatmaps show extreme crowding in the same direction.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2)** – To measure contraction/expansion.  
+2. **Funding Rate Data** – From exchange APIs (e.g., Binance, Bybit).  
+3. **Normalized Hurst Exponent (lookback 50-100 periods)** – To quantify trend persistence.  
+4. **ATR (14)** – For volatility-based stops.  
+
+**Unique Edge:** Combines volatility cycles (Bollinger squeeze) with sentiment extremes (funding rates) and quantifies trend exhaustion (Hurst), creating a high-probability mean-reversion setup in volatile markets.  
+
+**Note:** Works best in crypto markets (BTC, ETH) due to pronounced funding rate effects and frequent volatility shifts. Backtest for optimal parameter tuning.

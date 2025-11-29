@@ -1,0 +1,51 @@
+STRATEGY_NAME: VolatilitySqueezeTrigger
+
+STRATEGY_DETAILS:
+
+Key Components:
+1. Volatility Measurement: Uses Bollinger Bands (20-period, 2 std dev) and 20-day historical volatility to identify contraction periods
+2. Squeeze Detection: Identifies when Bollinger Band width falls below historical volatility threshold
+3. Breakout Confirmation: Uses 2x ATR (14-period) from squeeze range for entry/exit signals
+
+Entry Rules:
+LONG ENTRY:
+- When price breaks ABOVE upper Bollinger Band after a confirmed squeeze (BB width < HV)
+- Confirmation: Close > upper BB + (2 x ATR)
+- Entry: Next candle open after confirmation
+
+SHORT ENTRY:
+- When price breaks BELOW lower Bollinger Band after a confirmed squeeze (BB width < HV)
+- Confirmation: Close < lower BB - (2 x ATR)
+- Entry: Next candle open after confirmation
+
+Exit Rules:
+LONG EXIT:
+- When price closes below entry price - (2 x ATR)
+- Or when price closes below lower Bollinger Band
+
+SHORT EXIT:
+- When price closes above entry price + (2 x ATR)
+- Or when price closes above upper Bollinger Band
+
+Risk Management:
+1. Position Sizing: Maximum 2% risk per trade
+2. Stop Loss: 2x ATR from entry price
+3. Trailing Stop: Adjust stop to breakeven when price moves 1x ATR in profit
+4. Maximum Drawdown: 10% account limit before strategy pause
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Historical Volatility (20-day)
+3. Average True Range (14-period)
+4. Price Channel (for squeeze range identification)
+
+Optimization Notes:
+- Test different ATR multiples (1.5x-3x) for breakout sensitivity
+- Experiment with Bollinger Band periods (14-26) and std dev (1.5-2.5)
+- Adjust HV lookback period (14-30 days) for different market conditions
+
+Unique Aspects:
+- Combines Bollinger Band contraction with historical volatility comparison
+- Uses ATR-based dynamic breakout thresholds
+- Incorporates both price channel and volatility measurements
+- Features asymmetric exit conditions based on volatility expansion

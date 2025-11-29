@@ -1,0 +1,39 @@
+STRATEGY_NAME: ClusterBandwidth
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines on-chain liquidation cluster data with technical Bollinger Band analysis
+- Focuses on high-probability breakout zones where liquidations are concentrated
+- Uses volatility contraction (low Bandwidth) as entry confirmation
+- Monitors both volatility expansion and cluster depletion for exits
+
+2. Entry Rules:
+- Identify high liquidation clusters using on-chain data (zones with dense stop orders)
+- Wait for price to approach these cluster zones (within 1-2% distance)
+- Confirm Bollinger Bandwidth is below 0.5 (indicating low volatility)
+- Enter long on breakout above cluster high (for buy clusters) or short below cluster low (for sell clusters)
+
+3. Exit Rules:
+- Primary exit: When Bollinger Bandwidth expands beyond entry level + 0.3
+- Secondary exit: When on-chain data shows >70% of cluster orders executed
+- Emergency exit: If price reverses through opposite cluster boundary
+
+4. Risk Management:
+- Position sizing: 1-2% risk per trade
+- Stop loss: Opposite side of the cluster (for longs: below cluster low; for shorts: above cluster high)
+- Maximum daily trades: 3 to avoid over-trading during volatile periods
+- Avoid trading during major news events when clusters may be invalidated
+
+5. Required Indicators:
+- On-chain liquidation cluster heatmap (showing order density)
+- Bollinger Bands (20,2 standard deviation settings)
+- Bollinger Bandwidth indicator (BB width divided by middle band)
+- Volume profile (to confirm cluster validity)
+
+6. Special Considerations:
+- Works best on 4H and daily timeframes
+- Most effective on high-liquidity assets (BTC, ETH, major forex pairs)
+- Requires real-time on-chain data feed
+- Cluster validity should be confirmed by at least 3 independent data sources
+
+This strategy capitalizes on the combination of order flow dynamics (liquidation clusters) and technical confirmation (volatility contraction), creating high-probability breakout trades with clearly defined risk parameters.

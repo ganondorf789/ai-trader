@@ -1,0 +1,41 @@
+STRATEGY_NAME: VolumetricVwap  
+
+STRATEGY_DETAILS:  
+This intraday momentum strategy combines VWAP crossovers with high-volume surges to identify strong directional moves, using Bollinger Band %B for precise exits.  
+
+**Key Components:**  
+1. **VWAP Crossover**: Primary trend indicator where price crossing above/below VWAP signals momentum direction  
+2. **Volume Surge Filter**: Requires 15-minute volume exceeding 90th percentile (calculated from recent 20-period lookback)  
+3. **Bollinger Band %B**: Exit mechanism using overbought/oversold thresholds (0.8 for long exits, 0.2 for short exits)  
+
+**Entry Rules (Long):**  
+- Price crosses above VWAP  
+- Current 15-minute volume > 90th percentile of last 20 periods  
+- Enter on next candle open  
+
+**Entry Rules (Short):**  
+- Price crosses below VWAP  
+- Current 15-minute volume > 90th percentile of last 20 periods  
+- Enter on next candle open  
+
+**Exit Rules:**  
+- Long positions: Close when %B crosses 0.8 (overbought)  
+- Short positions: Close when %B crosses 0.2 (oversold)  
+- Optional: Time-based exit at session close  
+
+**Risk Management:**  
+- Fixed % risk per trade (e.g., 1% of capital)  
+- Stop-loss at recent swing low/high or fixed ATR multiple  
+- No new entries after 2:30 PM ET to avoid end-of-day volatility  
+
+**Required Indicators:**  
+1. VWAP (Volume Weighted Average Price)  
+2. Volume Percentile (90th threshold)  
+3. Bollinger Bands (20,2 standard deviations) with %B calculation  
+
+**Optimization Notes:**  
+- Test different volume percentile thresholds (85th-95th)  
+- Adjust Bollinger Band parameters for different volatility regimes  
+- Consider adding ADX filter (>25) to confirm trend strength  
+
+This strategy excels in capturing explosive intraday moves while using volume confirmation to filter false breakouts, with the %B exit providing disciplined profit-taking.

@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolSurge Breakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Adjusted VWAP**: Uses a modified Volume-Weighted Average Price (VWAP) that adjusts for recent volatility, providing a dynamic support/resistance level.  
+2. **Volume Surge Confirmation**: Requires a significant spike in trading volume (e.g., 1.5x the 20-period average) to validate breakout signals.  
+3. **Bollinger Band Contraction Exit**: Monitors Bollinger Band width contraction below a dynamic threshold (e.g., 50% of its 10-period range) to signal loss of momentum.  
+
+**Entry Rules:**  
+1. **Breakout Signal**: Enter long when price closes above the volatility-adjusted VWAP.  
+2. **Volume Confirmation**: The breakout must coincide with a volume surge (e.g., volume > 1.5x 20-period average).  
+3. **Filter**: Optional—require the breakout candle to be larger than the average true range (ATR) of the last 5 candles.  
+
+**Exit Rules:**  
+1. **Bollinger Band Contraction**: Exit when the Bollinger Band width (upper band - lower band) contracts below a dynamic threshold (e.g., 50% of its 10-period range).  
+2. **Trailing Stop**: Optional—use a trailing stop (e.g., 2x ATR) to protect profits during strong trends.  
+3. **Time-Based Exit**: Close the trade after a fixed period (e.g., 5 bars) if no exit signal occurs.  
+
+**Risk Management:**  
+1. **Stop-Loss**: Place initial stop-loss below the recent swing low or at 1.5x ATR below entry.  
+2. **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+3. **Volatility Filter**: Avoid trading during extremely low volatility (e.g., Bollinger Band width < 30% of its 10-period range).  
+
+**Required Indicators:**  
+1. **Volatility-Adjusted VWAP**: Custom VWAP incorporating ATR or standard deviation.  
+2. **Volume Surge Detector**: Volume compared to a moving average (e.g., 20-period SMA).  
+3. **Bollinger Bands**: Standard settings (20-period SMA, 2 standard deviations) with width monitoring.  
+4. **Optional**: ATR for stop-loss and candle size filtering.  
+
+**Unique Aspects:**  
+- Combines volatility-sensitive VWAP with volume confirmation for high-probability breakouts.  
+- Uses Bollinger Band contraction (a mean-reversion signal) as a trend-exit trigger, creating a hybrid trend-following/mean-reversion approach.  
+- Dynamic thresholds adapt to changing market conditions.  
+
+**Best Suited For:**  
+- Intraday or swing trading in trending markets with clear volatility cycles.  
+- Assets with consistent volume patterns (e.g., equities, active forex pairs).

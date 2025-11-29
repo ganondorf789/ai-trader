@@ -1,0 +1,35 @@
+STRATEGY_NAME: MomentumSqueeze  
+
+STRATEGY_DETAILS:  
+This strategy combines momentum confirmation with volatility contraction to identify high-probability swing trades. The key components are:  
+
+1. **Indicators Used**:  
+   - **Chande Momentum Oscillator (CMO)**: Measures momentum strength (default 14-period).  
+   - **Bollinger Band Width**: Calculated as (Upper Band - Lower Band) / Middle Band, showing volatility compression when narrowing.  
+
+2. **Entry Rules**:  
+   - **Long Entry**: Trigger when:  
+     - CMO crosses **above 50** (bullish momentum confirmation).  
+     - Bollinger Band Width is **contracting** (recent width < previous width).  
+   - **Short Entry**: Trigger when:  
+     - CMO crosses **below 50** (bearish momentum confirmation).  
+     - Bollinger Band Width is **contracting** (recent width < previous width).  
+
+3. **Exit Rules**:  
+   - **Opposite Crossover**: Close long if CMO drops below 50; close short if CMO rises above 50.  
+   - **Trailing Stop**: 3% trailing stop from the highest close (long) or lowest close (short) after entry.  
+
+4. **Risk Management**:  
+   - Position sizing should limit risk to 1-2% of capital per trade.  
+   - Avoid trading during major news events to prevent false volatility signals.  
+
+5. **Filters (Optional)**:  
+   - Add a 200-period moving average to confirm the broader trend direction.  
+   - Require Bollinger Band Width to be below its 20-period average to confirm contraction.  
+
+**Why It Works**: The CMO crossover validates momentum, while narrowing Bollinger Bands signal a potential breakout. The trailing stop locks in profits during volatile moves.  
+
+**Note**: Backtest to optimize CMO period (e.g., 9 vs. 14) and Bollinger Band settings (e.g., 20,2 vs. 50,2.5) for your asset class.  
+
+---  
+This strategy excels in ranging or mildly trending markets but may underperform in strong, sustained trends without additional filters.

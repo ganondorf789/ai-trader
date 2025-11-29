@@ -1,0 +1,46 @@
+STRATEGY_NAME: MomentumCrossfire
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- EMA Crossover System: Uses the 50-period and 200-period EMA crossover (Golden Cross/Death Cross) as primary trend signals
+- Momentum Confirmation: Requires ADX (Average Directional Index) to rise above 25 to validate trend strength
+- Breakout Execution: Enters trades when price confirms the crossover with a breakout
+- Fixed Risk-Reward: Implements strict 2:1 profit-taking while maintaining disciplined stop-losses
+
+2. Entry Rules:
+- Long Entry:
+  * 50 EMA crosses above 200 EMA (Golden Cross)
+  * ADX rises above 25 (and preferably increasing)
+  * Price breaks above recent swing high
+- Short Entry:
+  * 50 EMA crosses below 200 EMA (Death Cross)
+  * ADX rises above 25 (and preferably increasing)
+  * Price breaks below recent swing low
+
+3. Exit Rules:
+- Profit Target: 2x the initial risk (measured from entry to stop-loss)
+- Stop-Loss Placement:
+  * For longs: Below the most recent swing low
+  * For shorts: Above the most recent swing high
+- Emergency Exit: Close position if ADX falls below 20, indicating weakening momentum
+
+4. Risk Management:
+- Position sizing based on 1-2% risk per trade
+- No new entries if ADX is declining (below 25 and falling)
+- Avoid trading during choppy market conditions (ADX < 20)
+- Maximum 5% portfolio exposure to any single trade
+
+5. Required Indicators:
+- 50-period Exponential Moving Average (EMA)
+- 200-period Exponential Moving Average (EMA)
+- ADX (14-period standard setting) with +DI/-DI lines (optional for additional confirmation)
+- Price chart with clear swing highs/lows for breakout confirmation
+
+6. Additional Notes:
+- Best suited for daily or 4-hour timeframes
+- Works particularly well in trending commodities and forex markets
+- Requires patience as EMA crossovers may be infrequent but high-probability
+- Combine with fundamental analysis for higher timeframe confluence
+- Avoid using in ranging markets (watch for ADX below 20)
+
+This MomentumCrossfire strategy combines the reliability of long-term EMA crossovers with momentum confirmation from ADX, creating a high-probability trend-following system with disciplined risk management.

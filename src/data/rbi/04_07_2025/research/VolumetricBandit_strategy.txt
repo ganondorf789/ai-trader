@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolumetricBandit
+
+STRATEGY_DETAILS:
+This strategy combines volume confirmation with extreme price positioning within Bollinger Bands to identify potential reversal opportunities. The key components are:
+
+1. INDICATORS REQUIRED:
+- On-Balance Volume (OBV) - 10-day period
+- Bollinger Bands - 20-day period with standard settings (20,2)
+- Price percentile calculation within Bollinger Bands
+
+2. ENTRY RULES:
+- OBV must reach a 10-day high (showing strong buying pressure)
+- Price must simultaneously be in the lower 20th percentile of its 20-day Bollinger Band (indicating oversold conditions)
+- Both conditions must occur simultaneously to trigger a long entry
+
+3. EXIT RULES:
+- Close position when price crosses above the upper Bollinger Band
+- Alternative exit: Consider exiting if OBV drops below its 5-day moving average
+
+4. RISK MANAGEMENT:
+- Recommended stop-loss: Below the recent swing low or below the lower Bollinger Band
+- Position sizing should account for the volatility indicated by the Bollinger Band width
+- Avoid trading during periods of extremely narrow bands (low volatility)
+
+5. KEY CONSIDERATIONS:
+- Works best in ranging or mildly trending markets
+- May generate false signals during strong downtrends
+- Volume confirmation helps filter out weak bounces
+- Best used on daily or 4-hour timeframes for reliable signals
+
+6. OPTIMIZATION TIPS:
+- Adjust OBV period based on market volatility (shorter for more active markets)
+- Consider adding a momentum filter (e.g., RSI > 30) for additional confirmation
+- Test different percentile thresholds (15th-25th) for price positioning
+
+This strategy capitalizes on the divergence between strong volume accumulation and depressed price levels, with Bollinger Bands providing clear exit points when the price becomes overextended.

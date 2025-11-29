@@ -1,0 +1,46 @@
+STRATEGY_NAME: VolatilityFadeVWAP
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band width analysis with VWAP dynamics to identify and capitalize on mean-reversion opportunities during periods of excessive volatility. The core approach involves fading volatility spikes when they reach extreme percentile thresholds while confirming with volume-weighted price action.
+
+Key Components:
+1. Bollinger Band Width Percentile (20-period lookback)
+2. 20-period Volume-Weighted Moving Average (VWMA)
+3. VWAP Slope (flattening condition)
+4. Volume analysis (retracement confirmation)
+
+Entry Rules:
+1. Primary Trigger: Bollinger Band width exceeds 90th percentile of its 20-period lookback
+2. Confirmation: VWAP slope flattens (absolute value < 0.1% per period)
+3. Execution: Enter short on high-volume retracement toward 20-period VWMA when:
+   - Price approaches within 0.5 standard deviations of VWMA
+   - Current volume > 20-period volume average
+   - RSI(14) > 60 (for short entries) or < 40 (for long entries)
+
+Exit Rules:
+1. Profit Target: 1.5x the average true range (ATR) from entry
+2. Stop Loss: 1x ATR from entry
+3. Time Exit: Close position after 5 periods if targets not hit
+4. Early Exit: VWAP slope steepens (> 0.3% per period in either direction)
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Maximum daily trades: 3
+3. Stop placement: Beyond recent swing high/low
+4. Volatility filter: No trades if ATR > 3% of price
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. VWAP with slope calculation
+3. Volume-weighted moving average (20)
+4. Volume oscillator
+5. RSI (14)
+6. ATR (14)
+
+Optimization Notes:
+- Adjust percentile threshold (85-95) based on asset volatility
+- Fine-tune VWAP slope parameters for different timeframes
+- Consider adding MACD cross confirmation for stronger signals
+- Test various ATR multiples for profit targets
+
+This strategy works best in ranging markets with periodic volatility expansions and is particularly effective on liquid stocks or forex pairs during non-news periods. The combination of volatility percentile, volume confirmation, and VWAP dynamics creates a robust mean-reversion framework.

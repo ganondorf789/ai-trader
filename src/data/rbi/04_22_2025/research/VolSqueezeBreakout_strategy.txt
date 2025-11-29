@@ -1,0 +1,31 @@
+STRATEGY_NAME: VolSqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Contraction:** The strategy focuses on periods when the 20-period Bollinger Band width contracts to its lowest 10% of historical values, indicating a potential breakout setup.  
+2. **Volume Confirmation:** A volume spike above the 30-day average is required to confirm the breakout, ensuring strong participation.  
+3. **Reward-Risk Management:** Trades are exited based on a fixed 2:1 reward-risk ratio, ensuring disciplined profit-taking.  
+
+**Entry Rules:**  
+- **Condition 1:** The 20-period Bollinger Band width must be in its lowest 10% of historical values (indicating a squeeze).  
+- **Condition 2:** Volume must spike above its 30-day moving average (confirming breakout momentum).  
+- **Entry Signal:** Enter long on a breakout above the upper Bollinger Band or short on a breakdown below the lower Bollinger Band, depending on the direction of the breakout.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit the trade when the price reaches a 2:1 reward-risk ratio (e.g., if the stop-loss is 1%, take profit at 2%).  
+- **Stop-Loss:** Place a stop-loss just below the breakout point (for longs) or above the breakdown point (for shorts).  
+
+**Risk Management:**  
+- Position sizing should be adjusted to ensure the stop-loss does not exceed a predefined risk percentage (e.g., 1-2% of capital per trade).  
+- Avoid trading during low-liquidity periods or major news events to reduce slippage risk.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 standard deviations)** – To identify the squeeze condition.  
+2. **Volume (30-day moving average)** – To confirm breakout strength.  
+3. **Historical Bollinger Band Width Percentile (10th percentile filter)** – To detect extreme contractions.  
+
+**Additional Notes:**  
+- This strategy works best in trending markets but may produce false signals in choppy or range-bound conditions.  
+- Backtesting should be done to validate the historical performance of the 10% width threshold for the given asset.  
+- Consider combining with additional filters (e.g., RSI divergence or moving average alignment) to improve accuracy.

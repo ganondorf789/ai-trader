@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilityBreakout  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Ratio Filter:** Uses the 3-day ATR divided by the 20-day ATR to identify low volatility conditions (ratio < 0.5).  
+2. **Keltner Channel Breakout:** Enters long when price breaks above the upper Keltner Channel band, signaling a potential breakout.  
+3. **Trailing Stop Exit:** Uses a 2x ATR trailing stop to lock in profits and manage risk dynamically.  
+
+**Entry Rules:**  
+- **Condition 1:** The 3-day volatility ratio (current ATR / 20-day ATR) must be below 0.5, indicating compressed volatility.  
+- **Condition 2:** Price must break above the upper Keltner Channel band (typically set at 2x ATR around a 20-period EMA).  
+- **Action:** Enter long on the breakout confirmation.  
+
+**Exit Rules:**  
+- **Trailing Stop:** Exit the trade when price retraces 2x the current ATR from the highest point reached since entry.  
+- **Optional Stop-Loss:** A hard stop-loss can be placed at 1x ATR below entry for additional risk control.  
+
+**Risk Management:**  
+- Position sizing should be based on the ATR to ensure risk per trade is consistent (e.g., 1% risk per trade).  
+- Avoid entering during high volatility (volatility ratio > 0.5) to reduce false breakouts.  
+- Trade only in the direction of the broader trend (optional filter: 50 EMA slope can be used for trend confirmation).  
+
+**Required Indicators:**  
+1. **ATR (Average True Range):** 3-day and 20-day periods for volatility ratio calculation.  
+2. **Keltner Channel:** 20-period EMA with upper/lower bands set at 2x ATR.  
+
+**Notes:**  
+- Works best in ranging markets where volatility compression precedes breakouts.  
+- Backtest for optimal ATR multiplier (e.g., 1.5x or 2x) based on asset characteristics.  
+- Combine with volume confirmation for higher probability setups.  
+
+This strategy capitalizes on low-volatility breakouts while using ATR-based stops to manage risk effectively.

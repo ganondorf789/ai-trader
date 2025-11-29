@@ -1,0 +1,37 @@
+STRATEGY_NAME: DeltaSqueezeDivergence
+
+STRATEGY_DETAILS:
+This strategy combines volatility contraction signals from Keltner Channels with order flow divergence to identify high-probability reversal setups. The core concept focuses on catching price movements when volatility compression coincides with increasing negative delta divergence, suggesting underlying weakness during apparent consolidation.
+
+Key Components:
+1. Keltner Channels (20-period, 1.5 ATR multiplier) - Identifies volatility contractions when channels converge
+2. Delta Divergence - Measures the difference between price action and cumulative delta (buy/sell pressure)
+3. Volatility Expansion - Uses channel breakout or ATR spike for exits
+
+Entry Rules:
+1. Wait for Keltner Channels to contract to at least 50% of their average width (volatility squeeze)
+2. Confirm negative delta divergence (price making higher highs while cumulative delta makes lower highs)
+3. Enter short when price breaks below the lower Keltner Channel with confirming delta divergence
+
+Exit Rules:
+1. Primary Exit: When price closes back inside the Keltner Channels (volatility reversion)
+2. Secondary Exit: When cumulative delta shows strong positive divergence (order flow reversal)
+3. Emergency Exit: If price breaks above upper Keltner Channel with expanding volume
+
+Risk Management:
+1. Position size based on 1-2% risk per trade
+2. Initial stop placed at recent swing high (for shorts) or above upper Keltner Channel
+3. Trail stop using lower Keltner Channel or 2x ATR for profitable trades
+
+Required Indicators:
+1. Keltner Channels (20-period EMA, 1.5 ATR multiplier)
+2. Cumulative Delta indicator
+3. ATR (14-period) for volatility measurement
+4. Volume profile for confirmation
+
+Optimal Conditions:
+- Works best in ranging markets after strong trends
+- Most effective on 15min-4hr timeframes
+- Ideal for liquid instruments with good order flow data (futures, major forex pairs)
+
+The DeltaSqueezeDivergence strategy capitalizes on the hidden weakness revealed by order flow during apparent consolidation periods, providing high-probability entries with clearly defined risk parameters.

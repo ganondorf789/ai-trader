@@ -1,0 +1,47 @@
+STRATEGY_NAME: VolumetricSqueezeExtension
+
+STRATEGY_DETAILS:
+This strategy combines volume-confirmed momentum with volatility contraction patterns and Fibonacci-based profit targets for high-probability trades.
+
+Key Components:
+1. Volume-Weighted MACD (VW-MACD) - Modifies traditional MACD by incorporating trading volume into its calculations
+2. Bollinger Band Squeeze - Identifies periods of low volatility that often precede significant price movements
+3. Dynamic Fibonacci Extensions - Uses recent swing points to calculate profit targets that adapt to current market conditions
+
+Entry Rules:
+1. Wait for Bollinger Bands to contract to a predefined squeeze threshold (typically when bandwidth is below 20% of its 20-period average)
+2. Confirm a VW-MACD crossover (either bullish or bearish) with volume at least 20% above the 50-period average
+3. Enter long when:
+   - Price is above the middle Bollinger Band (20-period SMA)
+   - Bullish VW-MACD crossover occurs (signal line crosses above MACD line)
+4. Enter short when:
+   - Price is below the middle Bollinger Band
+   - Bearish VW-MACD crossover occurs (signal line crosses below MACD line)
+
+Exit Rules:
+1. Profit Targets:
+   - Calculate Fibonacci extensions (38.2%, 61.8%, 100%) from the most recent significant swing low to swing high for long positions
+   - Use swing high to swing low for short positions
+   - Scale out of positions at each Fibonacci level (e.g., 50% at 38.2%, 30% at 61.8%, 20% at 100%)
+2. Stop Loss:
+   - Place initial stop at the opposite Bollinger Band (lower band for longs, upper band for shorts)
+   - Trail stop to breakeven when price reaches the first Fibonacci target (38.2%)
+
+Risk Management:
+1. Position size should not exceed 2% of account capital per trade
+2. Maximum portfolio exposure limited to 10% across all positions
+3. Avoid trading during major economic news events that may cause abnormal volatility
+4. Daily loss limit of 5% of account value
+
+Required Indicators:
+1. Volume-Weighted MACD (12,26,9 periods with volume multiplier)
+2. Bollinger Bands (20 periods, 2 standard deviations)
+3. Bollinger Band Width indicator (to measure squeeze conditions)
+4. Fibonacci Extension tool (for dynamic target calculation)
+5. Volume indicator (50-period moving average)
+
+Optimization Notes:
+- Adjust squeeze threshold based on asset volatility (lower for more volatile assets)
+- Test different Fibonacci extension levels for optimal profit-taking
+- Consider adding a time-based exit (e.g., close after 3 bars if targets aren't hit)
+- Validate strategy across multiple timeframes (15min-4hr works best)

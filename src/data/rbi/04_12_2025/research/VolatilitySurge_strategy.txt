@@ -1,0 +1,27 @@
+STRATEGY_NAME: VolatilitySurge  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Breakout Focus**: The strategy capitalizes on sudden increases in volatility, using the ATR (Average True Range) to detect expansion.  
+2. **Bollinger Band Confirmation**: Requires price to close above the upper Bollinger Band to confirm breakout strength.  
+3. **Dynamic Risk-Reward**: Exits are strictly managed via a 2:1 risk-reward ratio, ensuring disciplined profit-taking.  
+
+**Entry Rules:**  
+- **Trigger**: 5-minute ATR (14-period) crosses *above* its 20-period SMA.  
+- **Confirmation**: Price must close *above* the upper Bollinger Band (20-period, 2 standard deviations).  
+- **Action**: Enter a long position on the next candle’s open.  
+
+**Exit Rules:**  
+- **Profit Target**: 2x the initial risk (e.g., if stop loss is 10 pips, take profit at 20 pips).  
+- **Stop Loss**: Set below the recent swing low or the lower Bollinger Band, whichever is tighter.  
+
+**Risk Management:**  
+- Position size is calculated to risk ≤1-2% of capital per trade.  
+- No entries if ATR is below its 20-period SMA (low volatility filter).  
+
+**Required Indicators:**  
+1. **ATR (14-period)** – Measures volatility surge.  
+2. **SMA of ATR (20-period)** – Filters for significant volatility expansions.  
+3. **Bollinger Bands (20,2)** – Confirms breakout validity.  
+
+**Unique Edge:** Combines volatility momentum (ATR) with price confirmation (Bollinger Bands) and enforces asymmetric risk-reward, reducing emotional exits.

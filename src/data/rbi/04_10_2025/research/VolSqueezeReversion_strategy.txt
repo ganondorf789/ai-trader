@@ -1,0 +1,46 @@
+STRATEGY_NAME: VolSqueezeReversion
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Focuses on volatility contraction/expansion cycles using Bollinger Bands
+- Incorporates funding rate dynamics as a sentiment indicator
+- Combines technical breakout with mean reversion principles
+- Designed for crypto markets where funding rates are significant
+
+2. Entry Rules:
+- Primary Trigger: Price breaks out of Bollinger Band contraction (bands width at lowest 20% of 30-day range)
+- Confirmation: Negative funding rates show significant surge (minimum 2x increase from 7-day average)
+- Direction: Trade in the direction of the breakout (long for upper band break, short for lower band break)
+- Timing: Enter on first close outside contracted bands with confirming funding rate move
+
+3. Exit Rules:
+- Primary Exit: When funding rates revert to mean (return to within 1 standard deviation of 30-day average)
+- Secondary Exit: Price retraces to midpoint between Bollinger Bands
+- Emergency Exit: If price crosses opposite band (for long: lower band; for short: upper band)
+
+4. Risk Management:
+- Position sizing: 1-2% risk per trade
+- Stop loss: 1.5x average true range (ATR) from entry point
+- Maximum holding period: 72 hours (avoids prolonged exposure to funding rate fluctuations)
+- Avoid trading during major macroeconomic events that may distort volatility patterns
+
+5. Required Indicators:
+- Bollinger Bands (20-period, 2 standard deviations)
+- Bollinger Band Width indicator (to measure contraction)
+- Funding rate data (exchange-specific)
+- 30-period simple moving average (for band midpoint)
+- Average True Range (14-period for stop calculation)
+
+6. Special Considerations:
+- Works best on 4-hour or daily timeframes
+- Most effective on high-liquidity crypto pairs with active perpetual contracts
+- Requires monitoring of exchange-specific funding rate schedules
+- Should be combined with volume analysis to confirm breakout validity
+
+7. Optimization Tips:
+- Adjust band period (14-30) based on asset volatility
+- Fine-tune funding rate multiplier (1.5x-3x) based on market regime
+- Consider adding RSI filter (avoid extreme overbought/oversold conditions)
+- Test different mean reversion thresholds for funding rates
+
+This strategy capitalizes on the explosive moves following volatility contraction while using funding rates as both a confirmation and exit signal, creating a balanced approach between momentum and mean reversion principles.

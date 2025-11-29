@@ -1,0 +1,51 @@
+STRATEGY_NAME: FibroDivergence
+
+STRATEGY_DETAILS:
+The FibroDivergence strategy combines RSI divergence analysis with Fibonacci retracement levels to identify high-probability trend-following opportunities. This approach focuses on detecting divergences between price action and RSI while confirming key support/resistance levels using Fibonacci retracements.
+
+Key Components:
+1. RSI Divergence Detection
+2. Fibonacci Retracement Levels (38.2%, 50%, 61.8%)
+3. Trend Identification
+4. Support/Resistance Confirmation
+
+Required Indicators:
+1. RSI (14-period default)
+2. Fibonacci Retracement Tool
+3. Price Action Analysis
+
+Entry Rules:
+1. Long Entry:
+   - Price forms a lower low while RSI forms a higher low (bullish divergence)
+   - Price retraces to a key Fibonacci level (38.2%, 50%, or 61.8%)
+   - Price shows rejection or reversal at the Fibonacci level
+   - Enter long on confirmation candle closing above the Fibonacci level
+
+2. Short Entry:
+   - Price forms a higher high while RSI forms a lower high (bearish divergence)
+   - Price retraces to a key Fibonacci level (38.2%, 50%, or 61.8%)
+   - Price shows rejection or reversal at the Fibonacci level
+   - Enter short on confirmation candle closing below the Fibonacci level
+
+Exit Rules:
+1. Take Profit:
+   - Use Fibonacci extension levels (127.2%, 161.8%) as initial targets
+   - Trail stop using RSI overbought/oversold levels (70/30)
+
+2. Stop Loss:
+   - Place stop loss below the most recent swing low (for long) or above the most recent swing high (for short)
+   - Alternatively, use 1.5x ATR below/above the entry price
+
+Risk Management:
+1. Risk no more than 1-2% of account per trade
+2. Use position sizing based on stop loss distance
+3. Avoid trading during major news events
+4. Maintain a minimum 1:2 risk-reward ratio
+
+Additional Notes:
+- Confirm divergence with volume analysis for higher accuracy
+- Use higher timeframes (4H/Daily) for more reliable signals
+- Combine with trendline breaks for additional confirmation
+- Avoid trading in choppy or range-bound markets
+
+This strategy works best in trending markets and requires patience to wait for proper divergence setups at key Fibonacci levels. Proper risk management and discipline are crucial for long-term success.

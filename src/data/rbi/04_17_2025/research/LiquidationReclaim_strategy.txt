@@ -1,0 +1,41 @@
+STRATEGY_NAME: LiquidationReclaim  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Clusters:** Identifies extreme market conditions where liquidation events exceed 2 standard deviations on an hourly basis, signaling potential exhaustion in the current trend.  
+2. **VWAP Reclamation:** Requires price to reclaim the Volume-Weighted Average Price (VWAP) as confirmation of a potential reversal or continuation.  
+3. **TICK Volume Confirmation:** Uses rising TICK volume to validate the strength of the move, ensuring participation and momentum.  
+4. **Bollinger Squeeze Breakouts (15-minute):** Utilizes Bollinger Band contractions followed by breakouts on the 15-minute timeframe to time exits.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Hourly liquidation clusters exceed 2 standard deviations (indicating potential exhaustion).  
+  2. Price reclaims VWAP (confirms reversal or continuation).  
+  3. Rising TICK volume confirms bullish momentum.  
+
+**Exit Rules:**  
+- **Exit Signal:**  
+  1. Bollinger Bands on the 15-minute chart enter a squeeze (bands tighten).  
+  2. Price breaks out of the squeeze (either above upper band for long exits or below lower band if adjusting for short trades).  
+
+**Risk Management:**  
+1. **Stop-Loss:** Place below the recent swing low or below VWAP (whichever is tighter).  
+2. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+3. **Trailing Stop:** Consider using a trailing stop based on ATR (Average True Range) to lock in profits if the trade moves favorably.  
+
+**Required Indicators:**  
+1. **Liquidation Cluster Data** (requires access to liquidation heatmaps or similar metrics).  
+2. **VWAP** (Volume-Weighted Average Price).  
+3. **TICK Volume** (NYSE TICK or equivalent for your market).  
+4. **Bollinger Bands** (20-period, 2 standard deviations on 15-minute chart).  
+
+**Notes:**  
+- This strategy is best suited for volatile markets where liquidation events are frequent.  
+- Works well in trending or mean-reverting conditions when combined with proper confirmation.  
+- Requires real-time data feeds for liquidation clusters and TICK volume.  
+
+**Optimization Tips:**  
+- Adjust the standard deviation threshold for liquidation clusters based on asset volatility.  
+- Test different timeframes for Bollinger Squeeze exits (e.g., 5-minute for scalping, 30-minute for swings).  
+- Combine with additional filters like RSI or MACD to avoid false breakouts.

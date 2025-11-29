@@ -1,0 +1,39 @@
+STRATEGY_NAME: LiquidityBandBreakout
+
+STRATEGY_DETAILS:
+This strategy combines on-chain liquidity analysis with technical indicators to identify high-probability breakout opportunities during periods of market consolidation.
+
+Key Components:
+1. On-chain liquidation clusters (high liquidity zones)
+2. Bollinger Band Width contraction (measure of volatility compression)
+3. Liquidity pool levels (key price targets)
+
+Entry Rules:
+1. Wait for Bollinger Band Width to contract below 0.5 (indicating low volatility)
+2. Identify nearest high liquidation cluster from on-chain data (price zone with dense stop orders)
+3. Enter long when price breaks above the upper liquidation cluster boundary with confirmation candle close
+4. Enter short when price breaks below the lower liquidation cluster boundary with confirmation candle close
+
+Exit Rules:
+1. Take profit at the next significant liquidity pool level (identified from on-chain data)
+2. Stop loss placed at the opposite side of the broken liquidation cluster
+3. Alternative exit if Bollinger Bands expand significantly (width > 1.5) without reaching target
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop loss distance determines position size (risk no more than 0.5% per trade)
+3. Avoid trading during major news events when liquidity patterns may be unreliable
+4. Maximum 3 concurrent positions open
+
+Required Indicators:
+1. Bollinger Bands (20,2) with Width calculation
+2. On-chain liquidation heatmap (showing cluster density)
+3. Liquidity pool levels (from order book analysis)
+
+Optimization Notes:
+1. Best timeframes: 4H and daily charts
+2. Most effective in ranging markets transitioning to trends
+3. Works well with major crypto pairs (BTC, ETH) due to reliable on-chain data
+4. Requires real-time liquidation cluster updates for best results
+
+This strategy capitalizes on the market's tendency to target liquidity zones after periods of low volatility, using on-chain data to identify the most probable breakout directions and targets.

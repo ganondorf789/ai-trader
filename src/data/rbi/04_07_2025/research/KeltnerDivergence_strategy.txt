@@ -1,0 +1,40 @@
+STRATEGY_NAME: KeltnerDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Keltner Channel Breakout:** Uses a volatility-based channel to identify potential breakout opportunities.  
+2. **Chaikin Money Flow (CMF) Divergence:** Detects opposing momentum signals when price breaks the Keltner Channel.  
+3. **Elder-Ray Index:** Acts as the exit signal, confirming trend reversals.  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Price closes above the upper Keltner Channel.  
+  - CMF shows a bearish divergence (price making higher highs while CMF makes lower highs).  
+- **Short Entry:**  
+  - Price closes below the lower Keltner Channel.  
+  - CMF shows a bullish divergence (price making lower lows while CMF makes higher lows).  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  - Elder-Ray Index (Bull Power) turns negative (closes below zero).  
+- **Short Exit:**  
+  - Elder-Ray Index (Bear Power) turns positive (closes above zero).  
+
+**Risk Management:**  
+- **Stop Loss:**  
+  - For long trades: Place below the recent swing low or lower Keltner Channel.  
+  - For short trades: Place above the recent swing high or upper Keltner Channel.  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+
+**Required Indicators:**  
+1. **Keltner Channel** (20-period EMA, 2x ATR for bands).  
+2. **Chaikin Money Flow (CMF)** (20-period).  
+3. **Elder-Ray Index** (Bull Power & Bear Power).  
+
+**Additional Notes:**  
+- Works best in trending markets; avoid ranging conditions.  
+- Confirm entries with higher timeframes for stronger signals.  
+- Adjust ATR multiplier in Keltner Channel for more/less sensitivity.  
+
+This strategy combines volatility-based breakouts with momentum divergence for high-probability trades, while using Elder-Ray for disciplined exits.

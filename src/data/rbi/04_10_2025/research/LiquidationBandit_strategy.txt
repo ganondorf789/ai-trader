@@ -1,0 +1,46 @@
+STRATEGY_NAME: LiquidationBandit  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Identification:**  
+   - Monitor significant drops in open interest (OI) as indicators of forced liquidations.  
+   - These clusters often precede strong directional moves due to market imbalance.  
+
+2. **Volume-Weighted Volatility Bands (VWVB):**  
+   - Combines volume and volatility to create dynamic bands around price.  
+   - Breakouts above/below these bands confirm entry signals.  
+
+3. **Fibonacci Retracement Targets:**  
+   - Measure recent swing extremes (highs/lows) to set Fib levels (38.2%, 50%, 61.8%).  
+   - Use these as profit-taking zones based on the strength of the breakout.  
+
+**Entry Rules:**  
+1. **Trigger Condition:**  
+   - Wait for a sharp OI drop (>10-15% within a short timeframe) signaling liquidation.  
+   - Price must break outside the VWVB with confirming volume surge.  
+
+2. **Directional Bias:**  
+   - Long if breakout occurs above upper VWVB after OI drop in downtrend (short squeeze setup).  
+   - Short if breakout occurs below lower VWVB after OI drop in uptrend (long liquidation setup).  
+
+**Exit Rules:**  
+1. **Profit Targets:**  
+   - Primary target: 38.2% Fib retracement from recent swing extreme.  
+   - Secondary targets: 50% or 61.8% for stronger trends, trailed via VWVB.  
+
+2. **Stop Loss:**  
+   - Place stop beyond the opposite VWVB or recent swing low/high (whichever is tighter).  
+
+**Risk Management:**  
+1. Position size capped at 1-2% risk per trade.  
+2. Avoid trading during low-volume periods to prevent false breakouts.  
+3. Filter setups with conflicting higher-timeframe structure (e.g., don’t short into a monthly support zone).  
+
+**Required Indicators:**  
+1. Open interest delta (real-time).  
+2. Volume-weighted volatility bands (custom indicator combining ATR and volume).  
+3. Fibonacci retracement tool (auto-plotted from last 3-5 swings).  
+
+**Unique Edge:**  
+Exploits post-liquidation volatility surges with quantified bands and Fib-based reward zones, avoiding arbitrary targets. The VWVB acts as a self-adjusting filter for false breakouts.

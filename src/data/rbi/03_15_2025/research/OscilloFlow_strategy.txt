@@ -1,0 +1,62 @@
+STRATEGY_NAME: OscilloFlow
+
+STRATEGY_DETAILS:
+The OscilloFlow strategy combines the Stochastic Oscillator and Chaikin Money Flow (CMF) to generate trading signals. This approach leverages momentum and volume-based indicators to identify high-probability entry and exit points in trending markets.
+
+### Key Strategy Components:
+1. **Stochastic Oscillator**: Measures the momentum of price movements by comparing the closing price to its price range over a specific period. It consists of two lines: %K (fast line) and %D (slow line).
+2. **Chaikin Money Flow (CMF)**: A volume-based indicator that assesses the strength of buying and selling pressure by analyzing the accumulation/distribution line relative to price action.
+
+### Entry Rules:
+1. **Long Entry**:
+   - Stochastic Oscillator: %K crosses above %D in the oversold zone (below 20).
+   - CMF: Must be above the zero line, indicating bullish money flow.
+   - Both conditions must align for a valid long signal.
+
+2. **Short Entry**:
+   - Stochastic Oscillator: %K crosses below %D in the overbought zone (above 80).
+   - CMF: Must be below the zero line, indicating bearish money flow.
+   - Both conditions must align for a valid short signal.
+
+### Exit Rules:
+1. **Long Exit**:
+   - Stochastic Oscillator: %K crosses below %D in the overbought zone (above 80).
+   - CMF: Drops below the zero line, indicating weakening bullish momentum.
+   - Exit when either condition is met.
+
+2. **Short Exit**:
+   - Stochastic Oscillator: %K crosses above %D in the oversold zone (below 20).
+   - CMF: Rises above the zero line, indicating weakening bearish momentum.
+   - Exit when either condition is met.
+
+### Risk Management:
+1. **Stop Loss**:
+   - Set a stop loss below the recent swing low for long positions or above the recent swing high for short positions.
+   - Alternatively, use a fixed percentage (e.g., 1-2% of account equity) or ATR-based stop loss.
+
+2. **Position Sizing**:
+   - Risk no more than 1-2% of your account on any single trade.
+   - Adjust position size based on stop-loss distance to maintain consistent risk.
+
+3. **Take Profit**:
+   - Use a trailing stop or a fixed risk-reward ratio (e.g., 2:1 or 3:1).
+   - Alternatively, exit when the Stochastic Oscillator reaches the opposite extreme (overbought for long trades, oversold for short trades).
+
+### Required Indicators:
+1. **Stochastic Oscillator**:
+   - Period: 14 (default)
+   - %K: 3 (default)
+   - %D: 3 (default)
+   - Overbought: 80
+   - Oversold: 20
+
+2. **Chaikin Money Flow (CMF)**:
+   - Period: 20 (default)
+   - Zero line as the threshold for bullish/bearish signals.
+
+### Additional Notes:
+- This strategy performs best in trending markets. Avoid trading during choppy or sideways conditions.
+- Use higher timeframes (e.g., 1H, 4H, or daily) for more reliable signals.
+- Combine with price action or trend confirmation tools (e.g., moving averages) to filter out false signals.
+
+By combining momentum (Stochastic Oscillator) and volume (CMF), OscilloFlow provides a robust framework for identifying high-probability trades while managing risk effectively.

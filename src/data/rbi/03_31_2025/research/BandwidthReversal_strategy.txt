@@ -1,0 +1,36 @@
+STRATEGY_NAME: BandwidthReversal  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** Identifies periods of low volatility when the Bollinger Band Width reaches a 20-day low, signaling potential breakout conditions.  
+2. **MACD Histogram Confirmation:** Requires the MACD histogram to turn positive, indicating upward momentum before entering a trade.  
+3. **ATR-Based Profit Target:** Uses a dynamic exit at 2x the 10-day Average True Range (ATR) to capture volatility-adjusted gains.  
+
+**Entry Rules:**  
+- **Long Entry:** Trigger when:  
+  - Bollinger Band Width (BBW) hits a 20-day low (indicating extreme contraction).  
+  - MACD histogram crosses above zero (confirming bullish momentum).  
+
+**Exit Rules:**  
+- **Profit Target:** Exit the trade when price reaches **2x the 10-day ATR** from the entry point.  
+- **Stop Loss:** No explicit stop is mentioned, but a trailing or fixed stop (e.g., 1x ATR) could be added for risk control.  
+
+**Risk Management:**  
+- **Position Sizing:** Adjust trade size based on ATR to normalize risk per trade.  
+- **Volatility Filter:** Avoid trading if ATR is excessively high (e.g., above a historical percentile).  
+- **Optional Stop:** Implement a stop-loss at 1x ATR below entry if needed.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 Std Dev) → To calculate Band Width (BBW).  
+2. **MACD** (12, 26, 9) → For histogram crossover confirmation.  
+3. **Average True Range (ATR)** (10-period) → For dynamic profit target.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (BBW) with momentum shift (MACD) for high-probability reversals.  
+- Uses ATR for adaptive profit-taking, scaling exits with market conditions.  
+- Avoids generic trend-following by focusing on low-volatility setups.  
+
+**Optimization Tips:**  
+- Test different BBW lookback periods (e.g., 10-30 days).  
+- Experiment with MACD settings or add RSI filter (e.g., >30 for longs).  
+- Adjust ATR multiplier (1.5x-3x) based on asset volatility.

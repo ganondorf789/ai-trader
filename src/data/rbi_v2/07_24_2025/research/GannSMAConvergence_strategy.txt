@@ -1,0 +1,50 @@
+STRATEGY_NAME: GannSMAConvergence
+
+STRATEGY_DETAILS:
+This strategy combines Gann angle analysis with a 5-period Simple Moving Average (SMA) to identify high-probability intraday trading opportunities. The unique aspect lies in using the intersection points between these two technical tools as profit targets.
+
+Key Components:
+1. Gann Angles: Primary trend identification tool drawn from significant price pivots
+2. 5-period SMA: Secondary confirmation filter for trend direction
+3. Price-SMA relationship: Determines trade bias (long/short)
+4. Gann-SMA intersections: Used as profit targets
+
+Entry Rules:
+LONG:
+- Price must be above the 5-period SMA (uptrend confirmation)
+- Price must be interacting with an upward Gann angle (1x1 or 2x1 preferred)
+- Entry when price bounces off the Gann angle with SMA confirmation
+
+SHORT:
+- Price must be below the 5-period SMA (downtrend confirmation)
+- Price must be interacting with a downward Gann angle (1x1 or 2x1 preferred)
+- Entry when price rejects from the Gann angle with SMA confirmation
+
+Exit Rules:
+Profit Targets:
+- Primary target at next Gann angle/SMA intersection point
+- Secondary target at next significant Gann angle level
+- Trail stop using the 5-period SMA once price reaches first target
+
+Stop Loss:
+- Below the most recent swing low (for longs) or above swing high (for shorts)
+- Alternative: 1.5x ATR (14) from entry point
+
+Required Indicators:
+1. Gann Angles (1x1, 2x1, 1x2)
+2. 5-period Simple Moving Average (Close)
+3. Optional: 14-period ATR for volatility-based stops
+
+Timeframe:
+Optimized for 15-minute to 1-hour charts in liquid markets
+
+Risk Management:
+- Maximum risk per trade: 1-2% of capital
+- No trades during first/last 30 minutes of session (avoid opening gaps/closing volatility)
+- Trade only when Gann angle and SMA show clear convergence
+
+Unique Features:
+- Uses Gann angles as dynamic support/resistance rather than static levels
+- SMA acts as both trend filter and trailing stop mechanism
+- Profit targets based on mathematical convergence of two different technical approaches
+- Particularly effective in trending markets with clear angular structure

@@ -1,0 +1,43 @@
+STRATEGY_NAME: VolatilitySqueezeSpike
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction with volume spikes to identify potential breakout opportunities, using Keltner Channels for exit signals.
+
+Key Components:
+1. Bollinger Bandwidth Contraction: Measures periods of low volatility
+2. Volume Spike Filter: Confirms breakout potential with increased participation
+3. Keltner Channel Exit: Provides dynamic exit points based on volatility expansion
+
+Entry Rules:
+1. Bollinger Bandwidth (BBW) must contract below 50% of its 100-day median value
+   - BBW = (Upper Band - Lower Band) / Middle Band
+   - Calculate 100-day median of BBW
+   - Current BBW must be < 50% of this median
+2. Volume must spike above 2x the 30-day average volume
+3. Both conditions must occur simultaneously on the same 5-minute bar
+
+Exit Rules:
+1. Close position on first 5-minute close outside the outer Keltner Channel band
+   - Use standard Keltner Channel settings (20-period EMA with 2x ATR)
+   - Exit on close above upper band (long positions) or below lower band (short positions)
+
+Risk Management:
+1. Recommended position sizing: 1-2% of capital per trade
+2. Optional stop-loss: 1.5x ATR below entry for long positions (adjust for volatility)
+3. Time-based exit: Consider exiting if no breakout occurs within 3 bars
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Bollinger Bandwidth calculation
+3. Volume 30-day moving average
+4. Keltner Channels (20-period EMA, 2x ATR)
+5. ATR (14-period for Keltner Channels)
+
+Additional Notes:
+- Works best in ranging markets transitioning to trending phases
+- Avoid using during strong trending markets (may get false signals)
+- Combine with price action confirmation for better accuracy
+- Optimal timeframes: 5-minute to 1-hour charts
+- Backtest suggested for specific asset volatility characteristics
+
+This "VolatilitySqueezeSpike" strategy capitalizes on the explosive potential when low volatility periods (Bollinger squeeze) coincide with sudden volume increases, while using Keltner Channels to capture the subsequent momentum move.

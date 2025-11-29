@@ -1,0 +1,45 @@
+STRATEGY_NAME: LiquidationFracture
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Focuses on detecting and capitalizing on liquidation cascades in futures markets
+- Combines on-chain liquidation data with technical analysis
+- Uses a 7-day baseline for liquidation activity comparison
+- Incorporates Ichimoku Cloud for trend confirmation
+- Employs ATR for dynamic exit positioning
+
+2. Entry Rules:
+- Primary Trigger: Aggregated long liquidations spike to 3x the 7-day average
+- Technical Confirmation: Price must break below the Ichimoku Cloud
+- Entry Execution: Short position initiated upon both conditions being met
+- Ideal Conditions: High leverage markets during periods of elevated open interest
+
+3. Exit Rules:
+- Profit Target: 1.5x the current ATR (14-period) from entry point
+- Emergency Exit: If liquidation spike reverses below 2x 7-day average
+- Time Consideration: Consider closing position if no follow-through within 4 hours
+
+4. Risk Management:
+- Position Sizing: Maximum 2% of capital per trade
+- Stop Loss: 2x ATR above entry point (or above recent swing high if tighter)
+- Market Filter: Avoid trading during scheduled high-impact news events
+- Liquidity Check: Verify adequate order book depth before entering
+
+5. Required Indicators:
+- On-chain liquidation data feed (aggregated across major exchanges)
+- Ichimoku Cloud (standard 9-26-52 settings)
+- ATR (14-period)
+- 7-day moving average of liquidation volumes
+
+6. Additional Considerations:
+- Works best in altcoin futures with high leverage availability
+- Requires real-time monitoring of liquidation data
+- Most effective during trending market conditions
+- Should be avoided in low-liquidity markets
+- Backtest across multiple liquidation events for optimal parameters
+
+Implementation Notes:
+- Requires API access to reliable liquidation data sources
+- Cloud break should be confirmed on 1H or 4H timeframe for significance
+- Consider adding volume confirmation for extra validation
+- Monitor funding rates as secondary confirmation signal

@@ -1,0 +1,39 @@
+STRATEGY_NAME: VoltaicDivergence
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Combines On-Balance Volume (OBV) divergence with volatility analysis
+- Focuses on volatility contractions (low volatility periods)
+- Uses 10-day average price as a reference level
+- Incorporates Average True Range (ATR) for volatility measurement
+
+2. Entry Rules:
+- Identify when price is making higher highs while OBV is making lower highs (bearish divergence)
+- Confirm volatility contraction (narrowing price range)
+- Price must be trading below the 10-day simple moving average
+- Only enter short positions when all conditions align
+
+3. Exit Rules:
+- Close position when volatility expands beyond 2x the current ATR value
+- Consider partial exits at 1.5x ATR expansion
+- Alternative exit: If price crosses above the 10-day SMA
+
+4. Risk Management:
+- Position sizing should account for potential volatility expansion
+- Recommended stop-loss at 1x ATR below entry point
+- Maximum risk per trade should not exceed 2% of capital
+- Avoid trading during major news events that may cause sudden volatility spikes
+
+5. Required Indicators:
+- On-Balance Volume (OBV) - for divergence detection
+- 10-day Simple Moving Average - for trend reference
+- Average True Range (14-period recommended) - for volatility measurement
+
+6. Additional Notes:
+- Best suited for 4-hour or daily timeframes
+- Works well in ranging or mildly bearish markets
+- Requires confirmation of at least 3 consecutive lower OBV peaks against price highs
+- Monitor volume trends to confirm OBV signals
+- Consider combining with RSI (below 50) for additional confirmation
+
+This strategy capitalizes on the predictive power of volume divergences during low volatility periods, with exits triggered by volatility expansion. The VoltaicDivergence approach is particularly effective in markets transitioning from low to high volatility regimes.

@@ -1,0 +1,40 @@
+STRATEGY_NAME: VoltaSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection:** The strategy identifies periods of low volatility when Bollinger Bands (20-period, 2 standard deviations) contract below a 20-period historical volatility threshold (e.g., Keltner Channels or ATR-based threshold).  
+2. **Breakout Confirmation:** A long entry is triggered when price closes above the upper Bollinger Band after a squeeze, while a short entry is triggered when price closes below the lower Bollinger Band.  
+3. **Trailing Stop Exit:** Positions are managed using a trailing stop based on the Average True Range (ATR) (e.g., 2x ATR(14) trailing from the extreme price point).  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  - Bollinger Bands width (Upper Band - Lower Band) is below the 20-period historical volatility threshold.  
+  - Price closes above the upper Bollinger Band.  
+- **Short Entry:**  
+  - Bollinger Bands width is below the 20-period historical volatility threshold.  
+  - Price closes below the lower Bollinger Band.  
+
+**Exit Rules:**  
+- **Long Exit:**  
+  - Trailing stop-loss set at 2x ATR(14) below the highest high since entry.  
+  - Optional: Take-profit at a fixed risk-reward ratio (e.g., 2:1).  
+- **Short Exit:**  
+  - Trailing stop-loss set at 2x ATR(14) above the lowest low since entry.  
+  - Optional: Take-profit at a fixed risk-reward ratio (e.g., 2:1).  
+
+**Risk Management:**  
+- Position sizing based on a fixed percentage of account risk (e.g., 1% per trade).  
+- Stop-loss dynamically adjusts with volatility (ATR-based trailing stop).  
+- Avoid trading during major news events or extreme market gaps.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2)** – To detect squeeze conditions.  
+2. **Historical Volatility Threshold (20-period)** – To confirm low volatility (can be derived from Keltner Channels or ATR).  
+3. **Average True Range (ATR 14)** – For trailing stop placement.  
+
+**Additional Notes:**  
+- Works best in trending markets after consolidation.  
+- Avoid using in choppy or mean-reverting conditions.  
+- Backtest optimal ATR multiplier for trailing stops (e.g., 1.5x vs. 2x).  
+
+This strategy capitalizes on volatility contraction followed by expansion, with strict risk controls via ATR-based trailing stops.

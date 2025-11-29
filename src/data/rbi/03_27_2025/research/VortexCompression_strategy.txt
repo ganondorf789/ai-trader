@@ -1,0 +1,30 @@
+STRATEGY_NAME: VortexCompression  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Vortex Indicator (VI):** Tracks directional movement via VI+ (bullish) and VI- (bearish) lines.  
+2. **Volume Surge:** Requires above-average volume to confirm breakout validity.  
+3. **Bollinger Band Width Contraction:** Identifies low volatility periods before potential breakouts.  
+
+**Entry Rules (Long):**  
+- **VI+ Crossover:** VI+ must cross above VI-, signaling bullish momentum.  
+- **Volume Confirmation:** Current volume must exceed its 20-period moving average.  
+- **Volatility Compression:** Bollinger Band width (BBW) must be below its 10-period average, indicating contraction.  
+
+**Exit Rules:**  
+- **Profit Target:** Close position when price touches the upper Bollinger Band.  
+- **Stop Loss:** Set at the lower Bollinger Band or recent swing low (whichever is closer).  
+
+**Risk Management:**  
+- Position size limited to 1-2% of capital per trade.  
+- Stop-loss must be placed immediately after entry.  
+- Avoid trading during major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Vortex Indicator (VI+, VI-)  
+2. Bollinger Bands (20-period, 2 Std Dev)  
+3. Volume (20-period MA for surge detection)  
+4. Bollinger Band Width (BBW) for volatility measurement  
+
+**Unique Edge:** Combines trend confirmation (VI), volume-fueled momentum, and volatility cycles for high-probability entries during "coiled" market conditions.

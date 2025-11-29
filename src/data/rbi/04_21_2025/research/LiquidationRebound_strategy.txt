@@ -1,0 +1,41 @@
+STRATEGY_NAME: LiquidationRebound
+
+STRATEGY_DETAILS:
+This strategy capitalizes on market overreactions during liquidation cascades by combining open interest dynamics with funding rate extremes, then entering when volatility stabilizes.
+
+Key Components:
+1. Liquidation Detection:
+   - Monitor for abrupt open interest drops (>15% in 4h)
+   - Confirm with extreme negative funding rates (<-0.0005/hr)
+   - Validate with price drop exceeding 3x average true range
+
+2. Entry Conditions:
+   - Wait for price stabilization (3 consecutive higher lows)
+   - Price must hold above volatility threshold (1.5x ATR from cascade low)
+   - Volume must show decreasing selling pressure (declining volume on down candles)
+
+3. Exit Rules:
+   - Primary: Funding rate normalization (>-0.0001/hr for 2 consecutive periods)
+   - Secondary: 2x ATR profit target from entry
+   - Emergency: Price breaks below cascade low (stop-loss)
+
+4. Required Indicators:
+   - Open Interest (exchange-specific)
+   - Funding Rate history
+   - Average True Range (14-period)
+   - Volume profile
+   - Price action confirmation (higher lows)
+
+Risk Management:
+- Position sizing: 1-2% risk per trade
+- Stop-loss: Below cascade low or 1.5x ATR from entry
+- Time-based exit: Close after 48 hours if no trigger hits
+- Avoid trading during scheduled macroeconomic events
+
+Optimization Notes:
+- Best suited for high-liquidity crypto perpetual contracts
+- Requires real-time data feeds for open interest
+- Works best on 1h-4h timeframes
+- Combine with order book analysis for confirmation
+
+This strategy exploits the market's tendency to overcorrect during forced liquidations, then profit from the subsequent reversion when excessive short positions get unwound. The volatility filter prevents catching "falling knives" while the funding rate normalization ensures capturing the majority of the mean reversion move.

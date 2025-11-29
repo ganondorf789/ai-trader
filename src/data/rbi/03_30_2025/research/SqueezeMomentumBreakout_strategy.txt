@@ -1,0 +1,41 @@
+STRATEGY_NAME: SqueezeMomentumBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band squeeze detection with momentum confirmation and force-based exits for high-probability breakout trading.
+
+Key Components:
+1. Bollinger Band Squeeze Detection
+2. Chande Momentum Oscillator (CMO) for confirmation
+3. Elder Force Index for exit signals
+4. Volatility-adjusted thresholds
+
+Entry Rules:
+1. Wait for Bollinger Band squeeze condition (bands within 1.5% of each other)
+2. CMO (14-period) must cross above zero line from below
+3. Price must break above upper Bollinger Band
+4. All conditions must occur within 3 bars of each other
+
+Exit Rules:
+1. Primary Exit: When Elder Force Index (13-period) reverses direction and crosses below its 5-period SMA
+2. Secondary Exit: If price closes below the middle Bollinger Band
+3. Emergency Exit: 2% stop-loss from entry price
+
+Risk Management:
+1. Position size limited to 2% of capital per trade
+2. Maximum 5 open positions at any time
+3. Daily loss limit of 5% across all positions
+4. Trade only during high-volume hours (first 2 hours of session)
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Chande Momentum Oscillator (14)
+3. Elder Force Index (13)
+4. 5-period SMA of Force Index
+
+Optimization Notes:
+1. Adjust squeeze threshold based on asset volatility
+2. Test different CMO periods (10-20) for different timeframes
+3. Consider adding volume filter for breakout confirmation
+4. Backtest force index threshold for optimal exits
+
+This strategy excels in ranging markets transitioning to trends, using the squeeze to identify potential breakouts and momentum/force indicators to confirm entries and exits with reduced whipsaw risk.

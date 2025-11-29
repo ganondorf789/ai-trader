@@ -1,0 +1,48 @@
+STRATEGY_NAME: SqueezeCascade
+
+STRATEGY_DETAILS:
+This strategy combines funding rate analysis with Bollinger Band compression to identify high-probability short opportunities in perpetual swap markets, specifically targeting liquidation cascades during volatility expansions.
+
+Key Components:
+1. Funding Rate Filter: Only considers trades when funding rates are significantly positive (0.01% or higher), indicating excessive long positioning
+2. Bollinger Band Setup: Uses standard 20-period BB with 2 standard deviations
+3. Volatility Trigger: Requires price to break below the lower Bollinger Band after a period of contraction (bandwidth < X% of 20-period average)
+
+Entry Rules:
+1. Primary Entry: Short when:
+   - Funding rate > 0.01% (adjustable threshold)
+   - Bollinger Bandwidth < 50% of its 20-period average (squeeze condition)
+   - Price breaks below lower band with increasing volume
+2. Secondary Entry: Add to position if:
+   - Price retests broken lower band from below
+   - Funding rate remains elevated
+   - Open interest continues increasing
+
+Exit Rules:
+1. Profit Taking:
+   - First target: 1.5x average true range (ATR) below entry
+   - Second target: Previous swing low or liquidity zone
+2. Stop Loss:
+   - Initial stop: Upper Bollinger Band
+   - Trailing stop: 50% of position at break-even when price reaches 1x ATR profit
+
+Risk Management:
+1. Position Sizing: 1-2% risk per trade
+2. Maximum Drawdown: 5% account limit
+3. Trade Frequency: Only 1-2 concurrent positions
+4. Blackout Period: Avoid trading during major macroeconomic events
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Funding Rate monitor
+3. Volume indicator
+4. Average True Range (14)
+5. Bandwidth calculation (BB width / middle band)
+
+Special Considerations:
+- Works best in trending markets with periodic volatility contractions
+- Most effective on mid-to-high cap perpetuals with deep liquidity
+- Requires monitoring of open interest and liquidation heatmaps
+- Performance improves when combined with exchange-specific liquidation level data
+
+The "SqueezeCascade" strategy exploits the combination of overleveraged long positions (via funding rates) and technical compression patterns to target asymmetric risk/reward opportunities during market breakdowns.

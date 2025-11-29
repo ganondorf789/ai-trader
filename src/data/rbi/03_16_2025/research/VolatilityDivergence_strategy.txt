@@ -1,0 +1,51 @@
+STRATEGY_NAME: VolatilityDivergence
+
+STRATEGY_DETAILS:
+The VolatilityDivergence strategy is a short-selling approach that combines MACD divergence analysis with volatility spikes to identify high-probability bearish setups. The strategy focuses on capitalizing on bearish momentum during periods of heightened market uncertainty.
+
+### Key Strategy Components:
+1. **MACD Divergence**: Identifies bearish momentum when price makes higher highs while MACD makes lower highs.
+2. **VIX Volatility Spike**: Uses the VIX (Volatility Index) to confirm market fear and potential downside acceleration.
+3. **Implied Volatility and Volume**: Monitors these factors for exit signals.
+
+### Entry Rules:
+1. **Bearish MACD Divergence**: 
+   - Price makes a higher high, but the MACD histogram or line makes a lower high.
+   - This indicates weakening bullish momentum and potential reversal.
+2. **VIX Spike**:
+   - VIX must show a significant spike (e.g., >10% increase from its recent average).
+   - This confirms increased market fear and potential for downside momentum.
+
+### Exit Rules:
+1. **Rising Implied Volatility**:
+   - If implied volatility (IV) begins to rise sharply after the trade is initiated, consider exiting.
+   - Rising IV can indicate uncertainty or a potential reversal.
+2. **Volume Decline**:
+   - If trading volume declines significantly (e.g., >30% drop from entry volume), exit the trade.
+   - Low volume suggests weakening momentum and reduced follow-through.
+
+### Risk Management:
+1. **Stop Loss**:
+   - Place a stop loss above the recent swing high or a predefined percentage (e.g., 2-3% above entry).
+2. **Position Sizing**:
+   - Use conservative position sizing to account for the high volatility environment.
+   - Allocate no more than 1-2% of capital per trade.
+3. **Time-Based Exit**:
+   - If the trade does not move in your favor within 2-3 days, consider exiting to avoid prolonged exposure.
+
+### Required Indicators:
+1. **MACD (Moving Average Convergence Divergence)**:
+   - Settings: Default (12, 26, 9) or customized based on the timeframe.
+2. **VIX (Volatility Index)**:
+   - Monitor for spikes and overall trend.
+3. **Volume Indicator**:
+   - Use on-chart volume to confirm entry and exit signals.
+4. **Implied Volatility Data**:
+   - Track IV levels for the underlying asset (if available).
+
+### Additional Notes:
+- This strategy works best in trending or volatile markets.
+- Avoid using it during low-volatility or sideways market conditions.
+- Combine with broader market analysis (e.g., S&P 500 trends) for higher accuracy.
+
+By focusing on bearish divergence and volatility spikes, the VolatilityDivergence strategy aims to capture sharp downside moves while managing risk effectively in high-volatility environments.

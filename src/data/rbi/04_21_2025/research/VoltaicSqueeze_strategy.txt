@@ -1,0 +1,58 @@
+STRATEGY_NAME: VoltaicSqueeze
+
+STRATEGY_DETAILS:
+The VoltaicSqueeze strategy capitalizes on volatility contractions followed by explosive breakouts, combining VWAP and Bollinger Bands with volume confirmation for high-probability trades.
+
+Key Components:
+1. VWAP (Volume Weighted Average Price) - Serves as the mean-reversion anchor
+2. Bollinger Bands (20,2) - Identifies volatility contractions
+3. Volume Surge Filter - Requires 150% of 20-period average volume
+4. Price Action - Breakout confirmation through band penetration
+
+Entry Rules:
+1. Setup Condition: 
+   - Bollinger Band width contracts to bottom 20% of its 50-period range
+   - Price consolidates near VWAP for at least 5 candles
+
+2. Long Entry:
+   - Price closes above upper Bollinger Band
+   - Volume exceeds 1.5x 20-period average
+   - Enter on next candle's open
+
+3. Short Entry:
+   - Price closes below lower Bollinger Band
+   - Volume exceeds 1.5x 20-period average
+   - Enter on next candle's open
+
+Exit Rules:
+1. Profit Target:
+   - Primary: 1.5x Bollinger Band width from entry point
+   - Secondary: Previous swing high/low (for trend continuation)
+
+2. Stop Loss:
+   - Fixed: Opposite Bollinger Band (for mean reversion)
+   - Trailing: VWAP (for trend following)
+
+3. Mandatory Exit:
+   - Price crosses back to VWAP with declining volume
+   - Bollinger Band width expands beyond 80% of 50-period range
+
+Risk Management:
+1. Position Sizing: 1-2% risk per trade
+2. Maximum Daily Trades: 3 (to avoid overtrading contractions)
+3. Time Filter: Only trade first 4 hours of session (highest liquidity)
+4. Sector Correlation: Avoid simultaneous trades in correlated assets
+
+Required Indicators:
+1. VWAP (standard settings)
+2. Bollinger Bands (20,2)
+3. Volume (with 20-period MA)
+4. Bollinger Band Width Indicator
+
+Optimization Notes:
+- Best performance on 15m-1h timeframes
+- Works well with liquid stocks/indices (SPY, QQQ, ES futures)
+- Requires minimum $0.50 average true range for adequate movement
+- Filter for stocks with average daily volume >1M shares
+
+The VoltaicSqueeze excels in ranging markets transitioning to trends, using the VWAP/Bollinger relationship to identify high-probability breakouts with volume confirmation while maintaining strict mean-reversion exits.

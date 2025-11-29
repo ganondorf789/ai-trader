@@ -1,0 +1,40 @@
+STRATEGY_NAME: LiquiClusterSqueeze
+
+STRATEGY_DETAILS:
+This strategy combines liquidation cluster analysis with Bollinger Band squeezes and volume confirmation to identify high-probability breakout trades. The approach focuses on key liquidity zones where price is likely to accelerate after taking out clustered stop orders.
+
+Key Components:
+1. Liquidation Cluster Identification: Identify price levels with high liquidity (dense stop orders) using order flow analysis or volume profile
+2. Bollinger Band Squeeze: Wait for periods of low volatility where Bollinger Bands contract significantly (typically below 20-period average bandwidth)
+3. Volume Confirmation: Require above-average volume breakout after price approaches liquidation clusters
+
+Entry Rules:
+1. Wait for Bollinger Band squeeze condition (bands within 20% of their narrowest point in recent periods)
+2. Price must approach a pre-identified liquidation cluster level (within 0.5-1.5% of level)
+3. Enter long on breakout above cluster with volume > 20-period average volume
+   OR
+   Enter short on breakdown below cluster with volume > 20-period average volume
+
+Exit Rules:
+1. Take profit at next identified liquidation cluster level (typically 1:2 or better risk-reward)
+2. Stop loss placed at opposite side of the broken cluster level (for longs: below cluster low, for shorts: above cluster high)
+3. Emergency exit if volume drops below 50% of entry volume for 3 consecutive bars
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop loss must represent no more than 0.5-1% of account risk
+3. Avoid trading during major news events when liquidity patterns may be unreliable
+4. Maximum 3 concurrent trades open at any time
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Volume indicator (20-period average)
+3. Liquidity cluster identification tool (can use order flow, volume profile, or institutional footprint indicators)
+
+Additional Notes:
+- Works best on 1H-4H timeframes for swing trades
+- Most effective in currency pairs and commodities with strong liquidity
+- Requires patience to wait for proper squeeze + cluster alignment
+- Backtest suggests best performance in ranging markets transitioning to trends
+
+The LiquiClusterSqueeze strategy leverages the explosive potential of stop runs combined with volatility contractions, creating a high-probability approach to catching breakout moves with favorable risk-reward characteristics.

@@ -1,0 +1,52 @@
+STRATEGY_NAME: VolatilitySurgeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility expansion with volume confirmation to identify high-probability breakout opportunities, using VWAP deviation bands as dynamic support/resistance levels.
+
+Key Components:
+1. VWAP Standard Deviation Bands (14-period)
+2. Volume Median (30-day lookback)
+3. Price action relative to VWAP bands
+
+Entry Rules:
+1. Long Entry:
+   - Price closes ABOVE upper 2x VWAP standard deviation band
+   - Current volume exceeds 30-day median volume
+   - Enter on next candle's open
+
+2. Short Entry:
+   - Price closes BELOW lower 2x VWAP standard deviation band
+   - Current volume exceeds 30-day median volume
+   - Enter on next candle's open
+
+Exit Rules:
+1. Long Exit:
+   - Price crosses back below the 1x VWAP standard deviation band
+   - OR price touches the 0.5x VWAP standard deviation band
+
+2. Short Exit:
+   - Price crosses back above the 1x VWAP standard deviation band
+   - OR price touches the 0.5x VWAP standard deviation band
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Initial stop placed at opposite 2x VWAP band
+3. Trailing stop can be implemented using the 1.5x VWAP band
+4. Maximum daily loss limit of 5% recommended
+
+Required Indicators:
+1. Volume-Weighted Average Price (VWAP) with standard deviation bands
+   - Primary period: 14
+   - Band multiples: 0.5x, 1x, 1.5x, 2x
+2. Volume indicator with 30-day median calculation
+
+Optimal Market Conditions:
+- Works best in trending markets after periods of consolidation
+- Most effective in liquid instruments with consistent volume patterns
+- Avoid ranging markets with frequent mean reversion
+
+Additional Notes:
+- The 2x deviation acts as a volatility filter to avoid false breakouts
+- Volume surge confirms institutional participation in the move
+- VWAP reversion provides natural profit-taking levels
+- Consider combining with trend confirmation for higher timeframes

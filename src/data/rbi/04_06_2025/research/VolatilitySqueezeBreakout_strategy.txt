@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilitySqueezeBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Bandwidth Percentile (<10):** Measures volatility contraction, indicating a potential breakout when the bandwidth is in the lowest 10% of its historical range.  
+2. **Volume Oscillator Spike (>2 Std Dev):** Confirms breakout potential with unusually high volume, signaling strong participation.  
+3. **Breakout Direction Entry:** Enters in the direction of the breakout from the volatility squeeze.  
+4. **Swing Extreme Stop-Loss:** Places stop-loss at the prior swing high/low to manage risk.  
+
+**Entry Rules:**  
+1. Wait for Bollinger Bandwidth to drop below the 10th percentile (indicating extreme volatility contraction).  
+2. Confirm with a volume oscillator spike exceeding 2 standard deviations above its mean.  
+3. Enter long on a breakout above the upper Bollinger Band or short on a breakout below the lower Bollinger Band.  
+
+**Exit Rules:**  
+1. **Take-Profit:** Use a trailing stop or a fixed risk-reward ratio (e.g., 2:1).  
+2. **Stop-Loss:** Place stop-loss at the most recent swing low (for long) or swing high (for short).  
+
+**Risk Management:**  
+1. Position sizing based on stop-loss distance (e.g., risking 1-2% of capital per trade).  
+2. Avoid trading during low-liquidity periods to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 2 Std Dev) + Bandwidth calculation.  
+2. Volume Oscillator (e.g., Volume MA or OBV with Std Dev bands).  
+3. Historical percentile ranking for Bandwidth.  
+
+**Notes:**  
+- Works best in trending markets after consolidation.  
+- Avoid using in choppy or range-bound conditions unless confirmed by volume.  
+- Backtest to optimize percentile thresholds and volume deviation settings.

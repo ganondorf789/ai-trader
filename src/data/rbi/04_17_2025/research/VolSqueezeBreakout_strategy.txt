@@ -1,0 +1,46 @@
+STRATEGY_NAME: VolSqueezeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band contraction, volatility analysis, and volume confirmation to identify high-probability breakout opportunities. The core concept revolves around trading breakouts when volatility compression reaches extreme levels relative to historical norms, confirmed by surge in trading volume.
+
+Key Components:
+1. Bollinger Band Width (BBW) - Measures the distance between upper and lower bands
+2. Historical Volatility Percentile - Compares current BBW to its historical range
+3. Volume Surge - Requires significant increase in trading volume
+4. Bollinger Bands - Used for both entry triggers and stop placement
+
+Entry Rules:
+1. Long Entry:
+   - BBW contracts below 20th percentile of its 100-period lookback
+   - Price breaks above upper Bollinger Band
+   - Volume exceeds 1.5x 20-period average
+   - Stop placed at lower Bollinger Band
+
+2. Short Entry:
+   - BBW contracts below 20th percentile of its 100-period lookback
+   - Price breaks below lower Bollinger Band
+   - Volume exceeds 1.5x 20-period average
+   - Stop placed at upper Bollinger Band
+
+Exit Rules:
+1. Profit Target: 2x initial risk (distance from entry to stop)
+2. Trailing Stop: Move stop to breakeven when price reaches 1x initial risk
+3. Time Exit: Close position if target not hit within 5 periods
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. Maximum 5 concurrent positions
+3. No new entries if drawdown exceeds 5% of capital
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Bollinger Band Width (BBW)
+3. 100-period historical BBW percentile ranking
+4. 20-period volume average
+
+Optimization Notes:
+- Adjust BBW percentile threshold (15-25%) based on asset volatility
+- Test different volume multipliers (1.3-2x) for confirmation
+- Consider adding RSI filter (e.g., only long if RSI < 70, short if RSI > 30)
+
+This strategy excels in ranging markets transitioning to trends, capturing moves after periods of compressed volatility. The volume confirmation helps filter false breakouts while the volatility percentile ensures trades only occur when compression is statistically significant.

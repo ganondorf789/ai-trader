@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolgaDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Identification:** The strategy focuses on bullish divergence as a precursor to potential trend reversals or continuations.  
+2. **Volatility Expansion:** Uses Bollinger Bands to confirm increased volatility, signaling strong momentum.  
+3. **Breakout Confirmation:** Requires price to break above the upper Keltner Channel, validating the bullish signal.  
+
+**Entry Rules:**  
+- **Bullish Divergence:** Identify higher lows on price while the oscillator (e.g., RSI or MACD) shows lower lows.  
+- **Bollinger Bands Expansion:** The bands must widen, indicating increased volatility.  
+- **Keltner Channel Breakout:** Price must close above the upper Keltner Channel to confirm the entry.  
+
+**Exit Rules:**  
+- **Price Correction Below Keltner Channel:** Exit the trade when price closes below the upper Keltner Channel, signaling a potential trend reversal or pullback.  
+- **Trailing Stop (Optional):** Use a trailing stop based on recent swing lows or a percentage below the highest high since entry.  
+
+**Risk Management:**  
+- **Stop-Loss Placement:** Set below the most recent swing low or below the lower Keltner Channel to limit downside risk.  
+- **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+- **Volatility Filter:** Avoid entries if Bollinger Bands are contracting (low volatility).  
+
+**Required Indicators:**  
+1. **Keltner Channel** (20-period EMA, 2x ATR for bands) – For breakout confirmation.  
+2. **Bollinger Bands** (20-period SMA, 2 standard deviations) – To gauge volatility expansion.  
+3. **Oscillator (RSI or MACD)** – To identify bullish divergence.  
+
+**Unique Aspects:**  
+- Combines divergence (reversal signal) with volatility expansion (momentum confirmation).  
+- Uses dual-channel confirmation (Keltner + Bollinger) for higher-probability entries.  
+- Exits early to capture trend profits while avoiding prolonged corrections.  
+
+**Note:** Works best in trending markets; avoid ranging conditions where false breakouts are common.

@@ -1,0 +1,37 @@
+STRATEGY_NAME: VolumetricEMASurge
+
+STRATEGY_DETAILS:
+Key Components:
+1. 200-day EMA (Exponential Moving Average) - Primary trend filter
+2. Volume analysis - Confirmation via 20-day average volume spike (2x threshold)
+3. 14-day RSI (Relative Strength Index) - Overbought exit signal
+
+Entry Rules:
+1. Price must close above the 200-day EMA (confirms bullish trend structure)
+2. Current trading volume must exceed 2x the 20-day average volume (confirms strong participation)
+3. Both conditions must occur simultaneously on the same candle
+
+Exit Rules:
+1. Primary exit: When 14-day RSI crosses below 70 (indicates potential overbought reversal)
+2. Optional emergency exit: If price closes back below 200-day EMA before RSI trigger
+
+Risk Management:
+1. Position sizing: Recommend 1-2% risk per trade
+2. Stop-loss placement: Below recent swing low or 2-3% below entry price
+3. Trailing stop option: Can trail stop below 20-day EMA after entry
+
+Required Indicators:
+1. 200-day Exponential Moving Average (EMA)
+2. Volume indicator with 20-day average calculation
+3. 14-day Relative Strength Index (RSI)
+
+Additional Notes:
+- Best suited for daily timeframe on liquid assets
+- Volume spike requirement filters out weak breakouts
+- RSI exit helps capture majority of trend while avoiding late-stage reversals
+- Works particularly well in transitioning markets from bearish to bullish trends
+
+Optimization Considerations:
+- Can test different EMA periods (150-250 day range)
+- Volume multiplier can be adjusted between 1.8x-2.5x
+- RSI exit threshold could be tested between 65-75

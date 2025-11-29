@@ -1,0 +1,39 @@
+STRATEGY_NAME: ZScoreMomentum  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volume-Adjusted Chaikin Oscillator**: Measures money flow momentum by combining price and volume, adjusted for recent activity.  
+2. **Rolling Z-Score**: Standardizes the Chaikin Oscillator values to identify statistically significant extremes.  
+3. **Bollinger Bands**: Used as dynamic thresholds for overbought/oversold conditions.  
+4. **Heikin-Ashi Candlesticks**: Filters trades by confirming trend direction and reducing noise.  
+
+**Entry Rules (Long):**  
+- **Signal**: Z-score of the volume-adjusted Chaikin Oscillator crosses **above** the upper Bollinger Band.  
+- **Confirmation**: Heikin-Ashi candles show a bullish trend (e.g., consecutive green candles with higher lows).  
+
+**Entry Rules (Short):**  
+- **Signal**: Z-score of the volume-adjusted Chaikin Oscillator crosses **below** the lower Bollinger Band.  
+- **Confirmation**: Heikin-Ashi candles show a bearish trend (e.g., consecutive red candles with lower highs).  
+
+**Exit Rules:**  
+- **Take Profit**: Close position when the Chaikin Oscillator Z-score reverts to the mean (crosses back inside Bollinger Bands).  
+- **Stop Loss**: Exit if Heikin-Ashi candles reverse direction (e.g., long trades close on a bearish HA reversal).  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., ATR-based stop distance).  
+- Maximum risk per trade: 1-2% of capital.  
+- Avoid trading during low-volume periods to reduce false signals.  
+
+**Required Indicators:**  
+1. Chaikin Oscillator (volume-adjusted)  
+2. Rolling Z-Score (20-50 period lookback)  
+3. Bollinger Bands (20-period, 2 Std Dev)  
+4. Heikin-Ashi Candlesticks  
+
+**Unique Edge:** Combines statistical extremes (Z-score) with volume-confirmed momentum (Chaikin) and trend-filtered entries (Heikin-Ashi), reducing whipsaws vs. traditional Bollinger strategies.  
+
+**Optimization Tips:**  
+- Adjust Z-score lookback to match asset volatility (shorter for crypto, longer for equities).  
+- Test different Bollinger Band widths to balance sensitivity.  
+- Use Heikin-Ashi smoothing to confirm multi-candle trends.

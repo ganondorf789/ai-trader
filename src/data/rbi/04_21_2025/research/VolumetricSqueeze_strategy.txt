@@ -1,0 +1,33 @@
+STRATEGY_NAME: VolumetricSqueeze  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze:** Identifies periods of low volatility (squeeze) followed by potential breakouts when bands expand.  
+2. **On-Balance Volume (OBV) Divergence:** Confirms breakout strength by comparing price movement with volume trends. Divergence signals weakening momentum or potential reversals.  
+3. **Volatility Breakout Entry:** Trades are initiated when price breaches the Bollinger Bands, signaling a breakout from the squeeze.  
+4. **Volume Confirmation:** OBV must align with the breakout direction to validate the trade.  
+
+**Entry Rules:**  
+1. **Bollinger Band Squeeze Condition:** Wait for the bands to narrow significantly (squeeze), indicating low volatility.  
+2. **Breakout Trigger:** Enter long when price closes above the upper Bollinger Band or short when price closes below the lower Bollinger Band.  
+3. **OBV Confirmation:** For a long entry, OBV should be rising or showing higher lows while price consolidates. For a short entry, OBV should be falling or showing lower highs.  
+
+**Exit Rules:**  
+1. **OBV Reversal:** Exit the trade when OBV starts diverging negatively (for longs) or positively (for shorts) against the price trend.  
+2. **Bollinger Band Reversion:** Consider exiting if price reverts back inside the bands after the breakout, especially if OBV weakens.  
+3. **Trailing Stop:** Use a trailing stop (e.g., ATR-based or percentage-based) to lock in profits during strong trends.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop-Loss:** Place initial stop-loss just outside the opposite Bollinger Band or at a recent swing low/high.  
+3. **Avoid Overcrowded Breakouts:** Filter out low-volume breakouts to reduce false signals.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period SMA, 2 standard deviations)**  
+2. **On-Balance Volume (OBV)**  
+3. **Optional:** ATR (for trailing stops) or volume moving average (to filter low-volume breakouts).  
+
+**Notes:**  
+- Works best in trending markets after consolidation phases.  
+- Avoid using during choppy or sideways markets where false breakouts are common.  
+- Combine with higher timeframe analysis for stronger confirmation.

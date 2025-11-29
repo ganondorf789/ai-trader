@@ -1,0 +1,38 @@
+STRATEGY_NAME: VolSqueezeDivergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Squeeze Detection**: Uses Bollinger Bandwidth contraction to identify periods of extremely low volatility (6-month lows).  
+2. **Sentiment Divergence**: Monitors put/call ratio divergence to detect shifts in market sentiment.  
+3. **Volume Confirmation**: Requires extreme upside/downside volume to confirm breakout direction.  
+4. **Breakout Entry**: Enters on a close outside the Bollinger Bands, signaling the end of the squeeze.  
+
+**Entry Rules:**  
+1. **Bollinger Bandwidth Condition**: Bandwidth must be at a 6-month low (indicating a volatility squeeze).  
+2. **Put/Call Divergence**: The put/call ratio must show a significant divergence from its recent average (e.g., a spike in puts for a bearish breakout or a drop for a bullish breakout).  
+3. **Volume Confirmation**: Upside volume must be extreme for a long entry (e.g., 90th percentile of recent volume) or downside volume extreme for a short entry.  
+4. **Breakout Close**: Price must close outside the Bollinger Bands in the direction of the breakout (upper band for long, lower band for short).  
+
+**Exit Rules:**  
+1. **Trailing Stop**: Use a trailing stop (e.g., ATR-based or percentage-based) to lock in profits as the trend develops.  
+2. **Reversion Signal**: Exit if price closes back inside the Bollinger Bands, indicating the breakout may be failing.  
+3. **Time-Based Exit**: Close the trade after a set number of bars (e.g., 10-15) if no strong trend develops.  
+
+**Risk Management:**  
+1. **Position Sizing**: Risk no more than 1-2% of capital per trade.  
+2. **Stop Loss**: Initial stop placed at the opposite band (e.g., for a long entry, stop below the lower band).  
+3. **Volatility Adjustment**: Reduce position size if overall market volatility is high to account for wider stops.  
+
+**Required Indicators:**  
+1. **Bollinger Bands** (20-period, 2 standard deviations) + Bandwidth calculation.  
+2. **Put/Call Ratio** (with a moving average for divergence detection).  
+3. **Upside/Downside Volume** (or another volume-based indicator like OBV for confirmation).  
+4. **ATR** (for trailing stop placement).  
+
+**Unique Aspects:**  
+- Combines volatility contraction (Bollinger Bandwidth) with sentiment divergence (put/call ratio) and volume extremes for high-probability breakouts.  
+- Focuses on "squeeze" setups where low volatility precedes explosive moves, filtered by unusual options activity.  
+- Volume confirmation reduces false breakouts by ensuring institutional participation.  
+
+This strategy is designed for swing trading (1-10 day holds) and works best in equities or indices with active options markets.

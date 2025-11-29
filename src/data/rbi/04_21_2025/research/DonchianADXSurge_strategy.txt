@@ -1,0 +1,45 @@
+STRATEGY_NAME: DonchianADX Surge
+
+STRATEGY_DETAILS:
+This is a momentum-based breakout strategy that combines Donchian Channel dynamics with ADX strength confirmation, designed to capture strong trending moves with disciplined risk management.
+
+Key Components:
+1. Donchian Channel (20-period) - Identifies breakout levels
+2. ADX (5-period) - Confirms trend strength
+3. Fixed 2:1 Risk-Reward Ratio - Ensures disciplined profit-taking
+
+Entry Rules:
+1. Long Entry Trigger: When price closes ABOVE the upper Donchian Channel (20-period high)
+2. Short Entry Trigger: When price closes BELOW the lower Donchian Channel (20-period low)
+3. ADX Confirmation: The 5-period ADX must be >25 at time of breakout
+4. Entry Execution: Enter on next candle's open after breakout confirmation
+
+Exit Rules:
+1. Stop Loss Placement:
+   - For long positions: Below the breakout candle's low
+   - For short positions: Above the breakout candle's high
+2. Take Profit Target: Set at 2x the distance between entry and stop loss
+3. Optional Trailing Stop: May trail stop to breakeven after price moves 1x risk distance
+
+Risk Management:
+1. Position Size: Calculate based on stop loss distance and account risk tolerance (typically 1-2% per trade)
+2. Maximum Risk: Never risk more than 5% of account on concurrent trades
+3. Trade Filter: Only take trades with ADX confirmation (must be >25)
+
+Required Indicators:
+1. Donchian Channel (20-period)
+2. ADX (5-period with +DI/-DI disabled)
+3. Price Action Analysis (for identifying breakout candles)
+
+Special Considerations:
+1. Best suited for 1-hour charts or higher timeframes
+2. Most effective in trending markets (avoid ranging conditions)
+3. Works well with liquid instruments (forex majors, large cap stocks, indices)
+4. Requires patience as ADX >25 filter may reduce trade frequency
+
+Optimization Notes:
+1. May test different Donchian periods (15-30) based on instrument volatility
+2. ADX period can be adjusted between 5-10 for different sensitivity
+3. Risk-reward can be modified to 1.5:1 or 3:1 based on backtesting results
+
+This strategy combines the reliability of channel breakouts with the momentum confirmation of ADX, while enforcing strict risk management through its fixed reward ratio approach.

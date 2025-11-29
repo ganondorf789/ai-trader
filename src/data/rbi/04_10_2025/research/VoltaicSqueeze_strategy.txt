@@ -1,0 +1,32 @@
+STRATEGY_NAME: VoltaicSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility Contraction:** Uses Bollinger Band width (BBW) to identify periods of low volatility when BBW contracts below a 10-period threshold, signaling a potential breakout.  
+2. **Momentum Confirmation:** Volume-Weighted MACD (VW-MACD) histogram surge validates increasing momentum during the squeeze.  
+3. **Breakout Trigger:** 2-period Know Sure Thing (KST) crossover confirms the breakout direction for entry.  
+
+**Entry Rules:**  
+1. **Setup Condition:** Bollinger Band width (BBW) must be below its 10-period average, indicating a volatility squeeze.  
+2. **Momentum Filter:** VW-MACD histogram must show a significant surge (e.g., >20% increase from prior bar).  
+3. **Breakout Signal:** Enter long if the 2-period KST crosses above its signal line (or short if it crosses below).  
+4. **Confirmation:** Entry occurs on the next candle's open after all conditions are met.  
+
+**Exit Rules:**  
+1. **Profit Target:** Use a trailing stop based on a multiple (e.g., 1.5x) of the recent Average True Range (ATR).  
+2. **Stop-Loss:** Initial stop placed at the recent swing low (for long) or swing high (for short), or a fixed percentage (e.g., 2%).  
+3. **Time Exit:** Exit after a set number of bars (e.g., 10) if no target or stop is hit.  
+
+**Risk Management:**  
+1. Position sizing based on 1-2% risk per trade.  
+2. Avoid trading during major news events to prevent false breakouts.  
+3. Filter trades to align with higher timeframe trends (e.g., only long if daily trend is bullish).  
+
+**Required Indicators:**  
+1. Bollinger Bands (20,2) + BBW (width calculation).  
+2. Volume-Weighted MACD (12,26,9).  
+3. Know Sure Thing (KST) with a 2-period ROC for fast signals.  
+4. Optional: ATR (14) for stop placement.  
+
+**Unique Edge:** Combines volatility compression, volume-weighted momentum, and a responsive KST crossover to capture explosive breakouts with reduced false signals.

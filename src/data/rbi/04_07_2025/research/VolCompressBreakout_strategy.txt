@@ -1,0 +1,43 @@
+STRATEGY_NAME: VolCompress Breakout
+
+STRATEGY_DETAILS:
+This strategy specializes in trading volatility compression breakouts by combining Bollinger Bandwidth analysis with volume confirmation and parabolic SAR exits.
+
+Key Components:
+1. Volatility Measurement: Uses Bollinger Bandwidth (BBW) to identify periods of extreme compression
+2. Historical Context: Compares current BBW to historical percentiles (typically 20th percentile)
+3. Volume Confirmation: Requires surge in upside/downside volume ratio to confirm breakout
+4. Exit Mechanism: Uses parabolic SAR for trend reversal signals
+
+Entry Rules:
+1. Primary Condition: Bollinger Bandwidth crosses below 20th historical percentile (indicating compression)
+2. Confirmation: 
+   - For long entries: Upside/downside volume ratio surges above 2.0
+   - For short entries: Downside/upside volume ratio surges above 2.0
+3. Execution: Enter on breakout candle close beyond Bollinger Bands
+
+Exit Rules:
+1. Primary Exit: Parabolic SAR reversal signal
+2. Optional Exit: When BBW expands beyond 80th historical percentile (indicating high volatility)
+3. Emergency Exit: Fixed stop-loss at 2x ATR (14) from entry
+
+Risk Management:
+1. Position Sizing: 1-2% risk per trade
+2. Stop Placement: Initial stop at opposite Bollinger Band or 1.5x ATR
+3. Volatility Filter: Avoid trading if market-wide VIX > 30
+
+Required Indicators:
+1. Bollinger Bands (20,2) for Bandwidth calculation
+2. Historical Percentile Calculator for BBW
+3. Upside/Downside Volume Ratio
+4. Parabolic SAR (0.02, 0.2)
+5. ATR (14) for stop calculation
+6. VIX for market volatility context
+
+Optimization Notes:
+- Test different historical percentiles (15th-25th) for BBW threshold
+- Adjust volume ratio requirements based on instrument
+- Fine-tune parabolic SAR step and maximum parameters
+- Consider adding RSI filter (e.g., >50 for longs, <50 for shorts) for additional confirmation
+
+This strategy capitalizes on the tendency for periods of extreme volatility compression to resolve in strong directional moves, using volume as confirmation and parabolic SAR to ride trends while they last.

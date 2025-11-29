@@ -1,0 +1,35 @@
+STRATEGY_NAME: BandedMomentum
+
+STRATEGY_DETAILS:
+The BandedMomentum strategy combines Bollinger Bands and the Relative Strength Index (RSI) to identify potential breakout opportunities. This approach leverages the volatility and momentum indicators to pinpoint high-probability entry and exit points.
+
+Key Strategy Components:
+1. Bollinger Bands: Used to measure volatility and identify potential breakout levels.
+2. Relative Strength Index (RSI): Used to gauge momentum and overbought/oversold conditions.
+
+Entry Rules:
+1. Look for price to touch or cross the upper Bollinger Band.
+2. Confirm with RSI above 70 (overbought condition) for a potential short entry.
+3. Look for price to touch or cross the lower Bollinger Band.
+4. Confirm with RSI below 30 (oversold condition) for a potential long entry.
+
+Exit Rules:
+1. For long positions, exit when price crosses back inside the Bollinger Bands or RSI moves above 70.
+2. For short positions, exit when price crosses back inside the Bollinger Bands or RSI moves below 30.
+
+Risk Management:
+1. Set stop-loss orders just outside the opposite Bollinger Band.
+2. Use a risk-reward ratio of at least 1:2.
+3. Position size should be calculated based on account risk tolerance (e.g., 1-2% of account per trade).
+
+Required Indicators:
+1. Bollinger Bands (20-period, 2 standard deviations)
+2. Relative Strength Index (14-period)
+
+Additional Notes:
+- This strategy works best in trending markets.
+- Combine with volume analysis for additional confirmation.
+- Adjust Bollinger Band settings based on market volatility.
+- Use higher timeframes (4-hour or daily) for more reliable signals.
+
+Remember to backtest this strategy thoroughly before applying it to live trading, and always follow proper risk management principles.

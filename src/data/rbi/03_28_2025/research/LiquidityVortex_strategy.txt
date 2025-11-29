@@ -1,0 +1,35 @@
+STRATEGY_NAME: LiquidityVortex  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Counter-Trend Focus**: The strategy capitalizes on overextended trends by identifying moments when funding rates diverge significantly from price action, signaling potential exhaustion.  
+2. **Funding Rate Divergence**: High funding rates (positive or negative) indicate crowded trades. Divergence occurs when price fails to follow through despite extreme funding, hinting at a reversal.  
+3. **Order Book Liquidity Voids**: Gaps in liquidity (e.g., thin order book depth) near liquidation levels amplify volatility spikes, creating high-probability reversal zones.  
+4. **Short-Term Volatility Spikes**: Rapid price movements that breach liquidation clusters (e.g., stop hunts) act as entry triggers.  
+
+**Entry Rules:**  
+1. **Funding Rate Threshold**: Wait for funding rates to exceed a predefined extreme (e.g., > ±0.1% per 8h for altcoins, > ±0.05% for BTC/ETH).  
+2. **Liquidity Void Confirmation**: Identify order book gaps (e.g., > 2% price gap with minimal bids/asks) near recent highs/lows.  
+3. **Volatility Spike**: Enter when price breaches liquidation levels (e.g., 1.5x ATR of the last 4 candles) with high volume, confirming short-term capitulation.  
+
+**Exit Rules:**  
+1. **Funding Rate Normalization**: Exit when funding rates revert to neutral (e.g., within ±0.02%) or show signs of flipping (longs paying shorts or vice versa).  
+2. **Profit Target**: Set a 1:2 risk-reward ratio, targeting the next liquidity pool (e.g., prior swing high/low).  
+3. **Stop-Loss**: Place stops beyond the volatility spike’s extreme (e.g., 1.5x the spike’s range) to avoid false breakouts.  
+
+**Risk Management:**  
+1. **Position Sizing**: Limit trades to 1-2% of capital per entry, adjusting for volatility (e.g., wider stops = smaller size).  
+2. **Time Decay Filter**: Avoid trades during low-liquidity periods (e.g., weekends, holidays) to prevent slippage.  
+3. **Correlation Check**: Ensure the asset isn’t mirroring BTC/ETH trends; standalone divergence increases edge.  
+
+**Required Indicators/Tools:**  
+1. **Funding Rate Monitor**: Real-time data from exchanges (e.g., Binance, Bybit).  
+2. **Order Book Depth Heatmap**: Tools like TradingView’s “Depth of Market” or exchange APIs.  
+3. **Volatility Measure**: ATR (14-period) or Bollinger Band Width to gauge spike intensity.  
+4. **Liquidation Level Data**: Platforms like Coinglass or Hyblock to identify cluster zones.  
+
+**Unique Edge:** The strategy exploits market inefficiencies where overleveraged positions collide with liquidity gaps, creating explosive mean-reversion opportunities. The name *LiquidityVortex* reflects the chaotic, high-energy reversals it targets.  
+
+---  
+*Note: Backtest with extreme funding regimes (e.g., altcoin manias) to validate thresholds.*

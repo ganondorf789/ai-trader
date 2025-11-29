@@ -1,0 +1,48 @@
+STRATEGY_NAME: VolatilityBandReversal  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **VIX/VVIX Ratio Analysis:** The strategy focuses on the ratio between the VIX (CBOE Volatility Index) and the VVIX (VIX of VIX), which measures the volatility of volatility.  
+2. **Bollinger Band Breakout:** A 30-day Bollinger Band (typically set at 2 standard deviations) is applied to the VIX/VVIX ratio to identify extreme deviations.  
+3. **Volume Confirmation:** SPX (S&P 500) options volume is used to confirm the signal, ensuring the reversal is supported by market activity.  
+
+**Entry Rules:**  
+1. **Long Entry (Volatility Spike Reversal):**  
+   - When the VIX/VVIX ratio **closes above the upper Bollinger Band**, indicating extreme volatility compression.  
+   - Confirm with **above-average SPX options volume** (e.g., 20% higher than the 10-day moving average).  
+   - Enter a long position in VIX futures (or VIX-related ETFs like VXX) at the next open.  
+
+2. **Short Entry (Volatility Collapse Reversal):**  
+   - When the VIX/VVIX ratio **closes below the lower Bollinger Band**, signaling excessive complacency.  
+   - Confirm with **unusually low SPX options volume** (e.g., 20% below the 10-day moving average).  
+   - Enter a short position in VIX futures (or inverse VIX ETFs like SVIX) at the next open.  
+
+**Exit Rules:**  
+1. **Take-Profit:**  
+   - For long trades, exit when the VIX/VVIX ratio **reverts to its 30-day moving average**.  
+   - For short trades, exit when the VIX/VVIX ratio **returns to its 30-day moving average**.  
+2. **Stop-Loss:**  
+   - Set a **5% trailing stop** from the entry price to protect against adverse moves.  
+   - Alternatively, exit if the ratio **extends further beyond the Bollinger Band** (e.g., exceeding 3 standard deviations).  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate no more than **2-3% of capital per trade** due to the high volatility of VIX futures.  
+2. **Avoid Overnight Gaps:** Consider closing positions before major economic events to mitigate gap risk.  
+3. **Correlation Check:** Monitor SPX price action—avoid trades if the broader market is in a strong trend that contradicts the signal.  
+
+**Required Indicators:**  
+1. **VIX/VVIX Ratio** (real-time data from CBOE or brokers).  
+2. **30-day Bollinger Bands** (2 standard deviations).  
+3. **SPX Options Volume** (compared to a 10-day moving average).  
+4. **30-day Simple Moving Average (SMA)** of the VIX/VVIX ratio for mean reversion exits.  
+
+**Unique Aspects:**  
+- Combines **volatility-of-volatility (VVIX) with SPX options flow** for high-probability reversals.  
+- Uses **Bollinger Bands on a ratio** rather than raw price, reducing false signals.  
+- Focuses on **regime shifts** rather than short-term noise.  
+
+**Best For:**  
+- Traders comfortable with **volatility products** (futures, ETFs).  
+- Intermediate to advanced traders who understand **VIX dynamics**.  
+- Works best in **mean-reverting volatility environments**, not strong trending regimes.

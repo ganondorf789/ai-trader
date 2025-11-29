@@ -1,0 +1,45 @@
+STRATEGY_NAME: LiquidationVolatility
+
+STRATEGY_DETAILS:
+This strategy combines liquidation zone analysis with volatility expansion signals for high-probability breakout trading. Here's the detailed breakdown:
+
+Key Components:
+1. Liquidation Heatmap Analysis - Identifies price zones with high cluster of liquidations (potential turning points)
+2. Keltner Channels (20-period, 2xATR) - Measures volatility expansion
+3. Volume-Weighted Volatility (20-period median) - Tracks market conditions
+
+Entry Rules:
+1. Identify clustered liquidation zones on heatmap (minimum 3 significant liquidation clusters)
+2. Wait for price to break through liquidation zone boundary
+3. Confirm breakout with:
+   - Price closing outside Keltner Channel
+   - Volume exceeding 20-period average
+   - RSI(14) between 40-60 (neutral zone) before breakout
+
+Exit Rules:
+1. Primary Exit: When volume-weighted volatility reverts to its 20-period median
+2. Secondary Exit: 
+   - If price returns inside Keltner Channel
+   - Or if opposing liquidation zone is reached
+3. Time-based Exit: Close position after 3 periods if no exit signal triggers
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Stop placement: 
+   - Initial: 1.5x recent average daily range
+   - Trailing: Move to breakeven after 1.5x risk achieved
+3. Maximum daily loss limit: 5% of account
+4. Avoid trading during scheduled high-impact news events
+
+Required Indicators:
+1. Liquidation Heatmap (cluster detection)
+2. Keltner Channels (20,2)
+3. Volume-Weighted Volatility Indicator
+4. RSI (14 periods)
+5. Volume Average (20 periods)
+
+Special Notes:
+- Works best on 4H and daily timeframes
+- Most effective in BTC, ETH and major forex pairs
+- Requires confirmation of at least 2 timeframes
+- Filter trades using VWAP slope (must be in breakout direction)

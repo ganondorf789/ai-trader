@@ -1,0 +1,34 @@
+STRATEGY_NAME: VolatilityBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Trend Confirmation:** Uses the 20-period EMA crossing above the 50-period EMA to confirm an uptrend.  
+2. **Low Volatility Filter:** Only trades breakouts when the Average True Range (ATR) is below its 20-day average, indicating reduced volatility before potential expansion.  
+3. **Trailing Stop Exit:** Employs a dynamic 2x ATR trailing stop to lock in profits and manage risk.  
+
+**Entry Rules:**  
+- Enter a long position when:  
+  - The 20-period EMA crosses above the 50-period EMA (bullish trend signal).  
+  - Current ATR is below its 20-day average (low volatility condition).  
+- Entry is triggered on the next candle's open after both conditions are met.  
+
+**Exit Rules:**  
+- **Trailing Stop Loss:** Exit the trade when price closes below the highest high since entry minus 2x the current ATR value.  
+- **Optional Time-Based Exit:** Consider closing the trade if no significant movement occurs within a set period (e.g., 5-10 bars) to avoid stagnation.  
+
+**Risk Management:**  
+1. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+2. **Stop Placement:** Initial stop can be set at 1x ATR below entry for tighter risk control, but the primary exit is the trailing stop.  
+3. **Volatility Adjustment:** Avoid trading during high ATR periods to reduce false breakouts.  
+
+**Required Indicators:**  
+1. **Exponential Moving Averages (EMA):** 20-period and 50-period for trend confirmation.  
+2. **Average True Range (ATR):** 14-period (default) for volatility measurement and trailing stop calculation.  
+
+**Additional Notes:**  
+- Works best in trending markets; avoid ranging conditions.  
+- Combine with higher timeframe alignment (e.g., daily chart trend) for stronger signals.  
+- Backtest optimal ATR multiplier (e.g., 1.5x-2.5x) for the trailing stop based on asset volatility.  
+
+This strategy capitalizes on low-volatility breakouts with trend confirmation, aiming to capture early momentum while managing risk via adaptive stops.

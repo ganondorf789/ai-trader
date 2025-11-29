@@ -1,0 +1,40 @@
+STRATEGY_NAME: VolatilityReversal  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **EMA Crossover System:** Uses the 50-period EMA crossing above the 200-period EMA (Golden Cross) to identify potential trend reversals.  
+2. **ADX Filter:** Incorporates the ADX (Average Directional Index) to confirm low-volatility conditions (ADX < 20) for entries and trend strength (ADX > 30) for exits.  
+3. **Trend Reversal Focus:** Aims to capture early-stage trend reversals in low-volatility environments before strong momentum develops.  
+
+**Entry Rules:**  
+- **Long Entry:** Triggered when:  
+  - The 50-period EMA crosses **above** the 200-period EMA.  
+  - ADX is **below 20**, indicating low trend strength (potential reversal setup).  
+
+**Exit Rules:**  
+- **Exit Condition:** Close the long position when:  
+  - ADX rises **above 30**, signaling increasing trend strength (avoiding late-cycle volatility).  
+  - Optional: Use a trailing stop or the 50-period EMA crossing back below the 200-period EMA (Death Cross) for additional confirmation.  
+
+**Risk Management:**  
+1. **Stop-Loss Placement:**  
+   - Set below the most recent swing low or a fixed percentage (e.g., 1-2%) below the entry price.  
+   - Alternative: Use the 200-period EMA as dynamic support for stop-loss adjustment.  
+2. **Position Sizing:** Risk no more than 1-2% of capital per trade.  
+3. **Volatility Check:** Avoid entries if ADX > 20 (prevents false signals in trending markets).  
+
+**Required Indicators:**  
+1. **Exponential Moving Averages (EMAs):**  
+   - 50-period EMA (fast).  
+   - 200-period EMA (slow).  
+2. **Average Directional Index (ADX):**  
+   - Default period (14) to gauge trend strength.  
+
+**Unique Aspects:**  
+- Combines **low-volatility reversal signals** (ADX < 20) with **EMA crossovers** for high-probability entries.  
+- Exits proactively before overextended trends (ADX > 30), reducing drawdowns.  
+- Ideal for ranging or transitioning markets where traditional trend-following strategies underperform.  
+
+**Optimization Tips:**  
+- Test ADX thresholds (e.g., 15 for entry, 25 for exit) for different assets.  
+- Add volume confirmation or RSI oversold conditions to filter false crossovers.

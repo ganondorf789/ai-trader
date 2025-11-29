@@ -1,0 +1,31 @@
+STRATEGY_NAME: LiquidationBand  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Spike Detection:** The strategy identifies sudden spikes in liquidations, which often indicate panic selling or forced exits, creating potential reversal opportunities.  
+2. **Bollinger Band Positioning:** Trades are executed when price touches the lower Bollinger Band, suggesting oversold conditions.  
+3. **Volume-Weighted Volatility Contraction:** Confirms the trade setup by ensuring volatility is contracting with significant volume, indicating a potential reversal.  
+4. **Upper Band Exit:** Profits are taken when price reaches the upper Bollinger Band, completing the mean-reversion cycle.  
+
+**Entry Rules:**  
+1. **Liquidation Spike:** Monitor liquidation data for a sharp increase, signaling potential exhaustion in selling pressure.  
+2. **Lower Bollinger Band Touch:** Price must touch or breach the lower Bollinger Band (typically set to 2 standard deviations).  
+3. **Volatility Contraction Confirmation:** Ensure volatility is contracting (e.g., Bollinger Band width narrowing) with above-average volume, validating the reversal signal.  
+
+**Exit Rules:**  
+1. **Profit Target:** Exit the long trade when price reaches the upper Bollinger Band.  
+2. **Stop-Loss:** Place a stop-loss slightly below the recent swing low or the lower Bollinger Band, whichever is more conservative.  
+
+**Risk Management:**  
+1. **Position Sizing:** Use a fixed percentage of capital per trade (e.g., 1-2%) to manage risk.  
+2. **Stop-Loss Discipline:** Strictly adhere to the stop-loss to limit downside.  
+3. **Avoid Overlapping Trades:** Do not enter new trades if another position is already active to prevent overexposure.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20-period, 2 Std Dev):** For identifying oversold/overbought levels.  
+2. **Liquidation Data Feed:** Real-time or historical liquidation metrics (e.g., from exchanges or APIs like Bybit, Binance).  
+3. **Volume Indicator:** To confirm volatility contraction with volume (e.g., OBV or VWAP).  
+4. **Volatility Measure:** Bollinger Band width or ATR to assess contraction/expansion.  
+
+**Unique Edge:** This strategy combines liquidation-driven sentiment analysis with Bollinger Band mean-reversion, enhanced by volume-weighted confirmation, offering high-probability reversal setups.

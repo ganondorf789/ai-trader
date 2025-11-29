@@ -1,0 +1,38 @@
+STRATEGY_NAME: VoltaicSqueeze
+
+STRATEGY_DETAILS:
+The VoltaicSqueeze strategy is a volatility-based trading approach that capitalizes on periods of low volatility followed by potential breakouts. It combines Bollinger Bands, RSI, and ATR to identify high-probability setups with defined risk parameters.
+
+Key Components:
+1. Bollinger Bands (20,2) - Measures volatility contraction
+2. RSI (14) - Confirms momentum direction
+3. ATR (14) - Defines exit levels
+
+Entry Rules:
+1. Wait for Bollinger Bands to contract to their narrowest point in the last 30 days
+2. Confirm RSI crosses above 50 level
+3. Enter long position when both conditions are met
+
+Exit Rules:
+1. Set profit target at 2x ATR (14) from entry price
+2. Set stop loss at 1x ATR (14) from entry price
+3. Exit if RSI crosses below 50 before reaching target
+
+Risk Management:
+1. Position size based on 1% risk per trade
+2. Stop loss at 1x ATR ensures controlled risk
+3. 2:1 reward-to-risk ratio maintains positive expectancy
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. RSI (14)
+3. ATR (14)
+
+Additional Notes:
+- Best applied on 1-hour or 4-hour charts for swing trading
+- Works well in trending markets
+- Avoid trading during major news events
+- Combine with volume analysis for additional confirmation
+- Backtest on multiple instruments to verify robustness
+
+This strategy aims to capture the initial momentum burst following periods of low volatility, with clearly defined risk parameters and a favorable risk-reward ratio.

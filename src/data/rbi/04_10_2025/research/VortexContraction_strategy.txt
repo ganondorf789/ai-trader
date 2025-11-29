@@ -1,0 +1,39 @@
+STRATEGY_NAME: VortexContraction
+
+STRATEGY_DETAILS:
+This strategy combines the Vortex Indicator's trend detection with Bollinger Band volatility analysis to identify high-probability entries during low volatility periods, with exits triggered by volatility expansion.
+
+Key Components:
+1. Vortex Indicator (VI+ and VI- lines) - Measures trend direction and strength
+2. Bollinger Band Width - Measures volatility contraction/expansion
+3. Historical volatility thresholds - Customizable based on asset class
+
+Entry Rules:
+1. Primary Condition: Bollinger Band width must be below its 20-period moving average (volatility contraction)
+2. Secondary Condition: VI+ crosses above VI- (bullish vortex crossover) for long entries OR VI- crosses above VI+ (bearish vortex crossover) for short entries
+3. Confirmation: Price must be trading within the Bollinger Bands (not touching outer bands)
+
+Exit Rules:
+1. Profit-taking: When Bollinger Band width expands beyond its 20-period moving average by X% (user-defined parameter)
+2. Stop-loss: 
+   - Long positions: Below recent swing low or when VI- crosses above VI+
+   - Short positions: Above recent swing high or when VI+ crosses above VI-
+3. Time-based exit: Optional - Close position after N periods if neither profit nor stop is hit
+
+Risk Management:
+1. Position sizing based on volatility-adjusted risk (e.g., 1-2% of capital per trade)
+2. Dynamic stop placement using recent swing points
+3. Volatility filters to avoid trading during high-volatility regimes
+
+Required Indicators:
+1. Vortex Indicator (default 14-period recommended)
+2. Bollinger Bands (20,2 standard deviation recommended as baseline)
+3. Bollinger Band Width (calculated as (Upper Band - Lower Band)/Middle Band)
+4. Moving Average of Band Width (20-period SMA recommended)
+
+Optimization Notes:
+1. Adjust Bollinger Band periods and standard deviations based on asset volatility
+2. Fine-tune the volatility expansion threshold (X%) based on backtesting
+3. Consider adding volume confirmation for stronger signals
+
+This strategy excels in ranging markets with occasional volatility breakouts, using the Vortex Indicator to catch early trend movements while the Bollinger Band analysis ensures favorable risk/reward entries.

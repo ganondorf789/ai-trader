@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolSurgeBreakout
+
+STRATEGY_DETAILS:
+This strategy combines volatility compression, volume confirmation, and trend reversal signals to capture explosive price movements from consolidation periods.
+
+Key Components:
+1. Bollinger Band Compression - Price must be consolidating within the lower band (indicating potential volatility expansion)
+2. Volume Surge - Volume must exceed its 20-day average (confirming breakout participation)
+3. Parabolic SAR Exit - Uses trailing stop mechanism to lock in profits during strong trends
+
+Entry Rules:
+1. Wait for price to trade within the lower Bollinger Band (typically within 1 standard deviation) for at least 3 consecutive candles
+2. Confirm volume spike exceeding the 20-day volume moving average by at least 25%
+3. Enter long position when price breaks above the consolidation range high
+
+Exit Rules:
+1. Primary Exit: When Parabolic SAR dots flip below price (trend reversal signal)
+2. Secondary Exit: If price re-enters the lower Bollinger Band before SAR triggers
+3. Emergency Exit: 2% of capital stop-loss if trade moves against entry
+
+Risk Management:
+1. Position size limited to 1-2% of capital per trade
+2. Stop-loss placed at 2% below entry price
+3. Trailing stop activates once price moves 1.5x the initial risk
+
+Required Indicators:
+1. Bollinger Bands (20,2 standard deviations)
+2. Volume 20-day simple moving average
+3. Parabolic SAR (0.02 step, 0.2 maximum)
+
+Optimization Notes:
+- Adjust Bollinger Band period (14-26) based on asset volatility
+- Fine-tune SAR parameters (0.01-0.03 step) for different timeframes
+- Volume threshold can range from 20-30% above average depending on asset liquidity
+
+This strategy works best on liquid assets with historical volatility patterns (stocks, major forex pairs, crypto) during active trading sessions. The VolSurgeBreakout system captures the explosive phase of volatility expansion while using SAR to ride trends and protect gains.

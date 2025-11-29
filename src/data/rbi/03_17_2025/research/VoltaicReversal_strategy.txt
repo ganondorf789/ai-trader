@@ -1,0 +1,38 @@
+STRATEGY_NAME: VoltaicReversal
+
+STRATEGY_DETAILS:
+The VoltaicReversal strategy is designed to exploit short-term price reversals triggered by extreme volatility, combining trend-following indicators with liquidation-based signals. This strategy focuses on identifying overextended price movements and entering trades when the market shows signs of reversing due to excessive volatility.
+
+### Key Strategy Components:
+1. **Volatility Measurement**: Use the Average True Range (ATR) to gauge market volatility. High ATR values indicate extreme volatility, signaling potential reversal opportunities.
+2. **Trend Identification**: Employ the Exponential Moving Average (EMA) to determine the prevailing trend. A 50-period EMA is recommended for short-term trend analysis.
+3. **Liquidation Zones**: Identify key liquidation levels using recent swing highs and lows. These zones act as potential reversal points where stop-loss orders are likely clustered.
+4. **Momentum Confirmation**: Use the Relative Strength Index (RSI) to confirm overbought or oversold conditions, ensuring alignment with the reversal signal.
+
+### Entry Rules:
+1. **Volatility Spike**: Enter a trade when the ATR exceeds a predefined threshold (e.g., 2x the average ATR over the last 14 periods).
+2. **Trend Alignment**: Ensure the price is above the 50 EMA for long trades or below the 50 EMA for short trades.
+3. **Liquidation Zone Break**: Look for price action breaking into a liquidation zone (e.g., a recent swing high for shorts or swing low for longs).
+4. **RSI Confirmation**: Confirm the reversal with RSI showing overbought (above 70) for short entries or oversold (below 30) for long entries.
+
+### Exit Rules:
+1. **Profit Target**: Set a profit target based on a multiple of the ATR (e.g., 1.5x ATR).
+2. **Stop Loss**: Place a stop loss just beyond the liquidation zone to account for potential false breakouts.
+3. **Trend Reversal**: Exit the trade if the price crosses back over the 50 EMA, indicating a potential trend reversal.
+
+### Risk Management:
+1. **Position Sizing**: Use a fixed percentage of capital per trade (e.g., 1-2%) to manage risk.
+2. **Volatility Filter**: Avoid trading during periods of low volatility (ATR below average) to reduce the risk of false signals.
+3. **Maximum Drawdown**: Set a daily or weekly drawdown limit to prevent excessive losses.
+
+### Required Indicators:
+1. **Average True Range (ATR)**: For volatility measurement.
+2. **Exponential Moving Average (EMA, 50-period)**: For trend identification.
+3. **Relative Strength Index (RSI, 14-period)**: For momentum confirmation.
+4. **Price Action Tools**: For identifying liquidation zones (swing highs/lows).
+
+### Example Setup:
+- **Long Trade**: ATR spikes above 2x average, price is above 50 EMA, RSI is below 30, and price breaks into a recent swing low liquidation zone.
+- **Short Trade**: ATR spikes above 2x average, price is below 50 EMA, RSI is above 70, and price breaks into a recent swing high liquidation zone.
+
+The VoltaicReversal strategy is ideal for traders who thrive in volatile markets and can act quickly on short-term opportunities. By combining volatility analysis with trend-following and liquidation-based signals, this strategy aims to capture high-probability reversals while managing risk effectively.

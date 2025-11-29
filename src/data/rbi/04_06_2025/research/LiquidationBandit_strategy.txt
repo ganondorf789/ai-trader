@@ -1,0 +1,51 @@
+STRATEGY_NAME: LiquidationBandit
+
+STRATEGY_DETAILS:
+This strategy combines Bollinger Band breakouts with funding rate analysis and liquidation zone targeting for high-probability mean reversion trades in crypto markets.
+
+Key Components:
+1. Bollinger Band Breakout (20-period, 2 std dev)
+2. Negative Funding Rate Spike (indicates excessive short positioning)
+3. Open Interest Clusters (identifies potential liquidation zones)
+4. ATR-Based Volatility Contraction (exit signal)
+5. Volume Confirmation (validates exits)
+
+Entry Rules:
+1. Primary Trigger: Price breaks ABOVE upper Bollinger Band
+2. Confirmation: Simultaneous spike in negative funding rates (minimum 0.01% daily)
+3. Target Zone: Nearest high open interest cluster above current price (liquidation magnet)
+
+Exit Rules:
+1. Profit Taking: When price approaches identified open interest cluster
+2. Stop Loss: 1.5x ATR(14) below entry point
+3. Emergency Exit: Volume drops below 20-period average while volatility contracts (ATR drops below 50% of entry value)
+
+Risk Management:
+1. Position Size: 1-2% of capital per trade
+2. Maximum Daily Trades: 3 (to avoid overexposure during volatile periods)
+3. Time Filter: Only trade during high liquidity hours (UTC 12:00-16:00)
+
+Required Indicators:
+1. Bollinger Bands (20,2)
+2. Funding Rate data feed
+3. Open Interest heatmap
+4. ATR (14 periods)
+5. Volume MA (20 periods)
+
+Unique Aspects:
+- Exploits the "short squeeze" setup when overleveraged shorts face liquidations
+- Uses open interest clusters as natural profit targets
+- Combines volatility expansion (entry) with contraction (exit) signals
+- Requires alignment of technical breakout with derivatives market conditions
+
+Optimization Tips:
+1. Adjust Bollinger Band period (18-22) based on asset volatility
+2. Fine-tune funding rate threshold per asset (more volatile assets may require higher thresholds)
+3. Validate open interest clusters with volume profile analysis
+4. Test ATR multiplier (1.3x-1.7x) for optimal stop placement
+
+This strategy works best in crypto markets with:
+- High leverage availability
+- Liquid perpetual futures markets
+- Clear open interest data availability
+- Volatile but trending conditions

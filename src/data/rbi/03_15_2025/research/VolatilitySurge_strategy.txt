@@ -1,0 +1,59 @@
+STRATEGY_NAME: VolatilitySurge
+
+STRATEGY_DETAILS:
+The VolatilitySurge strategy is designed to capitalize on significant price movements triggered by periods of high volatility. It combines volatility analysis with breakout trading principles to identify high-probability entry points. The strategy focuses on detecting breakouts from key levels during volatile market conditions, ensuring trades are taken when momentum is strong.
+
+### Key Strategy Components:
+1. **Volatility Measurement**: 
+   - Use the Average True Range (ATR) to measure market volatility. A rising ATR indicates increasing volatility, which is a key condition for this strategy.
+   - Bollinger Bands are used to identify periods of price compression (low volatility) and potential breakout zones.
+
+2. **Breakout Levels**:
+   - Identify key support and resistance levels or recent swing highs/lows as breakout zones.
+   - Use the previous day's high and low as dynamic breakout levels for intraday trading.
+
+3. **Confirmation**:
+   - Wait for a confirmed breakout above resistance or below support with a closing price outside the level.
+   - Use volume analysis to confirm the breakout. A surge in volume during the breakout increases the validity of the signal.
+
+### Entry Rules:
+1. **Long Entry**:
+   - Wait for the price to break above a key resistance level or the previous day's high.
+   - Confirm the breakout with a closing price above the level and increased volume.
+   - Enter the trade on the next candle after the breakout confirmation.
+
+2. **Short Entry**:
+   - Wait for the price to break below a key support level or the previous day's low.
+   - Confirm the breakout with a closing price below the level and increased volume.
+   - Enter the trade on the next candle after the breakout confirmation.
+
+### Exit Rules:
+1. **Take Profit**:
+   - Use a multiple of the ATR (e.g., 2x ATR) to set a dynamic profit target.
+   - Alternatively, exit when the price reaches a predefined resistance (for long trades) or support (for short trades) level.
+
+2. **Stop Loss**:
+   - Place the stop loss below the breakout level for long trades or above the breakout level for short trades.
+   - Use a fixed percentage (e.g., 1-2% of account equity) or a multiple of the ATR (e.g., 1x ATR) to determine the stop loss distance.
+
+### Risk Management:
+1. **Position Sizing**:
+   - Risk no more than 1-2% of your account equity on any single trade.
+   - Adjust position size based on the distance between the entry price and the stop loss level.
+
+2. **Volatility Filter**:
+   - Only trade when the ATR is above a predefined threshold, indicating sufficient volatility for a breakout.
+
+3. **Timeframe Selection**:
+   - This strategy works best on higher timeframes (e.g., 1-hour, 4-hour, or daily charts) where breakouts are more significant and less prone to false signals.
+
+### Required Indicators:
+1. **Average True Range (ATR)**: To measure volatility and set stop loss/take profit levels.
+2. **Bollinger Bands**: To identify periods of low volatility and potential breakout zones.
+3. **Volume Indicator**: To confirm breakout validity.
+
+### Additional Notes:
+- Avoid trading during low-volume periods or major news events, as these can lead to false breakouts.
+- Combine this strategy with trend analysis (e.g., using a moving average) to ensure breakouts align with the prevailing trend direction.
+
+The VolatilitySurge strategy is ideal for traders who thrive in dynamic market conditions and seek to profit from explosive price movements. By focusing on volatility and breakout confirmation, it minimizes false signals and maximizes the potential for high-reward trades.

@@ -1,0 +1,48 @@
+STRATEGY_NAME: VolatileBreakout  
+
+STRATEGY_DETAILS:  
+This strategy combines trend confirmation with volatility and volume filters to identify high-probability breakout trades. The key components are:  
+
+1. **Trend Confirmation**:  
+   - The 50-period EMA must cross above the 200-period EMA (Golden Cross) to confirm a bullish trend.  
+   - The 50-period EMA must cross below the 200-period EMA (Death Cross) to confirm a bearish trend.  
+
+2. **Volatility Filter**:  
+   - The Average True Range (ATR) must be in a low range (e.g., below its 20-period moving average) to indicate a potential breakout from consolidation.  
+
+3. **Volume Confirmation**:  
+   - Volume must spike to at least 2x the 20-day average volume to confirm strong participation in the breakout.  
+
+**Entry Rules**:  
+- **Long Entry**:  
+  1. 50 EMA > 200 EMA (Golden Cross).  
+  2. ATR is below its 20-period moving average (low volatility).  
+  3. Volume exceeds 2x the 20-day average volume.  
+  4. Enter on the breakout candle closing above a recent high (e.g., previous 5-period high).  
+
+- **Short Entry**:  
+  1. 50 EMA < 200 EMA (Death Cross).  
+  2. ATR is below its 20-period moving average (low volatility).  
+  3. Volume exceeds 2x the 20-day average volume.  
+  4. Enter on the breakout candle closing below a recent low (e.g., previous 5-period low).  
+
+**Exit Rules**:  
+- **Take Profit**:  
+  - Use a multiple of ATR (e.g., 2x ATR) or a fixed risk-reward ratio (e.g., 2:1).  
+  - Alternatively, exit when the 50 EMA crosses back below/above the 200 EMA.  
+
+- **Stop Loss**:  
+  - Place stop loss below the recent swing low (for long) or above the recent swing high (for short).  
+  - Alternatively, use 1x ATR from the entry price.  
+
+**Risk Management**:  
+- Risk no more than 1-2% of capital per trade.  
+- Adjust position size based on stop-loss distance.  
+
+**Required Indicators**:  
+1. 50-period Exponential Moving Average (EMA).  
+2. 200-period Exponential Moving Average (EMA).  
+3. Average True Range (ATR) with a 20-period moving average.  
+4. Volume with a 20-day average.  
+
+This strategy is designed to capitalize on breakouts with strong trend, volume, and volatility confirmation, reducing false signals.

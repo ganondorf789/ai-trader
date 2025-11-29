@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolumetricVwap
+
+STRATEGY_DETAILS:
+This strategy combines volume-weighted average price (VWAP) analysis with volatility-based position management, specifically designed for short-term trading in liquid markets. The core concept revolves around identifying high-probability entries when short-term momentum (5-min VWAP) confirms longer-term direction (1-hr VWAP) during periods of exceptional volume activity.
+
+Key Components:
+1. Dual-Timeframe VWAP Analysis:
+   - 5-minute VWAP (short-term momentum indicator)
+   - 1-hour VWAP (longer-term trend reference)
+2. Volume Filter:
+   - Relative volume percentile (90th percentile threshold)
+3. Volatility-Based Position Management:
+   - 2x ATR stop-loss
+   - 1.5x ATR take-profit
+
+Entry Rules:
+1. Volume must be in the top 10% of recent periods (above 90th percentile)
+2. 5-minute VWAP must cross above 1-hour VWAP
+3. Both conditions must occur simultaneously
+
+Exit Rules:
+1. Stop-loss: 2x current ATR (14-period) below entry price
+2. Take-profit: 1.5x current ATR (14-period) above entry price
+3. Whichever condition triggers first exits the position
+
+Risk Management:
+1. Position sizing should be based on the ATR stop distance
+2. Maximum risk per trade typically 1-2% of capital
+3. No new entries if current position is active
+4. Recommended trading hours: High liquidity periods (market open, major session overlaps)
+
+Required Indicators:
+1. Two VWAP calculations (5-min and 1-hr timeframes)
+2. Volume percentile indicator (90-period lookback)
+3. ATR (14-period) for stop and profit calculations
+
+Optimization Notes:
+- The 90th percentile volume filter can be adjusted between 85-95% based on market conditions
+- ATR multiples can be tested between 1.25-2.5x for both stop and profit
+- Works best on liquid assets with consistent volume patterns (major forex pairs, large-cap stocks, popular crypto assets)
+
+This strategy capitalizes on the confluence of three powerful factors: volume confirmation, multi-timeframe alignment, and volatility-adjusted risk management, making it particularly effective during periods of strong directional moves.

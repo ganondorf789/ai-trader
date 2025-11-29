@@ -1,0 +1,50 @@
+STRATEGY_NAME: DonchianADX_Breakout
+
+STRATEGY_DETAILS:
+This strategy combines Donchian Channel breakout signals with ADX trend strength confirmation for high-probability trades. The system waits for strong trending conditions before entering breakout trades, then uses a disciplined risk-reward approach for exits.
+
+Key Components:
+1. Donchian Channel (50-period) - Identifies breakout levels
+2. ADX (14-period) - Confirms trend strength
+3. Fixed 2:1 Risk-Reward Ratio - Ensures profitable exits
+
+Entry Rules:
+1. Long Entry:
+   - Price closes ABOVE the upper Donchian Channel (50-period high)
+   - ADX(14) is above 25 and rising
+   - Stop loss placed at the lower Donchian Channel (50-period low)
+
+2. Short Entry:
+   - Price closes BELOW the lower Donchian Channel (50-period low)
+   - ADX(14) is above 25 and rising
+   - Stop loss placed at the upper Donchian Channel (50-period high)
+
+Exit Rules:
+1. Profit Target:
+   - Set at 2x the distance between entry and stop loss
+   - For longs: Entry + (2 × (Entry - Stop))
+   - For shorts: Entry - (2 × (Stop - Entry))
+
+2. Stop Loss:
+   - Always remains at original Donchian Channel level
+   - Only moved to breakeven after price reaches 1x risk (not required but optional)
+
+Risk Management:
+1. Position sizing based on 1-2% risk per trade
+2. No entries when ADX is below 25 (avoiding weak trends)
+3. Stop loss always in place
+4. No re-entries on same breakout (prevents overtrading)
+
+Required Indicators:
+1. Donchian Channel (50-period)
+   - Upper Band: 50-period high
+   - Lower Band: 50-period low
+2. ADX (14-period)
+   - Must be above 25 and rising for valid signals
+
+Optimization Notes:
+- Can test different Donchian periods (e.g., 30-70)
+- May adjust ADX threshold (20-30 range)
+- Could add filter like minimum breakout candle size
+
+This strategy works best in trending markets and should be avoided during ranging conditions (when ADX is below 25). The 2:1 reward ratio ensures profitability even with 50% win rate.

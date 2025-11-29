@@ -1,0 +1,39 @@
+STRATEGY_NAME: LiquidationFade  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Market Context:** This strategy focuses on fading (counter-trading) extreme price spikes caused by liquidations in the market. It identifies these spikes using Bollinger Band width expansion and open interest drops.  
+2. **Indicators Used:**  
+   - **Bollinger Bands (BB):** Measures volatility and identifies extreme price deviations (width > 3 standard deviations).  
+   - **Open Interest (OI):** Tracks the number of outstanding derivative contracts; a sharp drop signals liquidation events.  
+   - **Relative Strength Index (RSI):** Used to confirm overbought/oversold conditions for exits.  
+
+**Entry Rules:**  
+1. **Trigger Condition:**  
+   - Bollinger Band width exceeds 3 standard deviations (indicating extreme volatility).  
+   - Open interest shows a sharp decline (confirming liquidation-driven price action).  
+2. **Trade Direction:**  
+   - **Short Entry:** If the price spikes upward (liquidation squeeze) and meets the above conditions.  
+   - **Long Entry:** If the price spikes downward (liquidation flush) and meets the above conditions.  
+
+**Exit Rules:**  
+1. **RSI-Based Exit:**  
+   - For short positions: Exit when RSI crosses below a predefined lower threshold (e.g., 30).  
+   - For long positions: Exit when RSI crosses above a predefined upper threshold (e.g., 70).  
+2. **Alternative Exit:** Consider a trailing stop or time-based exit if the RSI threshold is not reached within a reasonable period.  
+
+**Risk Management:**  
+1. **Position Sizing:** Use conservative sizing due to the high volatility of liquidation events.  
+2. **Stop-Loss:** Place a stop-loss beyond recent swing highs/lows to account for potential continuation of the spike.  
+3. **Confirmation:** Avoid entering if the open interest drop is not significant or if Bollinger Band width is not convincingly expanded.  
+
+**Required Indicators:**  
+1. Bollinger Bands (20-period, 3 standard deviations).  
+2. Open Interest (derivatives data).  
+3. RSI (14-period, with thresholds at 30 and 70).  
+
+**Notes:**  
+- This strategy works best in highly leveraged markets (e.g., crypto, futures) where liquidations are frequent.  
+- Backtest for optimal RSI thresholds and Bollinger Band settings based on the asset’s volatility profile.  
+- Combine with price action (e.g., wicks, volume spikes) for higher-probability entries.

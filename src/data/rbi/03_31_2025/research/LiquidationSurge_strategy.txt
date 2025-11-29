@@ -1,0 +1,37 @@
+STRATEGY_NAME: LiquidationSurge  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Heatmap Indicator**: Identifies high-probability breakout zones where liquidation clusters (areas of high stop-loss orders) are concentrated.  
+2. **Volume Divergence Surge**: Confirms breakout validity when trading volume spikes significantly compared to recent averages.  
+3. **On-Balance Volume (OBV) Reversion**: Used as an exit signal when OBV shows divergence from price action, indicating weakening momentum.  
+4. **Volatility Contraction**: Secondary exit trigger when volatility (measured by ATR or Bollinger Band width) contracts sharply post-breakout.  
+
+**Entry Rules:**  
+- Enter long when price approaches a liquidation cluster (heatmap shows high density).  
+- Confirm entry with a volume surge (e.g., 2x the 20-period average volume).  
+- Optional: Use a short-term MA (e.g., 5-period EMA) to align with the breakout direction.  
+
+**Exit Rules:**  
+- Primary exit: OBV reverses direction or diverges negatively from price.  
+- Secondary exit: Volatility contracts (e.g., ATR drops below its 5-period SMA).  
+- Fixed stop-loss: 1.5x the recent average candle range or below the liquidation cluster boundary.  
+
+**Risk Management:**  
+- Position sizing: Risk ≤ 1-2% per trade.  
+- Stop-loss: Dynamic (cluster-based) or fixed (ATR-based).  
+- Avoid trading during low-liquidity periods (e.g., weekends, holidays).  
+
+**Required Indicators:**  
+1. Liquidation Heatmap (custom or platform-specific).  
+2. Volume oscillator/divergence tool (e.g., VWAP + volume MA).  
+3. OBV (On-Balance Volume).  
+4. Volatility measure (ATR or Bollinger Band width).  
+5. Optional: Short-term EMA (5-9 periods) for trend alignment.  
+
+**Unique Edge:**  
+- Combines liquidation-driven sentiment (heatmap) with volume confirmation for high-probability breakouts.  
+- Dual exit system (OBV + volatility) locks in gains before pullbacks.  
+
+**Note:** Backtest cluster sensitivity—liquidation zones vary by asset class (e.g., crypto vs. forex).

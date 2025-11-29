@@ -1,0 +1,35 @@
+STRATEGY_NAME: LiquidationBandwidth
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Liquidation Cluster Levels: Derived from aggregated futures data to identify significant price levels where liquidations may occur
+- Volatility Filter: Uses Bollinger Bandwidth contraction to identify low-volatility conditions (10-day low)
+- Breakout Entry: Triggers trades when price crosses liquidation cluster levels during favorable volatility conditions
+
+2. Entry Rules:
+- Primary Condition: Bollinger Bandwidth reaches 10-day low (volatility contraction signal)
+- Secondary Condition: Price crosses a pre-identified liquidation cluster level
+- Entry Type: Breakout entry in direction of the cluster level crossing (long if above, short if below)
+
+3. Exit Rules:
+- Fixed Risk-Reward: Suggested 1:2 ratio (adjustable based on trader preference)
+- Volatility Expansion Exit: Consider exiting when Bollinger Bandwidth expands beyond 2x the entry level
+- Cluster Flip Exit: If price crosses opposite liquidation cluster level
+
+4. Risk Management:
+- Position Sizing: Based on distance to opposite cluster level or fixed percentage of capital
+- Stop Loss: Place below (for longs) or above (for shorts) the traded cluster level
+- Maximum Risk: Suggested 1-2% of capital per trade
+
+5. Required Indicators:
+- Liquidation Cluster Indicator (derived from futures data)
+- Bollinger Bands (20,2 standard deviation settings recommended)
+- Bollinger Bandwidth (calculated as (Upper Band - Lower Band)/Middle Band)
+
+6. Additional Notes:
+- Works best in trending market conditions following volatility contractions
+- Requires clean identification of liquidation cluster levels (may need specialized data feed)
+- Suggested timeframe: 4-hour or daily charts for swing trading
+- Backtest recommended to optimize bandwidth threshold and cluster sensitivity
+
+This strategy combines order flow analysis (via liquidation clusters) with volatility regime filtering for high-probability breakout trades. The unique combination of these elements justifies the "LiquidationBandwidth" name.

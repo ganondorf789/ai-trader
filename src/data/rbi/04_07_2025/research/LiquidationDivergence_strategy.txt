@@ -1,0 +1,47 @@
+STRATEGY_NAME: LiquidationDivergence
+
+STRATEGY_DETAILS:
+This strategy combines liquidation cluster analysis with RSI divergence and Bollinger Band exits for high-probability crypto reversal trades.
+
+Key Components:
+1. Liquidation Cluster Analysis (2σ threshold)
+2. RSI Divergence (14-period standard)
+3. Bollinger Band (20,2 standard settings) exit trigger
+
+Entry Rules:
+1. Identify when liquidation clusters exceed 2 standard deviations from the 30-day mean
+2. Confirm bearish RSI divergence (price makes higher high while RSI makes lower high) for short entries
+3. Confirm bullish RSI divergence (price makes lower low while RSI makes higher low) for long entries
+4. Enter on first candle close confirming the divergence pattern
+
+Exit Rules:
+1. For long positions: Exit when price touches upper Bollinger Band
+2. For short positions: Exit when price touches lower Bollinger Band
+3. Optional: Partial exit (50%) at opposite Bollinger Band midline
+
+Risk Management:
+1. Position sizing: 1-2% risk per trade
+2. Stop loss placement:
+   - Longs: Below recent swing low
+   - Shorts: Above recent swing high
+3. Maximum daily trades: 3 to prevent overtrading
+
+Required Indicators:
+1. Liquidation cluster data (from exchange API or specialized platform)
+2. RSI (14 period)
+3. Bollinger Bands (20,2)
+4. 30-day moving average of liquidation clusters
+5. Standard deviation calculation for liquidation clusters
+
+Additional Notes:
+- Best applied to major crypto pairs with sufficient liquidity
+- Most effective on 4h or daily timeframes
+- Requires monitoring of funding rates to confirm liquidation potential
+- Works best when combined with volume confirmation
+- Avoid trading during major news events that may distort liquidation patterns
+
+Optimization Tips:
+- Test different RSI periods (7-21) for your trading pair
+- Experiment with 1.5σ-2.5σ thresholds for liquidation clusters
+- Consider adding MACD confirmation for stronger signals
+- Backtest different Bollinger Band settings (18-22 period, 1.8-2.2 deviations)

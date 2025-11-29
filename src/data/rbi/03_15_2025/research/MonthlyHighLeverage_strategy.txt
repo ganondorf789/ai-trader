@@ -1,0 +1,31 @@
+STRATEGY_NAME: MonthlyHighLeverage
+
+STRATEGY_DETAILS:
+The MonthlyHighLeverage strategy is a systematic options trading approach that focuses on selling put options at the start of each month, using the closing high from the previous week as the strike price. This strategy leverages the entire monthly options premium to maximize potential returns while managing risk through careful strike selection and timing.
+
+Key Strategy Components:
+1. Timing: Execute trades at the market open on the last trading day of the month.
+2. Strike Selection: Use the closing high from the same week as the strike price for the put options.
+3. Leverage: Utilize 100% of the monthly options premium as leverage to enhance potential returns.
+
+Entry Rules:
+1. Identify the closing high from the previous week.
+2. At the market open on the last trading day of the month, sell put options with a strike price equal to the identified closing high.
+3. Ensure the options are monthly options to align with the strategy's timeframe.
+
+Exit Rules:
+1. Hold the sold put options until expiration.
+2. If the options expire out of the money, retain the full premium as profit.
+3. If the options expire in the money, manage the position according to your risk management rules, potentially buying back the options or allowing assignment.
+
+Risk Management:
+1. Position Sizing: Allocate a portion of your portfolio to this strategy to avoid over-leveraging.
+2. Stop-Loss: Consider setting a stop-loss level to limit potential losses if the market moves significantly against your position.
+3. Diversification: Avoid concentrating all trades in a single underlying asset; diversify across different sectors or indices.
+
+Required Indicators:
+1. Closing High: Identify the highest closing price from the previous week.
+2. Options Chain: Access to the options chain for the underlying asset to select the appropriate strike price and expiration.
+3. Market Data: Real-time market data to execute trades at the market open on the last trading day of the month.
+
+This strategy leverages the predictability of monthly options premiums and the historical behavior of closing highs to create a structured approach to options trading. By focusing on the last trading day of the month and using the closing high as a strike price, the MonthlyHighLeverage strategy aims to capitalize on market inefficiencies and enhance returns through strategic leverage.

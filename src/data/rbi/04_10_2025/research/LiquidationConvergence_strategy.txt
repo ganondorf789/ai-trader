@@ -1,0 +1,40 @@
+STRATEGY_NAME: LiquidationConvergence  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Zone Identification:** Uses historical order book data to identify clustered liquidation levels, which act as high-probability zones for price reversals or breakouts.  
+2. **Elder Force Index:** A momentum indicator that confirms breakout strength when it crosses zero, signaling a shift in buying/selling pressure.  
+3. **Parabolic SAR:** Used for exit signals, indicating when the trend may be reversing.  
+
+**Entry Rules:**  
+1. **Breakout Condition:** Price must break into or converge with a pre-identified liquidation zone (clustered order book levels).  
+2. **Momentum Confirmation:** The Elder Force Index must cross above zero for long entries or below zero for short entries, confirming the breakout's strength.  
+
+**Exit Rules:**  
+1. **Parabolic SAR Reversal:** Exit the trade when the Parabolic SAR dots flip to the opposite side of the price, indicating a potential trend reversal.  
+2. **Alternative Exit:** Consider exiting if price moves significantly beyond the liquidation zone without confirmation from the Elder Force Index.  
+
+**Risk Management:**  
+1. **Stop-Loss Placement:** Set stop-loss just beyond the opposite boundary of the liquidation zone to avoid false breakouts.  
+2. **Position Sizing:** Adjust position size based on the distance to the stop-loss to maintain consistent risk per trade (e.g., 1-2% of capital).  
+3. **Trailing Stop:** Use the Parabolic SAR as a dynamic trailing stop once the trade is in profit.  
+
+**Required Indicators:**  
+1. **Clustered Liquidation Levels (Order Book Data):** Identifies high-probability zones for breakouts.  
+2. **Elder Force Index:** Confirms momentum shifts (default settings: 13-period EMA).  
+3. **Parabolic SAR:** Provides exit signals (default settings: step = 0.02, max = 0.2).  
+
+**Unique Aspects:**  
+- Combines order book liquidity analysis with momentum confirmation for higher-probability breakouts.  
+- Uses Parabolic SAR for disciplined trend-following exits, reducing emotional decision-making.  
+- Focuses on "liquidation zones" where price is likely to accelerate due to stop-loss cascades.  
+
+**Best Suited For:**  
+- Intraday to swing trading in liquid markets (forex, crypto, futures).  
+- Works best in trending or volatile conditions where liquidation zones are frequently tested.  
+
+**Optimization Tips:**  
+- Backtest different timeframes for the Elder Force Index (e.g., 8 vs. 13 periods).  
+- Adjust Parabolic SAR sensitivity (step/max) based on asset volatility.  
+- Filter trades with additional confluence (e.g., volume spikes, support/resistance levels).

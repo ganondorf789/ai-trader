@@ -1,0 +1,68 @@
+STRATEGY_NAME: VwapAdxSynergy  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+This strategy combines the Volume-Weighted Average Price (VWAP) with the Average Directional Index (ADX) to identify high-probability trend-following trades. VWAP acts as a dynamic support/resistance level, while ADX confirms trend strength.  
+
+**Indicators Required:**  
+1. **VWAP** (Volume-Weighted Average Price) – Default settings.  
+2. **ADX** (Average Directional Index) – Period 14 (standard).  
+3. **+DI/-DI Lines** (Part of ADX) – To confirm trend direction.  
+
+---  
+
+### **Entry Rules (Long):**  
+1. **Price must be above VWAP** – Indicates bullish momentum.  
+2. **ADX > 25** – Confirms a strong trend.  
+3. **+DI > -DI** – Bullish trend confirmation.  
+4. **Entry Trigger:** Wait for a pullback to VWAP (or near it) and then a bullish candle close above VWAP.  
+
+### **Entry Rules (Short):**  
+1. **Price must be below VWAP** – Indicates bearish momentum.  
+2. **ADX > 25** – Confirms strong trend.  
+3. **-DI > +DI** – Bearish trend confirmation.  
+4. **Entry Trigger:** Wait for a retest of VWAP (or near it) and then a bearish candle close below VWAP.  
+
+---  
+
+### **Exit Rules:**  
+**For Long Trades:**  
+- **Take Profit:**  
+  - Option 1: Fixed RR (e.g., 2:1 or 3:1).  
+  - Option 2: Exit when ADX starts declining (<25) or +DI crosses below -DI.  
+- **Stop Loss:** Place below recent swing low (or below VWAP if tight).  
+
+**For Short Trades:**  
+- **Take Profit:**  
+  - Option 1: Fixed RR (e.g., 2:1 or 3:1).  
+  - Option 2: Exit when ADX starts declining (<25) or -DI crosses below +DI.  
+- **Stop Loss:** Place above recent swing high (or above VWAP if tight).  
+
+---  
+
+### **Risk Management:**  
+- **Position Sizing:** Risk 1-2% per trade.  
+- **Avoid Low ADX (<20):** Weak trends increase false signals.  
+- **Avoid Choppy Markets:** If price is frequently crossing VWAP without ADX confirmation, stay out.  
+
+### **Best Timeframes:**  
+- **Intraday:** 5M, 15M, 1H (VWAP resets daily).  
+- **Swing Trading:** 4H, Daily (but requires adjusting VWAP to weekly/monthly if needed).  
+
+### **Additional Filters (Optional):**  
+- **Volume Confirmation:** Higher-than-average volume on breakout improves reliability.  
+- **EMA Alignment:** Only trade in the direction of a higher timeframe EMA (e.g., 50 or 200 EMA).  
+
+---  
+
+**Why This Works:**  
+- **VWAP** acts as a magnet for price, providing dynamic support/resistance.  
+- **ADX** ensures you only trade strong trends, reducing whipsaws.  
+- **+DI/-DI** adds directional bias confirmation.  
+
+**Potential Weaknesses:**  
+- **Whipsaws in Ranging Markets:** Avoid if ADX is low.  
+- **VWAP Reset:** On intraday charts, VWAP resets daily, so trades must be managed within the session.  
+
+**Final Tip:** Backtest on multiple assets to ensure robustness before live trading.

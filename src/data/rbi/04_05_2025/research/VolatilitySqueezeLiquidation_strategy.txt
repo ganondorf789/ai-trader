@@ -1,0 +1,36 @@
+STRATEGY_NAME: VolatilitySqueezeLiquidation  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Width Contraction:** The strategy identifies periods of low volatility when the Bollinger Band width contracts below a historical percentile (e.g., 20th percentile), signaling a potential breakout.  
+2. **High Perpetual Funding Rates:** Confirms market conditions where funding rates are elevated, indicating crowded positioning and potential for liquidation cascades.  
+3. **Breakout Targeting:** Enters trades when price breaks out of the Bollinger Band contraction zone, anticipating a volatility expansion.  
+4. **Volatility-Based Stops:** Uses volatility expansion (e.g., Bollinger Band width exceeding a threshold) to set dynamic stop-loss levels.  
+
+**Entry Rules:**  
+1. **Bollinger Band Contraction:** Wait for the Bollinger Band width to fall below a predefined historical percentile (e.g., 20th percentile over the last 100 candles).  
+2. **High Funding Rate:** Confirm that the perpetual futures funding rate is significantly positive (e.g., >0.01% per 8 hours), indicating leveraged long positions.  
+3. **Breakout Trigger:** Enter a short position if price breaks below the lower Bollinger Band or a long position if price breaks above the upper Bollinger Band.  
+
+**Exit Rules:**  
+1. **Volatility Expansion Stop:** Exit the trade if the Bollinger Band width expands beyond a threshold (e.g., 50th percentile of its recent range), signaling the end of the squeeze.  
+2. **Take-Profit Target:** Use a fixed risk-reward ratio (e.g., 1:2) or a trailing stop based on recent volatility (e.g., ATR multiple).  
+
+**Risk Management:**  
+1. **Position Sizing:** Allocate a fixed percentage of capital per trade (e.g., 1-2%) to limit downside.  
+2. **Stop-Loss Placement:** Initial stop-loss can be placed at the opposite Bollinger Band or a recent swing high/low.  
+3. **Avoid Overcrowding:** Skip trades if funding rates are neutral or declining, reducing false signals.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20, 2):** To measure contraction and expansion of volatility.  
+2. **Bollinger Band Width:** Calculated as (Upper Band - Lower Band) / Middle Band, used to identify squeeze conditions.  
+3. **Perpetual Funding Rate:** To gauge market sentiment and potential liquidation risks.  
+4. **ATR (14):** Optional for dynamic stop-loss and take-profit levels.  
+
+**Unique Aspects:**  
+- Combines volatility contraction (Bollinger Squeeze) with funding rate extremes to predict liquidation-driven breakouts.  
+- Uses volatility expansion as a dynamic exit mechanism, adapting to market conditions.  
+- Focuses on high-probability setups during periods of market imbalance.  
+
+**Note:** Backtest this strategy under different market regimes (e.g., high vs. low volatility) to optimize the Bollinger Band width percentile and funding rate thresholds.

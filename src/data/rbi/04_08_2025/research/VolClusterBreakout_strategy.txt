@@ -1,0 +1,28 @@
+STRATEGY_NAME: VolClusterBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Volatility-Adjusted VWAP Channel**: Uses a VWAP (Volume-Weighted Average Price) channel dynamically adjusted for volatility to identify breakout zones.  
+2. **Liquidation Volume Confirmation**: Requires a surge in liquidation volume clusters (detected via order flow or volume delta) to validate breakout strength.  
+3. **Fractal Volatility Stop-Loss**: Implements a dynamic stop-loss based on recent fractal volatility levels (e.g., ATR or standard deviation of price swings).  
+
+**Entry Rules:**  
+- **Long Entry**: Price closes above the upper VWAP channel band + liquidation volume surge (e.g., 2x average volume delta).  
+- **Short Entry**: Price closes below the lower VWAP channel band + liquidation volume surge.  
+
+**Exit Rules:**  
+- **Take-Profit**: Fixed risk-reward ratio (e.g., 2:1) or trailing stop based on fractal volatility.  
+- **Stop-Loss**: Placed at recent fractal swing low (long) or high (short), adjusted by volatility multiplier (e.g., 1.5x ATR).  
+
+**Risk Management:**  
+- Position sizing based on volatility (e.g., 1% risk per trade, stop-loss distance determines lot size).  
+- Avoid trading during low-liquidity periods or if volatility exceeds a threshold (e.g., ATR > 3x median).  
+
+**Required Indicators:**  
+1. VWAP with ±2 standard deviation bands (volatility-adjusted).  
+2. Volume delta or liquidation volume detector (e.g., cumulative delta divergence).  
+3. Fractal volatility measure (e.g., ATR, Keltner Channels).  
+4. Price action confirmation (e.g., closing break of channel).  
+
+**Unique Edge:** Combines institutional-level VWAP dynamics with retail-driven liquidation clusters, filtered by adaptive volatility stops.

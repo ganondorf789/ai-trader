@@ -1,0 +1,40 @@
+STRATEGY_NAME: VoltaicBandit
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Focuses on volatility compression breakouts using dynamic VWAP bands
+- Band width adjusted by ATR (Average True Range) for adaptive volatility scaling
+- High-volume confirmation for breakout validity
+- RSI divergence as exit signal for momentum exhaustion
+
+2. Entry Rules:
+- Wait for VWAP band width to compress below threshold (suggested: 1.5x ATR)
+- Enter long when price closes ABOVE upper VWAP band with volume > 20% above 20-period average
+- Enter short when price closes BELOW lower VWAP band with volume > 20% above 20-period average
+- Only trade in direction of broader trend (use 50EMA as trend filter)
+
+3. Exit Rules:
+- Primary exit: Bearish RSI divergence (price makes higher high while RSI makes lower high) for long positions
+- Primary exit: Bullish RSI divergence (price makes lower low while RSI makes higher low) for short positions
+- Secondary exit: Price crosses back inside VWAP bands
+- Emergency exit: 2x ATR stop-loss from entry point
+
+4. Risk Management:
+- Position size limited to 1-2% of capital per trade
+- Stop-loss set at 2x ATR from entry point
+- Take-profit ratio of at least 1:2 (risk:reward)
+- Avoid trading during major economic news events
+- Maximum 3 concurrent positions open
+
+5. Required Indicators:
+- VWAP with dynamic bands (set to ±2 standard deviations as starting point)
+- ATR (14-period recommended)
+- Volume indicator with 20-period moving average
+- RSI (14-period standard setting)
+- 50EMA for trend filter
+
+6. Additional Notes:
+- Works best on 15min-4hr timeframes
+- Most effective in trending markets after consolidation periods
+- Requires manual confirmation of volume spikes and RSI divergence patterns
+- Backtest suggested for optimal ATR multiplier and VWAP band settings per instrument

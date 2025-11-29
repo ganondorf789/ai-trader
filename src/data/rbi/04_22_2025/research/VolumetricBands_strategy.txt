@@ -1,0 +1,49 @@
+STRATEGY_NAME: VolumetricBands  
+
+STRATEGY_DETAILS:  
+This strategy combines volume-weighted price action (VWAP) with Bollinger Band volatility expansion to identify high-probability trend entries. The core premise is to trade breakouts only when both volatility expansion and volume-confirmed trend alignment occur simultaneously.  
+
+**Key Components:**  
+1. **VWAP Slope** - Determines the underlying trend bias (positive slope = bullish, negative = bearish)  
+2. **Bollinger Bands** - Identifies volatility expansion (band width increasing) and extreme price levels  
+3. **Price-Band Interaction** - Requires decisive closes outside expanding bands  
+
+**Entry Rules:**  
+- **Long Entry:**  
+  1. Upper Bollinger Band is expanding (band width increasing)  
+  2. Price closes above upper band  
+  3. VWAP slope is positive (minimum 2-period confirmation)  
+
+- **Short Entry:**  
+  1. Lower Bollinger Band is expanding  
+  2. Price closes below lower band  
+  3. VWAP slope is negative (minimum 2-period confirmation)  
+
+**Exit Rules:**  
+- **Profit-Taking:**  
+  - Close position when price reverts to VWAP line  
+  - Alternative: Trail stop at opposite Bollinger Band  
+
+- **Stop-Loss:**  
+  - Initial stop placed at midpoint between entry band and VWAP  
+  - Tightened to breakeven when price reaches 1.5x initial risk  
+
+**Risk Management:**  
+- Position size limited to 1-2% account risk per trade  
+- No new entries if VWAP slope flattens (<15-degree angle)  
+- Avoid trading during first/last 30 minutes of session (VWAP distortion)  
+
+**Required Indicators:**  
+1. VWAP with slope calculation (20-period SMA of VWAP differences)  
+2. Bollinger Bands (20,2) with band width measurement  
+3. Price close monitoring (avoid wicks/tails triggering entries)  
+
+**Unique Advantages:**  
+- Filters false breakouts using volume confirmation  
+- Capitalizes on volatility surges with trend alignment  
+- Mean-reverting exit logic locks in profits before pullbacks  
+
+**Optimization Notes:**  
+- Test band periods (14-22) for different asset classes  
+- Adjust slope confirmation period based on timeframe (shorter for intraday)  
+- Combine with volume spike filter for higher probability setups

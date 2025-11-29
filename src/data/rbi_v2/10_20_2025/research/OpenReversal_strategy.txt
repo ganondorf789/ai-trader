@@ -1,0 +1,55 @@
+STRATEGY_NAME: OpenReversal
+
+STRATEGY_DETAILS:
+
+### Overview
+The OpenReversal strategy is a contrarian options selling approach that leverages open interest (OI) dynamics in futures contracts to identify potential stabilization or reversal points in declining markets. It focuses on selling put options during periods of elevated OI in falling futures prices, interpreting high OI as a sign of capitulation or overcrowding in bearish positions. The strategy exits positions when OI starts to rise, signaling potential renewed selling pressure or a shift in sentiment. This is suitable for experienced options traders in liquid markets like index futures (e.g., S&P 500 or Nasdaq futures) and corresponding options (e.g., SPX or NDX puts). It assumes access to real-time futures data and options chains, with a bias toward short-term trades (1-5 days holding period) in moderately volatile environments.
+
+### Key Strategy Components
+1. **Market Monitoring**: Track futures contracts tied to the desired underlying asset (e.g., /ES for S&P 500). Use daily or intraday charts to confirm a declining trend, defined as consecutive closes lower or a breach below a short-term moving average (e.g., 5-period EMA).
+2. **Open Interest Analysis**: OI represents the total number of outstanding futures contracts. High OI during declines suggests heavy bearish positioning, which can precede exhaustion. Compare current OI to a 20-day moving average; "high" is triggered when OI exceeds this average by at least 20-30% or reaches the upper quartile of recent levels.
+3. **Options Selection**: Sell out-of-the-money (OTM) put options on the underlying index or ETF (e.g., SPY for S&P 500). Target strikes 5-10% below the current futures price, with 7-30 days to expiration to balance premium collection and time decay (theta) benefits.
+4. **Underlying Assets**: Primarily index-based (e.g., S&P 500, Nasdaq) due to high liquidity in futures OI data. Avoid illiquid underlyings where OI data may be unreliable.
+5. **Timeframe**: Scan for setups at market open or end-of-day; execute trades mid-session to avoid overnight gaps.
+
+### Entry Rules
+- **Futures Decline Confirmation**: The relevant futures contract must show a downtrend, e.g., price below the 5-period EMA on a 1-hour chart, with at least 2-3 consecutive declining sessions or a 1-2% drop from the prior close.
+- **High Open Interest Trigger**: Current OI must be elevated (e.g., >120% of 20-day OI average) while futures are declining. This indicates potential overcrowding in shorts, setting up for a fade.
+- **Options Criteria**: 
+  - Implied volatility (IV) should be elevated (e.g., VIX >20 for indices) to maximize put premiums.
+  - Sell puts with delta between -0.20 and -0.30 (mildly OTM) for a favorable risk-reward.
+  - Position size: Limit to 1-2% of portfolio per trade, selling 1-5 contracts based on account size.
+- **Additional Filter**: Enter only if overall market breadth is weak (e.g., advancing stocks <30% on NYSE) but no major news events (e.g., FOMC announcements) that could extend the decline.
+- **Example Entry**: If /ES futures are declining with OI at 150% of average, sell SPX puts struck at 5% below current /ES level, collecting 1-2% premium yield.
+
+### Exit Rules
+- **Primary Exit (OI Reversal Signal)**: Close the position when futures OI begins to increase, defined as a session-over-session rise of >5-10% or crossing above the prior high. This suggests fresh bearish entries or short covering turning into renewed pressure, invalidating the setup.
+- **Profit Target**: Exit if the put premium decays by 50-70% (e.g., due to theta and stabilizing prices), typically within 1-3 days.
+- **Stop Loss**: 
+  - Technical: If futures break below a key support (e.g., prior session low or 1% further decline), buy back the puts.
+  - Time-Based: Exit after 5 days if no OI increase, to avoid gamma risk near expiration.
+  - Volatility: If VIX spikes >20% from entry, exit to limit exposure.
+- **Roll or Adjust**: If the trade moves against you mildly, consider rolling the put down/out to a later expiration for credit, but only if OI remains high and decline persists.
+
+### Risk Management
+- **Position Sizing**: Risk no more than 1-2% of total portfolio capital per trade. For a $100,000 account, maximum loss per trade should not exceed $1,000-2,000 (factoring in put premium received as a buffer).
+- **Maximum Exposure**: Limit to 5-10% of portfolio in open put sales at any time; diversify across 2-3 uncorrelated indices (e.g., S&P and Nasdaq).
+- **Stop-Loss Mechanics**: Use a hard stop on the underlying futures price (e.g., 2% below entry level triggers full exit). Monitor delta neutrality; if delta exceeds -0.50, hedge with futures or calls.
+- **Overall Portfolio Rules**: 
+  - Avoid trading during earnings seasons or geopolitical events.
+  - Maintain a win rate target of 60-70% by focusing on high-conviction setups (e.g., only when OI is in the top 25% percentile).
+  - Capital Allocation: Use margin cautiously; ensure account equity covers potential assignment (e.g., 20% margin on index options).
+- **Drawdown Control**: If three consecutive losses occur, pause trading for one week. Track performance metrics like Sharpe ratio (>1.0 target) and maximum drawdown (<10%).
+
+### Required Indicators and Tools
+- **Core Indicators**:
+  - Open Interest (OI): Daily and session data from futures exchanges (e.g., CME Group via TradingView, Thinkorswim, or Bloomberg).
+  - Futures Price and Volume: Real-time charts for decline confirmation (e.g., 5-period EMA).
+  - Implied Volatility (IV): VIX or underlying IV rank (via options platforms).
+- **Supporting Tools**:
+  - Moving Averages: 20-day simple moving average (SMA) for OI baseline.
+  - Breadth Indicators: Advance/Decline line or % of stocks above 50-day MA (optional filter).
+- **Platforms**: Recommended: Thinkorswim (TD Ameritrade) for integrated futures/OI/options data; TradingView for charting; or Python libraries like yfinance/CCXT for backtesting OI signals.
+- **Data Sources**: Free: CME website for historical OI; Paid: Optionistics or LiveVol for advanced analytics.
+
+This strategy thrives in range-bound or mildly bearish markets but can suffer in sharp crashes (e.g., 2020-style events). Backtest on historical data (e.g., 2015-2023) to validate, aiming for 15-25% annualized returns with controlled drawdowns. Always consult a financial advisor, as options trading involves substantial risk of loss.

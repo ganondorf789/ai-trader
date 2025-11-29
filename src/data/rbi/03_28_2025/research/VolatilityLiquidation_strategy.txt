@@ -1,0 +1,42 @@
+STRATEGY_NAME: VolatilityLiquidation  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Counter-Trend Approach**: This strategy focuses on entering trades against the prevailing trend when specific volatility and liquidation conditions are met.  
+2. **ATR-Based Threshold**: Uses 1.5x the 24-hour Average True Range (ATR) to define significant price deviations from the daily pivot point.  
+3. **Liquidation Volume Signals**: Incorporates liquidation volume data to confirm potential reversals, indicating market exhaustion.  
+4. **Pivot Point Anchoring**: The daily pivot point serves as the primary reference for entries and exits.  
+5. **Trailing Volatility Stops**: Dynamic stop-loss mechanism adjusts based on ongoing volatility to protect profits and limit losses.  
+
+**Entry Rules:**  
+1. **Price Breach**: Enter a counter-trend trade when price moves 1.5x the 24-hour ATR away from the daily pivot point.  
+   - For long entries: Price must drop 1.5x ATR below the pivot.  
+   - For short entries: Price must rise 1.5x ATR above the pivot.  
+2. **Liquidation Confirmation**: Ensure a surge in liquidation volume aligns with the price breach, signaling potential reversal momentum.  
+
+**Exit Rules:**  
+1. **Pivot Retracement**: Exit the trade when price retraces back to the daily pivot point.  
+2. **Trailing Volatility Stop**: Use a trailing stop based on current ATR (e.g., 0.5x ATR) to lock in profits if the retracement doesn’t occur but volatility subsides.  
+
+**Risk Management:**  
+1. **Position Sizing**: Allocate a fixed percentage of capital per trade (e.g., 1-2%) to limit exposure.  
+2. **Stop-Loss**: Initial stop-loss can be placed at 2x ATR from the entry point to account for volatility.  
+3. **Trailing Stop**: Adjust the stop-loss dynamically using a fraction of the current ATR (e.g., 0.75x ATR) to protect gains.  
+
+**Required Indicators:**  
+1. **Average True Range (ATR)**: 24-hour period to measure volatility and set thresholds.  
+2. **Daily Pivot Point**: Calculated using standard methods (e.g., (High + Low + Close)/3).  
+3. **Liquidation Volume Data**: Metrics showing spikes in liquidations (e.g., from derivatives exchanges or on-chain data).  
+
+**Additional Notes:**  
+- This strategy performs best in high-volatility environments where liquidation events are frequent.  
+- Backtest for optimal ATR multipliers (1.5x may vary by asset).  
+- Combine with price action or candlestick patterns (e.g., hammers, engulfing) for higher-probability entries.  
+
+**Example Trade:**  
+1. Daily pivot = $100, 24h ATR = $5 → 1.5x ATR = $7.5.  
+2. Price drops to $92.5 (1.5x ATR below pivot) with liquidation spike → Enter long.  
+3. Exit when price retraces to $100 or trail stop at 0.5x ATR ($2.5) below current price.  
+
+This strategy capitalizes on overextensions and liquidation-driven reversals while managing risk through volatility-adjusted stops.

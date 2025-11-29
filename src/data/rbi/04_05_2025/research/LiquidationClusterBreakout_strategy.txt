@@ -1,0 +1,39 @@
+STRATEGY_NAME: LiquidationClusterBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Liquidation Cluster Detection:** Identifies areas where high-volume retracements occur near recent swing highs or lows, suggesting potential liquidation events.  
+2. **Volatility Contraction:** Uses ATR (Average True Range) to confirm low volatility periods, indicating a potential breakout setup.  
+3. **Volume Confirmation:** Requires breakout moves to be accompanied by significant volume to validate the signal.  
+
+**Entry Rules:**  
+1. **Setup:**  
+   - Identify a recent swing high or low where price retraces with high volume (liquidation cluster).  
+   - Confirm volatility contraction (ATR below a predefined threshold, e.g., 20-period ATR < X% of price).  
+2. **Trigger:**  
+   - Enter long on a breakout above the swing high (or short below the swing low) with volume exceeding the average volume of the last N periods (e.g., 20-period average).  
+
+**Exit Rules:**  
+1. **Take Profit:**  
+   - Use a multiple of the ATR (e.g., 2x ATR) or a fixed risk-reward ratio (e.g., 2:1).  
+   - Alternatively, exit when volume drops significantly or price shows signs of reversal (e.g., opposing liquidation cluster).  
+2. **Stop Loss:**  
+   - Place stop loss below the recent swing low (for long) or above the swing high (for short).  
+   - Alternatively, use a volatility-based stop (e.g., 1x ATR from entry).  
+
+**Risk Management:**  
+1. **Position Sizing:** Adjust position size based on stop distance and account risk (e.g., 1-2% per trade).  
+2. **Filtering:** Avoid trading during low-liquidity periods or when major economic events are pending.  
+
+**Required Indicators:**  
+1. **ATR (Average True Range):** To measure volatility contraction (e.g., 20-period ATR).  
+2. **Volume Indicator:** To confirm breakout volume (e.g., 20-period average volume).  
+3. **Price Action Tools:** Swing high/low detection (e.g., fractal indicators or manual marking).  
+
+**Unique Aspects:**  
+- Focuses on liquidity-driven breakouts rather than pure technical patterns.  
+- Combines volume analysis with volatility contraction for higher-probability setups.  
+- Aims to capitalize on post-liquidation price movements.  
+
+**Note:** Backtest and optimize ATR thresholds, volume filters, and risk parameters for specific instruments/timeframes.

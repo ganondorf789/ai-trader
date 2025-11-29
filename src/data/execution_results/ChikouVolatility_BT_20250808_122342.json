@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "return_code": 1,
+  "stdout": "",
+  "stderr": "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/03_14_2025/research/GPT-5/ChikouVolatility_BT.py:58: UserWarning: Data index is not datetime. Assuming simple periods, but `pd.DateTimeIndex` is advised.\n  bt = Backtest(data, ChikouVolatility, cash=1000000, commission=.002)\nTraceback (most recent call last):\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/03_14_2025/research/GPT-5/ChikouVolatility_BT.py\", line 59, in <module>\n    stats = bt.run()\n  File \"/opt/anaconda3/envs/tflow/lib/python3.10/site-packages/backtesting/backtesting.py\", line 1139, in run\n    strategy.init()\n  File \"/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/03_14_2025/research/GPT-5/ChikouVolatility_BT.py\", line 7, in init\n    self.chikou_span = self.I(talib.SMA, self.data.Close.shift(26), timeperiod=1)\nAttributeError: '_Array' object has no attribute 'shift'\n\nERROR conda.cli.main_run:execute(124): `conda run python /Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/03_14_2025/research/GPT-5/ChikouVolatility_BT.py` failed. (See above for error)\n",
+  "execution_time": 1.209046,
+  "timestamp": "2025-08-08T12:23:42.845966"
+}

@@ -1,0 +1,44 @@
+STRATEGY_NAME: VortexCyclone
+
+STRATEGY_DETAILS:
+The VortexCyclone strategy combines trend confirmation from the Vortex Indicator (VI) with cycle reversal signals from the Detrended Price Oscillator (DPO) to identify high-probability trade setups. This approach captures trending moves at optimal cyclical turning points while managing risk through clear confirmation signals.
+
+Key Components:
+1. Vortex Indicator (VI) - Uses VI+ and VI- lines to determine trend direction and strength
+2. Detrended Price Oscillator (DPO) - Identifies cyclical extremes and mean reversion opportunities
+3. Confirmation Logic - Requires both indicators to align before entering trades
+
+Entry Rules (Long):
+1. VI+ crosses above VI- (bullish trend confirmation)
+2. DPO crosses above its lower threshold (typically -1.5 to -2.0 standard deviations)
+3. Both signals occur within 1-3 bars of each other
+
+Entry Rules (Short):
+1. VI- crosses above VI+ (bearish trend confirmation)
+2. DPO crosses below its upper threshold (typically +1.5 to +2.0 standard deviations)
+3. Both signals occur within 1-3 bars of each other
+
+Exit Rules:
+1. For long positions: VI- crosses above VI+ OR DPO crosses above +1.0 standard deviation
+2. For short positions: VI+ crosses above VI- OR DPO crosses below -1.0 standard deviation
+
+Risk Management:
+1. Initial stop placed at recent swing low/high beyond DPO extreme
+2. Position size calculated using 1-2% risk per trade
+3. Trailing stop can be implemented using VI crossovers
+4. Maximum trade duration of 5-10 bars to avoid late-cycle entries
+
+Required Indicators:
+1. Vortex Indicator (standard 14-period setting recommended)
+2. Detrended Price Oscillator (20-period setting with ±1.5-2.0 SD thresholds)
+3. Optional: Volume confirmation for stronger signals
+
+Optimal Conditions:
+- Works best in markets showing clear cyclical behavior
+- Most effective on 1H-4H timeframes
+- Performs well in both trending and ranging markets when properly filtered
+
+Special Notes:
+- Avoid trading during low volatility periods
+- Combine with price action confirmation for best results
+- Adjust DPO thresholds based on market volatility (wider for more volatile pairs)

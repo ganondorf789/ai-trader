@@ -1,0 +1,37 @@
+STRATEGY_NAME: ChannelSurgeADX
+
+STRATEGY_DETAILS:
+This strategy combines Donchian channel breakouts with ADX trend strength confirmation and ATR-based risk management for high-probability trades. The unique combination of channel breakout timing with trend strength validation creates a robust trading approach.
+
+Key Components:
+1. Donchian Channel (20-day): Identifies breakout levels from recent price range
+2. ADX (25 threshold): Confirms strong trending conditions
+3. ATR: Provides dynamic position sizing and stop placement
+4. 2:1 Risk-Reward Ratio: Ensures favorable reward potential
+
+Entry Rules:
+1. Wait for price to close outside the 20-day Donchian channel (upper for long, lower for short)
+2. Confirm ADX(14) is above 25 and rising
+3. Only enter in direction of ADX trend (DI+ > DI- for long, DI- > DI+ for short)
+
+Exit Rules:
+1. Initial stop placed at 1x ATR(14) from entry price
+2. Profit target set at 2x ATR(14) from entry (2:1 reward ratio)
+3. Secondary exit if ADX falls below 25 or price re-enters Donchian channel
+
+Risk Management:
+1. Position size calculated using 1% risk of capital per trade
+2. Stop loss always 1x ATR(14) from entry
+3. No new entries if 3 consecutive losing trades occur (cool-down period)
+
+Required Indicators:
+1. Donchian Channel (20 period)
+2. ADX (14 period) with +DI/-DI lines
+3. ATR (14 period)
+
+Optimization Notes:
+- Test different Donchian periods (15-30 days)
+- Adjust ADX threshold (20-30)
+- Experiment with ATR multiples (1.5-3x for targets)
+
+This strategy excels in trending markets but may produce false signals during ranging conditions. The ADX filter helps avoid weak breakouts while the ATR-based stops adapt to market volatility.

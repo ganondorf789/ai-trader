@@ -1,0 +1,41 @@
+STRATEGY_NAME: SqueezeSurge
+
+STRATEGY_DETAILS:
+1. Key Strategy Components:
+- Bollinger Band Squeeze (20-day period, width < 2% threshold)
+- Volume Surge (150% of 50-day average volume)
+- Volatility-based exit (3x ATR trailing stop)
+- Momentum confirmation (RSI > 70 exit filter)
+
+2. Entry Rules:
+- Primary Condition: Bollinger Band width contraction below 2% (squeeze)
+- Confirmation: Price breaks above upper Bollinger Band
+- Volume Filter: Current volume must exceed 150% of 50-day MA volume
+- All three conditions must be met simultaneously for entry
+
+3. Exit Rules:
+- Primary Exit: 3x ATR (14-period) trailing stop
+- Secondary Exit: RSI (14-period) crosses above 70
+- Whichever condition triggers first will close the position
+
+4. Risk Management:
+- Position sizing should be based on ATR to maintain consistent risk
+- Stop loss is dynamic (3x ATR trailing)
+- Avoid trading during low liquidity periods
+- Consider implementing a maximum daily loss limit
+
+5. Required Indicators:
+- Bollinger Bands (20,2)
+- Bollinger Band Width indicator
+- Volume (50-day MA)
+- ATR (14-period)
+- RSI (14-period)
+
+6. Additional Notes:
+- Works best in trending market conditions
+- Backtest suggested timeframes: 1H-4H for intraday, daily for swing trading
+- Requires confirmation of volume surge to validate breakout
+- Avoid using during earnings announcements or major news events
+- Complementary filters could include ADX > 25 for trend strength confirmation
+
+This strategy combines volatility contraction, breakout confirmation, and volume surge to identify high-probability trades with defined risk parameters. The "SqueezeSurge" name reflects both the Bollinger Band squeeze setup and the required volume surge for validation.

@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatilityThreshold  
+
+STRATEGY_DETAILS:  
+**Key Strategy Components:**  
+1. **Volatility Filter:** Uses the 20-day Average True Range (ATR) to identify low-volatility conditions when it drops below its 10th percentile (historically derived).  
+2. **Trend Confirmation:** Requires price to cross above the 200-day Simple Moving Average (SMA) to ensure alignment with a broader uptrend.  
+3. **Exit Mechanism:** Implements a dynamic stop-loss at 2x ATR below the entry price and a profit-taking signal based on a 5-day high breakout.  
+
+**Entry Rules:**  
+- **Condition 1:** The 20-day ATR must fall below its 10th percentile (calculated over a lookback period, e.g., 1 year).  
+- **Condition 2:** Price must close above the 200-day SMA.  
+- **Execution:** Enter a long position on the next candle’s open if both conditions are met.  
+
+**Exit Rules:**  
+- **Stop-Loss:** Exit the trade if price drops to 2x the current 20-day ATR below the entry price.  
+- **Take-Profit:** Exit the trade if price reaches a new 5-day high (close above the highest high of the last 5 days).  
+
+**Risk Management:**  
+- Position sizing should account for the 2x ATR stop-loss to limit risk per trade (e.g., 1-2% of capital).  
+- Avoid trading during earnings announcements or major news events that may skew volatility readings.  
+
+**Required Indicators:**  
+1. **20-day ATR:** To measure volatility and identify low-volatility thresholds.  
+2. **200-day SMA:** To confirm the long-term trend direction.  
+3. **10th Percentile ATR:** Pre-calculated historical threshold for the 20-day ATR (requires backtesting or rolling window analysis).  
+
+**Unique Aspects:**  
+- Combines mean-reversion (low ATR) with trend-following (200 SMA crossover).  
+- Dynamic stop-loss adapts to current volatility, while the 5-day high exit locks in momentum.  
+- Avoids choppy markets by waiting for volatility to compress significantly.  
+
+**Optimization Notes:**  
+- Test different percentiles (e.g., 5th or 15th) for the ATR threshold.  
+- Experiment with SMA lengths (e.g., 100 or 50-day) for varying timeframes.  
+- Adjust the stop-loss multiplier (e.g., 1.5x or 3x ATR) based on asset volatility.

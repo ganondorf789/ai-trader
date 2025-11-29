@@ -1,0 +1,32 @@
+STRATEGY_NAME: VolatilityImbalance  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Order Book Imbalance:** The strategy monitors the bid-ask imbalance in the 5-minute order book, entering trades when the imbalance exceeds 2 standard deviations, indicating strong momentum.  
+2. **Volatility Squeeze:** Uses Bollinger Band width (BBW) to confirm low volatility conditions—entry is only valid when the BBW is below its 20-period average, signaling a potential breakout.  
+3. **Exit Signal:** Positions are closed when price touches the upper Bollinger Band, capitalizing on mean reversion after a momentum move.  
+
+**Entry Rules:**  
+- **Condition 1:** The bid-ask imbalance (bid volume / ask volume) exceeds 2 standard deviations from its mean, indicating aggressive buying pressure.  
+- **Condition 2:** Bollinger Band width (BBW) is below its 20-period moving average, confirming a volatility squeeze.  
+- **Entry Action:** Long position triggered when both conditions are met.  
+
+**Exit Rules:**  
+- **Profit Target:** Exit when price reaches the upper Bollinger Band.  
+- **Stop-Loss (Optional):** Can be set below the lower Bollinger Band or a recent swing low for risk control.  
+
+**Risk Management:**  
+- Position sizing should account for volatility (e.g., ATR-based sizing).  
+- Avoid trading during major news events to prevent false imbalances.  
+- Consider a trailing stop if the trend extends beyond the upper band.  
+
+**Required Indicators:**  
+1. **Bollinger Bands (20,2)** – For squeeze detection and exit signals.  
+2. **Bollinger Band Width (BBW)** – To measure volatility contraction.  
+3. **Order Book Imbalance Metric** – Custom calculation of bid/ask volume deviation.  
+
+**Notes:**  
+- Works best in ranging or consolidating markets before breakouts.  
+- High-frequency order book data is critical for accurate imbalance readings.  
+- Backtest with slippage to account for liquidity gaps.

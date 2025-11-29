@@ -1,0 +1,33 @@
+STRATEGY_NAME: FibroDivergence
+
+STRATEGY_DETAILS:
+The FibroDivergence strategy is a unique intraday trading approach that combines Fibonacci retracement levels with RSI divergence signals to identify high-probability entry and exit points. This strategy is particularly effective in trending markets where price retracements and momentum shifts are common.
+
+Key Strategy Components:
+1. Fibonacci Retracement Levels: Used to identify potential support and resistance levels during price retracements.
+2. RSI (Relative Strength Index): Used to detect bearish divergence between price action and momentum.
+3. Intraday Timeframe: Focuses on shorter timeframes (e.g., 15-minute or 1-hour charts) for quick trades.
+
+Entry Rules:
+1. Identify a clear trend (up or down) on the intraday chart.
+2. Draw Fibonacci retracement levels from the recent swing high to swing low (in an uptrend) or swing low to swing high (in a downtrend).
+3. Wait for price to retrace to a key Fibonacci level (38.2%, 50%, or 61.8%).
+4. Confirm bearish RSI divergence (price makes higher highs while RSI makes lower highs in an uptrend, or vice versa in a downtrend).
+5. Enter a short position (in an uptrend) or long position (in a downtrend) at the Fibonacci level when divergence is confirmed.
+
+Exit Rules:
+1. Set initial profit targets at the next higher Fibonacci extension level (e.g., 127.2% or 161.8%).
+2. Use a trailing stop-loss to lock in profits as the trade moves in your favor.
+3. Exit the trade if price breaks through the 0% or 100% Fibonacci level (invalidating the setup).
+
+Risk Management:
+1. Set stop-loss orders just beyond the nearest Fibonacci level (e.g., beyond the 61.8% level for a short trade in an uptrend).
+2. Risk no more than 1-2% of your trading capital per trade.
+3. Use proper position sizing based on your stop-loss distance and risk tolerance.
+
+Required Indicators:
+1. Fibonacci Retracement Tool (available on most charting platforms)
+2. RSI (14-period default setting recommended)
+3. Moving Average (optional, for trend confirmation)
+
+This strategy works best in trending markets with clear price swings and momentum shifts. Always backtest and paper trade before using real capital, and adjust parameters to suit your trading style and market conditions.

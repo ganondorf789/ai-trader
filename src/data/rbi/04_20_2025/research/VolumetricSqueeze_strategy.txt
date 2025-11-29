@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolumetricSqueeze  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Bollinger Band Squeeze Detection:** The strategy identifies periods of low volatility where the Bollinger Bands contract significantly, indicating a potential breakout.  
+2. **Volume Confirmation:** A surge in volume percentile (e.g., above 70-80th percentile) is required to confirm the breakout direction, ensuring the move is supported by strong participation.  
+3. **Breakout Direction:** The trade is taken in the direction of the breakout (long if price breaks above the upper band, short if below the lower band).  
+4. **Exit Condition:** The trade is closed when price closes beyond 2x the contracted bandwidth of the Bollinger Bands at the time of the squeeze.  
+
+**Entry Rules:**  
+1. Wait for a Bollinger Band squeeze (contraction where the bands are notably tighter than recent averages).  
+2. Confirm the breakout with a surge in volume (e.g., volume percentile > 70-80).  
+3. Enter long if price breaks above the upper Bollinger Band with high volume.  
+4. Enter short if price breaks below the lower Bollinger Band with high volume.  
+
+**Exit Rules:**  
+1. Calculate the contracted bandwidth of the Bollinger Bands at the time of the squeeze (distance between upper and lower bands).  
+2. Exit the trade when price closes beyond 2x this bandwidth in the direction of the trade.  
+   - For long trades: Exit if price closes below (entry price - 2x bandwidth).  
+   - For short trades: Exit if price closes above (entry price + 2x bandwidth).  
+
+**Risk Management:**  
+1. Position sizing should be based on a fixed percentage of capital (e.g., 1-2% risk per trade).  
+2. A stop-loss can be placed at 1x the bandwidth to limit downside if the breakout fails.  
+3. Avoid trading during low-liquidity periods or major news events to prevent false breakouts.  
+
+**Required Indicators:**  
+1. Bollinger Bands (standard settings: 20-period SMA, 2 standard deviations).  
+2. Volume Percentile (e.g., 50- or 100-period lookback to determine percentile).  
+
+**Additional Notes:**  
+- This strategy works best in trending markets after consolidation phases.  
+- Backtest to optimize volume percentile thresholds and bandwidth multipliers for specific instruments.  
+- Combine with higher timeframe trend analysis to filter trades in the dominant trend direction.

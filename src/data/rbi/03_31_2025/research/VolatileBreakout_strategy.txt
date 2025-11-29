@@ -1,0 +1,35 @@
+STRATEGY_NAME: VolatileBreakout  
+
+STRATEGY_DETAILS:  
+
+**Key Strategy Components:**  
+1. **Breakout Focus:** The strategy capitalizes on price breakouts when volatility and volume conditions are favorable.  
+2. **Volatility Filter:** Uses the 20-period Average True Range (ATR) to confirm high volatility by comparing it to its 90-day average.  
+3. **Volume Confirmation:** Requires volume to spike above its 30-day moving average to validate the breakout strength.  
+4. **Risk-Reward Management:** Exits trades at a 2:1 reward-to-risk ratio or if price reverses below the breakout level.  
+
+**Entry Rules:**  
+1. **Volatility Condition:** The 20-period ATR must be above its 90-day average, indicating heightened volatility.  
+2. **Volume Condition:** Volume must exceed its 30-day moving average to confirm strong participation.  
+3. **Breakout Trigger:** Enter a long position when price breaks above a recent high (or short below a recent low) with both volatility and volume conditions met.  
+
+**Exit Rules:**  
+1. **Profit Target:** Exit the trade when the price reaches a 2:1 reward-to-risk ratio (e.g., if the stop loss is 1%, take profit at 2%).  
+2. **Stop Loss:** Exit if the price reverses and closes below the breakout level (for longs) or above the breakout level (for shorts).  
+
+**Risk Management:**  
+1. **Position Sizing:** Adjust trade size based on the distance to the stop-loss level to ensure consistent risk per trade (e.g., 1-2% of capital).  
+2. **Stop-Loss Placement:** Set the stop-loss just below the breakout level (for longs) or above it (for shorts).  
+3. **Avoid Overexposure:** Limit the number of concurrent trades to prevent excessive drawdown during volatile periods.  
+
+**Required Indicators:**  
+1. **Average True Range (ATR) (20-period):** Measures volatility and filters trades.  
+2. **Volume 30-day Moving Average:** Confirms breakout strength.  
+3. **Price Chart (Candlesticks/OHLC):** Identifies breakout levels and recent highs/lows.  
+
+**Additional Notes:**  
+- Works best in trending markets with clear support/resistance levels.  
+- Avoid ranging markets where false breakouts are common.  
+- Backtest to optimize ATR and volume lookback periods for specific assets.  
+
+This strategy combines volatility expansion, volume confirmation, and disciplined risk management to capture high-probability breakouts.
