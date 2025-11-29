@@ -27,6 +27,9 @@ if project_root not in sys.path:
 # Import Moon Dev's Swarm Agent
 from src.agents.swarm_agent import SwarmAgent
 
+# Import Feishu Bot for notifications
+from src.message.lark import feishu_bot, send_text, send_urgent_card
+
 # ============================================================================
 # CONFIGURATION - Moon Dev
 # ============================================================================
@@ -38,6 +41,9 @@ VOLUME_LOG = os.path.join(DATA_DIR, "volume_history.csv")
 ANALYSIS_LOG = os.path.join(DATA_DIR, "agent_analysis.jsonl")
 
 CHECK_INTERVAL = 4 * 60 * 60  # 4 hours
+
+# Feishu notification settings
+FEISHU_ENABLED = True  # Set to False to disable Feishu notifications
 
 # Exclude majors - we want altcoins only
 EXCLUDED_TOKENS = ['BTC', 'ETH', 'SOL']
@@ -281,6 +287,147 @@ def log_agent_analysis(changes, swarm_result):
 
     with open(ANALYSIS_LOG, 'a') as f:
         f.write(json.dumps(log_entry, default=str) + '\n')
+
+
+# ============================================================================
+# FEISHU NOTIFICATIONS - Moon Dev
+# ============================================================================
+
+def send_feishu_volume_report(changes, swarm_result):
+    """Send volume analysis results to Feishu in 3 messages - Moon Dev
+
+    Message 1: Individual AI analysis results
+    Message 2: AI consensus summary
+    Message 3: Top 15 data table
+    """
+    if not FEISHU_ENABLED:
+        return
+
+    try:
+        # ============================================
+        # Message 1: Individual AI Analysis Results
+        # ============================================
+        if swarm_result and "responses" in swarm_result:
+            content_parts = []
+
+            # Get model mapping for labels
+            model_mapping = swarm_result.get("model_mapping", {})
+            reverse_mapping = {}
+            for ai_num, provider in model_mapping.items():
+                reverse_mapping[provider.lower()] = ai_num
+
+            for provider, data in swarm_result["responses"].items():
+                if data.get("success") and data.get("response"):
+                    ai_label = reverse_mapping.get(provider, provider.upper())
+                    response_text = data["response"]
+                    # Truncate long responses
+                    if len(response_text) > 400:
+                        response_text = response_text[:400] + "..."
+
+                    content_parts.append(f"**{ai_label} ({provider.upper()}):**")
+                    content_parts.append(response_text)
+                    content_parts.append("")
+
+            if content_parts:
+                content = "\n".join(content_parts)
+                send_urgent_card(
+                    title="[1/3] AI Individual Analysis",
+                    content=content,
+                    color="blue",
+                    button_text="View Hyperliquid",
+                    button_url="https://app.hyperliquid.xyz/trade"
+                )
+                cprint("Feishu Message 1/3 sent (AI Analysis)", "green")
+                time.sleep(1)  # Avoid rate limiting
+
+        # ============================================
+        # Message 2: AI Consensus Summary
+        # ============================================
+        if swarm_result and "consensus_summary" in swarm_result:
+            # Build market signals summary
+            new_entries = [c for c in changes if c['is_new_entry']]
+            vol_accelerators = [c for c in changes if c['volume_change_4h'] and c['volume_change_4h'] > 50]
+            big_movers = [c for c in changes if c['change_24h'] > 20]
+            climbers = [c for c in changes if c['rank_change_4h'] and c['rank_change_4h'] >= 3]
+
+            content_parts = []
+
+            # Market signals first
+            content_parts.append("**Market Signals:**")
+            if new_entries:
+                symbols = ", ".join([c['symbol'] for c in new_entries])
+                content_parts.append(f"New Entries: {symbols}")
+            if vol_accelerators:
+                symbols = ", ".join([f"{c['symbol']}({c['volume_change_4h']:+.0f}%)" for c in vol_accelerators])
+                content_parts.append(f"Vol Spike >50%: {symbols}")
+            if big_movers:
+                symbols = ", ".join([f"{c['symbol']}({c['change_24h']:+.0f}%)" for c in big_movers])
+                content_parts.append(f"Price >20%: {symbols}")
+            if climbers:
+                symbols = ", ".join([f"{c['symbol']}(+{c['rank_change_4h']})" for c in climbers])
+                content_parts.append(f"Rank Climbers: {symbols}")
+            if not (new_entries or vol_accelerators or big_movers or climbers):
+                content_parts.append("No major signals")
+
+            content_parts.append("")
+            content_parts.append("**AI Consensus:**")
+            content_parts.append(swarm_result["consensus_summary"])
+
+            # Add metadata
+            if "metadata" in swarm_result:
+                meta = swarm_result["metadata"]
+                content_parts.append("")
+                content_parts.append(f"Models: {meta.get('successful_responses', 0)}/{meta.get('total_models', 0)} | Time: {meta.get('total_time', 0):.1f}s")
+
+            content = "\n".join(content_parts)
+
+            # Color based on signals
+            has_urgent = len(vol_accelerators) > 0 or len(new_entries) > 0
+            color = "orange" if has_urgent else "green"
+
+            send_urgent_card(
+                title="[2/3] AI Consensus & Signals",
+                content=content,
+                color=color,
+                button_text="Trade Now",
+                button_url="https://app.hyperliquid.xyz/trade"
+            )
+            cprint("Feishu Message 2/3 sent (Consensus)", "green")
+            time.sleep(1)
+
+        # ============================================
+        # Message 3: Top 15 Data Table
+        # ============================================
+        table_lines = []
+        table_lines.append("```")
+        table_lines.append(f"{'#':<3} {'SYM':<8} {'PRICE':<10} {'VOL':<10} {'4H%':<8} {'24H%':<8}")
+        table_lines.append("-" * 50)
+
+        for c in changes:
+            rank = c['current_rank']
+            symbol = c['symbol'][:7]
+            price = f"${c['current_price']:.4f}" if c['current_price'] < 1 else f"${c['current_price']:.2f}"
+            volume = format_volume(c['current_volume'])
+            vol_4h = f"{c['volume_change_4h']:+.1f}%" if c['volume_change_4h'] else "NEW"
+            price_24h = f"{c['change_24h']:+.1f}%"
+
+            table_lines.append(f"{rank:<3} {symbol:<8} {price:<10} {volume:<10} {vol_4h:<8} {price_24h:<8}")
+
+        table_lines.append("```")
+
+        content = "\n".join(table_lines)
+
+        send_urgent_card(
+            title="[3/3] Top 15 Altcoins Data",
+            content=content,
+            color="blue",
+            button_text="Full Dashboard",
+            button_url="https://app.hyperliquid.xyz/trade"
+        )
+        cprint("Feishu Message 3/3 sent (Data Table)", "green")
+
+    except Exception as e:
+        cprint(f"Feishu notification error: {e}", "red")
 
 # ============================================================================
 # DISPLAY - Moon Dev
@@ -674,10 +821,14 @@ def run_check():
     display_data_table(changes)
 
     # 7. Log everything
-    cprint("💾 Logging data...", "cyan")
+    cprint("Logging data...", "cyan")
     log_volume_snapshot(current_tokens)
     log_agent_analysis(changes, swarm_result)
-    cprint(f"✅ Logged to {DATA_DIR}/\n", "green")
+    cprint(f"Logged to {DATA_DIR}/\n", "green")
+
+    # 8. Send Feishu notification
+    cprint("Sending Feishu notification...", "cyan")
+    send_feishu_volume_report(changes, swarm_result)
 
     cprint("=" * 120, "magenta")
     cprint(f"✅ Check complete! Next check in 4 hours...", "green", attrs=['bold'])
