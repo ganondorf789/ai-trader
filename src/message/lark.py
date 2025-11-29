@@ -243,6 +243,116 @@ class FeishuBot:
 
         return self._send_message(receive_id, "interactive", card)
 
+    def send_table_card(
+        self,
+        title: str,
+        headers: list,
+        rows: list,
+        user_open_id: Optional[str] = None,
+        color: str = "blue"
+    ) -> bool:
+        """
+        Send table card using multi-column layout
+
+        Args:
+            title: Card title
+            headers: List of column headers (e.g., ["#", "Symbol", "Price", "Vol 4H", "24H%"])
+            rows: List of row data, each row is a list matching headers
+            user_open_id: Receiver Open ID, defaults to configured ID
+            color: Card color
+
+        Returns:
+            bool: Whether sending was successful
+
+        Example:
+            >>> bot = FeishuBot()
+            >>> bot.send_table_card(
+            ...     title="Top 15 Altcoins",
+            ...     headers=["#", "Symbol", "Price", "Volume"],
+            ...     rows=[
+            ...         ["1", "HYPE", "$25.30", "$1.2B"],
+            ...         ["2", "DOGE", "$0.42", "$800M"],
+            ...     ]
+            ... )
+        """
+        receive_id = user_open_id or self.user_open_id
+        if not receive_id:
+            cprint("No user_open_id configured for Feishu", "red")
+            return False
+
+        elements = []
+
+        # Build header row using column_set
+        header_columns = []
+        for h in headers:
+            header_columns.append({
+                "tag": "column",
+                "width": "weighted",
+                "weight": 1,
+                "vertical_align": "top",
+                "elements": [
+                    {
+                        "tag": "div",
+                        "text": {
+                            "tag": "lark_md",
+                            "content": f"**{h}**"
+                        }
+                    }
+                ]
+            })
+
+        elements.append({
+            "tag": "column_set",
+            "flex_mode": "none",
+            "background_style": "grey",
+            "columns": header_columns
+        })
+
+        # Build data rows
+        for row in rows:
+            row_columns = []
+            for cell in row:
+                row_columns.append({
+                    "tag": "column",
+                    "width": "weighted",
+                    "weight": 1,
+                    "vertical_align": "top",
+                    "elements": [
+                        {
+                            "tag": "div",
+                            "text": {
+                                "tag": "plain_text",
+                                "content": str(cell)
+                            }
+                        }
+                    ]
+                })
+
+            elements.append({
+                "tag": "column_set",
+                "flex_mode": "none",
+                "background_style": "default",
+                "columns": row_columns
+            })
+
+        # Build card message
+        card = {
+            "config": {
+                "wide_screen_mode": True,
+                "enable_forward": True
+            },
+            "header": {
+                "title": {
+                    "tag": "plain_text",
+                    "content": title
+                },
+                "template": color
+            },
+            "elements": elements
+        }
+
+        return self._send_message(receive_id, "interactive", card)
+
     def send_trading_alert(
         self,
         action: str,
@@ -346,6 +456,35 @@ def send_urgent_card(
         color=color,
         button_text=button_text,
         button_url=button_url
+    )
+
+
+def send_table_card(
+    title: str,
+    headers: list,
+    rows: list,
+    user_open_id: Optional[str] = None,
+    color: str = "blue"
+) -> bool:
+    """
+    Convenience function to send table card with multi-column layout
+
+    Args:
+        title: Card title
+        headers: List of column headers
+        rows: List of row data
+        user_open_id: Receiver Open ID (optional)
+        color: Card color
+
+    Returns:
+        bool: Whether sending was successful
+    """
+    return feishu_bot.send_table_card(
+        title=title,
+        headers=headers,
+        rows=rows,
+        user_open_id=user_open_id,
+        color=color
     )
 
 

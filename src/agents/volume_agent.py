@@ -28,7 +28,7 @@ if project_root not in sys.path:
 from src.agents.swarm_agent import SwarmAgent
 
 # Import Feishu Bot for notifications
-from src.message.lark import feishu_bot, send_text, send_urgent_card
+from src.message.lark import feishu_bot, send_text, send_urgent_card, send_table_card
 
 # ============================================================================
 # CONFIGURATION - Moon Dev
@@ -396,33 +396,26 @@ def send_feishu_volume_report(changes, swarm_result):
             time.sleep(1)
 
         # ============================================
-        # Message 3: Top 15 Data Table
+        # Message 3: Top 15 Data Table (Multi-Column Layout)
         # ============================================
-        table_lines = []
-        table_lines.append("```")
-        table_lines.append(f"{'#':<3} {'SYM':<8} {'PRICE':<10} {'VOL':<10} {'4H%':<8} {'24H%':<8}")
-        table_lines.append("-" * 50)
+        headers = ["#", "Symbol", "Price", "Volume", "4H%", "24H%"]
+        rows = []
 
         for c in changes:
-            rank = c['current_rank']
+            rank = str(c['current_rank'])
             symbol = c['symbol'][:7]
             price = f"${c['current_price']:.4f}" if c['current_price'] < 1 else f"${c['current_price']:.2f}"
             volume = format_volume(c['current_volume'])
             vol_4h = f"{c['volume_change_4h']:+.1f}%" if c['volume_change_4h'] else "NEW"
             price_24h = f"{c['change_24h']:+.1f}%"
 
-            table_lines.append(f"{rank:<3} {symbol:<8} {price:<10} {volume:<10} {vol_4h:<8} {price_24h:<8}")
+            rows.append([rank, symbol, price, volume, vol_4h, price_24h])
 
-        table_lines.append("```")
-
-        content = "\n".join(table_lines)
-
-        send_urgent_card(
+        send_table_card(
             title="[3/3] Top 15 Altcoins Data",
-            content=content,
-            color="blue",
-            button_text="Full Dashboard",
-            button_url="https://app.hyperliquid.xyz/trade"
+            headers=headers,
+            rows=rows,
+            color="blue"
         )
         cprint("Feishu Message 3/3 sent (Data Table)", "green")
 
