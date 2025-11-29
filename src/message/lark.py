@@ -195,8 +195,8 @@ class FeishuBot:
             content: Card content (supports Markdown)
             user_open_id: Receiver Open ID, defaults to configured ID
             color: Card color (red, orange, yellow, green, blue, purple, grey)
-            button_text: Button text
-            button_url: Button URL, no button if not provided
+            button_text: Button text (ignored, kept for compatibility)
+            button_url: Button URL (ignored, kept for compatibility)
 
         Returns:
             bool: Whether sending was successful
@@ -206,9 +206,7 @@ class FeishuBot:
             >>> bot.send_urgent_card(
             ...     title="Trading Alert",
             ...     content="BTC price broke $100,000!",
-            ...     color="red",
-            ...     button_text="View Market",
-            ...     button_url="https://www.binance.com"
+            ...     color="red"
             ... )
         """
         receive_id = user_open_id or self.user_open_id
@@ -216,7 +214,7 @@ class FeishuBot:
             cprint("No user_open_id configured for Feishu", "red")
             return False
 
-        # Build card elements
+        # Build card elements - content only, no buttons or footer
         elements = [
             {
                 "tag": "div",
@@ -224,37 +222,8 @@ class FeishuBot:
                     "tag": "lark_md",
                     "content": content
                 }
-            },
-            {
-                "tag": "hr"
-            },
-            {
-                "tag": "note",
-                "elements": [
-                    {
-                        "tag": "plain_text",
-                        "content": f"Moon Dev AI Trading System | {time.strftime('%Y-%m-%d %H:%M:%S')}"
-                    }
-                ]
             }
         ]
-
-        # Add button if URL provided
-        if button_url:
-            elements.insert(2, {
-                "tag": "action",
-                "actions": [
-                    {
-                        "tag": "button",
-                        "text": {
-                            "tag": "plain_text",
-                            "content": button_text
-                        },
-                        "type": "primary",
-                        "url": button_url
-                    }
-                ]
-            })
 
         # Build card message
         card = {
