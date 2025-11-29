@@ -1,0 +1,96 @@
+# Core AI/LLM
+anthropic
+openai
+groq
+google-generativeai
+litellm
+transformers
+tiktoken
+
+# Trading
+ccxt
+yfinance
+pandas-ta
+ta
+Backtesting
+backtrader
+mplfinance
+
+# Blockchain/Crypto
+web3
+solana
+solders
+anchorpy
+eth-account
+hyperliquid-python-sdk
+
+# Data Processing
+pandas
+numpy
+scipy
+scikit-learn
+polars
+pyarrow
+
+# ML/Deep Learning
+torch
+tensorflow
+keras
+xgboost
+lightgbm
+statsmodels
+prophet
+
+# Web/API
+fastapi
+uvicorn
+flask
+flask-cors
+httpx
+aiohttp
+requests
+websockets
+beautifulsoup4
+
+# Visualization
+matplotlib
+plotly
+seaborn
+bokeh
+
+# Database
+pymongo
+peewee
+
+# Utils
+python-dotenv
+pydantic
+click
+rich
+tqdm
+schedule
+apscheduler
+colorama
+termcolor
+
+# Jupyter
+jupyterlab
+ipython
+notebook
+
+# Media
+opencv-python
+pillow
+moviepy
+yt-dlp
+
+# Testing
+pytest
+pytest-asyncio
+
+# Other
+discord.py
+tweepy
+paramiko
+playwright
+selenium

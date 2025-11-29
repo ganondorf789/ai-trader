@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip index:*)",
+      "Bash(pip install:*)",
+      "Bash(findstr:*)",
+      "Bash(uv pip install:*)",
+      "Bash(uv pip freeze:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
