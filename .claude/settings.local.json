@@ -5,7 +5,8 @@
       "Bash(pip install:*)",
       "Bash(findstr:*)",
       "Bash(uv pip install:*)",
-      "Bash(uv pip freeze:*)"
+      "Bash(uv pip freeze:*)",
+      "WebFetch(domain:docs.birdeye.so)"
     ],
     "deny": [],
     "ask": []

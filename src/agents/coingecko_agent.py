@@ -1,8 +1,8 @@
 from pathlib import Path
 
 """
-🌙 Moon Dev's CoinGecko Agent 🦎
-Provides comprehensive access to CoinGecko API data and market intelligence
+🌙 Moon Dev's Birdeye Agent 🦅
+Provides comprehensive access to Birdeye API data and market intelligence for Solana tokens
 
 =================================
 📚 FILE OVERVIEW & DOCUMENTATION
@@ -41,10 +41,10 @@ Key Components:
    - Keeps track of last 50 rounds
    - Auto-cleans old memory files
 
-3. CoinGecko API Integration
-   - Comprehensive market data access
+3. Birdeye API Integration
+   - Comprehensive Solana token market data access
    - Rate limiting and error handling
-   - Multiple endpoints (prices, trends, history)
+   - Multiple endpoints (prices, trends, history, OHLCV)
 
 4. Game Loop Structure
    - Runs in continuous rounds
@@ -68,7 +68,7 @@ File Structure:
 2. Helper Functions (print_banner, print_section)
 3. Core Classes:
    - AIAgent: Base agent functionality
-   - CoinGeckoAPI: API wrapper
+   - BirdeyeAPI: API wrapper for Solana token data
    - TokenExtractorAgent: Symbol extraction
    - MultiAgentSystem: Orchestrates everything
 
@@ -76,13 +76,13 @@ Usage:
 ------
 1. Ensure environment variables are set:
    - ANTHROPIC_KEY
-   - COINGECKO_API_KEY
+   - BIRDEYE_API_KEY
 
 2. Run the file directly:
-   python src/agents/coingecko_agent.py
+   python src/agents/birdeye_agent.py
 
 3. Or import the classes:
-   from agents.coingecko_agent import MultiAgentSystem
+   from agents.birdeye_agent import MultiAgentSystem
 
 Configuration:
 -------------
@@ -214,8 +214,8 @@ Temperature Guide:
 
 """
 SYSTEM GOAL:
-Two AI agents (Haiku & Sonnet) collaborate to grow a $10,000 portfolio to $10,000,000 using CoinGecko's 
-comprehensive crypto data (since 2014). They analyze market trends, identify opportunities, and make 
+Two AI agents collaborate to grow a $10,000 portfolio to $10,000,000 using Birdeye's
+comprehensive Solana token data. They analyze market trends, identify opportunities, and make
 strategic decisions together while maintaining a conversation log in the data folder.
 
 Agent One: Technical Analysis Expert 📊
@@ -245,7 +245,7 @@ load_dotenv()
 def print_banner():
     """Print a fun colorful banner"""
     cprint("\n" + "="*70, "white", "on_blue")
-    cprint("🌙 🎮 Moon Dev's Crypto Trading Game! 🎮 🌙", "white", "on_magenta", attrs=["bold"])
+    cprint("🌙 🎮 Moon Dev's Solana Trading Game (Birdeye) 🎮 🌙", "white", "on_magenta", attrs=["bold"])
     cprint("="*70 + "\n", "white", "on_blue")
 
 def print_section(title: str, color: str = "on_blue"):
@@ -414,142 +414,217 @@ Remember to format your response like this:
             cprint(f"❌ Error in agent thinking: {str(e)}", "white", "on_red")
             return f"Error processing market data: {str(e)}"
 
-class CoinGeckoAPI:
-    """Utility class for CoinGecko API calls 🦎"""
-    
+class BirdeyeAPI:
+    """Utility class for Birdeye API calls 🦅"""
+
+    # Default Solana token addresses for major coins
+    DEFAULT_TOKENS = {
+        'SOL': 'So11111111111111111111111111111111111111112',
+        'USDC': 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v',
+        'USDT': 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB',
+        'RAY': '4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R',
+        'BONK': 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263',
+        'JUP': 'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN',
+        'WIF': 'EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm',
+    }
+
     def __init__(self):
-        self.api_key = os.getenv("COINGECKO_API_KEY")
+        self.api_key = os.getenv("BIRDEYE_API_KEY")
         if not self.api_key:
-            print("⚠️ Warning: COINGECKO_API_KEY not found in environment variables!")
-        self.base_url = "https://pro-api.coingecko.com/api/v3"
+            print("⚠️ Warning: BIRDEYE_API_KEY not found in environment variables!")
+        self.base_url = "https://public-api.birdeye.so"
         self.headers = {
-            "x-cg-pro-api-key": self.api_key,
-            "Content-Type": "application/json"
+            "X-API-KEY": self.api_key,
+            "x-chain": "solana"
         }
-        print("🦎 Moon Dev's CoinGecko API initialized!")
-        
+        print("🦅 Moon Dev's Birdeye API initialized!")
+
     def _make_request(self, endpoint: str, params: Optional[Dict] = None) -> Dict:
         """Make API request with rate limiting and error handling"""
         try:
             url = f"{self.base_url}/{endpoint}"
             response = requests.get(url, headers=self.headers, params=params)
-            
+
             if response.status_code == 429:
                 print("⚠️ Rate limit hit! Waiting before retry...")
                 time.sleep(60)  # Wait 60 seconds before retry
                 return self._make_request(endpoint, params)
-                
+
             response.raise_for_status()
             return response.json()
-            
+
         except requests.exceptions.RequestException as e:
             print(f"❌ API request failed: {str(e)}")
             return {}
 
     def get_ping(self) -> bool:
-        """Check API server status"""
+        """Check API server status by making a simple request"""
         try:
-            response = self._make_request("ping")
-            return "gecko_says" in response
+            response = self._make_request("defi/price", {'address': self.DEFAULT_TOKENS['SOL']})
+            return response.get('success', False)
         except:
             return False
 
-    def get_price(self, ids: Union[str, List[str]], vs_currencies: Union[str, List[str]]) -> Dict:
-        """Get current price data for coins
-        
-        Args:
-            ids: Coin ID(s) (e.g. 'bitcoin' or ['bitcoin', 'ethereum'])
-            vs_currencies: Currency(ies) to get price in (e.g. 'usd' or ['usd', 'eur'])
-        """
-        if isinstance(ids, str):
-            ids = [ids]
-        if isinstance(vs_currencies, str):
-            vs_currencies = [vs_currencies]
-            
-        params = {
-            'ids': ','.join(ids),
-            'vs_currencies': ','.join(vs_currencies)
-        }
-        
-        print(f"🔍 Getting prices for: {', '.join(ids)}")
-        return self._make_request("simple/price", params)
+    def get_price(self, addresses: Union[str, List[str]]) -> Dict:
+        """Get current price data for tokens
 
-    def get_coin_market_data(self, id: str) -> Dict:
-        """Get current market data for a coin
-        
         Args:
-            id: Coin ID (e.g. 'bitcoin')
+            addresses: Token address(es) (Solana mint addresses)
         """
-        print(f"📊 Getting market data for {id}...")
-        return self._make_request(f"coins/{id}")
+        if isinstance(addresses, str):
+            addresses = [addresses]
+
+        results = {}
+        for address in addresses:
+            print(f"🔍 Getting price for: {address[:8]}...")
+            response = self._make_request("defi/price", {'address': address})
+            if response.get('success') and response.get('data'):
+                results[address] = response['data']
+
+        return results
+
+    def get_multi_price(self, addresses: List[str]) -> Dict:
+        """Get prices for multiple tokens at once
+
+        Args:
+            addresses: List of token addresses
+        """
+        print(f"🔍 Getting prices for {len(addresses)} tokens...")
+        params = {'list_address': ','.join(addresses)}
+        return self._make_request("defi/multi_price", params)
+
+    def get_token_overview(self, address: str) -> Dict:
+        """Get comprehensive token overview data
+
+        Args:
+            address: Token address (Solana mint address)
+        """
+        print(f"📊 Getting token overview for {address[:8]}...")
+        return self._make_request("defi/token_overview", {'address': address})
 
     def get_trending(self) -> List[Dict]:
-        """Get trending search coins (Top-7) in the last 24 hours"""
-        print("🔥 Getting trending coins...")
-        response = self._make_request("search/trending")
-        return response.get('coins', [])
+        """Get trending tokens on Solana"""
+        print("🔥 Getting trending tokens...")
+        response = self._make_request("defi/token_trending")
+        if response.get('success') and response.get('data'):
+            return response['data'].get('items', [])
+        return []
 
-    def get_global_data(self) -> Dict:
-        """Get cryptocurrency global market data"""
-        print("🌍 Getting global market data...")
-        return self._make_request("global")
+    def get_token_list(self, sort_by: str = 'v24hUSD', sort_type: str = 'desc', limit: int = 50) -> List[Dict]:
+        """Get list of tokens sorted by various metrics
 
-    def get_exchanges(self) -> List[Dict]:
-        """Get all exchanges data"""
-        print("💱 Getting exchanges data...")
-        return self._make_request("exchanges")
-
-    def get_exchange_rates(self) -> Dict:
-        """Get BTC-to-Currency exchange rates"""
-        print("💱 Getting exchange rates...")
-        return self._make_request("exchange_rates")
-
-    def get_coin_history(self, id: str, date: str) -> Dict:
-        """Get historical data for a coin at a specific date
-        
         Args:
-            id: Coin ID (e.g. 'bitcoin')
-            date: Date in DD-MM-YYYY format
+            sort_by: Sort field (v24hUSD, mc, etc.)
+            sort_type: 'asc' or 'desc'
+            limit: Number of tokens to return
         """
-        print(f"📅 Getting historical data for {id} on {date}...")
-        return self._make_request(f"coins/{id}/history", {'date': date})
-
-    def get_coin_market_chart(self, id: str, vs_currency: str, days: int) -> Dict:
-        """Get historical market data
-        
-        Args:
-            id: Coin ID (e.g. 'bitcoin')
-            vs_currency: Currency (e.g. 'usd')
-            days: Number of days of data to retrieve
-        """
+        print(f"📋 Getting top {limit} tokens by {sort_by}...")
         params = {
-            'vs_currency': vs_currency,
-            'days': days
+            'sort_by': sort_by,
+            'sort_type': sort_type,
+            'offset': 0,
+            'limit': limit
         }
-        print(f"📈 Getting {days} days of market data for {id}...")
-        return self._make_request(f"coins/{id}/market_chart", params)
+        response = self._make_request("defi/tokenlist", params)
+        if response.get('success') and response.get('data'):
+            return response['data'].get('tokens', [])
+        return []
 
-    def get_coin_ohlc(self, id: str, vs_currency: str, days: int) -> List:
-        """Get coin's OHLC data
-        
+    def get_token_security(self, address: str) -> Dict:
+        """Get token security information
+
         Args:
-            id: Coin ID (e.g. 'bitcoin')
-            vs_currency: Currency (e.g. 'usd')
-            days: Number of days of data to retrieve
+            address: Token address
         """
+        print(f"🔒 Getting security info for {address[:8]}...")
+        return self._make_request("defi/token_security", {'address': address})
+
+    def get_history_price(self, address: str, address_type: str = 'token',
+                          time_type: str = '24h') -> Dict:
+        """Get historical price data
+
+        Args:
+            address: Token address
+            address_type: 'token' or 'pair'
+            time_type: '24h', '7d', '30d', etc.
+        """
+        print(f"📈 Getting {time_type} price history for {address[:8]}...")
         params = {
-            'vs_currency': vs_currency,
-            'days': days
+            'address': address,
+            'address_type': address_type,
+            'type': time_type
         }
-        print(f"📊 Getting {days} days of OHLC data for {id}...")
-        return self._make_request(f"coins/{id}/ohlc", params)
+        return self._make_request("defi/history_price", params)
+
+    def get_ohlcv(self, address: str, timeframe: str = '15m',
+                  time_from: Optional[int] = None, time_to: Optional[int] = None) -> Dict:
+        """Get OHLCV candlestick data
+
+        Args:
+            address: Token address
+            timeframe: Candle interval (1m, 5m, 15m, 30m, 1H, 2H, 4H, 6H, 8H, 12H, 1D, 3D, 1W, 1M)
+            time_from: Unix timestamp start
+            time_to: Unix timestamp end
+        """
+        if time_to is None:
+            time_to = int(time.time())
+        if time_from is None:
+            time_from = time_to - (7 * 24 * 60 * 60)  # Default 7 days
+
+        print(f"📊 Getting OHLCV data for {address[:8]}...")
+        params = {
+            'address': address,
+            'type': timeframe,
+            'time_from': time_from,
+            'time_to': time_to
+        }
+        return self._make_request("defi/ohlcv", params)
+
+    def get_trades(self, address: str, limit: int = 50) -> List[Dict]:
+        """Get recent trades for a token
+
+        Args:
+            address: Token address
+            limit: Number of trades to return
+        """
+        print(f"💱 Getting recent trades for {address[:8]}...")
+        params = {
+            'address': address,
+            'limit': limit
+        }
+        response = self._make_request("defi/txs/token", params)
+        if response.get('success') and response.get('data'):
+            return response['data'].get('items', [])
+        return []
+
+    def get_price_volume(self, address: str) -> Dict:
+        """Get price and volume data for a token
+
+        Args:
+            address: Token address
+        """
+        print(f"📈 Getting price/volume for {address[:8]}...")
+        return self._make_request("defi/price_volume/single", {'address': address})
 
 class TokenExtractorAgent:
     """Agent that extracts token/crypto symbols from conversations"""
-    
+
     def __init__(self):
-        self.client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_KEY"))
         self.model = TOKEN_EXTRACTOR_MODEL
+        # Initialize appropriate client based on model
+        if "deepseek" in self.model.lower():
+            deepseek_key = os.getenv("DEEPSEEK_KEY")
+            if deepseek_key:
+                self.client = openai.OpenAI(
+                    api_key=deepseek_key,
+                    base_url=DEEPSEEK_BASE_URL
+                )
+                print(f"🔍 Token Extractor using DeepSeek model: {self.model}")
+            else:
+                raise ValueError("🚨 DEEPSEEK_KEY not found in environment variables!")
+        else:
+            self.client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_KEY"))
+            print(f"🔍 Token Extractor using Claude model: {self.model}")
         self.token_history = self._load_token_history()
         cprint("🔍 Token Extractor Agent initialized!", "white", "on_cyan")
         
@@ -566,15 +641,8 @@ class TokenExtractorAgent:
         """Extract tokens/symbols from agent messages"""
         try:
             print_section("🔍 Extracting Mentioned Tokens", "on_cyan")
-            
-            message = self.client.messages.create(
-                model=self.model,
-                max_tokens=EXTRACTOR_MAX_TOKENS,
-                temperature=EXTRACTOR_TEMP,
-                system=TOKEN_EXTRACTOR_PROMPT,  # Use the token extractor prompt
-                messages=[{
-                    "role": "user",
-                    "content": f"""
+
+            user_content = f"""
 Agent One said:
 {agent_one_msg}
 
@@ -583,11 +651,30 @@ Agent Two said:
 
 Extract all token symbols and return as a simple list.
 """
-                }]
-            )
-            
+            # Use appropriate API based on model
+            if "deepseek" in self.model.lower():
+                response = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": TOKEN_EXTRACTOR_PROMPT},
+                        {"role": "user", "content": user_content}
+                    ],
+                    max_tokens=EXTRACTOR_MAX_TOKENS,
+                    temperature=EXTRACTOR_TEMP
+                )
+                response_text = response.choices[0].message.content
+            else:
+                message = self.client.messages.create(
+                    model=self.model,
+                    max_tokens=EXTRACTOR_MAX_TOKENS,
+                    temperature=EXTRACTOR_TEMP,
+                    system=TOKEN_EXTRACTOR_PROMPT,
+                    messages=[{"role": "user", "content": user_content}]
+                )
+                response_text = str(message.content)
+
             # Clean up response and split into list
-            tokens = str(message.content).strip().split('\n')
+            tokens = response_text.strip().split('\n')
             tokens = [t.strip().upper() for t in tokens if t.strip()]
             
             # Create records for each token
@@ -618,11 +705,11 @@ Extract all token symbols and return as a simple list.
             return []
 
 class MultiAgentSystem:
-    """System managing multiple AI agents analyzing CoinGecko data"""
-    
+    """System managing multiple AI agents analyzing Birdeye Solana data"""
+
     def __init__(self):
         print_banner()
-        self.api = CoinGeckoAPI()
+        self.api = BirdeyeAPI()
         self.agent_one = AIAgent("Agent One", AGENT_ONE_MODEL)
         self.agent_two = AIAgent("Agent Two", AGENT_TWO_MODEL)
         self.token_extractor = TokenExtractorAgent()
@@ -633,14 +720,7 @@ class MultiAgentSystem:
     def generate_round_synopsis(self, agent_one_response: str, agent_two_response: str) -> str:
         """Generate a brief synopsis of the round's key points using Synopsis Agent"""
         try:
-            message = self.agent_one.client.messages.create(
-                model="claude-3-haiku-20240307",
-                max_tokens=SYNOPSIS_MAX_TOKENS,
-                temperature=SYNOPSIS_TEMP,
-                system=SYNOPSIS_AGENT_PROMPT,  # Use the synopsis agent prompt
-                messages=[{
-                    "role": "user",
-                    "content": f"""
+            user_content = f"""
 Agent One said:
 {agent_one_response}
 
@@ -649,12 +729,30 @@ Agent Two said:
 
 Create a brief synopsis of this trading round.
 """
-                }]
-            )
-            
-            synopsis = str(message.content).strip()
+            # Use appropriate API based on model override
+            if MODEL_OVERRIDE != "0" and "deepseek" in MODEL_OVERRIDE.lower():
+                response = self.agent_one.client.chat.completions.create(
+                    model=MODEL_OVERRIDE,
+                    messages=[
+                        {"role": "system", "content": SYNOPSIS_AGENT_PROMPT},
+                        {"role": "user", "content": user_content}
+                    ],
+                    max_tokens=SYNOPSIS_MAX_TOKENS,
+                    temperature=SYNOPSIS_TEMP
+                )
+                synopsis = response.choices[0].message.content.strip()
+            else:
+                message = self.agent_one.client.messages.create(
+                    model="claude-3-haiku-20240307",
+                    max_tokens=SYNOPSIS_MAX_TOKENS,
+                    temperature=SYNOPSIS_TEMP,
+                    system=SYNOPSIS_AGENT_PROMPT,
+                    messages=[{"role": "user", "content": user_content}]
+                )
+                synopsis = str(message.content).strip()
+
             return synopsis
-            
+
         except Exception as e:
             cprint(f"⚠️ Error generating synopsis: {e}", "white", "on_yellow")
             return "Synopsis generation failed"
@@ -674,14 +772,15 @@ Create a brief synopsis of this trading round.
         """Run one cycle of agent conversation"""
         try:
             print_section("🔄 Starting New Trading Round!", "on_blue")
-            
-            # Get fresh market data
-            cprint("📊 Gathering Market Intelligence...", "white", "on_magenta")
+
+            # Get fresh market data from Birdeye
+            cprint("📊 Gathering Solana Market Intelligence...", "white", "on_magenta")
             market_data = {
-                'overview': self.api.get_global_data(),
                 'trending': self.api.get_trending(),
-                'bitcoin': self.api.get_coin_market_data('bitcoin'),
-                'ethereum': self.api.get_coin_market_data('ethereum')
+                'top_tokens': self.api.get_token_list(sort_by='v24hUSD', limit=20),
+                'sol': self.api.get_token_overview(BirdeyeAPI.DEFAULT_TOKENS['SOL']),
+                'bonk': self.api.get_token_overview(BirdeyeAPI.DEFAULT_TOKENS['BONK']),
+                'jup': self.api.get_token_overview(BirdeyeAPI.DEFAULT_TOKENS['JUP']),
             }
             
             # Add round history to market context
@@ -724,8 +823,8 @@ Create a brief synopsis of this trading round.
 def main():
     """Main function to run the multi-agent system"""
     print_banner()
-    cprint("🎮 Welcome to Moon Dev's Trading Game! 🎮", "white", "on_magenta", attrs=["bold"])
-    cprint("Two AI agents will collaborate to turn $10,000 into $10,000,000!", "white", "on_blue")
+    cprint("🎮 Welcome to Moon Dev's Solana Trading Game! 🎮", "white", "on_magenta", attrs=["bold"])
+    cprint("Two AI agents analyze Solana tokens via Birdeye to turn $10,000 into $10,000,000!", "white", "on_blue")
     cprint("Let the trading begin! 🚀\n", "white", "on_green", attrs=["bold"])
     
     system = MultiAgentSystem()
