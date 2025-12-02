@@ -101,14 +101,10 @@ Memory Files:
 Author: Moon Dev 🌙
 """
 
-# Model override settings
-# Set to "0" to use config.py's AI_MODEL setting
-# Available models:
-# - "deepseek-chat" (DeepSeek's V3 model - fast & efficient)
-# - "deepseek-reasoner" (DeepSeek's R1 reasoning model)
-# - "0" (Use config.py's AI_MODEL setting)
-MODEL_OVERRIDE = "deepseek-chat"  # Set to "0" to disable override
-DEEPSEEK_BASE_URL = "https://api.deepseek.com"  # Base URL for DeepSeek API
+# API Base URLs for different providers
+DEEPSEEK_BASE_URL = "https://api.deepseek.com"  # DeepSeek API
+QWEN_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"  # Qwen3 Max API
+GLM_BASE_URL = "https://open.bigmodel.cn/api/paas/v4"  # GLM-4.6 API
 
 # 🤖 Agent Prompts & Personalities
 AGENT_ONE_PROMPT = """
@@ -167,10 +163,10 @@ Guidelines:
 Help Moon Dev keep track of the trading journey! 🎯
 """
 
-# 🤖 Agent Model Selection
-AGENT_ONE_MODEL = MODEL_OVERRIDE if MODEL_OVERRIDE != "0" else "claude-3-haiku-20240307"
-AGENT_TWO_MODEL = MODEL_OVERRIDE if MODEL_OVERRIDE != "0" else "claude-3-sonnet-20240229"
-TOKEN_EXTRACTOR_MODEL = MODEL_OVERRIDE if MODEL_OVERRIDE != "0" else "claude-3-haiku-20240307"
+# 🤖 Agent Model Selection (Fixed assignments)
+AGENT_ONE_MODEL = "deepseek-chat"  # Agent One: DeepSeek only
+AGENT_TWO_MODEL = "qwen-max"  # Agent Two: Qwen3 Max only
+TOKEN_EXTRACTOR_MODEL = "glm-4"  # Token Extractor: GLM-4.6 only
 
 # 🎮 Game Configuration
 MINUTES_BETWEEN_ROUNDS = 30  # Time to wait between trading rounds (in minutes)
@@ -232,7 +228,6 @@ from datetime import datetime, timedelta
 import time
 from dotenv import load_dotenv
 from termcolor import colored, cprint
-import anthropic
 from pathlib import Path
 import openai
 
@@ -275,25 +270,24 @@ cleanup_old_memory_files()  # Clean up old files on startup
 
 class AIAgent:
     """Individual AI Agent for collaborative decision making"""
-    
+
     def __init__(self, name: str, model: str = None):
         self.name = name
         self.model = model or AI_MODEL
-        
-        # Initialize appropriate client based on model
+
+        # Initialize client based on model (Agent One=DeepSeek, Agent Two=Qwen)
         if "deepseek" in self.model.lower():
-            deepseek_key = os.getenv("DEEPSEEK_KEY")
-            if deepseek_key:
-                self.client = openai.OpenAI(
-                    api_key=deepseek_key,
-                    base_url=DEEPSEEK_BASE_URL
-                )
-                print(f"🚀 {name} using DeepSeek model: {model}")
-            else:
+            api_key = os.getenv("DEEPSEEK_KEY")
+            if not api_key:
                 raise ValueError("🚨 DEEPSEEK_KEY not found in environment variables!")
-        else:
-            self.client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_KEY"))
-            print(f"🤖 {name} using Claude model: {model}")
+            self.client = openai.OpenAI(api_key=api_key, base_url=DEEPSEEK_BASE_URL)
+            print(f"🚀 {name} using DeepSeek model: {model}")
+        elif "qwen" in self.model.lower():
+            api_key = os.getenv("DASHSCOPE_API_KEY")
+            if not api_key:
+                raise ValueError("🚨 DASHSCOPE_API_KEY not found in environment variables!")
+            self.client = openai.OpenAI(api_key=api_key, base_url=QWEN_BASE_URL)
+            print(f"🌟 {name} using Qwen3 Max model: {model}")
             
         # Use a simpler memory file name
         self.memory_file = AGENT_MEMORY_DIR / f"{name.lower().replace(' ', '_')}.json"
@@ -360,30 +354,17 @@ Remember to format your response like this:
 [Fun reference to Moon Dev's trading style]
 """
             
-            # Get AI response with correct client
-            if "deepseek" in self.model.lower():
-                response = self.client.chat.completions.create(
-                    model=self.model,
-                    messages=[
-                        {"role": "system", "content": prompt},
-                        {"role": "user", "content": market_context}
-                    ],
-                    max_tokens=max_tokens,
-                    temperature=temperature
-                )
-                response_text = response.choices[0].message.content
-            else:
-                message = self.client.messages.create(
-                    model=self.model,
-                    max_tokens=max_tokens,
-                    temperature=temperature,
-                    system=prompt,
-                    messages=[{
-                        "role": "user",
-                        "content": market_context
-                    }]
-                )
-                response_text = str(message.content)
+            # Get AI response (OpenAI-compatible API for DeepSeek/Qwen)
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": prompt},
+                    {"role": "user", "content": market_context}
+                ],
+                max_tokens=max_tokens,
+                temperature=temperature
+            )
+            response_text = response.choices[0].message.content
             
             # Clean up the response
             response = (response_text
@@ -607,24 +588,16 @@ class BirdeyeAPI:
         return self._make_request("defi/price_volume/single", {'address': address})
 
 class TokenExtractorAgent:
-    """Agent that extracts token/crypto symbols from conversations"""
+    """Agent that extracts token/crypto symbols from conversations (GLM-4.6 only)"""
 
     def __init__(self):
         self.model = TOKEN_EXTRACTOR_MODEL
-        # Initialize appropriate client based on model
-        if "deepseek" in self.model.lower():
-            deepseek_key = os.getenv("DEEPSEEK_KEY")
-            if deepseek_key:
-                self.client = openai.OpenAI(
-                    api_key=deepseek_key,
-                    base_url=DEEPSEEK_BASE_URL
-                )
-                print(f"🔍 Token Extractor using DeepSeek model: {self.model}")
-            else:
-                raise ValueError("🚨 DEEPSEEK_KEY not found in environment variables!")
-        else:
-            self.client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_KEY"))
-            print(f"🔍 Token Extractor using Claude model: {self.model}")
+        # Initialize GLM client
+        api_key = os.getenv("ZHIPU_API_KEY")
+        if not api_key:
+            raise ValueError("🚨 ZHIPU_API_KEY not found in environment variables!")
+        self.client = openai.OpenAI(api_key=api_key, base_url=GLM_BASE_URL)
+        print(f"🔮 Token Extractor using GLM-4.6 model: {self.model}")
         self.token_history = self._load_token_history()
         cprint("🔍 Token Extractor Agent initialized!", "white", "on_cyan")
         
@@ -651,27 +624,17 @@ Agent Two said:
 
 Extract all token symbols and return as a simple list.
 """
-            # Use appropriate API based on model
-            if "deepseek" in self.model.lower():
-                response = self.client.chat.completions.create(
-                    model=self.model,
-                    messages=[
-                        {"role": "system", "content": TOKEN_EXTRACTOR_PROMPT},
-                        {"role": "user", "content": user_content}
-                    ],
-                    max_tokens=EXTRACTOR_MAX_TOKENS,
-                    temperature=EXTRACTOR_TEMP
-                )
-                response_text = response.choices[0].message.content
-            else:
-                message = self.client.messages.create(
-                    model=self.model,
-                    max_tokens=EXTRACTOR_MAX_TOKENS,
-                    temperature=EXTRACTOR_TEMP,
-                    system=TOKEN_EXTRACTOR_PROMPT,
-                    messages=[{"role": "user", "content": user_content}]
-                )
-                response_text = str(message.content)
+            # Use GLM API (OpenAI-compatible)
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": TOKEN_EXTRACTOR_PROMPT},
+                    {"role": "user", "content": user_content}
+                ],
+                max_tokens=EXTRACTOR_MAX_TOKENS,
+                temperature=EXTRACTOR_TEMP
+            )
+            response_text = response.choices[0].message.content
 
             # Clean up response and split into list
             tokens = response_text.strip().split('\n')
@@ -729,27 +692,17 @@ Agent Two said:
 
 Create a brief synopsis of this trading round.
 """
-            # Use appropriate API based on model override
-            if MODEL_OVERRIDE != "0" and "deepseek" in MODEL_OVERRIDE.lower():
-                response = self.agent_one.client.chat.completions.create(
-                    model=MODEL_OVERRIDE,
-                    messages=[
-                        {"role": "system", "content": SYNOPSIS_AGENT_PROMPT},
-                        {"role": "user", "content": user_content}
-                    ],
-                    max_tokens=SYNOPSIS_MAX_TOKENS,
-                    temperature=SYNOPSIS_TEMP
-                )
-                synopsis = response.choices[0].message.content.strip()
-            else:
-                message = self.agent_one.client.messages.create(
-                    model="claude-3-haiku-20240307",
-                    max_tokens=SYNOPSIS_MAX_TOKENS,
-                    temperature=SYNOPSIS_TEMP,
-                    system=SYNOPSIS_AGENT_PROMPT,
-                    messages=[{"role": "user", "content": user_content}]
-                )
-                synopsis = str(message.content).strip()
+            # Use Agent One's DeepSeek client for synopsis
+            response = self.agent_one.client.chat.completions.create(
+                model=self.agent_one.model,
+                messages=[
+                    {"role": "system", "content": SYNOPSIS_AGENT_PROMPT},
+                    {"role": "user", "content": user_content}
+                ],
+                max_tokens=SYNOPSIS_MAX_TOKENS,
+                temperature=SYNOPSIS_TEMP
+            )
+            synopsis = response.choices[0].message.content.strip()
 
             return synopsis
 
