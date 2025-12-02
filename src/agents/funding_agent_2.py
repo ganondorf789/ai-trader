@@ -40,11 +40,15 @@ class FundingAgent2(BaseAgent):
 
         load_dotenv()
 
-        # Initialize OpenAI client for voice
+        # Initialize OpenAI client for voice (optional)
         openai_key = os.getenv("OPENAI_KEY")
-        if not openai_key:
-            raise ValueError("🚨 OPENAI_KEY not found in environment variables!")
-        openai.api_key = openai_key
+        if openai_key:
+            openai.api_key = openai_key
+            self.voice_enabled = True
+            cprint("🔊 Voice announcements enabled", "green")
+        else:
+            self.voice_enabled = False
+            cprint("⚠️ OPENAI_KEY not found - voice announcements disabled", "yellow")
 
         # Create directories
         self.audio_dir = PROJECT_ROOT / "src" / "audio"
@@ -132,38 +136,38 @@ class FundingAgent2(BaseAgent):
             return pd.DataFrame()
 
     def find_anomalies(self, df):
-        """Find top 3 most positive and most negative funding rates"""
+        """Find top 15 most positive and most negative funding rates"""
         if df.empty:
             return None, None
 
         # Sort by annual rate
         df_sorted = df.sort_values('annual_rate', ascending=False)
 
-        # Get top 3 most positive
-        top_3_positive = df_sorted.head(3)
+        # Get top 15 most positive
+        top_positive = df_sorted.head(15)
 
-        # Get top 3 most negative
-        top_3_negative = df_sorted.tail(3).sort_values('annual_rate')
+        # Get top 15 most negative
+        top_negative = df_sorted.tail(15).sort_values('annual_rate')
 
-        return top_3_positive, top_3_negative
+        return top_positive, top_negative
 
-    def format_announcement(self, top_3_positive, top_3_negative):
+    def format_announcement(self, top_positive, top_negative):
         """Format the funding anomalies into a speech-friendly message"""
         try:
             message_parts = ["ayo moon dev seven seven seven! Let me tell you about the funding rate anomalies on HyperLiquid."]
 
-            # Announce most positive funding rates
-            message_parts.append("First, the top 3 most positive funding rates.")
-            for idx, row in top_3_positive.iterrows():
+            # Announce most positive funding rates (only top 5 for voice)
+            message_parts.append("First, the top 5 most positive funding rates.")
+            for idx, row in top_positive.head(5).iterrows():
                 symbol = row['symbol']
                 annual_rate = row['annual_rate']
                 message_parts.append(
                     f"{symbol} has a positive funding rate of {annual_rate:.2f} percent annual."
                 )
 
-            # Announce most negative funding rates
-            message_parts.append("Now, the top 3 most negative funding rates.")
-            for idx, row in top_3_negative.iterrows():
+            # Announce most negative funding rates (only top 5 for voice)
+            message_parts.append("Now, the top 5 most negative funding rates.")
+            for idx, row in top_negative.head(5).iterrows():
                 symbol = row['symbol']
                 annual_rate = row['annual_rate']
                 # Make sure to say "negative" clearly
@@ -183,6 +187,10 @@ class FundingAgent2(BaseAgent):
     def announce(self, message):
         """Announce message using OpenAI TTS"""
         if not message:
+            return
+
+        if not self.voice_enabled:
+            cprint("📝 Voice disabled - skipping audio announcement", "yellow")
             return
 
         try:
@@ -266,15 +274,15 @@ class FundingAgent2(BaseAgent):
             print(f"Lowest annual rate: {df['annual_rate'].min():.2f}% ({df.loc[df['annual_rate'].idxmin(), 'symbol']})")
 
             # Find anomalies
-            top_3_positive, top_3_negative = self.find_anomalies(df)
+            top_positive, top_negative = self.find_anomalies(df)
 
-            if top_3_positive is not None and top_3_negative is not None:
+            if top_positive is not None and top_negative is not None:
                 # Print fancy tables
-                self.print_fancy_table(top_3_positive, "🌙 Top 3 MOST POSITIVE Funding Rates (Moon Dev) 🌙")
-                self.print_fancy_table(top_3_negative, "🌙 Top 3 MOST NEGATIVE Funding Rates (Moon Dev) 🌙")
+                self.print_fancy_table(top_positive, "🌙 Top 15 MOST POSITIVE Funding Rates (Moon Dev) 🌙")
+                self.print_fancy_table(top_negative, "🌙 Top 15 MOST NEGATIVE Funding Rates (Moon Dev) 🌙")
 
                 # Format and announce
-                message = self.format_announcement(top_3_positive, top_3_negative)
+                message = self.format_announcement(top_positive, top_negative)
                 if message:
                     self.announce(message)
 
