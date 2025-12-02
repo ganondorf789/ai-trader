@@ -103,18 +103,6 @@ class FundingAgent(BaseAgent):
         
         load_dotenv()
         
-        # Initialize OpenAI client for voice only
-        openai_key = os.getenv("OPENAI_KEY")
-        if not openai_key:
-            raise ValueError("🚨 OPENAI_KEY not found in environment variables!")
-        openai.api_key = openai_key
-        
-        # Initialize Anthropic for Claude models
-        anthropic_key = os.getenv("ANTHROPIC_KEY")
-        if not anthropic_key:
-            raise ValueError("🚨 ANTHROPIC_KEY not found in environment variables!")
-        self.anthropic_client = anthropic.Anthropic(api_key=anthropic_key)
-        
         # Initialize DeepSeek client if needed
         if "deepseek" in self.active_model.lower():
             deepseek_key = os.getenv("DEEPSEEK_KEY")
