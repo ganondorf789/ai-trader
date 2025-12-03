@@ -62,12 +62,12 @@ from src.models.model_factory import model_factory
 SWARM_MODELS = {
     # 🌙 Moon Dev's Active Swarm Models - 7 Model Configuration
     "deepseek": (True, "deepseek", "deepseek-chat"),  # DeepSeek Chat - Fast chat model (API)
-    "xai": (True, "xai", "grok-4-fast-reasoning"),  # Grok-4 fast reasoning ($0.20-$0.50/1M tokens)
-    "qwen": (True, "qwen", "qwen-plus"),  # Qwen Plus via DashScope - Balanced performance
+    #"xai": (True, "xai", "grok-4-fast-reasoning"),  # Grok-4 fast reasoning ($0.20-$0.50/1M tokens)
+    "qwen": (True, "qwen", "qwen3-max"),  # Qwen Plus via DashScope - Balanced performance
 
     # 🔇 Disabled Models (uncomment to enable)
-    "claude": (True, "claude", "claude-sonnet-4-5"),  # Claude 4.5 Sonnet - Latest & Greatest!
-    "opus": (True, "claude", "claude-opus-4-5-20251101"),  # 🌙 Moon Dev - Claude Opus 4.5 - Most powerful!
+    #"claude": (True, "claude", "claude-sonnet-4-5"),  # Claude 4.5 Sonnet - Latest & Greatest!
+    #"opus": (True, "claude", "claude-opus-4-5-20251101"),  # 🌙 Moon Dev - Claude Opus 4.5 - Most powerful!
     #"openai": (True, "openai", "gpt-5"),  # GPT-5 - Most advanced model!
     #"ollama_qwen": (True, "ollama", "qwen3:8b"),  # Qwen3 8B via Ollama - Fast local reasoning!
     #"ollama": (True, "ollama", "DeepSeek-R1:latest"),  # DeepSeek-R1 local model via Ollama
@@ -76,11 +76,11 @@ SWARM_MODELS = {
     # 🌙 OpenRouter Models - Access 200+ models through one API!
     # Uncomment any of these to add them to your swarm:
     #"openrouter_gemini": (True, "openrouter", "google/gemini-2.5-flash"),  # Gemini 2.5 Flash - Fast & cheap! ($0.10/$0.40 per 1M tokens)
-    "zhipu": (True, "zhipu", "glm-4-flash"),  # GLM-4 Flash via ZhipuAI - Free fast model
+    #"zhipu": (True, "zhipu", "glm-4-flash"),  # GLM-4 Flash via ZhipuAI - Free fast model
     #"openrouter_deepseek_r1": (True, "openrouter", "deepseek/deepseek-r1-0528"),  # DeepSeek R1 - Advanced reasoning ($0.55/$2.19 per 1M tokens)
     #"openrouter_claude_opus": (True, "openrouter", "anthropic/claude-opus-4.1"),  # Claude Opus 4.1 via OpenRouter
     "openrouter_gpt5_mini": (True, "openrouter", "openai/gpt-5-mini"),  # GPT-5 Mini via OpenRouter
-    "openrouter_grok": (True, "openrouter", "x-ai/grok-4.1-fast"),  # Grok 4.1 Fast via OpenRouter
+    "openrouter_grok": (True, "openrouter", "x-ai/grok-4.1-fast:free"),  # Grok 4.1 Fast via OpenRouter
 
     # 💡 See all 200+ models at: https://openrouter.ai/docs
     # 💡 Any model from openrouter_model.py can be used here!
@@ -146,22 +146,62 @@ class SwarmAgent:
 
     def _initialize_models(self):
         """Initialize all enabled models"""
+        # Import for creating fresh instances
+        import os
+        from dotenv import load_dotenv
+        from pathlib import Path
+
+        # Load env vars
+        project_root = Path(__file__).parent.parent.parent
+        load_dotenv(dotenv_path=project_root / '.env')
+
+        # API key mapping
+        api_key_map = {
+            "openrouter": "OPENROUTER_API_KEY",
+            "claude": "ANTHROPIC_KEY",
+            "openai": "OPENAI_KEY",
+            "deepseek": "DEEPSEEK_KEY",
+            "groq": "GROQ_API_KEY",
+            "gemini": "GEMINI_KEY",
+            "xai": "GROK_API_KEY",
+            "zhipu": "ZHIPU_API_KEY",
+            "qwen": "DASHSCOPE_API_KEY",
+        }
+
         for provider, (enabled, model_type, model_name) in self.models_config.items():
             if not enabled:
                 continue
 
             try:
-                # Get model from factory
-                model = model_factory.get_model(model_type, model_name)
-                if model:
-                    self.active_models[provider] = {
-                        "model": model,
-                        "type": model_type,
-                        "name": model_name
-                    }
-                    cprint(f"✅ Initialized {provider}: {model_name}", "green")
+                # For openrouter models, create fresh instance to avoid sharing
+                if model_type == "openrouter":
+                    from src.models.openrouter_model import OpenRouterModel
+                    api_key = os.getenv(api_key_map.get(model_type, ""))
+                    if api_key:
+                        model = OpenRouterModel(api_key, model_name=model_name)
+                        if model and model.is_available():
+                            self.active_models[provider] = {
+                                "model": model,
+                                "type": model_type,
+                                "name": model_name
+                            }
+                            cprint(f"✅ Initialized {provider}: {model_name}", "green")
+                        else:
+                            cprint(f"⚠️ Could not initialize {provider}: {model_name}", "yellow")
+                    else:
+                        cprint(f"⚠️ No API key for {provider} ({model_type})", "yellow")
                 else:
-                    cprint(f"⚠️ Could not initialize {provider}: {model_name}", "yellow")
+                    # Get model from factory for non-openrouter models
+                    model = model_factory.get_model(model_type, model_name)
+                    if model:
+                        self.active_models[provider] = {
+                            "model": model,
+                            "type": model_type,
+                            "name": model_name
+                        }
+                        cprint(f"✅ Initialized {provider}: {model_name}", "green")
+                    else:
+                        cprint(f"⚠️ Could not initialize {provider}: {model_name}", "yellow")
             except Exception as e:
                 cprint(f"❌ Error initializing {provider}: {e}", "red")
 
