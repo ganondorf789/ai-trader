@@ -104,7 +104,7 @@ Author: Moon Dev 🌙
 # API Base URLs for different providers
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"  # DeepSeek API
 QWEN_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"  # Qwen3 Max API
-OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"  # OpenRouter API
+GLM_BASE_URL = "https://open.bigmodel.cn/api/paas/v4"  # GLM-4.6 API
 
 # 🤖 Agent Prompts & Personalities
 AGENT_ONE_PROMPT = """
@@ -166,7 +166,7 @@ Help Moon Dev keep track of the trading journey! 🎯
 # 🤖 Agent Model Selection (Fixed assignments)
 AGENT_ONE_MODEL = "deepseek-chat"  # Agent One: DeepSeek only
 AGENT_TWO_MODEL = "qwen-max"  # Agent Two: Qwen3 Max only
-TOKEN_EXTRACTOR_MODEL = "x-ai/grok-4.1-fast:free"  # Token Extractor: Grok via OpenRouter
+TOKEN_EXTRACTOR_MODEL = "glm-4"  # Token Extractor: GLM-4.6 only
 
 # 🎮 Game Configuration
 MINUTES_BETWEEN_ROUNDS = 30  # Time to wait between trading rounds (in minutes)
@@ -398,6 +398,17 @@ Remember to format your response like this:
 class BirdeyeAPI:
     """Utility class for Birdeye API calls 🦅"""
 
+    # Default Solana token addresses for major coins
+    DEFAULT_TOKENS = {
+        'SOL': 'So11111111111111111111111111111111111111112',
+        'USDC': 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v',
+        'USDT': 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB',
+        'RAY': '4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R',
+        'BONK': 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263',
+        'JUP': 'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN',
+        'WIF': 'EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm',
+    }
+
     def __init__(self):
         self.api_key = os.getenv("BIRDEYE_API_KEY")
         if not self.api_key:
@@ -430,7 +441,7 @@ class BirdeyeAPI:
     def get_ping(self) -> bool:
         """Check API server status by making a simple request"""
         try:
-            response = self._make_request("defi/tokenlist", {'sort_by': 'v24hUSD', 'sort_type': 'desc', 'limit': 1})
+            response = self._make_request("defi/price", {'address': self.DEFAULT_TOKENS['SOL']})
             return response.get('success', False)
         except:
             return False
@@ -577,16 +588,16 @@ class BirdeyeAPI:
         return self._make_request("defi/price_volume/single", {'address': address})
 
 class TokenExtractorAgent:
-    """Agent that extracts token/crypto symbols from conversations (Grok via OpenRouter)"""
+    """Agent that extracts token/crypto symbols from conversations (GLM-4.6 only)"""
 
     def __init__(self):
         self.model = TOKEN_EXTRACTOR_MODEL
-        # Initialize OpenRouter client for Grok
-        api_key = os.getenv("OPENROUTER_API_KEY")
+        # Initialize GLM client
+        api_key = os.getenv("ZHIPU_API_KEY")
         if not api_key:
-            raise ValueError("🚨 OPENROUTER_API_KEY not found in environment variables!")
-        self.client = openai.OpenAI(api_key=api_key, base_url=OPENROUTER_BASE_URL)
-        print(f"🔮 Token Extractor using Grok model: {self.model}")
+            raise ValueError("🚨 ZHIPU_API_KEY not found in environment variables!")
+        self.client = openai.OpenAI(api_key=api_key, base_url=GLM_BASE_URL)
+        print(f"🔮 Token Extractor using GLM-4.6 model: {self.model}")
         self.token_history = self._load_token_history()
         cprint("🔍 Token Extractor Agent initialized!", "white", "on_cyan")
         
@@ -716,23 +727,13 @@ Create a brief synopsis of this trading round.
             print_section("🔄 Starting New Trading Round!", "on_blue")
 
             # Get fresh market data from Birdeye
-            cprint("📊 Gathering Ethereum Market Intelligence...", "white", "on_magenta")
-
-            # Get top 3 tokens by 24h volume
-            top_tokens = self.api.get_token_list(sort_by='v24hUSD', limit=3)
-
-            # Get detailed overview for each top token
-            token_overviews = {}
-            for token in top_tokens:
-                address = token.get('address')
-                symbol = token.get('symbol', 'UNKNOWN')
-                if address:
-                    token_overviews[symbol] = self.api.get_token_overview(address)
-
+            cprint("📊 Gathering Solana Market Intelligence...", "white", "on_magenta")
             market_data = {
                 'trending': self.api.get_trending(),
-                'top_tokens': top_tokens,
-                'token_overviews': token_overviews,
+                'top_tokens': self.api.get_token_list(sort_by='v24hUSD', limit=20),
+                'sol': self.api.get_token_overview(BirdeyeAPI.DEFAULT_TOKENS['SOL']),
+                'bonk': self.api.get_token_overview(BirdeyeAPI.DEFAULT_TOKENS['BONK']),
+                'jup': self.api.get_token_overview(BirdeyeAPI.DEFAULT_TOKENS['JUP']),
             }
             
             # Add round history to market context
