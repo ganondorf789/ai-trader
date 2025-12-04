@@ -1,19 +1,21 @@
 """
 Moon Dev's Token Screener Agent (V3 - With Swarm Analysis & Feishu)
 
-Screens Solana tokens using Birdeye Token List V3 API for maximum efficiency.
+Screens multi-chain tokens using Birdeye Token List V3 API for maximum efficiency.
 Most data comes from a single API call, only OHLCV needs separate requests.
 Found tokens are analyzed by AI Swarm and results sent to Feishu.
 
-Screening Criteria:
-1. liquidity_usd >= 800,000          - High liquidity, harder to rug
-2. volume_24h_usd >= 10,000,000      - Strong trading volume
-3. number_holders >= 4,000           - Good holder distribution
-4. price_change_24h >= -30%          - Not in free fall
-5. current_price <= 3d_low * 1.12    - Near 3-day low (12% tolerance)
-6. current_price >= 3d_low * 0.75    - Not totally dead
-7. pool_age >= 12 hours              - Not brand new (uses recent_listing_time)
-8. (optional) 1h_volume >= 8% of 24h - Volume surge signal
+Screening Criteria (all configurable):
+1. liquidity_usd >= MIN_LIQUIDITY_USD       - High liquidity, harder to rug
+2. volume_24h_usd >= MIN_VOLUME_24H_USD     - Strong trading volume
+3. number_holders >= MIN_HOLDERS            - Good holder distribution
+4. price_change_24h >= MAX_PRICE_DROP_24H   - Not in free fall
+5. current_price <= N-day_low * MAX_PRICE_VS_LOW  - Near N-day low
+6. current_price >= N-day_low * MIN_PRICE_VS_LOW  - Not totally dead
+7. pool_age >= MIN_POOL_AGE_HOURS           - Not brand new
+8. (optional) 1h_volume >= MIN_1H_VOLUME_PERCENT of 24h - Volume surge signal
+
+N = PRICE_LOW_DAYS (configurable, default 3)
 
 Built with love by Moon Dev
 """
@@ -59,36 +61,36 @@ from src.message.lark import send_text, send_urgent_card, send_table_card
 # ============================================================================
 
 # Minimum liquidity in USD (higher = harder to rug)
-MIN_LIQUIDITY_USD = 800_000
+MIN_LIQUIDITY_USD = 0
 
 # Minimum 24h trading volume in USD
-MIN_VOLUME_24H_USD = 10_000_000
+MIN_VOLUME_24H_USD = 5_000_000
 
 # Minimum number of holders
-MIN_HOLDERS = 4_000
+MIN_HOLDERS = 0
 
-# Maximum 24h price drop percentage (e.g., -30 means max 30% drop allowed)
-MAX_PRICE_DROP_24H = -30
+# Maximum 24h price drop percentage (e.g., -25 means max 25% drop allowed)
+MAX_PRICE_DROP_24H = -25
 
-# Price must be within this multiple of 3-day low (1.12 = within 12% above low)
-MAX_PRICE_VS_3D_LOW = 1.12
+# Number of days to look back for price low calculation
+PRICE_LOW_DAYS = 14
 
-# Price must be at least this multiple of 3-day low (0.75 = not more than 25% below)
-MIN_PRICE_VS_3D_LOW = 0.75
+# Price must be within this multiple of N-day low (1.15 = within 15% above low)
+MAX_PRICE_VS_LOW = 1.15
 
-# Minimum pool age in hours
-MIN_POOL_AGE_HOURS = 12
+# Price must be at least this multiple of N-day low (0.80 = not more than 20% below)
+MIN_PRICE_VS_LOW = 0.80
+
+# Minimum pool age in hours (168 = 7 days)
+MIN_POOL_AGE_HOURS = 168
 
 # Optional: Minimum 1h volume as percentage of 24h volume (volume surge signal)
 # Set to 0 to disable this filter
 # 8-10% is a good range for volume surge when enabled
-MIN_1H_VOLUME_PERCENT = 8  # Set to 0 to disable (default), 8-10 to enable
-
-# How many tokens to fetch (API returns up to 100 per call)
-TOKEN_FETCH_LIMIT = 100
+MIN_1H_VOLUME_PERCENT = 0  # Set to 0 to disable (default), 8-10 to enable
 
 # Sleep between API calls to avoid rate limiting (seconds)
-API_SLEEP = 0.3
+API_SLEEP = 0
 
 # ============================================================================
 # STABLECOIN EXCLUSION LIST - Skip these tokens
@@ -101,12 +103,13 @@ EXCLUDED_SYMBOLS = [
     "sUSD", "aUSDC", "aUSDT", "cUSDC", "cUSDT",
     # Solana wrapped stables
     "UXD", "CASH", "USDH", "PAI",
+    "USDE","USDON","SUSDE","USDT"
 ]
 
 # ============================================================================
 # MULTI-CHAIN SETTINGS - Run screening on multiple chains sequentially
 # ============================================================================
-ENABLED_CHAINS = ["solana", "ethereum"]  # Chains to screen (in order)
+ENABLED_CHAINS = ["solana"]  # Chains to screen (in order)
 # Supported chains: solana, ethereum, arbitrum, avalanche, bsc, optimism, polygon, base, zksync, sui
 
 # ============================================================================
@@ -116,14 +119,9 @@ FEISHU_ENABLED = True  # Set to False to disable Feishu notifications
 SWARM_ENABLED = True   # Set to False to skip AI analysis
 
 # ============================================================================
-# CACHE SETTINGS - Skip tokens analyzed within this time window
-# ============================================================================
-CACHE_EXPIRY_HOURS = 1  # Don't re-analyze tokens within this time window
-
-# ============================================================================
 # CONTINUOUS RUN SETTINGS
 # ============================================================================
-RUN_INTERVAL_MINUTES = 60  # Run every 60 minutes (1 hour)
+RUN_INTERVAL_MINUTES = 4 * 60  # Run every 60 minutes (1 hour)
 CONTINUOUS_MODE = True     # Set to False for single run
 
 # ============================================================================
@@ -133,7 +131,6 @@ CONTINUOUS_MODE = True     # Set to False for single run
 DATA_FOLDER = Path(__file__).parent.parent / "data" / "screener_agent"
 RESULTS_FILE = DATA_FOLDER / "screened_tokens.csv"
 HISTORY_FILE = DATA_FOLDER / "screening_history.csv"
-CACHE_FILE = DATA_FOLDER / "analysis_cache.json"
 
 
 class TokenScreenerAgent:
@@ -168,50 +165,69 @@ class TokenScreenerAgent:
         cprint(f" Chain: {self.chain.upper()} ", "white", "on_blue")
         cprint("="*60, "cyan")
 
-    def get_tokens_v3(self, limit=TOKEN_FETCH_LIMIT):
+    def get_tokens_v3(self):
         """
-        Fetch tokens using Token List V3 API
-        This returns comprehensive data in a single call:
+        Fetch all tokens using Token List V3 API with pagination
+        This returns comprehensive data:
         - liquidity, volume (1h/2h/4h/8h/24h), holder count
         - price changes, trade counts, buy/sell ratios
         - recent_listing_time for pool age
+
+        Uses while loop to fetch all pages (API max 100 per call)
         """
         cprint(f"\n Fetching tokens via V3 API (sorted by 24h volume)...", "cyan")
 
         url = f"{BASE_URL}/defi/v3/token/list"
-
-        # V3 API parameters - filter by minimum liquidity and volume at API level
-        params = {
-            "sort_by": "volume_24h_usd",
-            "sort_type": "desc",
-            "offset": 0,
-            "limit": min(limit, 100),  # Max 100 per call
-            "min_liquidity": MIN_LIQUIDITY_USD,
-            "min_volume_24h_usd": MIN_VOLUME_24H_USD
-        }
-
         all_tokens = []
+        offset = 0
+        page_size = 100  # API maximum per call
 
         try:
-            response = self.session.get(url, headers=self.headers, params=params)
+            while True:
+                # V3 API parameters - filter by minimum volume at API level
+                params = {
+                    "sort_by": "volume_24h_usd",
+                    "sort_type": "desc",
+                    "offset": offset,
+                    "limit": page_size,
+                    "min_volume_24h_usd": MIN_VOLUME_24H_USD
+                }
 
-            if response.status_code == 200:
-                data = response.json()
+                response = self.session.get(url, headers=self.headers, params=params)
 
-                if data.get("success"):
-                    items = data.get("data", {}).get("items", [])
-                    all_tokens = items
-                    cprint(f" Fetched {len(items)} tokens from V3 API", "green")
+                if response.status_code == 200:
+                    data = response.json()
 
-                    # Check if there are more pages
-                    has_next = data.get("data", {}).get("hasNext", False)
-                    if has_next and len(all_tokens) < limit:
-                        cprint(f" More tokens available (hasNext=True)", "yellow")
+                    if data.get("success"):
+                        items = data.get("data", {}).get("items", [])
+
+                        if not items:
+                            # No more items
+                            break
+
+                        all_tokens.extend(items)
+                        cprint(f" Fetched {len(items)} tokens (total: {len(all_tokens)})", "green")
+
+                        # Check if there are more pages
+                        has_next = data.get("data", {}).get("has_next", False)
+                        if not has_next:
+                            break
+
+                        # Move to next page
+                        offset += page_size
+
+                        # Small delay to avoid rate limiting
+                        if API_SLEEP > 0:
+                            time.sleep(API_SLEEP)
+                    else:
+                        cprint(f" API returned success=false", "red")
+                        break
                 else:
-                    cprint(f" API returned success=false", "red")
-            else:
-                cprint(f" V3 API error: {response.status_code}", "red")
-                cprint(f" Response: {response.text[:200]}", "red")
+                    cprint(f" V3 API error: {response.status_code}", "red")
+                    cprint(f" Response: {response.text[:200]}", "red")
+                    break
+
+            cprint(f" Total fetched: {len(all_tokens)} tokens from V3 API", "green")
 
         except Exception as e:
             cprint(f" Error fetching V3 tokens: {e}", "red")
@@ -337,26 +353,26 @@ class TokenScreenerAgent:
             cprint(f" {symbol}: No volume surge {volume_1h_percent:.1f}% < {MIN_1H_VOLUME_PERCENT}%", "yellow")
             return None
 
-        # ===== FILTER 5 & 6: Price vs 3-day Low (requires OHLCV API call) =====
-        cprint(f" {symbol}: Passed initial filters, checking 3-day low...", "white")
+        # ===== FILTER 5 & 6: Price vs N-day Low (requires OHLCV API call) =====
+        cprint(f" {symbol}: Passed initial filters, checking {PRICE_LOW_DAYS}d low...", "white")
 
-        ohlcv = self.get_ohlcv_data(address, days_back=3)
+        ohlcv = self.get_ohlcv_data(address, days_back=PRICE_LOW_DAYS)
         time.sleep(API_SLEEP)
 
         if ohlcv is not None and len(ohlcv) > 0:
-            three_day_low = ohlcv['l'].min()  # 'l' is low price
+            period_low = ohlcv['l'].min()  # 'l' is low price
 
-            if three_day_low > 0 and current_price > 0:
-                price_vs_low_ratio = current_price / three_day_low
+            if period_low > 0 and current_price > 0:
+                price_vs_low_ratio = current_price / period_low
 
-                # Filter 5: Price should be within 12% of 3-day low
-                if price_vs_low_ratio > MAX_PRICE_VS_3D_LOW:
-                    cprint(f" {symbol}: Price {price_vs_low_ratio:.2f}x above 3d low (max {MAX_PRICE_VS_3D_LOW}x)", "yellow")
+                # Filter 5: Price should be within configured % of N-day low
+                if price_vs_low_ratio > MAX_PRICE_VS_LOW:
+                    cprint(f" {symbol}: Price {price_vs_low_ratio:.2f}x above {PRICE_LOW_DAYS}d low (max {MAX_PRICE_VS_LOW}x)", "yellow")
                     return None
 
-                # Filter 6: Price should not be more than 25% below 3-day low
-                if price_vs_low_ratio < MIN_PRICE_VS_3D_LOW:
-                    cprint(f" {symbol}: Price {price_vs_low_ratio:.2f}x of 3d low (min {MIN_PRICE_VS_3D_LOW}x)", "yellow")
+                # Filter 6: Price should not be too far below N-day low
+                if price_vs_low_ratio < MIN_PRICE_VS_LOW:
+                    cprint(f" {symbol}: Price {price_vs_low_ratio:.2f}x of {PRICE_LOW_DAYS}d low (min {MIN_PRICE_VS_LOW}x)", "yellow")
                     return None
             else:
                 cprint(f" {symbol}: Invalid price data", "yellow")
@@ -380,8 +396,8 @@ class TokenScreenerAgent:
             "holder_count": holder_count,
             "price_change_24h": round(price_change_24h, 2),
             "current_price": current_price,
-            "three_day_low": three_day_low,
-            "price_vs_3d_low": round(price_vs_low_ratio, 3),
+            "period_low": period_low,
+            "price_vs_low": round(price_vs_low_ratio, 3),
             "pool_age_hours": round(pool_age_hours, 1) if pool_age_hours < 99999 else "established",
             "volume_surge": volume_surge,
             "market_cap": token_data.get("market_cap", 0),
@@ -404,8 +420,8 @@ class TokenScreenerAgent:
         cprint(f"   24h Volume >= ${MIN_VOLUME_24H_USD:,}", "white")
         cprint(f"   Holders >= {MIN_HOLDERS:,}", "white")
         cprint(f"   24h Price Change >= {MAX_PRICE_DROP_24H}%", "white")
-        cprint(f"   Price <= {MAX_PRICE_VS_3D_LOW}x of 3-day low", "white")
-        cprint(f"   Price >= {MIN_PRICE_VS_3D_LOW}x of 3-day low", "white")
+        cprint(f"   Price <= {MAX_PRICE_VS_LOW}x of {PRICE_LOW_DAYS}-day low", "white")
+        cprint(f"   Price >= {MIN_PRICE_VS_LOW}x of {PRICE_LOW_DAYS}-day low", "white")
         cprint(f"   Pool Age >= {MIN_POOL_AGE_HOURS} hours", "white")
         if MIN_1H_VOLUME_PERCENT > 0:
             cprint(f"   1h Volume >= {MIN_1H_VOLUME_PERCENT}% of 24h (volume surge)", "white")
@@ -461,8 +477,8 @@ class TokenScreenerAgent:
         cprint(f"   Holders: {token['holder_count']:,}", "cyan")
         cprint(f"   24h Change: {token['price_change_24h']}%", "cyan")
         cprint(f"   Price: ${token['current_price']:.8f}", "cyan")
-        cprint(f"   3-Day Low: ${token['three_day_low']:.8f}", "cyan")
-        cprint(f"   Price vs 3d Low: {token['price_vs_3d_low']}x", "cyan")
+        cprint(f"   {PRICE_LOW_DAYS}-Day Low: ${token['period_low']:.8f}", "cyan")
+        cprint(f"   Price vs {PRICE_LOW_DAYS}d Low: {token['price_vs_low']}x", "cyan")
         cprint(f"   Pool Age: {token['pool_age_hours']} hours", "cyan")
         cprint(f"   Market Cap: ${token.get('market_cap', 0):,.0f}", "cyan")
         cprint(f"   Volume Surge: {'YES' if token['volume_surge'] else 'No'}",
@@ -496,101 +512,20 @@ class TokenScreenerAgent:
 
 
 # ============================================================================
-# CACHE MANAGEMENT - Skip recently analyzed tokens
-# ============================================================================
-
-def load_analysis_cache():
-    """Load the analysis cache from file"""
-    if CACHE_FILE.exists():
-        try:
-            with open(CACHE_FILE, 'r') as f:
-                cache = json.load(f)
-            return cache
-        except Exception as e:
-            cprint(f" Error loading cache: {e}", "yellow")
-    return {}
-
-
-def save_analysis_cache(cache):
-    """Save the analysis cache to file"""
-    try:
-        with open(CACHE_FILE, 'w') as f:
-            json.dump(cache, f, indent=2)
-    except Exception as e:
-        cprint(f" Error saving cache: {e}", "yellow")
-
-
-def is_token_cached(address, cache):
-    """Check if token was analyzed within CACHE_EXPIRY_HOURS"""
-    if address not in cache:
-        return False
-
-    cached_time = cache[address].get("analyzed_at")
-    if not cached_time:
-        return False
-
-    try:
-        cached_datetime = datetime.fromisoformat(cached_time)
-        expiry_time = cached_datetime + timedelta(hours=CACHE_EXPIRY_HOURS)
-        if datetime.now() < expiry_time:
-            return True
-    except Exception:
-        pass
-
-    return False
-
-
-def update_cache_for_tokens(tokens, cache):
-    """Update cache with newly analyzed tokens"""
-    now = datetime.now().isoformat()
-    for token in tokens:
-        address = token.get("address")
-        if address:
-            cache[address] = {
-                "symbol": token.get("symbol"),
-                "analyzed_at": now,
-                "price": token.get("current_price"),
-                "market_cap": token.get("market_cap")
-            }
-    return cache
-
-
-def filter_uncached_tokens(tokens):
-    """Filter out tokens that were analyzed within CACHE_EXPIRY_HOURS"""
-    cache = load_analysis_cache()
-
-    uncached = []
-    cached_count = 0
-
-    for token in tokens:
-        address = token.get("address")
-        if is_token_cached(address, cache):
-            cached_count += 1
-            cprint(f" {token.get('symbol')}: Skipping (cached within {CACHE_EXPIRY_HOURS}h)", "yellow")
-        else:
-            uncached.append(token)
-
-    if cached_count > 0:
-        cprint(f"\n Skipped {cached_count} cached tokens, {len(uncached)} new tokens to analyze", "cyan")
-
-    return uncached, cache
-
-
-# ============================================================================
 # SWARM ANALYSIS
 # ============================================================================
 
 def create_analysis_prompt(tokens):
     """Create prompt for swarm agents to analyze screened tokens"""
 
-    prompt = """You are analyzing tokens that passed a strict screening filter for potential buying opportunities.
+    prompt = f"""You are analyzing tokens that passed a strict screening filter for potential buying opportunities.
 
 All tokens below have already passed these criteria:
-- Liquidity >= $800K (hard to rug)
-- 24h Volume >= $10M (active trading)
-- Holders >= 4,000 (good distribution)
-- Price within 12% of 3-day low (near bottom)
-- Pool age >= 12 hours (not brand new)
+- Liquidity >= ${MIN_LIQUIDITY_USD:,} (hard to rug)
+- 24h Volume >= ${MIN_VOLUME_24H_USD:,} (active trading)
+- Holders >= {MIN_HOLDERS:,} (good distribution)
+- Price within {int((MAX_PRICE_VS_LOW - 1) * 100)}% of {PRICE_LOW_DAYS}-day low (near bottom)
+- Pool age >= {MIN_POOL_AGE_HOURS} hours (not brand new)
 - No extreme price drops (not rugging)
 
 Here are the screened tokens:
@@ -598,7 +533,7 @@ Here are the screened tokens:
 """
 
     for i, token in enumerate(tokens, 1):
-        prompt += f"\n{i}. **{token['symbol']}** ({token['name']})\n"
+        prompt += f"\n{i}. **{token['symbol']}** ({token['name']}) [{token.get('chain', 'unknown').upper()}]\n"
         prompt += f"   - Price: ${token['current_price']:.8f}\n"
         prompt += f"   - Market Cap: ${token.get('market_cap', 0):,.0f}\n"
         prompt += f"   - 24h Volume: ${token['volume_24h_usd']:,.0f}\n"
@@ -606,19 +541,19 @@ Here are the screened tokens:
         prompt += f"   - Liquidity: ${token['liquidity_usd']:,.0f}\n"
         prompt += f"   - Holders: {token['holder_count']:,}\n"
         prompt += f"   - 24h Price Change: {token['price_change_24h']}%\n"
-        prompt += f"   - Price vs 3-Day Low: {token['price_vs_3d_low']}x\n"
+        prompt += f"   - Price vs {PRICE_LOW_DAYS}-Day Low: {token['price_vs_low']}x\n"
         prompt += f"   - Volume Surge: {'YES' if token['volume_surge'] else 'No'}\n"
         prompt += f"   - Buy/Sell 24h: {token.get('buy_24h', 0)}/{token.get('sell_24h', 0)}\n"
         prompt += f"   - Unique Wallets 24h: {token.get('unique_wallet_24h', 0)}\n"
 
-    prompt += """
+    prompt += f"""
 
 Based on the data above, analyze each token and recommend:
 1. Which token(s) would you BUY now and why?
 2. Which token(s) should be AVOIDED and why?
 3. What's your confidence level (1-10) for your top pick?
 
-Focus on: volume momentum, price position vs 3d low, holder distribution, and market cap.
+Focus on: volume momentum, price position vs {PRICE_LOW_DAYS}d low, holder distribution, and market cap.
 Be concise and direct. Give actionable recommendations."""
 
     return prompt
@@ -712,7 +647,7 @@ def send_feishu_report(tokens, swarm_result):
         # ============================================
         # Message 1: Screened Tokens Table
         # ============================================
-        headers = ["#", "Symbol", "Price", "MCap", "Vol24h", "24h%", "vs3dLow"]
+        headers = ["#", "Symbol", "Price", "MCap", "Vol24h", "24h%", f"vs{PRICE_LOW_DAYS}dLow"]
         rows = []
 
         for i, t in enumerate(tokens, 1):
@@ -720,7 +655,7 @@ def send_feishu_report(tokens, swarm_result):
             mcap = format_volume(t.get('market_cap', 0))
             vol = format_volume(t['volume_24h_usd'])
             chg = f"{t['price_change_24h']:+.1f}%"
-            vs_low = f"{t['price_vs_3d_low']:.3f}x"
+            vs_low = f"{t['price_vs_low']:.3f}x"
             rows.append([str(i), t['symbol'][:8], price, mcap, vol, chg, vs_low])
 
         send_table_card(
@@ -741,7 +676,7 @@ def send_feishu_report(tokens, swarm_result):
             content_parts.append(f"- Liquidity >= ${MIN_LIQUIDITY_USD:,}")
             content_parts.append(f"- Volume 24h >= ${MIN_VOLUME_24H_USD:,}")
             content_parts.append(f"- Holders >= {MIN_HOLDERS:,}")
-            content_parts.append(f"- Price vs 3d Low <= {MAX_PRICE_VS_3D_LOW}x")
+            content_parts.append(f"- Price vs {PRICE_LOW_DAYS}d Low <= {MAX_PRICE_VS_LOW}x")
             content_parts.append("")
             content_parts.append("**AI Consensus:**")
             content_parts.append(swarm_result["consensus_summary"])
@@ -793,7 +728,7 @@ def send_feishu_report(tokens, swarm_result):
 
 def run_single_chain(chain):
     """
-    Run screening for a single chain
+    Run screening for a single chain (screening only, no AI analysis)
 
     Args:
         chain: Chain name (solana, ethereum, etc.)
@@ -812,34 +747,7 @@ def run_single_chain(chain):
         cprint(f"\n Found {len(results)} tokens on {chain.upper()} matching all criteria!", "green", attrs=["bold"])
         for token in results:
             cprint(f"  - [{chain.upper()}] {token['symbol']}: {token['dexscreener_link']}", "cyan")
-
-        # Filter out cached tokens (analyzed within CACHE_EXPIRY_HOURS)
-        uncached_tokens, cache = filter_uncached_tokens(results)
-
-        if uncached_tokens:
-            cprint(f"\n {len(uncached_tokens)} new {chain.upper()} tokens to analyze with AI Swarm", "cyan", attrs=["bold"])
-
-            # Run swarm analysis only on uncached tokens
-            swarm_result = run_swarm_analysis(uncached_tokens)
-
-            # Display results
-            if swarm_result:
-                display_swarm_results(swarm_result)
-
-            # Send to Feishu
-            send_feishu_report(uncached_tokens, swarm_result)
-
-            # Update cache with analyzed tokens
-            cache = update_cache_for_tokens(uncached_tokens, cache)
-            save_analysis_cache(cache)
-            cprint(f" Cache updated with {len(uncached_tokens)} {chain.upper()} tokens", "green")
-
-        else:
-            cprint(f"\n All {len(results)} {chain.upper()} tokens were recently analyzed (within {CACHE_EXPIRY_HOURS}h)", "yellow")
-            cprint(" Skipping swarm analysis and notifications", "yellow")
-
         return results
-
     else:
         cprint(f"\n No tokens matched screening criteria on {chain.upper()}", "yellow")
         return []
@@ -848,6 +756,7 @@ def run_single_chain(chain):
 def run_screening_cycle():
     """
     Run one complete screening cycle across all enabled chains
+    Collects all results first, then runs AI analysis on combined results
     """
     cprint("\n" + "="*60, "cyan")
     cprint(" Moon Dev's Multi-Chain Token Screener", "white", "on_cyan")
@@ -858,7 +767,13 @@ def run_screening_cycle():
     all_results = {}
     total_tokens = 0
 
-    # Run screening for each enabled chain sequentially
+    # ============================================
+    # Phase 1: Screen all chains and collect results
+    # ============================================
+    cprint("\n" + "="*60, "yellow")
+    cprint(" PHASE 1: Screening All Chains", "white", "on_yellow")
+    cprint("="*60, "yellow")
+
     for chain in ENABLED_CHAINS:
         results = run_single_chain(chain)
         all_results[chain] = results
@@ -869,9 +784,9 @@ def run_screening_cycle():
             cprint(f"\n Waiting 2 seconds before next chain...", "yellow")
             time.sleep(2)
 
-    # Final summary
+    # Screening summary
     cprint("\n" + "="*60, "green")
-    cprint(" MULTI-CHAIN SCREENING COMPLETE", "white", "on_green")
+    cprint(" SCREENING COMPLETE", "white", "on_green")
     cprint("="*60, "green")
 
     for chain, results in all_results.items():
@@ -879,9 +794,43 @@ def run_screening_cycle():
 
     cprint(f"\n Total: {total_tokens} tokens across {len(ENABLED_CHAINS)} chains", "green", attrs=["bold"])
 
-    if total_tokens == 0 and FEISHU_ENABLED:
-        chains_str = ", ".join(c.upper() for c in ENABLED_CHAINS)
-        send_text(f"Token Screener: No tokens matched on {chains_str} at {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    if total_tokens == 0:
+        if FEISHU_ENABLED:
+            chains_str = ", ".join(c.upper() for c in ENABLED_CHAINS)
+            send_text(f"Token Screener: No tokens matched on {chains_str} at {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+        return total_tokens
+
+    # ============================================
+    # Phase 2: AI Swarm Analysis
+    # ============================================
+    cprint("\n" + "="*60, "yellow")
+    cprint(" PHASE 2: AI Swarm Analysis", "white", "on_yellow")
+    cprint("="*60, "yellow")
+
+    # Combine all tokens from all chains
+    all_tokens_combined = []
+    for chain, results in all_results.items():
+        all_tokens_combined.extend(results)
+
+    cprint(f"\n {len(all_tokens_combined)} tokens to analyze with AI Swarm", "cyan", attrs=["bold"])
+
+    # Show breakdown by chain
+    chain_counts = {}
+    for token in all_tokens_combined:
+        chain = token.get('chain', 'unknown')
+        chain_counts[chain] = chain_counts.get(chain, 0) + 1
+    for chain, count in chain_counts.items():
+        cprint(f"   - {chain.upper()}: {count} tokens", "white")
+
+    # Run swarm analysis on all tokens
+    swarm_result = run_swarm_analysis(all_tokens_combined)
+
+    # Display results
+    if swarm_result:
+        display_swarm_results(swarm_result)
+
+    # Send to Feishu
+    send_feishu_report(all_tokens_combined, swarm_result)
 
     return total_tokens
 

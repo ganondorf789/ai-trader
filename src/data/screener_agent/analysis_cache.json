@@ -1,33 +1,33 @@
 {
   "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB": {
     "symbol": "USDT",
-    "analyzed_at": "2025-12-04T14:21:53.292617",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
     "price": 1.00031,
-    "market_cap": 2740766648.130787
+    "market_cap": 2740766646.357318
   },
   "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij": {
     "symbol": "cbBTC",
-    "analyzed_at": "2025-12-04T14:21:53.292617",
-    "price": 93006.74849381996,
-    "market_cap": 405755640.94332683
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 92611.5801366129,
+    "market_cap": 404031660.7050141
   },
   "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4": {
     "symbol": "JLP",
-    "analyzed_at": "2025-12-04T14:21:53.292617",
-    "price": 4.823079464314809,
-    "market_cap": 1756666395.4507878
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 4.80330254208635,
+    "market_cap": 1748658023.205278
   },
   "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN": {
     "symbol": "TRUMP",
-    "analyzed_at": "2025-12-04T14:21:53.292617",
-    "price": 6.087213621818418,
-    "market_cap": 1217437961.6921058
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 6.026973199248409,
+    "market_cap": 1205389922.9689467
   },
   "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599": {
     "symbol": "WBTC",
-    "analyzed_at": "2025-12-04T14:28:40.567172",
-    "price": 92993.44920288766,
-    "market_cap": 11620785851.257357
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 92522.95902270197,
+    "market_cap": 11561991756.87842
   },
   "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497": {
     "symbol": "SUSDE",
@@ -43,32 +43,140 @@
   },
   "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
     "symbol": "CBBTC",
-    "analyzed_at": "2025-12-04T14:28:40.567172",
-    "price": 93202.56892310508,
-    "market_cap": 3845770502.6482134
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 92752.7640485271,
+    "market_cap": 3827210431.4121237
   },
   "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD": {
     "symbol": "SUSDS",
-    "analyzed_at": "2025-12-04T14:28:40.567172",
-    "price": 1.0777412432855573,
-    "market_cap": 4244038265.827673
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 1.0777695424579796,
+    "market_cap": 4262104841.5289774
   },
   "0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E": {
     "symbol": "CRVUSD",
-    "analyzed_at": "2025-12-04T14:28:40.567172",
-    "price": 0.9998908243516106,
-    "market_cap": 1380658453.2266655
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 0.9996810056906293,
+    "market_cap": 1380368733.6884186
   },
   "0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f": {
     "symbol": "GHO",
-    "analyzed_at": "2025-12-04T14:28:40.567172",
-    "price": 1.0000636437969674,
-    "market_cap": 428234404.6379821
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 0.9999947613539811,
+    "market_cap": 428555273.91686636
   },
   "0x18084fbA666a33d37592fA2633fD49a74DD93a88": {
     "symbol": "TBTC",
-    "analyzed_at": "2025-12-04T14:28:40.567172",
-    "price": 92889.72363417508,
-    "market_cap": 572293952.2116407
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 92009.5648587928,
+    "market_cap": 566458078.6958591
+  },
+  "7m4i7gb6BfucvdFfPkd1CNr55TjpE66HwtQsJ5L9cXvq": {
+    "symbol": "XRP",
+    "analyzed_at": "2025-12-04T21:47:09.706791",
+    "price": 2.1496192308130153,
+    "market_cap": 214961920.9316823
+  },
+  "0x68749665FF8D2d112Fa859AA293F07A622782F38": {
+    "symbol": "XAUT",
+    "analyzed_at": "2025-12-04T21:48:01.477951",
+    "price": 4192.919098480142,
+    "market_cap": 2189078197.082128
+  },
+  "GReSFsj7nhmqhqY5fbiVa3aBJPLvFvWwo1rWwYYGr21G": {
+    "symbol": "CHE TOKEN",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 0.00032000210738786445,
+    "market_cap": 320002.1067478602
+  },
+  "5Li8B4ZFFBaVfb4ELTtZNEAJkcxfdd2ubvt7atKoc85z": {
+    "symbol": "TheToken",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 0.006428470212176193,
+    "market_cap": 8289434.843392793
+  },
+  "0x2EdC30CF3BB7c840c41C1BC3485Aa3619C46465a": {
+    "symbol": "BURNETH",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 2.0046933754588664e-08,
+    "market_cap": 2780.910650436339
+  },
+  "0x2Cf79C91a67ec833f0aC2060E54481a6DB9DeD4a": {
+    "symbol": "DEON",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 0.69462648585104,
+    "market_cap": 14587156.20287184
+  },
+  "0x49e5a0F5E776802B89804C9183c2Ece6912cf49A": {
+    "symbol": "YODA",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 0.5680516009550727,
+    "market_cap": 568051600.9550726
+  },
+  "0x2615e47a9372ba141128c585B63Eb6418a91d017": {
+    "symbol": "CZI",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 0.3544063032334787,
+    "market_cap": 354406303.2334787
+  },
+  "0xDB179BB6F5516e2Bf6069848462Df6239F5428Fd": {
+    "symbol": "CULTB",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 1.4678706421541041,
+    "market_cap": 1467870642.1541042
+  },
+  "0xc653bF6C1AC372Ab520383561468B9e73a59b337": {
+    "symbol": "AGW",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 2.1289736072969323e-08,
+    "market_cap": 21.289736072969323
+  },
+  "0x0feE4CA81c7982eACCc655A7CAbE3cF05C3b8db9": {
+    "symbol": "SSX",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 2.8980614254581347e-06,
+    "market_cap": 22604.87911857345
+  },
+  "0x7Ea2b10f66a90591CBD2dcFF129F8F90983b260e": {
+    "symbol": "BST",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 1.0480496579140595e-15,
+    "market_cap": 1.0480496579140595e-07
+  },
+  "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a": {
+    "symbol": "AUSD",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 0.9996487587348684,
+    "market_cap": 68287590.40498708
+  },
+  "0x45804880De22913dAFE09f4980848ECE6EcbAf78": {
+    "symbol": "PAXG",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 4199.775016395853,
+    "market_cap": 1423553270.0898285
+  },
+  "0x8292Bb45bf1Ee4d140127049757C2E0fF06317eD": {
+    "symbol": "RLUSD",
+    "analyzed_at": "2025-12-04T21:57:30.045614",
+    "price": 0.9998127777142857,
+    "market_cap": 1045526628.141298
+  },
+  "0x2f6Ae7C81a57353EB5aaBb6653428382a498CE97": {
+    "symbol": "BURNETH",
+    "analyzed_at": "2025-12-04T22:11:31.292579",
+    "price": 3.0391400990951656,
+    "market_cap": 182576341453.14206
+  },
+  "0x0BEE91533Be2EDE0936Ea53457Ce7bd9b0B398c6": {
+    "symbol": "SBI",
+    "analyzed_at": "2025-12-04T22:11:31.292579",
+    "price": 0.016189068036542294,
+    "market_cap": 13576834.98824472
+  },
+  "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN": {
+    "symbol": "JUP",
+    "analyzed_at": "2025-12-04T22:25:02.975867",
+    "price": 0.2518177582059045,
+    "market_cap": 789938923.4888736
   }
 }
