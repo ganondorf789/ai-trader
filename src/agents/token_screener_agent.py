@@ -82,7 +82,7 @@ MIN_POOL_AGE_HOURS = 12
 # Optional: Minimum 1h volume as percentage of 24h volume (volume surge signal)
 # Set to 0 to disable this filter
 # 8-10% is a good range for volume surge when enabled
-MIN_1H_VOLUME_PERCENT = 0  # Set to 0 to disable (default), 8-10 to enable
+MIN_1H_VOLUME_PERCENT = 8  # Set to 0 to disable (default), 8-10 to enable
 
 # How many tokens to fetch (API returns up to 100 per call)
 TOKEN_FETCH_LIMIT = 100
