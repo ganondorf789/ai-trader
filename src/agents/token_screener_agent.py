@@ -104,6 +104,12 @@ EXCLUDED_SYMBOLS = [
 ]
 
 # ============================================================================
+# MULTI-CHAIN SETTINGS - Run screening on multiple chains sequentially
+# ============================================================================
+ENABLED_CHAINS = ["solana", "ethereum"]  # Chains to screen (in order)
+# Supported chains: solana, ethereum, arbitrum, avalanche, bsc, optimism, polygon, base, zksync, sui
+
+# ============================================================================
 # FEISHU & SWARM SETTINGS
 # ============================================================================
 FEISHU_ENABLED = True  # Set to False to disable Feishu notifications
@@ -126,15 +132,23 @@ CACHE_FILE = DATA_FOLDER / "analysis_cache.json"
 
 class TokenScreenerAgent:
     """
-    Moon Dev's Token Screener Agent V2
+    Moon Dev's Token Screener Agent V3
     Uses Token List V3 API for efficient bulk data fetching
+    Supports multiple chains: solana, ethereum, arbitrum, etc.
     Only needs OHLCV calls for 3-day low calculation
     """
 
-    def __init__(self):
+    def __init__(self, chain="solana"):
+        """
+        Initialize the screener for a specific chain
+
+        Args:
+            chain: Chain to screen (solana, ethereum, arbitrum, avalanche, bsc, optimism, polygon, base, zksync, sui)
+        """
+        self.chain = chain.lower()
         self.headers = {
             "X-API-KEY": BIRDEYE_API_KEY,
-            "x-chain": "solana",
+            "x-chain": self.chain,
             "accept": "application/json"
         }
         self.session = requests.Session()
@@ -144,8 +158,8 @@ class TokenScreenerAgent:
         DATA_FOLDER.mkdir(parents=True, exist_ok=True)
 
         cprint("\n" + "="*60, "cyan")
-        cprint(" Moon Dev's Token Screener Agent V2 ", "white", "on_magenta")
-        cprint(" Using Token List V3 API for efficiency ", "white", "on_blue")
+        cprint(" Moon Dev's Token Screener Agent V3 ", "white", "on_magenta")
+        cprint(f" Chain: {self.chain.upper()} ", "white", "on_blue")
         cprint("="*60, "cyan")
 
     def get_tokens_v3(self, limit=TOKEN_FETCH_LIMIT):
@@ -352,6 +366,7 @@ class TokenScreenerAgent:
             "address": address,
             "symbol": symbol,
             "name": name,
+            "chain": self.chain,
             "liquidity_usd": liquidity,
             "volume_24h_usd": volume_24h,
             "volume_1h_usd": volume_1h,
@@ -369,15 +384,15 @@ class TokenScreenerAgent:
             "sell_24h": token_data.get("sell_24h", 0),
             "unique_wallet_24h": token_data.get("unique_wallet_24h", 0),
             "screened_at": datetime.now().isoformat(),
-            "birdeye_link": f"https://birdeye.so/token/{address}?chain=solana",
-            "dexscreener_link": f"https://dexscreener.com/solana/{address}"
+            "birdeye_link": f"https://birdeye.so/token/{address}?chain={self.chain}",
+            "dexscreener_link": f"https://dexscreener.com/{self.chain}/{address}"
         }
 
     def run(self):
         """
         Main screening loop using V3 API
         """
-        cprint("\n Starting token screening (V3 API)...", "cyan")
+        cprint(f"\n Starting token screening on {self.chain.upper()} (V3 API)...", "cyan")
         cprint(f" Criteria:", "white")
         cprint(f"   Liquidity >= ${MIN_LIQUIDITY_USD:,}", "white")
         cprint(f"   24h Volume >= ${MIN_VOLUME_24H_USD:,}", "white")
@@ -770,23 +785,33 @@ def send_feishu_report(tokens, swarm_result):
         cprint(f" Feishu notification error: {e}", "red")
 
 
-def main():
+def run_single_chain(chain):
     """
-    Main entry point for standalone execution
+    Run screening for a single chain
+
+    Args:
+        chain: Chain name (solana, ethereum, etc.)
+
+    Returns:
+        List of screened tokens for this chain
     """
-    agent = TokenScreenerAgent()
+    cprint(f"\n{'='*60}", "magenta")
+    cprint(f" SCREENING CHAIN: {chain.upper()}", "white", "on_magenta")
+    cprint(f"{'='*60}", "magenta")
+
+    agent = TokenScreenerAgent(chain=chain)
     results = agent.run()
 
     if results:
-        cprint(f"\n Found {len(results)} tokens matching all criteria!", "green", attrs=["bold"])
+        cprint(f"\n Found {len(results)} tokens on {chain.upper()} matching all criteria!", "green", attrs=["bold"])
         for token in results:
-            cprint(f"  - {token['symbol']}: {token['dexscreener_link']}", "cyan")
+            cprint(f"  - [{chain.upper()}] {token['symbol']}: {token['dexscreener_link']}", "cyan")
 
         # Filter out cached tokens (analyzed within CACHE_EXPIRY_HOURS)
         uncached_tokens, cache = filter_uncached_tokens(results)
 
         if uncached_tokens:
-            cprint(f"\n {len(uncached_tokens)} new tokens to analyze with AI Swarm", "cyan", attrs=["bold"])
+            cprint(f"\n {len(uncached_tokens)} new {chain.upper()} tokens to analyze with AI Swarm", "cyan", attrs=["bold"])
 
             # Run swarm analysis only on uncached tokens
             swarm_result = run_swarm_analysis(uncached_tokens)
@@ -801,17 +826,55 @@ def main():
             # Update cache with analyzed tokens
             cache = update_cache_for_tokens(uncached_tokens, cache)
             save_analysis_cache(cache)
-            cprint(f" Cache updated with {len(uncached_tokens)} tokens", "green")
+            cprint(f" Cache updated with {len(uncached_tokens)} {chain.upper()} tokens", "green")
 
         else:
-            cprint(f"\n All {len(results)} tokens were recently analyzed (within {CACHE_EXPIRY_HOURS}h)", "yellow")
+            cprint(f"\n All {len(results)} {chain.upper()} tokens were recently analyzed (within {CACHE_EXPIRY_HOURS}h)", "yellow")
             cprint(" Skipping swarm analysis and notifications", "yellow")
 
+        return results
+
     else:
-        cprint("\n No tokens matched all screening criteria", "yellow")
-        # Still notify Feishu that no tokens found
-        if FEISHU_ENABLED:
-            send_text(f"Token Screener: No tokens matched screening criteria at {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+        cprint(f"\n No tokens matched screening criteria on {chain.upper()}", "yellow")
+        return []
+
+
+def main():
+    """
+    Main entry point - runs screening on all enabled chains sequentially
+    """
+    cprint("\n" + "="*60, "cyan")
+    cprint(" Moon Dev's Multi-Chain Token Screener", "white", "on_cyan")
+    cprint(f" Chains: {', '.join(c.upper() for c in ENABLED_CHAINS)}", "cyan")
+    cprint("="*60, "cyan")
+
+    all_results = {}
+    total_tokens = 0
+
+    # Run screening for each enabled chain sequentially
+    for chain in ENABLED_CHAINS:
+        results = run_single_chain(chain)
+        all_results[chain] = results
+        total_tokens += len(results)
+
+        # Small delay between chains to avoid rate limiting
+        if chain != ENABLED_CHAINS[-1]:
+            cprint(f"\n Waiting 2 seconds before next chain...", "yellow")
+            time.sleep(2)
+
+    # Final summary
+    cprint("\n" + "="*60, "green")
+    cprint(" MULTI-CHAIN SCREENING COMPLETE", "white", "on_green")
+    cprint("="*60, "green")
+
+    for chain, results in all_results.items():
+        cprint(f" {chain.upper()}: {len(results)} tokens found", "cyan")
+
+    cprint(f"\n Total: {total_tokens} tokens across {len(ENABLED_CHAINS)} chains", "green", attrs=["bold"])
+
+    if total_tokens == 0 and FEISHU_ENABLED:
+        chains_str = ", ".join(c.upper() for c in ENABLED_CHAINS)
+        send_text(f"Token Screener: No tokens matched on {chains_str} at {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
 
 if __name__ == "__main__":
