@@ -110,12 +110,18 @@ FEISHU_ENABLED = True  # Set to False to disable Feishu notifications
 SWARM_ENABLED = True   # Set to False to skip AI analysis
 
 # ============================================================================
+# CACHE SETTINGS - Skip tokens analyzed within this time window
+# ============================================================================
+CACHE_EXPIRY_HOURS = 1  # Don't re-analyze tokens within this time window
+
+# ============================================================================
 # DATA PATHS
 # ============================================================================
 
 DATA_FOLDER = Path(__file__).parent.parent / "data" / "screener_agent"
 RESULTS_FILE = DATA_FOLDER / "screened_tokens.csv"
 HISTORY_FILE = DATA_FOLDER / "screening_history.csv"
+CACHE_FILE = DATA_FOLDER / "analysis_cache.json"
 
 
 class TokenScreenerAgent:
@@ -469,6 +475,87 @@ class TokenScreenerAgent:
 
 
 # ============================================================================
+# CACHE MANAGEMENT - Skip recently analyzed tokens
+# ============================================================================
+
+def load_analysis_cache():
+    """Load the analysis cache from file"""
+    if CACHE_FILE.exists():
+        try:
+            with open(CACHE_FILE, 'r') as f:
+                cache = json.load(f)
+            return cache
+        except Exception as e:
+            cprint(f" Error loading cache: {e}", "yellow")
+    return {}
+
+
+def save_analysis_cache(cache):
+    """Save the analysis cache to file"""
+    try:
+        with open(CACHE_FILE, 'w') as f:
+            json.dump(cache, f, indent=2)
+    except Exception as e:
+        cprint(f" Error saving cache: {e}", "yellow")
+
+
+def is_token_cached(address, cache):
+    """Check if token was analyzed within CACHE_EXPIRY_HOURS"""
+    if address not in cache:
+        return False
+
+    cached_time = cache[address].get("analyzed_at")
+    if not cached_time:
+        return False
+
+    try:
+        cached_datetime = datetime.fromisoformat(cached_time)
+        expiry_time = cached_datetime + timedelta(hours=CACHE_EXPIRY_HOURS)
+        if datetime.now() < expiry_time:
+            return True
+    except Exception:
+        pass
+
+    return False
+
+
+def update_cache_for_tokens(tokens, cache):
+    """Update cache with newly analyzed tokens"""
+    now = datetime.now().isoformat()
+    for token in tokens:
+        address = token.get("address")
+        if address:
+            cache[address] = {
+                "symbol": token.get("symbol"),
+                "analyzed_at": now,
+                "price": token.get("current_price"),
+                "market_cap": token.get("market_cap")
+            }
+    return cache
+
+
+def filter_uncached_tokens(tokens):
+    """Filter out tokens that were analyzed within CACHE_EXPIRY_HOURS"""
+    cache = load_analysis_cache()
+
+    uncached = []
+    cached_count = 0
+
+    for token in tokens:
+        address = token.get("address")
+        if is_token_cached(address, cache):
+            cached_count += 1
+            cprint(f" {token.get('symbol')}: Skipping (cached within {CACHE_EXPIRY_HOURS}h)", "yellow")
+        else:
+            uncached.append(token)
+
+    if cached_count > 0:
+        cprint(f"\n Skipped {cached_count} cached tokens, {len(uncached)} new tokens to analyze", "cyan")
+
+    return uncached, cache
+
+
+# ============================================================================
 # SWARM ANALYSIS
 # ============================================================================
 
@@ -695,15 +782,30 @@ def main():
         for token in results:
             cprint(f"  - {token['symbol']}: {token['dexscreener_link']}", "cyan")
 
-        # Run swarm analysis
-        swarm_result = run_swarm_analysis(results)
+        # Filter out cached tokens (analyzed within CACHE_EXPIRY_HOURS)
+        uncached_tokens, cache = filter_uncached_tokens(results)
 
-        # Display results
-        if swarm_result:
-            display_swarm_results(swarm_result)
+        if uncached_tokens:
+            cprint(f"\n {len(uncached_tokens)} new tokens to analyze with AI Swarm", "cyan", attrs=["bold"])
 
-        # Send to Feishu
-        send_feishu_report(results, swarm_result)
+            # Run swarm analysis only on uncached tokens
+            swarm_result = run_swarm_analysis(uncached_tokens)
+
+            # Display results
+            if swarm_result:
+                display_swarm_results(swarm_result)
+
+            # Send to Feishu
+            send_feishu_report(uncached_tokens, swarm_result)
+
+            # Update cache with analyzed tokens
+            cache = update_cache_for_tokens(uncached_tokens, cache)
+            save_analysis_cache(cache)
+            cprint(f" Cache updated with {len(uncached_tokens)} tokens", "green")
+
+        else:
+            cprint(f"\n All {len(results)} tokens were recently analyzed (within {CACHE_EXPIRY_HOURS}h)", "yellow")
+            cprint(" Skipping swarm analysis and notifications", "yellow")
 
     else:
         cprint("\n No tokens matched all screening criteria", "yellow")

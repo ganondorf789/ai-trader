@@ -11,7 +11,8 @@
       "WebFetch(domain:medium.com)",
       "Bash(conda activate:*)",
       "Bash(python:*)",
-      "WebFetch(domain:birdeye-py.readthedocs.io)"
+      "WebFetch(domain:birdeye-py.readthedocs.io)",
+      "Bash(set:*)"
     ],
     "deny": [],
     "ask": []
