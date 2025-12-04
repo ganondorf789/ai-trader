@@ -121,6 +121,12 @@ SWARM_ENABLED = True   # Set to False to skip AI analysis
 CACHE_EXPIRY_HOURS = 1  # Don't re-analyze tokens within this time window
 
 # ============================================================================
+# CONTINUOUS RUN SETTINGS
+# ============================================================================
+RUN_INTERVAL_MINUTES = 60  # Run every 60 minutes (1 hour)
+CONTINUOUS_MODE = True     # Set to False for single run
+
+# ============================================================================
 # DATA PATHS
 # ============================================================================
 
@@ -839,13 +845,14 @@ def run_single_chain(chain):
         return []
 
 
-def main():
+def run_screening_cycle():
     """
-    Main entry point - runs screening on all enabled chains sequentially
+    Run one complete screening cycle across all enabled chains
     """
     cprint("\n" + "="*60, "cyan")
     cprint(" Moon Dev's Multi-Chain Token Screener", "white", "on_cyan")
     cprint(f" Chains: {', '.join(c.upper() for c in ENABLED_CHAINS)}", "cyan")
+    cprint(f" Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", "cyan")
     cprint("="*60, "cyan")
 
     all_results = {}
@@ -875,6 +882,59 @@ def main():
     if total_tokens == 0 and FEISHU_ENABLED:
         chains_str = ", ".join(c.upper() for c in ENABLED_CHAINS)
         send_text(f"Token Screener: No tokens matched on {chains_str} at {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+
+    return total_tokens
+
+
+def main():
+    """
+    Main entry point - supports both single run and continuous mode
+    """
+    import sys
+
+    # Check for --once flag to force single run
+    single_run = "--once" in sys.argv or not CONTINUOUS_MODE
+
+    if single_run:
+        cprint("\n" + "="*60, "yellow")
+        cprint(" SINGLE RUN MODE", "white", "on_yellow")
+        cprint("="*60, "yellow")
+        run_screening_cycle()
+    else:
+        # Continuous mode
+        cprint("\n" + "="*60, "green")
+        cprint(" CONTINUOUS MODE - Token Screener", "white", "on_green")
+        cprint(f" Running every {RUN_INTERVAL_MINUTES} minutes", "green")
+        cprint(f" Chains: {', '.join(c.upper() for c in ENABLED_CHAINS)}", "green")
+        cprint(" Press Ctrl+C to stop", "yellow")
+        cprint("="*60, "green")
+
+        run_count = 0
+
+        try:
+            while True:
+                run_count += 1
+                cprint(f"\n{'#'*60}", "magenta")
+                cprint(f" RUN #{run_count} - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", "white", "on_magenta")
+                cprint(f"{'#'*60}", "magenta")
+
+                # Run screening cycle
+                total_tokens = run_screening_cycle()
+
+                # Calculate next run time
+                next_run = datetime.now() + timedelta(minutes=RUN_INTERVAL_MINUTES)
+                cprint(f"\n Run #{run_count} complete. Found {total_tokens} tokens.", "green")
+                cprint(f" Next run at: {next_run.strftime('%Y-%m-%d %H:%M:%S')}", "cyan")
+                cprint(f" Sleeping for {RUN_INTERVAL_MINUTES} minutes...", "yellow")
+
+                # Sleep until next run
+                time.sleep(RUN_INTERVAL_MINUTES * 60)
+
+        except KeyboardInterrupt:
+            cprint("\n\n" + "="*60, "yellow")
+            cprint(" Token Screener stopped by user", "white", "on_yellow")
+            cprint(f" Total runs completed: {run_count}", "cyan")
+            cprint("="*60, "yellow")
 
 
 if __name__ == "__main__":
