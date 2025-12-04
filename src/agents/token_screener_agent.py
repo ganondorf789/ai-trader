@@ -1,8 +1,9 @@
 """
-Moon Dev's Token Screener Agent (V2 - Optimized with Token List V3 API)
+Moon Dev's Token Screener Agent (V3 - With Swarm Analysis & Feishu)
 
 Screens Solana tokens using Birdeye Token List V3 API for maximum efficiency.
 Most data comes from a single API call, only OHLCV needs separate requests.
+Found tokens are analyzed by AI Swarm and results sent to Feishu.
 
 Screening Criteria:
 1. liquidity_usd >= 800,000          - High liquidity, harder to rug
@@ -23,6 +24,7 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 import time
+import json
 import requests
 from datetime import datetime, timedelta
 from termcolor import cprint
@@ -33,6 +35,11 @@ src_path = str(Path(__file__).parent.parent)
 if src_path not in sys.path:
     sys.path.append(src_path)
 
+# Add project root to Python path
+project_root = str(Path(__file__).parent.parent.parent)
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
 # Load environment variables
 load_dotenv()
 
@@ -42,6 +49,10 @@ if not BIRDEYE_API_KEY:
     raise ValueError("BIRDEYE_API_KEY not found in environment variables!")
 
 BASE_URL = "https://public-api.birdeye.so"
+
+# Import Swarm Agent and Feishu Bot
+from src.agents.swarm_agent import SwarmAgent
+from src.message.lark import send_text, send_urgent_card, send_table_card
 
 # ============================================================================
 # SCREENING CRITERIA - Adjust these thresholds as needed
@@ -71,13 +82,32 @@ MIN_POOL_AGE_HOURS = 12
 # Optional: Minimum 1h volume as percentage of 24h volume (volume surge signal)
 # Set to 0 to disable this filter
 # 8-10% is a good range for volume surge when enabled
-MIN_1H_VOLUME_PERCENT = 4  # Set to 0 to disable (default), 8-10 to enable
+MIN_1H_VOLUME_PERCENT = 0  # Set to 0 to disable (default), 8-10 to enable
 
 # How many tokens to fetch (API returns up to 100 per call)
 TOKEN_FETCH_LIMIT = 100
 
 # Sleep between API calls to avoid rate limiting (seconds)
 API_SLEEP = 0.3
+
+# ============================================================================
+# STABLECOIN EXCLUSION LIST - Skip these tokens
+# ============================================================================
+EXCLUDED_SYMBOLS = [
+    # Major stablecoins
+    "USDC",  "DAI", "BUSD", "TUSD", "USDP", "GUSD", "FRAX",
+    "PYUSD", "USD1", "USDG", "USDS", "USX", "USDD", "EURC", "EURS",
+    # Wrapped stablecoins
+    "sUSD", "aUSDC", "aUSDT", "cUSDC", "cUSDT",
+    # Solana wrapped stables
+    "UXD", "CASH", "USDH", "PAI",
+]
+
+# ============================================================================
+# FEISHU & SWARM SETTINGS
+# ============================================================================
+FEISHU_ENABLED = True  # Set to False to disable Feishu notifications
+SWARM_ENABLED = True   # Set to False to skip AI analysis
 
 # ============================================================================
 # DATA PATHS
@@ -232,6 +262,11 @@ class TokenScreenerAgent:
         last_trade_time = token_data.get("last_trade_unix_time")
 
         # ===== PRE-FILTER: Check for obvious failures =====
+
+        # Skip stablecoins
+        if symbol.upper() in EXCLUDED_SYMBOLS:
+            cprint(f" {symbol}: Skipping stablecoin", "yellow")
+            return None
 
         # Check for extreme price drops (potential rug)
         price_change_8h = float(token_data.get("price_change_8h_percent", 0) or 0)
@@ -433,6 +468,221 @@ class TokenScreenerAgent:
         cprint(f" Updated screening history at {HISTORY_FILE}", "green")
 
 
+# ============================================================================
+# SWARM ANALYSIS
+# ============================================================================
+
+def create_analysis_prompt(tokens):
+    """Create prompt for swarm agents to analyze screened tokens"""
+
+    prompt = """You are analyzing tokens that passed a strict screening filter for potential buying opportunities.
+
+All tokens below have already passed these criteria:
+- Liquidity >= $800K (hard to rug)
+- 24h Volume >= $10M (active trading)
+- Holders >= 4,000 (good distribution)
+- Price within 12% of 3-day low (near bottom)
+- Pool age >= 12 hours (not brand new)
+- No extreme price drops (not rugging)
+
+Here are the screened tokens:
+
+"""
+
+    for i, token in enumerate(tokens, 1):
+        prompt += f"\n{i}. **{token['symbol']}** ({token['name']})\n"
+        prompt += f"   - Price: ${token['current_price']:.8f}\n"
+        prompt += f"   - Market Cap: ${token.get('market_cap', 0):,.0f}\n"
+        prompt += f"   - 24h Volume: ${token['volume_24h_usd']:,.0f}\n"
+        prompt += f"   - 1h Volume: ${token['volume_1h_usd']:,.0f} ({token['volume_1h_percent']}% of 24h)\n"
+        prompt += f"   - Liquidity: ${token['liquidity_usd']:,.0f}\n"
+        prompt += f"   - Holders: {token['holder_count']:,}\n"
+        prompt += f"   - 24h Price Change: {token['price_change_24h']}%\n"
+        prompt += f"   - Price vs 3-Day Low: {token['price_vs_3d_low']}x\n"
+        prompt += f"   - Volume Surge: {'YES' if token['volume_surge'] else 'No'}\n"
+        prompt += f"   - Buy/Sell 24h: {token.get('buy_24h', 0)}/{token.get('sell_24h', 0)}\n"
+        prompt += f"   - Unique Wallets 24h: {token.get('unique_wallet_24h', 0)}\n"
+
+    prompt += """
+
+Based on the data above, analyze each token and recommend:
+1. Which token(s) would you BUY now and why?
+2. Which token(s) should be AVOIDED and why?
+3. What's your confidence level (1-10) for your top pick?
+
+Focus on: volume momentum, price position vs 3d low, holder distribution, and market cap.
+Be concise and direct. Give actionable recommendations."""
+
+    return prompt
+
+
+def format_volume(volume):
+    """Format volume for display"""
+    if volume >= 1_000_000_000:
+        return f"${volume/1_000_000_000:.2f}B"
+    elif volume >= 1_000_000:
+        return f"${volume/1_000_000:.2f}M"
+    else:
+        return f"${volume/1_000:.2f}K"
+
+
+def run_swarm_analysis(tokens):
+    """Run swarm analysis on screened tokens"""
+
+    if not SWARM_ENABLED:
+        cprint(" Swarm analysis disabled", "yellow")
+        return None
+
+    if not tokens:
+        cprint(" No tokens to analyze", "yellow")
+        return None
+
+    cprint("\n" + "="*60, "cyan")
+    cprint(" Running AI Swarm Analysis...", "cyan", attrs=["bold"])
+    cprint("="*60, "cyan")
+
+    swarm = SwarmAgent()
+    prompt = create_analysis_prompt(tokens)
+    result = swarm.query(prompt)
+
+    return result
+
+
+def display_swarm_results(result):
+    """Display swarm analysis results"""
+
+    if not result:
+        return
+
+    cprint("\n" + "="*60, "green")
+    cprint(" AI SWARM ANALYSIS RESULTS", "green", attrs=["bold"])
+    cprint("="*60, "green")
+
+    # Show consensus first
+    if "consensus_summary" in result:
+        cprint("\n CONSENSUS:", "magenta", attrs=["bold"])
+        cprint(f"{result['consensus_summary']}\n", "white")
+
+    # Show individual responses
+    cprint(" INDIVIDUAL AI RECOMMENDATIONS:", "yellow", attrs=["bold"])
+
+    reverse_mapping = {}
+    if "model_mapping" in result:
+        for ai_num, provider in result["model_mapping"].items():
+            reverse_mapping[provider.lower()] = ai_num
+
+    for provider, data in result.get("responses", {}).items():
+        if data.get("success"):
+            ai_label = reverse_mapping.get(provider, provider.upper())
+            cprint(f"\n {ai_label} ({provider.upper()}):", "cyan")
+            response_text = data.get("response", "")
+            # Truncate long responses
+            if len(response_text) > 600:
+                response_text = response_text[:600] + "..."
+            cprint(f"{response_text}", "white")
+
+    # Metadata
+    if "metadata" in result:
+        meta = result["metadata"]
+        cprint(f"\n Models: {meta.get('successful_responses', 0)}/{meta.get('total_models', 0)} | Time: {meta.get('total_time', 0):.1f}s", "blue")
+
+
+def send_feishu_report(tokens, swarm_result):
+    """Send screening results and analysis to Feishu"""
+
+    if not FEISHU_ENABLED:
+        cprint(" Feishu notifications disabled", "yellow")
+        return
+
+    if not tokens:
+        cprint(" No tokens to report", "yellow")
+        return
+
+    cprint("\n Sending Feishu notifications...", "cyan")
+
+    try:
+        # ============================================
+        # Message 1: Screened Tokens Table
+        # ============================================
+        headers = ["#", "Symbol", "Price", "MCap", "Vol24h", "24h%", "vs3dLow"]
+        rows = []
+
+        for i, t in enumerate(tokens, 1):
+            price = f"${t['current_price']:.6f}" if t['current_price'] < 1 else f"${t['current_price']:.2f}"
+            mcap = format_volume(t.get('market_cap', 0))
+            vol = format_volume(t['volume_24h_usd'])
+            chg = f"{t['price_change_24h']:+.1f}%"
+            vs_low = f"{t['price_vs_3d_low']:.3f}x"
+            rows.append([str(i), t['symbol'][:8], price, mcap, vol, chg, vs_low])
+
+        send_table_card(
+            title=f"[1/3] Token Screener - {len(tokens)} Tokens Found",
+            headers=headers,
+            rows=rows,
+            color="blue"
+        )
+        cprint(" Feishu Message 1/3 sent (Token Table)", "green")
+        time.sleep(1)
+
+        # ============================================
+        # Message 2: AI Consensus
+        # ============================================
+        if swarm_result and "consensus_summary" in swarm_result:
+            content_parts = []
+            content_parts.append("**Screening Criteria:**")
+            content_parts.append(f"- Liquidity >= ${MIN_LIQUIDITY_USD:,}")
+            content_parts.append(f"- Volume 24h >= ${MIN_VOLUME_24H_USD:,}")
+            content_parts.append(f"- Holders >= {MIN_HOLDERS:,}")
+            content_parts.append(f"- Price vs 3d Low <= {MAX_PRICE_VS_3D_LOW}x")
+            content_parts.append("")
+            content_parts.append("**AI Consensus:**")
+            content_parts.append(swarm_result["consensus_summary"])
+
+            if "metadata" in swarm_result:
+                meta = swarm_result["metadata"]
+                content_parts.append("")
+                content_parts.append(f"Models: {meta.get('successful_responses', 0)}/{meta.get('total_models', 0)}")
+
+            send_urgent_card(
+                title="[2/3] AI Consensus Analysis",
+                content="\n".join(content_parts),
+                color="green"
+            )
+            cprint(" Feishu Message 2/3 sent (AI Consensus)", "green")
+            time.sleep(1)
+
+        # ============================================
+        # Message 3: Individual AI Recommendations
+        # ============================================
+        if swarm_result and "responses" in swarm_result:
+            content_parts = []
+
+            model_mapping = swarm_result.get("model_mapping", {})
+            reverse_mapping = {v.lower(): k for k, v in model_mapping.items()}
+
+            for provider, data in swarm_result["responses"].items():
+                if data.get("success") and data.get("response"):
+                    ai_label = reverse_mapping.get(provider, provider.upper())
+                    response_text = data["response"]
+                    # Truncate for Feishu
+                    if len(response_text) > 400:
+                        response_text = response_text[:400] + "..."
+                    content_parts.append(f"**{ai_label} ({provider.upper()}):**")
+                    content_parts.append(response_text)
+                    content_parts.append("")
+
+            if content_parts:
+                send_urgent_card(
+                    title="[3/3] AI Individual Analysis",
+                    content="\n".join(content_parts),
+                    color="blue"
+                )
+                cprint(" Feishu Message 3/3 sent (AI Analysis)", "green")
+
+    except Exception as e:
+        cprint(f" Feishu notification error: {e}", "red")
+
+
 def main():
     """
     Main entry point for standalone execution
@@ -444,8 +694,22 @@ def main():
         cprint(f"\n Found {len(results)} tokens matching all criteria!", "green", attrs=["bold"])
         for token in results:
             cprint(f"  - {token['symbol']}: {token['dexscreener_link']}", "cyan")
+
+        # Run swarm analysis
+        swarm_result = run_swarm_analysis(results)
+
+        # Display results
+        if swarm_result:
+            display_swarm_results(swarm_result)
+
+        # Send to Feishu
+        send_feishu_report(results, swarm_result)
+
     else:
         cprint("\n No tokens matched all screening criteria", "yellow")
+        # Still notify Feishu that no tokens found
+        if FEISHU_ENABLED:
+            send_text(f"Token Screener: No tokens matched screening criteria at {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
 
 if __name__ == "__main__":
