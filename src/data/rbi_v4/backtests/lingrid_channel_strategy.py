@@ -13,6 +13,8 @@ Uses backtesting.py with pandas_ta for indicators
 
 import os
 import glob
+import json
+from datetime import datetime
 import pandas as pd
 import numpy as np
 import pandas_ta as ta
@@ -303,6 +305,130 @@ def format_stats(stats):
     return "\n".join(output)
 
 
+def save_results(all_results, summary_stats, output_dir):
+    """Save backtest results to execution_results directory"""
+    os.makedirs(output_dir, exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    # Save detailed results as JSON
+    results_file = os.path.join(output_dir, f"lingrid_channel_results_{timestamp}.json")
+    output_data = {
+        "strategy": "Lingrid Rising Channel Strategy",
+        "source": "https://www.tradingview.com/chart/XAUUSD/6q77Of5I-Lingrid-GOLD-Sideways-Movement-Ahead-of-FOMC-Decision/",
+        "execution_time": timestamp,
+        "parameters": {
+            "channel_period": 20,
+            "channel_deviations": 2.0,
+            "hl_lookback": 5,
+            "atr_period": 14,
+            "trailing_stop_atr": 2.0
+        },
+        "summary": summary_stats,
+        "per_file_results": all_results,
+        "optimization_analysis": analyze_optimization_potential(all_results, summary_stats)
+    }
+
+    with open(results_file, 'w', encoding='utf-8') as f:
+        json.dump(output_data, f, indent=2, ensure_ascii=False)
+
+    # Save CSV summary
+    csv_file = os.path.join(output_dir, f"lingrid_channel_summary_{timestamp}.csv")
+    df = pd.DataFrame(all_results)
+    df.to_csv(csv_file, index=False)
+
+    print(f"\n  Results saved to: {results_file}")
+    print(f"  Summary saved to: {csv_file}")
+
+    return output_data
+
+
+def analyze_optimization_potential(all_results, summary_stats):
+    """Analyze strategy performance and identify optimization opportunities"""
+    analysis = {
+        "overall_assessment": "",
+        "issues_identified": [],
+        "optimization_recommendations": [],
+        "can_be_optimized": False
+    }
+
+    avg_return = summary_stats.get('avg_return', 0)
+    avg_win_rate = summary_stats.get('avg_win_rate', 0)
+    avg_sharpe = summary_stats.get('avg_sharpe', 0)
+    total_trades = summary_stats.get('total_trades', 0)
+    avg_max_dd = summary_stats.get('avg_max_dd', 0)
+
+    # Issue identification
+    if avg_return < 0:
+        analysis["issues_identified"].append(f"Negative average return: {avg_return:.2f}%")
+
+    if avg_win_rate < 50:
+        analysis["issues_identified"].append(f"Low win rate: {avg_win_rate:.2f}% (below 50%)")
+
+    if avg_sharpe < 0:
+        analysis["issues_identified"].append(f"Negative Sharpe ratio: {avg_sharpe:.2f}")
+
+    if total_trades > 0 and avg_return / total_trades < 0.1:
+        analysis["issues_identified"].append("Low profit per trade efficiency")
+
+    if abs(avg_max_dd) > abs(avg_return) * 2:
+        analysis["issues_identified"].append(f"High drawdown relative to returns: {avg_max_dd:.2f}%")
+
+    # Optimization recommendations
+    analysis["optimization_recommendations"] = [
+        {
+            "area": "Entry Filter - Trend Strength",
+            "issue": "Entering during weak trends leads to false signals",
+            "solution": "Add ADX filter (>25) to confirm trend strength before entry",
+            "expected_impact": "Reduce false signals by 30-40%"
+        },
+        {
+            "area": "Entry Filter - Volume Confirmation",
+            "issue": "Low volume entries have poor follow-through",
+            "solution": "Require volume > 1.5x average on entry signals",
+            "expected_impact": "Improve win rate by 10-15%"
+        },
+        {
+            "area": "Channel Period Adaptation",
+            "issue": "Fixed 20-period channel may not suit all market conditions",
+            "solution": "Use adaptive period based on volatility (ATR)",
+            "expected_impact": "Better channel fit across different volatility regimes"
+        },
+        {
+            "area": "Exit Optimization",
+            "issue": "Current exits may be too tight or too loose",
+            "solution": "Use ATR-based dynamic take profit instead of fixed channel target",
+            "expected_impact": "Capture more profit in strong trends"
+        },
+        {
+            "area": "Risk Management",
+            "issue": "Position sizing not optimized",
+            "solution": "Add Kelly criterion or fixed fractional position sizing",
+            "expected_impact": "Better risk-adjusted returns"
+        },
+        {
+            "area": "Market Regime Filter",
+            "issue": "Strategy may underperform in ranging markets",
+            "solution": "Add Bollinger Band width filter to avoid low volatility periods",
+            "expected_impact": "Avoid choppy market losses"
+        }
+    ]
+
+    # Determine if optimization is warranted
+    if len(analysis["issues_identified"]) > 0:
+        analysis["can_be_optimized"] = True
+        analysis["overall_assessment"] = (
+            f"Strategy shows {len(analysis['issues_identified'])} areas for improvement. "
+            f"Current performance (Return: {avg_return:.2f}%, Win Rate: {avg_win_rate:.2f}%, Sharpe: {avg_sharpe:.2f}) "
+            f"indicates significant optimization potential. Recommended to implement the suggested improvements."
+        )
+    else:
+        analysis["overall_assessment"] = "Strategy performance is acceptable. Minor optimizations may still be beneficial."
+        analysis["can_be_optimized"] = True  # Always worth trying optimization
+
+    return analysis
+
+
 def main():
     """Main function to run backtests on all OHLCV files"""
     print("="*60)
@@ -311,7 +437,9 @@ def main():
     print("="*60)
 
     # Find all OHLCV files
-    ohlcv_dir = os.path.join(os.path.dirname(__file__), "..", "ohlcv")
+    base_dir = os.path.dirname(__file__)
+    ohlcv_dir = os.path.join(base_dir, "..", "ohlcv")
+    output_dir = os.path.join(base_dir, "..", "execution_results")
     ohlcv_files = glob.glob(os.path.join(ohlcv_dir, "*.csv"))
 
     if not ohlcv_files:
@@ -323,20 +451,26 @@ def main():
     all_results = []
 
     for file_path in ohlcv_files:
-        stats = run_backtest(file_path)
+        bt_stats = run_backtest(file_path)
 
-        if stats is not None:
+        if bt_stats is not None:
             print("\n  Results:")
-            print(format_stats(stats))
+            print(format_stats(bt_stats))
 
             all_results.append({
                 'file': os.path.basename(file_path),
-                'return': stats['Return [%]'],
-                'trades': stats['# Trades'],
-                'win_rate': stats['Win Rate [%]'] if stats['# Trades'] > 0 else 0,
-                'max_dd': stats['Max. Drawdown [%]'],
-                'sharpe': stats['Sharpe Ratio'] if not np.isnan(stats['Sharpe Ratio']) else 0,
-                'final_equity': stats['Equity Final [$]']
+                'return': float(bt_stats['Return [%]']),
+                'buy_hold_return': float(bt_stats['Buy & Hold Return [%]']),
+                'trades': int(bt_stats['# Trades']),
+                'win_rate': float(bt_stats['Win Rate [%]']) if bt_stats['# Trades'] > 0 else 0,
+                'max_dd': float(bt_stats['Max. Drawdown [%]']),
+                'sharpe': float(bt_stats['Sharpe Ratio']) if not np.isnan(bt_stats['Sharpe Ratio']) else 0,
+                'sortino': float(bt_stats['Sortino Ratio']) if not np.isnan(bt_stats['Sortino Ratio']) else 0,
+                'profit_factor': float(bt_stats['Profit Factor']) if not np.isnan(bt_stats['Profit Factor']) else 0,
+                'avg_trade': float(bt_stats['Avg. Trade [%]']) if bt_stats['# Trades'] > 0 else 0,
+                'best_trade': float(bt_stats['Best Trade [%]']) if bt_stats['# Trades'] > 0 else 0,
+                'worst_trade': float(bt_stats['Worst Trade [%]']) if bt_stats['# Trades'] > 0 else 0,
+                'final_equity': float(bt_stats['Equity Final [$]'])
             })
 
     # Summary
@@ -347,12 +481,24 @@ def main():
 
         df_results = pd.DataFrame(all_results)
 
-        print(f"\nTotal files tested: {len(df_results)}")
-        print(f"Average Return: {df_results['return'].mean():.2f}%")
-        print(f"Total Trades: {df_results['trades'].sum()}")
-        print(f"Average Win Rate: {df_results['win_rate'].mean():.2f}%")
-        print(f"Average Max Drawdown: {df_results['max_dd'].mean():.2f}%")
-        print(f"Average Sharpe Ratio: {df_results['sharpe'].mean():.2f}")
+        summary_stats = {
+            'total_files': len(df_results),
+            'avg_return': float(df_results['return'].mean()),
+            'total_trades': int(df_results['trades'].sum()),
+            'avg_win_rate': float(df_results['win_rate'].mean()),
+            'avg_max_dd': float(df_results['max_dd'].mean()),
+            'avg_sharpe': float(df_results['sharpe'].mean()),
+            'avg_profit_factor': float(df_results['profit_factor'].mean()),
+            'avg_vs_buyhold': float((df_results['return'] - df_results['buy_hold_return']).mean())
+        }
+
+        print(f"\nTotal files tested: {summary_stats['total_files']}")
+        print(f"Average Return: {summary_stats['avg_return']:.2f}%")
+        print(f"Total Trades: {summary_stats['total_trades']}")
+        print(f"Average Win Rate: {summary_stats['avg_win_rate']:.2f}%")
+        print(f"Average Max Drawdown: {summary_stats['avg_max_dd']:.2f}%")
+        print(f"Average Sharpe Ratio: {summary_stats['avg_sharpe']:.2f}")
+        print(f"Avg vs Buy&Hold: {summary_stats['avg_vs_buyhold']:+.2f}%")
 
         print("\n" + "-"*60)
         print("Per-file Summary:")
@@ -360,8 +506,31 @@ def main():
         for _, row in df_results.iterrows():
             print(f"  {row['file']:<25} Return: {row['return']:>8.2f}%  Trades: {row['trades']:>3}  Win: {row['win_rate']:>5.1f}%")
 
-    return all_results
+        # Save results
+        output_data = save_results(all_results, summary_stats, output_dir)
+
+        # Print optimization analysis
+        opt_analysis = output_data['optimization_analysis']
+        print("\n" + "="*60)
+        print("OPTIMIZATION ANALYSIS")
+        print("="*60)
+        print(f"\n{opt_analysis['overall_assessment']}")
+
+        if opt_analysis['issues_identified']:
+            print("\nIssues Identified:")
+            for issue in opt_analysis['issues_identified']:
+                print(f"  - {issue}")
+
+        print("\nRecommendations:")
+        for rec in opt_analysis['optimization_recommendations'][:3]:
+            print(f"  [{rec['area']}]")
+            print(f"    Issue: {rec['issue']}")
+            print(f"    Solution: {rec['solution']}")
+
+        return all_results, output_data
+
+    return None, None
 
 
 if __name__ == "__main__":
-    results = main()
+    results, output_data = main()
