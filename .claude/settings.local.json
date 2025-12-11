@@ -12,7 +12,8 @@
       "Bash(conda activate:*)",
       "Bash(python:*)",
       "WebFetch(domain:birdeye-py.readthedocs.io)",
-      "Bash(set:*)"
+      "Bash(set:*)",
+      "Bash(pip show:*)"
     ],
     "deny": [],
     "ask": []

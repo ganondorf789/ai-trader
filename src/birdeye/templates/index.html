@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birdeye OHLCV Downloader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2rem;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .file-upload {
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload:hover {
+            border-color: #00d9ff;
+            background: rgba(0, 217, 255, 0.05);
+        }
+
+        .file-upload.dragover {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .file-upload input {
+            display: none;
+        }
+
+        .file-upload-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .file-upload-text {
+            color: #888;
+        }
+
+        .file-name {
+            margin-top: 10px;
+            color: #00ff88;
+            font-weight: 500;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .row .form-group {
+            flex: 1;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        select:focus, input[type="number"]:focus {
+            border-color: #00d9ff;
+        }
+
+        select option {
+            background: #1a1a2e;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            color: #1a1a2e;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .progress-section {
+            display: none;
+        }
+
+        .progress-section.active {
+            display: block;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .current-token {
+            color: #00d9ff;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .result-item .symbol {
+            font-weight: 600;
+            color: #00ff88;
+        }
+
+        .result-item .info {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .result-item .rows {
+            color: #00d9ff;
+        }
+
+        .errors {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .errors h4 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+
+        .errors ul {
+            margin-left: 20px;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .sample-format {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #888;
+            overflow-x: auto;
+        }
+
+        .sample-format pre {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Birdeye OHLCV Downloader</h1>
+        <p class="subtitle">Upload token list and download historical OHLCV data</p>
+
+        <div class="card">
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label>Token List (JSON File)</label>
+                    <div class="file-upload" id="dropZone">
+                        <input type="file" id="fileInput" accept=".json" />
+                        <div class="file-upload-icon">📁</div>
+                        <div class="file-upload-text">
+                            Click or drag & drop your JSON file here
+                        </div>
+                        <div class="file-name" id="fileName"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label>Time Frame</label>
+                        <select id="timeframe">
+                            <option value="1m">1 Minute</option>
+                            <option value="3m">3 Minutes</option>
+                            <option value="5m">5 Minutes</option>
+                            <option value="15m">15 Minutes</option>
+                            <option value="30m">30 Minutes</option>
+                            <option value="1H" selected>1 Hour</option>
+                            <option value="2H">2 Hours</option>
+                            <option value="4H">4 Hours</option>
+                            <option value="6H">6 Hours</option>
+                            <option value="8H">8 Hours</option>
+                            <option value="12H">12 Hours</option>
+                            <option value="1D">1 Day</option>
+                            <option value="3D">3 Days</option>
+                            <option value="1W">1 Week</option>
+                            <option value="1M">1 Month</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Days Back</label>
+                        <input type="number" id="days" value="7" min="1" max="365" />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+                    Start Download
+                </button>
+            </form>
+
+            <div class="sample-format">
+                <label>Expected JSON Format:</label>
+                <pre>[
+  {"address": "token_address_here", "symbol": "BTC", "chain": "solana"},
+  {"address": "0x...", "symbol": "ETH", "chain": "ethereum"}
+]</pre>
+            </div>
+        </div>
+
+        <div class="card progress-section" id="progressSection">
+            <h3 style="margin-bottom: 20px;">Download Progress</h3>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+
+            <div class="progress-text">
+                <span id="progressCount">0 / 0</span>
+                <span id="progressPercent">0%</span>
+            </div>
+
+            <div class="current-token" id="currentToken"></div>
+
+            <div class="results" id="results" style="display: none;">
+                <h4 style="margin-bottom: 15px; color: #00ff88;">Completed Downloads</h4>
+                <div id="resultsList"></div>
+
+                <button class="btn btn-primary" id="downloadAllBtn" style="margin-top: 20px;">
+                    Download All (ZIP)
+                </button>
+            </div>
+
+            <div class="errors" id="errors" style="display: none;">
+                <h4>Errors</h4>
+                <ul id="errorsList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+        const uploadForm = document.getElementById('uploadForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const progressSection = document.getElementById('progressSection');
+        const progressFill = document.getElementById('progressFill');
+        const progressCount = document.getElementById('progressCount');
+        const progressPercent = document.getElementById('progressPercent');
+        const currentToken = document.getElementById('currentToken');
+        const results = document.getElementById('results');
+        const resultsList = document.getElementById('resultsList');
+        const errors = document.getElementById('errors');
+        const errorsList = document.getElementById('errorsList');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+
+        let currentTaskId = null;
+        let progressInterval = null;
+
+        // File upload handling
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0 && files[0].type === 'application/json') {
+                fileInput.files = files;
+                updateFileName(files[0].name);
+            }
+        });
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                updateFileName(fileInput.files[0].name);
+            }
+        });
+
+        function updateFileName(name) {
+            fileName.textContent = name;
+        }
+
+        // Form submission
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!fileInput.files.length) {
+                alert('Please select a JSON file');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('timeframe', document.getElementById('timeframe').value);
+            formData.append('days', document.getElementById('days').value);
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Starting...';
+
+            try {
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    currentTaskId = data.task_id;
+                    progressSection.classList.add('active');
+                    startProgressPolling();
+                } else {
+                    alert(data.error || 'Upload failed');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Start Download';
+                }
+            } catch (err) {
+                alert('Error: ' + err.message);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Start Download';
+            }
+        });
+
+        function startProgressPolling() {
+            progressInterval = setInterval(async () => {
+                try {
+                    const response = await fetch(`/api/progress/${currentTaskId}`);
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        updateProgress(data);
+
+                        if (data.status === 'completed') {
+                            clearInterval(progressInterval);
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Start Download';
+                        }
+                    }
+                } catch (err) {
+                    console.error('Progress poll error:', err);
+                }
+            }, 1000);
+        }
+
+        function updateProgress(data) {
+            const percent = data.total > 0 ? Math.round((data.completed / data.total) * 100) : 0;
+            progressFill.style.width = percent + '%';
+            progressCount.textContent = `${data.completed} / ${data.total}`;
+            progressPercent.textContent = percent + '%';
+
+            if (data.current_token) {
+                currentToken.textContent = `Downloading: ${data.current_token}`;
+            } else if (data.status === 'completed') {
+                currentToken.textContent = 'Download complete!';
+            }
+
+            // Show results
+            if (data.files && data.files.length > 0) {
+                results.style.display = 'block';
+                resultsList.innerHTML = '';
+
+                if (data.results) {
+                    data.results.forEach(r => {
+                        const item = document.createElement('div');
+                        item.className = 'result-item';
+                        item.innerHTML = `
+                            <div>
+                                <span class="symbol">${r.symbol}</span>
+                                <span class="info">(${r.chain})</span>
+                            </div>
+                            <span class="rows">${r.rows} rows</span>
+                        `;
+                        resultsList.appendChild(item);
+                    });
+                }
+            }
+
+            // Show errors
+            if (data.errors && data.errors.length > 0) {
+                errors.style.display = 'block';
+                errorsList.innerHTML = '';
+                data.errors.forEach(err => {
+                    const li = document.createElement('li');
+                    li.textContent = err;
+                    errorsList.appendChild(li);
+                });
+            }
+        }
+
+        // Download ZIP
+        downloadAllBtn.addEventListener('click', () => {
+            if (currentTaskId) {
+                window.location.href = `/api/download/${currentTaskId}`;
+            }
+        });
+    </script>
+</body>
+</html>

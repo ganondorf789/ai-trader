@@ -1,0 +1,25 @@
+{
+  "task_id": "20251211_165031",
+  "timeframe": "1H",
+  "days_back": 7,
+  "total_tokens": 2,
+  "successful": 2,
+  "failed": 0,
+  "results": [
+    {
+      "symbol": "BTC",
+      "chain": "solana",
+      "address": "CvJmpFKM3jT7o3K5yumJNB1ffmz19XWGZXT4KtmDB6x8",
+      "rows": 168,
+      "file": "BTC_solana_1H.csv"
+    },
+    {
+      "symbol": "ETH",
+      "chain": "solana",
+      "address": "2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk",
+      "rows": 168,
+      "file": "ETH_solana_1H.csv"
+    }
+  ],
+  "errors": []
+}
