@@ -13,7 +13,8 @@
       "Bash(python:*)",
       "WebFetch(domain:birdeye-py.readthedocs.io)",
       "Bash(set:*)",
-      "Bash(pip show:*)"
+      "Bash(pip show:*)",
+      "WebFetch(domain:www.tradingview.com)"
     ],
     "deny": [],
     "ask": []

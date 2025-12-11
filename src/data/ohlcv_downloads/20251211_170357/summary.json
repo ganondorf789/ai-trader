@@ -1,0 +1,935 @@
+{
+  "task_id": "20251211_170357",
+  "timeframe": "4H",
+  "days_back": 180,
+  "total_tokens": 132,
+  "successful": 132,
+  "failed": 0,
+  "results": [
+    {
+      "symbol": "BTC",
+      "chain": "solana",
+      "address": "CvJmpFKM3jT7o3K5yumJNB1ffmz19XWGZXT4KtmDB6x8",
+      "rows": 860,
+      "file": "BTC_solana_4H.csv"
+    },
+    {
+      "symbol": "ETH",
+      "chain": "solana",
+      "address": "2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk",
+      "rows": 1000,
+      "file": "ETH_solana_4H.csv"
+    },
+    {
+      "symbol": "MATIC",
+      "chain": "ethereum",
+      "address": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+      "rows": 1000,
+      "file": "MATIC_ethereum_4H.csv"
+    },
+    {
+      "symbol": "SOL",
+      "chain": "solana",
+      "address": "So11111111111111111111111111111111111111112",
+      "rows": 1000,
+      "file": "SOL_solana_4H.csv"
+    },
+    {
+      "symbol": "BNB",
+      "chain": "ethereum",
+      "address": "0xB8c77482e45F1F44dE1745F52C74426C631bDD52",
+      "rows": 1000,
+      "file": "BNB_ethereum_4H.csv"
+    },
+    {
+      "symbol": "APE",
+      "chain": "solana",
+      "address": "C1MHyoTJpRTeS9AQCyspNVu2EWAYCZwmJ1jNkEArFP1f",
+      "rows": 558,
+      "file": "APE_solana_4H.csv"
+    },
+    {
+      "symbol": "DOGE",
+      "chain": "solana",
+      "address": "9TY6DUg1VSssYH5tFE95qoq5hnAGFak4w3cn72sJNCoV",
+      "rows": 1000,
+      "file": "DOGE_solana_4H.csv"
+    },
+    {
+      "symbol": "INJ",
+      "chain": "ethereum",
+      "address": "0xe28b3B32B6c345A34Ff64674606124Dd5Aceca30",
+      "rows": 1000,
+      "file": "INJ_ethereum_4H.csv"
+    },
+    {
+      "symbol": "CRV",
+      "chain": "ethereum",
+      "address": "0xD533a949740bb3306d119CC777fa900bA034cd52",
+      "rows": 1000,
+      "file": "CRV_ethereum_4H.csv"
+    },
+    {
+      "symbol": "LDO",
+      "chain": "ethereum",
+      "address": "0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32",
+      "rows": 1000,
+      "file": "LDO_ethereum_4H.csv"
+    },
+    {
+      "symbol": "LINK",
+      "chain": "ethereum",
+      "address": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+      "rows": 1000,
+      "file": "LINK_ethereum_4H.csv"
+    },
+    {
+      "symbol": "RNDR",
+      "chain": "ethereum",
+      "address": "0x6De037ef9aD2725EB40118Bb1702EBb27e4Aeb24",
+      "rows": 1000,
+      "file": "RNDR_ethereum_4H.csv"
+    },
+    {
+      "symbol": "SNX",
+      "chain": "ethereum",
+      "address": "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F",
+      "rows": 1000,
+      "file": "SNX_ethereum_4H.csv"
+    },
+    {
+      "symbol": "XRP",
+      "chain": "ethereum",
+      "address": "0x1688413A455412e279004ed11D899a6dDf991435",
+      "rows": 1000,
+      "file": "XRP_ethereum_4H.csv"
+    },
+    {
+      "symbol": "AAVE",
+      "chain": "ethereum",
+      "address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+      "rows": 1000,
+      "file": "AAVE_ethereum_4H.csv"
+    },
+    {
+      "symbol": "COMP",
+      "chain": "ethereum",
+      "address": "0xc00e94Cb662C3520282E6f5717214004A7f26888",
+      "rows": 1000,
+      "file": "COMP_ethereum_4H.csv"
+    },
+    {
+      "symbol": "MKR",
+      "chain": "ethereum",
+      "address": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
+      "rows": 1000,
+      "file": "MKR_ethereum_4H.csv"
+    },
+    {
+      "symbol": "WLD",
+      "chain": "solana",
+      "address": "DN4L5JE9VuGpMt1SsEWqyybUqyrYuWuywmTq7Q5GVDFK",
+      "rows": 1000,
+      "file": "WLD_solana_4H.csv"
+    },
+    {
+      "symbol": "FXS",
+      "chain": "ethereum",
+      "address": "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0",
+      "rows": 1000,
+      "file": "FXS_ethereum_4H.csv"
+    },
+    {
+      "symbol": "RLB",
+      "chain": "ethereum",
+      "address": "0x046EeE2cc3188071C02BfC1745A6b17c656e3f3d",
+      "rows": 1000,
+      "file": "RLB_ethereum_4H.csv"
+    },
+    {
+      "symbol": "UNIBOT",
+      "chain": "ethereum",
+      "address": "0xf819d9Cb1c2A819Fd991781A822dE3ca8607c3C9",
+      "rows": 1000,
+      "file": "UNIBOT_ethereum_4H.csv"
+    },
+    {
+      "symbol": "YGG",
+      "chain": "ethereum",
+      "address": "0x25f8087EAD173b73D6e8B84329989A8eEA16CF73",
+      "rows": 1000,
+      "file": "YGG_ethereum_4H.csv"
+    },
+    {
+      "symbol": "TRX",
+      "chain": "solana",
+      "address": "GbbesPbaYh5uiAZSYNXTc7w9jty1rpg3P9L4JeN4LkKc",
+      "rows": 1000,
+      "file": "TRX_solana_4H.csv"
+    },
+    {
+      "symbol": "UNI",
+      "chain": "solana",
+      "address": "7VzsbQG7cNXy97zzKYFL8qduEi9eNF4swMuW57iush2R",
+      "rows": 147,
+      "file": "UNI_solana_4H.csv"
+    },
+    {
+      "symbol": "SEI",
+      "chain": "ethereum",
+      "address": "0xbdF43ecAdC5ceF51B7D1772F722E40596BC1788B",
+      "rows": 1000,
+      "file": "SEI_ethereum_4H.csv"
+    },
+    {
+      "symbol": "FRIEND",
+      "chain": "ethereum",
+      "address": "0xbde4c4a9057595FA16D38e0BD7871EF119045a84",
+      "rows": 1000,
+      "file": "FRIEND_ethereum_4H.csv"
+    },
+    {
+      "symbol": "ZRO",
+      "chain": "ethereum",
+      "address": "0x6985884C4392D348587B19cb9eAAf157F13271cd",
+      "rows": 1000,
+      "file": "ZRO_ethereum_4H.csv"
+    },
+    {
+      "symbol": "BLZ",
+      "chain": "ethereum",
+      "address": "0x5732046A883704404F284Ce41FfADd5b007FD668",
+      "rows": 1000,
+      "file": "BLZ_ethereum_4H.csv"
+    },
+    {
+      "symbol": "DOT",
+      "chain": "ethereum",
+      "address": "0x8d010bf9C26881788b4e6bf5Fd1bdC358c8F90b8",
+      "rows": 788,
+      "file": "DOT_ethereum_4H.csv"
+    },
+    {
+      "symbol": "BANANA",
+      "chain": "ethereum",
+      "address": "0x38E68A37E401F7271568CecaAc63c6B1e19130B4",
+      "rows": 1000,
+      "file": "BANANA_ethereum_4H.csv"
+    },
+    {
+      "symbol": "FTT",
+      "chain": "ethereum",
+      "address": "0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9",
+      "rows": 1000,
+      "file": "FTT_ethereum_4H.csv"
+    },
+    {
+      "symbol": "LOOM",
+      "chain": "solana",
+      "address": "BshVPBvgqSZ9UAsgEaLVnSteGqUR7nLfxfXn6URM4MMb",
+      "rows": 1000,
+      "file": "LOOM_solana_4H.csv"
+    },
+    {
+      "symbol": "OGN",
+      "chain": "ethereum",
+      "address": "0x8207c1FfC5B6804F6024322CcF34F29c3541Ae26",
+      "rows": 1000,
+      "file": "OGN_ethereum_4H.csv"
+    },
+    {
+      "symbol": "REQ",
+      "chain": "ethereum",
+      "address": "0x8f8221aFbB33998d8584A2B05749bA73c37a938a",
+      "rows": 1000,
+      "file": "REQ_ethereum_4H.csv"
+    },
+    {
+      "symbol": "BIGTIME",
+      "chain": "ethereum",
+      "address": "0xfBf532D334BCE75f7528b251415A193AD98d1E3f",
+      "rows": 1000,
+      "file": "BIGTIME_ethereum_4H.csv"
+    },
+    {
+      "symbol": "ORBS",
+      "chain": "ethereum",
+      "address": "0xff56Cc6b1E6dEd347aA0B7676C85AB0B3D08B0FA",
+      "rows": 1000,
+      "file": "ORBS_ethereum_4H.csv"
+    },
+    {
+      "symbol": "BLUR",
+      "chain": "ethereum",
+      "address": "0x23D17de53aae4A767499A9d8b8C33b5b1C3ebdb0",
+      "rows": 1000,
+      "file": "BLUR_ethereum_4H.csv"
+    },
+    {
+      "symbol": "ADA",
+      "chain": "solana",
+      "address": "E4Q5pLaEiejwEQHcM9GeYSQfMyGy8DJ4bPWgeYthn24v",
+      "rows": 1000,
+      "file": "ADA_solana_4H.csv"
+    },
+    {
+      "symbol": "TON",
+      "chain": "ethereum",
+      "address": "0x582d872A1B094FC48F5DE31D3B73F2D9bE47def1",
+      "rows": 1000,
+      "file": "TON_ethereum_4H.csv"
+    },
+    {
+      "symbol": "GAS",
+      "chain": "ethereum",
+      "address": "0x4C4746E041d663b3698D5D3c2C1000b26763B123",
+      "rows": 162,
+      "file": "GAS_ethereum_4H.csv"
+    },
+    {
+      "symbol": "PENDLE",
+      "chain": "ethereum",
+      "address": "0x808507121B80c02388fAd14726482e061B8da827",
+      "rows": 1000,
+      "file": "PENDLE_ethereum_4H.csv"
+    },
+    {
+      "symbol": "STG",
+      "chain": "ethereum",
+      "address": "0xAf5191B0De278C7286d6C7CC6ab6BB8A73bA2Cd6",
+      "rows": 1000,
+      "file": "STG_ethereum_4H.csv"
+    },
+    {
+      "symbol": "FET",
+      "chain": "ethereum",
+      "address": "0xaea46A60368A7bD060eec7DF8CBa43b7EF41Ad85",
+      "rows": 1000,
+      "file": "FET_ethereum_4H.csv"
+    },
+    {
+      "symbol": "NEAR",
+      "chain": "ethereum",
+      "address": "0x85F17Cf997934a597031b2E18a9aB6ebD4B9f6a4",
+      "rows": 1000,
+      "file": "NEAR_ethereum_4H.csv"
+    },
+    {
+      "symbol": "BADGER",
+      "chain": "ethereum",
+      "address": "0x3472A5A71965499acd81997a54BBA8D852C6E53d",
+      "rows": 1000,
+      "file": "BADGER_ethereum_4H.csv"
+    },
+    {
+      "symbol": "ZEN",
+      "chain": "ethereum",
+      "address": "0x3bBBB6a231d0a1a12c6b79Ba5BC2Ed6358Db5160",
+      "rows": 1000,
+      "file": "ZEN_ethereum_4H.csv"
+    },
+    {
+      "symbol": "PYTH",
+      "chain": "solana",
+      "address": "HZ1JovNiVvGrGNiiYvEozEVgZ58xaU3RKwX8eACQBCt3",
+      "rows": 1000,
+      "file": "PYTH_solana_4H.csv"
+    },
+    {
+      "symbol": "SUSHI",
+      "chain": "ethereum",
+      "address": "0x6B3595068778DD592e39A122f4f5a5cF09C90fE2",
+      "rows": 1000,
+      "file": "SUSHI_ethereum_4H.csv"
+    },
+    {
+      "symbol": "ILV",
+      "chain": "ethereum",
+      "address": "0x767FE9EDC9E0dF98E07454847909b5E959D7ca0E",
+      "rows": 1000,
+      "file": "ILV_ethereum_4H.csv"
+    },
+    {
+      "symbol": "IMX",
+      "chain": "ethereum",
+      "address": "0xF57e7e7C23978C3cAEC3C3548E3D615c346e79fF",
+      "rows": 1000,
+      "file": "IMX_ethereum_4H.csv"
+    },
+    {
+      "symbol": "GMT",
+      "chain": "solana",
+      "address": "7i5KKsX2weiTkry7jA4ZwSuXGhs5eJBEjY8vVxR4pfRx",
+      "rows": 1000,
+      "file": "GMT_solana_4H.csv"
+    },
+    {
+      "symbol": "SUPER",
+      "chain": "ethereum",
+      "address": "0xe53EC727dbDEB9E2d5456c3be40cFF031AB40A55",
+      "rows": 1000,
+      "file": "SUPER_ethereum_4H.csv"
+    },
+    {
+      "symbol": "JUP",
+      "chain": "solana",
+      "address": "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN",
+      "rows": 1000,
+      "file": "JUP_solana_4H.csv"
+    },
+    {
+      "symbol": "RSR",
+      "chain": "ethereum",
+      "address": "0x320623b8E4fF03373931769A31Fc52A4E78B5d70",
+      "rows": 1000,
+      "file": "RSR_ethereum_4H.csv"
+    },
+    {
+      "symbol": "GALA",
+      "chain": "ethereum",
+      "address": "0xd1d2Eb1B1e90B638588728b4130137D262C87cae",
+      "rows": 1000,
+      "file": "GALA_ethereum_4H.csv"
+    },
+    {
+      "symbol": "JTO",
+      "chain": "solana",
+      "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+      "rows": 1000,
+      "file": "JTO_solana_4H.csv"
+    },
+    {
+      "symbol": "ACE",
+      "chain": "solana",
+      "address": "GEuuznWpn6iuQAJxLKQDVGXPtrqXHNWTk3gZqqvJpump",
+      "rows": 1000,
+      "file": "ACE_solana_4H.csv"
+    },
+    {
+      "symbol": "CAKE",
+      "chain": "solana",
+      "address": "4qQeZ5LwSz6HuupUu8jCtgXyW1mYQcNbFAW1sWZp89HL",
+      "rows": 879,
+      "file": "CAKE_solana_4H.csv"
+    },
+    {
+      "symbol": "ENS",
+      "chain": "ethereum",
+      "address": "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
+      "rows": 1000,
+      "file": "ENS_ethereum_4H.csv"
+    },
+    {
+      "symbol": "XAI",
+      "chain": "solana",
+      "address": "PreC1KtJ1sBPPqaeeqL6Qb15GTLCYVvyYEwxhdfTwfx",
+      "rows": 516,
+      "file": "XAI_solana_4H.csv"
+    },
+    {
+      "symbol": "MANTA",
+      "chain": "ethereum",
+      "address": "0x95CeF13441Be50d20cA4558CC0a27B601aC544E5",
+      "rows": 1000,
+      "file": "MANTA_ethereum_4H.csv"
+    },
+    {
+      "symbol": "UMA",
+      "chain": "ethereum",
+      "address": "0x04Fa0d235C4abf4BcF4787aF4CF447DE572eF828",
+      "rows": 1000,
+      "file": "UMA_ethereum_4H.csv"
+    },
+    {
+      "symbol": "ONDO",
+      "chain": "ethereum",
+      "address": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+      "rows": 1000,
+      "file": "ONDO_ethereum_4H.csv"
+    },
+    {
+      "symbol": "ALT",
+      "chain": "ethereum",
+      "address": "0x8457CA5040ad67fdebbCC8EdCE889A335Bc0fbFB",
+      "rows": 1000,
+      "file": "ALT_ethereum_4H.csv"
+    },
+    {
+      "symbol": "MAVIA",
+      "chain": "ethereum",
+      "address": "0x24fcFC492C1393274B6bcd568ac9e225BEc93584",
+      "rows": 1000,
+      "file": "MAVIA_ethereum_4H.csv"
+    },
+    {
+      "symbol": "W",
+      "chain": "solana",
+      "address": "85VBFQZC9TZkfaptBWjvUw7YbZjy52A6mjtPGjstQAmQ",
+      "rows": 1000,
+      "file": "W_solana_4H.csv"
+    },
+    {
+      "symbol": "PANDORA",
+      "chain": "ethereum",
+      "address": "0x9E9FbDE7C7a83c43913BddC8779158F1368F0413",
+      "rows": 1000,
+      "file": "PANDORA_ethereum_4H.csv"
+    },
+    {
+      "symbol": "STRK",
+      "chain": "ethereum",
+      "address": "0xCa14007Eff0dB1f8135f4C25B34De49AB0d42766",
+      "rows": 1000,
+      "file": "STRK_ethereum_4H.csv"
+    },
+    {
+      "symbol": "AI",
+      "chain": "solana",
+      "address": "99ouK5YUK3JPGCPX9joNtHsMU7NPpU7w91JN4kdQ97po",
+      "rows": 1000,
+      "file": "AI_solana_4H.csv"
+    },
+    {
+      "symbol": "BOME",
+      "chain": "solana",
+      "address": "ukHH6c7mMyiWCf1b9pnWe25TSpkDDt3H5pQZgZ74J82",
+      "rows": 1000,
+      "file": "BOME_solana_4H.csv"
+    },
+    {
+      "symbol": "ETHFI",
+      "chain": "ethereum",
+      "address": "0xFe0c30065B384F05761f15d0CC899D4F9F9Cc0eB",
+      "rows": 1000,
+      "file": "ETHFI_ethereum_4H.csv"
+    },
+    {
+      "symbol": "ENA",
+      "chain": "ethereum",
+      "address": "0x57e114B691Db790C35207b2e685D4A43181e6061",
+      "rows": 1000,
+      "file": "ENA_ethereum_4H.csv"
+    },
+    {
+      "symbol": "MNT",
+      "chain": "ethereum",
+      "address": "0x3c3a81e81dc49A522A592e7622A7E711c06bf354",
+      "rows": 1000,
+      "file": "MNT_ethereum_4H.csv"
+    },
+    {
+      "symbol": "TNSR",
+      "chain": "solana",
+      "address": "TNSRxcUxoT9xBG3de7PiJyTDYu7kskLqcpddxnEJAS6",
+      "rows": 1000,
+      "file": "TNSR_solana_4H.csv"
+    },
+    {
+      "symbol": "POPCAT",
+      "chain": "solana",
+      "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+      "rows": 1000,
+      "file": "POPCAT_solana_4H.csv"
+    },
+    {
+      "symbol": "EIGEN",
+      "chain": "ethereum",
+      "address": "0xec53bF9167f50cDEB3Ae105f56099aaaB9061F83",
+      "rows": 1000,
+      "file": "EIGEN_ethereum_4H.csv"
+    },
+    {
+      "symbol": "REZ",
+      "chain": "ethereum",
+      "address": "0x3B50805453023a91a8bf641e279401a0b23FA6F9",
+      "rows": 1000,
+      "file": "REZ_ethereum_4H.csv"
+    },
+    {
+      "symbol": "TURBO",
+      "chain": "ethereum",
+      "address": "0xb6aAa0EfDfAC186652e3b31a6f07A9A74D1B5A75",
+      "rows": 1000,
+      "file": "TURBO_ethereum_4H.csv"
+    },
+    {
+      "symbol": "BRETT",
+      "chain": "ethereum",
+      "address": "0x240D6FAF8c3B1A7394e371792A3bf9D28DD65515",
+      "rows": 1000,
+      "file": "BRETT_ethereum_4H.csv"
+    },
+    {
+      "symbol": "IO",
+      "chain": "solana",
+      "address": "BZLbGTNCSFfoth2GYDtwr7e4imWzpR5jqcUuGEwr646K",
+      "rows": 1000,
+      "file": "IO_solana_4H.csv"
+    },
+    {
+      "symbol": "ZK",
+      "chain": "ethereum",
+      "address": "0x66A5cFB2e9c529f14FE6364Ad1075dF3a649C0A5",
+      "rows": 895,
+      "file": "ZK_ethereum_4H.csv"
+    },
+    {
+      "symbol": "MEW",
+      "chain": "solana",
+      "address": "MEW1gQWJ3nEXg2qgERiKu7FAFj79PHvQVREQUzScPP5",
+      "rows": 1000,
+      "file": "MEW_solana_4H.csv"
+    },
+    {
+      "symbol": "RENDER",
+      "chain": "solana",
+      "address": "rndrizKT3MK1iimdxRdWabcF7Zg7AR5T4nud4EkHBof",
+      "rows": 1000,
+      "file": "RENDER_solana_4H.csv"
+    },
+    {
+      "symbol": "POL",
+      "chain": "ethereum",
+      "address": "0x455e53CBB86018Ac2B8092FdCd39d8444aFFC3F6",
+      "rows": 1000,
+      "file": "POL_ethereum_4H.csv"
+    },
+    {
+      "symbol": "GOAT",
+      "chain": "solana",
+      "address": "CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump",
+      "rows": 1000,
+      "file": "GOAT_solana_4H.csv"
+    },
+    {
+      "symbol": "MOODENG",
+      "chain": "solana",
+      "address": "ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY",
+      "rows": 1000,
+      "file": "MOODENG_solana_4H.csv"
+    },
+    {
+      "symbol": "GRASS",
+      "chain": "solana",
+      "address": "Grass7B4RdKfBCjTKgSqnXkqjwiGvQyFbuSCUJr3XXjs",
+      "rows": 1000,
+      "file": "GRASS_solana_4H.csv"
+    },
+    {
+      "symbol": "XLM",
+      "chain": "solana",
+      "address": "9kyecHgZq6Hw37Exfyt9tCY4WbW9Gs6oGDkF9NNrFqVw",
+      "rows": 205,
+      "file": "XLM_solana_4H.csv"
+    },
+    {
+      "symbol": "CHILLGUY",
+      "chain": "solana",
+      "address": "Df6yfrKC8kZE3KNkrHERKzAetSxbrWeniQfyJY4Jpump",
+      "rows": 1000,
+      "file": "CHILLGUY_solana_4H.csv"
+    },
+    {
+      "symbol": "SAND",
+      "chain": "ethereum",
+      "address": "0x3845badAde8e6dFF049820680d1F14bD3903a5d0",
+      "rows": 1000,
+      "file": "SAND_ethereum_4H.csv"
+    },
+    {
+      "symbol": "HYPE",
+      "chain": "solana",
+      "address": "98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g",
+      "rows": 371,
+      "file": "HYPE_solana_4H.csv"
+    },
+    {
+      "symbol": "ME",
+      "chain": "solana",
+      "address": "MEFNBXixkEbait3xn9bkm8WsJzXtVsaJEn4c8Sam21u",
+      "rows": 1000,
+      "file": "ME_solana_4H.csv"
+    },
+    {
+      "symbol": "VIRTUAL",
+      "chain": "solana",
+      "address": "3iQL8BFS2vE7mww4ehAqQHAsbmRNCrPxizWAT2Zfyr9y",
+      "rows": 1000,
+      "file": "VIRTUAL_solana_4H.csv"
+    },
+    {
+      "symbol": "PENGU",
+      "chain": "solana",
+      "address": "2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv",
+      "rows": 1000,
+      "file": "PENGU_solana_4H.csv"
+    },
+    {
+      "symbol": "USUAL",
+      "chain": "ethereum",
+      "address": "0xC4441c2BE5d8fA8126822B9929CA0b81Ea0DE38E",
+      "rows": 1000,
+      "file": "USUAL_ethereum_4H.csv"
+    },
+    {
+      "symbol": "AI16Z",
+      "chain": "solana",
+      "address": "HeLp6NuQkmYB4pYWo2zYs22mESHXPQYzXbB8n4V98jwC",
+      "rows": 1000,
+      "file": "AI16Z_solana_4H.csv"
+    },
+    {
+      "symbol": "AIXBT",
+      "chain": "solana",
+      "address": "14zP2ToQ79XWvc7FQpm4bRnp9d6Mp1rFfsUW3gpLcRX",
+      "rows": 1000,
+      "file": "AIXBT_solana_4H.csv"
+    },
+    {
+      "symbol": "ZEREBRO",
+      "chain": "solana",
+      "address": "8x5VqbHA8D7NkD52uNuS5nnt3PwA8pLD34ymskeSo2Wn",
+      "rows": 1000,
+      "file": "ZEREBRO_solana_4H.csv"
+    },
+    {
+      "symbol": "BIO",
+      "chain": "solana",
+      "address": "bioJ9JTqW62MLz7UKHU69gtKhPpGi1BQhccj2kmSvUJ",
+      "rows": 1000,
+      "file": "BIO_solana_4H.csv"
+    },
+    {
+      "symbol": "GRIFFAIN",
+      "chain": "solana",
+      "address": "KENJSUYLASHUMfHyy5o4Hp2FdNqZg1AsUPhfH2kYvEP",
+      "rows": 1000,
+      "file": "GRIFFAIN_solana_4H.csv"
+    },
+    {
+      "symbol": "SPX",
+      "chain": "solana",
+      "address": "J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr",
+      "rows": 1000,
+      "file": "SPX_solana_4H.csv"
+    },
+    {
+      "symbol": "S",
+      "chain": "solana",
+      "address": "8qnZbvQ6PvmuFrB7bUaQPybMX8JVybnoyYfMhfFaY4nV",
+      "rows": 1000,
+      "file": "S_solana_4H.csv"
+    },
+    {
+      "symbol": "MORPHO",
+      "chain": "ethereum",
+      "address": "0x58D97B57BB95320F9a05dC918Aef65434969c2B2",
+      "rows": 1000,
+      "file": "MORPHO_ethereum_4H.csv"
+    },
+    {
+      "symbol": "TRUMP",
+      "chain": "solana",
+      "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+      "rows": 1000,
+      "file": "TRUMP_solana_4H.csv"
+    },
+    {
+      "symbol": "MELANIA",
+      "chain": "solana",
+      "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+      "rows": 1000,
+      "file": "MELANIA_solana_4H.csv"
+    },
+    {
+      "symbol": "ANIME",
+      "chain": "ethereum",
+      "address": "0x4DC26fC5854e7648a064a4ABD590bBE71724C277",
+      "rows": 1000,
+      "file": "ANIME_ethereum_4H.csv"
+    },
+    {
+      "symbol": "VINE",
+      "chain": "solana",
+      "address": "6AJcP7wuLwmRYLBNbi825wgguaPsWzPBEHcHndpRpump",
+      "rows": 1000,
+      "file": "VINE_solana_4H.csv"
+    },
+    {
+      "symbol": "LAYER",
+      "chain": "solana",
+      "address": "LAYER4xPpTCb3QL8S9u41EAhAX7mhBn8Q6xMTwY2Yzc",
+      "rows": 1000,
+      "file": "LAYER_solana_4H.csv"
+    },
+    {
+      "symbol": "NIL",
+      "chain": "ethereum",
+      "address": "0x7Cf9a80db3B29eE8efE3710AadB7b95270572d47",
+      "rows": 161,
+      "file": "NIL_ethereum_4H.csv"
+    },
+    {
+      "symbol": "PAXG",
+      "chain": "solana",
+      "address": "C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe",
+      "rows": 1000,
+      "file": "PAXG_solana_4H.csv"
+    },
+    {
+      "symbol": "PROMPT",
+      "chain": "ethereum",
+      "address": "0x28d38dF637dB75533bD3F71426F3410a82041544",
+      "rows": 1000,
+      "file": "PROMPT_ethereum_4H.csv"
+    },
+    {
+      "symbol": "WCT",
+      "chain": "ethereum",
+      "address": "0xeF4461891DfB3AC8572cCf7C794664A8DD927945",
+      "rows": 1000,
+      "file": "WCT_ethereum_4H.csv"
+    },
+    {
+      "symbol": "HYPER",
+      "chain": "solana",
+      "address": "Aq8Gocyvyyi8xk5EYxd6viUfVmVvs9T9R6mZFzZFpump",
+      "rows": 1000,
+      "file": "HYPER_solana_4H.csv"
+    },
+    {
+      "symbol": "DOOD",
+      "chain": "solana",
+      "address": "DvjbEsdca43oQcw2h3HW1CT7N3x5vRcr3QrvTUHnXvgV",
+      "rows": 1000,
+      "file": "DOOD_solana_4H.csv"
+    },
+    {
+      "symbol": "SOPH",
+      "chain": "ethereum",
+      "address": "0x0969828B1201508A53ac2598b25Ccf3b44521f12",
+      "rows": 1000,
+      "file": "SOPH_ethereum_4H.csv"
+    },
+    {
+      "symbol": "RESOLV",
+      "chain": "ethereum",
+      "address": "0x259338656198eC7A76c729514D3CB45Dfbf768A1",
+      "rows": 1000,
+      "file": "RESOLV_ethereum_4H.csv"
+    },
+    {
+      "symbol": "SYRUP",
+      "chain": "ethereum",
+      "address": "0x643C4E15d7d62Ad0aBeC4a9BD4b001aA3Ef52d66",
+      "rows": 1000,
+      "file": "SYRUP_ethereum_4H.csv"
+    },
+    {
+      "symbol": "PUMP",
+      "chain": "solana",
+      "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+      "rows": 899,
+      "file": "PUMP_solana_4H.csv"
+    },
+    {
+      "symbol": "YZY",
+      "chain": "solana",
+      "address": "DrZ26cKJDksVRWib3DVVsjo9eeXccc7hKhDJviiYEEZY",
+      "rows": 689,
+      "file": "YZY_solana_4H.csv"
+    },
+    {
+      "symbol": "XPL",
+      "chain": "ethereum",
+      "address": "0xb9C0c6852EeDa726cC8563900b0D66f8dB3ED199",
+      "rows": 810,
+      "file": "XPL_ethereum_4H.csv"
+    },
+    {
+      "symbol": "WLFI",
+      "chain": "solana",
+      "address": "WLFinEv6ypjkczcS83FZqFpgFZYwQXutRbxGe7oC16g",
+      "rows": 607,
+      "file": "WLFI_solana_4H.csv"
+    },
+    {
+      "symbol": "LINEA",
+      "chain": "ethereum",
+      "address": "0x1789e0043623282D5DCc7F213d703C6D8BAfBB04",
+      "rows": 552,
+      "file": "LINEA_ethereum_4H.csv"
+    },
+    {
+      "symbol": "SKY",
+      "chain": "ethereum",
+      "address": "0x56072C95FAA701256059aa122697B133aDEd9279",
+      "rows": 1000,
+      "file": "SKY_ethereum_4H.csv"
+    },
+    {
+      "symbol": "ASTER",
+      "chain": "solana",
+      "address": "8rxvDUwLyY6e4arzctrEXsg47GvorfXMkQwKiGp1QMF1",
+      "rows": 147,
+      "file": "ASTER_solana_4H.csv"
+    },
+    {
+      "symbol": "APEX",
+      "chain": "solana",
+      "address": "6rE8kJHDuskmwj1MmehvwL2i4QXdLmPTYnrxJm6Cpump",
+      "rows": 1000,
+      "file": "APEX_solana_4H.csv"
+    },
+    {
+      "symbol": "2Z",
+      "chain": "solana",
+      "address": "J6pQQ3FAcJQeWPPGppWRb4nM8jU3wLyYbRrLh7feMfvd",
+      "rows": 421,
+      "file": "2Z_solana_4H.csv"
+    },
+    {
+      "symbol": "ZEC",
+      "chain": "solana",
+      "address": "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS",
+      "rows": 341,
+      "file": "ZEC_solana_4H.csv"
+    },
+    {
+      "symbol": "MON",
+      "chain": "solana",
+      "address": "2dt3Xtd46K3BsJz3u1GcaggnsrSUCxWZVQ46SDPWvJpL",
+      "rows": 148,
+      "file": "MON_solana_4H.csv"
+    },
+    {
+      "symbol": "MET",
+      "chain": "solana",
+      "address": "METvsvVRapdj9cFLzq4Tr43xK4tAjQfwX76z3n6mWQL",
+      "rows": 294,
+      "file": "MET_solana_4H.csv"
+    },
+    {
+      "symbol": "MEGA",
+      "chain": "ethereum",
+      "address": "0x5f631AeB2A2f2106E9f8f5bB790C146440Bcb001",
+      "rows": 186,
+      "file": "MEGA_ethereum_4H.csv"
+    },
+    {
+      "symbol": "CC",
+      "chain": "ethereum",
+      "address": "0xb7fbFf4Ce5200215c690cc95855e5d6C5236Ee9f",
+      "rows": 1000,
+      "file": "CC_ethereum_4H.csv"
+    },
+    {
+      "symbol": "ICP",
+      "chain": "ethereum",
+      "address": "0x00f3C42833C3170159af4E92dbb451Fb3F708917",
+      "rows": 1000,
+      "file": "ICP_ethereum_4H.csv"
+    }
+  ],
+  "errors": []
+}
